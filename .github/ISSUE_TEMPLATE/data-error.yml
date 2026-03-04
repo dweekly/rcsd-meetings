@@ -1,0 +1,38 @@
+name: Data Error
+description: Report incorrect or missing meeting data
+labels: [data]
+body:
+  - type: input
+    id: meeting-date
+    attributes:
+      label: Meeting date
+      description: The date of the affected meeting (YYYY-MM-DD)
+      placeholder: "2026-01-14"
+    validations:
+      required: true
+  - type: dropdown
+    id: error-type
+    attributes:
+      label: What's wrong?
+      options:
+        - Wrong or missing agenda item
+        - Incorrect video timestamp
+        - Broken link (Simbli, BoardDocs, or YouTube)
+        - Missing meeting
+        - Wrong meeting type or date
+        - Missing or incorrect attachment
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What's wrong and what it should be
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Link to the authoritative source showing the correct data (optional)
