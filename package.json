@@ -1,0 +1,24 @@
+{
+  "name": "rcsd-meetings",
+  "version": "1.0.0",
+  "description": "Open data pipeline for RCSD board meetings",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-meetings.mjs && node scripts/build-meetings-html.mjs",
+    "build:data": "node scripts/build-meetings.mjs",
+    "build:html": "node scripts/build-meetings-html.mjs",
+    "scrape:boarddocs": "node scripts/scrape-boarddocs.mjs",
+    "scrape:youtube": "node scripts/scrape-youtube-index.mjs",
+    "scrape:simbli": "node scripts/scrape-simbli-agendas.mjs",
+    "download:transcripts": "node scripts/download-transcripts.mjs",
+    "extract:links": ".venv/bin/python3 scripts/extract-agenda-links.py",
+    "map:timestamps": "node scripts/map-timestamps.mjs",
+    "map:timestamps:llm": "node scripts/map-timestamps-llm.mjs",
+    "upload": "node scripts/upload-to-r2.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "dotenv": "^16.6.1"
+  }
+}
