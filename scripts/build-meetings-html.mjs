@@ -4,12 +4,14 @@
  * Run after build-meetings.mjs
  */
 
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
+
+const R2_BASE = 'https://rcsd-files.weekly.org';
 
 const data = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
 
@@ -20,6 +22,91 @@ if (existsSync(summariesPath)) {
   manualSummaries = JSON.parse(readFileSync(summariesPath, 'utf-8'));
   console.log(`Loaded ${Object.keys(manualSummaries).length} manual summaries`);
 }
+
+// Build lookup of available R2 artifacts from local artifacts/ directory
+const agendaFiles = new Set();
+const minutesFiles = new Set();
+const transcriptFiles = new Set();
+
+try {
+  for (const f of readdirSync(resolve(ROOT, 'artifacts/agendas'))) {
+    if (f.endsWith('.pdf')) agendaFiles.add(f);
+  }
+} catch {}
+try {
+  for (const f of readdirSync(resolve(ROOT, 'artifacts/minutes'))) {
+    if (f.endsWith('.pdf')) minutesFiles.add(f);
+  }
+} catch {}
+try {
+  for (const f of readdirSync(resolve(ROOT, 'artifacts/transcripts'))) {
+    if (f.endsWith('.srt')) transcriptFiles.add(f);
+  }
+} catch {}
+
+// Map meeting date+type to agenda filename slug
+function agendaSlug(type) {
+  const t = type.toLowerCase();
+  if (t.includes('study')) return 'study-session';
+  if (t.includes('workshop')) return 'workshop';
+  if (t.includes('special') || t.includes('closed')) return 'special';
+  if (t.includes('retreat')) return 'retreat';
+  return 'regular';
+}
+
+// Build document inventory from artifacts/documents/
+const documentInventory = { spsa: {}, budget: [], lcap: [], sarc: {} };
+
+function scanDocuments() {
+  const docsRoot = resolve(ROOT, 'artifacts/documents');
+  // SPSAs: spsa/{year}/{school}.pdf
+  try {
+    for (const year of readdirSync(resolve(docsRoot, 'spsa')).sort()) {
+      documentInventory.spsa[year] = [];
+      try {
+        for (const f of readdirSync(resolve(docsRoot, 'spsa', year)).sort()) {
+          if (f.endsWith('.pdf')) {
+            documentInventory.spsa[year].push({
+              school: f.replace('.pdf', ''),
+              path: `documents/spsa/${year}/${f}`,
+            });
+          }
+        }
+      } catch {}
+    }
+  } catch {}
+  // Budget
+  try {
+    for (const f of readdirSync(resolve(docsRoot, 'budget')).sort()) {
+      if (f.endsWith('.pdf')) documentInventory.budget.push({ name: f.replace('.pdf', ''), path: `documents/budget/${f}` });
+    }
+  } catch {}
+  // LCAP
+  try {
+    for (const f of readdirSync(resolve(docsRoot, 'lcap')).sort()) {
+      if (f.endsWith('.pdf')) documentInventory.lcap.push({ name: f.replace('.pdf', ''), path: `documents/lcap/${f}` });
+    }
+  } catch {}
+  // SARCs: sarc/{year}/{lang}/{school}.pdf
+  try {
+    for (const year of readdirSync(resolve(docsRoot, 'sarc')).sort()) {
+      documentInventory.sarc[year] = { english: [], spanish: [] };
+      for (const lang of ['english', 'spanish']) {
+        try {
+          for (const f of readdirSync(resolve(docsRoot, 'sarc', year, lang)).sort()) {
+            if (f.endsWith('.pdf')) {
+              documentInventory.sarc[year][lang].push({
+                school: f.replace('.pdf', ''),
+                path: `documents/sarc/${year}/${lang}/${f}`,
+              });
+            }
+          }
+        } catch {}
+      }
+    }
+  } catch {}
+}
+scanDocuments();
 
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const MONTH_FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -251,25 +338,39 @@ function renderMeeting(m) {
   const typeClass = meetingTypeClass(m.type);
   const typeModifier = typeClass ? ` meeting-row--${typeClass}` : '';
 
+  // Check for R2-hosted artifacts
+  const slug = agendaSlug(m.type);
+  const agendaFile = `${m.date}-${slug}.pdf`;
+  const hasR2Agenda = agendaFiles.has(agendaFile);
+  const minutesFile = minutesFiles.has(`${m.date}-minutes.pdf`) ? `${m.date}-minutes.pdf` : null;
+  const transcriptFile = m.youtube ? `${m.youtube}.en.srt` : null;
+  const hasR2Transcript = transcriptFile && transcriptFiles.has(transcriptFile);
+
   let links = '';
   if (m.youtube) {
     links += `<a href="https://www.youtube.com/watch?v=${m.youtube}" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a>`;
   }
-  if (m.simbli) {
+  if (hasR2Agenda) {
+    links += `<a href="${R2_BASE}/agendas/${agendaFile}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a>`;
+  } else if (m.simbli) {
     links += `<a href="${escapeHtml(m.simbli)}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a>`;
   }
-  if (m.minutes) {
+  if (minutesFile) {
+    links += `<a href="${R2_BASE}/minutes/${minutesFile}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a>`;
+  } else if (m.minutes) {
     if (m.minutes.documents && m.minutes.documents.length > 0 && m.minutes.documents[0].href) {
       const doc = m.minutes.documents[0];
       links += `<a href="${escapeHtml(doc.href)}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a>`;
     } else if (m.minutes.approvedAt) {
-      // No direct PDF — link to the approving meeting's Simbli page where the minutes attachment lives
       const approver = data.meetings.find(x => x.date === m.minutes.approvedAt);
       const approverUrl = approver?.simbli || approver?.boarddocs;
       if (approverUrl) {
         links += `<a href="${escapeHtml(approverUrl)}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes approved ${m.minutes.approvedAt}">&#128196; Minutes</a>`;
       }
     }
+  }
+  if (hasR2Transcript) {
+    links += `<a href="${R2_BASE}/transcripts/${transcriptFile}" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a>`;
   }
   if (m.boarddocs) {
     links += `<a href="${escapeHtml(m.boarddocs)}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a>`;
@@ -449,6 +550,128 @@ function renderResources(data) {
     </div>
   </div>
 </section>`;
+}
+
+// Prettify school/document names
+function prettySchool(slug) {
+  const map = {
+    'adelante-selby': 'Adelante Selby',
+    'clifford': 'Clifford',
+    'garfield': 'Garfield',
+    'henry-ford': 'Henry Ford',
+    'hoover': 'Hoover',
+    'kennedy': 'Kennedy',
+    'mckinley-mit': 'McKinley MIT',
+    'north-star': 'North Star',
+    'orion': 'Orion',
+    'roosevelt': 'Roosevelt',
+    'roy-cloud': 'Roy Cloud',
+    'taft': 'Taft',
+  };
+  return map[slug] || slug.split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+}
+
+function prettyDocName(slug) {
+  return slug
+    .replace(/^\d{4}-\d{2}-/, '')  // strip year prefix
+    .split('-').map(w => w[0].toUpperCase() + w.slice(1)).join(' ');
+}
+
+// Documents section — SPSAs, Budget, LCAP, SARCs
+function renderDocuments() {
+  const inv = documentInventory;
+  const hasDocs = inv.budget.length || inv.lcap.length ||
+    Object.keys(inv.spsa).length || Object.keys(inv.sarc).length;
+  if (!hasDocs) return '';
+
+  let html = `<section class="section" id="documents">
+  <div class="section-rule"></div>
+  <h2>District Documents</h2>
+  <p class="section-subtitle">School plans, budgets, and accountability reports archived from official sources.</p>
+  <div class="doc-tabs">
+    <button class="doc-tab active" data-doc-tab="budget">Budget</button>
+    <button class="doc-tab" data-doc-tab="lcap">LCAP</button>
+    <button class="doc-tab" data-doc-tab="spsa">School Plans (SPSA)</button>
+    <button class="doc-tab" data-doc-tab="sarc">School Report Cards</button>
+  </div>`;
+
+  // Budget panel
+  html += `\n  <div class="doc-panel active" data-doc-panel="budget">`;
+  // Group budget docs by year
+  const budgetByYear = {};
+  for (const b of inv.budget) {
+    const yearMatch = b.name.match(/^(\d{4}-\d{2})/);
+    const year = yearMatch ? yearMatch[1] : 'Other';
+    if (!budgetByYear[year]) budgetByYear[year] = [];
+    budgetByYear[year].push(b);
+  }
+  for (const [year, docs] of Object.entries(budgetByYear).sort().reverse()) {
+    html += `\n    <h3 class="doc-year-heading">${year}</h3>`;
+    html += `\n    <div class="doc-list">`;
+    for (const d of docs) {
+      html += `\n      <a class="doc-link" href="${R2_BASE}/${d.path}" target="_blank" rel="noopener">${prettyDocName(d.name)}</a>`;
+    }
+    html += `\n    </div>`;
+  }
+  html += `\n  </div>`;
+
+  // LCAP panel
+  html += `\n  <div class="doc-panel" data-doc-panel="lcap">`;
+  const lcapByYear = {};
+  for (const l of inv.lcap) {
+    const yearMatch = l.name.match(/^(\d{4}-\d{2})/);
+    const year = yearMatch ? yearMatch[1] : 'Other';
+    if (!lcapByYear[year]) lcapByYear[year] = [];
+    lcapByYear[year].push(l);
+  }
+  for (const [year, docs] of Object.entries(lcapByYear).sort().reverse()) {
+    html += `\n    <h3 class="doc-year-heading">${year}</h3>`;
+    html += `\n    <div class="doc-list">`;
+    for (const d of docs) {
+      html += `\n      <a class="doc-link" href="${R2_BASE}/${d.path}" target="_blank" rel="noopener">${prettyDocName(d.name)}</a>`;
+    }
+    html += `\n    </div>`;
+  }
+  html += `\n  </div>`;
+
+  // SPSA panel — by year with school grid
+  html += `\n  <div class="doc-panel" data-doc-panel="spsa">`;
+  for (const year of Object.keys(inv.spsa).sort().reverse()) {
+    html += `\n    <h3 class="doc-year-heading">${year}</h3>`;
+    html += `\n    <div class="doc-school-grid">`;
+    for (const s of inv.spsa[year]) {
+      html += `\n      <a class="doc-school-link" href="${R2_BASE}/${s.path}" target="_blank" rel="noopener">${prettySchool(s.school)}</a>`;
+    }
+    html += `\n    </div>`;
+  }
+  html += `\n  </div>`;
+
+  // SARC panel — by year with English/Spanish sub-sections
+  html += `\n  <div class="doc-panel" data-doc-panel="sarc">`;
+  for (const year of Object.keys(inv.sarc).sort().reverse()) {
+    const yearData = inv.sarc[year];
+    html += `\n    <h3 class="doc-year-heading">${year}</h3>`;
+    if (yearData.english.length) {
+      html += `\n    <div class="doc-lang-label">English</div>`;
+      html += `\n    <div class="doc-school-grid">`;
+      for (const s of yearData.english) {
+        html += `\n      <a class="doc-school-link" href="${R2_BASE}/${s.path}" target="_blank" rel="noopener">${prettySchool(s.school)}</a>`;
+      }
+      html += `\n    </div>`;
+    }
+    if (yearData.spanish.length) {
+      html += `\n    <div class="doc-lang-label">Espa&ntilde;ol</div>`;
+      html += `\n    <div class="doc-school-grid">`;
+      for (const s of yearData.spanish) {
+        html += `\n      <a class="doc-school-link" href="${R2_BASE}/${s.path}" target="_blank" rel="noopener">${prettySchool(s.school)}</a>`;
+      }
+      html += `\n    </div>`;
+    }
+  }
+  html += `\n  </div>`;
+
+  html += `\n</section>`;
+  return html;
 }
 
 const html = `<!DOCTYPE html>
@@ -1068,6 +1291,14 @@ const html = `<!DOCTYPE html>
     color: var(--green-deep);
   }
 
+  .meeting-link--transcript {
+    color: #6b7280;
+  }
+
+  .meeting-link--transcript:hover {
+    color: var(--green-deep);
+  }
+
   .meeting-threads {
     display: flex;
     flex-wrap: wrap;
@@ -1174,6 +1405,112 @@ const html = `<!DOCTYPE html>
     text-decoration: underline;
   }
 
+  /* ---- DOCUMENT TABS ---- */
+  .doc-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    margin-top: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .doc-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .doc-tab:hover {
+    color: var(--green-mid);
+  }
+
+  .doc-tab.active {
+    color: var(--green-deep);
+    border-bottom-color: var(--green-mid);
+  }
+
+  .doc-panel {
+    display: none;
+    padding-top: 1.2rem;
+  }
+
+  .doc-panel.active {
+    display: block;
+  }
+
+  .doc-year-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.2rem 0 0.5rem;
+  }
+
+  .doc-year-heading:first-child {
+    margin-top: 0;
+  }
+
+  .doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .doc-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    padding: 0.25rem 0;
+  }
+
+  .doc-link:hover {
+    color: var(--green-deep);
+    text-decoration: underline;
+  }
+
+  .doc-school-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.4rem;
+  }
+
+  .doc-school-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--rule-light);
+    background: #fff;
+    text-align: center;
+    transition: all 0.15s;
+  }
+
+  .doc-school-link:hover {
+    border-color: var(--green-light);
+    background: var(--green-wash);
+    color: var(--green-deep);
+  }
+
+  .doc-lang-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0.8rem 0 0.3rem;
+  }
+
   /* ---- FOOTER ---- */
   .site-footer {
     max-width: 900px;
@@ -1221,6 +1558,8 @@ const html = `<!DOCTYPE html>
     .resource-grid { grid-template-columns: 1fr; }
     .thread-filters { gap: 0.4rem; }
     .thread-btn { padding: 0.45rem 0.75rem; font-size: 0.6rem; }
+    .doc-school-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .doc-tab { padding: 0.6rem 0.8rem; font-size: 0.6rem; }
   }
 </style>
 </head>
@@ -1279,6 +1618,7 @@ const html = `<!DOCTYPE html>
     <a href="#threads">Key Topics</a>
     <a href="#sy2526">2025-26</a>
     <a href="#sy2425">2024-25</a>
+    <a href="#documents">Documents</a>
     <a href="#resources">Resources</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Source Code</a>
   </div>
@@ -1290,6 +1630,8 @@ ${renderThreadFilters()}
 ${renderSchoolYear('sy2526', '2025\u201326 School Year', sy2526, `${sy2526.length} meetings from June 2025 to present. Full agendas and video available.`)}
 
 ${renderSchoolYear('sy2425', '2024\u201325 School Year', sy2425, `${sy2425.length} meetings from the BoardDocs archive with full agendas and attachments.`)}
+
+${renderDocuments()}
 
 ${renderResources(data)}
 </main>
@@ -1327,6 +1669,16 @@ ${renderResources(data)}
     });
   });
 
+  // Document tab switching
+  var docTabs = document.querySelectorAll('.doc-tab');
+  var docPanels = document.querySelectorAll('.doc-panel');
+  docTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var target = tab.dataset.docTab;
+      docTabs.forEach(function(t) { t.classList.toggle('active', t.dataset.docTab === target); });
+      docPanels.forEach(function(p) { p.classList.toggle('active', p.dataset.docPanel === target); });
+    });
+  });
 
 })();
 </script>

@@ -615,6 +615,14 @@
     color: var(--green-deep);
   }
 
+  .meeting-link--transcript {
+    color: #6b7280;
+  }
+
+  .meeting-link--transcript:hover {
+    color: var(--green-deep);
+  }
+
   .meeting-threads {
     display: flex;
     flex-wrap: wrap;
@@ -721,6 +729,112 @@
     text-decoration: underline;
   }
 
+  /* ---- DOCUMENT TABS ---- */
+  .doc-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+    margin-top: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .doc-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    background: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .doc-tab:hover {
+    color: var(--green-mid);
+  }
+
+  .doc-tab.active {
+    color: var(--green-deep);
+    border-bottom-color: var(--green-mid);
+  }
+
+  .doc-panel {
+    display: none;
+    padding-top: 1.2rem;
+  }
+
+  .doc-panel.active {
+    display: block;
+  }
+
+  .doc-year-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.2rem 0 0.5rem;
+  }
+
+  .doc-year-heading:first-child {
+    margin-top: 0;
+  }
+
+  .doc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .doc-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    padding: 0.25rem 0;
+  }
+
+  .doc-link:hover {
+    color: var(--green-deep);
+    text-decoration: underline;
+  }
+
+  .doc-school-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.4rem;
+  }
+
+  .doc-school-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--rule-light);
+    background: #fff;
+    text-align: center;
+    transition: all 0.15s;
+  }
+
+  .doc-school-link:hover {
+    border-color: var(--green-light);
+    background: var(--green-wash);
+    color: var(--green-deep);
+  }
+
+  .doc-lang-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0.8rem 0 0.3rem;
+  }
+
   /* ---- FOOTER ---- */
   .site-footer {
     max-width: 900px;
@@ -768,6 +882,8 @@
     .resource-grid { grid-template-columns: 1fr; }
     .thread-filters { gap: 0.4rem; }
     .thread-btn { padding: 0.45rem 0.75rem; font-size: 0.6rem; }
+    .doc-school-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+    .doc-tab { padding: 0.6rem 0.8rem; font-size: 0.6rem; }
   }
 </style>
 </head>
@@ -826,6 +942,7 @@
     <a href="#threads">Key Topics</a>
     <a href="#sy2526">2025-26</a>
     <a href="#sy2425">2024-25</a>
+    <a href="#documents">Documents</a>
     <a href="#resources">Resources</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Source Code</a>
   </div>
@@ -874,7 +991,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Special</span><span class="meeting-duration">13m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=8NOEEW_cpyU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=56022" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=8NOEEW_cpyU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-26-special.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/transcripts/8NOEEW_cpyU.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span></div>
         <p class="meeting-summary">Board held a special meeting to adopt the <strong>parcel tax</strong> resolution placing Measure E on the June 2, 2026 ballot — <strong>$25/unimproved</strong> parcel, 8-year term, estimated <strong>$12.2M/year</strong> for district and school programs.</p>
@@ -890,7 +1007,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 42m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=6VgYicePQto" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50344" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=6VgYicePQto" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-11-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">First reading of the draft <strong>parcel tax</strong> resolution (<strong>$12.2M/year</strong>, 8-year term). <strong>LCAP</strong> mid-year report showed <strong>$151.5M</strong> total spending with equity gaps persisting for homeless students and African American students. Approved purchase of 4 fully electric school buses (<strong>$1.78M</strong>, mostly grant-funded). Passed Resolutions 17–20 authorizing certificated and classified staff reductions for the coming year. Began RCTA teacher contract negotiations for 2026–2029.</p>
@@ -906,7 +1023,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 40m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=Nw7_DtNMPVk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50343" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=Nw7_DtNMPVk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-04-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/transcripts/Nw7_DtNMPVk.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board approved the final <strong>$6.4M</strong> <strong>Strategic Resource Alignment</strong> <strong>budget reduction</strong> plan and the <strong>Measure S</strong> bond implementation plan. Authorized Blach HVAC Phase 2 (<strong>$3M</strong> lease-leaseback) and approved solar change orders returning <strong>$2.29M</strong> to the district. Also approved Kennedy and Roy Cloud Measure U addenda, 12 school safety plans, and 5 policy second readings.</p>
@@ -922,7 +1039,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 23m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=-nOpGerpRGA" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=48985" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1387857" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=-nOpGerpRGA" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-01-21-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2026-01-21-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/-nOpGerpRGA.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board ratified the employment agreement with Dr. Christian Rubalcaba as new <strong>superintendent</strong> (starting March 3, 2026), 5-0. Closed session on 750 Bradford St property negotiations with The Sobrato Organization (no action). President Weekly pulled EV charger items (<strong>Resolution 16</strong>/17, PowerFlex, Atlas Pellizzari <strong>$70.5K</strong> installation) for future review. Public comment: CSEA President Stockton encouraged trustees to meet with classified staff. Thirteen policy first readings covered facilities, campus security, drones, electronic signatures, and district records; drones policy remanded to Policy Committee for further review.</p>
@@ -938,7 +1055,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">2h 17m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=XyEGQ7MnySE" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=48984" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1383286" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=XyEGQ7MnySE" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-01-14-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2026-01-14-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/XyEGQ7MnySE.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Closed session: conference with labor negotiators on prospective <strong>superintendent</strong> contract (no action taken). Heard Health and Wellness team report (counselor/nurse overload, Sonrisas dental pilot at Garfield) and California Reading Literacy Project presentation on teacher training. Public comment: Mandarin immersion parent raised concerns about limited district support for the MI curriculum. RCTA President expressed concern about budget cuts and class sizes; CSEA President announced retirement. Approved 14 policy second readings, <strong>Resolution 15</strong> (teaching assignment), Declaration of Need for 2026-27, Measure U addenda for Taft and Clifford, and the 2026-27 instructional calendar.</p>
@@ -954,7 +1071,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Study Session</span><span class="meeting-duration">2h 2m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=PdjSjhxgrP8" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50874" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1383176" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=PdjSjhxgrP8" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-01-13-study-session.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2026-01-13-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/PdjSjhxgrP8.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">Two-hour study session (6:01-8:04 PM) on the <strong>Strategic Resource Alignment</strong> plan — <strong>Superintendent</strong> presented preliminary <strong>budget reduction</strong> options. Public comments from staff and parents raised concerns about Orion staffing, Hoover teacher support, and preserving mental health and TK programs. Board discussed long-term fiscal sustainability. No formal action taken.</p>
@@ -970,7 +1087,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 9m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=l57rtrFt4jM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=48983" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1371879&amp;MID=48985" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=l57rtrFt4jM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-12-17-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-12-17-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/l57rtrFt4jM.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Annual board officer rotation per Bylaws: Weekly elected President, Márquez VP, Ng Kwing King Clerk. <strong>Superintendent</strong> Baker presented Wells with appreciation award for service as president. Three public speakers: parent Patricia Renderos urged the district to avoid staff cuts; parent Agustin Espino congratulated Weekly; CSEA President Stockton raised concerns about staff survey anonymity and workload from reductions. First Interim Budget Report approved 5-0. Seven policy first readings on special education and law enforcement interactions. Consent included the Annual Developer Fee Report and CBOC membership approval.</p>
@@ -993,7 +1110,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Special (Closed)</span>
-          <div class="meeting-links"><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50590" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1368550&amp;MID=48984" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50590" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-12-13-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span></div>
         <p class="meeting-summary">All-day special closed session at PAL Center (8:25 AM - 4:33 PM) for <strong>superintendent</strong> search candidate interviews with Leadership Associates consultants. No action taken.</p>
@@ -1009,7 +1126,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">2h 28m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=TD3ovpP2tfo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=48982" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1378299" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=TD3ovpP2tfo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-12-10-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-12-10-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/TD3ovpP2tfo.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board reviewed the California School Dashboard results showing meaningful gains — ELA scores up 11.1 points (moving from Yellow to Green), math up 8.6 points, chronic absenteeism down 0.8%, and suspensions down 1.4%. Equity gaps persist for homeless students and African American students. TK program presentation; public comment from parent Agustin Espino on TK outreach. Approved CBOC taxpayer representative Alan Hansen (5-0). Set organizational meeting date for Dec 17. Fifteen policy second readings and 8 first readings. Board members reported highlights from CSBA Annual Education Conference including Golden Bell Award for district mental health program.</p>
@@ -1025,7 +1142,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Special (Closed)</span>
-          <div class="meeting-links"><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=49013" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1351016&amp;MID=48982" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=49013" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-11-21-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span></div>
         <p class="meeting-summary">Special closed session for <strong>superintendent</strong> search (5:00-8:10 PM). Wells, Márquez, Li, King present at start; Weekly joined during session. Leadership Associates consultants present. No action taken.</p>
@@ -1041,7 +1158,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">2h 21m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=v2Z3h6kdfnQ" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=48981" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1338593&amp;MID=48983" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=v2Z3h6kdfnQ" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-11-19-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-11-19-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/v2Z3h6kdfnQ.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Four trustees present (King absent). Closed session: Board voted 4-0 to initiate IDEA due process proceedings. AI in education presentation by Bronia Whipp and Cathy James — teachers using AI for lesson plans, rubrics, differentiated instruction, and IEP drafting; Board discussed adoption rates and guardrails for future AI policy. <strong>Parcel tax</strong> update from Jeremy Hauser; Board declined additional tracking poll, concurred on sunset provision but did not reach consensus on a cap. BB 9250 (remuneration) and retirement notification incentive pulled to future meeting. Thirteen policy second readings and 15 first readings covering health, PE, mental health, and personnel policies.</p>
@@ -1057,7 +1174,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">4h 5m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=Pk0Zg38fzKc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=45781" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1328207&amp;MID=48983" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=Pk0Zg38fzKc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=45781" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-11-12-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/Pk0Zg38fzKc.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Three trustees present (Márquez and King absent). Community schools report by Michelle Griffith. Mental health services presentation by Ana Paula Garay, Dr. Shashank Joshi, Dr. Apurva Bhatt, and Kristin Geiser on program evolution since 2021. Three public speakers: parent Agustin Espino on Latino student outcomes, parent Lisbeth Estrada advocating community schools, and Clifford PTO President Leighann Thompson on parent-funded tutoring. Approved Ninyo and Moore geotechnical agreement for bond program. Fourteen policy first readings including construction cost accounting, charter oversight, compensation, and health topics. Meeting extended to 11:11 PM.</p>
@@ -1073,7 +1190,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 1m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=RAoGh9R-GDM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=43742" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=48982" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes approved 2025-12-10">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=RAoGh9R-GDM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=43742" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=48982" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes approved 2025-12-10">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/RAoGh9R-GDM.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board heard reports on ELD coaching effectiveness (<strong>$302.5K</strong> program funded by AMIM Grant and Title III) and reviewed district-wide i-Ready assessment results with longitudinal data from Fall 2023 through Fall 2025. Nineteen policy first readings covered topics from school bus driver drug testing to fentanyl awareness, naloxone on campus, and service animals. Adopted <strong>Resolution 14</strong> for continued state preschool funding (up to <strong>$9.1M</strong> for 21 programs serving 416 students). Reclassified lead custodian positions and approved <strong>$201.6K</strong> in after-school enrichment programs.</p>
@@ -1089,7 +1206,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Study Session</span><span class="meeting-duration">1h 55m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=zOYpECyitAM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=45228" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=zOYpECyitAM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-10-16-study-session.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/transcripts/zOYpECyitAM.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Study session on the <strong>Facilities Master Plan</strong> Implementation Plan — Board discussed priorities, phasing, and funding for <strong>Measure S</strong> bond projects. Key tensions: modernization vs. safety vs. design quality, equity principles for school selection, and how to engage the community in prioritization.</p>
@@ -1105,7 +1222,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">2h 19m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=WYi7kzyEnuw" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=43741" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=WYi7kzyEnuw" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-10-08-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/transcripts/WYi7kzyEnuw.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board met with Leadership Associates to launch the <strong>superintendent</strong> search process — discussing timeline, community input sessions, and desired qualities. Approved the 2024-25 unaudited actuals and Gann Limit (<strong>Resolution 12</strong>, <strong>$89.5M</strong>). Significant consent calendar included PBIS training for 8 schools (<strong>$44K</strong>), supplemental ELD curriculum (<strong>$131.7K</strong>), Achieve Kids special education placements (<strong>$170.7K</strong>), Siemens building management 5-year renewal (<strong>$239.3K</strong>), and Hoover solar change order (<strong>$61.8K</strong>).</p>
@@ -1121,7 +1238,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 22m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=1-KJszTHygc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=42596" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1351031&amp;MID=48982" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=1-KJszTHygc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-09-18-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-09-18-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/1-KJszTHygc.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Li and King absent (3-0 votes). Five policy first readings addressed new state laws: intervention in underperforming schools, conduct/smartphone restrictions, suicide prevention, English Learner education, and homework/AI policy. Public comment: Carl Landers (Bond Oversight Committee) on AC rental unit funding. Adopted <strong>Resolution 10</strong> (teaching assignment) and <strong>Resolution 11</strong> approving KIPP Excelencia's Prop 2 facilities rehab at Fair Oaks. Heard the RCSD Cohesion Plan covering instructional alignment, common assessments, EL Roadmap, and targeted reading PD for grades 3-5. Consent items included behavior tech services (<strong>$262.8K</strong>) and math tutoring for Kennedy and McKinley (<strong>$240K</strong>). SMCOE confirmed <strong>LCAP</strong> approval and budget compliance.</p>
@@ -1137,7 +1254,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">2h 38m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=KWsBnYENz7o" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=42573" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1239496" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=KWsBnYENz7o" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-09-10-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-09-10-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/KWsBnYENz7o.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board selected Leadership Associates to lead its national <strong>superintendent</strong> search after presentations from three firms (HYA, Leadership Associates, ZEAL Education Group). Public comment: teacher Cindy Meek raised concerns about teaching environment and low retention; Orion TK parent expressed dissatisfaction with Catalyst aftercare. Approved <strong>$1.39M</strong> in QKA HVAC design contracts for Phase 2 at Kennedy, Orion, and Clifford, plus Siemens pre-construction services. Ratified <strong>$155K</strong> in mobile AC rentals and Dryco fencing at Adelante Selby. Approved <strong>$626K</strong> Peninsula Community Center PE program. <strong>Resolution 8</strong> (teaching assignments for 11 speech language pathologists). Board conducted self-evaluation identifying strengths and growth areas. Charter school fiscal oversight reviews for Connect, Rocketship, and KIPP.</p>
@@ -1153,7 +1270,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">57m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=NutJa858kMY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=42572" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1223298" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=NutJa858kMY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-08-27-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-08-27-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/NutJa858kMY.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">Board discussed national <strong>superintendent</strong> search timeline — Wells outlined Sept-Jan schedule for outreach, recruiting, interviews, and hiring. Approved <strong>$973K</strong> for One Life Counseling mental health services, <strong>$118K</strong> for ProTech industrial hygienist oversight of HVAC asbestos/lead abatement, and EV charging infrastructure (Resolutions 4-5; VP Weekly raised concern about vendor's limited-adoption charging standard risking obsolescence). Readopted the <strong>LCAP</strong> after budget revisions. Approved Expanded Learning Opportunities Program Guide. Five policy first readings: media relations (pulled from agenda), social media, claims, immigration enforcement, and public statements. Board reports: Weekly attended CSEA barbecue; Márquez attended DELAC (noted low attendance); Li attended SMCOE School Funding Task Force.</p>
@@ -1169,7 +1286,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 24m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=B8blJsqUL_4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=41854" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1209751" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=B8blJsqUL_4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-08-19-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-08-19-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/B8blJsqUL_4.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span><span class="meeting-thread-tag" data-thread="charter">Charter School Oversight</span></div>
         <p class="meeting-summary">Closed session: Board voted 5-0 to direct legal counsel to file an IDEA due process complaint with OAH. TeamCivX (Jeremy Hauser) and Godbe Research (Bryan Godbe) presented <strong>parcel tax</strong> survey testing structures up to <strong>$14.3M/year</strong> — public comments from Jessica Shade, Carlo Contavalli, and Brandon Matthews expressing support; Board supported placing measure on June 2026 ballot. Massive consent calendar (31 items): <strong>$1.18M</strong> REACH afterschool contract, <strong>$960K</strong> Catalyst Family, <strong>$413K</strong> Casa Circulo, <strong>$200K</strong> YMCA, <strong>$2.97M</strong> in food service bid renewals across all schools, Language Power ELD curriculum, and 6 credential candidate agreements. Approved 5-year Connect Community Charter facilities/operating agreements. Granted tenure for 40 teachers and 2 speech therapists (<strong>Resolution 1</strong>), teaching assignments (<strong>Resolution 2</strong>), and instructional materials sufficiency (<strong>Resolution 3</strong>).</p>
@@ -1185,7 +1302,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Workshop</span>
-          <div class="meeting-links"><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=42571" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1201459" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://rcsd-files.weekly.org/agendas/2025-08-12-workshop.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-08-12-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
         </div>
         
         <p class="meeting-summary">Board workshop/retreat (Good Beginnings Workshop) with CSBA consultants Luan Rivera and Parvin Ahmadi. King absent at start, joined mid-session. Morning: governance team trust-building and roles/responsibilities for new board members. Afternoon: staff joined to review data and set 2025-26 priorities focusing on academic excellence, equity, and whole-child support.</p>
@@ -1201,7 +1318,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">48m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=nsizIuPIt5E" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=47153" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1358320" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=nsizIuPIt5E" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-06-25-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-06-25-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/nsizIuPIt5E.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Weekly and King absent (3-0 votes). Adopted the 2025-26 <strong>LCAP</strong> (<strong>$133.7M</strong>) and budget (<strong>$148.7M</strong> revenue, <strong>$151.5M</strong> expenditures) — acknowledging <strong>$2.7M</strong> in deficit spending. Adopted <strong>Resolution 26</strong> (Education Protection Account) and <strong>Resolution 27</strong> (teaching assignments). Approved <strong>$21.25M</strong> for HVAC Phase II at Kennedy, Orion, and Clifford. Approved <strong>$2M</strong> Boys &amp; Girls Clubs and <strong>$1.08M</strong> PAL afterschool contracts. Bond consent: inspection/testing with Applied Materials and commissioning with Cypress Engineering for Phase 1 HVAC. Trustee Li reported attending SMCOE School Funding Task Force. Board retreat set for Aug 12.</p>
@@ -1217,7 +1334,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 54m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=-TNa0V1WU5M" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=45380" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1158578" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=-TNa0V1WU5M" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-06-18-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-06-18-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/-TNa0V1WU5M.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">King and Márquez absent (3-0 votes). <strong>LCAP</strong> public hearing: ELAC President Agustin Espino praised district academics but raised concerns about low Hispanic/Latino parent engagement and the achievement gap. Budget public hearing: CBO Edson noted a correction needed in projected ending fund balance. <strong>$151.5M</strong> in expenditures against <strong>$148.7M</strong> revenue — deficit spending of ~<strong>$2.7M</strong> that foreshadowed the <strong>budget reduction</strong> effort. Approved <strong>$1.02M</strong> Proposition 28 arts education plan and Phase 2 Solar DSA inspection services with Pinelli &amp; Associates.</p>
@@ -1233,7 +1350,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 59m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=CdvAkolAYk4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=45272" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1158577" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=CdvAkolAYk4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-06-11-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-06-11-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/CdvAkolAYk4.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board adopted the <strong>Facilities Master Plan</strong> (5-0) and approved two landmark bond projects: <strong>$1.88M</strong> Siemens building management system for HVAC controls at four schools and the <strong>$19.74M</strong> Blach Construction GMP for HVAC Phase 1 at Adelante Selby, Hoover, Roosevelt, and Taft. Ratified all three union contracts (<strong>$3.24M</strong> combined: RCTA <strong>$1.54M</strong>, CSEA <strong>$986K</strong>, RCAA <strong>$717K</strong>). Adopted <strong>Resolution 25</strong> (year-end budget transfers). Public comment: CSEA President Stockton praised scholarship program but expressed concerns about not feeling respected by the district. First readings on mobile communication devices drew public comment from parents Mercedes Kwiatkowski and Wyatt Hamon supporting phone-free policies. VP Weekly reported using AI to identify Board Policy improvements.</p>
@@ -1257,7 +1374,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 48m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=KCn4WYhU0wo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&amp;AID=1232634" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DDCV2T7EAD63" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=KCn4WYhU0wo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/minutes/2025-05-28-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/KCn4WYhU0wo.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DDCV2T7EAD63" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">King remote via AB 2449 (child care); dropped from meeting during SPED discussion (later votes 4-0). Closed session on 750 Bradford St property negotiations with The Sobrato Organization (no action). Public speakers: CSEA President Stockton (scholarship, Welcome Back picnic); parent Husham Sharifi (Orion MI TK enrollment); parent Susanne Ruiz-Dunlap (kindergarten start date). Heard Draft <strong>Facilities Master Plan</strong> from QKA and Special Education study implementation update covering MTSS, instructional programs, and culture of inclusion. Trustee Weekly proposed tracking graduation rates for IEP-to-general-ed transitions. Approved Multitudes dyslexia screening (4-0), school plans for Hoover/McKinley/Kennedy/North Star/Roy Cloud, GoGuardian content filter, and Kennedy field trip to Italy. Six board policy first readings.</p>
@@ -1273,7 +1390,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 17m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=6qHkEM3tahc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DGWN7V5E9553/$file/2025.05.14%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DCWQH368FC76" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=6qHkEM3tahc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DGWN7V5E9553/$file/2025.05.14%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/6qHkEM3tahc.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DCWQH368FC76" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="charter">Charter School Oversight</span></div>
         <p class="meeting-summary">Board approved major HVAC projects: lease-leaseback agreement with Blach Construction for four schools (Adelante Selby, Hoover, Roosevelt, Taft), Roy Cloud multi-use building HVAC replacement, classroom window treatments, and mobile AC for charter sites. Approved Orion's growth plan for sustainability, Benchmark pilot for ELA curriculum at Taft and Garfield, and school plans for Adelante Selby, Roosevelt, and Clifford.</p>
@@ -1289,7 +1406,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Special Meeting</span><span class="meeting-duration">10m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=vXeKjSjKyfc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DGWSX674C2CE/$file/2025.05.08%20Minutes%20DRAFT%20-%20Special.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DGAUPN7D0B09" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=vXeKjSjKyfc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DGWSX674C2CE/$file/2025.05.08%20Minutes%20DRAFT%20-%20Special.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/vXeKjSjKyfc.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DGAUPN7D0B09" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         
         <p class="meeting-summary">Special meeting to adopt Resolutions 22 and 23 for non-reemployment of classified and certificated employees for 2025-26 — part of the annual <strong>budget reduction</strong> cycle.</p>
@@ -1321,7 +1438,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">59m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=RKaYeTaZ6qI" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG6KZP5452A4/$file/2025.04.16%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DCWN2X5DBEAF" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=RKaYeTaZ6qI" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG6KZP5452A4/$file/2025.04.16%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/RKaYeTaZ6qI.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DCWN2X5DBEAF" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         
         <p class="meeting-summary">Board approved school plans for Orion, Henry Ford, Taft, and Garfield. Assigned board members to graduation and promotion ceremonies. Quarterly Williams Report confirmed compliance. Routine consent items.</p>
@@ -1337,7 +1454,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 43m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=0XR-xGNInFk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DGUVL9813A57/$file/2025.04.02%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DCWMZE5DA973" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=0XR-xGNInFk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DGUVL9813A57/$file/2025.04.02%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/0XR-xGNInFk.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DCWMZE5DA973" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board approved an agreement with TeamCivX and Godbe Research to study <strong>parcel tax</strong> feasibility — the first formal step toward what would become the 2026 Measure E campaign. McKinley School gave its annual presentation. Approved Phase 2 solar change orders with Holt Renewables and Chromebook purchases for incoming 6th graders.</p>
@@ -1353,7 +1470,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 6m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=JNqq_NcFXuc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DFCMCC5A8990/$file/2025.03.26%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DBSTGU775BDD" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=JNqq_NcFXuc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DFCMCC5A8990/$file/2025.03.26%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/JNqq_NcFXuc.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DBSTGU775BDD" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board renewed the Connect Community Charter School for another term after a public hearing. Approved the Second Interim Budget Report and the 2024 School Accountability Report Cards (SARCs). Second readings for sale of district property, transportation, and chronic absence/truancy policies. Approved new combi ovens for the school nutrition program. Clifford School presented.</p>
@@ -1369,7 +1486,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 51m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=DpgsK2XZAmk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DEWMSP5BADCE/$file/2025.03.12%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DBMPLJ6526A6" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=DpgsK2XZAmk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DEWMSP5BADCE/$file/2025.03.12%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/DpgsK2XZAmk.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DBMPLJ6526A6" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board discussed a citizens' initiative <strong>parcel tax</strong> alongside a potential district-sponsored measure. Approved HVAC equipment purchases from Daikin and Carrier for summer 2025 projects. Henry Ford School presented. Adopted the Imagine Learning Illustrative Mathematics curriculum for grades 6-8. Approved KIPP Measure U application and wireless access points through E-Rate.</p>
@@ -1385,7 +1502,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 54m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=pydG3eHdP0M" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DENV6G7F3664/$file/2025.02.26%20Minutes%20DRAFT%20-%20Closed.Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DAQR3N6BFDEF" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=pydG3eHdP0M" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DENV6G7F3664/$file/2025.02.26%20Minutes%20DRAFT%20-%20Closed.Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/pydG3eHdP0M.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DAQR3N6BFDEF" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">Board received a <strong>Facilities Master Plan</strong> update and the annual <strong>LCAP</strong> update. Passed Resolutions 16-20 covering certificated administrator reassignment, certificated and classified staff reductions, TK teacher certification standards, and teaching assignment options. Approved school safety plans and multiple Measure U addenda for Roy Cloud, Orion, and North Star.</p>
@@ -1401,7 +1518,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 36m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=yoUvmhll1uk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DE2TU97906CD/$file/2025.02.05%20Minutes%20DRAFT%20-%20Closed.Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DAGP8H63474A" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=yoUvmhll1uk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DE2TU97906CD/$file/2025.02.05%20Minutes%20DRAFT%20-%20Closed.Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/yoUvmhll1uk.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=DAGP8H63474A" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board approved bond program items including a performance audit services agreement and Procore project management software for Phase 2 solar. Heard the 2023-24 financial and performance audit results for the building fund (Measures T and S) and the district's annual financial audit. Hoover and Roy Cloud presented. Reviewed first interim reports for all three charter schools. Began RCTA and CSEA contract negotiations.</p>
@@ -1417,7 +1534,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 34m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=oYXptXv6Y5I" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DDDNQ560FC03/$file/2025.01.15%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D9TMF5566B78" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=oYXptXv6Y5I" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DDDNQ560FC03/$file/2025.01.15%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/oYXptXv6Y5I.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D9TMF5566B78" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="charter">Charter School Oversight</span></div>
         <p class="meeting-summary">Orion School presented. Board held a public hearing on the Connect Community Charter School renewal petition. Adopted <strong>Resolution 15</strong> to apply for zero-emission school bus incentive (ZESBI) grants. Accepted CSEA union sunshine proposal and began classified employee negotiations for 2024-26. Received a recommendation for Imagine Learning math curriculum for grades 6-8.</p>
@@ -1449,7 +1566,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 42m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=5WLS-u2miac" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DD5QG5693074/$file/2025.01.08%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D9TMDK5641A5" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=5WLS-u2miac" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DD5QG5693074/$file/2025.01.08%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/5WLS-u2miac.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D9TMDK5641A5" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Bond program items approved including program management services amendment with Cumming Group. Taft and Adelante Selby presented for 2024-25. Board set school and committee assignments. Approved amended Wagner Schoolhouse lease and multiple consent items including Clifford's Measure U addendum and donations.</p>
@@ -1465,7 +1582,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 41m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=isGlBUACovY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DCRPB263C06D/$file/2024.12.17%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D97PS365C9FB" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=isGlBUACovY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DCRPB263C06D/$file/2024.12.17%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/isGlBUACovY.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D97PS365C9FB" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         
         <p class="meeting-summary">Farewell to outgoing Trustees Janet Lawson (9 years of service) and Alisa MacAvoy (17 years). Trustees-elect David Li and Jennifer Ng Kwing King sworn in; Mike Wells re-elected and sworn in. Annual officer rotation per Bylaws. Board reviewed California Dashboard local indicators and approved the 2024-25 First Interim Budget Report. Consent items included Roosevelt Measure U addendum and annual developer fee report.</p>
@@ -1488,7 +1605,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">3h 32m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=bnBXN0Jg6a0" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DCQNZX626B57/$file/2024.12.11%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D97PQH65BA99" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=bnBXN0Jg6a0" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DCQNZX626B57/$file/2024.12.11%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/bnBXN0Jg6a0.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D97PQH65BA99" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board approved the Budget Renewal Initiative (<strong>superintendent</strong>'s recommendations for <strong>budget reduction</strong>s) and passed Resolutions 11-14 authorizing certificated and classified staff reductions and layoff order for 2025-26. Roosevelt presented. Approved the 2025-26 school calendar, par-baked pizza bid, and seniority reports. Updated the <strong>Facilities Master Plan</strong>. Ten policy second readings covered employee safety, leaves, technology use, and assignments.</p>
@@ -1504,7 +1621,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 16m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=VUIwMGNG5Qk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DBKVAA7FC543/$file/2024.11.20%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D7JPG4626FEB" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=VUIwMGNG5Qk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DBKVAA7FC543/$file/2024.11.20%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/VUIwMGNG5Qk.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D7JPG4626FEB" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board held a public hearing on a design-build lighting retrofit project and approved <strong>Resolution 9</strong> for an energy services agreement with Southland Industries. Heard an update on the workforce housing project at 750 Bradford St. North Star Academy presented. Eight policy first readings on school trips, employee safety, leaves, modified duty, and technology use. Adopted organizational meeting date and continued state preschool funding.</p>
@@ -1520,7 +1637,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 42m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=bH2yII-W07A" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DAZVSW81D810/$file/2024.11.06%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D7BQSD6AB0FC" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=bH2yII-W07A" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DAZVSW81D810/$file/2024.11.06%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/bH2yII-W07A.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D7BQSD6AB0FC" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board adopted <strong>Resolution 8</strong> and approved design-build agreements for solar panels at 9 school sites — a major <strong>Measure S</strong> bond milestone. Also approved <strong>Resolution 9</strong> for energy efficiency upgrades with Southland Industries and QKA Architects HVAC design contracts for four schools. Adopted TK curriculum and a retirement notification incentive. Six policy second readings on parent notifications, websites, absences, lactation, and concepts/roles.</p>
@@ -1552,7 +1669,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 26m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=--o1quq0zkQ" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DAJSHD72BE89/$file/2024.10.23%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KU3979F097" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=--o1quq0zkQ" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DAJSHD72BE89/$file/2024.10.23%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/--o1quq0zkQ.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KU3979F097" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board heard the annual Health and Wellness report. Five policy first readings on absences, parent notifications, concepts/roles, lactation accommodation, and school websites. Reviewed unaudited actuals for all three charter schools and the HR department's hiring season preparations. Approved agreements with Redwood City Together and special education service providers.</p>
@@ -1568,7 +1685,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 42m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=VEZ7vt0O4kU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DA6NPC60DD4E/$file/2024.10.09%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KTZR79D5E0" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=VEZ7vt0O4kU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DA6NPC60DD4E/$file/2024.10.09%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/VEZ7vt0O4kU.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KTZR79D5E0" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         
         <p class="meeting-summary">Board appointed a new Area III trustee from candidate presentations — filling the vacancy left by a departed board member. Approved consent items including a WestEd MOU and One Life Counseling amendment.</p>
@@ -1584,7 +1701,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">3h 0m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=EyuG8omEgw0" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D9QQG766173F/$file/2024.09.25%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KTVG7913EC" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=EyuG8omEgw0" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D9QQG766173F/$file/2024.09.25%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/EyuG8omEgw0.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KTVG7913EC" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         
         <p class="meeting-summary">Board heard the annual mental health report and discussed year-end assessment results for 2023-24. Continued the Area III trustee appointment process. Approved the 2023-24 unaudited actuals financial statement, adopted the Gann Limit (<strong>Resolution 7</strong>), and approved teaching assignment options (<strong>Resolution 6</strong>). Approved Measure U addendum for Garfield.</p>
@@ -1600,7 +1717,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 27m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=NUJvcYPgWGw" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D97NVC61BF32/$file/2024.09.11%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KTU479018C" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=NUJvcYPgWGw" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D97NVC61BF32/$file/2024.09.11%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/NUJvcYPgWGw.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6KTU479018C" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board discussed <strong>Measure S</strong> bond program priorities with a focus on HVAC replacements across the district. Heard an update on the Budget Renewal Initiative. Adopted <strong>Resolution 5</strong> in favor of statewide Proposition 2 (school facilities bond). First reading of Board Bylaw 9223 on filling board vacancies. Reviewed charter school budgets.</p>
@@ -1616,7 +1733,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 58m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=QCII_W1o8uU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D8RTLE77E02A/$file/2024.08.28%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6JUQ97D21C4" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=QCII_W1o8uU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D8RTLE77E02A/$file/2024.08.28%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/QCII_W1o8uU.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6JUQ97D21C4" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board discussed the <strong>Facilities Master Plan</strong> progress and the process for appointing an Area III trustee to fill a board vacancy. Public hearing confirmed sufficiency of instructional materials. Adopted resolutions for instructional material sufficiency and certificated tenure. First reading of the board vacancy bylaw. Notably, Board received information that they had decided against placing a <strong>parcel tax</strong> on the November 2024 ballot.</p>
@@ -1632,7 +1749,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">45m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=P-BTYiP5WF4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D86PJ364C6BF/$file/2024.08.07%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6BUYM7E5BA0" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=P-BTYiP5WF4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D86PJ364C6BF/$file/2024.08.07%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/P-BTYiP5WF4.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D6BUYM7E5BA0" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         
         <p class="meeting-summary">Start-of-year meeting with a large consent calendar: 27 agreements for the new school year covering counseling, tutoring, after-school programs, charter school facilities, staffing agencies, and food services. Approved the <strong>LCAP</strong> Federal Addendum, CSEA tentative agreement, food service bids, and new personnel. Quarterly Williams Report confirmed compliance.</p>
@@ -1648,7 +1765,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">36m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=WA85EbmjhnI" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D7AQDD68C891/$file/2024.06.26%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D3AU5R7A2958" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=WA85EbmjhnI" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D7AQDD68C891/$file/2024.06.26%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/WA85EbmjhnI.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D3AU5R7A2958" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board approved the 2024-25 <strong>LCAP</strong> and adopted budget, setting the district's spending and accountability plan for the year. Approved employment contracts for the Chief Business Official and Deputy <strong>Superintendent</strong>. Adopted <strong>Resolution 13</strong> calling the November 2024 board election for three seats. Approved RCAA (administrators) compensation proposal and Measure U disbursements for Taft, Connect, and Rocketship. Bond program legal services with DWK approved.</p>
@@ -1664,7 +1781,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 58m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=n0ux7SsYSog" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D7AQB7687645/$file/2024.06.20%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D3AU4D7A1D02" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=n0ux7SsYSog" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D7AQB7687645/$file/2024.06.20%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/n0ux7SsYSog.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D3AU4D7A1D02" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">Public hearings on the draft <strong>LCAP</strong> and proposed budget for 2024-25. Board adopted the meeting calendar, approved Measure U disbursements, and ratified agreements for mental health services (Effective School Solutions), after-school programs, and community partnerships.</p>
@@ -1680,7 +1797,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">1h 28m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=8P6sbOgUu70" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D64LQ7579C24/$file/2024.06.05%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D3AU327A0659" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=8P6sbOgUu70" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D64LQ7579C24/$file/2024.06.05%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/8P6sbOgUu70.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=D3AU327A0659" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="charter">Charter School Oversight</span></div>
         <p class="meeting-summary">Board recognized international staff and heard Connect Community Charter School's annual presentation. Adopted <strong>Resolution 11</strong> for year-end budget transfers and approved the Prop 28 arts education expenditure plan. Ratified the RCTA teacher contract tentative agreement. Approved school plans for student achievement and Declaration of Need for substitute staffing.</p>
@@ -1728,7 +1845,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">44m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=xSE2S51UgBg" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D5ALRB576F86/$file/2024.05.08%20Minutes%20DRAFT%20-%20Regular%20.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZLW4F839A94" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=xSE2S51UgBg" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D5ALRB576F86/$file/2024.05.08%20Minutes%20DRAFT%20-%20Regular%20.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/xSE2S51UgBg.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZLW4F839A94" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board approved the <strong>Measure S</strong> architectural pool and heard the 2022-23 bond fund financial and performance audits. Approved Orion and North Star Measure U addenda, additional personnel for 2024-25, and reviewed second interim reports for all three charter schools.</p>
@@ -1744,7 +1861,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 18m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=PUpafjd1GoQ" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D4PMDE5AB9A3/$file/2024.04.17%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZKVHA80CB92" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=PUpafjd1GoQ" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D4PMDE5AB9A3/$file/2024.04.17%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/PUpafjd1GoQ.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZKVHA80CB92" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board received the Special Education study report and implementation plan — a significant review of SPED services and recommendations. Approved <strong>Measure S</strong> bond program updates and Key Analytics financial tracking system for bond spending. Adopted <strong>Resolution 10</strong> for TK teacher certification standards. Approved Measure U applications for McKinley, Taft, Clifford, and KIPP.</p>
@@ -1760,7 +1877,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">36m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=hi0IzpDnH9k" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D4245X7B49B5/$file/2024.04.03%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZCSMQ6DC026" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=hi0IzpDnH9k" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D4245X7B49B5/$file/2024.04.03%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/hi0IzpDnH9k.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZCSMQ6DC026" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Citizens' Measure U Oversight Committee presented its Year Six report on <strong>parcel tax</strong> spending. Board heard i-Ready diagnostic exam results. Approved Phase 2 solar agreement with Sage Renewable Energy (NV5) for districtwide installations. Consent items included Measure U addendum for Roy Cloud and charter school meal services agreement.</p>
@@ -1776,7 +1893,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 5m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=x3MWRn6GWFY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D3SKMS529413/$file/2024.03.20%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZCSL66DABFF" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=x3MWRn6GWFY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D3SKMS529413/$file/2024.03.20%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/x3MWRn6GWFY.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CZCSL66DABFF" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         
         <p class="meeting-summary">Board heard the Community Schools and Expanded Learning Program report. Approved the Second Interim Budget Report for 2023-24. Approved the district transportation services plan, PowerSchool analytics agreement, and E-Rate bids for WAN and internet access.</p>
@@ -1792,12 +1909,167 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Board Meeting</span><span class="meeting-duration">2h 54m</span>
-          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=oClRTihfNZo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D3BMEQ5AC7A3/$file/2024.03.06%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CY9NYZ624A74" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://www.youtube.com/watch?v=oClRTihfNZo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D3BMEQ5AC7A3/$file/2024.03.06%20Minutes%20DRAFT%20-%20Regular.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/oClRTihfNZo.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a><a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&amp;id=CY9NYZ624A74" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span></div>
         <p class="meeting-summary">Board adopted Resolutions 7-9 authorizing certificated and classified staff reductions and administrator reassignment for the coming year — the annual budget balancing process. Approved an agreement with TeamCivX and Godbe Research to study <strong>parcel tax</strong> feasibility, kicking off the multi-year effort that would eventually produce Measure E. Approved seniority reports for certificated and classified staff.</p>
         <details class="meeting-details"><summary class="meeting-details-toggle">5 agenda items</summary><div class="meeting-agenda-items open"><div class="agenda-item"><span class="agenda-item-order">7.1</span><a class="agenda-timestamp" href="https://www.youtube.com/watch?v=oClRTihfNZo&t=5232" target="_blank" rel="noopener">01:27:12</a>Approval of Agreement between the Redwood City School District and TeamCivX and Godbe Research to conduct a Parcel Tax Measure Feasibility Study<span class="agenda-item-type">Action</span></div><div class="agenda-attachments"><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D2XUTP7CAEA2/$file/TeamCivX_RedwoodCitySD1_Contract_March2024.pdf" target="_blank" rel="noopener">TeamCivX_RedwoodCitySD1_Contract_March2024.pdf <span class="agenda-attachment-size">(176 KB)</span></a><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D2XVGV80BBAF/$file/Godbe%20RCSD%20PT%20Survey%20Agreement%203.1.24%20Signed.pdf" target="_blank" rel="noopener">Godbe RCSD PT Survey Agreement 3.1.24 Signed.pdf <span class="agenda-attachment-size">(457 KB)</span></a></div><div class="agenda-item"><span class="agenda-item-order">7.2</span><a class="agenda-timestamp" href="https://www.youtube.com/watch?v=oClRTihfNZo&t=9474" target="_blank" rel="noopener">02:37:54</a>Adoption of Resolution No. 7, Reduction or Elimination of Certificated Services for Fiscal Year 2023-2024<span class="agenda-item-type">Action</span></div><div class="agenda-attachments"><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D2XUUG7CD1EA/$file/RESOLUTION%207%20-%20Certificated%20PKS%203.6.24%20final%20.pdf" target="_blank" rel="noopener">RESOLUTION 7 - Certificated PKS 3.6.24 final .pdf <span class="agenda-attachment-size">(220 KB)</span></a><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D35QGZ692063/$file/2024-25%20Services%20and%20Funding.pdf" target="_blank" rel="noopener">2024-25 Services and Funding.pdf <span class="agenda-attachment-size">(2,912 KB)</span></a></div><div class="agenda-item"><span class="agenda-item-order">7.3</span><a class="agenda-timestamp" href="https://www.youtube.com/watch?v=oClRTihfNZo&t=9569" target="_blank" rel="noopener">02:39:29</a>Adoption of Resolution No. 8, Reduction of Certain Classified Services for Fiscal Year 2023-2024<span class="agenda-item-type">Action</span></div><div class="agenda-attachments"><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D2XQ2363AF41/$file/RESOLUTION%20%238%20-%20Classified%20Layoff%20Final.pdf" target="_blank" rel="noopener">RESOLUTION #8 - Classified Layoff Final.pdf <span class="agenda-attachment-size">(57 KB)</span></a></div><div class="agenda-item"><span class="agenda-item-order">7.4</span><a class="agenda-timestamp" href="https://www.youtube.com/watch?v=oClRTihfNZo&t=9654" target="_blank" rel="noopener">02:40:54</a>Adoption of Resolution No. 9, Release and Reassignment of Certificated Administrators(s)<span class="agenda-item-type">Action</span></div><div class="agenda-attachments"><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D2WQQT6A0CF3/$file/Exhibit%20A-%20Resolution%209%20%203.6.24.pdf" target="_blank" rel="noopener">Exhibit A- Resolution 9  3.6.24.pdf <span class="agenda-attachment-size">(34 KB)</span></a><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D2WQQV6A0D42/$file/Resolution%209%20-Admin%20Release%20and%20Reassignment%203.6.24.pdf" target="_blank" rel="noopener">Resolution 9 -Admin Release and Reassignment 3.6.24.pdf <span class="agenda-attachment-size">(63 KB)</span></a></div><div class="agenda-item"><span class="agenda-item-order">7.5</span><a class="agenda-timestamp" href="https://www.youtube.com/watch?v=oClRTihfNZo&t=10045" target="_blank" rel="noopener">02:47:25</a>Approval of Release of Temporary Teachers<span class="agenda-item-type">Action</span></div><div class="agenda-attachments"><a class="agenda-attachment" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D2WUHV785EB6/$file/Attachment%20A-%20Release%20of%20Temporary%20Teachers%20%203.6.24.pdf" target="_blank" rel="noopener">Attachment A- Release of Temporary Teachers  3.6.24.pdf <span class="agenda-attachment-size">(36 KB)</span></a></div></div></details>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="documents">
+  <div class="section-rule"></div>
+  <h2>District Documents</h2>
+  <p class="section-subtitle">School plans, budgets, and accountability reports archived from official sources.</p>
+  <div class="doc-tabs">
+    <button class="doc-tab active" data-doc-tab="budget">Budget</button>
+    <button class="doc-tab" data-doc-tab="lcap">LCAP</button>
+    <button class="doc-tab" data-doc-tab="spsa">School Plans (SPSA)</button>
+    <button class="doc-tab" data-doc-tab="sarc">School Report Cards</button>
+  </div>
+  <div class="doc-panel active" data-doc-panel="budget">
+    <h3 class="doc-year-heading">Other</h3>
+    <div class="doc-list">
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/superintendent-budget-reduction-2026-02-04.pdf" target="_blank" rel="noopener">Superintendent Budget Reduction 2026 02 04</a>
+    </div>
+    <h3 class="doc-year-heading">2025-26</h3>
+    <div class="doc-list">
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2025-26-adopted-budget.pdf" target="_blank" rel="noopener">Adopted Budget</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2025-26-budget-myp.pdf" target="_blank" rel="noopener">Budget Myp</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2025-26-budget-presentation.pdf" target="_blank" rel="noopener">Budget Presentation</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2025-26-first-interim-myp.pdf" target="_blank" rel="noopener">First Interim Myp</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2025-26-first-interim-presentation.pdf" target="_blank" rel="noopener">First Interim Presentation</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2025-26-first-interim.pdf" target="_blank" rel="noopener">First Interim</a>
+    </div>
+    <h3 class="doc-year-heading">2024-25</h3>
+    <div class="doc-list">
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2024-25-adopted-budget.pdf" target="_blank" rel="noopener">Adopted Budget</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2024-25-first-interim-myp.pdf" target="_blank" rel="noopener">First Interim Myp</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2024-25-first-interim-presentation.pdf" target="_blank" rel="noopener">First Interim Presentation</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2024-25-first-interim.pdf" target="_blank" rel="noopener">First Interim</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2024-25-second-interim-myp.pdf" target="_blank" rel="noopener">Second Interim Myp</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2024-25-second-interim-presentation.pdf" target="_blank" rel="noopener">Second Interim Presentation</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/budget/2024-25-second-interim.pdf" target="_blank" rel="noopener">Second Interim</a>
+    </div>
+  </div>
+  <div class="doc-panel" data-doc-panel="lcap">
+    <h3 class="doc-year-heading">2025-26</h3>
+    <div class="doc-list">
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2025-26-lcap-adopted.pdf" target="_blank" rel="noopener">Lcap Adopted</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2025-26-lcap-federal-addendum.pdf" target="_blank" rel="noopener">Lcap Federal Addendum</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2025-26-lcap-midyear-budget.pdf" target="_blank" rel="noopener">Lcap Midyear Budget</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2025-26-lcap-midyear.pdf" target="_blank" rel="noopener">Lcap Midyear</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2025-26-lcap-public-hearing.pdf" target="_blank" rel="noopener">Lcap Public Hearing</a>
+    </div>
+    <h3 class="doc-year-heading">2024-25</h3>
+    <div class="doc-list">
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2024-25-lcap-adopted.pdf" target="_blank" rel="noopener">Lcap Adopted</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2024-25-lcap-budget-overview-parents.pdf" target="_blank" rel="noopener">Lcap Budget Overview Parents</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2024-25-lcap-federal-addendum.pdf" target="_blank" rel="noopener">Lcap Federal Addendum</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2024-25-lcap-midyear-budget.pdf" target="_blank" rel="noopener">Lcap Midyear Budget</a>
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2024-25-lcap-midyear-report.pdf" target="_blank" rel="noopener">Lcap Midyear Report</a>
+    </div>
+    <h3 class="doc-year-heading">2023-24</h3>
+    <div class="doc-list">
+      <a class="doc-link" href="https://rcsd-files.weekly.org/documents/lcap/2023-24-lcap-annual-update.pdf" target="_blank" rel="noopener">Lcap Annual Update</a>
+    </div>
+  </div>
+  <div class="doc-panel" data-doc-panel="spsa">
+    <h3 class="doc-year-heading">2025-26</h3>
+    <div class="doc-school-grid">
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/adelante-selby.pdf" target="_blank" rel="noopener">Adelante Selby</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/clifford.pdf" target="_blank" rel="noopener">Clifford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/garfield.pdf" target="_blank" rel="noopener">Garfield</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/henry-ford.pdf" target="_blank" rel="noopener">Henry Ford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/hoover.pdf" target="_blank" rel="noopener">Hoover</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/kennedy.pdf" target="_blank" rel="noopener">Kennedy</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/mckinley-mit.pdf" target="_blank" rel="noopener">McKinley MIT</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/north-star.pdf" target="_blank" rel="noopener">North Star</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/orion.pdf" target="_blank" rel="noopener">Orion</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/roosevelt.pdf" target="_blank" rel="noopener">Roosevelt</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/roy-cloud.pdf" target="_blank" rel="noopener">Roy Cloud</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2025-26/taft.pdf" target="_blank" rel="noopener">Taft</a>
+    </div>
+    <h3 class="doc-year-heading">2024-25</h3>
+    <div class="doc-school-grid">
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/adelante-selby.pdf" target="_blank" rel="noopener">Adelante Selby</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/clifford.pdf" target="_blank" rel="noopener">Clifford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/garfield.pdf" target="_blank" rel="noopener">Garfield</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/henry-ford.pdf" target="_blank" rel="noopener">Henry Ford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/hoover.pdf" target="_blank" rel="noopener">Hoover</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/kennedy.pdf" target="_blank" rel="noopener">Kennedy</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/mckinley-mit.pdf" target="_blank" rel="noopener">McKinley MIT</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/north-star.pdf" target="_blank" rel="noopener">North Star</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/orion.pdf" target="_blank" rel="noopener">Orion</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/roosevelt.pdf" target="_blank" rel="noopener">Roosevelt</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/roy-cloud.pdf" target="_blank" rel="noopener">Roy Cloud</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2024-25/taft.pdf" target="_blank" rel="noopener">Taft</a>
+    </div>
+    <h3 class="doc-year-heading">2023-24</h3>
+    <div class="doc-school-grid">
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/adelante-selby.pdf" target="_blank" rel="noopener">Adelante Selby</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/clifford.pdf" target="_blank" rel="noopener">Clifford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/garfield.pdf" target="_blank" rel="noopener">Garfield</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/henry-ford.pdf" target="_blank" rel="noopener">Henry Ford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/hoover.pdf" target="_blank" rel="noopener">Hoover</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/kennedy.pdf" target="_blank" rel="noopener">Kennedy</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/mckinley-mit.pdf" target="_blank" rel="noopener">McKinley MIT</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/north-star.pdf" target="_blank" rel="noopener">North Star</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/orion.pdf" target="_blank" rel="noopener">Orion</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/roosevelt.pdf" target="_blank" rel="noopener">Roosevelt</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/roy-cloud.pdf" target="_blank" rel="noopener">Roy Cloud</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/spsa/2023-24/taft.pdf" target="_blank" rel="noopener">Taft</a>
+    </div>
+  </div>
+  <div class="doc-panel" data-doc-panel="sarc">
+    <h3 class="doc-year-heading">2024-25</h3>
+    <div class="doc-lang-label">English</div>
+    <div class="doc-school-grid">
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/adelante-selby.pdf" target="_blank" rel="noopener">Adelante Selby</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/clifford.pdf" target="_blank" rel="noopener">Clifford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/garfield.pdf" target="_blank" rel="noopener">Garfield</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/henry-ford.pdf" target="_blank" rel="noopener">Henry Ford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/hoover.pdf" target="_blank" rel="noopener">Hoover</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/kennedy.pdf" target="_blank" rel="noopener">Kennedy</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/mckinley-mit.pdf" target="_blank" rel="noopener">McKinley MIT</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/north-star.pdf" target="_blank" rel="noopener">North Star</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/orion.pdf" target="_blank" rel="noopener">Orion</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/roosevelt.pdf" target="_blank" rel="noopener">Roosevelt</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/roy-cloud.pdf" target="_blank" rel="noopener">Roy Cloud</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2024-25/english/taft.pdf" target="_blank" rel="noopener">Taft</a>
+    </div>
+    <h3 class="doc-year-heading">2023-24</h3>
+    <div class="doc-lang-label">English</div>
+    <div class="doc-school-grid">
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/adelante-selby.pdf" target="_blank" rel="noopener">Adelante Selby</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/clifford.pdf" target="_blank" rel="noopener">Clifford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/garfield.pdf" target="_blank" rel="noopener">Garfield</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/henry-ford.pdf" target="_blank" rel="noopener">Henry Ford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/hoover.pdf" target="_blank" rel="noopener">Hoover</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/kennedy.pdf" target="_blank" rel="noopener">Kennedy</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/mckinley-mit.pdf" target="_blank" rel="noopener">McKinley MIT</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/north-star.pdf" target="_blank" rel="noopener">North Star</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/orion.pdf" target="_blank" rel="noopener">Orion</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/roosevelt.pdf" target="_blank" rel="noopener">Roosevelt</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/roy-cloud.pdf" target="_blank" rel="noopener">Roy Cloud</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/english/taft.pdf" target="_blank" rel="noopener">Taft</a>
+    </div>
+    <div class="doc-lang-label">Espa&ntilde;ol</div>
+    <div class="doc-school-grid">
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/adelante-selby.pdf" target="_blank" rel="noopener">Adelante Selby</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/clifford.pdf" target="_blank" rel="noopener">Clifford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/garfield.pdf" target="_blank" rel="noopener">Garfield</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/henry-ford.pdf" target="_blank" rel="noopener">Henry Ford</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/hoover.pdf" target="_blank" rel="noopener">Hoover</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/kennedy.pdf" target="_blank" rel="noopener">Kennedy</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/mckinley-mit.pdf" target="_blank" rel="noopener">McKinley MIT</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/north-star.pdf" target="_blank" rel="noopener">North Star</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/orion.pdf" target="_blank" rel="noopener">Orion</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/roosevelt.pdf" target="_blank" rel="noopener">Roosevelt</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/roy-cloud.pdf" target="_blank" rel="noopener">Roy Cloud</a>
+      <a class="doc-school-link" href="https://rcsd-files.weekly.org/documents/sarc/2023-24/spanish/taft.pdf" target="_blank" rel="noopener">Taft</a>
     </div>
   </div>
 </section>
@@ -1868,6 +2140,16 @@
     });
   });
 
+  // Document tab switching
+  var docTabs = document.querySelectorAll('.doc-tab');
+  var docPanels = document.querySelectorAll('.doc-panel');
+  docTabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      var target = tab.dataset.docTab;
+      docTabs.forEach(function(t) { t.classList.toggle('active', t.dataset.docTab === target); });
+      docPanels.forEach(function(p) { p.classList.toggle('active', p.dataset.docPanel === target); });
+    });
+  });
 
 })();
 </script>
