@@ -383,7 +383,7 @@ ${threads.map(t => `    <button class="thread-btn" data-filter="${t}">
 }
 
 // Governance calendar — most recent "Schedule of Board Agenda Items"
-function renderGovernanceCalendar(data) {
+function findGovernanceCalendar(data) {
   // Find the most recent schedule attachment across all meetings
   let latest = null;
   for (const m of data.meetings) {
@@ -399,32 +399,34 @@ function renderGovernanceCalendar(data) {
       }
     }
   }
-  if (!latest) return '';
+  if (!latest) return null;
 
   const href = latest.href || (latest.aid ? `https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&AID=${latest.aid}&MID=${latest.mid}` : null);
-  if (!href) return '';
+  if (!href) return null;
 
-  const [y, m, d] = latest.date.split('-');
-  const dateStr = `${MONTH_FULL[parseInt(m) - 1]} ${parseInt(d)}, ${y}`;
-
-  return `<div class="governance-calendar">
-  <div class="governance-calendar-inner">
-    <div class="governance-calendar-label">Governance Calendar</div>
-    <div class="governance-calendar-desc">
-      Schedule of planned board agenda items for the current school year.
-      <span class="governance-calendar-source">From the ${dateStr} meeting agenda.</span>
-    </div>
-    <a href="${escapeHtml(href)}" class="governance-calendar-link" target="_blank" rel="noopener">View Schedule (PDF) &#8599;</a>
-  </div>
-</div>`;
+  return { date: latest.date, href };
 }
 
 // Resources section
-function renderResources() {
+function renderResources(data) {
+  // Find governance calendar PDF from most recent meeting that has one
+  let govCalCard = '';
+  const govCal = findGovernanceCalendar(data);
+  if (govCal) {
+    const [y, m, d] = govCal.date.split('-');
+    const dateStr = `${MONTH_FULL[parseInt(m) - 1]} ${parseInt(d)}, ${y}`;
+    govCalCard = `
+    <div class="resource-card">
+      <h3>Governance Calendar</h3>
+      <p>Planned board agenda items for the school year. From the ${dateStr} agenda.</p>
+      <a href="${escapeHtml(govCal.href)}" target="_blank" rel="noopener">View Schedule (PDF) &#8599;</a>
+    </div>`;
+  }
+
   return `<section class="section" id="resources">
   <div class="section-rule"></div>
   <h2>Resources</h2>
-  <div class="resource-grid">
+  <div class="resource-grid">${govCalCard}
     <div class="resource-card">
       <h3>Board Meeting Portal</h3>
       <p>Current agendas and attachments on GAMUT/Simbli.</p>
@@ -600,55 +602,6 @@ const html = `<!DOCTYPE html>
     letter-spacing: 0.01em;
     line-height: 1.6;
     color: #664d03;
-  }
-
-  /* ---- GOVERNANCE CALENDAR ---- */
-  .governance-calendar {
-    background: var(--cream-dark);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    margin: 0 auto 2rem;
-    max-width: 720px;
-    padding: 1rem 1.25rem;
-  }
-  .governance-calendar-inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.5rem 1rem;
-  }
-  .governance-calendar-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-  .governance-calendar-desc {
-    flex: 1;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    min-width: 200px;
-  }
-  .governance-calendar-source {
-    opacity: 0.6;
-    font-size: 0.72rem;
-  }
-  .governance-calendar-link {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    color: var(--accent);
-    text-decoration: none;
-    white-space: nowrap;
-    padding: 0.35rem 0.75rem;
-    border: 1px solid var(--accent);
-    border-radius: 4px;
-    transition: background 0.15s, color 0.15s;
-  }
-  .governance-calendar-link:hover {
-    background: var(--accent);
-    color: #fff;
   }
 
   /* ---- NAV ---- */
@@ -1334,13 +1287,11 @@ const html = `<!DOCTYPE html>
 <main class="content">
 ${renderThreadFilters()}
 
-${renderGovernanceCalendar(data)}
-
 ${renderSchoolYear('sy2526', '2025\u201326 School Year', sy2526, `${sy2526.length} meetings from June 2025 to present. Full agendas and video available.`)}
 
 ${renderSchoolYear('sy2425', '2024\u201325 School Year', sy2425, `${sy2425.length} meetings from the BoardDocs archive with full agendas and attachments.`)}
 
-${renderResources()}
+${renderResources(data)}
 </main>
 
 <footer class="site-footer">
