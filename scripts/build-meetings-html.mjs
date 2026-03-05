@@ -16,12 +16,17 @@ const R2_BASE = 'https://rcsd-files.weekly.org';
 const data = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
 
 // Load optional hand-crafted summaries (override auto-generated)
-const summariesPath = resolve(ROOT, 'data/meeting-summaries.json');
-let manualSummaries = {};
-if (existsSync(summariesPath)) {
-  manualSummaries = JSON.parse(readFileSync(summariesPath, 'utf-8'));
-  console.log(`Loaded ${Object.keys(manualSummaries).length} manual summaries`);
+const summariesByLang = {};
+for (const [suffix, lang] of [['', 'en'], ['-es', 'es']]) {
+  const p = resolve(ROOT, `data/meeting-summaries${suffix}.json`);
+  if (existsSync(p)) {
+    summariesByLang[lang] = JSON.parse(readFileSync(p, 'utf-8'));
+    console.log(`Loaded ${Object.keys(summariesByLang[lang]).length} ${lang} summaries`);
+  } else {
+    summariesByLang[lang] = {};
+  }
 }
+let manualSummaries = summariesByLang.en;
 
 // Build lookup of available R2 artifacts from local artifacts/ directory
 const agendaFiles = new Set();
@@ -174,6 +179,7 @@ const LOCALES = {
     footerPortal: 'GAMUT board portal',
     footerDistrict: 'District Summary',
     footerDistrito: 'Resumen del Distrito',
+    meetingTypes: {},
     altLangLink: 'Reuniones (Espa\u00f1ol)',
     altLangHref: 'reuniones/',
     outFile: 'docs/index.html',
@@ -250,6 +256,15 @@ const LOCALES = {
     footerPortal: 'portal de la junta GAMUT',
     footerDistrict: 'Resumen del Distrito',
     footerDistrito: 'District Summary (English)',
+    meetingTypes: {
+      'Regular': 'Reuni\u00f3n Regular',
+      'Special': 'Reuni\u00f3n Especial',
+      'Study Session': 'Sesi\u00f3n de Estudio',
+      'Workshop': 'Taller',
+      'Special (Closed)': 'Sesi\u00f3n Especial (Cerrada)',
+      'Retreat (Offsite)': 'Retiro',
+      'Board Meeting': 'Reuni\u00f3n de la Junta',
+    },
     altLangLink: 'Meetings (English)',
     altLangHref: '../',
     outFile: 'docs/reuniones/index.html',
@@ -351,14 +366,18 @@ function highlightSummary(text) {
   html = html.replace(/\$[\d,.]+[MKBmkb]?(?:\/\w+)?/g, '<strong>$&</strong>');
   // Highlight key terms (case-insensitive, word boundary)
   const terms = [
-    'superintendent', 'parcel tax', 'budget reduction', 'strategic resource alignment',
-    'LCAP', 'Measure S', 'Measure T', 'Facilities Master Plan',
+    'superintendent', 'superintendente', 'parcel tax', 'impuesto parcelario',
+    'budget reduction', 'reducción de presupuesto', 'strategic resource alignment',
+    'Alineación Estratégica de Recursos', 'LCAP', 'Measure S', 'Medida S',
+    'Measure T', 'Medida T', 'Measure E', 'Medida E', 'Measure U', 'Medida U',
+    'Facilities Master Plan', 'Plan Maestro de Instalaciones', 'Mesa Directiva',
   ];
   for (const term of terms) {
     const re = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
     html = html.replace(re, '<strong>$1</strong>');
   }
   // Highlight Resolution numbers
+  html = html.replace(/Resoluci[oó]n\s+(?:No\.?\s*)?\d+/gi, '<strong>$&</strong>');
   html = html.replace(/Resolution\s+(?:No\.?\s*)?\d+/gi, '<strong>$&</strong>');
   // Highlight Res NN-NN patterns
   html = html.replace(/\bRes\.?\s+\d+[-–]\d+/gi, '<strong>$&</strong>');
@@ -565,7 +584,7 @@ function renderMeeting(m) {
       </div>
       <div class="meeting-body">
         <div class="meeting-header">
-          <span class="meeting-type">${escapeHtml(m.type)}</span>${m.duration ? `<span class="meeting-duration">${m.duration}</span>` : ''}
+          <span class="meeting-type">${escapeHtml(L.meetingTypes[m.type] || m.type)}</span>${m.duration ? `<span class="meeting-duration">${m.duration}</span>` : ''}
           <div class="meeting-links">${links}</div>
         </div>
         ${threadTags}
@@ -1856,5 +1875,6 @@ console.log(`Wrote ${L.outFile}`);
 // Generate both language versions
 for (const locale of ['en', 'es']) {
   L = LOCALES[locale];
+  manualSummaries = summariesByLang[locale] || summariesByLang.en;
   generatePage();
 }
