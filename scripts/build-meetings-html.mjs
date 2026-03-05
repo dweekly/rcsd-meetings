@@ -108,17 +108,176 @@ function scanDocuments() {
 }
 scanDocuments();
 
+// ---- Internationalization ----
+const LOCALES = {
+  en: {
+    lang: 'en',
+    monthNames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    monthFull: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    title: 'RCSD Board Meeting Index',
+    headerDistrict: 'Redwood City School District',
+    headerTitle: 'Board Meeting Index',
+    headerSubtitle: 'Two years of board meetings with agendas, video recordings, and key topics. Data compiled from',
+    headerSubtitleAnd: 'and',
+    statMeetings: 'Meetings',
+    statAgendaItems: 'Agenda items',
+    statAttachments: 'Attachments',
+    statWithVideo: 'With video',
+    statWithTranscript: 'With transcript',
+    statWithMinutes: 'With minutes',
+    boardOfEd: 'Board of Education',
+    president: 'President',
+    vicePresident: 'Vice President',
+    clerk: 'Clerk',
+    disclaimer: 'Not an official District document; independently assembled by',
+    disclaimerSuffix: 'May contain errors.',
+    navTopics: 'Key Topics',
+    navDocuments: 'Documents',
+    navResources: 'Resources',
+    navSourceCode: 'Source Code',
+    threadSectionTitle: 'Key Topics This Year',
+    threadSectionSubtitle: 'Click a topic to filter meetings. Click again to show all.',
+    sy2526Title: '2025\u201326 School Year',
+    sy2526Subtitle: (n) => `${n} meetings from June 2025 to present. Full agendas and video available.`,
+    sy2425Title: '2024\u201325 School Year',
+    sy2425Subtitle: (n) => `${n} meetings from the BoardDocs archive with full agendas and attachments.`,
+    agendaItemsLabel: (n) => `${n} agenda item${n === 1 ? '' : 's'}`,
+    otherAttachments: 'Other Attachments',
+    video: 'Video',
+    agenda: 'Agenda',
+    minutes: 'Minutes',
+    transcript: 'Transcript',
+    rotationTitle: 'Annual Officer Rotation \u00b7 Per Board Bylaws',
+    rotationBelow: 'Meetings below:',
+    govCalTitle: 'Governance Calendar',
+    govCalDesc: (dateStr) => `Planned board agenda items for the school year. From the ${dateStr} agenda.`,
+    govCalLink: 'View Schedule (PDF)',
+    resourcesTitle: 'Resources',
+    resBoardPortalTitle: 'Board Meeting Portal',
+    resBoardPortalDesc: 'Current agendas and attachments on GAMUT/Simbli.',
+    resBoardDocsTitle: 'BoardDocs Archive',
+    resBoardDocsDesc: 'Meeting agendas before June 2025.',
+    resYouTubeTitle: 'YouTube Channel',
+    resYouTubeDesc: 'Video recordings of public board meetings.',
+    resDistrictTitle: 'District Website',
+    resDistrictDesc: 'Official RCSD information and announcements.',
+    docsTitle: 'District Documents',
+    docsSubtitle: 'School plans, budgets, and accountability reports archived from official sources.',
+    docsBudget: 'Budget',
+    docsLcap: 'LCAP',
+    docsSpsa: 'School Plans (SPSA)',
+    docsSarc: 'School Report Cards',
+    docsEnglish: 'English',
+    docsSpanish: 'Espa\u00f1ol',
+    footerText: 'Compiled from publicly available RCSD documents. Source documents are available at',
+    footerAnd: 'and through the',
+    footerPortal: 'GAMUT board portal',
+    footerDistrict: 'District Summary',
+    footerDistrito: 'Resumen del Distrito',
+    altLangLink: 'Reuniones (Espa\u00f1ol)',
+    altLangHref: 'reuniones/',
+    outFile: 'docs/index.html',
+    threadLabels: {
+      'superintendent-search': 'Superintendent Search',
+      'budget': 'Budget & Resource Alignment',
+      'parcel-tax': '2026 Parcel Tax',
+      'facilities-bond': 'Facilities Bonds (Measure S/T)',
+      'policy': 'Policy Updates',
+      'charter': 'Charter School Oversight',
+    },
+  },
+  es: {
+    lang: 'es',
+    monthNames: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+    monthFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+    title: '\u00cdndice de Reuniones de la Junta de RCSD',
+    headerDistrict: 'Distrito Escolar de Redwood City',
+    headerTitle: '\u00cdndice de Reuniones de la Junta',
+    headerSubtitle: 'Dos a\u00f1os de reuniones de la junta con agendas, grabaciones de video y temas clave. Datos recopilados de',
+    headerSubtitleAnd: 'y',
+    statMeetings: 'Reuniones',
+    statAgendaItems: 'Puntos de agenda',
+    statAttachments: 'Anexos',
+    statWithVideo: 'Con video',
+    statWithTranscript: 'Con transcripci\u00f3n',
+    statWithMinutes: 'Con actas',
+    boardOfEd: 'Junta de Educaci\u00f3n',
+    president: 'Presidente',
+    vicePresident: 'Vicepresidenta',
+    clerk: 'Secretaria',
+    disclaimer: 'No es un documento oficial del Distrito; compilado independientemente por',
+    disclaimerSuffix: 'Puede contener errores.',
+    navTopics: 'Temas Clave',
+    navDocuments: 'Documentos',
+    navResources: 'Recursos',
+    navSourceCode: 'C\u00f3digo Fuente',
+    threadSectionTitle: 'Temas Clave de Este A\u00f1o',
+    threadSectionSubtitle: 'Haga clic en un tema para filtrar las reuniones. Haga clic de nuevo para mostrar todas.',
+    sy2526Title: 'A\u00f1o Escolar 2025\u201326',
+    sy2526Subtitle: (n) => `${n} reuniones desde junio de 2025 hasta el presente. Agendas completas y video disponibles.`,
+    sy2425Title: 'A\u00f1o Escolar 2024\u201325',
+    sy2425Subtitle: (n) => `${n} reuniones del archivo de BoardDocs con agendas completas y anexos.`,
+    agendaItemsLabel: (n) => `${n} punto${n === 1 ? '' : 's'} de agenda`,
+    otherAttachments: 'Otros Anexos',
+    video: 'Video',
+    agenda: 'Agenda',
+    minutes: 'Actas',
+    transcript: 'Transcripci\u00f3n',
+    rotationTitle: 'Rotaci\u00f3n Anual de Oficiales \u00b7 Seg\u00fan Estatutos de la Junta',
+    rotationBelow: 'Reuniones a continuaci\u00f3n:',
+    govCalTitle: 'Calendario de Gobernanza',
+    govCalDesc: (dateStr) => `Puntos de agenda planificados para el a\u00f1o escolar. De la agenda del ${dateStr}.`,
+    govCalLink: 'Ver Calendario (PDF)',
+    resourcesTitle: 'Recursos',
+    resBoardPortalTitle: 'Portal de Reuniones',
+    resBoardPortalDesc: 'Agendas actuales y anexos en GAMUT/Simbli.',
+    resBoardDocsTitle: 'Archivo de BoardDocs',
+    resBoardDocsDesc: 'Agendas de reuniones antes de junio de 2025.',
+    resYouTubeTitle: 'Canal de YouTube',
+    resYouTubeDesc: 'Grabaciones de video de las reuniones p\u00fablicas de la junta.',
+    resDistrictTitle: 'Sitio Web del Distrito',
+    resDistrictDesc: 'Informaci\u00f3n oficial y anuncios de RCSD.',
+    docsTitle: 'Documentos del Distrito',
+    docsSubtitle: 'Planes escolares, presupuestos e informes de rendici\u00f3n de cuentas archivados de fuentes oficiales.',
+    docsBudget: 'Presupuesto',
+    docsLcap: 'LCAP',
+    docsSpsa: 'Planes Escolares (SPSA)',
+    docsSarc: 'Boletas de Calificaciones Escolares',
+    docsEnglish: 'English',
+    docsSpanish: 'Espa\u00f1ol',
+    footerText: 'Compilado a partir de documentos p\u00fablicos de RCSD. Los documentos originales est\u00e1n disponibles en',
+    footerAnd: 'y a trav\u00e9s del',
+    footerPortal: 'portal de la junta GAMUT',
+    footerDistrict: 'Resumen del Distrito',
+    footerDistrito: 'District Summary (English)',
+    altLangLink: 'Meetings (English)',
+    altLangHref: '../',
+    outFile: 'docs/reuniones/index.html',
+    threadLabels: {
+      'superintendent-search': 'B\u00fasqueda de Superintendente',
+      'budget': 'Presupuesto y Alineaci\u00f3n de Recursos',
+      'parcel-tax': 'Impuesto Parcelario 2026',
+      'facilities-bond': 'Bonos de Instalaciones (Medida S/T)',
+      'policy': 'Actualizaciones de Pol\u00edticas',
+      'charter': 'Supervisi\u00f3n de Escuelas Ch\u00e1rter',
+    },
+  },
+};
+
+// Current locale — set per generation pass
+let L = LOCALES.en;
+
 const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const MONTH_FULL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 function formatDateBadge(dateStr) {
   const [y, m, d] = dateStr.split('-');
-  return { month: MONTH_NAMES[parseInt(m) - 1].toUpperCase(), day: parseInt(d), year: y };
+  return { month: L.monthNames[parseInt(m) - 1].toUpperCase(), day: parseInt(d), year: y };
 }
 
 function monthYear(dateStr) {
   const [y, m] = dateStr.split('-');
-  return `${MONTH_FULL[parseInt(m) - 1]} ${y}`;
+  return `${L.monthFull[parseInt(m) - 1]} ${y}`;
 }
 
 function monthKey(dateStr) {
@@ -305,7 +464,7 @@ function renderAgendaItems(m) {
 
   // Render extra (unmatched) attachments at meeting level
   if (m.extraAttachments && m.extraAttachments.length > 0) {
-    itemsHtml += '<div class="agenda-item" style="opacity:0.7">Other Attachments</div>';
+    itemsHtml += `<div class="agenda-item" style="opacity:0.7">${L.otherAttachments}</div>`;
     itemsHtml += '<div class="agenda-attachments">';
     for (const att of m.extraAttachments) {
       const name = att.title || 'Attachment';
@@ -348,38 +507,38 @@ function renderMeeting(m) {
 
   let links = '';
   if (m.youtube) {
-    links += `<a href="https://www.youtube.com/watch?v=${m.youtube}" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a>`;
+    links += `<a href="https://www.youtube.com/watch?v=${m.youtube}" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; ${L.video}</a>`;
   }
   if (hasR2Agenda) {
-    links += `<a href="${R2_BASE}/agendas/${agendaFile}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a>`;
+    links += `<a href="${R2_BASE}/agendas/${agendaFile}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; ${L.agenda}</a>`;
   } else if (m.simbli) {
-    links += `<a href="${escapeHtml(m.simbli)}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a>`;
+    links += `<a href="${escapeHtml(m.simbli)}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; ${L.agenda}</a>`;
   }
   if (minutesFile) {
-    links += `<a href="${R2_BASE}/minutes/${minutesFile}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a>`;
+    links += `<a href="${R2_BASE}/minutes/${minutesFile}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; ${L.minutes}</a>`;
   } else if (m.minutes) {
     if (m.minutes.documents && m.minutes.documents.length > 0 && m.minutes.documents[0].href) {
       const doc = m.minutes.documents[0];
-      links += `<a href="${escapeHtml(doc.href)}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a>`;
+      links += `<a href="${escapeHtml(doc.href)}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; ${L.minutes}</a>`;
     } else if (m.minutes.approvedAt) {
       const approver = data.meetings.find(x => x.date === m.minutes.approvedAt);
       const approverUrl = approver?.simbli || approver?.boarddocs;
       if (approverUrl) {
-        links += `<a href="${escapeHtml(approverUrl)}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes approved ${m.minutes.approvedAt}">&#128196; Minutes</a>`;
+        links += `<a href="${escapeHtml(approverUrl)}" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="${L.minutes} ${m.minutes.approvedAt}">&#128196; ${L.minutes}</a>`;
       }
     }
   }
   if (hasR2Transcript) {
-    links += `<a href="${R2_BASE}/transcripts/${transcriptFile}" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a>`;
+    links += `<a href="${R2_BASE}/transcripts/${transcriptFile}" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; ${L.transcript}</a>`;
   }
   if (m.boarddocs) {
-    links += `<a href="${escapeHtml(m.boarddocs)}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a>`;
+    links += `<a href="${escapeHtml(m.boarddocs)}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; ${L.agenda}</a>`;
   }
 
   let threadTags = '';
   if (m.threads.length) {
     threadTags = '<div class="meeting-threads">' +
-      m.threads.map(t => `<span class="meeting-thread-tag" data-thread="${t}">${THREAD_LABELS[t] || t}</span>`).join('') +
+      m.threads.map(t => `<span class="meeting-thread-tag" data-thread="${t}">${L.threadLabels[t] || t}</span>`).join('') +
       '</div>';
   }
 
@@ -395,7 +554,7 @@ function renderMeeting(m) {
     ? (m.items || []).filter(isSubstantiveItem).length
     : (m.items || []).length;
   const accordionHtml = agendaSection
-    ? `<details class="meeting-details"><summary class="meeting-details-toggle">${itemCount} agenda item${itemCount === 1 ? '' : 's'}</summary>${agendaSection}</details>`
+    ? `<details class="meeting-details"><summary class="meeting-details-toggle">${L.agendaItemsLabel(itemCount)}</summary>${agendaSection}</details>`
     : '';
 
   return `    <div class="meeting-row${sparseClass}${typeModifier}"${threadAttrs}>
@@ -437,8 +596,8 @@ function renderRotationDivider(rotation) {
   return `    <div class="rotation-divider">
       <span class="rotation-divider-icon">\u21BB</span>
       <div class="rotation-divider-text">
-        <div class="rotation-divider-label">Annual Officer Rotation &middot; Per Board Bylaws</div>
-        Meetings below: ${officers}${note}
+        <div class="rotation-divider-label">${L.rotationTitle}</div>
+        ${L.rotationBelow} ${officers}${note}
       </div>
     </div>`;
 }
@@ -472,11 +631,11 @@ function renderThreadFilters() {
   const threads = ['superintendent-search', 'budget', 'parcel-tax', 'facilities-bond', 'policy'];
   return `<section class="section" id="threads">
   <div class="section-rule"></div>
-  <h2>Key Topics This Year</h2>
-  <p>Click a topic to filter meetings. Click again to show all.</p>
+  <h2>${L.threadSectionTitle}</h2>
+  <p>${L.threadSectionSubtitle}</p>
   <div class="thread-filters">
 ${threads.map(t => `    <button class="thread-btn" data-filter="${t}">
-      <span class="thread-btn-label">${THREAD_LABELS[t]}</span>
+      <span class="thread-btn-label">${L.threadLabels[t]}</span>
       <span class="thread-btn-count">${threadCounts[t] || 0}</span>
     </button>`).join('\n')}
   </div>
@@ -515,37 +674,37 @@ function renderResources(data) {
   const govCal = findGovernanceCalendar(data);
   if (govCal) {
     const [y, m, d] = govCal.date.split('-');
-    const dateStr = `${MONTH_FULL[parseInt(m) - 1]} ${parseInt(d)}, ${y}`;
+    const dateStr = `${L.monthFull[parseInt(m) - 1]} ${parseInt(d)}, ${y}`;
     govCalCard = `
     <div class="resource-card">
-      <h3>Governance Calendar</h3>
-      <p>Planned board agenda items for the school year. From the ${dateStr} agenda.</p>
-      <a href="${escapeHtml(govCal.href)}" target="_blank" rel="noopener">View Schedule (PDF) &#8599;</a>
+      <h3>${L.govCalTitle}</h3>
+      <p>${L.govCalDesc(dateStr)}</p>
+      <a href="${escapeHtml(govCal.href)}" target="_blank" rel="noopener">${L.govCalLink} &#8599;</a>
     </div>`;
   }
 
   return `<section class="section" id="resources">
   <div class="section-rule"></div>
-  <h2>Resources</h2>
+  <h2>${L.resourcesTitle}</h2>
   <div class="resource-grid">${govCalCard}
     <div class="resource-card">
-      <h3>Board Meeting Portal</h3>
-      <p>Current agendas and attachments on GAMUT/Simbli.</p>
+      <h3>${L.resBoardPortalTitle}</h3>
+      <p>${L.resBoardPortalDesc}</p>
       <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397" target="_blank" rel="noopener">simbli.eboardsolutions.com &#8599;</a>
     </div>
     <div class="resource-card">
-      <h3>BoardDocs Archive</h3>
-      <p>Meeting agendas before June 2025.</p>
+      <h3>${L.resBoardDocsTitle}</h3>
+      <p>${L.resBoardDocsDesc}</p>
       <a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&id=CVLPDX62089F" target="_blank" rel="noopener">go.boarddocs.com &#8599;</a>
     </div>
     <div class="resource-card">
-      <h3>YouTube Channel</h3>
-      <p>Video recordings of public board meetings.</p>
+      <h3>${L.resYouTubeTitle}</h3>
+      <p>${L.resYouTubeDesc}</p>
       <a href="https://www.youtube.com/@redwoodcityschooldistrict" target="_blank" rel="noopener">youtube.com &#8599;</a>
     </div>
     <div class="resource-card">
-      <h3>District Website</h3>
-      <p>Official RCSD information and announcements.</p>
+      <h3>${L.resDistrictTitle}</h3>
+      <p>${L.resDistrictDesc}</p>
       <a href="https://www.rcsdk8.net" target="_blank" rel="noopener">rcsdk8.net &#8599;</a>
     </div>
   </div>
@@ -586,13 +745,13 @@ function renderDocuments() {
 
   let html = `<section class="section" id="documents">
   <div class="section-rule"></div>
-  <h2>District Documents</h2>
-  <p class="section-subtitle">School plans, budgets, and accountability reports archived from official sources.</p>
+  <h2>${L.docsTitle}</h2>
+  <p class="section-subtitle">${L.docsSubtitle}</p>
   <div class="doc-tabs">
-    <button class="doc-tab active" data-doc-tab="budget">Budget</button>
-    <button class="doc-tab" data-doc-tab="lcap">LCAP</button>
-    <button class="doc-tab" data-doc-tab="spsa">School Plans (SPSA)</button>
-    <button class="doc-tab" data-doc-tab="sarc">School Report Cards</button>
+    <button class="doc-tab active" data-doc-tab="budget">${L.docsBudget}</button>
+    <button class="doc-tab" data-doc-tab="lcap">${L.docsLcap}</button>
+    <button class="doc-tab" data-doc-tab="spsa">${L.docsSpsa}</button>
+    <button class="doc-tab" data-doc-tab="sarc">${L.docsSarc}</button>
   </div>`;
 
   // Budget panel
@@ -652,7 +811,7 @@ function renderDocuments() {
     const yearData = inv.sarc[year];
     html += `\n    <h3 class="doc-year-heading">${year}</h3>`;
     if (yearData.english.length) {
-      html += `\n    <div class="doc-lang-label">English</div>`;
+      html += `\n    <div class="doc-lang-label">${L.docsEnglish}</div>`;
       html += `\n    <div class="doc-school-grid">`;
       for (const s of yearData.english) {
         html += `\n      <a class="doc-school-link" href="${R2_BASE}/${s.path}" target="_blank" rel="noopener">${prettySchool(s.school)}</a>`;
@@ -660,7 +819,7 @@ function renderDocuments() {
       html += `\n    </div>`;
     }
     if (yearData.spanish.length) {
-      html += `\n    <div class="doc-lang-label">Espa&ntilde;ol</div>`;
+      html += `\n    <div class="doc-lang-label">${L.docsSpanish}</div>`;
       html += `\n    <div class="doc-school-grid">`;
       for (const s of yearData.spanish) {
         html += `\n      <a class="doc-school-link" href="${R2_BASE}/${s.path}" target="_blank" rel="noopener">${prettySchool(s.school)}</a>`;
@@ -674,13 +833,15 @@ function renderDocuments() {
   return html;
 }
 
+function generatePage() {
+
 const html = `<!DOCTYPE html>
-<html lang="en">
+<html lang="${L.lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<title>RCSD Board Meeting Index</title>
+<title>${L.title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -1567,41 +1728,41 @@ const html = `<!DOCTYPE html>
 
 <header class="site-header">
   <div class="header-inner">
-    <div class="header-district">Redwood City School District</div>
-    <h1 class="header-title">Board Meeting Index</h1>
-    <p class="header-subtitle">Two years of board meetings with agendas, video recordings, and key topics. Data compiled from <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397" style="color:rgba(255,255,255,0.75)">GAMUT/Simbli</a> and <a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&id=CVLPDX62089F" style="color:rgba(255,255,255,0.75)">BoardDocs</a>.</p>
+    <div class="header-district">${L.headerDistrict}</div>
+    <h1 class="header-title">${L.headerTitle}</h1>
+    <p class="header-subtitle">${L.headerSubtitle} <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397" style="color:rgba(255,255,255,0.75)">GAMUT/Simbli</a> ${L.headerSubtitleAnd} <a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&id=CVLPDX62089F" style="color:rgba(255,255,255,0.75)">BoardDocs</a>.</p>
     <div class="header-meta">
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.total}</span>
-        <span class="header-stat-label">Meetings</span>
+        <span class="header-stat-label">${L.statMeetings}</span>
       </div>
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.totalItems || 0}</span>
-        <span class="header-stat-label">Agenda items</span>
+        <span class="header-stat-label">${L.statAgendaItems}</span>
       </div>
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.totalAttachments || 0}</span>
-        <span class="header-stat-label">Attachments</span>
+        <span class="header-stat-label">${L.statAttachments}</span>
       </div>
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.withVideo}</span>
-        <span class="header-stat-label">With video</span>
+        <span class="header-stat-label">${L.statWithVideo}</span>
       </div>
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.withTranscript || 0}</span>
-        <span class="header-stat-label">With transcript</span>
+        <span class="header-stat-label">${L.statWithTranscript}</span>
       </div>
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.withMinutes || 0}</span>
-        <span class="header-stat-label">With minutes</span>
+        <span class="header-stat-label">${L.statWithMinutes}</span>
       </div>
     </div>
     <div class="board-roster">
-      <div class="board-roster-label"><a href="https://www.rcsdk8.net/our-district/our-board-of-trustees/meet-the-trustees" style="color:rgba(255,255,255,0.4);text-decoration:none" target="_blank" rel="noopener">Board of Education</a></div>
+      <div class="board-roster-label"><a href="https://www.rcsdk8.net/our-district/our-board-of-trustees/meet-the-trustees" style="color:rgba(255,255,255,0.4);text-decoration:none" target="_blank" rel="noopener">${L.boardOfEd}</a></div>
       <ul class="board-roster-list">
-        <li>David Weekly <span class="roster-role">President</span></li>
-        <li>Cecilia I. M&aacute;rquez <span class="roster-role">Vice President</span></li>
-        <li>Jennifer Ng Kwing King <span class="roster-role">Clerk</span></li>
+        <li>David Weekly <span class="roster-role">${L.president}</span></li>
+        <li>Cecilia I. M&aacute;rquez <span class="roster-role">${L.vicePresident}</span></li>
+        <li>Jennifer Ng Kwing King <span class="roster-role">${L.clerk}</span></li>
         <li>David Li</li>
         <li>Mike Wells</li>
       </ul>
@@ -1610,26 +1771,27 @@ const html = `<!DOCTYPE html>
 </header>
 
 <div class="disclaimer">
-  Not an official District document; independently assembled by <a href="https://github.com/dweekly/rcsd-meetings" style="color:#664d03">David Weekly</a>. May contain errors.
+  ${L.disclaimer} <a href="https://github.com/dweekly/rcsd-meetings" style="color:#664d03">David Weekly</a>. ${L.disclaimerSuffix}
 </div>
 
 <nav class="toc">
   <div class="toc-inner">
-    <a href="#threads">Key Topics</a>
+    <a href="#threads">${L.navTopics}</a>
     <a href="#sy2526">2025-26</a>
     <a href="#sy2425">2024-25</a>
-    <a href="#documents">Documents</a>
-    <a href="#resources">Resources</a>
-    <a href="https://github.com/dweekly/rcsd-meetings">Source Code</a>
+    <a href="#documents">${L.navDocuments}</a>
+    <a href="#resources">${L.navResources}</a>
+    <a href="${L.altLangHref}">${L.altLangLink}</a>
+    <a href="https://github.com/dweekly/rcsd-meetings">${L.navSourceCode}</a>
   </div>
 </nav>
 
 <main class="content">
 ${renderThreadFilters()}
 
-${renderSchoolYear('sy2526', '2025\u201326 School Year', sy2526, `${sy2526.length} meetings from June 2025 to present. Full agendas and video available.`)}
+${renderSchoolYear('sy2526', L.sy2526Title, sy2526, L.sy2526Subtitle(sy2526.length))}
 
-${renderSchoolYear('sy2425', '2024\u201325 School Year', sy2425, `${sy2425.length} meetings from the BoardDocs archive with full agendas and attachments.`)}
+${renderSchoolYear('sy2425', L.sy2425Title, sy2425, L.sy2425Subtitle(sy2425.length))}
 
 ${renderDocuments()}
 
@@ -1637,11 +1799,11 @@ ${renderResources(data)}
 </main>
 
 <footer class="site-footer">
-  Compiled from publicly available RCSD documents. Source documents are available at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and through the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>.
+  ${L.footerText} <a href="https://www.rcsdk8.net">rcsdk8.net</a> ${L.footerAnd} <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">${L.footerPortal}</a>.
   <div class="footer-nav">
-    <a href="district/">District Summary &#8599;</a>
-    <a href="distrito/">Resumen del Distrito &#8599;</a>
-    <a href="https://github.com/dweekly/rcsd-meetings">Source Code &#8599;</a>
+    <a href="${L.lang === 'en' ? 'district/' : '../district/'}">${L.footerDistrict} &#8599;</a>
+    <a href="${L.lang === 'en' ? 'distrito/' : '../distrito/'}">${L.footerDistrito} &#8599;</a>
+    <a href="https://github.com/dweekly/rcsd-meetings">${L.navSourceCode} &#8599;</a>
   </div>
 </footer>
 
@@ -1686,5 +1848,13 @@ ${renderResources(data)}
 </body>
 </html>`;
 
-writeFileSync(resolve(ROOT, 'docs/index.html'), html);
-console.log('Wrote docs/index.html');
+writeFileSync(resolve(ROOT, L.outFile), html);
+console.log(`Wrote ${L.outFile}`);
+
+} // end generatePage
+
+// Generate both language versions
+for (const locale of ['en', 'es']) {
+  L = LOCALES[locale];
+  generatePage();
+}
