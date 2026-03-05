@@ -28,6 +28,14 @@ for (const [suffix, lang] of [['', 'en'], ['-es', 'es']]) {
 }
 let manualSummaries = summariesByLang.en;
 
+// Load optional agenda item title translations for Spanish bilingual display
+const agendaTitlesEsPath = resolve(ROOT, 'data/agenda-titles-es.json');
+let agendaTitlesEs = {};
+if (existsSync(agendaTitlesEsPath)) {
+  agendaTitlesEs = JSON.parse(readFileSync(agendaTitlesEsPath, 'utf-8'));
+  console.log(`Loaded ${Object.keys(agendaTitlesEs).length} agenda title translations`);
+}
+
 // Build lookup of available R2 artifacts from local artifacts/ directory
 const agendaFiles = new Set();
 const minutesFiles = new Set();
@@ -467,6 +475,11 @@ function renderAgendaItems(m) {
       : '';
 
     itemsHtml += `<div class="agenda-item">${order}${tsLink}${escapeHtml(title)}${typeLabel}</div>`;
+
+    // Bilingual subtitle on Spanish page
+    if (L.lang === 'es' && agendaTitlesEs[title]) {
+      itemsHtml += `<div class="agenda-item-es">${escapeHtml(agendaTitlesEs[title])}</div>`;
+    }
 
     // Render attachments
     if (item.attachments && item.attachments.length > 0) {
@@ -1239,6 +1252,14 @@ const html = `<!DOCTYPE html>
     color: var(--text-secondary);
     line-height: 1.45;
     padding: 0.15rem 0;
+  }
+
+  .agenda-item-es {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 0 0 0.1rem 1.8rem;
+    line-height: 1.35;
   }
 
   .agenda-item-order {
