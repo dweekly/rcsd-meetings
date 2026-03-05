@@ -201,7 +201,7 @@ const LOCALES = {
     statWithVideo: 'Con video',
     statWithTranscript: 'Con transcripci\u00f3n',
     statWithMinutes: 'Con actas',
-    boardOfEd: 'Junta de Educaci\u00f3n',
+    boardOfEd: 'Mesa Directiva',
     president: 'Presidente',
     vicePresident: 'Vicepresidenta',
     clerk: 'Secretaria',
