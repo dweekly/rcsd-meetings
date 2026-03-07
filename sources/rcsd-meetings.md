@@ -1,8 +1,8 @@
 # RCSD Board Meetings — 2025-2026 School Year
-Last updated: March 2, 2026
+Last updated: March 6, 2026
 
 ## Overview
-- 23 meetings on Simbli (June 2025 - present)
+- 24 meetings on Simbli (June 2025 - present)
 - Pre-June 2025 meetings on BoardDocs: https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&id=CVLPDX62089F
 - Agendas: https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397
 - YouTube: https://www.youtube.com/@redwoodcityschooldistrict
@@ -12,6 +12,7 @@ Last updated: March 2, 2026
 
 | Date | Type | MID | YouTube | Key Topics |
 |------|------|-----|---------|------------|
+| 03/11/2026 | Regular | 50616 | — | Roosevelt/McKinley/Hoover SPSA presentations, Eide Bailly bond audit, 2025 SARCs, Measure U addenda (Roosevelt/McKinley/Hoover), NV5 EV charging amendment, Feb warrant registers |
 | 02/26/2026 | Special | 56022 | [Video](https://www.youtube.com/watch?v=8NOEEW_cpyU) | Parcel tax public hearing + election resolution |
 | 02/11/2026 | Regular | 50344 | [Video](https://www.youtube.com/watch?v=6VgYicePQto) | LCAP mid-year ($151.5M), parcel tax draft resolution ($12.2M/yr), ZESBI electric buses ($1.44M grant), certificated reductions (Res 17-20), RCTA negotiations |
 | 02/04/2026 | Regular | 50343 | [Video](https://www.youtube.com/watch?v=Nw7_DtNMPVk) | Revised Measure S implementation plan, Blach HVAC Phase 2 lease-leaseback ($3M), budget reductions ($6.4M), HVAC Phase 1 closeout, 5 policy second readings |
@@ -39,6 +40,39 @@ Last updated: March 2, 2026
 ---
 
 ## Detailed Meeting Agendas
+
+### 03/11/2026 — Regular Meeting (MID 50616)
+- **Zoom:** https://rcsdk8-net.zoom.us/s/82092147587
+- **Simbli:** https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=50616
+
+**Bond Program Consent:**
+1. Approval of Agreement Between the Redwood City School District and Eide Bailly
+
+**Action Items (1 hr 30 min):**
+1. Roosevelt School Presentation and School Plan for Student Achievement (SPSA) Approval
+2. McKinley Institute of Tech School Presentation and School Plan for Student Achievement (SPSA) Approval
+3. Hoover School Presentation and School Plan for Student Achievement (SPSA) Approval
+
+**Consent Items:**
+1. Approval of the February 4, 2026, Regular Meeting Minutes
+2. Approval of the February 26, 2026, Special Meeting Minutes
+3. Approval of the Addendum to the Measure U Application for Roosevelt Elementary School for the 2025-2026 School Year
+4. Approval of the Addendum to the Measure U Application for McKinley Middle School for the 2025-2026 School Year
+5. Approval of the Addendum to the Measure U Application for Hoover Community School for the 2025-2026 School Year
+6. Approval of Roy Cloud Field Trip to Marine Science Institute – March 25, 2026
+7. Approval of North Star Academy Field Trip to Pinnacles National Park – May 19 – May 22, 2026
+8. Approval of the Agreement between Redwood City School District and Soliant Health, LLC, to provide a School Psychologist for the 2025-2026 School Year
+9. Approval of Amendment No. 2 between Redwood City School District and Nicole Linette Campbell for a SPED Speech and Language Pathologist for the 2025-2026 School Year
+10. Approval of the 2025 School Accountability Report Cards (SARCs)
+11. Approval of the 2025-26 School Attendance Review Board (SARB)
+12. Approval of the Amendment between Redwood City District and Sage Renewable Energy Consulting, Inc. dba NV5 for Electric Vehicle Charging Infrastructure Support Services
+13. Approval of Agreement Between the Redwood City School District and Eide Bailly
+14. Ratification of Warrant Registers, February 1, 2026 – February 28, 2026
+
+**Information:**
+1. Information on San Mateo County Investment Fund - January 2026
+
+---
 
 ### 02/26/2026 — Special Meeting (MID 56022)
 - **Zoom:** https://rcsdk8-net.zoom.us/s/83229144555
