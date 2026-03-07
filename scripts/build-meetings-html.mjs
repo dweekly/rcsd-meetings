@@ -160,6 +160,7 @@ const LOCALES = {
     agenda: 'Agenda',
     minutes: 'Minutes',
     transcript: 'Transcript',
+    joinZoom: 'Join via Zoom',
     rotationTitle: 'Annual Officer Rotation \u00b7 Per Board Bylaws',
     rotationBelow: 'Meetings below:',
     govCalTitle: 'Governance Calendar',
@@ -237,6 +238,7 @@ const LOCALES = {
     agenda: 'Agenda',
     minutes: 'Actas',
     transcript: 'Transcripci\u00f3n',
+    joinZoom: 'Unirse por Zoom',
     rotationTitle: 'Rotaci\u00f3n Anual de Oficiales \u00b7 Seg\u00fan Estatutos de la Junta',
     rotationBelow: 'Reuniones a continuaci\u00f3n:',
     govCalTitle: 'Calendario de Gobernanza',
@@ -538,6 +540,10 @@ function renderMeeting(m) {
   const hasR2Transcript = transcriptFile && transcriptFiles.has(transcriptFile);
 
   let links = '';
+  // Zoom link — hidden by default, shown by client-side JS for upcoming/recent meetings
+  if (m.zoom) {
+    links += `<a href="${escapeHtml(m.zoom)}" class="meeting-link meeting-link--zoom" data-zoom-date="${m.date}" target="_blank" rel="noopener">&#128247; ${L.joinZoom}</a>`;
+  }
   if (m.youtube) {
     links += `<a href="https://www.youtube.com/watch?v=${m.youtube}" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; ${L.video}</a>`;
   }
@@ -1518,6 +1524,24 @@ const html = `<!DOCTYPE html>
     color: var(--green-deep);
   }
 
+  .meeting-link--zoom {
+    display: none;
+    color: #fff;
+    background: #2d8cff;
+    border-radius: 4px;
+    padding: 0.25rem 0.6rem;
+    font-weight: 600;
+  }
+
+  .meeting-link--zoom:hover {
+    background: #1a6fd4;
+    color: #fff;
+  }
+
+  .meeting-link--zoom.zoom-active {
+    display: inline-flex;
+  }
+
   .meeting-threads {
     display: flex;
     flex-wrap: wrap;
@@ -1888,6 +1912,20 @@ ${renderResources(data)}
         });
       }
     });
+  });
+
+  // Show Zoom links for upcoming meetings or those within 6 hours of start
+  var zoomLinks = document.querySelectorAll('.meeting-link--zoom[data-zoom-date]');
+  var now = new Date();
+  zoomLinks.forEach(function(link) {
+    var dateStr = link.dataset.zoomDate; // "2026-03-11"
+    // Meetings start at 7 PM Pacific
+    var parts = dateStr.split('-');
+    var meetingStart = new Date(parts[0] + '-' + parts[1] + '-' + parts[2] + 'T19:00:00-08:00');
+    var sixHoursAfter = new Date(meetingStart.getTime() + 6 * 60 * 60 * 1000);
+    if (now <= sixHoursAfter) {
+      link.classList.add('zoom-active');
+    }
   });
 
   // Document tab switching

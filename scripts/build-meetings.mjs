@@ -68,7 +68,10 @@ function parseDetailedSections(md) {
     // Extract Simbli URL
     const simbliMatch = content.match(/\*\*Simbli:\*\*\s+(https:\/\/simbli[^\s]+)/);
 
-    sections[date] = { mid, items, simbliUrl: simbliMatch ? simbliMatch[1] : null };
+    // Extract Zoom URL
+    const zoomMatch = content.match(/https:\/\/rcsdk8-net\.zoom\.us\/\S+/);
+
+    sections[date] = { mid, items, simbliUrl: simbliMatch ? simbliMatch[1] : null, zoom: zoomMatch ? zoomMatch[0] : null };
   }
   return sections;
 }
@@ -137,6 +140,7 @@ const simbliMeetings = tableRows.map(row => {
     youtube: youtubeId,
     simbli: simbliUrl,
     boarddocs: null,
+    zoom: detail?.zoom || null,
     topics: topics ? [topics] : [],
     threads: classifyThreads(topics, type, date),
     items: detail?.items || []
