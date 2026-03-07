@@ -978,6 +978,24 @@ const html = `<!DOCTYPE html>
     font-style: italic;
   }
 
+  .lang-switch {
+    display: inline-block;
+    margin-top: 0.75rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.03em;
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .lang-switch:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
   .header-meta {
     margin-top: 2rem;
     display: flex;
@@ -1771,6 +1789,7 @@ const html = `<!DOCTYPE html>
     <div class="header-district">${L.headerDistrict}</div>
     <h1 class="header-title">${L.headerTitle}</h1>
     <p class="header-subtitle">${L.headerSubtitle} <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397" style="color:rgba(255,255,255,0.75)">GAMUT/Simbli</a> ${L.headerSubtitleAnd} <a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&id=CVLPDX62089F" style="color:rgba(255,255,255,0.75)">BoardDocs</a>.</p>
+    <a href="${L.altLangHref}" class="lang-switch">${L.altLangLink}</a>
     <div class="header-meta">
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.total}</span>
