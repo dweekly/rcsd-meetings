@@ -109,24 +109,6 @@
     font-style: italic;
   }
 
-  .lang-switch {
-    display: inline-block;
-    margin-top: 0.75rem;
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.03em;
-    color: #fff;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .lang-switch:hover {
-    background: rgba(255,255,255,0.25);
-  }
-
   .header-meta {
     margin-top: 2rem;
     display: flex;
@@ -154,6 +136,70 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.45);
     margin-top: 0.35rem;
+  }
+
+  /* ---- SITE NAV ---- */
+  .site-nav {
+    background: #1a2e1a;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-nav-tabs {
+    display: flex;
+    gap: 0;
+  }
+
+  .site-nav-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.45);
+    padding: 0.7rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .site-nav-tab:hover {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .site-nav-tab.active {
+    color: #fff;
+    border-bottom-color: var(--green-light);
+  }
+
+  .site-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .site-nav-lang {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .site-nav-lang:hover {
+    color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.4);
   }
 
   /* ---- DISCLAIMER ---- */
@@ -651,16 +697,11 @@
 
   .meeting-link--zoom {
     display: none;
-    color: #fff;
-    background: #2d8cff;
-    border-radius: 4px;
-    padding: 0.25rem 0.6rem;
-    font-weight: 600;
+    color: #2d8cff;
   }
 
   .meeting-link--zoom:hover {
-    background: #1a6fd4;
-    color: #fff;
+    color: #1a6fd4;
   }
 
   .meeting-link--zoom.zoom-active {
@@ -917,6 +958,8 @@
     .header-inner { padding: 3rem 1.2rem 2.5rem; }
     .content { padding: 0 1.2rem 4rem; }
     .header-meta { gap: 1.5rem; }
+    .site-nav-tab { padding: 0.6rem 0.7rem; font-size: 0.6rem; }
+    .site-nav-inner { padding: 0 1.2rem; }
     .toc a { padding: 0.8rem 0.6rem; font-size: 0.6rem; }
     .meeting-row { gap: 0.8rem; }
     .meeting-date { width: 2.6rem; }
@@ -933,12 +976,25 @@
 </head>
 <body>
 
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <div class="site-nav-tabs">
+      <a href="./" class="site-nav-tab active">Meetings</a>
+      <a href="district/" class="site-nav-tab">District</a>
+      <a href="#" class="site-nav-tab" style="opacity:0.3;pointer-events:none">Docs</a>
+      <a href="https://github.com/dweekly/rcsd-meetings" class="site-nav-tab">Code</a>
+    </div>
+    <div class="site-nav-right">
+      <a href="reuniones/" class="site-nav-lang">ES</a>
+    </div>
+  </div>
+</nav>
+
 <header class="site-header">
   <div class="header-inner">
     <div class="header-district">Redwood City School District</div>
     <h1 class="header-title">Board Meeting Index</h1>
     <p class="header-subtitle">Two years of board meetings with agendas, video recordings, and key topics. Data compiled from <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397" style="color:rgba(255,255,255,0.75)">GAMUT/Simbli</a> and <a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&id=CVLPDX62089F" style="color:rgba(255,255,255,0.75)">BoardDocs</a>.</p>
-    <a href="reuniones/" class="lang-switch">Reuniones (Español)</a>
     <div class="header-meta">
       <div class="header-stat">
         <span class="header-stat-value">58</span>
@@ -989,8 +1045,6 @@
     <a href="#sy2425">2024-25</a>
     <a href="#documents">Documents</a>
     <a href="#resources">Resources</a>
-    <a href="reuniones/">Reuniones (Español)</a>
-    <a href="https://github.com/dweekly/rcsd-meetings">Source Code</a>
   </div>
 </nav>
 
@@ -1037,7 +1091,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/82092147587" class="meeting-link meeting-link--zoom" data-zoom-date="2026-03-11" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50616" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/82092147587" class="meeting-link meeting-link--zoom" data-zoom-date="2026-03-11" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50616" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Three school presentations with SPSA approvals for Roosevelt, McKinley Institute of Technology, and Hoover. Consent items include February meeting minutes, <strong>Measure U</strong> addenda for all three schools, field trips (Roy Cloud, North Star), school psychologist agreement, 2025 SARCs, SARB membership, NV5 EV charging infrastructure amendment, Eide Bailly bond audit agreement, and February warrant registers.</p>
@@ -1053,7 +1107,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Special</span><span class="meeting-duration">13m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/83229144555" class="meeting-link meeting-link--zoom" data-zoom-date="2026-02-26" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=8NOEEW_cpyU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-26-special.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50616" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes 2026-03-11">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/8NOEEW_cpyU.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/83229144555" class="meeting-link meeting-link--zoom" data-zoom-date="2026-02-26" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=8NOEEW_cpyU" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-26-special.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50616" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes 2026-03-11">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/8NOEEW_cpyU.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span></div>
         <p class="meeting-summary">Board held a special meeting to adopt the <strong>parcel tax</strong> resolution placing <strong>Measure E</strong> on the June 2, 2026 ballot — <strong>$25/unimproved</strong> parcel, 8-year term, estimated <strong>$12.2M/year</strong> for district and school programs.</p>
@@ -1069,7 +1123,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 42m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/86264623741" class="meeting-link meeting-link--zoom" data-zoom-date="2026-02-11" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=6VgYicePQto" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-11-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/86264623741" class="meeting-link meeting-link--zoom" data-zoom-date="2026-02-11" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=6VgYicePQto" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-11-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">First reading of the draft <strong>parcel tax</strong> resolution (<strong>$12.2M/year</strong>, 8-year term). <strong>LCAP</strong> mid-year report showed <strong>$151.5M</strong> total spending with equity gaps persisting for homeless students and African American students. Approved purchase of 4 fully electric school buses (<strong>$1.78M</strong>, mostly grant-funded). Passed Resolutions 17–20 authorizing certificated and classified staff reductions for the coming year. Began RCTA teacher contract negotiations for 2026–2029.</p>
@@ -1085,7 +1139,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 40m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/85731746466" class="meeting-link meeting-link--zoom" data-zoom-date="2026-02-04" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=Nw7_DtNMPVk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-04-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50616" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes 2026-03-11">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/Nw7_DtNMPVk.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/85731746466" class="meeting-link meeting-link--zoom" data-zoom-date="2026-02-04" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=Nw7_DtNMPVk" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-02-04-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=50616" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener" title="Minutes 2026-03-11">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/Nw7_DtNMPVk.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board approved the final <strong>$6.4M</strong> <strong>Strategic Resource Alignment</strong> <strong>budget reduction</strong> plan and the <strong>Measure S</strong> bond implementation plan. Authorized Blach HVAC Phase 2 (<strong>$3M</strong> lease-leaseback) and approved solar change orders returning <strong>$2.29M</strong> to the district. Also approved Kennedy and Roy Cloud <strong>Measure U</strong> addenda, 12 school safety plans, and 5 policy second readings.</p>
@@ -1101,7 +1155,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 23m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/86928525825" class="meeting-link meeting-link--zoom" data-zoom-date="2026-01-21" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=-nOpGerpRGA" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-01-21-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2026-01-21-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/-nOpGerpRGA.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/86928525825" class="meeting-link meeting-link--zoom" data-zoom-date="2026-01-21" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=-nOpGerpRGA" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-01-21-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2026-01-21-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/-nOpGerpRGA.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board ratified the employment agreement with Dr. Christian Rubalcaba as new <strong>superintendent</strong> (starting March 3, 2026), 5-0. Closed session on 750 Bradford St property negotiations with The Sobrato Organization (no action). President Weekly pulled EV charger items (<strong>Resolution 16</strong>/17, PowerFlex, Atlas Pellizzari <strong>$70.5K</strong> installation) for future review. Public comment: CSEA President Stockton encouraged trustees to meet with classified staff. Thirteen policy first readings covered facilities, campus security, drones, electronic signatures, and district records; drones policy remanded to Policy Committee for further review.</p>
@@ -1133,7 +1187,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Study Session</span><span class="meeting-duration">2h 2m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/89500805026" class="meeting-link meeting-link--zoom" data-zoom-date="2026-01-13" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=PdjSjhxgrP8" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-01-13-study-session.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2026-01-13-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/PdjSjhxgrP8.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/89500805026" class="meeting-link meeting-link--zoom" data-zoom-date="2026-01-13" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=PdjSjhxgrP8" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2026-01-13-study-session.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2026-01-13-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/PdjSjhxgrP8.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">Two-hour study session (6:01-8:04 PM) on the <strong>Strategic Resource Alignment</strong> plan — <strong>Superintendent</strong> presented preliminary <strong>budget reduction</strong> options. Public comments from staff and parents raised concerns about Orion staffing, Hoover teacher support, and preserving mental health and TK programs. Board discussed long-term fiscal sustainability. No formal action taken.</p>
@@ -1149,7 +1203,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 9m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/82794189571" class="meeting-link meeting-link--zoom" data-zoom-date="2025-12-17" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=l57rtrFt4jM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-12-17-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-12-17-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/l57rtrFt4jM.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/82794189571" class="meeting-link meeting-link--zoom" data-zoom-date="2025-12-17" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=l57rtrFt4jM" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-12-17-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-12-17-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/l57rtrFt4jM.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Annual board officer rotation per Bylaws: Weekly elected President, Márquez VP, Ng Kwing King Clerk. <strong>Superintendent</strong> Baker presented Wells with appreciation award for service as president. Three public speakers: parent Patricia Renderos urged the district to avoid staff cuts; parent Agustin Espino congratulated Weekly; CSEA President Stockton raised concerns about staff survey anonymity and workload from reductions. First Interim Budget Report approved 5-0. Seven policy first readings on special education and law enforcement interactions. Consent included the Annual Developer Fee Report and CBOC membership approval.</p>
@@ -1188,7 +1242,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">2h 28m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/89295336996" class="meeting-link meeting-link--zoom" data-zoom-date="2025-12-10" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=TD3ovpP2tfo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-12-10-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-12-10-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/TD3ovpP2tfo.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/89295336996" class="meeting-link meeting-link--zoom" data-zoom-date="2025-12-10" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=TD3ovpP2tfo" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-12-10-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-12-10-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/TD3ovpP2tfo.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Board reviewed the California School Dashboard results showing meaningful gains — ELA scores up 11.1 points (moving from Yellow to Green), math up 8.6 points, chronic absenteeism down 0.8%, and suspensions down 1.4%. Equity gaps persist for homeless students and African American students. TK program presentation; public comment from parent Agustin Espino on TK outreach. Approved CBOC taxpayer representative Alan Hansen (5-0). Set organizational meeting date for Dec 17. Fifteen policy second readings and 8 first readings. Board members reported highlights from CSBA Annual Education Conference including Golden Bell Award for district mental health program.</p>
@@ -1236,7 +1290,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">4h 5m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/84578357977" class="meeting-link meeting-link--zoom" data-zoom-date="2025-11-12" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=Pk0Zg38fzKc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=45781" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-11-12-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/Pk0Zg38fzKc.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/84578357977" class="meeting-link meeting-link--zoom" data-zoom-date="2025-11-12" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=Pk0Zg38fzKc" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=45781" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-11-12-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/Pk0Zg38fzKc.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span></div>
         <p class="meeting-summary">Three trustees present (Márquez and King absent). Community schools report by Michelle Griffith. Mental health services presentation by Ana Paula Garay, Dr. Shashank Joshi, Dr. Apurva Bhatt, and Kristin Geiser on program evolution since 2021. Three public speakers: parent Agustin Espino on Latino student outcomes, parent Lisbeth Estrada advocating community schools, and Clifford PTO President Leighann Thompson on parent-funded tutoring. Approved Ninyo and Moore geotechnical agreement for bond program. Fourteen policy first readings including construction cost accounting, charter oversight, compensation, and health topics. Meeting extended to 11:11 PM.</p>
@@ -1284,7 +1338,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">2h 19m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/83205654495" class="meeting-link meeting-link--zoom" data-zoom-date="2025-10-08" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=WYi7kzyEnuw" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-10-08-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/transcripts/WYi7kzyEnuw.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/83205654495" class="meeting-link meeting-link--zoom" data-zoom-date="2025-10-08" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=WYi7kzyEnuw" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-10-08-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/transcripts/WYi7kzyEnuw.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
         <p class="meeting-summary">Board met with Leadership Associates to launch the <strong>superintendent</strong> search process — discussing timeline, community input sessions, and desired qualities. Approved the 2024-25 unaudited actuals and Gann Limit (<strong>Resolution 12</strong>, <strong>$89.5M</strong>). Significant consent calendar included PBIS training for 8 schools (<strong>$44K</strong>), supplemental ELD curriculum (<strong>$131.7K</strong>), Achieve Kids special education placements (<strong>$170.7K</strong>), Siemens building management 5-year renewal (<strong>$239.3K</strong>), and Hoover solar change order (<strong>$61.8K</strong>).</p>
@@ -1332,7 +1386,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">57m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/83937930708" class="meeting-link meeting-link--zoom" data-zoom-date="2025-08-27" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=NutJa858kMY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-08-27-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-08-27-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/NutJa858kMY.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/83937930708" class="meeting-link meeting-link--zoom" data-zoom-date="2025-08-27" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=NutJa858kMY" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-08-27-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-08-27-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/NutJa858kMY.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="superintendent-search">Superintendent Search</span><span class="meeting-thread-tag" data-thread="policy">Policy Updates</span><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span></div>
         <p class="meeting-summary">Board discussed national <strong>superintendent</strong> search timeline — Wells outlined Sept-Jan schedule for outreach, recruiting, interviews, and hiring. Approved <strong>$973K</strong> for One Life Counseling mental health services, <strong>$118K</strong> for ProTech industrial hygienist oversight of HVAC asbestos/lead abatement, and EV charging infrastructure (Resolutions 4-5; VP Weekly raised concern about vendor's limited-adoption charging standard risking obsolescence). Readopted the <strong>LCAP</strong> after budget revisions. Approved Expanded Learning Opportunities Program Guide. Five policy first readings: media relations (pulled from agenda), social media, claims, immigration enforcement, and public statements. Board reports: Weekly attended CSEA barbecue; Márquez attended DELAC (noted low attendance); Li attended SMCOE School Funding Task Force.</p>
@@ -1348,7 +1402,7 @@
       <div class="meeting-body">
         <div class="meeting-header">
           <span class="meeting-type">Regular</span><span class="meeting-duration">1h 24m</span>
-          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/86949879504" class="meeting-link meeting-link--zoom" data-zoom-date="2025-08-19" target="_blank" rel="noopener">&#128247; Join via Zoom</a><a href="https://www.youtube.com/watch?v=B8blJsqUL_4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-08-19-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-08-19-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/B8blJsqUL_4.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/86949879504" class="meeting-link meeting-link--zoom" data-zoom-date="2025-08-19" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://www.youtube.com/watch?v=B8blJsqUL_4" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; Video</a><a href="https://rcsd-files.weekly.org/agendas/2025-08-19-regular.pdf" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#128196; Agenda</a><a href="https://rcsd-files.weekly.org/minutes/2025-08-19-minutes.pdf" class="meeting-link meeting-link--minutes" target="_blank" rel="noopener">&#128196; Minutes</a><a href="https://rcsd-files.weekly.org/transcripts/B8blJsqUL_4.en.srt" class="meeting-link meeting-link--transcript" target="_blank" rel="noopener">&#128221; Transcript</a></div>
         </div>
         <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="parcel-tax">2026 Parcel Tax</span><span class="meeting-thread-tag" data-thread="charter">Charter School Oversight</span></div>
         <p class="meeting-summary">Closed session: Board voted 5-0 to direct legal counsel to file an IDEA due process complaint with OAH. TeamCivX (Jeremy Hauser) and Godbe Research (Bryan Godbe) presented <strong>parcel tax</strong> survey testing structures up to <strong>$14.3M/year</strong> — public comments from Jessica Shade, Carlo Contavalli, and Brandon Matthews expressing support; Board supported placing measure on June 2026 ballot. Massive consent calendar (31 items): <strong>$1.18M</strong> REACH afterschool contract, <strong>$960K</strong> Catalyst Family, <strong>$413K</strong> Casa Circulo, <strong>$200K</strong> YMCA, <strong>$2.97M</strong> in food service bid renewals across all schools, Language Power ELD curriculum, and 6 credential candidate agreements. Approved 5-year Connect Community Charter facilities/operating agreements. Granted tenure for 40 teachers and 2 speech therapists (<strong>Resolution 1</strong>), teaching assignments (<strong>Resolution 2</strong>), and instructional materials sufficiency (<strong>Resolution 3</strong>).</p>
@@ -2172,8 +2226,6 @@
 <footer class="site-footer">
   Compiled from publicly available RCSD documents. Source documents are available at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and through the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>.
   <div class="footer-nav">
-    <a href="district/">District Summary &#8599;</a>
-    <a href="distrito/">Resumen del Distrito &#8599;</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Source Code &#8599;</a>
   </div>
 </footer>

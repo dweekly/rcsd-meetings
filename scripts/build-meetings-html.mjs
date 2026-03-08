@@ -144,6 +144,10 @@ const LOCALES = {
     clerk: 'Clerk',
     disclaimer: 'Not an official District document; independently assembled by',
     disclaimerSuffix: 'May contain errors.',
+    siteNavMeetings: 'Meetings',
+    siteNavDistrict: 'District',
+    siteNavDocs: 'Docs',
+    siteNavCode: 'Code',
     navTopics: 'Key Topics',
     navDocuments: 'Documents',
     navResources: 'Resources',
@@ -222,6 +226,10 @@ const LOCALES = {
     clerk: 'Secretaria',
     disclaimer: 'No es un documento oficial del Distrito; compilado independientemente por',
     disclaimerSuffix: 'Puede contener errores.',
+    siteNavMeetings: 'Reuniones',
+    siteNavDistrict: 'Distrito',
+    siteNavDocs: 'Docs',
+    siteNavCode: 'C\u00f3digo',
     navTopics: 'Temas Clave',
     navDocuments: 'Documentos',
     navResources: 'Recursos',
@@ -542,7 +550,7 @@ function renderMeeting(m) {
   let links = '';
   // Zoom link — hidden by default, shown by client-side JS for upcoming/recent meetings
   if (m.zoom) {
-    links += `<a href="${escapeHtml(m.zoom)}" class="meeting-link meeting-link--zoom" data-zoom-date="${m.date}" target="_blank" rel="noopener">&#128247; ${L.joinZoom}</a>`;
+    links += `<a href="${escapeHtml(m.zoom)}" class="meeting-link meeting-link--zoom" data-zoom-date="${m.date}" target="_blank" rel="noopener">&#9678; ${L.joinZoom}</a>`;
   }
   if (m.youtube) {
     links += `<a href="https://www.youtube.com/watch?v=${m.youtube}" class="meeting-link meeting-link--video" target="_blank" rel="noopener">&#9654; ${L.video}</a>`;
@@ -984,24 +992,6 @@ const html = `<!DOCTYPE html>
     font-style: italic;
   }
 
-  .lang-switch {
-    display: inline-block;
-    margin-top: 0.75rem;
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.03em;
-    color: #fff;
-    background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .lang-switch:hover {
-    background: rgba(255,255,255,0.25);
-  }
-
   .header-meta {
     margin-top: 2rem;
     display: flex;
@@ -1029,6 +1019,70 @@ const html = `<!DOCTYPE html>
     text-transform: uppercase;
     color: rgba(255,255,255,0.45);
     margin-top: 0.35rem;
+  }
+
+  /* ---- SITE NAV ---- */
+  .site-nav {
+    background: #1a2e1a;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .site-nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-nav-tabs {
+    display: flex;
+    gap: 0;
+  }
+
+  .site-nav-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.45);
+    padding: 0.7rem 1rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .site-nav-tab:hover {
+    color: rgba(255,255,255,0.8);
+  }
+
+  .site-nav-tab.active {
+    color: #fff;
+    border-bottom-color: var(--green-light);
+  }
+
+  .site-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .site-nav-lang {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .site-nav-lang:hover {
+    color: rgba(255,255,255,0.8);
+    border-color: rgba(255,255,255,0.4);
   }
 
   /* ---- DISCLAIMER ---- */
@@ -1526,16 +1580,11 @@ const html = `<!DOCTYPE html>
 
   .meeting-link--zoom {
     display: none;
-    color: #fff;
-    background: #2d8cff;
-    border-radius: 4px;
-    padding: 0.25rem 0.6rem;
-    font-weight: 600;
+    color: #2d8cff;
   }
 
   .meeting-link--zoom:hover {
-    background: #1a6fd4;
-    color: #fff;
+    color: #1a6fd4;
   }
 
   .meeting-link--zoom.zoom-active {
@@ -1792,6 +1841,8 @@ const html = `<!DOCTYPE html>
     .header-inner { padding: 3rem 1.2rem 2.5rem; }
     .content { padding: 0 1.2rem 4rem; }
     .header-meta { gap: 1.5rem; }
+    .site-nav-tab { padding: 0.6rem 0.7rem; font-size: 0.6rem; }
+    .site-nav-inner { padding: 0 1.2rem; }
     .toc a { padding: 0.8rem 0.6rem; font-size: 0.6rem; }
     .meeting-row { gap: 0.8rem; }
     .meeting-date { width: 2.6rem; }
@@ -1808,12 +1859,25 @@ const html = `<!DOCTYPE html>
 </head>
 <body>
 
+<nav class="site-nav">
+  <div class="site-nav-inner">
+    <div class="site-nav-tabs">
+      <a href="./" class="site-nav-tab active">${L.siteNavMeetings}</a>
+      <a href="${L.lang === 'en' ? 'district/' : '../distrito/'}" class="site-nav-tab">${L.siteNavDistrict}</a>
+      <a href="#" class="site-nav-tab" style="opacity:0.3;pointer-events:none">${L.siteNavDocs}</a>
+      <a href="https://github.com/dweekly/rcsd-meetings" class="site-nav-tab">${L.siteNavCode}</a>
+    </div>
+    <div class="site-nav-right">
+      <a href="${L.altLangHref}" class="site-nav-lang">${L.lang === 'en' ? 'ES' : 'EN'}</a>
+    </div>
+  </div>
+</nav>
+
 <header class="site-header">
   <div class="header-inner">
     <div class="header-district">${L.headerDistrict}</div>
     <h1 class="header-title">${L.headerTitle}</h1>
     <p class="header-subtitle">${L.headerSubtitle} <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397" style="color:rgba(255,255,255,0.75)">GAMUT/Simbli</a> ${L.headerSubtitleAnd} <a href="https://go.boarddocs.com/ca/redwood/Board.nsf/goto?open&id=CVLPDX62089F" style="color:rgba(255,255,255,0.75)">BoardDocs</a>.</p>
-    <a href="${L.altLangHref}" class="lang-switch">${L.altLangLink}</a>
     <div class="header-meta">
       <div class="header-stat">
         <span class="header-stat-value">${data.stats.total}</span>
@@ -1864,8 +1928,6 @@ const html = `<!DOCTYPE html>
     <a href="#sy2425">2024-25</a>
     <a href="#documents">${L.navDocuments}</a>
     <a href="#resources">${L.navResources}</a>
-    <a href="${L.altLangHref}">${L.altLangLink}</a>
-    <a href="https://github.com/dweekly/rcsd-meetings">${L.navSourceCode}</a>
   </div>
 </nav>
 
@@ -1884,8 +1946,6 @@ ${renderResources(data)}
 <footer class="site-footer">
   ${L.footerText} <a href="https://www.rcsdk8.net">rcsdk8.net</a> ${L.footerAnd} <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">${L.footerPortal}</a>.
   <div class="footer-nav">
-    <a href="${L.lang === 'en' ? 'district/' : '../district/'}">${L.footerDistrict} &#8599;</a>
-    <a href="${L.lang === 'en' ? 'distrito/' : '../distrito/'}">${L.footerDistrito} &#8599;</a>
     <a href="https://github.com/dweekly/rcsd-meetings">${L.navSourceCode} &#8599;</a>
   </div>
 </footer>
