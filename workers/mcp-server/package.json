@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260510.1",
-    "wrangler": "^4.100.0"
+    "wrangler": "^4.103.0"
   },
   "//overrides": "ws: miniflare (via wrangler) pins ws@8.18.0 exactly, vulnerable to GHSA-58qx-3vcg-4xpx (fixed in 8.20.1). Remove once wrangler ships a miniflare with ws >= 8.20.1. esbuild: wrangler pins esbuild@0.27.x, vulnerable to GHSA-gv7w-rqvm-qjhr + GHSA-g7r4-m6w7-qqqr (fixed in 0.28.1). Remove once wrangler ships esbuild >= 0.28.1.",
   "overrides": {
