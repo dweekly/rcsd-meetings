@@ -287,6 +287,42 @@ function indexRowFor(meeting) {
   return `| ${mm}/${dd}/${yyyy} | ${type} | ${meeting.mid} | — | (auto-discovered, fill in topics) |`;
 }
 
+// Insert newly-discovered meetings into the Meeting Index table of
+// sources/rcsd-meetings.md so build-meetings.mjs renders them without a manual
+// edit — the gap that kept 2026-06-24 unpublished. Each row lands in
+// reverse-chronological position; topics start as a placeholder a human can
+// enrich later. Callers pass only meetings whose MID isn't already in the
+// table, so this is idempotent (a known MID is never re-added). Returns the
+// number of rows inserted.
+function insertIndexRows(meetings) {
+  if (meetings.length === 0) return 0;
+  const lines = readFileSync(SOURCES_MD_PATH, 'utf-8').split('\n');
+  const rowRe = /^\|\s*(\d{2}\/\d{2}\/\d{4})\s*\|/;
+  // Insert oldest-first so multiple new rows end up correctly ordered.
+  for (const m of [...meetings].sort((a, b) => a.date.localeCompare(b.date))) {
+    const row = indexRowFor(m);
+    let inserted = false;
+    for (let i = 0; i < lines.length; i++) {
+      const mm = lines[i].match(rowRe);
+      if (mm && parseUSDate(mm[1]) < m.date) { lines.splice(i, 0, row); inserted = true; break; }
+    }
+    if (!inserted) {
+      // Older than every existing row (or empty table): append after the last
+      // data row, else right after the table separator line.
+      let last = -1;
+      for (let i = 0; i < lines.length; i++) if (rowRe.test(lines[i])) last = i;
+      if (last >= 0) lines.splice(last + 1, 0, row);
+      else {
+        const sep = lines.findIndex(l => /^\|[-\s|]+\|$/.test(l));
+        if (sep < 0) throw new Error('Meeting Index table not found in sources/rcsd-meetings.md');
+        lines.splice(sep + 1, 0, row);
+      }
+    }
+  }
+  writeFileSync(SOURCES_MD_PATH, lines.join('\n'));
+  return meetings.length;
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const dateIdx = args.indexOf('--date');
@@ -330,10 +366,18 @@ async function main() {
       const unknownToMd = inScope
         .filter(m => !known.has(m.mid))
         .sort((a, b) => b.date.localeCompare(a.date));
-      if (!dateFilter && unknownToMd.length > 0) {
+      // Auto-add newly-discovered meetings to the index so they publish on
+      // their own. Skipped for --list-only (discovery-only callers like the
+      // watchdog must not mutate the source file).
+      if (unknownToMd.length > 0) {
         console.log(`\n${unknownToMd.length} meeting(s) not yet in sources/rcsd-meetings.md:`);
         for (const m of unknownToMd) console.log('  ' + indexRowFor(m));
-        console.log('\n(Add the rows above to sources/rcsd-meetings.md so build-meetings.mjs picks them up.)\n');
+        if (listOnly) {
+          console.log('\n(--list-only: not modifying sources/rcsd-meetings.md.)\n');
+        } else {
+          const n = insertIndexRows(unknownToMd);
+          console.log(`\nAdded ${n} row(s) to sources/rcsd-meetings.md (topics left as a placeholder to enrich later).\n`);
+        }
       }
       meetings = inScope.filter(m => {
         if (refresh) return true;
