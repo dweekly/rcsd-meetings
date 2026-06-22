@@ -58,17 +58,28 @@ function parseUSDate(s) {
   return `${m[3]}-${m[1]}-${m[2]}`;
 }
 
-async function newSimbliBrowser() {
-  const browser = await chromium.launch({
-    headless: true,
-    args: ['--disable-blink-features=AutomationControlled'],
-  });
+// Each Simbli context is a fresh Incapsula session. This matters: once a
+// context has loaded the meeting *listing* page, Imperva flags that session's
+// incap_ses cookie and serves an "incident" block on every subsequent
+// ViewMeeting request in the same session. A context that goes straight to a
+// ViewMeeting (no listing history) is let through. So discovery and each
+// per-meeting agenda scrape must run in their own contexts — see main().
+async function newSimbliContext(browser) {
   const context = await browser.newContext({
     userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
   });
   await context.addInitScript(() => {
     Object.defineProperty(navigator, 'webdriver', { get: () => false });
   });
+  return context;
+}
+
+async function newSimbliBrowser() {
+  const browser = await chromium.launch({
+    headless: true,
+    args: ['--disable-blink-features=AutomationControlled'],
+  });
+  const context = await newSimbliContext(browser);
   return { browser, context };
 }
 
@@ -342,16 +353,26 @@ async function main() {
     for (const m of meetings) {
       const label = `${m.date || '????-??-??'} MID ${m.mid}`;
       console.log(`-> ${label}`);
-      const fresh = await scrapeMeetingAPI(page, m.mid);
-      if (!fresh) { failed++; continue; }
+      // Fresh context per meeting: the discovery context above visited the
+      // listing page, which poisons its Incapsula session for ViewMeeting
+      // requests (see newSimbliContext). A clean session navigates through.
+      const mctx = await newSimbliContext(browser);
+      const mpage = await mctx.newPage();
+      let fresh, date;
+      try {
+        fresh = await scrapeMeetingAPI(mpage, m.mid);
+        if (!fresh) { failed++; continue; }
 
-      let date = m.date;
-      if (!date) {
-        const heading = await page.evaluate(() => {
-          const m = document.body.innerText.match(/(\d{2}\/\d{2}\/\d{4})/);
-          return m ? m[1] : null;
-        });
-        date = heading ? parseUSDate(heading) : null;
+        date = m.date;
+        if (!date) {
+          const heading = await mpage.evaluate(() => {
+            const m = document.body.innerText.match(/(\d{2}\/\d{2}\/\d{4})/);
+            return m ? m[1] : null;
+          });
+          date = heading ? parseUSDate(heading) : null;
+        }
+      } finally {
+        await mctx.close();
       }
       if (!date) {
         console.error(`  Could not determine date for MID ${m.mid}; skipping write.`);
