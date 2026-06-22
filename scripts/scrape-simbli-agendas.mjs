@@ -149,7 +149,10 @@ async function scrapeMeetingAPI(page, mid) {
 
   try {
     await page.goto(meetingUrl(mid), { waitUntil: 'domcontentloaded', timeout: 30000 });
-    if (!(await waitForIncapsula(page))) return null;
+    if (!(await waitForIncapsula(page))) {
+      console.error(`  Incapsula challenge did not clear on ViewMeeting for MID ${mid}`);
+      return null;
+    }
 
     const start = Date.now();
     while (treeJson === null && Date.now() - start < TREE_WAIT_MS) {
@@ -399,6 +402,14 @@ async function main() {
       ok++;
     }
     console.log(`\nDone: ${ok} scraped, ${failed} failed.`);
+    // A discovered meeting we couldn't scrape is a hard failure, not a no-op:
+    // exit non-zero so the pipeline run goes red and the watchdog's self-heal
+    // dispatch can tell its attempt didn't work (instead of looping on a green
+    // run that silently scraped nothing). Successes are still written above.
+    if (failed > 0) {
+      console.error(`\nFAILED: ${failed} discovered meeting(s) could not be scraped.`);
+      process.exitCode = 1;
+    }
   } finally {
     await browser.close();
   }
