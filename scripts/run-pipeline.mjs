@@ -38,6 +38,10 @@ console.log(`Mode: ${quick ? 'QUICK (skip transcription/translation)' : 'FULL'}\
 // the build reads them. Idempotent — only fetches MIDs without a memo file.
 run('0. Scrape new Simbli agendas', 'scrape-simbli-agendas.mjs');
 run('0a. Scrape new YouTube videos', 'scrape-youtube-index.mjs');
+// Download packet PDFs for any attachment that has a Simbli AID but no filename
+// yet (idempotent — committed filenames are skipped). Without this, a newly
+// discovered meeting ships with board-packets/{date}/undefined dead links.
+run('0b. Download board packets', 'download-board-packets.mjs');
 
 // Phase 1: Data assembly
 run('1. Build meetings data', 'build-meetings.mjs');
