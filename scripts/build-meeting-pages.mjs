@@ -28,7 +28,34 @@ const data = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), '
 
 // Build AID -> R2 path lookup for attachment links
 const memoDir = resolve(ROOT, 'data/board-memos');
+const memoDirEs = resolve(ROOT, 'data/board-memos-es');
 const aidToR2Path = buildAidToR2Path(memoDir);
+
+// Per-item content (Quick Summary/Abstract, Recommendation, Rationale, Financial
+// Impact, …) lives in board-memos, not meetings-data — folding 8k+ items' prose
+// into the browser-loaded meetings-data.json (already ~9MB) would bloat it. We
+// render it server-side from the memos instead. parseSimbliAgenda emits items
+// 1:1 positionally with the memo's items array, so content is keyed by date and
+// matched by index in buildAgendaHtml (guarded on length parity).
+const SKIP_CONTENT_FIELDS = new Set(['Speaker']);
+function buildMemoContentByDate(dir) {
+  const byDate = {};
+  let files;
+  try { files = readdirSync(dir).filter((f) => f.endsWith('.json')); } catch { return byDate; }
+  for (const f of files) {
+    let memo;
+    try { memo = JSON.parse(readFileSync(resolve(dir, f), 'utf-8')); } catch { continue; }
+    if (!memo.date || !Array.isArray(memo.items)) continue;
+    byDate[memo.date] = memo.items.map((it) =>
+      Object.entries(it.memo || {})
+        .filter(([k, v]) => !SKIP_CONTENT_FIELDS.has(k) && v && String(v).trim())
+        .map(([label, text]) => ({ label, text: String(text) }))
+    );
+  }
+  return byDate;
+}
+// English content from board-memos; Spanish from board-memos-es (translate-memos.mjs).
+const memoContentByDate = { en: buildMemoContentByDate(memoDir), es: buildMemoContentByDate(memoDirEs) };
 
 // Load meeting summaries for both languages
 const summariesByLang = {};
@@ -63,6 +90,8 @@ const LOCALES = {
     searchPlaceholder: 'Search transcript...',
     noAgenda: 'No agenda data available.',
     noMinutes: 'Minutes not yet approved for this meeting.',
+    itemDetailsLabel: 'Item details',
+    itemDetailsEnNote: 'Shown in the original English.',
     noTranscript: 'No transcript available for this meeting.',
     loadingTranscript: 'Loading transcript...',
     minutesApprovedAt: (dateStr) => `Minutes approved at the ${dateStr} meeting.`,
@@ -97,6 +126,8 @@ const LOCALES = {
     searchPlaceholder: 'Buscar en la transcripci\u00f3n...',
     noAgenda: 'No hay datos de agenda disponibles.',
     noMinutes: 'Las actas a\u00fan no han sido aprobadas para esta reuni\u00f3n.',
+    itemDetailsLabel: 'Detalles del punto',
+    itemDetailsEnNote: 'Se muestra en el ingl\u00e9s original.',
     noTranscript: 'No hay transcripci\u00f3n disponible para esta reuni\u00f3n.',
     loadingTranscript: 'Cargando transcripci\u00f3n...',
     minutesApprovedAt: (dateStr) => `Actas aprobadas en la reuni\u00f3n del ${dateStr}.`,
@@ -145,8 +176,18 @@ function formatDateEs(dateStr) {
 function buildAgendaHtml(m, L) {
   if (!m.items || m.items.length === 0) return `<div class="tv-empty">${L.noAgenda}</div>`;
 
+  // Item content (Abstract/Recommendation/Rationale/Financial Impact/…), keyed
+  // by date and matched positionally to m.items. Prefer the requested language;
+  // fall back to English when a translation is missing. Guard on length parity
+  // so any drift between memo and parsed items degrades to "no content" safely.
+  const enContent = memoContentByDate.en[m.date] || [];
+  const langContent = memoContentByDate[L.lang]?.[m.date] || [];
+  const contentParity = enContent.length === m.items.length;
+
   let html = '';
+  let idx = -1;
   for (const item of m.items) {
+    idx++;
     const opened = item.phases?.opened;
     const hasTs = opened != null;
     const tsAttr = hasTs ? ` data-start="${opened * 1000}"` : '';
@@ -206,6 +247,25 @@ function buildAgendaHtml(m, L) {
         html += `<a class="tv-agenda-att" href="${escapeHtml(href)}" target="_blank" rel="noopener">${escapeHtml(name)}</a>`;
       }
       html += '</div>';
+    }
+
+    // Item content: the prose the board reads (Quick Summary, Recommendation,
+    // Rationale, Financial Impact, …). Rendered server-side so it is visible and
+    // Pagefind-indexed. Collapsible to keep the agenda list scannable.
+    if (!isSection && contentParity) {
+      const fields = langContent[idx]?.length ? langContent[idx] : enContent[idx];
+      const usedFallback = L.lang !== 'en' && !langContent[idx]?.length && enContent[idx]?.length;
+      if (fields && fields.length > 0) {
+        html += `<details class="tv-agenda-content"><summary>${escapeHtml(L.itemDetailsLabel)}</summary>`;
+        if (usedFallback) html += `<p class="tv-agenda-content-note">${escapeHtml(L.itemDetailsEnNote)}</p>`;
+        for (const f of fields) {
+          html += '<div class="tv-agenda-field">';
+          html += `<span class="tv-agenda-field-label">${escapeHtml(f.label)}</span>`;
+          html += `<span class="tv-agenda-field-text">${escapeHtml(f.text)}</span>`;
+          html += '</div>';
+        }
+        html += '</details>';
+      }
     }
   }
   return html;
@@ -710,6 +770,35 @@ const pageCSS = `
     line-height: 1.6;
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
+
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
 
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
