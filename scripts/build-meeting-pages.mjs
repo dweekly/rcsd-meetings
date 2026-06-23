@@ -57,6 +57,85 @@ function buildMemoContentByDate(dir) {
 // English content from board-memos; Spanish from board-memos-es (translate-memos.mjs).
 const memoContentByDate = { en: buildMemoContentByDate(memoDir), es: buildMemoContentByDate(memoDirEs) };
 
+// BoardDocs (2020–2025) meetings carry their item content in a `body` HTML field
+// in boarddocs-scraped.json (already captured — just dropped by
+// parseBoarddocsAgenda). Surface it the same way as the Simbli memos, matched by
+// item order (which parseBoarddocsAgenda uses as itemLabel). Keyed by the
+// BoardDocs goto-URL id (stable; unlike date it disambiguates the 8 dates that
+// have two meetings). Spanish bodies live in data/boarddocs-es.json as
+// { id: { order: text } }.
+function boardDocsId(url) {
+  const m = String(url || '').match(/id=([A-Za-z0-9]+)/);
+  return m ? m[1] : null;
+}
+function htmlToPlainText(html) {
+  if (!html) return '';
+  return String(html)
+    .replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/h[1-6])\s*>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&quot;/gi, '"')
+    .replace(/&#39;|&rsquo;|&lsquo;/gi, "'").replace(/&ldquo;|&rdquo;/gi, '"')
+    .replace(/&ndash;|&mdash;/gi, '-')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)))
+    .replace(/&lt;/gi, '<').replace(/&gt;/gi, '>')
+    .replace(/\s+/g, ' ').trim();
+}
+function buildBoardDocsEnContent(file) {
+  const byId = {};
+  if (!existsSync(file)) return byId;
+  let j; try { j = JSON.parse(readFileSync(file, 'utf-8')); } catch { return byId; }
+  for (const m of (j.meetings || j)) {
+    const id = boardDocsId(m.url);
+    if (!id) continue;
+    const map = new Map();
+    for (const it of m.items || []) {
+      const text = htmlToPlainText(it.body);
+      if (it.order != null && text) map.set(String(it.order), text);
+    }
+    if (map.size) byId[id] = map;
+  }
+  return byId;
+}
+function buildBoardDocsEsContent(file) {
+  const byId = {};
+  if (!existsSync(file)) return byId;
+  let j; try { j = JSON.parse(readFileSync(file, 'utf-8')); } catch { return byId; }
+  for (const [id, orders] of Object.entries(j)) {
+    const map = new Map();
+    for (const [order, text] of Object.entries(orders || {})) {
+      if (text && String(text).trim()) map.set(String(order), String(text));
+    }
+    if (map.size) byId[id] = map;
+  }
+  return byId;
+}
+const boardDocsContentByDate = {
+  en: buildBoardDocsEnContent(resolve(ROOT, 'data/boarddocs-scraped.json')),
+  es: buildBoardDocsEsContent(resolve(ROOT, 'data/boarddocs-es.json')),
+};
+
+// Resolve the displayable content fields for one agenda item, language-aware.
+// Returns { fields:[{label,text}], usedFallback } or null. Simbli matches by
+// position (parseSimbliAgenda is 1:1 with the memo); BoardDocs matches by order.
+function itemContentFor(m, item, idx, lang) {
+  if (item.isSection) return null;
+  if (m.source === 'boarddocs') {
+    const bid = boardDocsId(m.boarddocs);
+    const enText = boardDocsContentByDate.en[bid]?.get(String(item.itemLabel));
+    const esText = boardDocsContentByDate.es[bid]?.get(String(item.itemLabel));
+    if (lang !== 'en' && esText) return { fields: [{ label: '', text: esText }], usedFallback: false };
+    if (enText) return { fields: [{ label: '', text: enText }], usedFallback: lang !== 'en' };
+    return null;
+  }
+  const enArr = memoContentByDate.en[m.date];
+  if (!enArr || enArr.length !== m.items.length) return null; // parity guard
+  const langFields = memoContentByDate[lang]?.[m.date]?.[idx];
+  const enFields = enArr[idx];
+  if (lang !== 'en' && langFields?.length) return { fields: langFields, usedFallback: false };
+  if (enFields?.length) return { fields: enFields, usedFallback: lang !== 'en' };
+  return null;
+}
+
 // Load meeting summaries for both languages
 const summariesByLang = {};
 for (const [suffix, lang] of [['', 'en'], ['-es', 'es']]) {
@@ -176,14 +255,6 @@ function formatDateEs(dateStr) {
 function buildAgendaHtml(m, L) {
   if (!m.items || m.items.length === 0) return `<div class="tv-empty">${L.noAgenda}</div>`;
 
-  // Item content (Abstract/Recommendation/Rationale/Financial Impact/…), keyed
-  // by date and matched positionally to m.items. Prefer the requested language;
-  // fall back to English when a translation is missing. Guard on length parity
-  // so any drift between memo and parsed items degrades to "no content" safely.
-  const enContent = memoContentByDate.en[m.date] || [];
-  const langContent = memoContentByDate[L.lang]?.[m.date] || [];
-  const contentParity = enContent.length === m.items.length;
-
   let html = '';
   let idx = -1;
   for (const item of m.items) {
@@ -250,22 +321,20 @@ function buildAgendaHtml(m, L) {
     }
 
     // Item content: the prose the board reads (Quick Summary, Recommendation,
-    // Rationale, Financial Impact, …). Rendered server-side so it is visible and
-    // Pagefind-indexed. Collapsible to keep the agenda list scannable.
-    if (!isSection && contentParity) {
-      const fields = langContent[idx]?.length ? langContent[idx] : enContent[idx];
-      const usedFallback = L.lang !== 'en' && !langContent[idx]?.length && enContent[idx]?.length;
-      if (fields && fields.length > 0) {
-        html += `<details class="tv-agenda-content"><summary>${escapeHtml(L.itemDetailsLabel)}</summary>`;
-        if (usedFallback) html += `<p class="tv-agenda-content-note">${escapeHtml(L.itemDetailsEnNote)}</p>`;
-        for (const f of fields) {
-          html += '<div class="tv-agenda-field">';
-          html += `<span class="tv-agenda-field-label">${escapeHtml(f.label)}</span>`;
-          html += `<span class="tv-agenda-field-text">${escapeHtml(f.text)}</span>`;
-          html += '</div>';
-        }
-        html += '</details>';
+    // Rationale, Financial Impact for Simbli; the item body for BoardDocs).
+    // Rendered server-side so it is visible and Pagefind-indexed; collapsible to
+    // keep the agenda list scannable.
+    const ic = itemContentFor(m, item, idx, L.lang);
+    if (ic && ic.fields.length > 0) {
+      html += `<details class="tv-agenda-content"><summary>${escapeHtml(L.itemDetailsLabel)}</summary>`;
+      if (ic.usedFallback) html += `<p class="tv-agenda-content-note">${escapeHtml(L.itemDetailsEnNote)}</p>`;
+      for (const f of ic.fields) {
+        html += '<div class="tv-agenda-field">';
+        if (f.label) html += `<span class="tv-agenda-field-label">${escapeHtml(f.label)}</span>`;
+        html += `<span class="tv-agenda-field-text">${escapeHtml(f.text)}</span>`;
+        html += '</div>';
       }
+      html += '</details>';
     }
   }
   return html;
