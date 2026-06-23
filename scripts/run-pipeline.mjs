@@ -18,7 +18,7 @@ const quick = process.argv.includes('--quick');
 const upload = process.argv.includes('--upload');
 const deploy = process.argv.includes('--deploy');
 
-function run(label, script) {
+function run(label, script, { nonFatal = false } = {}) {
   console.log(`\n${'='.repeat(60)}`);
   console.log(`  ${label}`);
   console.log('='.repeat(60));
@@ -27,6 +27,13 @@ function run(label, script) {
   } catch (err) {
     console.error(`\n  FAILED: ${label} (${script})`);
     console.error(`  ${err.message}\n`);
+    // Some steps are best-effort enrichment (e.g. ES translation of agenda
+    // content): a failure or 30-min timeout there must not abort the deploy.
+    // Their output is cached, so the next run resumes where this one stopped.
+    if (nonFatal) {
+      console.error(`  (non-fatal — continuing; cached output lets the next run resume.)\n`);
+      return;
+    }
     process.exit(1);
   }
 }
@@ -66,9 +73,11 @@ if (!quick) {
 
   run('4. Slim transcripts', 'publish-transcripts.mjs');
   run('5. Translate transcripts (ES)', 'translate-transcripts.mjs');
-  // Translate agenda-item content to ES (cached by source hash; only changed
-  // memos re-translate). ES meeting pages fall back to EN-with-note otherwise.
-  run('5a. Translate agenda item content (ES)', 'translate-memos.mjs');
+  // Translate agenda-item content to ES (cached; only new/changed content
+  // translates). Non-fatal + cached so a large backfill converges across runs
+  // without ever blocking the deploy; ES pages fall back to EN-with-note.
+  run('5a. Translate Simbli agenda content (ES)', 'translate-memos.mjs', { nonFatal: true });
+  run('5b. Translate BoardDocs agenda content (ES)', 'translate-boarddocs.mjs', { nonFatal: true });
 
   // Phase 3: LLM enrichment (costs API $)
   run('6. Chapter markers', 'extract-chapter-markers.mjs');
