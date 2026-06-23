@@ -51,6 +51,7 @@ const INCAPSULA_WAIT_MS = 5000;
 const INCAPSULA_MAX_TRIES = 6;
 const DELAY_BETWEEN_DOWNLOADS = { min: 2000, max: 5000 };
 const DELAY_BETWEEN_MEETINGS = { min: 15000, max: 30000 };
+const DOWNLOAD_MAX_TRIES = 3;
 
 const delay = (ms) => new Promise((r) => setTimeout(r, ms));
 const randomDelay = ({ min, max }) => delay(min + Math.random() * (max - min));
@@ -191,13 +192,21 @@ async function processMeeting(browser, memoPath, memo, limit) {
       }
 
       console.log(`    Downloading [aid ${att.aid}]: ${att.name}`);
-      if (await downloadPdfViaBrowser(page, attachmentUrl(att.aid, mid), savePath)) {
+      let saved = false;
+      for (let attempt = 1; attempt <= DOWNLOAD_MAX_TRIES && !saved; attempt++) {
+        if (attempt > 1) {
+          console.log(`      retry ${attempt}/${DOWNLOAD_MAX_TRIES}...`);
+          await randomDelay(DELAY_BETWEEN_DOWNLOADS);
+        }
+        saved = await downloadPdfViaBrowser(page, attachmentUrl(att.aid, mid), savePath);
+      }
+      if (saved) {
         const kb = (statSync(savePath).size / 1024).toFixed(0);
         console.log(`      SAVED: ${filename} (${kb}KB)`);
         att.filename = filename; // record into the memo only on a verified PDF
         ok++;
       } else {
-        console.warn(`      FAILED: ${att.name}`);
+        console.warn(`      FAILED after ${DOWNLOAD_MAX_TRIES} tries: ${att.name} (aid ${att.aid}) — will retry next run`);
         failed++;
       }
       await randomDelay(DELAY_BETWEEN_DOWNLOADS);
@@ -265,9 +274,14 @@ async function main() {
   }
 
   console.log(`\nDone: ${totalOk} packet(s) downloaded/cached, ${totalFailed} failed.`);
+  // Deliberately exit 0 even with residual failures. Unlike the agenda scrape
+  // (a failure there means a meeting is entirely missing), a flaky packet is a
+  // single dead link on an otherwise-complete meeting — aborting the pipeline
+  // here would discard every successful download and block the whole site
+  // deploy. This step is idempotent on `filename`, so any attachment still
+  // missing one is retried automatically on the next run until it succeeds.
   if (totalFailed > 0) {
-    console.error(`\nFAILED: ${totalFailed} board-packet attachment(s) could not be downloaded.`);
-    process.exitCode = 1;
+    console.warn(`\nWARNING: ${totalFailed} board-packet attachment(s) still missing after retries; they will be retried on the next pipeline run.`);
   }
 }
 
