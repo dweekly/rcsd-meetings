@@ -58,6 +58,46 @@ function parseUSDate(s) {
   return `${m[3]}-${m[1]}-${m[2]}`;
 }
 
+// Convert Simbli's CKEditor HTML field content to readable plain text:
+// drop tags, decode the entities Simbli emits (&nbsp; &#39; &amp; …), and
+// collapse whitespace. Used to flatten each agenda item's content fields.
+function htmlToText(html) {
+  if (!html) return '';
+  return String(html)
+    .replace(/<\s*(br|\/p|\/div|\/li|\/tr|\/h[1-6])\s*>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;|&rsquo;|&lsquo;/gi, "'")
+    .replace(/&ldquo;|&rdquo;/gi, '"')
+    .replace(/&ndash;|&mdash;/gi, '-')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)))
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// Flatten a GetMeetingItemDetailsModel response into a memo object keyed by the
+// item's field titles (Quick Summary / Abstract, Recommendation, Rationale,
+// Financial Impact, Background, Contacts, …). Only fields that actually carry
+// content are kept. This is the substance of each agenda item — the prose the
+// board reads — which the tree DTO and attachment APIs do not include.
+function parseItemContents(detail) {
+  const memo = {};
+  const contents = detail?.ItemContents;
+  if (!Array.isArray(contents)) return memo;
+  for (const c of contents) {
+    if (!c) continue;
+    const text = htmlToText(c.Content);
+    if (!text) continue;
+    const key = (c.FieldTitle || c.FieldName || '').trim();
+    if (key) memo[key] = text;
+  }
+  return memo;
+}
+
 // Each Simbli context is a fresh Incapsula session. This matters: once a
 // context has loaded the meeting *listing* page, Imperva flags that session's
 // incap_ses cookie and serves an "incident" block on every subsequent
@@ -191,6 +231,29 @@ async function scrapeMeetingAPI(page, mid) {
       return out;
     }, { ids: itemsWithAtts.map(it => it.ID), sessionParams });
 
+    // Fetch each item's content model (the prose fields the board actually
+    // reads: abstract, recommendation, rationale, financial impact, etc.).
+    // The tree DTO carries only titles/structure, so without this every item's
+    // substance is lost. Done for ALL items, in the Incapsula-cleared session.
+    const detailByItemID = await page.evaluate(async ({ ids, sessionParams }) => {
+      const out = {};
+      const { sct, endid, enmid } = sessionParams;
+      for (const id of ids) {
+        const url = `/Services/api/MeetingView/GetMeetingItemDetailsModel/?sct=${sct}` +
+          `&endid=${endid}` +
+          `&enmid=${enmid}` +
+          `&enitemid=${encodeURIComponent(id)}` +
+          `&enuid=&view=&stab=1`;
+        try {
+          const resp = await fetch(url, { headers: { Accept: 'application/json' } });
+          out[id] = await resp.json();
+        } catch (e) {
+          out[id] = { _error: e.message };
+        }
+      }
+      return out;
+    }, { ids: flat.map(it => it.ID), sessionParams });
+
     const items = flat.map((it, idx) => {
       const docs = docsByItemID[it.ID];
       const attachments = [];
@@ -214,10 +277,17 @@ async function scrapeMeetingAPI(page, mid) {
           });
         }
       }
+      const detail = detailByItemID[it.ID];
+      const memo = parseItemContents(detail);
+      const d = detail?.ItemDetails;
+      const provenance = d
+        ? { createdBy: d.CreatedBy || null, modifiedBy: d.ModifiedBy || null, modifiedOn: d.ModifiedOnDate || d.ModifiedOnTime || null }
+        : null;
       return {
         order: idx + 1,
         title: (it.Title || '').trim(),
-        memo: {},
+        memo,
+        ...(provenance && (provenance.modifiedBy || provenance.createdBy) ? { provenance } : {}),
         attachments,
       };
     });
@@ -246,7 +316,11 @@ function mergeWithExisting(date, fresh) {
   const merged = fresh.items.map(it => {
     const old = prevByTitle.get(it.title.trim());
     if (!old) return it;
-    const memo = (old.memo && Object.keys(old.memo).length > 0) ? old.memo : it.memo;
+    // Prefer freshly-scraped memo content (the scraper now populates it from
+    // GetMeetingItemDetailsModel); fall back to any prior memo only when this
+    // scrape returned nothing for the item. This ensures a revised agenda's
+    // edited prose overwrites the stale copy rather than being pinned to it.
+    const memo = (it.memo && Object.keys(it.memo).length > 0) ? it.memo : (old.memo || {});
     const oldAttsByAid = new Map();
     for (const a of old.attachments || []) if (a.aid) oldAttsByAid.set(String(a.aid), a);
     const attachments = it.attachments.map(a => {
