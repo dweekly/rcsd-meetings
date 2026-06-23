@@ -379,9 +379,18 @@ async function main() {
           console.log(`\nAdded ${n} row(s) to sources/rcsd-meetings.md (topics left as a placeholder to enrich later).\n`);
         }
       }
+      // Re-scrape upcoming (and same-day) meetings every run so post-publication
+      // agenda edits are picked up: a district that revises a resolution or
+      // swaps an attachment gets a NEW Simbli aid, and the old aid starts
+      // serving an empty Attachment.aspx shell. mergeWithExisting preserves
+      // filenames for unchanged aids, so only genuinely-changed attachments
+      // re-download. Past meetings are frozen (scraped once). The 1-day grace
+      // keeps the meeting day covered regardless of UTC-vs-Pacific rollover.
+      const cutoff = new Date(Date.now() - 24 * 3600 * 1000).toISOString().slice(0, 10);
       meetings = inScope.filter(m => {
         if (refresh) return true;
-        return !existsSync(resolve(MEMO_DIR, `${m.date}.json`));
+        if (!existsSync(resolve(MEMO_DIR, `${m.date}.json`))) return true;
+        return m.date && m.date >= cutoff;
       });
     }
 
