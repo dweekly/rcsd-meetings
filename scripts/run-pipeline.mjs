@@ -66,6 +66,9 @@ if (!quick) {
 
   run('4. Slim transcripts', 'publish-transcripts.mjs');
   run('5. Translate transcripts (ES)', 'translate-transcripts.mjs');
+  // Translate agenda-item content to ES (cached by source hash; only changed
+  // memos re-translate). ES meeting pages fall back to EN-with-note otherwise.
+  run('5a. Translate agenda item content (ES)', 'translate-memos.mjs');
 
   // Phase 3: LLM enrichment (costs API $)
   run('6. Chapter markers', 'extract-chapter-markers.mjs');
