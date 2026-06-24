@@ -267,6 +267,14 @@
     }
   }
 
+/* baseCSS exposes --green-wash/pale/light/mid/deep and --text*; this page was written against a
+   numbered scale + --ink*, so alias them here to the real palette (otherwise greens/bars/active
+   chips render with no color). */
+:root{
+  --green-50:#f0f6ed; --green-100:#dcebd5; --green-200:#bedfb0; --green-300:#93c585;
+  --green-400:#5ea177; --green-500:#4a8c6a; --green-600:#2d5a3f; --green-700:#244a34; --green-800:#1a3a2a;
+  --ink:#2a2a28; --ink-soft:#5a5a56;
+}
 .vendors-main{max-width:1000px;margin:0 auto;padding:0 1.25rem 4rem}
 .vendors-hero{padding:1.5rem 0 1.5rem}
 .crumb{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);margin:0 0 .9rem}

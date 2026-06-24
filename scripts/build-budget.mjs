@@ -198,6 +198,12 @@ const budgetCSS = `
     color: var(--green-mid);
     border-bottom-color: var(--green-light);
   }
+  .toc a.toc-ext {
+    color: var(--green-mid);
+    font-weight: 600;
+    border-bottom-color: var(--green-pale);
+  }
+  .toc a.toc-ext:hover { color: var(--green-deep); border-bottom-color: var(--green-light); }
   .toc a.active {
     color: var(--green-deep);
     border-bottom-color: var(--green-mid);
@@ -468,6 +474,7 @@ ${proposedBudgetBanner('en')}
     <a href="#schools">Schools</a>
     <a href="#documents">Documents</a>
     <a href="#glossary">Glossary</a>
+    <a href="/vendors/" class="toc-ext">Vendor Spending &rarr;</a>
   </div>
 </nav>
 
@@ -745,7 +752,7 @@ function sectionSpendingEN() {
   <h3>Services &amp; Operating Expenses</h3>
   <p>The $31.3 million in services and operations includes contracted services, professional and operating expenses, and insurance. This category covers everything from special education service providers to utilities, transportation, legal fees, and technology contracts.</p>
 
-  <div class="callout">
+  <div class="callout callout-amber">
     <p><strong>See it check by check.</strong> That $31.3M in services &mdash; plus every other warrant the district writes &mdash; is itemized on the <a href="/vendors/">Vendor Spending</a> page: every check the board has ratified since 2020, searchable by vendor with year-by-year totals. (Accounts-payable only &mdash; it excludes payroll, the bulk of the budget above.)</p>
   </div>
 
@@ -1073,6 +1080,7 @@ ${proposedBudgetBanner('es')}
     <a href="#escuelas">Escuelas</a>
     <a href="#documentos">Documentos</a>
     <a href="#glosario">Glosario</a>
+    <a href="/proveedores/" class="toc-ext">Gastos a Proveedores &rarr;</a>
   </div>
 </nav>
 
@@ -1334,7 +1342,7 @@ function sectionSpendingES() {
   <h3>Beneficios: El Costo Oculto</h3>
   <p>Los beneficios de empleados ($39.6M) representan cerca de una cuarta parte de todos los gastos e incluyen contribuciones de pensi\u00f3n CalSTRS (tasa patronal del 19.10%), CalPERS (26.81%), beneficios de salud y otros beneficios estatutarios. Se proyecta que las tasas de CalSTRS y CalPERS sigan subiendo hasta 2027-28 (CalPERS al 26.90%).</p>
 
-  <div class="callout">
+  <div class="callout callout-amber">
     <p><strong>Véalo cheque por cheque.</strong> Esos $31.3M en servicios &mdash; y cada otro cheque que emite el distrito &mdash; están detallados en la página de <a href="/proveedores/">Gastos a Proveedores</a>: cada cheque que la junta ha aprobado desde 2020, con búsqueda por proveedor y totales por año. (Solo cuentas por pagar &mdash; excluye la nómina, la mayor parte del presupuesto de arriba.)</p>
   </div>
 
