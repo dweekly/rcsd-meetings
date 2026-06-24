@@ -95,9 +95,13 @@ them perfectly. Both formats carry a printed grand total used as a parse **check
     hypothesis, unconfirmed (Summary format hides the fund splits). **Use `disbursedTotal` (summed
     line items), not the printed total, for these months.** May/July 2021 fit the same era/format/ratio
     but lack an overlapping register to prove against directly.
-  - `coverage-gap` — **2026-02**: the attachment named `Warrant-Register-February-2026.pdf` actually
-    contains an SPSA document (misfiled at the source). The real Feb 2026 register needs to be
-    re-pulled from Simbli or requested from the district. Follow-up.
+  - ~~`coverage-gap` — **2026-02**~~ **RESOLVED 2026-06-24.** The cached attachment was an SPSA, not
+    the register — a download-side bug in `scrape-board-packets.mjs` (our metadata had the correct
+    Simbli AID 1433020; the saved bytes were wrong). Re-fetched AID 1433020 and replaced local + R2;
+    Feb 2026 now reconciles exactly (462 checks, $7,186,162.93). A filename-vs-content scan of all 77
+    warrant/SPSA-named cached PDFs found no other mismatches, so this was isolated — but the
+    underlying scraper bug is not yet root-caused (could not reproduce from current code). `extract-warrants.mjs`
+    auto-detects misfiled warrant attachments, which is the regression net.
   - `minor-mismatch` — **2026-03, 2025-09**: reconcile to within $0.42 on $7–13M (one stray fraction
     each); usable, flagged for completeness.
 - **Period overlaps:** 2020-06 and 2021-06 each have two registers with overlapping date ranges
