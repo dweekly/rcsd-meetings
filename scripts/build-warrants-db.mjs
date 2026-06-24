@@ -19,7 +19,7 @@
  */
 
 import Database from 'better-sqlite3';
-import { prettyVendorName } from './lib/warrant-parsers.mjs';
+import { prettyVendorName, isCommaName, personMatchKey, isPlainPersonCandidate, titleCasePerson } from './lib/warrant-parsers.mjs';
 import { readFileSync, readdirSync, existsSync, rmSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -102,6 +102,7 @@ function main() {
   // First pass: collect a display name per normalized key (most frequent original spelling),
   // so non-aliased vendors get a readable canonical instead of the stripped key.
   const spellingCounts = new Map(); // key -> Map(spelling -> count)
+  const personRoster = new Set();   // "GIVEN SURNAME" keys of known individuals (comma-format names)
   const files = readdirSync(WARR_DIR).filter((f) => f.endsWith('.json'));
   for (const f of files) {
     const j = JSON.parse(readFileSync(resolve(WARR_DIR, f), 'utf8'));
@@ -111,11 +112,18 @@ function main() {
       if (!spellingCounts.has(k)) spellingCounts.set(k, new Map());
       const sc = spellingCounts.get(k);
       sc.set(r.payee, (sc.get(r.payee) || 0) + 1);
+      if (isCommaName(r.payee)) { const pk = personMatchKey(r.payee); if (pk) personRoster.add(pk); }
     }
   }
   const displayForKey = new Map();
   for (const [k, sc] of spellingCounts) displayForKey.set(k, prettyVendorName(sc));
   const canonicalFor = (key) => keyToCanonical.get(key) || displayForKey.get(key) || key;
+  // Cross-era individual: comma-format names, plus plain "GIVEN SURNAME" names matching a rostered person.
+  const individualOf = (payee) => {
+    if (isCommaName(payee)) return personMatchKey(payee);
+    if (isPlainPersonCandidate(payee)) { const pk = personMatchKey(payee); if (pk && personRoster.has(pk)) return pk; }
+    return null;
+  };
 
   const insReg = db.prepare(`INSERT INTO registers VALUES (@month,@meeting_date,@format,@source,@source_url,@period_from,@period_to,@printed_total,@disbursed_total,@parse_status,@reconciled,@superseded_by)`);
   const insPay = db.prepare(`INSERT INTO payments (register_month,warrant,date_issued,date_iso,fiscal_year,payee,payee_key,canonical,payee_type,amount,status,fund_objects,excluded)
@@ -157,8 +165,8 @@ function main() {
           fiscal_year: fiscalYear(r.dateIssued),
           payee: r.payee,
           payee_key: r.payeeKey || null,
-          canonical: canonicalFor(r.payeeKey),
-          payee_type: r.payeeType || null,
+          canonical: (() => { const pk = individualOf(r.payee); return pk ? titleCasePerson(pk) : canonicalFor(r.payeeKey); })(),
+          payee_type: individualOf(r.payee) ? 'individual' : (r.payeeType || null),
           amount: r.amount,
           status: r.status || null,
           fund_objects: (r.fundObjects || []).join(',') || null,

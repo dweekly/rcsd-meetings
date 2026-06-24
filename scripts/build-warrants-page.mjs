@@ -19,7 +19,7 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
-import { prettyVendorName } from './lib/warrant-parsers.mjs';
+import { prettyVendorName, isCommaName, personMatchKey, isPlainPersonCandidate, titleCasePerson } from './lib/warrant-parsers.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -81,21 +81,30 @@ function aggregate() {
   const alias = loadAliasMap();
   const superseded = supersededSet(index);
 
-  // Most-common original spelling per normalized key (readable canonical for non-aliased vendors).
+  // Pass 1: most-common spelling per key (readable canonical), AND a roster of known individuals
+  // (comma-format "Surname, Given" names) so we can recover the same people in the older "GIVEN
+  // SURNAME" registers (cross-era employee-reimbursement matching).
   const spell = new Map();
+  const personRoster = new Set();
   const files = readdirSync(WARR_DIR).filter((f) => f.endsWith('.json'));
   for (const f of files) {
     const j = JSON.parse(readFileSync(resolve(WARR_DIR, f), 'utf8'));
     for (const r of (j.lineItems || [])) {
       if (!r.payeeKey) continue;
       if (!spell.has(r.payeeKey)) spell.set(r.payeeKey, new Map());
-      const sc = spell.get(r.payeeKey);
-      sc.set(r.payee, (sc.get(r.payee) || 0) + 1);
+      spell.get(r.payeeKey).set(r.payee, (spell.get(r.payeeKey).get(r.payee) || 0) + 1);
+      if (isCommaName(r.payee)) { const k = personMatchKey(r.payee); if (k) personRoster.add(k); }
     }
   }
   const display = new Map();
   for (const [k, sc] of spell) display.set(k, prettyVendorName(sc));
   const canonicalFor = (key) => alias.get(key) || display.get(key) || key;
+  // True for comma-format names and for plain "GIVEN SURNAME" names matching a rostered person.
+  const individualOf = (payee) => {
+    if (isCommaName(payee)) return personMatchKey(payee);
+    if (isPlainPersonCandidate(payee)) { const k = personMatchKey(payee); if (k && personRoster.has(k)) return k; }
+    return null;
+  };
 
   const vendors = new Map();
   const allFy = new Set();
@@ -108,11 +117,14 @@ function aggregate() {
       if (/^(Cancelled|Voided)/i.test(r.status || '')) continue;
       const fy = fiscalYear(r.dateIssued); if (!fy) continue;
       allFy.add(fy);
-      const canon = canonicalFor(r.payeeKey);
+      // Individuals (incl. cross-era matches) group under one "Given Surname" person, tagged
+      // individual; businesses group under their canonical name.
+      const personKey = individualOf(r.payee);
+      const canon = personKey ? titleCasePerson(personKey) : canonicalFor(r.payeeKey);
       let v = vendors.get(canon);
-      if (!v) { v = { name: canon, type: r.payeeType || 'vendor', total: 0, checks: 0, byFy: {} }; vendors.set(canon, v); }
+      if (!v) { v = { name: canon, type: personKey ? 'individual' : 'vendor', total: 0, checks: 0, byFy: {} }; vendors.set(canon, v); }
       v.total += r.amount; v.checks++; v.byFy[fy] = (v.byFy[fy] || 0) + r.amount;
-      if (r.payeeType === 'vendor') v.type = 'vendor'; // a business spelling wins over individual
+      if (!personKey && r.payeeType === 'vendor') v.type = 'vendor';
       grand += r.amount; payCount++;
       const d = ymd(r.dateIssued); if (d) { if (d < minDate) minDate = d; if (d > maxDate) maxDate = d; }
     }
@@ -194,6 +206,7 @@ const T = {
     caveatH: 'Data notes',
     caveatNames: 'Registers list individual employee expense/mileage reimbursements by name alongside business vendors — these are public records. Each payee is tagged <em>vendor</em> or <em>individual</em>.',
     caveat2021: 'Three months (May–July 2021) print a monthly total that over-counts the checks listed; this page uses the actual checks, which are complete.',
+    caveatReimb: 'The two payment systems print employee names differently, so reimbursements before mid-2025 are matched to staff by name across both. Employees who left before then may not be separated from small vendors, so older reimbursement totals are a floor.',
     sourceH: 'Sources & raw data', source: 'Built from the warrant registers attached to board meeting agendas. The machine-readable data is public: ',
     dataLink: 'vendor aggregate (JSON)', registersLink: 'per-register line items',
     fmtLoc: 'en-US',
@@ -216,6 +229,7 @@ const T = {
     caveatH: 'Notas sobre los datos',
     caveatNames: 'Los registros incluyen reembolsos de gastos/millaje de empleados por nombre junto con proveedores comerciales — son documentos públicos. Cada beneficiario se marca como <em>proveedor</em> o <em>individuo</em>.',
     caveat2021: 'Tres meses (mayo–julio de 2021) imprimen un total mensual que sobrecuenta los cheques listados; esta página usa los cheques reales, que están completos.',
+    caveatReimb: 'Los dos sistemas de pago escriben los nombres de empleados de forma distinta, así que los reembolsos antes de mediados de 2025 se identifican por nombre entre ambos. Las personas que se fueron antes podrían no separarse de proveedores pequeños, por lo que los totales antiguos son un mínimo.',
     sourceH: 'Fuentes y datos sin procesar', source: 'Compilado de los registros de cheques adjuntos a las agendas de la junta. Los datos legibles por máquina son públicos: ',
     dataLink: 'agregado por proveedor (JSON)', registersLink: 'líneas por registro',
     fmtLoc: 'es-MX',
@@ -356,7 +370,7 @@ ${siteNav({ activePage: 'budget', lang: t.lang, altLangHref: t.alt })}
 
   <section class="notes">
     <h2>${t.methH}</h2><p>${t.method}</p>
-    <h2>${t.caveatH}</h2><ul><li>${t.caveatNames}</li><li>${t.caveat2021}</li></ul>
+    <h2>${t.caveatH}</h2><ul><li>${t.caveatNames}</li><li>${t.caveatReimb}</li><li>${t.caveat2021}</li></ul>
     <h2>${t.sourceH}</h2><p>${t.source}<a href="/vendors/vendor-spend.json">${t.dataLink}</a> · <a href="https://data.rcsd.info/json/warrants-index.json">${t.registersLink}</a>.</p>
   </section>
 </main>
