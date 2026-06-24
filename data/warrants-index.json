@@ -5,12 +5,12 @@
     "generated": "2026-06-24",
     "counts": {
       "registers": 76,
-      "reconciled": 70,
-      "mismatch": 5,
-      "viaOcr": 1,
+      "reconciled": 0,
+      "mismatch": 0,
+      "viaOcr": 0,
       "failed": 0,
-      "coverageGaps": 1,
-      "skipped": 0
+      "coverageGaps": 0,
+      "skipped": 76
     },
     "periodOverlaps": [
       [
@@ -1683,10 +1683,25 @@
     {
       "month": "2026-02",
       "meetingDate": "2026-03-11",
-      "status": "misfiled-attachment",
-      "parseStatus": "coverage-gap",
-      "relPath": "artifacts/board-packets/2026-03-11/Warrant-Register-February-2026.pdf",
-      "sourceUrl": "https://data.rcsd.info/board-packets/2026-03-11/Warrant-Register-February-2026.pdf"
+      "title": "Ratification of Warrant Registers, February 1, 2026 – February 28, 2026",
+      "source": "simbli",
+      "format": "escape",
+      "viaOcr": false,
+      "lineItemCount": 462,
+      "total": 7186162.93,
+      "disbursedTotal": 7186162.93,
+      "printedTotal": 7186162.93,
+      "reconciled": true,
+      "parseStatus": "reconciled",
+      "coverageRatio": 1,
+      "diff": 0,
+      "period": {
+        "from": "02/01/2026",
+        "to": "02/28/2026",
+        "monthKey": "2026-02"
+      },
+      "sourceUrl": "https://data.rcsd.info/board-packets/2026-03-11/Warrant-Register-February-2026.pdf",
+      "file": "data/warrants/2026-02.json"
     },
     {
       "month": "2026-03",
