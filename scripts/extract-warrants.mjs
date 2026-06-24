@@ -230,16 +230,19 @@ function main() {
     if (res.viaOcr) ocrCount++;
     if (res.reconciled) okCount++; else mismatchCount++;
 
-    // Classify the reconciliation outcome so PR3 knows which months to trust for line-item
-    // (vendor-level) attribution vs. monthly-total-only.
-    //   reconciled        — line items sum to the printed total; fully trustworthy
-    //   minor-mismatch    — within 0.5% (small parsing gap; usable with caution)
-    //   incomplete-detail — source PDF omits detail rows (e.g. Summary-format that lists a
-    //                       subset); monthly printed total is known, line items are partial
+    // Classify the reconciliation outcome so PR3 knows how to use each register.
+    //   reconciled           — line items sum to the printed total; fully trustworthy
+    //   minor-mismatch       — within 0.5% (one stray fraction; usable)
+    //   total-exceeds-detail — printed grand total is much larger than the summed line items.
+    //       For the mid-2021 QSS "Summary" reports this is the printed TOTAL over-counting (it
+    //       appears to sum fund-distribution lines while displaying one row per warrant); the
+    //       line items themselves are COMPLETE — proven for 2021-06, whose 616 warrants are a
+    //       superset of the separately-reconciled 6/1–6/25 register. Use `disbursedTotal`
+    //       (summed line items), NOT the printed total, for these months.
     let parseStatus;
     if (res.reconciled) parseStatus = 'reconciled';
     else if (res.coverageRatio != null && res.coverageRatio >= 0.995 && res.coverageRatio <= 1.005) parseStatus = 'minor-mismatch';
-    else parseStatus = 'incomplete-detail';
+    else parseStatus = 'total-exceeds-detail';
 
     const indexEntry = {
       month: name,

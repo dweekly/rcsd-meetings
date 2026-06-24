@@ -84,12 +84,17 @@ them perfectly. Both formats carry a printed grand total used as a parse **check
   any register that fails to reconcile is flagged `parseStatus: "mismatch"` rather than silently trusted.
 - **Vendor-name normalization is iterative.** Automated normalization (uppercase, strip Inc/LLC/Corp,
   collapse whitespace) plus a hand-curated alias overlay; expect to refine as queries surface variants.
-- **Known data gaps (from PR2, see `data/warrants-index.json` `parseStatus`):**
-  - `incomplete-detail` — **2021-05, 2021-06, 2021-07**: these registers were generated in QSS
-    "Summary" format and list only a subset of warrants (confirmed: both `pdftotext` and OCR see the
-    same ~half-count of rows), so line items are partial. The monthly *printed total* is still
-    captured, so monthly trend figures are fine; per-vendor attribution for these three months is
-    incomplete. (Most other "Summary" registers list every warrant and reconcile.)
+- **Known data issues (from PR2, see `data/warrants-index.json` `parseStatus`):**
+  - `total-exceeds-detail` — **2021-05, 2021-06, 2021-07**: the printed "TOTAL DISTRICT 18" on these
+    QSS "Summary" sheets is ~1.9–2.3× the sum of the warrants listed (e.g. June 2021 prints
+    $21,765,035.47 but its 616 warrants sum to $11.46M). **The line items are complete and correct,
+    not the total** — proven for June 2021: its 616 warrants are a superset of the separately-published
+    6/1–6/25 register (396 warrants, which reconciles exactly to $8,513,998.95), and the shared
+    warrants (incl. Beals Martin $1.6M) carry identical amounts. The printed total appears to sum
+    fund-distribution lines (multi-fund warrants counted once per fund while shown as one row) —
+    hypothesis, unconfirmed (Summary format hides the fund splits). **Use `disbursedTotal` (summed
+    line items), not the printed total, for these months.** May/July 2021 fit the same era/format/ratio
+    but lack an overlapping register to prove against directly.
   - `coverage-gap` — **2026-02**: the attachment named `Warrant-Register-February-2026.pdf` actually
     contains an SPSA document (misfiled at the source). The real Feb 2026 register needs to be
     re-pulled from Simbli or requested from the district. Follow-up.
