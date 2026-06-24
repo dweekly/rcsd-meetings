@@ -606,6 +606,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -702,6 +731,7 @@
       <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
       <a href="/distrito/" class="site-nav-tab">Distrito</a>
       <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/proveedores/" class="site-nav-tab">Proveedores</a>
       <a href="/comites/" class="site-nav-tab">Comités</a>
       <a href="/blog/es/" class="site-nav-tab">Blog</a>
     </div>
@@ -747,7 +777,7 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel active" id="panel-agenda">
-      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to a Special Board Meeting item, please post it on: (https://docs.google.com/forms/d/e/1FAIpQLSd3rKbPfVCTpOsK5ILqjnU2u-h-NuNx-vUq4OZxYNVR8lc4aQ/viewform?usp=sf_link) prior to the Regular Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Bond Program Action Items (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Measure T Bond Program Budget Study, Update and Adoption</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
+      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to a Special Board Meeting item, please post it on: (https://docs.google.com/forms/d/e/1FAIpQLSd3rKbPfVCTpOsK5ILqjnU2u-h-NuNx-vUq4OZxYNVR8lc4aQ/viewform?usp=sf_link) prior to the Regular Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Bond Program Action Items (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Measure T Bond Program Budget Study, Update and Adoption</span><span class="tv-agenda-type">Action</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Justificación: Dos veces al año, el Equipo del Programa de Bonos Measure T lleva a cabo una revisión formal y una actualización de los presupuestos y el financiamiento del proyecto y del programa, y presenta los resultados y recomendaciones a la Junta de Síndicos del Redwood City School District. El presupuesto actualizado que se presentará es la culminación de varios meses de estudio, pruebas, ajustes, programación y confirmación. El equipo incluyó un grupo diverso de profesionales, con habilidades y experiencia variadas, provenientes de los departamentos internos del Distrito Escolar, la dirección del Distrito Escolar y profesionales externos en construcción escolar y gestión de programas. El proceso incluyó la revisión de costos y mano de obra, la revisión y verificación de supuestos, debate objetivo, pruebas paramétricas y de sensibilidad, y el uso intensivo de un sistema de software para planificación, gestión y seguimiento. El equipo presentará el presupuesto actualizado del programa para que la Junta Escolar lo considere para su adopción. La presentación incluirá actualizaciones y un resumen de cada uno de los siguientes puntos: · Informe de Transacciones de Ingresos: valores reales y proyecciones, actualizaciones de todos los fondos de capital; · Informe de Fuentes y Presupuestos: que muestra la(s) fuente(s) de financiamiento y el presupuesto para cada proyecto y los totales del programa, así como los cambios realizados a cada proyecto desde la aprobación del presupuesto del 16 de septiembre de 2020. Impacto Financiero: N/A Fuentes Presupuestarias: Fund 01, Proposition 39 (Energy) Funds; Fund 21, Measure T General Obligation Bonds; y Fund 25, Impact Fees. Presentación para Aprobación Preparado por: Don Dias, Bond Program Director Aprobado por: John R. Baker, Ed.D., Superintendent §</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
@@ -766,6 +796,7 @@
     <a href="/escuelas/">Escuelas</a>
     <a href="/distrito/">Distrito</a>
     <a href="/presupuesto/">Presupuesto</a>
+    <a href="/proveedores/">Proveedores</a>
     <a href="/comites/">Comités</a>
     <a href="/mcp/">API y datos para desarrolladores</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>

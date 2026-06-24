@@ -1,7 +1,7 @@
 ---
 name: RCSD Data Analyst
-description: This skill should be used when the user asks about "Redwood City schools", "RCSD", "school hours", "school enrollment", "school calendar", "is there school today", "next board meeting", "what's for lunch", "lunch menu", "report an absence", "IEP data", "special education", "EL percentage", "LTEL", "long-term English learner", "chronic absenteeism", "teacher diversity", "staff demographics", "teacher experience", "pupil-teacher ratio", "school site council", "SSC", "SPSA", "free and reduced lunch", "PTO", "Konstella", "ParentSquare", "which school", "board meeting", "SARC", "test scores", "CAASPP", "school budget", "RCEF", "Measure U", "expenditures", "district property", "former school site", "who leases the old campus", "watch board meeting", "compare schools", "school demographics", "meeting transcript", "board discussion", "who is my trustee", "who represents my area", "board member", "trustee area", "board president", "who is the superintendent", "new superintendent", "district cabinet", "CBO", "chief business official", "find the resolution", "board resolution", "employment contract", "find the agreement", "MOU", "board packet", "agenda item document", "warrant register", "change order", or any question about Redwood City School District schools, demographics, calendars, meetings, lunch menus, funding, staffing, trustees, board documents, or parent resources. Also activates when the user mentions a child's name in the context of school.
-version: 0.5.0
+description: This skill should be used when the user asks about "Redwood City schools", "RCSD", "school hours", "school enrollment", "school calendar", "is there school today", "next board meeting", "what's for lunch", "lunch menu", "report an absence", "IEP data", "special education", "EL percentage", "LTEL", "long-term English learner", "chronic absenteeism", "teacher diversity", "staff demographics", "teacher experience", "pupil-teacher ratio", "school site council", "SSC", "SPSA", "free and reduced lunch", "PTO", "Konstella", "ParentSquare", "which school", "board meeting", "SARC", "test scores", "CAASPP", "school budget", "RCEF", "Measure U", "expenditures", "district property", "former school site", "who leases the old campus", "watch board meeting", "compare schools", "school demographics", "meeting transcript", "board discussion", "who is my trustee", "who represents my area", "board member", "trustee area", "board president", "who is the superintendent", "new superintendent", "district cabinet", "CBO", "chief business official", "find the resolution", "board resolution", "employment contract", "find the agreement", "MOU", "board packet", "agenda item document", "warrant register", "change order", "vendor spend", "how much does the district pay", "how much do we pay", "vendor payments", "check register", "top vendors", "who do we pay", "annual spend to", or any question about Redwood City School District schools, demographics, calendars, meetings, lunch menus, funding, staffing, trustees, board documents, vendor payments, or parent resources. Also activates when the user mentions a child's name in the context of school.
+version: 0.6.0
 ---
 
 # RCSD Data Analyst
@@ -83,6 +83,26 @@ Read these files from `data/` to answer questions. For field-by-field documentat
 | `timestamp-map.json` | 694 offsets | Agenda item to video timestamp mapping |
 | `document-index.json` | Taxonomy | Attachments **classified** by type/subtype/school/year (`documents[]` with `meetingDate`, `itemLabel`, `aid`, `filename`). Good for "all SARCs" / "budget docs for school X". **Caveat: it is a curated taxonomy and omits unclassified item types — e.g. the superintendent employment contract is NOT in it. If a title search here is empty, fall back to `agenda-attachments.json` before concluding a document doesn't exist.** |
 
+### Vendors & Warrant Registers (vendor payments, Mar 2020 – present)
+
+Every monthly **warrant register** (the board-ratified list of checks the district issued) is parsed into per-payment line items. Use this to answer **"how much does the district pay <vendor> per year?"** and **"who are our biggest vendors?"**
+
+| File | Use For |
+|------|---------|
+| `warrants-index.json` | One row per monthly register: `month`, `meetingDate`, `format`, `total`, `disbursedTotal`, `printedTotal`, `parseStatus`, `period`, `sourceUrl`. **Read this first** for coverage + which months are fully reconciled. `_metadata.periodOverlaps` lists register pairs to dedupe. |
+| `warrants/{YYYY-MM}.json` | Per-register **line items**: `{warrant/check, dateIssued, payee, payeeKey, payeeType (vendor\|individual), amount, status, fundObjects}`. 30k+ rows across 76 files. This is the raw data for vendor-spend questions. |
+| `warrant-vendor-aliases.json` | Curated rollup of name variants → canonical vendor (e.g. CalPERS' several legal names, CDW-G, Siemens). Apply when aggregating so one vendor isn't split across spellings. |
+| `warrant-pdf-manifest.json` | Provenance for the BoardDocs-era register PDFs (source URL, sha256). |
+
+**Fastest path for a vendor-spend question** (if working in the repo): build the SQLite DB once and query via the CLI —
+```bash
+npm run build:warrants-db                          # builds ./warrants.db (gitignored)
+node scripts/report-vendor-spend.mjs "van pelt"     # spend by fiscal year
+node scripts/report-vendor-spend.mjs "van pelt" --detail   # every check + source PDF links
+node scripts/report-vendor-spend.mjs --top 25       # biggest vendors all-time
+```
+The CLI already excludes cancelled checks + superseded registers and footnotes non-reconciled months. To reason without the DB, read `warrants-index.json` then the relevant `warrants/{YYYY-MM}.json` files and sum `amount` by normalized payee (skip `status` starting "Cancelled"/"Voided").
+
 ### Board Policies (619 policies, bylaws, and regulations)
 
 | File/Directory | Size | Use For |
@@ -130,6 +150,12 @@ Example: the superintendent's employment contract → `agenda-attachments.json` 
 
 ### Temporal/topical analysis (meetings corpus)
 For "what has the board discussed about X?", search `meetings-data.json` for topic keywords in the `topics` array and item titles, then read `meeting-summaries.json` for context. For deeper detail, read the specific `board-memos/{date}.json` files. See `references/meetings-guide.md` for navigating the meeting corpus.
+
+### Vendor spend / warrant-register queries ("how much do we pay <vendor>?")
+1. **Coverage check**: read `data/warrants-index.json`. Note `parseStatus` per month and `_metadata.periodOverlaps`.
+2. **Aggregate**: prefer the CLI (`node scripts/report-vendor-spend.mjs "<vendor>"`). Without it, read each `data/warrants/{YYYY-MM}.json`, match the payee (use `payeeKey` + `warrant-vendor-aliases.json` to merge spellings), sum `amount` grouped by **California fiscal year (Jul–Jun)**.
+3. **Exclude correctly**: skip line items whose `status` starts with "Cancelled"/"Voided" (no money disbursed), and drop the superseded register in each `periodOverlaps` pair (the shorter-period one) to avoid double-counting.
+4. **Caveat the answer**: if any contributing month has `parseStatus` other than `reconciled`, say so (see caveats below). Cite source PDFs via `sourceUrl` in the index.
 
 ### Board Policies queries
 For "what is the district's policy on X?", follow this 3-step strategy:
@@ -180,6 +206,7 @@ node ${SKILL_DIR}/scripts/query-school.mjs --list
 - **AI-generated content**: Meeting summaries and SSC membership data (extracted from PDFs via Claude) are AI-generated and labeled as such.
 - **Lunch menus**: Published monthly; future months may not yet be available.
 - **Bilingual**: Calendar events have `en` and `es` fields. The site has `/schools/` and `/escuelas/` mirrors.
+- **Warrant registers**: every line item is reconciled against the register's printed grand total. Most months reconcile exactly; check `parseStatus` in `warrants-index.json`. Three months — **2021-05, 2021-06, 2021-07** (`total-exceeds-detail`) — have complete line items but a printed monthly total that over-counts (~1.9–2.3×, a "Summary"-format artifact); use the summed line items / `disbursedTotal`, never `printedTotal`, for those. Cancelled/voided warrants are listed but disbursed $0 (exclude from spend). Registers list **individual employee reimbursements by name** (`payeeType: "individual"`) alongside business vendors — these are public records. Fiscal year is California Jul–Jun. Fund/object codes (`fundObjects`) are captured for the Escape-era (Jun 2025+) registers only.
 
 ## Remote Fallback
 

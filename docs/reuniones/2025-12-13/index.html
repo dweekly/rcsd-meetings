@@ -76,8 +76,8 @@
     "subjectOf": [
       {
         "@type": "DigitalDocument",
-        "name": "Actas de la reunión (PDF)",
-        "url": "https://data.rcsd.info/minutes/2025-12-13-minutes.pdf",
+        "name": "2025.12.13 Minutes DRAFT - Special (Closed)",
+        "url": "https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&AID=1368550&MID=48984",
         "encodingFormat": "application/pdf"
       }
     ]
@@ -614,6 +614,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -710,6 +739,7 @@
       <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
       <a href="/distrito/" class="site-nav-tab">Distrito</a>
       <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/proveedores/" class="site-nav-tab">Proveedores</a>
       <a href="/comites/" class="site-nav-tab">Comités</a>
       <a href="/blog/es/" class="site-nav-tab">Blog</a>
     </div>
@@ -755,11 +785,11 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel active" id="panel-agenda">
-      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of the Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Public Comment on Closed Session Items Only</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Announcement of Closed Session Purpose</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Closed Session - 8 AM - 5 PM</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">PUBLIC EMPLOYEE APPOINTMENT DISCUSSION (Government Code Section 54957) Title: Superintendent</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">8</span><span class="tv-agenda-title">Reconvene to Open Session</span><span class="tv-agenda-duration">2min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">8.1</span><span class="tv-agenda-title">Report Out on Closed Session Item(s)</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">9</span><span class="tv-agenda-title">Adjournment</span><span class="tv-agenda-duration">1min</span></div>
+      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of the Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Public Comment on Closed Session Items Only</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Announcement of Closed Session Purpose</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Closed Session - 8 AM - 5 PM</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">PUBLIC EMPLOYEE APPOINTMENT DISCUSSION (Government Code Section 54957) Title: Superintendent</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">8</span><span class="tv-agenda-title">Reconvene to Open Session</span><span class="tv-agenda-duration">2min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">8.1</span><span class="tv-agenda-title">Report Out on Closed Session Item(s)</span><span class="tv-agenda-type">Procedural</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-label">Resumen Breve / Extracto</span><span class="tv-agenda-field-text">La Junta reanudará la sesión abierta. El oficial presidencial informará cualquier acción reportable tomada durante la sesión cerrada, de conformidad con el Código de Gobierno § 54957.1.</span></div><div class="tv-agenda-field"><span class="tv-agenda-field-label">Fundamento</span><span class="tv-agenda-field-text">De conformidad con el Código de Gobierno § 54957.1, la Junta está obligada a anunciar si se tomó alguna acción reportable. En caso de que no se haya tomado ninguna acción, el oficial presidencial dejará constancia en el registro de que no ocurrió ninguna acción reportable.</span></div><div class="tv-agenda-field"><span class="tv-agenda-field-label">Impacto Financiero</span><span class="tv-agenda-field-text">Ninguno.</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">9</span><span class="tv-agenda-title">Adjournment</span><span class="tv-agenda-duration">1min</span></div>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
-      <div class="tv-minutes-info"><p>Actas aprobadas en la reunión del 14 de enero de 2026.</p><a class="tv-minutes-link" href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1368550&amp;MID=48984" target="_blank" rel="noopener">2025.12.13 Minutes DRAFT - Special (Closed)</a><iframe class="tv-minutes-embed" src="https://data.rcsd.info/minutes/2025-12-13-minutes.pdf" title="Meeting minutes PDF"></iframe></div>
+      <div class="tv-minutes-info"><p>Actas aprobadas en la reunión del 14 de enero de 2026.</p><a class="tv-minutes-link" href="https://simbli.eboardsolutions.com/Meetings/Attachment.aspx?S=36030397&amp;AID=1368550&amp;MID=48984" target="_blank" rel="noopener">2025.12.13 Minutes DRAFT - Special (Closed)</a></div>
     </div>
   </div>
 
@@ -774,6 +804,7 @@
     <a href="/escuelas/">Escuelas</a>
     <a href="/distrito/">Distrito</a>
     <a href="/presupuesto/">Presupuesto</a>
+    <a href="/proveedores/">Proveedores</a>
     <a href="/comites/">Comités</a>
     <a href="/mcp/">API y datos para desarrolladores</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>

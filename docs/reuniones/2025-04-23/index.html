@@ -76,8 +76,8 @@
     "subjectOf": [
       {
         "@type": "DigitalDocument",
-        "name": "Actas de la reunión (PDF)",
-        "url": "https://data.rcsd.info/minutes/2025-04-23-minutes.pdf",
+        "name": "2025.04.23 Minutes DRAFT - Study Session.pdf",
+        "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG8NXQ621861/$file/2025.04.23%20Minutes%20DRAFT%20-%20Study%20Session.pdf",
         "encodingFormat": "application/pdf"
       }
     ]
@@ -614,6 +614,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -710,6 +739,7 @@
       <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
       <a href="/distrito/" class="site-nav-tab">Distrito</a>
       <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/proveedores/" class="site-nav-tab">Proveedores</a>
       <a href="/comites/" class="site-nav-tab">Comités</a>
       <a href="/blog/es/" class="site-nav-tab">Blog</a>
     </div>
@@ -755,11 +785,11 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel active" id="panel-agenda">
-      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President Mike Wells</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Additions, Deletions, or Modifications to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to the Study Session Board Meeting item, please post it on the links available under Public Content prior to the Study Session Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Discussion Items</span><span class="tv-agenda-duration">2hr</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Review and Discussion of the Draft Facilities Master Plan</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
+      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President Mike Wells</span><span class="tv-agenda-type">Procedural</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Additions, Deletions, or Modifications to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to the Study Session Board Meeting item, please post it on the links available under Public Content prior to the Study Session Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Enlaces para comentarios públicos: Inglés: https://forms.gle/EAYNwfB2xLir6d4H9 Español: https://forms.gle/qjfjpWeCup2ak1wq9 §</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Discussion Items</span><span class="tv-agenda-duration">2hr</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Review and Discussion of the Draft Facilities Master Plan</span><span class="tv-agenda-type">Discussion</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Justificación: Desde junio de 2024, el Distrito ha llevado a cabo un proceso integral de Planificación Maestra de Instalaciones (FMP, por sus siglas en inglés) para evaluar las condiciones físicas, la idoneidad educativa y las necesidades de capacidad a largo plazo de sus instalaciones. El propósito de la FMP es orientar las decisiones de planificación de capital mediante el establecimiento de una hoja de ruta basada en datos y con prioridades definidas para las inversiones en instalaciones durante los próximos 8 a 10 años. Este proceso ha sido guiado por un marco de planificación integrado que incluye: Evaluaciones de Condición de Instalaciones (FCA, por sus siglas en inglés): Evaluaciones detalladas de los sistemas de infraestructura, componentes de los edificios y condiciones de los terrenos en los 15 planteles escolares e instalaciones de apoyo. Proyecciones Demográficas y de Matrícula: Se desarrollaron pronósticos de matrícula hasta el año 2030 en colaboración con un demógrafo, con el fin de evaluar las necesidades de espacio e informar la planificación de capacidad a largo plazo. Revisiones de Idoneidad Educativa: Análisis de los entornos de aprendizaje existentes en relación con las Especificaciones Educativas del Distrito y los modelos de instrucción del siglo XXI, incluyendo factores como la configuración de las aulas, la preparación tecnológica y los espacios de apoyo. Participación de las Partes Interesadas: Aportes estructurados recopilados mediante asambleas comunitarias, reuniones de comités en los planteles escolares, entrevistas con las partes interesadas, encuestas al personal y recorridos por los sitios, garantizando que el plan refleje las prioridades locales y las necesidades programáticas. Alineación Financiera: Coordinación de la planificación de proyectos con las fuentes de financiamiento disponibles y previstas, incluyendo los fondos del bono Measure S, la elegibilidad para el programa estatal de instalaciones y las tarifas locales de desarrolladores. La FMP preliminar resultante sirve como un marco estratégico para guiar la priorización de proyectos, orientar la asignación de capital y apoyar la implementación de instalaciones equitativas y preparadas para el futuro en todo el Distrito. Propósito de la Sesión de Estudio: La sesión de estudio brinda a la Junta la oportunidad de revisar y proporcionar retroalimentación sobre los elementos principales de la FMP preliminar antes de su finalización. Los temas de discusión incluirán: Resumen de Hallazgos Clave: Condiciones actuales de las instalaciones y deficiencias identificadas Necesidades de instalaciones en todo el Distrito en comparación con el financiamiento disponible Resumen de Aportes de la Comunidad y las Partes Interesadas: Temas y prioridades principales surgidos durante el proceso de consulta Resumen de la retroalimentación por grupo de partes interesadas Criterios de Priorización de Proyectos: Revisión del rubric de Indicadores de Calidad (IoQ) y puntajes de proyectos de muestra para obtener aportes y alinearlos con la retroalimentación y las prioridades Aportes sobre las áreas de mayor necesidad en todo el Distrito Revisión de las secciones de la FMP preliminar: Revisión general de la sección de la FMP correspondiente a cada plantel escolar Costos estimados y posibles estrategias de ejecución por fases Preguntas y retroalimentación de la Junta Próximos Pasos: Incorporar la retroalimentación de la Junta en el borrador del Plan Maestro de Instalaciones Finalizar la FMP para su adopción prevista por la Junta en la reunión ordinaria del 14 de mayo Comenzar a desarrollar estrategias de implementación, cronogramas y planes de entrega de proyectos Impacto Financiero: No existe un impacto financiero inmediato. Sin embargo, el Plan Maestro de Instalaciones orientará la priorización y asignación de fondos provenientes del Measure S y otros recursos de capital locales y estatales. Debido a las limitaciones de tamaño de archivo de BoardDocs, el borrador de la FMP puede consultarse a través del siguiente enlace: https://bit.ly/rcsd-fmp25 Presentación para Aprobación Preparado por: Rick Edson, CBO; Martin Cervantes, Director Interino de Bonos; Quattrocci Kwok Architects (Aaron Jobson, John Dybczak y Ector Mojica); VPCS, Administradores del Programa de Bonos (Nick Olsen y Eric Van Pelt) Aprobado por: John Baker, Superintendente §</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
-      <div class="tv-minutes-info"><p>Actas aprobadas en la reunión del 14 de mayo de 2025.</p><a class="tv-minutes-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG8NXQ621861/$file/2025.04.23%20Minutes%20DRAFT%20-%20Study%20Session.pdf" target="_blank" rel="noopener">2025.04.23 Minutes DRAFT - Study Session.pdf</a><iframe class="tv-minutes-embed" src="https://data.rcsd.info/minutes/2025-04-23-minutes.pdf" title="Meeting minutes PDF"></iframe></div>
+      <div class="tv-minutes-info"><p>Actas aprobadas en la reunión del 14 de mayo de 2025.</p><a class="tv-minutes-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG8NXQ621861/$file/2025.04.23%20Minutes%20DRAFT%20-%20Study%20Session.pdf" target="_blank" rel="noopener">2025.04.23 Minutes DRAFT - Study Session.pdf</a></div>
     </div>
   </div>
 
@@ -774,6 +804,7 @@
     <a href="/escuelas/">Escuelas</a>
     <a href="/distrito/">Distrito</a>
     <a href="/presupuesto/">Presupuesto</a>
+    <a href="/proveedores/">Proveedores</a>
     <a href="/comites/">Comités</a>
     <a href="/mcp/">API y datos para desarrolladores</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>

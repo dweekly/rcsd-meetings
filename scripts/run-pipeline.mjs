@@ -101,6 +101,7 @@ run(`${step++}. District pages`, 'build-district.mjs');
 run(`${step++}. School pages`, 'build-schools.mjs');
 run(`${step++}. Charter school pages`, 'build-charters.mjs');
 run(`${step++}. Budget pages`, 'build-budget.mjs');
+run(`${step++}. Vendor spending pages`, 'build-warrants-page.mjs');
 run(`${step++}. Blog`, 'build-blog.mjs');
 run(`${step++}. Board policy pages`, 'build-policies.mjs');
 run(`${step++}. Search pages`, 'build-search.mjs');
