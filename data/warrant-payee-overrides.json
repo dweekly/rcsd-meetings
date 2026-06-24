@@ -1,0 +1,14 @@
+{
+  "_metadata": {
+    "description": "Manual, precise overrides for payees that automated name-matching gets wrong — chiefly contractors/consultants the district pays under a personal name, which otherwise look like employee expense reimbursements. Keyed by person-match-key (GIVEN SURNAME, uppercased — matches every spelling, including 'Surname, Given'). Each entry maps the payee to its real counterparty name and spend category. Add entries as operators identify them; this is intentionally manual (not a heuristic) for accuracy.",
+    "generated": "2026-06-24",
+    "source": "Operator/board knowledge"
+  },
+  "overrides": {
+    "SUSAN FORKER": {
+      "canonical": "Green Environment Inc.",
+      "category": "construction",
+      "note": "Project manager paid under her own name for Green Environment Inc. (per Board President) — contractor spend, not an employee reimbursement."
+    }
+  }
+}

@@ -264,7 +264,11 @@ export function prettyVendorName(spellingCounts) {
  * person keys from the comma-format names, then match plain names against it.
  */
 export function isCommaName(payee) {
-  return /^[A-Z][A-Za-z'’.\-]+,\s+[A-Z]/.test((payee || '').trim());
+  const n = (payee || '').trim();
+  // "Surname, Given" — but NOT a business that prints its suffix after a comma
+  // ("Flextg, LLC", "Liminex, Inc"), which would otherwise read as a person.
+  if (!/^[A-Z][A-Za-z'’.\-]+,\s+[A-Z]/.test(n)) return false;
+  return !BIZ_TOKENS.test(n);
 }
 // Normalized "GIVEN SURNAME" key so the same person matches across both name formats.
 export function personMatchKey(payee) {
