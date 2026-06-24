@@ -180,7 +180,7 @@ const T = {
     lang: 'en', loc: 'en_US', nav: 'vendors', alt: '/proveedores/', other: '/proveedores/',
     title: 'Vendor Spending — RCSD Open Data',
     desc: 'Every check the Redwood City School District has written since 2020, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.',
-    kicker: 'District spending', h1: 'Vendor Spending',
+    kicker: 'District spending', h1: 'Vendor Spending', crumbHref: '/budget/', crumb: 'Budget',
     intro: 'Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.',
     statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
     coverageNote: 'These are <strong>accounts-payable warrants</strong> — payments to vendors, contractors, and benefits. They do <strong>not</strong> include employee salaries (payroll), the district\'s single largest cost, which is paid on separate payroll warrants.',
@@ -202,7 +202,7 @@ const T = {
     lang: 'es', loc: 'es_US', nav: 'vendors', alt: '/vendors/', other: '/vendors/',
     title: 'Gastos a Proveedores — Datos Abiertos de RCSD',
     desc: 'Cada cheque que el Distrito Escolar de Redwood City ha emitido desde 2020, con búsqueda por proveedor y año fiscal. Compilado de los registros de cheques aprobados por la junta.',
-    kicker: 'Gastos del distrito', h1: 'Gastos a Proveedores',
+    kicker: 'Gastos del distrito', h1: 'Gastos a Proveedores', crumbHref: '/presupuesto/', crumb: 'Presupuesto',
     intro: 'Cada mes la Junta de Síndicos aprueba un <strong>registro de cheques</strong> (warrant register) — la lista de cada cheque que emitió el distrito. Esta página los reúne en una base de datos con búsqueda para que veas cuánto le paga el distrito a cualquier proveedor, y cómo cambia año con año.',
     statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
     coverageNote: 'Estos son <strong>cheques de cuentas por pagar</strong> — pagos a proveedores, contratistas y beneficios. <strong>No</strong> incluyen los salarios del personal (nómina), el mayor gasto del distrito, que se paga en cheques de nómina aparte.',
@@ -309,9 +309,10 @@ function renderPage(t, data) {
 ${head}
 </head>
 <body>
-${siteNav({ activePage: 'vendors', lang: t.lang, altLangHref: t.alt })}
+${siteNav({ activePage: 'budget', lang: t.lang, altLangHref: t.alt })}
 <main class="vendors-main">
   <header class="vendors-hero">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="${t.crumbHref}">${t.crumb}</a> <span aria-hidden="true">›</span> ${t.h1}</nav>
     <p class="kicker">${t.kicker}</p>
     <h1>${t.h1}</h1>
     <p class="intro">${t.intro}</p>
@@ -428,7 +429,10 @@ function escapeHtml(s) {
 
 const PAGE_CSS = `
 .vendors-main{max-width:1000px;margin:0 auto;padding:0 1.25rem 4rem}
-.vendors-hero{padding:2.5rem 0 1.5rem}
+.vendors-hero{padding:1.5rem 0 1.5rem}
+.crumb{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);margin:0 0 .9rem}
+.crumb a{color:var(--green-700);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
 .vendors-hero .kicker{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;color:var(--green-700);margin:0 0 .4rem}
 .vendors-hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);margin:0 0 .6rem;color:var(--ink)}
 .vendors-hero .intro{font-size:1.08rem;max-width:62ch;color:var(--ink-soft)}

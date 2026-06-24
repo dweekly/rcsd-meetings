@@ -268,7 +268,10 @@
   }
 
 .vendors-main{max-width:1000px;margin:0 auto;padding:0 1.25rem 4rem}
-.vendors-hero{padding:2.5rem 0 1.5rem}
+.vendors-hero{padding:1.5rem 0 1.5rem}
+.crumb{font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);margin:0 0 .9rem}
+.crumb a{color:var(--green-700);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
 .vendors-hero .kicker{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;color:var(--green-700);margin:0 0 .4rem}
 .vendors-hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);margin:0 0 .6rem;color:var(--ink)}
 .vendors-hero .intro{font-size:1.08rem;max-width:62ch;color:var(--ink-soft)}
@@ -329,8 +332,7 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
       <a href="/meetings/" class="site-nav-tab">Meetings</a>
       <a href="/schools/" class="site-nav-tab">Schools</a>
       <a href="/district/" class="site-nav-tab">District</a>
-      <a href="/budget/" class="site-nav-tab">Budget</a>
-      <a href="/vendors/" class="site-nav-tab active">Vendors</a>
+      <a href="/budget/" class="site-nav-tab active">Budget</a>
       <a href="/committees/" class="site-nav-tab">Committees</a>
       <a href="/blog/" class="site-nav-tab">Blog</a>
     </div>
@@ -343,6 +345,7 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
 <span id="main-content" tabindex="-1"></span>
 <main class="vendors-main">
   <header class="vendors-hero">
+    <nav class="crumb" aria-label="Breadcrumb"><a href="/budget/">Budget</a> <span aria-hidden="true">›</span> Vendor Spending</nav>
     <p class="kicker">District spending</p>
     <h1>Vendor Spending</h1>
     <p class="intro">Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.</p>
@@ -1226,7 +1229,6 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
     <a href="/schools/">Schools</a>
     <a href="/district/">District</a>
     <a href="/budget/">Budget</a>
-    <a href="/vendors/">Vendors</a>
     <a href="/committees/">Committees</a>
     <a href="/mcp/">API &amp; data for developers</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Source Code &#8599;</a>
