@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Vendor Spending — RCSD Open Data</title>
+<meta name="description" content="Every check the Redwood City School District has written since 2020, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.">
+<meta name="theme-color" content="#1a3a2a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://rcsd.info/vendors/">
+<link rel="alternate" hreflang="en" href="https://rcsd.info/vendors/">
+<link rel="alternate" hreflang="es" href="https://rcsd.info/proveedores/">
+<meta property="og:title" content="Vendor Spending — RCSD Open Data">
+<meta property="og:description" content="Every check the Redwood City School District has written since 2020, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.">
+<meta property="og:url" content="https://rcsd.info/vendors/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://data.rcsd.info/og/page-vendors.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vendor Spending — RCSD Open Data">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="RCSD Open Data">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://data.rcsd.info/og/page-vendors.png">
+<meta name="twitter:title" content="Vendor Spending — RCSD Open Data">
+<meta name="twitter:description" content="Every check the Redwood City School District has written since 2020, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.">
+<link rel="describedby" href="/llms.txt">
+<link rel="preload" href="/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Vendor Spending","description":"Every check the Redwood City School District has written since 2020, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.","url":"https://rcsd.info/vendors/","creator":{"@type":"Organization","name":"RCSD Open Data"},"temporalCoverage":"2020-03-03/2026-05-28","distribution":{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://rcsd.info/vendors/vendor-spend.json"}}</script>
+
+<style>
+
+  :root {
+    --green-deep: #1a3a2a;
+    --green-mid: #2d5a3f;
+    --green-light: #4a8c6a;
+    --green-pale: #dcebd5;
+    --green-wash: #f0f6ed;
+    --cream: #faf8f4;
+    --cream-dark: #f2efe8;
+    --amber: #c4842d;
+    --amber-light: #f0d9a8;
+    --coral: #c45d4a;
+    --coral-light: #f5ddd8;
+    --text: #2a2a28;
+    --text-secondary: #5a5a56;
+    /* Muted text must still clear WCAG AA 4.5:1 on every background it
+       appears on: 5.06:1 on --cream, 4.67:1 on --cream-dark, 5.37:1 on
+       #fff. (The old lighter gray token hit only ~3:1 on all three.) */
+    --text-muted: #6b6b64;
+    --rule: #d4d0c8;
+    --rule-light: #e8e4dc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+    background: var(--cream);
+  }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    background: var(--cream);
+  }
+
+  a {
+    color: var(--green-mid);
+    text-decoration-color: var(--rule);
+    text-underline-offset: 2px;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+  a:hover {
+    color: var(--green-deep);
+    text-decoration-color: var(--green-mid);
+  }
+
+  /* ---- SKIP LINK (keyboard a11y) ---- */
+  /* Visually hidden until keyboard focus; first tab stop on every page.
+     Lives inside nav.site-nav so the search indexer (which excludes the
+     nav) never indexes its text. Targets #main-content, emitted by
+     siteNav() right after the nav closes. */
+  .skip-link {
+    position: absolute;
+    left: -200vw;
+    top: 0;
+    z-index: 100;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: var(--green-mid);
+    padding: 0.8rem 1.25rem;
+  }
+  .skip-link:focus { left: 0; outline: 2px solid #fff; outline-offset: -4px; }
+
+  /* ---- SITE NAV ---- */
+  .site-nav {
+    background: #1a2e1a;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .site-nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-nav-tabs { display: flex; gap: 0; }
+  .site-nav-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    /* 0.75rem horizontal padding (not 1rem): seven tabs incl. COMITÉS plus
+       search + lang toggle must fit the 960px container on one row */
+    padding: 0.75rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .site-nav-tab:hover { color: #fff; }
+  .site-nav-tab.active { color: #fff; border-bottom-color: var(--green-light); }
+
+  .site-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .site-nav-search { display: flex; position: relative; }
+  /* Spyglass submit button inside the input's right edge: makes the bare
+     input obviously a search box, and gives phones a tappable submit. */
+  .site-nav-search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2rem;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 0.8rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.75;
+  }
+  .site-nav-search-btn:hover, .site-nav-search-btn:focus-visible { opacity: 1; }
+  .site-nav-search-btn:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
+  .site-nav-search input {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 3px;
+    padding: 0.35rem 2rem 0.35rem 0.65rem;
+    width: 9rem;
+    transition: border-color 0.2s, background 0.2s, width 0.2s;
+  }
+  .site-nav-search input::placeholder { color: rgba(255,255,255,0.55); }
+  .site-nav-search input:focus {
+    /* visible focus ring — a background tint alone fails WCAG 2.4.7 */
+    outline: 2px solid #fff;
+    outline-offset: 1px;
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.7);
+    width: 11rem;
+  }
+  .site-nav-lang {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 3px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .site-nav-lang:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  /* ---- FOOTER ---- */
+  .site-footer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+  .site-footer p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .site-footer a { color: var(--green-mid); }
+  .footer-nav {
+    margin-top: 0.8rem;
+    font-style: normal;
+  }
+  .footer-nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    /* inline-block + padding lifts the tap target to ~33px tall (the bare
+       0.65rem text was 13px); padding + margin ≈ the old 0.75rem spacing */
+    display: inline-block;
+    padding: 0.45rem 0.5rem;
+    margin: 0 0.25rem;
+  }
+  .footer-nav a:hover { text-decoration: underline; }
+
+  /* ---- RESPONSIVE (nav + footer) ---- */
+  /* The single-row nav needs ~920px (seven ES tabs + search + lang toggle),
+     so below 960px it wraps instead: tabs flow across as many justified rows
+     as needed, then search + lang toggle get a full-width row. Every nav item
+     stays visible — the old horizontal scroll strip hid tabs with no usable
+     affordance, and 641–780px viewports clipped the search box offscreen. */
+  @media (max-width: 960px) {
+    .site-nav-inner {
+      flex-wrap: wrap;
+      padding: 0 0.9rem 0.65rem;
+    }
+    .site-nav-tabs {
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+    }
+    .site-nav-tab {
+      /* flex-grow justifies each wrapped row edge-to-edge; 0.9rem vertical
+         padding keeps tap targets ≥44px tall (0.75rem measured only 41.8px) */
+      flex: 1 0 auto;
+      text-align: center;
+      font-size: 0.7rem;
+      padding: 0.9rem 0.55rem;
+    }
+    .site-nav-right { flex: 1 1 100%; }
+    .site-nav-search { flex: 1 1 auto; }
+    .site-nav-search input,
+    .site-nav-search input:focus { width: 100%; }
+    /* 0.95rem vertical padding -> ≥44px tall tap target (0.75rem gave 39.5px) */
+    .site-nav-search input { padding: 0.95rem 2.6rem 0.95rem 0.75rem; }
+    .site-nav-search-btn { width: 2.6rem; font-size: 1rem; }
+    .site-nav-lang {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+.vendors-main{max-width:1000px;margin:0 auto;padding:0 1.25rem 4rem}
+.vendors-hero{padding:2.5rem 0 1.5rem}
+.vendors-hero .kicker{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;color:var(--green-700);margin:0 0 .4rem}
+.vendors-hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);margin:0 0 .6rem;color:var(--ink)}
+.vendors-hero .intro{font-size:1.08rem;max-width:62ch;color:var(--ink-soft)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.8rem}
+.stat{background:var(--green-50);border:1px solid var(--green-100);border-radius:12px;padding:1rem 1.1rem}
+.stat-num{font-family:var(--font-mono);font-size:1.45rem;font-weight:600;color:var(--green-800)}
+.stat-lbl{font-size:.82rem;color:var(--ink-soft);margin-top:.2rem}
+.search-sec{margin:2rem 0 1rem}
+.search-label{display:block;font-weight:600;margin-bottom:.4rem}
+#vsearch{width:100%;font-size:1.05rem;padding:.7rem .9rem;border:2px solid var(--green-200);border-radius:10px;font-family:var(--font-body)}
+#vsearch:focus{outline:none;border-color:var(--green-600)}
+.vcount{font-family:var(--font-mono);font-size:.82rem;color:var(--ink-soft);min-height:1.1em;margin:.5rem 0 0}
+.table-sec h2,.notes h2{font-family:var(--font-display);font-size:1.4rem;margin:1.6rem 0 .8rem}
+.vtable{width:100%;border-collapse:collapse;font-size:.95rem}
+.vtable th{text-align:left;font-family:var(--font-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);border-bottom:2px solid var(--green-200);padding:.5rem .6rem}
+.vtable td{padding:.5rem .6rem;border-bottom:1px solid var(--green-50)}
+.vtable tbody tr:hover{background:var(--green-50)}
+.r-rank{width:2.5rem;font-family:var(--font-mono);color:var(--ink-soft)}
+.r-total,.r-checks{font-family:var(--font-mono);text-align:right;white-space:nowrap}
+.r-total{font-weight:600;color:var(--green-800)}
+.r-trend{width:90px}.r-trend .spark{display:block}
+th.r-total,th.r-checks,th.r-trend{text-align:right}
+.r-icon{width:1.8rem;text-align:center;padding-left:0;padding-right:0}
+.cat-ico{font-size:1.05rem;line-height:1;cursor:default}
+.chip-ico{font-size:.95rem}
+.cat-sec{margin:2rem 0 1rem}
+.cat-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.chip{font-family:var(--font-mono);font-size:.78rem;padding:.35rem .7rem;border:1px solid var(--green-200);background:var(--green-50);border-radius:999px;cursor:pointer;color:var(--ink);transition:all .12s}
+.chip:hover{border-color:var(--green-500)}
+.chip.active{background:var(--green-700);color:#fff;border-color:var(--green-700)}
+.cat-note{font-size:.82rem;color:var(--ink-soft);font-style:italic;margin:.3rem 0 0}
+.nomatch{font-style:italic;color:var(--ink-soft);padding:1rem .6rem}
+.notes{margin-top:2.5rem;font-size:.95rem;color:var(--ink-soft)}
+.notes ul{padding-left:1.1rem}.notes li{margin:.3rem 0}
+.notes a{color:var(--green-700)}
+
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="site-nav-inner">
+    <div class="site-nav-tabs">
+      <a href="/" class="site-nav-tab">Home</a>
+      <a href="/meetings/" class="site-nav-tab">Meetings</a>
+      <a href="/schools/" class="site-nav-tab">Schools</a>
+      <a href="/district/" class="site-nav-tab">District</a>
+      <a href="/budget/" class="site-nav-tab">Budget</a>
+      <a href="/vendors/" class="site-nav-tab active">Vendors</a>
+      <a href="/committees/" class="site-nav-tab">Committees</a>
+      <a href="/blog/" class="site-nav-tab">Blog</a>
+    </div>
+    <div class="site-nav-right">
+      <form class="site-nav-search" role="search" action="/search/" method="get"><input type="search" name="q" placeholder="Search…" aria-label="Search" autocomplete="off"><button type="submit" class="site-nav-search-btn" aria-label="Search">🔍</button></form>
+      <a href="/proveedores/" class="site-nav-lang">ES</a>
+    </div>
+  </div>
+</nav>
+<span id="main-content" tabindex="-1"></span>
+<main class="vendors-main">
+  <header class="vendors-hero">
+    <p class="kicker">District spending</p>
+    <h1>Vendor Spending</h1>
+    <p class="intro">Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-num">$560,457,340</div><div class="stat-lbl">Total disbursed</div></div>
+      <div class="stat"><div class="stat-num">3,435</div><div class="stat-lbl">Distinct payees</div></div>
+      <div class="stat"><div class="stat-num">74</div><div class="stat-lbl">Warrant registers</div></div>
+      <div class="stat"><div class="stat-num">2020–2026</div><div class="stat-lbl">Period</div></div>
+    </div>
+  </header>
+
+  <section class="cat-sec">
+    <h2>Spend by category</h2>
+    <div class="cat-chips" id="catchips" role="group"><button class="chip active" data-cat="">All · $560,457,340</button><button class="chip" data-cat="construction"><span class="chip-ico">🏗️</span> Construction &amp; facilities · $199,120,217</button><button class="chip" data-cat="other"><span class="chip-ico">▫️</span> Other / uncategorized · $83,392,896</button><button class="chip" data-cat="charter"><span class="chip-ico">🎓</span> Charter pass-through · $82,692,202</button><button class="chip" data-cat="benefits"><span class="chip-ico">🪙</span> Pension &amp; benefits · $60,297,433</button><button class="chip" data-cat="sped-health"><span class="chip-ico">🩺</span> Special-ed &amp; health services · $35,126,760</button><button class="chip" data-cat="government"><span class="chip-ico">🏛️</span> Government &amp; agencies · $25,987,083</button><button class="chip" data-cat="technology"><span class="chip-ico">💻</span> Technology · $18,368,707</button><button class="chip" data-cat="instruction"><span class="chip-ico">📚</span> Instruction &amp; curriculum · $18,002,434</button><button class="chip" data-cat="utilities"><span class="chip-ico">💡</span> Utilities &amp; telecom · $14,683,935</button><button class="chip" data-cat="food"><span class="chip-ico">🍎</span> Food service · $14,112,717</button><button class="chip" data-cat="professional"><span class="chip-ico">⚖️</span> Professional &amp; legal · $5,506,952</button><button class="chip" data-cat="staffing"><span class="chip-ico">👥</span> Staffing &amp; substitutes · $2,936,430</button><button class="chip" data-cat="reimbursements"><span class="chip-ico">🧾</span> Employee reimbursements · $229,572</button></div>
+    <p class="cat-note">Categories are a rough name-based grouping, not an accounting classification.</p>
+  </section>
+
+  <section class="search-sec">
+    <label class="search-label" for="vsearch">Search for a vendor</label>
+    <input id="vsearch" type="search" placeholder="e.g. Van Pelt, Sodexo, PG&E…" autocomplete="off" aria-describedby="vcount">
+    <p id="vcount" class="vcount" aria-live="polite"></p>
+  </section>
+
+  <section class="table-sec">
+    <h2>Largest payees</h2>
+    <table class="vtable" id="vtable">
+      <thead><tr>
+        <th class="r-rank">#</th><th class="r-icon" aria-label="Spend by category"></th><th class="r-name">Payee</th>
+        <th class="r-total">Total paid</th><th class="r-checks">Checks</th><th class="r-trend">Trend by year</th>
+      </tr></thead>
+      <tbody id="vbody">
+    <tr>
+      <td class="r-rank">1</td>
+      <td class="r-icon"><span class="cat-ico" title="Pension &amp; benefits" role="img" aria-label="Pension &amp; benefits">🪙</span></td>
+      <td class="r-name">CalPERS (retirement &amp; benefits)</td>
+      <td class="r-total">$59,194,001</td>
+      <td class="r-checks">80</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="9" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="18" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="27" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="36" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">2</td>
+      <td class="r-icon"><span class="cat-ico" title="Charter pass-through" role="img" aria-label="Charter pass-through">🎓</span></td>
+      <td class="r-name">KIPP Bay Area Schools</td>
+      <td class="r-total">$43,883,465</td>
+      <td class="r-checks">77</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="45" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="54" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">3</td>
+      <td class="r-icon"><span class="cat-ico" title="Charter pass-through" role="img" aria-label="Charter pass-through">🎓</span></td>
+      <td class="r-name">Rocketship Education</td>
+      <td class="r-total">$29,223,628</td>
+      <td class="r-checks">108</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="9" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="18" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="45" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="54" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">4</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Beals Martin and Assoc Inc</td>
+      <td class="r-total">$20,105,721</td>
+      <td class="r-checks">62</td>
+      <td class="r-trend" title="2019–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="27" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">5</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Blach Construction Company</td>
+      <td class="r-total">$16,589,424</td>
+      <td class="r-checks">5</td>
+      <td class="r-trend" title="2025–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">6</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Siemens Industry</td>
+      <td class="r-total">$14,787,873</td>
+      <td class="r-checks">213</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="36" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">7</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Southland Industries</td>
+      <td class="r-total">$14,038,560</td>
+      <td class="r-checks">13</td>
+      <td class="r-trend" title="2024–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">8</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Rodan Builders Inc</td>
+      <td class="r-total">$11,987,882</td>
+      <td class="r-checks">26</td>
+      <td class="r-trend" title="2020–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="36" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">9</td>
+      <td class="r-icon"><span class="cat-ico" title="Food service" role="img" aria-label="Food service">🍎</span></td>
+      <td class="r-name">Sodexo Inc &amp; Affiliates</td>
+      <td class="r-total">$9,651,018</td>
+      <td class="r-checks">67</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="9" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="18" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="27" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">10</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Sausal Corporation</td>
+      <td class="r-total">$9,614,901</td>
+      <td class="r-checks">28</td>
+      <td class="r-trend" title="2020–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">11</td>
+      <td class="r-icon"><span class="cat-ico" title="Charter pass-through" role="img" aria-label="Charter pass-through">🎓</span></td>
+      <td class="r-name">Connect Community Charter School (district charter)</td>
+      <td class="r-total">$9,585,109</td>
+      <td class="r-checks">75</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="27" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="36" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="45" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="54" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">12</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">RGM Kramer Inc</td>
+      <td class="r-total">$9,456,419</td>
+      <td class="r-checks">104</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="9" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="36" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">13</td>
+      <td class="r-icon"><span class="cat-ico" title="Utilities &amp; telecom" role="img" aria-label="Utilities &amp; telecom">💡</span></td>
+      <td class="r-name">Pacific Gas &amp; Electric (PG&amp;E)</td>
+      <td class="r-total">$8,875,483</td>
+      <td class="r-checks">268</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="18" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="27" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="36" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">14</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Atlas Pellizzari Electric Inc.</td>
+      <td class="r-total">$8,615,013</td>
+      <td class="r-checks">75</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="27" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">15</td>
+      <td class="r-icon"><span class="cat-ico" title="Government &amp; agencies" role="img" aria-label="Government &amp; agencies">🏛️</span></td>
+      <td class="r-name">City Of Redwood City</td>
+      <td class="r-total">$8,606,154</td>
+      <td class="r-checks">177</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="9" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="18" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="27" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="54" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">16</td>
+      <td class="r-icon"><span class="cat-ico" title="Technology" role="img" aria-label="Technology">💻</span></td>
+      <td class="r-name">360 Degree Customer Inc.</td>
+      <td class="r-total">$8,602,165</td>
+      <td class="r-checks">126</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="18" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="27" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/><rect x="54" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">17</td>
+      <td class="r-icon"><span class="cat-ico" title="Government &amp; agencies" role="img" aria-label="Government &amp; agencies">🏛️</span></td>
+      <td class="r-name">Boys &amp; Girls Clubs of the Peninsula (after-school programs)</td>
+      <td class="r-total">$8,069,751</td>
+      <td class="r-checks">22</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="9" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="18" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="45" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="54" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">18</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Cal-pacific Construction Inc</td>
+      <td class="r-total">$6,756,273</td>
+      <td class="r-checks">26</td>
+      <td class="r-trend" title="2019–2022"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="9" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">19</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Holt Renewables LLC</td>
+      <td class="r-total">$6,532,641</td>
+      <td class="r-checks">17</td>
+      <td class="r-trend" title="2024–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">20</td>
+      <td class="r-icon"><span class="cat-ico" title="Instruction &amp; curriculum" role="img" aria-label="Instruction &amp; curriculum">📚</span></td>
+      <td class="r-name">Effective School Solutions, LLC</td>
+      <td class="r-total">$5,978,127</td>
+      <td class="r-checks">59</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="18" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="45" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="54" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">21</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Duran &amp; Venables Inc</td>
+      <td class="r-total">$5,772,812</td>
+      <td class="r-checks">48</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="27" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">22</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Van Pelt Construction Services</td>
+      <td class="r-total">$5,190,814</td>
+      <td class="r-checks">25</td>
+      <td class="r-trend" title="2023–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">23</td>
+      <td class="r-icon"><span class="cat-ico" title="Technology" role="img" aria-label="Technology">💻</span></td>
+      <td class="r-name">CDW-G</td>
+      <td class="r-total">$5,182,030</td>
+      <td class="r-checks">144</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="27" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="36" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="45" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="54" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">24</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Brailsford &amp; Dunlavey</td>
+      <td class="r-total">$4,990,420</td>
+      <td class="r-checks">33</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">25</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">ICC General Contractors Inc</td>
+      <td class="r-total">$4,214,224</td>
+      <td class="r-checks">8</td>
+      <td class="r-trend" title="2019–2022"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="9" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">26</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Calstate Construction Inc</td>
+      <td class="r-total">$4,044,615</td>
+      <td class="r-checks">9</td>
+      <td class="r-trend" title="2019–2022"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">27</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Casey-fogli</td>
+      <td class="r-total">$3,962,696</td>
+      <td class="r-checks">41</td>
+      <td class="r-trend" title="2019–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="18" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">28</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">One Life Counseling Center</td>
+      <td class="r-total">$3,917,255</td>
+      <td class="r-checks">64</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="18" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="54" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">29</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Children's Health Council</td>
+      <td class="r-total">$3,913,946</td>
+      <td class="r-checks">87</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="18" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="27" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="54" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">30</td>
+      <td class="r-icon"><span class="cat-ico" title="Government &amp; agencies" role="img" aria-label="Government &amp; agencies">🏛️</span></td>
+      <td class="r-name">Redwood City Pal</td>
+      <td class="r-total">$3,420,718</td>
+      <td class="r-checks">16</td>
+      <td class="r-trend" title="2021–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="27" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="36" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">31</td>
+      <td class="r-icon"><span class="cat-ico" title="Instruction &amp; curriculum" role="img" aria-label="Instruction &amp; curriculum">📚</span></td>
+      <td class="r-name">Imagine Learning LLC</td>
+      <td class="r-total">$3,110,078</td>
+      <td class="r-checks">21</td>
+      <td class="r-trend" title="2020–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">32</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">Peninsula Community Center</td>
+      <td class="r-total">$3,001,163</td>
+      <td class="r-checks">34</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="9" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="18" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="45" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="54" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">33</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Fe Controls Corporation</td>
+      <td class="r-total">$2,885,479</td>
+      <td class="r-checks">15</td>
+      <td class="r-trend" title="2019–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="9" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">34</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Quattrocchi Kwok Architects</td>
+      <td class="r-total">$2,868,461</td>
+      <td class="r-checks">30</td>
+      <td class="r-trend" title="2023–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">35</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Park Planet</td>
+      <td class="r-total">$2,835,802</td>
+      <td class="r-checks">39</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="9" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="36" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="45" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">36</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Mar Con Builders Inc</td>
+      <td class="r-total">$2,736,044</td>
+      <td class="r-checks">8</td>
+      <td class="r-trend" title="2020–2021"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">37</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Vanden Bos Electric Inc</td>
+      <td class="r-total">$2,654,170</td>
+      <td class="r-checks">40</td>
+      <td class="r-trend" title="2020–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">38</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">MK Pipelines Inc</td>
+      <td class="r-total">$2,629,555</td>
+      <td class="r-checks">34</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="27" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">39</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Joseph Cumiskey Constr. Corp</td>
+      <td class="r-total">$2,568,228</td>
+      <td class="r-checks">10</td>
+      <td class="r-trend" title="2020–2021"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">40</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">The Safety Guys</td>
+      <td class="r-total">$2,395,377</td>
+      <td class="r-checks">23</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="27" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">41</td>
+      <td class="r-icon"><span class="cat-ico" title="Utilities &amp; telecom" role="img" aria-label="Utilities &amp; telecom">💡</span></td>
+      <td class="r-name">Recology (San Bruno / Peninsula)</td>
+      <td class="r-total">$2,292,898</td>
+      <td class="r-checks">158</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="9" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="18" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="27" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="36" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="45" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">42</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Catalyst Family Inc</td>
+      <td class="r-total">$2,234,849</td>
+      <td class="r-checks">26</td>
+      <td class="r-trend" title="2023–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">43</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">The Speech Pathology Group Inc</td>
+      <td class="r-total">$2,165,140</td>
+      <td class="r-checks">66</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="18" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="27" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">44</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">A-z Bus Sales Inc.</td>
+      <td class="r-total">$2,120,361</td>
+      <td class="r-checks">62</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">45</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">BMR Health Services Inc</td>
+      <td class="r-total">$2,107,870</td>
+      <td class="r-checks">78</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="9" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="36" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="45" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="54" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">46</td>
+      <td class="r-icon"><span class="cat-ico" title="Food service" role="img" aria-label="Food service">🍎</span></td>
+      <td class="r-name">Sysco San Francisco Inc</td>
+      <td class="r-total">$2,031,558</td>
+      <td class="r-checks">118</td>
+      <td class="r-trend" title="2024–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">47</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Inspectacon Corporation</td>
+      <td class="r-total">$1,998,500</td>
+      <td class="r-checks">37</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="27" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">48</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Ninyo &amp; Moore</td>
+      <td class="r-total">$1,988,744</td>
+      <td class="r-checks">69</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">49</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">O.c. Mcdonald</td>
+      <td class="r-total">$1,972,584</td>
+      <td class="r-checks">58</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">50</td>
+      <td class="r-icon"><span class="cat-ico" title="Government &amp; agencies" role="img" aria-label="Government &amp; agencies">🏛️</span></td>
+      <td class="r-name">County of San Mateo</td>
+      <td class="r-total">$1,913,748</td>
+      <td class="r-checks">39</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="9" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="18" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="27" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">51</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">Casa Circulo Cultural</td>
+      <td class="r-total">$1,900,587</td>
+      <td class="r-checks">18</td>
+      <td class="r-trend" title="2022–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="36" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="45" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">52</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Galeb Paving Inc</td>
+      <td class="r-total">$1,873,043</td>
+      <td class="r-checks">15</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="18" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">53</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Dryco Construction Inc</td>
+      <td class="r-total">$1,848,678</td>
+      <td class="r-checks">81</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="36" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="45" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="54" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">54</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">DLM / Hed</td>
+      <td class="r-total">$1,797,299</td>
+      <td class="r-checks">31</td>
+      <td class="r-trend" title="2019–2022"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">55</td>
+      <td class="r-icon"><span class="cat-ico" title="Technology" role="img" aria-label="Technology">💻</span></td>
+      <td class="r-name">Apple</td>
+      <td class="r-total">$1,769,440</td>
+      <td class="r-checks">141</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="27" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="36" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">56</td>
+      <td class="r-icon"><span class="cat-ico" title="Utilities &amp; telecom" role="img" aria-label="Utilities &amp; telecom">💡</span></td>
+      <td class="r-name">Spurr</td>
+      <td class="r-total">$1,764,187</td>
+      <td class="r-checks">53</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="9" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="18" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">57</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Kyo Autism Therapy LLC</td>
+      <td class="r-total">$1,756,109</td>
+      <td class="r-checks">64</td>
+      <td class="r-trend" title="2020–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="36" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="45" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">58</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Scapes Inc</td>
+      <td class="r-total">$1,731,405</td>
+      <td class="r-checks">66</td>
+      <td class="r-trend" title="2019–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="18" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">59</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Cody Anderson Wasney Architect</td>
+      <td class="r-total">$1,654,127</td>
+      <td class="r-checks">28</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="27" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">60</td>
+      <td class="r-icon"><span class="cat-ico" title="Staffing &amp; substitutes" role="img" aria-label="Staffing &amp; substitutes">👥</span></td>
+      <td class="r-name">Swing Education Inc</td>
+      <td class="r-total">$1,615,130</td>
+      <td class="r-checks">34</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="36" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="45" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">61</td>
+      <td class="r-icon"><span class="cat-ico" title="Government &amp; agencies" role="img" aria-label="Government &amp; agencies">🏛️</span></td>
+      <td class="r-name">County School Service Fund (SMCOE)</td>
+      <td class="r-total">$1,599,218</td>
+      <td class="r-checks">62</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="18" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/><rect x="27" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="36" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="45" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">62</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Mobile Modular Mgmt.corp.</td>
+      <td class="r-total">$1,512,987</td>
+      <td class="r-checks">256</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="27" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">63</td>
+      <td class="r-icon"><span class="cat-ico" title="Professional &amp; legal" role="img" aria-label="Professional &amp; legal">⚖️</span></td>
+      <td class="r-name">Dannis Woliver Kelley (DWK, district counsel)</td>
+      <td class="r-total">$1,483,251</td>
+      <td class="r-checks">167</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="9" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="18" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="45" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="54" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">64</td>
+      <td class="r-icon"><span class="cat-ico" title="Instruction &amp; curriculum" role="img" aria-label="Instruction &amp; curriculum">📚</span></td>
+      <td class="r-name">Teacher Created Materials Inc.</td>
+      <td class="r-total">$1,455,440</td>
+      <td class="r-checks">30</td>
+      <td class="r-trend" title="2022–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="54" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">65</td>
+      <td class="r-icon"><span class="cat-ico" title="Instruction &amp; curriculum" role="img" aria-label="Instruction &amp; curriculum">📚</span></td>
+      <td class="r-name">Curriculum Associates, LLC</td>
+      <td class="r-total">$1,443,716</td>
+      <td class="r-checks">22</td>
+      <td class="r-trend" title="2020–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="36" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="45" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="54" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">66</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Therapeutic Learning Consultants</td>
+      <td class="r-total">$1,434,017</td>
+      <td class="r-checks">68</td>
+      <td class="r-trend" title="2021–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="27" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="36" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="45" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">67</td>
+      <td class="r-icon"><span class="cat-ico" title="Instruction &amp; curriculum" role="img" aria-label="Instruction &amp; curriculum">📚</span></td>
+      <td class="r-name">Creative Learning Center</td>
+      <td class="r-total">$1,386,321</td>
+      <td class="r-checks">59</td>
+      <td class="r-trend" title="2019–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="9" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="18" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="45" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">68</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Procare Therapy</td>
+      <td class="r-total">$1,373,664</td>
+      <td class="r-checks">101</td>
+      <td class="r-trend" title="2022–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="36" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">69</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Maxim Healthcare Staffing</td>
+      <td class="r-total">$1,368,766</td>
+      <td class="r-checks">113</td>
+      <td class="r-trend" title="2019–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="9" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="18" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/><rect x="27" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">70</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">SPG Therapy &amp; Education</td>
+      <td class="r-total">$1,296,902</td>
+      <td class="r-checks">34</td>
+      <td class="r-trend" title="2023–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">71</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Amergis Healthcare Staffing</td>
+      <td class="r-total">$1,208,314</td>
+      <td class="r-checks">70</td>
+      <td class="r-trend" title="2023–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">72</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Smith Mechanical-electrical-</td>
+      <td class="r-total">$1,207,681</td>
+      <td class="r-checks">19</td>
+      <td class="r-trend" title="2020–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">73</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Marina Mechanical</td>
+      <td class="r-total">$1,200,918</td>
+      <td class="r-checks">21</td>
+      <td class="r-trend" title="2019–2023"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">74</td>
+      <td class="r-icon"><span class="cat-ico" title="Staffing &amp; substitutes" role="img" aria-label="Staffing &amp; substitutes">👥</span></td>
+      <td class="r-name">Edtheory</td>
+      <td class="r-total">$1,195,720</td>
+      <td class="r-checks">89</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="18" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="27" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="36" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="45" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">75</td>
+      <td class="r-icon"><span class="cat-ico" title="Technology" role="img" aria-label="Technology">💻</span></td>
+      <td class="r-name">Amazon</td>
+      <td class="r-total">$1,168,479</td>
+      <td class="r-checks">246</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="18" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="45" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="54" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">76</td>
+      <td class="r-icon"><span class="cat-ico" title="Professional &amp; legal" role="img" aria-label="Professional &amp; legal">⚖️</span></td>
+      <td class="r-name">College Advising Prep</td>
+      <td class="r-total">$1,141,274</td>
+      <td class="r-checks">22</td>
+      <td class="r-trend" title="2021–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="27" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="54" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">77</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Norman S. Wright Company</td>
+      <td class="r-total">$1,074,133</td>
+      <td class="r-checks">3</td>
+      <td class="r-trend" title="2022–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">78</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Spot Coolers</td>
+      <td class="r-total">$1,073,159</td>
+      <td class="r-checks">7</td>
+      <td class="r-trend" title="2024–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">79</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Dinelli Plumbing Inc</td>
+      <td class="r-total">$1,062,377</td>
+      <td class="r-checks">50</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">80</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">After School Music Academy Llc</td>
+      <td class="r-total">$1,060,645</td>
+      <td class="r-checks">12</td>
+      <td class="r-trend" title="2022–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="36" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="45" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="54" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">81</td>
+      <td class="r-icon"><span class="cat-ico" title="Utilities &amp; telecom" role="img" aria-label="Utilities &amp; telecom">💡</span></td>
+      <td class="r-name">At&amp;t</td>
+      <td class="r-total">$1,055,164</td>
+      <td class="r-checks">168</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="9" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="18" y="11" width="7" height="11" rx="1" fill="#2f6b3f"/><rect x="27" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="36" y="5" width="7" height="17" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">82</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Kitchell Corporation</td>
+      <td class="r-total">$1,031,226</td>
+      <td class="r-checks">20</td>
+      <td class="r-trend" title="2019–2022"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">83</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Ascend Rehab Services</td>
+      <td class="r-total">$1,027,707</td>
+      <td class="r-checks">87</td>
+      <td class="r-trend" title="2020–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="18" y="14" width="7" height="8" rx="1" fill="#2f6b3f"/><rect x="27" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/><rect x="36" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">84</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">San Mateo County Behavioral Health</td>
+      <td class="r-total">$1,023,364</td>
+      <td class="r-checks">37</td>
+      <td class="r-trend" title="2022–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="36" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="13" width="7" height="9" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">85</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Aequor Healthcare Services</td>
+      <td class="r-total">$990,902</td>
+      <td class="r-checks">52</td>
+      <td class="r-trend" title="2023–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">86</td>
+      <td class="r-icon"><span class="cat-ico" title="Food service" role="img" aria-label="Food service">🍎</span></td>
+      <td class="r-name">The Bonami Baking Company</td>
+      <td class="r-total">$975,738</td>
+      <td class="r-checks">62</td>
+      <td class="r-trend" title="2023–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">87</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Starvista</td>
+      <td class="r-total">$952,934</td>
+      <td class="r-checks">11</td>
+      <td class="r-trend" title="2019–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="18" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="27" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">88</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">Scoot Education Inc</td>
+      <td class="r-total">$946,189</td>
+      <td class="r-checks">28</td>
+      <td class="r-trend" title="2024–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">89</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">The Evalgroup</td>
+      <td class="r-total">$941,274</td>
+      <td class="r-checks">19</td>
+      <td class="r-trend" title="2019–2022"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">90</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">Ro Health LLC</td>
+      <td class="r-total">$940,876</td>
+      <td class="r-checks">84</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="18" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="45" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">91</td>
+      <td class="r-icon"><span class="cat-ico" title="Special-ed &amp; health services" role="img" aria-label="Special-ed &amp; health services">🩺</span></td>
+      <td class="r-name">The Avalon Academy</td>
+      <td class="r-total">$925,053</td>
+      <td class="r-checks">57</td>
+      <td class="r-trend" title="2020–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="18" y="12" width="7" height="10" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="45" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="54" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">92</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">Chefs' Toys, LLC</td>
+      <td class="r-total">$892,612</td>
+      <td class="r-checks">8</td>
+      <td class="r-trend" title="2025–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">93</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">Siena Youth Center</td>
+      <td class="r-total">$883,600</td>
+      <td class="r-checks">5</td>
+      <td class="r-trend" title="2022–2025"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="6" width="7" height="16" rx="1" fill="#2f6b3f"/><rect x="45" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">94</td>
+      <td class="r-icon"><span class="cat-ico" title="Government &amp; agencies" role="img" aria-label="Government &amp; agencies">🏛️</span></td>
+      <td class="r-name">Employment Development Dept</td>
+      <td class="r-total">$881,421</td>
+      <td class="r-checks">32</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="18" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="45" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="54" y="19" width="7" height="3" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">95</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">Heritage Bank of Commerce</td>
+      <td class="r-total">$858,564</td>
+      <td class="r-checks">4</td>
+      <td class="r-trend" title="2025–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">96</td>
+      <td class="r-icon"><span class="cat-ico" title="Technology" role="img" aria-label="Technology">💻</span></td>
+      <td class="r-name">Powerschool Group LLC</td>
+      <td class="r-total">$844,681</td>
+      <td class="r-checks">29</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="16" width="7" height="6" rx="1" fill="#2f6b3f"/><rect x="18" y="10" width="7" height="12" rx="1" fill="#2f6b3f"/><rect x="27" y="17" width="7" height="5" rx="1" fill="#2f6b3f"/><rect x="36" y="7" width="7" height="15" rx="1" fill="#2f6b3f"/><rect x="45" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="54" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">97</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">ODP Business Solutions LLC</td>
+      <td class="r-total">$841,462</td>
+      <td class="r-checks">87</td>
+      <td class="r-trend" title="2021–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="18" y="20" width="7" height="2" rx="1" fill="#2f6b3f"/><rect x="27" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="36" y="3" width="7" height="19" rx="1" fill="#2f6b3f"/><rect x="45" y="8" width="7" height="14" rx="1" fill="#2f6b3f"/><rect x="54" y="9" width="7" height="13" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">98</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">Foothill Air Conditioning &amp;</td>
+      <td class="r-total">$838,078</td>
+      <td class="r-checks">11</td>
+      <td class="r-trend" title="2020–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="9" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="18" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="27" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">99</td>
+      <td class="r-icon"><span class="cat-ico" title="Construction &amp; facilities" role="img" aria-label="Construction &amp; facilities">🏗️</span></td>
+      <td class="r-name">Grainger</td>
+      <td class="r-total">$827,159</td>
+      <td class="r-checks">164</td>
+      <td class="r-trend" title="2019–2026"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="27" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/></svg></td>
+    </tr>
+    <tr>
+      <td class="r-rank">100</td>
+      <td class="r-icon"><span class="cat-ico" title="Other / uncategorized" role="img" aria-label="Other / uncategorized">▫️</span></td>
+      <td class="r-name">John P C Wong</td>
+      <td class="r-total">$818,119</td>
+      <td class="r-checks">42</td>
+      <td class="r-trend" title="2019–2024"><svg class="spark" width="63" height="22" viewBox="0 0 63 22" role="img" aria-hidden="true"><rect x="0" y="18" width="7" height="4" rx="1" fill="#2f6b3f"/><rect x="9" y="2" width="7" height="20" rx="1" fill="#2f6b3f"/><rect x="18" y="4" width="7" height="18" rx="1" fill="#2f6b3f"/><rect x="27" y="15" width="7" height="7" rx="1" fill="#2f6b3f"/><rect x="36" y="20.5" width="7" height="1.5" rx="1" fill="#2f6b3f"/><rect x="45" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/><rect x="54" y="20.5" width="7" height="1.5" rx="1" fill="#cdddd2"/></svg></td>
+    </tr></tbody>
+    </table>
+    <p class="nomatch" id="nomatch" hidden>No payees match</p>
+  </section>
+
+  <section class="notes">
+    <h2>How this was built</h2><p>Line items were extracted from each register PDF and reconciled against the register's own printed grand total. Cancelled and voided checks (no money disbursed) are excluded. Spending is grouped by California fiscal year (July–June). Vendor-name spellings are rolled up via a curated alias list, so one payee isn't split across variants.</p>
+    <h2>Data notes</h2><ul><li>Registers list individual employee expense/mileage reimbursements by name alongside business vendors — these are public records. Each payee is tagged <em>vendor</em> or <em>individual</em>.</li><li>Three months (May–July 2021) print a monthly total that over-counts the checks listed; this page uses the actual checks, which are complete.</li></ul>
+    <h2>Sources & raw data</h2><p>Built from the warrant registers attached to board meeting agendas. The machine-readable data is public: <a href="/vendors/vendor-spend.json">vendor aggregate (JSON)</a> · <a href="https://data.rcsd.info/json/warrants-index.json">per-register line items</a>.</p>
+  </section>
+</main>
+<footer class="site-footer">
+  <p>Independently compiled from publicly available RCSD documents. Source documents at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>.</p>
+  <div class="footer-nav">
+    <a href="/">Home</a>
+    <a href="/meetings/">Meetings</a>
+    <a href="/schools/">Schools</a>
+    <a href="/district/">District</a>
+    <a href="/budget/">Budget</a>
+    <a href="/vendors/">Vendors</a>
+    <a href="/committees/">Committees</a>
+    <a href="/mcp/">API &amp; data for developers</a>
+    <a href="https://github.com/dweekly/rcsd-meetings">Source Code &#8599;</a>
+    <a href="mailto:team@rcsd.info">team@rcsd.info</a>
+  </div>
+</footer>
+<script>
+const FMT_LOC = "en-US";
+const STR = {"showingAll":"Showing","matches":"payees"};
+const CATS = {"construction":"Construction & facilities","other":"Other / uncategorized","charter":"Charter pass-through","benefits":"Pension & benefits","sped-health":"Special-ed & health services","government":"Government & agencies","technology":"Technology","instruction":"Instruction & curriculum","utilities":"Utilities & telecom","food":"Food service","professional":"Professional & legal","staffing":"Staffing & substitutes","reimbursements":"Employee reimbursements"};
+const ICONS = {"charter":"🎓","benefits":"🪙","utilities":"💡","food":"🍎","sped-health":"🩺","staffing":"👥","construction":"🏗️","instruction":"📚","technology":"💻","professional":"⚖️","government":"🏛️","reimbursements":"🧾","other":"▫️"};
+const FYS = ["FY2019-20","FY2020-21","FY2021-22","FY2022-23","FY2023-24","FY2024-25","FY2025-26"];
+const usd = (n) => new Intl.NumberFormat(FMT_LOC, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+let ALL = null, activeCat = '', query = '';
+const body = document.getElementById('vbody');
+const input = document.getElementById('vsearch');
+const countEl = document.getElementById('vcount');
+const noMatch = document.getElementById('nomatch');
+const chips = document.getElementById('catchips');
+
+function esc(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+function spark(byFy){
+  const vals = FYS.map(fy => byFy[fy] || 0);
+  const max = Math.max(1, ...vals);
+  const bw=7, gap=2, h=22;
+  let bars='';
+  vals.forEach((v,i) => {
+    const x = i*(bw+gap);
+    if(v>0){ const bh=Math.max(1.5, Math.round((h-2)*(v/max))); bars+='<rect x="'+x+'" y="'+(h-bh)+'" width="'+bw+'" height="'+bh+'" rx="1" fill="#2f6b3f"/>'; }
+    else { bars+='<rect x="'+x+'" y="'+(h-1.5)+'" width="'+bw+'" height="1.5" rx="1" fill="#cdddd2"/>'; }
+  });
+  const w = FYS.length*(bw+gap);
+  return '<svg class="spark" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" aria-hidden="true">'+bars+'</svg>';
+}
+function fyRange(byFy){ const ks=Object.keys(byFy).sort(); return ks.length ? ks[0].replace('FY','').slice(0,4)+'–'+ks[ks.length-1].split('-')[1] : ''; }
+function render(list){
+  body.innerHTML = list.slice(0,200).map((v,i) => {
+    const lbl = esc(CATS[v.cat]||v.cat);
+    return '<tr><td class="r-rank">'+(i+1)+'</td>'+
+    '<td class="r-icon"><span class="cat-ico" title="'+lbl+'" role="img" aria-label="'+lbl+'">'+(ICONS[v.cat]||'▫️')+'</span></td>'+
+    '<td class="r-name">'+esc(v.name)+'</td>'+
+    '<td class="r-total">'+usd(v.total)+'</td><td class="r-checks">'+v.checks+
+    '</td><td class="r-trend" title="'+fyRange(v.byFy)+'">'+spark(v.byFy)+'</td></tr>';
+  }).join('');
+  noMatch.hidden = list.length>0;
+  countEl.textContent = STR.showingAll+' '+Math.min(list.length,200).toLocaleString(FMT_LOC)+
+    (list.length>200 ? ' / '+list.length.toLocaleString(FMT_LOC) : '')+' '+STR.matches;
+}
+async function ensure(){ if(ALL) return; const r=await fetch('/vendors/vendor-spend.json'); ALL=(await r.json()).vendors; }
+async function apply(){
+  await ensure();
+  const q = query.toLowerCase();
+  render(ALL.filter(v => (!activeCat || v.cat===activeCat) && (!q || v.name.toLowerCase().includes(q))));
+}
+let timer;
+input.addEventListener('input', () => { clearTimeout(timer); timer=setTimeout(()=>{ query=input.value.trim(); apply(); }, 120); });
+chips.addEventListener('click', (e) => {
+  const b = e.target.closest('.chip'); if(!b) return;
+  activeCat = b.dataset.cat;
+  chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c===b));
+  apply();
+});
+</script>
+</body>
+</html>

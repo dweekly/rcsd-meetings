@@ -1,0 +1,447 @@
+#!/usr/bin/env node
+/**
+ * build-warrants-page.mjs — public bilingual vendor-spending page (PR4).
+ *
+ * Aggregates the committed per-register line items (data/warrants/*.json) into per-vendor
+ * fiscal-year spend and renders /vendors/ (EN) + /proveedores/ (ES). Reads from JSON (not
+ * warrants.db) so the site build is reproducible without the local database.
+ *
+ * Exclusion rules mirror build-warrants-db.mjs: cancelled/voided checks and the subset register
+ * in each overlapping pair are dropped, so totals are "money actually disbursed".
+ *
+ * Output:
+ *   docs/vendors/vendor-spend.json   full per-vendor aggregate (fetched by the page for search)
+ *   docs/vendors/index.html          EN
+ *   docs/proveedores/index.html      ES
+ */
+
+import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 'fs';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
+import { prettyVendorName } from './lib/warrant-parsers.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, '..');
+const WARR_DIR = resolve(ROOT, 'data/warrants');
+
+function fiscalYear(mdy) {
+  const m = (mdy || '').match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
+  if (!m) return null;
+  let y = +m[3]; if (y < 100) y += 2000;
+  const start = +m[1] >= 7 ? y : y - 1;
+  return `FY${start}-${String(start + 1).slice(2)}`;
+}
+function ymd(mdy) {
+  const m = (mdy || '').match(/(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
+  if (!m) return null;
+  let y = +m[3]; if (y < 100) y += 2000;
+  return `${y}-${String(+m[1]).padStart(2, '0')}-${String(+m[2]).padStart(2, '0')}`;
+}
+
+function loadCategories() {
+  const p = resolve(ROOT, 'data/warrant-categories.json');
+  return existsSync(p) ? JSON.parse(readFileSync(p, 'utf8')).categories : [];
+}
+// Assign ONE category id by first-match-wins keyword (individuals → reimbursements).
+function categorize(name, type, categories) {
+  if (type === 'individual') return 'reimbursements';
+  const up = (name || '').toUpperCase();
+  for (const c of categories) if (c.patterns.some((pat) => up.includes(pat))) return c.id;
+  return 'other';
+}
+
+function loadAliasMap() {
+  const p = resolve(ROOT, 'data/warrant-vendor-aliases.json');
+  const map = new Map();
+  if (existsSync(p)) {
+    const { aliases } = JSON.parse(readFileSync(p, 'utf8'));
+    for (const [canon, keys] of Object.entries(aliases || {})) for (const k of keys) map.set(k.toUpperCase(), canon);
+  }
+  return map;
+}
+
+// Subset register in each overlapping pair → superseded (excluded), matching the DB builder.
+function supersededSet(index) {
+  const byMonth = new Map(index.registers.map((r) => [r.month, r]));
+  const out = new Set();
+  for (const [a, b] of (index._metadata.periodOverlaps || [])) {
+    const ra = byMonth.get(a), rb = byMonth.get(b);
+    if (!ra?.period || !rb?.period) continue;
+    const fa = ymd(ra.period.from), ta = ymd(ra.period.to), fb = ymd(rb.period.from), tb = ymd(rb.period.to);
+    if (!fa || !ta || !fb || !tb) continue;
+    if (fa <= fb && ta >= tb) out.add(b);
+    else if (fb <= fa && tb >= ta) out.add(a);
+  }
+  return out;
+}
+
+function aggregate() {
+  const index = JSON.parse(readFileSync(resolve(ROOT, 'data/warrants-index.json'), 'utf8'));
+  const alias = loadAliasMap();
+  const superseded = supersededSet(index);
+
+  // Most-common original spelling per normalized key (readable canonical for non-aliased vendors).
+  const spell = new Map();
+  const files = readdirSync(WARR_DIR).filter((f) => f.endsWith('.json'));
+  for (const f of files) {
+    const j = JSON.parse(readFileSync(resolve(WARR_DIR, f), 'utf8'));
+    for (const r of (j.lineItems || [])) {
+      if (!r.payeeKey) continue;
+      if (!spell.has(r.payeeKey)) spell.set(r.payeeKey, new Map());
+      const sc = spell.get(r.payeeKey);
+      sc.set(r.payee, (sc.get(r.payee) || 0) + 1);
+    }
+  }
+  const display = new Map();
+  for (const [k, sc] of spell) display.set(k, prettyVendorName(sc));
+  const canonicalFor = (key) => alias.get(key) || display.get(key) || key;
+
+  const vendors = new Map();
+  const allFy = new Set();
+  let grand = 0, payCount = 0;
+  let minDate = '9999', maxDate = '0000';
+  for (const f of files) {
+    const j = JSON.parse(readFileSync(resolve(WARR_DIR, f), 'utf8'));
+    if (superseded.has(j._metadata.month)) continue;
+    for (const r of (j.lineItems || [])) {
+      if (/^(Cancelled|Voided)/i.test(r.status || '')) continue;
+      const fy = fiscalYear(r.dateIssued); if (!fy) continue;
+      allFy.add(fy);
+      const canon = canonicalFor(r.payeeKey);
+      let v = vendors.get(canon);
+      if (!v) { v = { name: canon, type: r.payeeType || 'vendor', total: 0, checks: 0, byFy: {} }; vendors.set(canon, v); }
+      v.total += r.amount; v.checks++; v.byFy[fy] = (v.byFy[fy] || 0) + r.amount;
+      if (r.payeeType === 'vendor') v.type = 'vendor'; // a business spelling wins over individual
+      grand += r.amount; payCount++;
+      const d = ymd(r.dateIssued); if (d) { if (d < minDate) minDate = d; if (d > maxDate) maxDate = d; }
+    }
+  }
+  const categories = loadCategories();
+  const list = [...vendors.values()]
+    .map((v) => ({
+      name: v.name, type: v.type, checks: v.checks,
+      cat: categorize(v.name, v.type, categories),
+      total: Math.round(v.total * 100) / 100,
+      byFy: Object.fromEntries(Object.entries(v.byFy).map(([k, x]) => [k, Math.round(x * 100) / 100])),
+    }))
+    .sort((a, b) => b.total - a.total);
+  const fyList = [...allFy].sort();
+  const registers = index.registers.filter((r) => !superseded.has(r.month));
+
+  // Spend totals per category (for the summary chips).
+  const catTotals = new Map();
+  for (const v of list) catTotals.set(v.cat, (catTotals.get(v.cat) || 0) + v.total);
+  const catList = [
+    ...categories.map((c) => ({ id: c.id, label: c.label })),
+    { id: 'reimbursements', label: { en: 'Employee reimbursements', es: 'Reembolsos a empleados' } },
+    { id: 'other', label: { en: 'Other / uncategorized', es: 'Otros / sin categoría' } },
+  ].map((c) => ({ ...c, total: Math.round((catTotals.get(c.id) || 0) * 100) / 100 }))
+    .filter((c) => c.total > 0)
+    .sort((a, b) => b.total - a.total);
+
+  return {
+    vendors: list, fyList, categories: catList,
+    stats: {
+      grand: Math.round(grand * 100) / 100, payCount, vendorCount: list.length,
+      registerCount: registers.length, minDate, maxDate,
+    },
+  };
+}
+
+// Tiny inline bar sparkline of spend across fiscal years (each vendor scaled to its own max).
+function sparkSvg(byFy, fyList, color = '#2f6b3f') {
+  const vals = fyList.map((fy) => byFy[fy] || 0);
+  const max = Math.max(1, ...vals);
+  const bw = 7, gap = 2, h = 22, pad = 2;
+  const bars = vals.map((v, i) => {
+    const bh = v > 0 ? Math.max(1.5, Math.round((h - pad) * (v / max))) : 0;
+    const x = i * (bw + gap);
+    return bh ? `<rect x="${x}" y="${h - bh}" width="${bw}" height="${bh}" rx="1" fill="${color}"/>`
+      : `<rect x="${x}" y="${h - 1.5}" width="${bw}" height="1.5" rx="1" fill="#cdddd2"/>`;
+  }).join('');
+  const w = fyList.length * (bw + gap);
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-hidden="true">${bars}</svg>`;
+}
+
+const T = {
+  en: {
+    lang: 'en', loc: 'en_US', nav: 'vendors', alt: '/proveedores/', other: '/proveedores/',
+    title: 'Vendor Spending — RCSD Open Data',
+    desc: 'Every check the Redwood City School District has written since 2020, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.',
+    kicker: 'District spending', h1: 'Vendor Spending',
+    intro: 'Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.',
+    statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
+    searchLabel: 'Search for a vendor', searchPh: 'e.g. Van Pelt, Sodexo, PG&E…',
+    thRank: '#', thVendor: 'Payee', thTotal: 'Total paid', thChecks: 'Checks', thTrend: 'Trend by year',
+    catHeading: 'Spend by category', allCat: 'All', catNote: 'Categories are a rough name-based grouping, not an accounting classification.',
+    topHeading: 'Largest payees', showingAll: 'Showing', matches: 'payees', noMatch: 'No payees match',
+    perFy: 'By fiscal year', indiv: 'individual', vendorTag: 'vendor',
+    methH: 'How this was built', method: 'Line items were extracted from each register PDF and reconciled against the register\'s own printed grand total. Cancelled and voided checks (no money disbursed) are excluded. Spending is grouped by California fiscal year (July–June). Vendor-name spellings are rolled up via a curated alias list, so one payee isn\'t split across variants.',
+    caveatH: 'Data notes',
+    caveatNames: 'Registers list individual employee expense/mileage reimbursements by name alongside business vendors — these are public records. Each payee is tagged <em>vendor</em> or <em>individual</em>.',
+    caveat2021: 'Three months (May–July 2021) print a monthly total that over-counts the checks listed; this page uses the actual checks, which are complete.',
+    sourceH: 'Sources & raw data', source: 'Built from the warrant registers attached to board meeting agendas. The machine-readable data is public: ',
+    dataLink: 'vendor aggregate (JSON)', registersLink: 'per-register line items',
+    fmtLoc: 'en-US',
+  },
+  es: {
+    lang: 'es', loc: 'es_US', nav: 'vendors', alt: '/vendors/', other: '/vendors/',
+    title: 'Gastos a Proveedores — Datos Abiertos de RCSD',
+    desc: 'Cada cheque que el Distrito Escolar de Redwood City ha emitido desde 2020, con búsqueda por proveedor y año fiscal. Compilado de los registros de cheques aprobados por la junta.',
+    kicker: 'Gastos del distrito', h1: 'Gastos a Proveedores',
+    intro: 'Cada mes la Junta de Síndicos aprueba un <strong>registro de cheques</strong> (warrant register) — la lista de cada cheque que emitió el distrito. Esta página los reúne en una base de datos con búsqueda para que veas cuánto le paga el distrito a cualquier proveedor, y cómo cambia año con año.',
+    statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
+    searchLabel: 'Busca un proveedor', searchPh: 'p. ej. Van Pelt, Sodexo, PG&E…',
+    thRank: '#', thVendor: 'Beneficiario', thTotal: 'Total pagado', thChecks: 'Cheques', thTrend: 'Tendencia por año',
+    catHeading: 'Gasto por categoría', allCat: 'Todas', catNote: 'Las categorías son una agrupación aproximada por nombre, no una clasificación contable.',
+    topHeading: 'Mayores beneficiarios', showingAll: 'Mostrando', matches: 'beneficiarios', noMatch: 'Ningún beneficiario coincide',
+    perFy: 'Por año fiscal', indiv: 'individuo', vendorTag: 'proveedor',
+    methH: 'Cómo se hizo', method: 'Cada línea se extrajo del PDF de cada registro y se cuadró contra el total impreso del propio registro. Los cheques cancelados o anulados (sin dinero pagado) se excluyen. El gasto se agrupa por año fiscal de California (julio–junio). Las variantes de nombre se unifican con una lista de alias para que un beneficiario no se divida en versiones distintas.',
+    caveatH: 'Notas sobre los datos',
+    caveatNames: 'Los registros incluyen reembolsos de gastos/millaje de empleados por nombre junto con proveedores comerciales — son documentos públicos. Cada beneficiario se marca como <em>proveedor</em> o <em>individuo</em>.',
+    caveat2021: 'Tres meses (mayo–julio de 2021) imprimen un total mensual que sobrecuenta los cheques listados; esta página usa los cheques reales, que están completos.',
+    sourceH: 'Fuentes y datos sin procesar', source: 'Compilado de los registros de cheques adjuntos a las agendas de la junta. Los datos legibles por máquina son públicos: ',
+    dataLink: 'agregado por proveedor (JSON)', registersLink: 'líneas por registro',
+    fmtLoc: 'es-MX',
+  },
+};
+
+// Category → emoji, shown as a scannable icon column (label on hover / for screen readers).
+const ICONS = {
+  charter: '🎓', benefits: '🪙', utilities: '💡', food: '🍎', 'sped-health': '🩺',
+  staffing: '👥', construction: '🏗️', instruction: '📚', technology: '💻',
+  professional: '⚖️', government: '🏛️', reimbursements: '🧾', other: '▫️',
+};
+const catIcon = (id) => ICONS[id] || '▫️';
+
+function fmtUsd(loc, n) {
+  return new Intl.NumberFormat(loc, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+}
+function fyRange(byFy) {
+  const ks = Object.keys(byFy).sort();
+  if (!ks.length) return '';
+  const a = ks[0].replace('FY', '').slice(0, 4);
+  const b = ks[ks.length - 1].split('-')[1];
+  return `${a}–${b.length === 2 ? '20' + b : b}`;
+}
+
+function renderPage(t, data) {
+  const { vendors, stats, fyList, categories } = data;
+  const topN = vendors.slice(0, 100);
+  const periodTxt = `${stats.minDate.slice(0, 4)}–${stats.maxDate.slice(0, 4)}`;
+  const catLabel = (id) => { const c = categories.find((x) => x.id === id); return c ? c.label[t.lang] : id; };
+
+  const rowsHtml = topN.map((v, i) => `
+    <tr>
+      <td class="r-rank">${i + 1}</td>
+      <td class="r-icon"><span class="cat-ico" title="${escapeHtml(catLabel(v.cat))}" role="img" aria-label="${escapeHtml(catLabel(v.cat))}">${catIcon(v.cat)}</span></td>
+      <td class="r-name">${escapeHtml(v.name)}</td>
+      <td class="r-total">${fmtUsd(t.fmtLoc, v.total)}</td>
+      <td class="r-checks">${v.checks}</td>
+      <td class="r-trend" title="${fyRange(v.byFy)}">${sparkSvg(v.byFy, fyList)}</td>
+    </tr>`).join('');
+
+  const chipsHtml = `<button class="chip active" data-cat="">${t.allCat} · ${fmtUsd(t.fmtLoc, stats.grand)}</button>` +
+    categories.map((c) => `<button class="chip" data-cat="${c.id}"><span class="chip-ico">${catIcon(c.id)}</span> ${escapeHtml(c.label[t.lang])} · ${fmtUsd(t.fmtLoc, c.total)}</button>`).join('');
+
+  const jsonLd = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Dataset',
+    name: t.h1, description: t.desc,
+    url: `https://rcsd.info${t.lang === 'es' ? '/proveedores/' : '/vendors/'}`,
+    creator: { '@type': 'Organization', name: 'RCSD Open Data' },
+    temporalCoverage: `${stats.minDate}/${stats.maxDate}`,
+    distribution: { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: 'https://rcsd.info/vendors/vendor-spend.json' },
+  })}</script>`;
+
+  const head = headMeta({
+    title: t.title, description: t.desc,
+    canonical: `https://rcsd.info${t.lang === 'es' ? '/proveedores/' : '/vendors/'}`,
+    ogLocale: t.loc, ogImageKey: `page-vendors${t.lang === 'es' ? '-es' : ''}`,
+    hreflang: [
+      { lang: 'en', href: 'https://rcsd.info/vendors/' },
+      { lang: 'es', href: 'https://rcsd.info/proveedores/' },
+    ],
+    jsonLd, pageCSS: PAGE_CSS,
+  });
+
+  return `<!DOCTYPE html>
+<html lang="${t.lang}">
+<head>
+${head}
+</head>
+<body>
+${siteNav({ activePage: 'vendors', lang: t.lang, altLangHref: t.alt })}
+<main class="vendors-main">
+  <header class="vendors-hero">
+    <p class="kicker">${t.kicker}</p>
+    <h1>${t.h1}</h1>
+    <p class="intro">${t.intro}</p>
+    <div class="stat-grid">
+      <div class="stat"><div class="stat-num">${fmtUsd(t.fmtLoc, stats.grand)}</div><div class="stat-lbl">${t.statSpend}</div></div>
+      <div class="stat"><div class="stat-num">${stats.vendorCount.toLocaleString(t.fmtLoc)}</div><div class="stat-lbl">${t.statVendors}</div></div>
+      <div class="stat"><div class="stat-num">${stats.registerCount}</div><div class="stat-lbl">${t.statRegisters}</div></div>
+      <div class="stat"><div class="stat-num">${periodTxt}</div><div class="stat-lbl">${t.statPeriod}</div></div>
+    </div>
+  </header>
+
+  <section class="cat-sec">
+    <h2>${t.catHeading}</h2>
+    <div class="cat-chips" id="catchips" role="group">${chipsHtml}</div>
+    <p class="cat-note">${t.catNote}</p>
+  </section>
+
+  <section class="search-sec">
+    <label class="search-label" for="vsearch">${t.searchLabel}</label>
+    <input id="vsearch" type="search" placeholder="${t.searchPh}" autocomplete="off" aria-describedby="vcount">
+    <p id="vcount" class="vcount" aria-live="polite"></p>
+  </section>
+
+  <section class="table-sec">
+    <h2>${t.topHeading}</h2>
+    <table class="vtable" id="vtable">
+      <thead><tr>
+        <th class="r-rank">${t.thRank}</th><th class="r-icon" aria-label="${t.catHeading}"></th><th class="r-name">${t.thVendor}</th>
+        <th class="r-total">${t.thTotal}</th><th class="r-checks">${t.thChecks}</th><th class="r-trend">${t.thTrend}</th>
+      </tr></thead>
+      <tbody id="vbody">${rowsHtml}</tbody>
+    </table>
+    <p class="nomatch" id="nomatch" hidden>${t.noMatch}</p>
+  </section>
+
+  <section class="notes">
+    <h2>${t.methH}</h2><p>${t.method}</p>
+    <h2>${t.caveatH}</h2><ul><li>${t.caveatNames}</li><li>${t.caveat2021}</li></ul>
+    <h2>${t.sourceH}</h2><p>${t.source}<a href="/vendors/vendor-spend.json">${t.dataLink}</a> · <a href="https://data.rcsd.info/json/warrants-index.json">${t.registersLink}</a>.</p>
+  </section>
+</main>
+${siteFooter({ lang: t.lang })}
+<script>
+const FMT_LOC = ${JSON.stringify(t.fmtLoc)};
+const STR = ${JSON.stringify({ showingAll: t.showingAll, matches: t.matches })};
+const CATS = ${JSON.stringify(Object.fromEntries(categories.map((c) => [c.id, c.label[t.lang]])))};
+const ICONS = ${JSON.stringify(ICONS)};
+const FYS = ${JSON.stringify(fyList)};
+const usd = (n) => new Intl.NumberFormat(FMT_LOC, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+let ALL = null, activeCat = '', query = '';
+const body = document.getElementById('vbody');
+const input = document.getElementById('vsearch');
+const countEl = document.getElementById('vcount');
+const noMatch = document.getElementById('nomatch');
+const chips = document.getElementById('catchips');
+
+function esc(s){ const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+function spark(byFy){
+  const vals = FYS.map(fy => byFy[fy] || 0);
+  const max = Math.max(1, ...vals);
+  const bw=7, gap=2, h=22;
+  let bars='';
+  vals.forEach((v,i) => {
+    const x = i*(bw+gap);
+    if(v>0){ const bh=Math.max(1.5, Math.round((h-2)*(v/max))); bars+='<rect x="'+x+'" y="'+(h-bh)+'" width="'+bw+'" height="'+bh+'" rx="1" fill="#2f6b3f"/>'; }
+    else { bars+='<rect x="'+x+'" y="'+(h-1.5)+'" width="'+bw+'" height="1.5" rx="1" fill="#cdddd2"/>'; }
+  });
+  const w = FYS.length*(bw+gap);
+  return '<svg class="spark" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" aria-hidden="true">'+bars+'</svg>';
+}
+function fyRange(byFy){ const ks=Object.keys(byFy).sort(); return ks.length ? ks[0].replace('FY','').slice(0,4)+'–'+ks[ks.length-1].split('-')[1] : ''; }
+function render(list){
+  body.innerHTML = list.slice(0,200).map((v,i) => {
+    const lbl = esc(CATS[v.cat]||v.cat);
+    return '<tr><td class="r-rank">'+(i+1)+'</td>'+
+    '<td class="r-icon"><span class="cat-ico" title="'+lbl+'" role="img" aria-label="'+lbl+'">'+(ICONS[v.cat]||'▫️')+'</span></td>'+
+    '<td class="r-name">'+esc(v.name)+'</td>'+
+    '<td class="r-total">'+usd(v.total)+'</td><td class="r-checks">'+v.checks+
+    '</td><td class="r-trend" title="'+fyRange(v.byFy)+'">'+spark(v.byFy)+'</td></tr>';
+  }).join('');
+  noMatch.hidden = list.length>0;
+  countEl.textContent = STR.showingAll+' '+Math.min(list.length,200).toLocaleString(FMT_LOC)+
+    (list.length>200 ? ' / '+list.length.toLocaleString(FMT_LOC) : '')+' '+STR.matches;
+}
+async function ensure(){ if(ALL) return; const r=await fetch('/vendors/vendor-spend.json'); ALL=(await r.json()).vendors; }
+async function apply(){
+  await ensure();
+  const q = query.toLowerCase();
+  render(ALL.filter(v => (!activeCat || v.cat===activeCat) && (!q || v.name.toLowerCase().includes(q))));
+}
+let timer;
+input.addEventListener('input', () => { clearTimeout(timer); timer=setTimeout(()=>{ query=input.value.trim(); apply(); }, 120); });
+chips.addEventListener('click', (e) => {
+  const b = e.target.closest('.chip'); if(!b) return;
+  activeCat = b.dataset.cat;
+  chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c===b));
+  apply();
+});
+</script>
+</body>
+</html>`;
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+const PAGE_CSS = `
+.vendors-main{max-width:1000px;margin:0 auto;padding:0 1.25rem 4rem}
+.vendors-hero{padding:2.5rem 0 1.5rem}
+.vendors-hero .kicker{font-family:var(--font-mono);text-transform:uppercase;letter-spacing:.12em;font-size:.78rem;color:var(--green-700);margin:0 0 .4rem}
+.vendors-hero h1{font-family:var(--font-display);font-size:clamp(2rem,5vw,3rem);margin:0 0 .6rem;color:var(--ink)}
+.vendors-hero .intro{font-size:1.08rem;max-width:62ch;color:var(--ink-soft)}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.8rem}
+.stat{background:var(--green-50);border:1px solid var(--green-100);border-radius:12px;padding:1rem 1.1rem}
+.stat-num{font-family:var(--font-mono);font-size:1.45rem;font-weight:600;color:var(--green-800)}
+.stat-lbl{font-size:.82rem;color:var(--ink-soft);margin-top:.2rem}
+.search-sec{margin:2rem 0 1rem}
+.search-label{display:block;font-weight:600;margin-bottom:.4rem}
+#vsearch{width:100%;font-size:1.05rem;padding:.7rem .9rem;border:2px solid var(--green-200);border-radius:10px;font-family:var(--font-body)}
+#vsearch:focus{outline:none;border-color:var(--green-600)}
+.vcount{font-family:var(--font-mono);font-size:.82rem;color:var(--ink-soft);min-height:1.1em;margin:.5rem 0 0}
+.table-sec h2,.notes h2{font-family:var(--font-display);font-size:1.4rem;margin:1.6rem 0 .8rem}
+.vtable{width:100%;border-collapse:collapse;font-size:.95rem}
+.vtable th{text-align:left;font-family:var(--font-mono);font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);border-bottom:2px solid var(--green-200);padding:.5rem .6rem}
+.vtable td{padding:.5rem .6rem;border-bottom:1px solid var(--green-50)}
+.vtable tbody tr:hover{background:var(--green-50)}
+.r-rank{width:2.5rem;font-family:var(--font-mono);color:var(--ink-soft)}
+.r-total,.r-checks{font-family:var(--font-mono);text-align:right;white-space:nowrap}
+.r-total{font-weight:600;color:var(--green-800)}
+.r-trend{width:90px}.r-trend .spark{display:block}
+th.r-total,th.r-checks,th.r-trend{text-align:right}
+.r-icon{width:1.8rem;text-align:center;padding-left:0;padding-right:0}
+.cat-ico{font-size:1.05rem;line-height:1;cursor:default}
+.chip-ico{font-size:.95rem}
+.cat-sec{margin:2rem 0 1rem}
+.cat-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
+.chip{font-family:var(--font-mono);font-size:.78rem;padding:.35rem .7rem;border:1px solid var(--green-200);background:var(--green-50);border-radius:999px;cursor:pointer;color:var(--ink);transition:all .12s}
+.chip:hover{border-color:var(--green-500)}
+.chip.active{background:var(--green-700);color:#fff;border-color:var(--green-700)}
+.cat-note{font-size:.82rem;color:var(--ink-soft);font-style:italic;margin:.3rem 0 0}
+.nomatch{font-style:italic;color:var(--ink-soft);padding:1rem .6rem}
+.notes{margin-top:2.5rem;font-size:.95rem;color:var(--ink-soft)}
+.notes ul{padding-left:1.1rem}.notes li{margin:.3rem 0}
+.notes a{color:var(--green-700)}
+`;
+
+function main() {
+  const data = aggregate();
+  for (const dir of ['docs/vendors', 'docs/proveedores']) mkdirSync(resolve(ROOT, dir), { recursive: true });
+
+  // Client search payload (trim byFy precision already rounded). Public, served at /vendors/.
+  const payload = {
+    _metadata: {
+      description: 'Per-vendor disbursed spend by California fiscal year, from RCSD warrant registers. Cancelled/voided and superseded-duplicate records excluded.',
+      generated: new Date().toISOString().slice(0, 10),
+      ...data.stats,
+    },
+    fiscalYears: data.fyList,
+    categories: data.categories,
+    vendors: data.vendors,
+  };
+  writeFileSync(resolve(ROOT, 'docs/vendors/vendor-spend.json'), JSON.stringify(payload));
+
+  writeFileSync(resolve(ROOT, 'docs/vendors/index.html'), renderPage(T.en, data));
+  writeFileSync(resolve(ROOT, 'docs/proveedores/index.html'), renderPage(T.es, data));
+
+  console.log(`Built /vendors/ + /proveedores/ — ${data.vendors.length} payees, $${data.stats.grand.toLocaleString()} disbursed, ${data.stats.registerCount} registers.`);
+}
+
+main();

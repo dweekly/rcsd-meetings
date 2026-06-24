@@ -216,14 +216,45 @@ const BIZ_TOKENS = /\b(INC|LLC|L\.?L\.?C|CORP|CORPORATION|CO|COMPANY|LTD|LP|LLP|
 
 export function classifyPayee(name) {
   const n = (name || '').trim();
+  // Only the "LASTNAME, FIRSTNAME" pattern is a reliable individual signal (Escape-era
+  // reimbursements). A bare two-word name like "ROCKETSHIP EDUCATION" is indistinguishable from
+  // a person, so we do NOT guess — everything without a surname-comma defaults to vendor. This
+  // trades recall (QSS-era individuals get labeled vendor) for precision (no business mislabeled).
   if (/^[A-Z][A-Za-z'’.\-]+,\s+[A-Z]/.test(n)) return { type: 'individual', confidence: 'high' };
-  if (BIZ_TOKENS.test(n)) return { type: 'vendor', confidence: 'high' };
-  if (/[&]|\d/.test(n)) return { type: 'vendor', confidence: 'medium' };
-  const words = n.split(/\s+/);
-  if (words.length >= 2 && words.length <= 3 && words.every((w) => /^[A-Z][A-Za-z'’.\-]*$/.test(w))) {
-    return { type: 'individual', confidence: 'low' }; // "DON DIAS" style — needs PR3 review
-  }
-  return { type: 'vendor', confidence: 'low' };
+  return { type: 'vendor', confidence: BIZ_TOKENS.test(n) ? 'high' : 'low' };
+}
+
+// Known acronyms/suffixes to keep uppercase when title-casing an all-caps vendor name.
+const KEEP_UPPER = new Set(['LLC', 'LLP', 'LP', 'USA', 'PG&E', 'AT&T', 'CDW', 'KIPP', 'ICC', 'RGM',
+  'BMR', 'HVAC', 'PC', 'DBA', 'TK', 'SELPA', 'SMCOE', 'PAL', 'YMCA', 'II', 'III', 'IV']);
+
+const MINOR_WORDS = new Set(['AND', 'OF', 'THE', 'FOR', 'TO', 'IN', 'ON', 'AT', 'BY', 'A', 'AN']);
+
+function titleCaseName(s) {
+  return s.split(/\s+/).map((w, i) => {
+    const up = w.toUpperCase();
+    if (up === 'INC' || up === 'INC.') return 'Inc';
+    if (up === 'CORP' || up === 'CORP.') return 'Corp';
+    if (KEEP_UPPER.has(up)) return up;
+    if (i > 0 && MINOR_WORDS.has(up)) return w.toLowerCase();   // "and", "of" — but not as first word
+    if (/^[A-Z]&[A-Z]$/.test(w)) return w;                       // R&B, A&B
+    if (w.length <= 4 && !/[AEIOU]/i.test(w.replace(/[^A-Z]/gi, ''))) return up; // RGM, BMR (no vowels)
+    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+  }).join(' ');
+}
+
+/**
+ * Pick a clean display name from the spellings of one normalized payee key.
+ * QSS-era registers print ALL CAPS, Escape-era print Title Case — prefer a mixed-case spelling
+ * when the vendor appears in both eras; otherwise title-case the all-caps name.
+ * @param {Map<string, number>} spellingCounts payee spelling → occurrence count
+ */
+export function prettyVendorName(spellingCounts) {
+  const entries = [...spellingCounts.entries()].sort((a, b) => b[1] - a[1]);
+  if (!entries.length) return '';
+  const mixed = entries.filter(([s]) => /[a-z]/.test(s));
+  if (mixed.length) return mixed[0][0];
+  return titleCaseName(entries[0][0]);
 }
 
 /** Normalize a payee into a match key for aggregation (PR3 refines with a curated alias map). */

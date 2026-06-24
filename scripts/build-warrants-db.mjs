@@ -19,6 +19,7 @@
  */
 
 import Database from 'better-sqlite3';
+import { prettyVendorName } from './lib/warrant-parsers.mjs';
 import { readFileSync, readdirSync, existsSync, rmSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -113,9 +114,7 @@ function main() {
     }
   }
   const displayForKey = new Map();
-  for (const [k, sc] of spellingCounts) {
-    displayForKey.set(k, [...sc.entries()].sort((a, b) => b[1] - a[1])[0][0]);
-  }
+  for (const [k, sc] of spellingCounts) displayForKey.set(k, prettyVendorName(sc));
   const canonicalFor = (key) => keyToCanonical.get(key) || displayForKey.get(key) || key;
 
   const insReg = db.prepare(`INSERT INTO registers VALUES (@month,@meeting_date,@format,@source,@source_url,@period_from,@period_to,@printed_total,@disbursed_total,@parse_status,@reconciled,@superseded_by)`);
