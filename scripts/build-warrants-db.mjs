@@ -124,6 +124,10 @@ function main() {
   const displayForKey = new Map();
   for (const [k, sc] of spellingCounts) displayForKey.set(k, prettyVendorName(sc));
   const canonicalFor = (key) => keyToCanonical.get(key) || displayForKey.get(key) || key;
+  // Match the public page: only registers whose detail reconciles, and only FY2014-15 onward.
+  const usable = new Set(index.registers
+    .filter((r) => r.parseStatus === 'reconciled' || r.parseStatus === 'minor-mismatch').map((r) => r.month));
+  const FY_FLOOR = '2014-07-01';
   // Cross-era individual: comma-format names, plus plain "GIVEN SURNAME" names matching a rostered person.
   const individualOf = (payee) => {
     if (isCommaName(payee)) return personMatchKey(payee);
@@ -161,7 +165,8 @@ function main() {
       for (const r of (j.lineItems || [])) {
         const num = r.warrant || r.check;
         const cancelled = /^(Cancelled|Voided)/i.test(r.status || '');
-        const excluded = (cancelled || isSuperseded) ? 1 : 0;
+        const belowFloor = (ymd(r.dateIssued) || '') < FY_FLOOR;
+        const excluded = (cancelled || isSuperseded || !usable.has(month) || belowFloor) ? 1 : 0;
         if (excluded) nExcluded++;
         insPay.run({
           register_month: month,

@@ -83,7 +83,7 @@ Read these files from `data/` to answer questions. For field-by-field documentat
 | `timestamp-map.json` | 694 offsets | Agenda item to video timestamp mapping |
 | `document-index.json` | Taxonomy | Attachments **classified** by type/subtype/school/year (`documents[]` with `meetingDate`, `itemLabel`, `aid`, `filename`). Good for "all SARCs" / "budget docs for school X". **Caveat: it is a curated taxonomy and omits unclassified item types — e.g. the superintendent employment contract is NOT in it. If a title search here is empty, fall back to `agenda-attachments.json` before concluding a document doesn't exist.** |
 
-### Vendors & Warrant Registers (vendor payments, Mar 2020 – present)
+### Vendors & Warrant Registers (vendor payments, FY2014-15 – present)
 
 Every monthly **warrant register** (the board-ratified list of checks the district issued) is parsed into per-payment line items. Use this to answer **"how much does the district pay <vendor> per year?"** and **"who are our biggest vendors?"**
 
