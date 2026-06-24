@@ -89,6 +89,13 @@ function aggregate() {
   const index = JSON.parse(readFileSync(resolve(ROOT, 'data/warrants-index.json'), 'utf8'));
   const alias = loadAliasMap();
   const superseded = supersededSet(index);
+  // Per-vendor detail is only trustworthy where the line items reconcile to the printed total.
+  // Registers that don't (mostly 2011–2013 scanned/OCR-partial, where OCR misses rows) are
+  // excluded so we never undercount a vendor with partial detail.
+  const usable = new Set(index.registers
+    .filter((r) => r.parseStatus === 'reconciled' || r.parseStatus === 'minor-mismatch')
+    .map((r) => r.month));
+  const FY_FLOOR = '2014-07-01'; // first full clean fiscal year (FY2014-15); CA FY begins July 1
 
   // Pass 1: most-common spelling per key (readable canonical), AND a roster of known individuals
   // (comma-format "Surname, Given" names) so we can recover the same people in the older "GIVEN
@@ -98,8 +105,9 @@ function aggregate() {
   const files = readdirSync(WARR_DIR).filter((f) => f.endsWith('.json'));
   for (const f of files) {
     const j = JSON.parse(readFileSync(resolve(WARR_DIR, f), 'utf8'));
+    if (!usable.has(j._metadata.month)) continue;
     for (const r of (j.lineItems || [])) {
-      if (!r.payeeKey) continue;
+      if (!r.payeeKey || (ymd(r.dateIssued) || '') < FY_FLOOR) continue;
       if (!spell.has(r.payeeKey)) spell.set(r.payeeKey, new Map());
       spell.get(r.payeeKey).set(r.payee, (spell.get(r.payeeKey).get(r.payee) || 0) + 1);
       if (isCommaName(r.payee)) { const k = personMatchKey(r.payee); if (k) personRoster.add(k); }
@@ -122,9 +130,10 @@ function aggregate() {
   let minDate = '9999', maxDate = '0000';
   for (const f of files) {
     const j = JSON.parse(readFileSync(resolve(WARR_DIR, f), 'utf8'));
-    if (superseded.has(j._metadata.month)) continue;
+    if (superseded.has(j._metadata.month) || !usable.has(j._metadata.month)) continue;
     for (const r of (j.lineItems || [])) {
       if (/^(Cancelled|Voided)/i.test(r.status || '')) continue;
+      if ((ymd(r.dateIssued) || '') < FY_FLOOR) continue;
       const fy = fiscalYear(r.dateIssued); if (!fy) continue;
       allFy.add(fy);
       // Manual overrides win (contractors paid by personal name); then individuals (incl. cross-era
@@ -168,9 +177,14 @@ function aggregate() {
   for (const v of list) for (const [fy, amt] of Object.entries(v.byFy)) totalByFy[fy] = (totalByFy[fy] || 0) + amt;
   for (const k of Object.keys(totalByFy)) totalByFy[k] = Math.round(totalByFy[k] * 100) / 100;
 
+  // The dataset is floored at the start of the first fiscal year, so only the final (current,
+  // in-progress) fiscal year is partial — unless the first year's data starts well after its July 1.
+  const partialFy = [fyList[fyList.length - 1]];
+  if (minDate > `${fyList[0].slice(2, 6)}-07-08`) partialFy.push(fyList[0]);
+
   return {
     vendors: list, fyList, categories: catList, totalByFy,
-    partialFy: [fyList[0], fyList[fyList.length - 1]],
+    partialFy,
     stats: {
       grand: Math.round(grand * 100) / 100, payCount, vendorCount: list.length,
       registerCount: registers.length, minDate, maxDate,
@@ -207,7 +221,7 @@ const T = {
     intro: 'Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.',
     statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
     coverageNote: 'These are <strong>accounts-payable warrants</strong> — payments to vendors, contractors, and benefits. They do <strong>not</strong> include employee salaries (payroll), the district\'s single largest cost, which is paid on separate payroll warrants.',
-    trendHeading: 'Total warrant spend by fiscal year', partialNote: '∗ partial year (coverage is March 2020 – May 2026)',
+    trendHeading: 'Total warrant spend by fiscal year', partialNote: '∗ the current fiscal year is still in progress',
     searchLabel: 'Search for a vendor', searchPh: 'e.g. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Payee', thTotal: 'Total paid', thChecks: 'Checks', thTrend: 'Trend by year',
     catHeading: 'Spend by category', allCat: 'All', catNote: 'Categories are a rough name-based grouping, not an accounting classification.',
@@ -230,7 +244,7 @@ const T = {
     intro: 'Cada mes la Junta de Síndicos aprueba un <strong>registro de cheques</strong> (warrant register) — la lista de cada cheque que emitió el distrito. Esta página los reúne en una base de datos con búsqueda para que veas cuánto le paga el distrito a cualquier proveedor, y cómo cambia año con año.',
     statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
     coverageNote: 'Estos son <strong>cheques de cuentas por pagar</strong> — pagos a proveedores, contratistas y beneficios. <strong>No</strong> incluyen los salarios del personal (nómina), el mayor gasto del distrito, que se paga en cheques de nómina aparte.',
-    trendHeading: 'Gasto total en cheques por año fiscal', partialNote: '∗ año parcial (la cobertura es de marzo de 2020 a mayo de 2026)',
+    trendHeading: 'Gasto total en cheques por año fiscal', partialNote: '∗ el año fiscal actual aún está en curso',
     searchLabel: 'Busca un proveedor', searchPh: 'p. ej. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Beneficiario', thTotal: 'Total pagado', thChecks: 'Cheques', thTrend: 'Tendencia por año',
     catHeading: 'Gasto por categoría', allCat: 'Todas', catNote: 'Las categorías son una agrupación aproximada por nombre, no una clasificación contable.',
@@ -514,6 +528,23 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
 .notes{margin-top:2.5rem;font-size:.95rem;color:var(--ink-soft)}
 .notes ul{padding-left:1.1rem}.notes li{margin:.3rem 0}
 .notes a{color:var(--green-700)}
+/* Phones: the 6-column table overflows, so drop rank + check-count, let names wrap,
+   and shrink the chart/chips/stats to fit a ~375px viewport without horizontal panning. */
+@media (max-width: 560px){
+  .vendors-main{padding:0 .9rem 3rem}
+  .vendors-hero{padding:1rem 0 1rem}
+  .stat-grid{grid-template-columns:1fr 1fr;gap:.7rem}
+  .stat-num{font-size:1.2rem}
+  .year-chart{gap:.3rem;height:120px}
+  .ybar-val,.ybar-lbl{font-size:.58rem}
+  .chip{font-size:.68rem;padding:.2rem .5rem}
+  .vtable{font-size:.88rem}
+  .vtable th,.vtable td{padding:.45rem .3rem}
+  .r-rank,th.r-rank,.r-checks,th.r-checks{display:none}
+  .r-name{word-break:break-word}
+  .r-total{font-size:.84rem}
+  .r-trend{width:62px}.r-trend .spark{width:62px;height:20px}
+}
 `;
 
 function main() {

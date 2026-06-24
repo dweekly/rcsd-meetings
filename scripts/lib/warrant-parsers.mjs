@@ -57,7 +57,11 @@ export function parseQSS(text) {
   // RCSD has used two QSS column layouts under this report family:
   //   CLASSIC (SMCOE, 2020–2021): [status-code] warrant# payee DIST(18) date amount [statusDate] [reason] STATUS
   //   MAINT  ("Warrant Maintenance", 2022+): DIST(18) warrant# payee amount date STATUS [statusDate]
-  const ROW_CLASSIC = /^\s*([A-Z]{0,2})\s+(\d{5,7})\s+(.+?)\s+18\s+(\d{1,2}\/\d{1,2}\/\d{2,4})\s+([\d,]+\.\d{2})(?:\s+(\d{1,2}\/\d{1,2}\/\d{2,4}))?\s*(.*?)\s*(Redeemed|Outstanding|Cancelled(?:\/Reissued)?|Voided|Stale\s*Dated?)\s*$/i;
+  // Anchor on warrant# + DIST 18 + date + amount; the tail (optional status date, reason, status
+  // word) is captured loosely so OUTSTANDING warrants that print a BLANK status (no word) — common
+  // in the older registers — are still matched. Status is read from the tail; blank = Outstanding.
+  const ROW_CLASSIC = /^\s*([A-Z]{0,2})\s+(\d{5,7})\s+(.+?)\s+18\s+(\d{1,2}\/\d{1,2}\/\d{2,4})\s+(-?[\d,]+\.\d{2})\s*(\d{1,2}\/\d{1,2}\/\d{2,4})?\s*(.*?)\s*$/i;
+  const CLASSIC_STATUS = /\b(Redeemed|Outstanding|Cancelled(?:\/Reissued)?|Voided|Stale\s*Dated?)\b/i;
   // Trailing "...Cancelled 03/01/2023 LOST" — a cancelled warrant carries a status date and a
   // free-text reason after the status; tolerate both (the amount still counts toward the printed total).
   const ROW_MAINT = /^\s*18\s+(\d{5,7})\s+(.+?)\s+(-?[\d,]+\.\d{2})\s+(\d{1,2}\/\d{1,2}\/\d{2,4})\s+(Redeemed|Outstanding|Cancelled(?:\/Reissued)?|Voided|Stale\s*Dated?)(?:\s+(\d{1,2}\/\d{1,2}\/\d{2,4}))?.*$/i;
@@ -73,6 +77,8 @@ export function parseQSS(text) {
 
     const mc = ln.match(ROW_CLASSIC);
     if (mc) {
+      const tail = (mc[7] || '').trim();
+      const st = tail.match(CLASSIC_STATUS);
       rows.push({
         statusCode: (mc[1] || '').trim(),
         warrant: mc[2],
@@ -80,7 +86,7 @@ export function parseQSS(text) {
         dateIssued: mc[4],
         amount: toNumber(mc[5]),
         statusDate: mc[6] || null,
-        status: mc[8].replace(/\s+/g, ' '),
+        status: st ? st[1].replace(/\s+/g, ' ') : 'Outstanding', // blank status word = outstanding
       });
       continue;
     }

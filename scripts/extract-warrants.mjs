@@ -113,6 +113,28 @@ function discoverRegisters() {
       }
     }
   }
+
+  // Pre-April-2020 registers backfilled from BoardDocs (warrant-only; not in meetings-data.json).
+  // Floor at 2014: 2011–2013 registers are scanned images / broken-font PDFs that OCR only
+  // partially recovers, so they can't be trusted for vendor detail. Their PDFs stay archived on
+  // R2 as public records, but we don't parse them. (Revisit if OCR improves — see ROADMAP.)
+  const HIST_FLOOR = '2014-08-01'; // a meeting on/after Aug 2014 ratifies the July 2014 register =
+  // start of FY2014-15 (CA fiscal year begins July 1)
+  const histPath = resolve(ROOT, 'data/warrant-pdf-manifest-historical.json');
+  if (existsSync(histPath)) {
+    for (const r of JSON.parse(readFileSync(histPath, 'utf8')).registers) {
+      if (r.status !== 'downloaded' && r.status !== 'skipped-existing') continue;
+      if (r.meetingDate < HIST_FLOOR) continue;
+      const localPath = resolve(ROOT, r.localPath);
+      if (!existsSync(localPath) || seenPaths.has(localPath)) continue;
+      seenPaths.add(localPath);
+      registers.push({
+        meetingDate: r.meetingDate, mid: null, itemLabel: null, title: r.itemTitle,
+        monthGuess: monthFromTitle(r.itemTitle) || monthFromTitle(r.filename),
+        source: 'boarddocs', sourceUrl: r.sourceHref, localPath, relPath: r.localPath,
+      });
+    }
+  }
   return registers;
 }
 

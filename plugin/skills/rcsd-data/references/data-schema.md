@@ -1367,7 +1367,7 @@ AI-generated one-sentence summaries of every board policy, English AND Spanish, 
 
 ## data/warrants-index.json
 
-Index of every monthly warrant register (board-ratified check list), Mar 2020 – present. Read this first for coverage and per-month reconciliation status. Built by `scripts/extract-warrants.mjs`.
+Index of every monthly warrant register (board-ratified check list); clean vendor coverage FY2014-15 onward (older registers archived but scanned/OCR-partial). Read this first for coverage and per-month reconciliation status. Built by `scripts/extract-warrants.mjs`.
 
 ### Schema Description
 
