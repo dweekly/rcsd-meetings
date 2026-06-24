@@ -76,8 +76,8 @@
     "subjectOf": [
       {
         "@type": "DigitalDocument",
-        "name": "Official Meeting Minutes (PDF)",
-        "url": "https://data.rcsd.info/minutes/2024-10-30-minutes.pdf",
+        "name": "2024.10.30 Minutes DRAFT - Study Session.pdf",
+        "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/DARRY5703873/$file/2024.10.30%20Minutes%20DRAFT%20-%20Study%20Session.pdf",
         "encodingFormat": "application/pdf"
       }
     ]
@@ -614,6 +614,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -710,6 +739,7 @@
       <a href="/schools/" class="site-nav-tab">Schools</a>
       <a href="/district/" class="site-nav-tab">District</a>
       <a href="/budget/" class="site-nav-tab">Budget</a>
+      <a href="/vendors/" class="site-nav-tab">Vendors</a>
       <a href="/committees/" class="site-nav-tab">Committees</a>
       <a href="/blog/" class="site-nav-tab">Blog</a>
     </div>
@@ -755,11 +785,11 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel active" id="panel-agenda">
-      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President, Janet Lawson</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Additions, Deletions, or Modifications to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to a Study Session Meeting item, please post it on the links available under Public Content prior to the Regular Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Discussion Item(s)</span><span class="tv-agenda-duration">2hr</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Update on Budget Renewal Initiative</span><span class="tv-agenda-type">Information</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DAK2UV03EDF5/$file/ENGLISH-BoardStudySession-October30-Budget%20Renewal%20Initiative.pdf" target="_blank" rel="noopener">ENGLISH-BoardStudySession-October30-Budget Renewal Initiative.pdf</a></div><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
+      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President, Janet Lawson</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Additions, Deletions, or Modifications to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to a Study Session Meeting item, please post it on the links available under Public Content prior to the Regular Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Public Comment Links: ENGLISH https://forms.gle/GtfHW6tZ3vwMto5v9 SPANISH https://forms.gle/B72QcmDYSMdd9hzFA §</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Discussion Item(s)</span><span class="tv-agenda-duration">2hr</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Update on Budget Renewal Initiative</span><span class="tv-agenda-type">Information</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DAK2UV03EDF5/$file/ENGLISH-BoardStudySession-October30-Budget%20Renewal%20Initiative.pdf" target="_blank" rel="noopener">ENGLISH-BoardStudySession-October30-Budget Renewal Initiative.pdf</a></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Rationale: Superintendent Baker will provide the School Board with an update on recent survey results and Budget Renewal Initiative Committee meetings progress related to the Budget Renewal Initiative. This initiative was launched in response to the expiration of one-time federal and state funds that have supported public schools during the COVID-19 pandemic. As we navigate the transition away from these temporary funds, it is essential to align our budget with our long-term financial realities. Based on the survey results, the committee was informed of: Recommendation #1: Reduction of District and School Site Administration, which I will bring to you in December for your formal approval. This 7.0 FTE reduction is expected to save approximately $1.5 million for the district. Furthermore, the committee recommended: Engaging school principals and school site councils in determining their own school needs, as they are best positioned to understand the unique needs of their schools and allocate resources accordingly. Based on their recommendation, we will start this work very quickly and bring back the results to the committee for their review during the third and final meeting in November. The survey attracted a strong response, with 60% of participants being parents and 19% teachers from various schools, including Hoover Community School, North Star Academy, and Orion Alternative, which have the highest response rate to date. We observed significant participation across all grade levels. While a majority of participants (67%) were unaware of the state definition of unduplicated students, 80% agreed on the need to prioritize services at high-priority sites, indicating a commitment to targeted support. These priority sites are Garfield, Hoover, MIT, Roosevelt, and Taft schools. Participants clearly prioritized maintaining critical services, including mental health counselors, bilingual instructional assistants, reading intervention teachers, and STEAM teachers. There was a near-even split regarding awareness of the 3% reserve requirement for economic uncertainties, with 51% aware and 49% not aware. Additionally, 54% of participants disagreed with the reduction of positions due to declining enrollment, highlighting a need for further discussion. As you know, district demographers are projecting ongoing enrollment decline into the future. Unlike districts that receive funding per student, known as LCFF (Local Control Funding Formula) districts, RCSD’s finances do not benefit from student enrollment. However, the ongoing decline in enrollment still requires careful planning for staffing reductions and resource allocation to maintain financial stability in the long term. Financial Impact: None at this moment. Submission for Approval Prepared by: John R. Baker, Ed.D., Superintendent Approved by: John R. Baker, Ed.D., Superintendent §</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
-      <div class="tv-minutes-info"><p>Minutes approved at the November 20, 2024 meeting.</p><a class="tv-minutes-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DARRY5703873/$file/2024.10.30%20Minutes%20DRAFT%20-%20Study%20Session.pdf" target="_blank" rel="noopener">2024.10.30 Minutes DRAFT - Study Session.pdf</a><iframe class="tv-minutes-embed" src="https://data.rcsd.info/minutes/2024-10-30-minutes.pdf" title="Meeting minutes PDF"></iframe></div>
+      <div class="tv-minutes-info"><p>Minutes approved at the November 20, 2024 meeting.</p><a class="tv-minutes-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DARRY5703873/$file/2024.10.30%20Minutes%20DRAFT%20-%20Study%20Session.pdf" target="_blank" rel="noopener">2024.10.30 Minutes DRAFT - Study Session.pdf</a></div>
     </div>
   </div>
 
@@ -774,6 +804,7 @@
     <a href="/schools/">Schools</a>
     <a href="/district/">District</a>
     <a href="/budget/">Budget</a>
+    <a href="/vendors/">Vendors</a>
     <a href="/committees/">Committees</a>
     <a href="/mcp/">API &amp; data for developers</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Source Code &#8599;</a>

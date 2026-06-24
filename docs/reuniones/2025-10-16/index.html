@@ -627,6 +627,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -723,6 +752,7 @@
       <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
       <a href="/distrito/" class="site-nav-tab">Distrito</a>
       <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/proveedores/" class="site-nav-tab">Proveedores</a>
       <a href="/comites/" class="site-nav-tab">Comités</a>
       <a href="/blog/es/" class="site-nav-tab">Blog</a>
     </div>
@@ -772,7 +802,7 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel" id="panel-agenda">
-      <div class="tv-agenda-section tv-clickable" data-start="79000"><span class="tv-agenda-label">1</span><span class="tv-ts">1:19</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="95000"><span class="tv-agenda-label">2</span><span class="tv-ts">1:35</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section tv-clickable" data-start="153000"><span class="tv-agenda-label">3</span><span class="tv-ts">2:33</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section tv-clickable" data-start="157000"><span class="tv-agenda-label">4</span><span class="tv-ts">2:37</span><span class="tv-agenda-title">Approval of the Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section tv-clickable" data-start="181000"><span class="tv-agenda-label">5</span><span class="tv-ts">3:01</span><span class="tv-agenda-title">Public Comment</span></div><div class="tv-agenda-section tv-clickable" data-start="220000"><span class="tv-agenda-label">6</span><span class="tv-ts">3:40</span><span class="tv-agenda-title">Discussion Items</span></div><div class="tv-agenda-pc"><div class="tv-agenda-pc-speaker tv-clickable" data-start="4507000"><span class="tv-agenda-pc-name">Carl Anders</span> (3min)<span class="tv-agenda-pc-summary"> &mdash; Encouraged greater community involvement in prioritizing bond expenditures, urged the board to 'think big' and concentrate funds on impactful visible projects aligned with the ballot measure language rather than routine deferred maintenance items like elevators and pipes.</span></div></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Study Session: Implementation Plan for the Facilities Master Plan (FMP)</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://data.rcsd.info/board-packets/2025-10-16/Presentation-RCSD-Measure-S-Implementation-Plan.pdf" target="_blank" rel="noopener">Presentation RCSD Measure S Implementation Plan</a></div><div class="tv-agenda-section tv-clickable" data-start="6919000"><span class="tv-agenda-label">7</span><span class="tv-ts">1:55:19</span><span class="tv-agenda-title">Adjournment (Action Required)</span></div>
+      <div class="tv-agenda-section tv-clickable" data-start="79000"><span class="tv-agenda-label">1</span><span class="tv-ts">1:19</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="95000"><span class="tv-agenda-label">2</span><span class="tv-ts">1:35</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section tv-clickable" data-start="153000"><span class="tv-agenda-label">3</span><span class="tv-ts">2:33</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section tv-clickable" data-start="157000"><span class="tv-agenda-label">4</span><span class="tv-ts">2:37</span><span class="tv-agenda-title">Approval of the Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-section tv-clickable" data-start="181000"><span class="tv-agenda-label">5</span><span class="tv-ts">3:01</span><span class="tv-agenda-title">Public Comment</span></div><div class="tv-agenda-section tv-clickable" data-start="220000"><span class="tv-agenda-label">6</span><span class="tv-ts">3:40</span><span class="tv-agenda-title">Discussion Items</span></div><div class="tv-agenda-pc"><div class="tv-agenda-pc-speaker tv-clickable" data-start="4507000"><span class="tv-agenda-pc-name">Carl Anders</span> (3min)<span class="tv-agenda-pc-summary"> &mdash; Encouraged greater community involvement in prioritizing bond expenditures, urged the board to 'think big' and concentrate funds on impactful visible projects aligned with the ballot measure language rather than routine deferred maintenance items like elevators and pipes.</span></div></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Study Session: Implementation Plan for the Facilities Master Plan (FMP)</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://data.rcsd.info/board-packets/2025-10-16/Presentation-RCSD-Measure-S-Implementation-Plan.pdf" target="_blank" rel="noopener">Presentation RCSD Measure S Implementation Plan</a></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-label">Resumen Rápido / Extracto</span><span class="tv-agenda-field-text">La Mesa Directiva llevará a cabo una sesión de estudio para revisar y analizar el Plan de Implementación del Plan Maestro de Instalaciones (FMP) del Distrito. Esta sesión ofrecerá una descripción general de las prioridades propuestas, la secuenciación y las estrategias de financiamiento para los proyectos de instalaciones en todo el Distrito. El propósito es involucrar a la Mesa Directiva en una revisión detallada del proceso de planificación y recopilar aportaciones antes de que el personal finalice el Plan de Implementación para una acción futura de la Mesa Directiva.</span></div><div class="tv-agenda-field"><span class="tv-agenda-field-label">Justificación</span><span class="tv-agenda-field-text">En junio de 2025, la Mesa Directiva adoptó el Plan Maestro de Instalaciones del Distrito, el cual identificó las necesidades de instalaciones a largo plazo, los proyectos de modernización y las prioridades de mejoras de capital en los planteles escolares. Tras su adopción, el personal, en consulta con arquitectos, administradores de construcción y asesores financieros, ha desarrollado un borrador del Plan de Implementación. El Plan de Implementación tiene como objetivo: Alinear los proyectos con las fuentes de financiamiento disponibles, incluidos los fondos del bono Measure S, las tarifas a los desarrolladores y los posibles reembolsos del programa estatal de instalaciones. Establecer la secuenciación y los plazos para las fases de diseño, licitación y construcción. Coordinar los proyectos para minimizar las interrupciones al aprendizaje estudiantil y a las operaciones de los planteles. Incorporar las aportaciones de la comunidad y alinearse con las tendencias de matrícula y demográficas. Proporcionar estimaciones de costos, supuestos de escalada y planificación de contingencias. La sesión de estudio permitirá a la Mesa Directiva revisar la metodología para desarrollar el Plan de Implementación, examinar los agrupamientos y cronogramas preliminares de proyectos, y analizar las implicaciones financieras. El personal regresará con un Plan de Implementación refinado para la aprobación formal de la Mesa Directiva en una reunión posterior. Puntos de Discusión de la Sesión de Estudio Se proponen los siguientes puntos de discusión para orientar el diálogo de la Mesa Directiva: Priorización de Proyectos y Fases ¿Cómo debe el Distrito establecer prioridades entre modernización, seguridad, construcción, diseño y mejoras impulsadas por los programas? ¿Qué principios rectores (equidad, capacidad, condición, resultados estudiantiles) deben guiar la secuencia de fases? Alineación y Restricciones de Financiamiento Compensaciones entre distribuir los recursos entre muchas escuelas frente a concentrarse en proyectos importantes. Participación de la Comunidad y las Partes Interesadas ¿De qué manera deben las aportaciones de padres de familia, personal y comunidad influir en la selección, el diseño y las decisiones de secuenciación de los proyectos? Impacto Operativo y Educativo ¿Cómo minimizará la secuenciación de la construcción las interrupciones a la instrucción y las operaciones? ¿Cómo apoyarán los proyectos la evolución de los programas educativos? Sostenibilidad y Flexibilidad a Largo Plazo Incorporación de eficiencia energética y reducción del mantenimiento diferido.</span></div><div class="tv-agenda-field"><span class="tv-agenda-field-label">Impacto Financiero</span><span class="tv-agenda-field-text">El Plan de Implementación orientará los gastos de los fondos restantes del bono Measure S y otros fondos de instalaciones de capital. Esta discusión en la sesión de estudio no tiene impacto financiero directo.</span></div></details><div class="tv-agenda-section tv-clickable" data-start="6919000"><span class="tv-agenda-label">7</span><span class="tv-ts">1:55:19</span><span class="tv-agenda-title">Adjournment (Action Required)</span></div>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
@@ -791,6 +821,7 @@
     <a href="/escuelas/">Escuelas</a>
     <a href="/distrito/">Distrito</a>
     <a href="/presupuesto/">Presupuesto</a>
+    <a href="/proveedores/">Proveedores</a>
     <a href="/comites/">Comités</a>
     <a href="/mcp/">API y datos para desarrolladores</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>

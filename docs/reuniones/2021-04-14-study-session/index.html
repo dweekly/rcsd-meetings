@@ -619,6 +619,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -715,6 +744,7 @@
       <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
       <a href="/distrito/" class="site-nav-tab">Distrito</a>
       <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/proveedores/" class="site-nav-tab">Proveedores</a>
       <a href="/comites/" class="site-nav-tab">Comités</a>
       <a href="/blog/es/" class="site-nav-tab">Blog</a>
     </div>
@@ -763,7 +793,7 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel" id="panel-agenda">
-      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="19000"><span class="tv-agenda-label">2</span><span class="tv-ts">0:19</span><span class="tv-agenda-title">Welcome</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="243000"><span class="tv-agenda-label">3</span><span class="tv-ts">4:03</span><span class="tv-agenda-title">Changes to the Agenda</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section tv-clickable" data-start="303000"><span class="tv-agenda-label">4</span><span class="tv-ts">5:03</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section tv-clickable" data-start="351000"><span class="tv-agenda-label">5</span><span class="tv-ts">5:51</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-pc"><div class="tv-agenda-pc-speaker tv-clickable" data-start="451000"><span class="tv-agenda-pc-name">Maria Stockton</span> (3min)<span class="tv-agenda-pc-summary"> &mdash; Spoke on behalf of classified employees, asking the board to more openly recognize and acknowledge the exhausting essential work classified staff have done during the pandemic, and expressing that a simple 'thank you' is insufficient without meaningful compensation or recognition comparable to what teachers have received.</span></div></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to a Study Session Meeting item, please post it on: (https://docs.google.com/forms/d/e/1FAIpQLSd3rKbPfVCTpOsK5ILqjnU2u-h-NuNx-vUq4OZxYNVR8lc4aQ/viewform?usp=sf_link) prior to the Regular Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><div class="tv-agenda-section tv-clickable" data-start="7681000"><span class="tv-agenda-label">6</span><span class="tv-ts">2:08:01</span><span class="tv-agenda-title">Study Session at 6:00pm</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Update on Workforce Housing at 750 Bradford Street</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CRJ2TW0315F0/$file/6_1_PresentationOnWorkforceHousingUpdate_0.pdf" target="_blank" rel="noopener">6_1_PresentationOnWorkforceHousingUpdate_0.pdf</a></div><div class="tv-agenda-section tv-clickable" data-start="8302000"><span class="tv-agenda-label">7</span><span class="tv-ts">2:18:22</span><span class="tv-agenda-title">Adjournment</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
+      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="19000"><span class="tv-agenda-label">2</span><span class="tv-ts">0:19</span><span class="tv-agenda-title">Welcome</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="243000"><span class="tv-agenda-label">3</span><span class="tv-ts">4:03</span><span class="tv-agenda-title">Changes to the Agenda</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section tv-clickable" data-start="303000"><span class="tv-agenda-label">4</span><span class="tv-ts">5:03</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section tv-clickable" data-start="351000"><span class="tv-agenda-label">5</span><span class="tv-ts">5:51</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-pc"><div class="tv-agenda-pc-speaker tv-clickable" data-start="451000"><span class="tv-agenda-pc-name">Maria Stockton</span> (3min)<span class="tv-agenda-pc-summary"> &mdash; Spoke on behalf of classified employees, asking the board to more openly recognize and acknowledge the exhausting essential work classified staff have done during the pandemic, and expressing that a simple 'thank you' is insufficient without meaningful compensation or recognition comparable to what teachers have received.</span></div></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to a Study Session Meeting item, please post it on: (https://docs.google.com/forms/d/e/1FAIpQLSd3rKbPfVCTpOsK5ILqjnU2u-h-NuNx-vUq4OZxYNVR8lc4aQ/viewform?usp=sf_link) prior to the Regular Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section tv-clickable" data-start="7681000"><span class="tv-agenda-label">6</span><span class="tv-ts">2:08:01</span><span class="tv-agenda-title">Study Session at 6:00pm</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Update on Workforce Housing at 750 Bradford Street</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CRJ2TW0315F0/$file/6_1_PresentationOnWorkforceHousingUpdate_0.pdf" target="_blank" rel="noopener">6_1_PresentationOnWorkforceHousingUpdate_0.pdf</a></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Justificación: No se recomienda ninguna acción por parte de la Junta Escolar, ya que este es un punto de discusión para actualizar a la Junta de Fideicomisarios. El 26 de junio de 2019, la Junta de Fideicomisarios del Redwood City School District (RCSD) aprobó que el distrito escolar avanzara con un estudio de factibilidad para convertir la actual Sede del Distrito, ubicada en 750 Bradford St. en Redwood City, en viviendas asequibles para maestros y personal. La votación unánime de la Junta Escolar tuvo lugar para apoyar a todos los maestros y el personal del RCSD en vista del alto costo de vida en el Área de la Bahía. Dado que un gran número de empleados del RCSD se desplazan hasta Redwood City para trabajar, el distrito desea ofrecer a sus empleados un equilibrio de calidad entre el trabajo y la vida personal, reduciendo sus tiempos de desplazamiento y ayudándoles a ser parte de la comunidad en la que trabajan. Desde la votación de la Junta Escolar, el distrito escolar ha completado los siguientes pasos: - Junio de 2019: El distrito escolar creó el Comité de Vivienda para la Fuerza Laboral del RCSD, que incluye a dos Fideicomisarios: Alisa MacAvoy y Janet Lawson. La Fideicomisaria Lawson se incorporó al comité en enero de 2021 tras la jubilación del ex Fideicomisario Dennis McBride, quien inicialmente se había unido al comité junto con la Fideicomisaria MacAvoy. - Diciembre de 2019: Reunión inicial entre el RCSD y The Sobrato Organization (TSO); - Febrero de 2020: Reunión de seguimiento entre el RCSD y TSO; - Marzo de 2020: Actualización a la Junta de Fideicomisarios del RCSD y presentación de la Solicitud de Proyecto Preliminar Conjunta ante el Departamento de Planificación de la Ciudad de Redwood City; - Agosto de 2020: Discusiones sobre el Memorándum de Entendimiento (MOU); - Septiembre de 2020: Actualización a la Junta de Fideicomisarios del RCSD y presentación ante el Concejo Municipal de Redwood City; - Octubre de 2020: Votación del Concejo Municipal: Aprobación de la Solicitud de Portero de Desarrollo Conjunto; - Noviembre de 2020: Encuesta de Evaluación de Necesidades de Vivienda del RCSD. Durante la Sesión de Estudio de la Junta Escolar del 14 de abril de 2021, la Junta Escolar escuchará los resultados de la encuesta de evaluación. Asimismo, la Junta Escolar será informada sobre los próximos pasos para el resto de 2021. Impacto Financiero: Ninguno. Presentación para Aprobación Preparado por: John R. Baker, Ed.D., Superintendente Aprobado por: John R. Baker, Ed.D., Superintendente §</span></div></details><div class="tv-agenda-section tv-clickable" data-start="8302000"><span class="tv-agenda-label">7</span><span class="tv-ts">2:18:22</span><span class="tv-agenda-title">Adjournment</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
@@ -782,6 +812,7 @@
     <a href="/escuelas/">Escuelas</a>
     <a href="/distrito/">Distrito</a>
     <a href="/presupuesto/">Presupuesto</a>
+    <a href="/proveedores/">Proveedores</a>
     <a href="/comites/">Comités</a>
     <a href="/mcp/">API y datos para desarrolladores</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>

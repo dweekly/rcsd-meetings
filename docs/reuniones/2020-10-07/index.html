@@ -619,6 +619,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -715,6 +744,7 @@
       <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
       <a href="/distrito/" class="site-nav-tab">Distrito</a>
       <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/proveedores/" class="site-nav-tab">Proveedores</a>
       <a href="/comites/" class="site-nav-tab">Comités</a>
       <a href="/blog/es/" class="site-nav-tab">Blog</a>
     </div>
@@ -764,7 +794,7 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel" id="panel-agenda">
-      <div class="tv-agenda-section tv-clickable" data-start="1000"><span class="tv-agenda-label">1</span><span class="tv-ts">0:01</span><span class="tv-agenda-title">Call to Order</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="18000"><span class="tv-agenda-label">2</span><span class="tv-ts">0:18</span><span class="tv-agenda-title">Welcome</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="18000"><span class="tv-agenda-label">3</span><span class="tv-ts">0:18</span><span class="tv-agenda-title">Changes to the Agenda</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section tv-clickable" data-start="114000"><span class="tv-agenda-label">4</span><span class="tv-ts">1:54</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section tv-clickable" data-start="134000"><span class="tv-agenda-label">5</span><span class="tv-ts">2:14</span><span class="tv-agenda-title">Oral Communication - If you have public comment related to a Regular Board Meeting item, please post it on: (https://docs.google.com/forms/d/e/1FAIpQLSd3rKbPfVCTpOsK5ILqjnU2u-h-NuNx-vUq4OZxYNVR8lc4aQ/viewform?usp=sf_link) prior to the Regular Board Meeting or immediately upon the meeting opening.</span></div><div class="tv-agenda-section tv-clickable" data-start="165000"><span class="tv-agenda-label">6</span><span class="tv-ts">2:45</span><span class="tv-agenda-title">Discussion Items</span></div><div class="tv-agenda-pc"><div class="tv-agenda-pc-speaker tv-clickable" data-start="5536000"><span class="tv-agenda-pc-name">Jackie Moore</span> (2min)<span class="tv-agenda-pc-summary"> &mdash; A single mother with chronic health conditions expressed fear about being required to return to in-person teaching, detailing the risks to herself and her infant twins if she contracted COVID-19.</span></div><div class="tv-agenda-pc-speaker tv-clickable" data-start="5697000"><span class="tv-agenda-pc-name">Indra Hernandez</span> (3min)<span class="tv-agenda-pc-summary"> &mdash; Thanked the board and staff for their work, asked whether preschool would be included in the pilot reopening and noted that her classroom had not been receiving thorough cleaning.</span></div><div class="tv-agenda-pc-speaker tv-clickable" data-start="6015000"><span class="tv-agenda-pc-name">Michelle Smith</span> (2min)<span class="tv-agenda-pc-summary"> &mdash; Expressed appreciation for the planning and protocols presented, raised concerns about hot classrooms in spring and ensuring lower-resource school sites receive adequate support.</span></div><div class="tv-agenda-pc-speaker tv-clickable" data-start="6145000"><span class="tv-agenda-pc-name">Karla Salami</span> (1min)<span class="tv-agenda-pc-summary"> &mdash; Thanked the board and staff, expressed relief about the January return date, and emphasized the importance of students' social-emotional stability during the transition back to in-person learning.</span></div></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Study Session on Distance Learning/In Person Learning</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CQXU8C7ACC3E/$file/6_1_PresentationForStudySession_0.pdf" target="_blank" rel="noopener">6_1_PresentationForStudySession_0.pdf</a></div><div class="tv-agenda-section tv-clickable" data-start="7769000"><span class="tv-agenda-label">7</span><span class="tv-ts">2:09:29</span><span class="tv-agenda-title">Adjournment (Action Required)</span></div>
+      <div class="tv-agenda-section tv-clickable" data-start="1000"><span class="tv-agenda-label">1</span><span class="tv-ts">0:01</span><span class="tv-agenda-title">Call to Order</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="18000"><span class="tv-agenda-label">2</span><span class="tv-ts">0:18</span><span class="tv-agenda-title">Welcome</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section tv-clickable" data-start="18000"><span class="tv-agenda-label">3</span><span class="tv-ts">0:18</span><span class="tv-agenda-title">Changes to the Agenda</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section tv-clickable" data-start="114000"><span class="tv-agenda-label">4</span><span class="tv-ts">1:54</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section tv-clickable" data-start="134000"><span class="tv-agenda-label">5</span><span class="tv-ts">2:14</span><span class="tv-agenda-title">Oral Communication - If you have public comment related to a Regular Board Meeting item, please post it on: (https://docs.google.com/forms/d/e/1FAIpQLSd3rKbPfVCTpOsK5ILqjnU2u-h-NuNx-vUq4OZxYNVR8lc4aQ/viewform?usp=sf_link) prior to the Regular Board Meeting or immediately upon the meeting opening.</span></div><div class="tv-agenda-section tv-clickable" data-start="165000"><span class="tv-agenda-label">6</span><span class="tv-ts">2:45</span><span class="tv-agenda-title">Discussion Items</span></div><div class="tv-agenda-pc"><div class="tv-agenda-pc-speaker tv-clickable" data-start="5536000"><span class="tv-agenda-pc-name">Jackie Moore</span> (2min)<span class="tv-agenda-pc-summary"> &mdash; A single mother with chronic health conditions expressed fear about being required to return to in-person teaching, detailing the risks to herself and her infant twins if she contracted COVID-19.</span></div><div class="tv-agenda-pc-speaker tv-clickable" data-start="5697000"><span class="tv-agenda-pc-name">Indra Hernandez</span> (3min)<span class="tv-agenda-pc-summary"> &mdash; Thanked the board and staff for their work, asked whether preschool would be included in the pilot reopening and noted that her classroom had not been receiving thorough cleaning.</span></div><div class="tv-agenda-pc-speaker tv-clickable" data-start="6015000"><span class="tv-agenda-pc-name">Michelle Smith</span> (2min)<span class="tv-agenda-pc-summary"> &mdash; Expressed appreciation for the planning and protocols presented, raised concerns about hot classrooms in spring and ensuring lower-resource school sites receive adequate support.</span></div><div class="tv-agenda-pc-speaker tv-clickable" data-start="6145000"><span class="tv-agenda-pc-name">Karla Salami</span> (1min)<span class="tv-agenda-pc-summary"> &mdash; Thanked the board and staff, expressed relief about the January return date, and emphasized the importance of students' social-emotional stability during the transition back to in-person learning.</span></div></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Study Session on Distance Learning/In Person Learning</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-atts"><a class="tv-agenda-att" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CQXU8C7ACC3E/$file/6_1_PresentationForStudySession_0.pdf" target="_blank" rel="noopener">6_1_PresentationForStudySession_0.pdf</a></div><details class="tv-agenda-content"><summary>Detalles del punto</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Justificación: La Junta Escolar, el Superintendente Baker y la Administración analizarán un plan de aprendizaje a distancia/aprendizaje presencial para el año escolar 2020-21. Impacto Financiero: Ninguno por el momento. Presentación para Aprobación Preparado por: John R. Baker, Ed.D., Superintendente Aprobado por: John R. Baker, Ed.D., Superintendente §</span></div></details><div class="tv-agenda-section tv-clickable" data-start="7769000"><span class="tv-agenda-label">7</span><span class="tv-ts">2:09:29</span><span class="tv-agenda-title">Adjournment (Action Required)</span></div>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
@@ -783,6 +813,7 @@
     <a href="/escuelas/">Escuelas</a>
     <a href="/distrito/">Distrito</a>
     <a href="/presupuesto/">Presupuesto</a>
+    <a href="/proveedores/">Proveedores</a>
     <a href="/comites/">Comités</a>
     <a href="/mcp/">API y datos para desarrolladores</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>

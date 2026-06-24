@@ -76,8 +76,8 @@
     "subjectOf": [
       {
         "@type": "DigitalDocument",
-        "name": "Official Meeting Minutes (PDF)",
-        "url": "https://data.rcsd.info/minutes/2025-04-23-minutes.pdf",
+        "name": "2025.04.23 Minutes DRAFT - Study Session.pdf",
+        "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG8NXQ621861/$file/2025.04.23%20Minutes%20DRAFT%20-%20Study%20Session.pdf",
         "encodingFormat": "application/pdf"
       }
     ]
@@ -614,6 +614,35 @@
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
+  .tv-agenda-content {
+    padding: 0.1rem 0.75rem 0.4rem 3rem;
+    font-size: 0.72rem;
+  }
+  .tv-agenda-content > summary {
+    cursor: pointer;
+    color: var(--green-mid);
+    font-size: 0.62rem;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    list-style-position: inside;
+  }
+  .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
+  .tv-agenda-content-note {
+    font-size: 0.62rem;
+    font-style: italic;
+    color: #888;
+    margin: 0 0 0.3rem 0;
+  }
+  .tv-agenda-field { margin-bottom: 0.35rem; line-height: 1.5; }
+  .tv-agenda-field-label {
+    display: block;
+    font-weight: 600;
+    color: var(--green-deep);
+    font-size: 0.66rem;
+  }
+  .tv-agenda-field-text { color: #333; white-space: pre-wrap; }
+
   .tv-agenda-pc {
     padding: 0.1rem 0.75rem 0.3rem 3rem;
     border-left: 2px solid var(--cream-dark);
@@ -710,6 +739,7 @@
       <a href="/schools/" class="site-nav-tab">Schools</a>
       <a href="/district/" class="site-nav-tab">District</a>
       <a href="/budget/" class="site-nav-tab">Budget</a>
+      <a href="/vendors/" class="site-nav-tab">Vendors</a>
       <a href="/committees/" class="site-nav-tab">Committees</a>
       <a href="/blog/" class="site-nav-tab">Blog</a>
     </div>
@@ -755,11 +785,11 @@
     </div>
 
     <div class="tv-panel tv-agenda-panel active" id="panel-agenda">
-      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President Mike Wells</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Additions, Deletions, or Modifications to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to the Study Session Board Meeting item, please post it on the links available under Public Content prior to the Study Session Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Discussion Items</span><span class="tv-agenda-duration">2hr</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Review and Discussion of the Draft Facilities Master Plan</span><span class="tv-agenda-type">Discussion</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div>
+      <div class="tv-agenda-section"><span class="tv-agenda-label">1</span><span class="tv-agenda-title">Call to Order</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">1.1</span><span class="tv-agenda-title">Roll Call</span><span class="tv-agenda-type">Procedural</span></div><div class="tv-agenda-section"><span class="tv-agenda-label">2</span><span class="tv-agenda-title">Welcome</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">2.1</span><span class="tv-agenda-title">Welcome by the School Board President Mike Wells</span><span class="tv-agenda-type">Procedural</span></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">3</span><span class="tv-agenda-title">Changes to the Agenda</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">3.1</span><span class="tv-agenda-title">Additions, Deletions, or Modifications to the Agenda</span><span class="tv-agenda-type">Discussion</span></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">4</span><span class="tv-agenda-title">Approval of Agenda (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">4.1</span><span class="tv-agenda-title">Approval of Agenda</span><span class="tv-agenda-type">Action</span></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">5</span><span class="tv-agenda-title">Oral Communication</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">5.1</span><span class="tv-agenda-title">If you have public comment related to the Study Session Board Meeting item, please post it on the links available under Public Content prior to the Study Session Board Meeting or immediately upon the meeting opening.</span><span class="tv-agenda-type">Information</span></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Public Comment Links: English: https://forms.gle/EAYNwfB2xLir6d4H9 Spanish: https://forms.gle/qjfjpWeCup2ak1wq9 §</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">6</span><span class="tv-agenda-title">Discussion Items</span><span class="tv-agenda-duration">2hr</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">6.1</span><span class="tv-agenda-title">Review and Discussion of the Draft Facilities Master Plan</span><span class="tv-agenda-type">Discussion</span></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">Rationale: Since June 2024, the District has undertaken a comprehensive Facilities Master Planning (FMP) process to assess the physical condition, educational adequacy, and long-term capacity needs of its facilities. The purpose of the FMP is to inform capital planning decisions by establishing a data-driven, prioritized roadmap for facilities investments over the next 8 to 10 years. This process has been guided by an integrated planning framework that includes: Facility Condition Assessments (FCA): Detailed evaluations of infrastructure systems, building components, and site conditions across all 15 school campuses and support facilities. Demographic and Enrollment Projections: Enrollment forecasts through 2030 were developed in collaboration with a demographer to evaluate space needs and inform long-range capacity planning. Educational Adequacy Reviews: Analysis of existing learning environments against the District’s Educational Specifications and 21st-century instructional models, including factors such as classroom configuration, technology readiness, and support spaces. Stakeholder Engagement: Structured input gathered through community town halls, school site committee meetings, stakeholder interviews, staff surveys, and site walkthroughs, ensuring the plan reflects local priorities and programmatic needs. Financial Alignment: Coordination of project planning with available and anticipated funding sources, including Measure S bond funds, state facility program eligibility, and local developer fees. The resulting draft FMP serves as a strategic framework to guide project prioritization, inform capital allocation, and support the implementation of equitable and future-ready facilities across the District. Purpose of the Study Session: The study session provides the Board with an opportunity to review and provide feedback on major elements of the Draft FMP before it is finalized. Topics for discussion will include: Summary of Key Findings : Current facility conditions and identified deficiencies District-wide facilities needs compared to available funding Community and Stakeholder Input Summary: Key themes and priorities raised during outreach Summary of feedback by stakeholder group Project Prioritization Criteria: Review of Indicators of Quality (IoQ) rubric and sample project scores for input and alignment with feedback and priorities Input on areas of highest need across the District Review of Draft FMP sections: High-Level review of each school site's FMP section Estimated costs and potential phasing strategies Board questions and feedback Next Steps: Incorporate Board feedback into the Draft Facilities Master Plan Finalize the FMP for anticipated Board adoption at the May 14 regular meeting Begin developing implementation strategies, timelines, and project delivery plans Financial Impact: There is no immediate financial impact. However, the Facilities Master Plan will guide the prioritization and allocation of funds from Measure S and other local and state capital resources. Due to the file size limitation of BoardDocs, the DRAFT FMP can be accessed through this link: https://bit.ly/rcsd-fmp25 Submission for Approval Prepared by: Rick Edson, CBO; Martin Cervantes, Interim Bond Director; Quattrocci Kwok Architects (Aaron Jobson, John Dybczak, and Ector Mojica); VPCS, Bond Program Managers (Nick Olsen and Eric Van Pelt) Approved by: John Baker, Superintendent §</span></div></details><div class="tv-agenda-section"><span class="tv-agenda-label">7</span><span class="tv-agenda-title">Adjournment (Action Required)</span><span class="tv-agenda-duration">1min</span></div><div class="tv-agenda-item"><span class="tv-agenda-label">7.1</span><span class="tv-agenda-title">Adjourn the Meeting</span><span class="tv-agenda-type">Action</span></div><details class="tv-agenda-content"><summary>Item details</summary><div class="tv-agenda-field"><span class="tv-agenda-field-text">§</span></div></details>
     </div>
 
     <div class="tv-panel tv-minutes-panel" id="panel-minutes">
-      <div class="tv-minutes-info"><p>Minutes approved at the May 14, 2025 meeting.</p><a class="tv-minutes-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG8NXQ621861/$file/2025.04.23%20Minutes%20DRAFT%20-%20Study%20Session.pdf" target="_blank" rel="noopener">2025.04.23 Minutes DRAFT - Study Session.pdf</a><iframe class="tv-minutes-embed" src="https://data.rcsd.info/minutes/2025-04-23-minutes.pdf" title="Meeting minutes PDF"></iframe></div>
+      <div class="tv-minutes-info"><p>Minutes approved at the May 14, 2025 meeting.</p><a class="tv-minutes-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DG8NXQ621861/$file/2025.04.23%20Minutes%20DRAFT%20-%20Study%20Session.pdf" target="_blank" rel="noopener">2025.04.23 Minutes DRAFT - Study Session.pdf</a></div>
     </div>
   </div>
 
@@ -774,6 +804,7 @@
     <a href="/schools/">Schools</a>
     <a href="/district/">District</a>
     <a href="/budget/">Budget</a>
+    <a href="/vendors/">Vendors</a>
     <a href="/committees/">Committees</a>
     <a href="/mcp/">API &amp; data for developers</a>
     <a href="https://github.com/dweekly/rcsd-meetings">Source Code &#8599;</a>
