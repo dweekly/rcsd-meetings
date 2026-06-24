@@ -28,6 +28,7 @@
     "upload": "node scripts/upload-to-r2.mjs",
     "scrape:packets": "node scripts/scrape-board-packets.mjs",
     "scrape:warrants": "node scripts/scrape-warrant-pdfs.mjs",
+    "extract:warrants": "node scripts/extract-warrants.mjs",
     "extract:sarc": "node scripts/extract-sarc.mjs",
     "transcribe": "node scripts/transcribe-assemblyai.mjs",
     "pipeline": "node scripts/run-pipeline.mjs"

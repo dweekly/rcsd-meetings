@@ -59,9 +59,16 @@ them perfectly. Both formats carry a printed grand total used as a parse **check
   failures, coverage 2020-03 → 2025-04 (BoardDocs) + 2025-06 → 2026-05 (Simbli, already local) =
   continuous. Garbled-font scan: only 1 of 64 (2021-05) needs OCR; the other 63 extract cleanly with
   `pdftotext -layout`.** *Independently valuable: archives public records off the vendor portal.*
-- [ ] **PR2 — Extractor + validation.** `scripts/extract-warrants.mjs`: two parser families + OCR
-  fallback → `data/warrants/{YYYY-MM}.json`, each checksum-reconciled against the printed grand total;
-  failures flagged, not trusted.
+- [x] **PR2 — Extractor + validation.** `scripts/extract-warrants.mjs` + `scripts/lib/warrant-parsers.mjs`:
+  two parser families (QSS classic/maint + Escape) with tesseract OCR fallback → one
+  `data/warrants/{YYYY-MM}.json` per register + `data/warrants-index.json`, each checksum-reconciled
+  against the printed grand total. **Done 2026-06-24: 76 registers, 29,791 line items. 70/76 reconcile
+  to $0.00; 2 minor-mismatch (≤$0.42 on $7–13M); 3 incomplete-detail (2021-05/06/07 — Summary-format
+  PDFs omit detail rows at the source); 1 coverage-gap (2026-02 — district misfiled an SPSA under the
+  warrant filename). Proof: Van Pelt Construction = $4.99M across FY2023–24…FY2025–26.** Each
+  format reconciles per its own rule (Escape "Net" excludes cancelled checks; QSS "TOTAL DISTRICT"
+  includes them) — line items carry `status` + `disbursedTotal` so spend reporting can net out
+  cancelled/voided. Period-overlap pairs flagged for the reporting layer to dedupe.
 - [ ] **PR3 — Canonicalization + DB + reports.** `data/warrant-vendor-aliases.json`,
   `scripts/build-warrants-db.mjs` (SQLite), `scripts/report-vendor-spend.mjs "van pelt"` → spend by
   fiscal year with check-level drill-down and source PDF links.
@@ -77,3 +84,17 @@ them perfectly. Both formats carry a printed grand total used as a parse **check
   any register that fails to reconcile is flagged `parseStatus: "mismatch"` rather than silently trusted.
 - **Vendor-name normalization is iterative.** Automated normalization (uppercase, strip Inc/LLC/Corp,
   collapse whitespace) plus a hand-curated alias overlay; expect to refine as queries surface variants.
+- **Known data gaps (from PR2, see `data/warrants-index.json` `parseStatus`):**
+  - `incomplete-detail` — **2021-05, 2021-06, 2021-07**: these registers were generated in QSS
+    "Summary" format and list only a subset of warrants (confirmed: both `pdftotext` and OCR see the
+    same ~half-count of rows), so line items are partial. The monthly *printed total* is still
+    captured, so monthly trend figures are fine; per-vendor attribution for these three months is
+    incomplete. (Most other "Summary" registers list every warrant and reconcile.)
+  - `coverage-gap` — **2026-02**: the attachment named `Warrant-Register-February-2026.pdf` actually
+    contains an SPSA document (misfiled at the source). The real Feb 2026 register needs to be
+    re-pulled from Simbli or requested from the district. Follow-up.
+  - `minor-mismatch` — **2026-03, 2025-09**: reconcile to within $0.42 on $7–13M (one stray fraction
+    each); usable, flagged for completeness.
+- **Period overlaps:** 2020-06 and 2021-06 each have two registers with overlapping date ranges
+  (e.g. 6/1–6/15 and 6/1–6/30). The reporting layer (PR3) must dedupe by period to avoid
+  double-counting; `data/warrants-index.json._metadata.periodOverlaps` lists the pairs.
