@@ -140,8 +140,14 @@ function aggregate() {
     .filter((c) => c.total > 0)
     .sort((a, b) => b.total - a.total);
 
+  // District-wide AP spend per fiscal year (for the hero chart). First/last FY are partial.
+  const totalByFy = {};
+  for (const v of list) for (const [fy, amt] of Object.entries(v.byFy)) totalByFy[fy] = (totalByFy[fy] || 0) + amt;
+  for (const k of Object.keys(totalByFy)) totalByFy[k] = Math.round(totalByFy[k] * 100) / 100;
+
   return {
-    vendors: list, fyList, categories: catList,
+    vendors: list, fyList, categories: catList, totalByFy,
+    partialFy: [fyList[0], fyList[fyList.length - 1]],
     stats: {
       grand: Math.round(grand * 100) / 100, payCount, vendorCount: list.length,
       registerCount: registers.length, minDate, maxDate,
@@ -150,15 +156,20 @@ function aggregate() {
 }
 
 // Tiny inline bar sparkline of spend across fiscal years (each vendor scaled to its own max).
-function sparkSvg(byFy, fyList, color = '#2f6b3f') {
+// Each bar carries a native <title> so hovering a year shows that year's figure.
+function sparkSvg(byFy, fyList, fmtLoc, color = '#2f6b3f') {
   const vals = fyList.map((fy) => byFy[fy] || 0);
   const max = Math.max(1, ...vals);
   const bw = 7, gap = 2, h = 22, pad = 2;
   const bars = vals.map((v, i) => {
-    const bh = v > 0 ? Math.max(1.5, Math.round((h - pad) * (v / max))) : 0;
+    const tip = `${fyList[i].replace('FY', 'FY ')}: ${fmtUsd(fmtLoc, v)}`;
     const x = i * (bw + gap);
-    return bh ? `<rect x="${x}" y="${h - bh}" width="${bw}" height="${bh}" rx="1" fill="${color}"/>`
-      : `<rect x="${x}" y="${h - 1.5}" width="${bw}" height="1.5" rx="1" fill="#cdddd2"/>`;
+    if (v > 0) {
+      const bh = Math.max(1.5, Math.round((h - pad) * (v / max)));
+      return `<rect x="${x}" y="${h - bh}" width="${bw}" height="${bh}" rx="1" fill="${color}"><title>${tip}</title></rect>`;
+    }
+    return `<rect x="${x}" y="0" width="${bw}" height="${h}" fill="transparent"><title>${tip}</title></rect>` +
+      `<rect x="${x}" y="${h - 1.5}" width="${bw}" height="1.5" rx="1" fill="#cdddd2"/>`;
   }).join('');
   const w = fyList.length * (bw + gap);
   return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-hidden="true">${bars}</svg>`;
@@ -172,6 +183,8 @@ const T = {
     kicker: 'District spending', h1: 'Vendor Spending',
     intro: 'Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.',
     statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
+    coverageNote: 'These are <strong>accounts-payable warrants</strong> — payments to vendors, contractors, and benefits. They do <strong>not</strong> include employee salaries (payroll), the district\'s single largest cost, which is paid on separate payroll warrants.',
+    trendHeading: 'Total warrant spend by fiscal year', partialNote: '∗ partial year (coverage is March 2020 – May 2026)',
     searchLabel: 'Search for a vendor', searchPh: 'e.g. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Payee', thTotal: 'Total paid', thChecks: 'Checks', thTrend: 'Trend by year',
     catHeading: 'Spend by category', allCat: 'All', catNote: 'Categories are a rough name-based grouping, not an accounting classification.',
@@ -192,6 +205,8 @@ const T = {
     kicker: 'Gastos del distrito', h1: 'Gastos a Proveedores',
     intro: 'Cada mes la Junta de Síndicos aprueba un <strong>registro de cheques</strong> (warrant register) — la lista de cada cheque que emitió el distrito. Esta página los reúne en una base de datos con búsqueda para que veas cuánto le paga el distrito a cualquier proveedor, y cómo cambia año con año.',
     statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
+    coverageNote: 'Estos son <strong>cheques de cuentas por pagar</strong> — pagos a proveedores, contratistas y beneficios. <strong>No</strong> incluyen los salarios del personal (nómina), el mayor gasto del distrito, que se paga en cheques de nómina aparte.',
+    trendHeading: 'Gasto total en cheques por año fiscal', partialNote: '∗ año parcial (la cobertura es de marzo de 2020 a mayo de 2026)',
     searchLabel: 'Busca un proveedor', searchPh: 'p. ej. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Beneficiario', thTotal: 'Total pagado', thChecks: 'Cheques', thTrend: 'Tendencia por año',
     catHeading: 'Gasto por categoría', allCat: 'Todas', catNote: 'Las categorías son una agrupación aproximada por nombre, no una clasificación contable.',
@@ -211,7 +226,8 @@ const T = {
 const ICONS = {
   charter: '🎓', benefits: '🪙', utilities: '💡', food: '🍎', 'sped-health': '🩺',
   staffing: '👥', construction: '🏗️', instruction: '📚', technology: '💻',
-  professional: '⚖️', government: '🏛️', reimbursements: '🧾', other: '▫️',
+  professional: '⚖️', government: '🏛️', afterschool: '⚽', transportation: '🚌',
+  reimbursements: '🧾', other: '▫️',
 };
 const catIcon = (id) => ICONS[id] || '▫️';
 
@@ -226,8 +242,30 @@ function fyRange(byFy) {
   return `${a}–${b.length === 2 ? '20' + b : b}`;
 }
 
+function abbrevUsd(n) {
+  if (n >= 1e6) return '$' + (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + 'M';
+  if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'k';
+  return '$' + Math.round(n);
+}
+// Hero bar chart: total AP spend per fiscal year, partial years marked + de-emphasized.
+function yearChart(totalByFy, fyList, partialFy, fmtLoc) {
+  const max = Math.max(1, ...fyList.map((fy) => totalByFy[fy] || 0));
+  const bars = fyList.map((fy) => {
+    const v = totalByFy[fy] || 0;
+    const hpx = Math.max(2, Math.round(96 * (v / max)));
+    const partial = partialFy.includes(fy);
+    const lbl = fy.replace('FY', '').replace(/^20/, '') + (partial ? '∗' : '');
+    return `<div class="ybar${partial ? ' partial' : ''}" title="${fy.replace('FY', 'FY ')}: ${fmtUsd(fmtLoc, v)}">
+      <span class="ybar-val">${abbrevUsd(v)}</span>
+      <div class="ybar-fill" style="height:${hpx}px"></div>
+      <span class="ybar-lbl">${lbl}</span>
+    </div>`;
+  }).join('');
+  return `<div class="year-chart">${bars}</div>`;
+}
+
 function renderPage(t, data) {
-  const { vendors, stats, fyList, categories } = data;
+  const { vendors, stats, fyList, categories, totalByFy, partialFy } = data;
   const topN = vendors.slice(0, 100);
   const periodTxt = `${stats.minDate.slice(0, 4)}–${stats.maxDate.slice(0, 4)}`;
   const catLabel = (id) => { const c = categories.find((x) => x.id === id); return c ? c.label[t.lang] : id; };
@@ -239,7 +277,7 @@ function renderPage(t, data) {
       <td class="r-name">${escapeHtml(v.name)}</td>
       <td class="r-total">${fmtUsd(t.fmtLoc, v.total)}</td>
       <td class="r-checks">${v.checks}</td>
-      <td class="r-trend" title="${fyRange(v.byFy)}">${sparkSvg(v.byFy, fyList)}</td>
+      <td class="r-trend">${sparkSvg(v.byFy, fyList, t.fmtLoc)}</td>
     </tr>`).join('');
 
   const chipsHtml = `<button class="chip active" data-cat="">${t.allCat} · ${fmtUsd(t.fmtLoc, stats.grand)}</button>` +
@@ -277,11 +315,17 @@ ${siteNav({ activePage: 'vendors', lang: t.lang, altLangHref: t.alt })}
     <p class="kicker">${t.kicker}</p>
     <h1>${t.h1}</h1>
     <p class="intro">${t.intro}</p>
+    <p class="coverage-note">${t.coverageNote}</p>
     <div class="stat-grid">
       <div class="stat"><div class="stat-num">${fmtUsd(t.fmtLoc, stats.grand)}</div><div class="stat-lbl">${t.statSpend}</div></div>
       <div class="stat"><div class="stat-num">${stats.vendorCount.toLocaleString(t.fmtLoc)}</div><div class="stat-lbl">${t.statVendors}</div></div>
       <div class="stat"><div class="stat-num">${stats.registerCount}</div><div class="stat-lbl">${t.statRegisters}</div></div>
       <div class="stat"><div class="stat-num">${periodTxt}</div><div class="stat-lbl">${t.statPeriod}</div></div>
+    </div>
+    <div class="trend-block">
+      <h2 class="trend-h">${t.trendHeading}</h2>
+      ${yearChart(totalByFy, fyList, partialFy, t.fmtLoc)}
+      <p class="partial-note">${t.partialNote}</p>
     </div>
   </header>
 
@@ -338,8 +382,9 @@ function spark(byFy){
   let bars='';
   vals.forEach((v,i) => {
     const x = i*(bw+gap);
-    if(v>0){ const bh=Math.max(1.5, Math.round((h-2)*(v/max))); bars+='<rect x="'+x+'" y="'+(h-bh)+'" width="'+bw+'" height="'+bh+'" rx="1" fill="#2f6b3f"/>'; }
-    else { bars+='<rect x="'+x+'" y="'+(h-1.5)+'" width="'+bw+'" height="1.5" rx="1" fill="#cdddd2"/>'; }
+    const tip = esc(FYS[i].replace('FY','FY ')+': '+usd(v));
+    if(v>0){ const bh=Math.max(1.5, Math.round((h-2)*(v/max))); bars+='<rect x="'+x+'" y="'+(h-bh)+'" width="'+bw+'" height="'+bh+'" rx="1" fill="#2f6b3f"><title>'+tip+'</title></rect>'; }
+    else { bars+='<rect x="'+x+'" y="0" width="'+bw+'" height="'+h+'" fill="transparent"><title>'+tip+'</title></rect><rect x="'+x+'" y="'+(h-1.5)+'" width="'+bw+'" height="1.5" rx="1" fill="#cdddd2"/>'; }
   });
   const w = FYS.length*(bw+gap);
   return '<svg class="spark" width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" aria-hidden="true">'+bars+'</svg>';
@@ -391,6 +436,18 @@ const PAGE_CSS = `
 .stat{background:var(--green-50);border:1px solid var(--green-100);border-radius:12px;padding:1rem 1.1rem}
 .stat-num{font-family:var(--font-mono);font-size:1.45rem;font-weight:600;color:var(--green-800)}
 .stat-lbl{font-size:.82rem;color:var(--ink-soft);margin-top:.2rem}
+.coverage-note{font-size:.92rem;color:var(--ink-soft);max-width:64ch;margin:1rem 0 0;padding:.7rem .9rem;background:var(--green-50);border-left:3px solid var(--green-400);border-radius:0 8px 8px 0}
+.trend-block{margin-top:1.8rem}
+.trend-h{font-family:var(--font-display);font-size:1.15rem;margin:0 0 .8rem}
+.year-chart{display:flex;align-items:flex-end;gap:.6rem;height:140px}
+.ybar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:90px;height:100%}
+.ybar-val{font-family:var(--font-mono);font-size:.72rem;color:var(--green-800);margin-bottom:.25rem;white-space:nowrap}
+.ybar-fill{width:100%;background:var(--green-600);border-radius:3px 3px 0 0;transition:background .12s}
+.ybar:hover .ybar-fill{background:var(--green-800)}
+.ybar.partial .ybar-fill{background:var(--green-300)}
+.ybar.partial .ybar-val{color:var(--ink-soft)}
+.ybar-lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);margin-top:.35rem}
+.partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
 .search-label{display:block;font-weight:600;margin-bottom:.4rem}
 #vsearch{width:100%;font-size:1.05rem;padding:.7rem .9rem;border:2px solid var(--green-200);border-radius:10px;font-family:var(--font-body)}
@@ -410,8 +467,9 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
 .cat-ico{font-size:1.05rem;line-height:1;cursor:default}
 .chip-ico{font-size:.95rem}
 .cat-sec{margin:2rem 0 1rem}
-.cat-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0}
-.chip{font-family:var(--font-mono);font-size:.78rem;padding:.35rem .7rem;border:1px solid var(--green-200);background:var(--green-50);border-radius:999px;cursor:pointer;color:var(--ink);transition:all .12s}
+.cat-sec h2{font-size:1.15rem;margin-bottom:.4rem}
+.cat-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:.5rem 0}
+.chip{font-family:var(--font-mono);font-size:.72rem;padding:.22rem .55rem;border:1px solid var(--green-200);background:var(--green-50);border-radius:999px;cursor:pointer;color:var(--ink);transition:all .12s}
 .chip:hover{border-color:var(--green-500)}
 .chip.active{background:var(--green-700);color:#fff;border-color:var(--green-700)}
 .cat-note{font-size:.82rem;color:var(--ink-soft);font-style:italic;margin:.3rem 0 0}
@@ -433,6 +491,7 @@ function main() {
       ...data.stats,
     },
     fiscalYears: data.fyList,
+    totalByFiscalYear: data.totalByFy,
     categories: data.categories,
     vendors: data.vendors,
   };
