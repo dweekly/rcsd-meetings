@@ -197,12 +197,17 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Consider same treatment for the KIPP Excelencia Fair Oaks site given the ongoing Prop 2 CSFP funding workstream (Res 11 Sept 2025, Res 23 April 2026)
 
 ## Vendors / Warrant Registers
-- [ ] **Warrant-register database (the foundation, build this first)** — index the contents of every warrant register (ratification of warrants) in the board packets into a queryable dataset with one consistent schema. Even a set of CSV tables is enough to start: one row per warrant line (date, warrant #, payee as printed, normalized vendor, amount, fund/object code where printed, source meeting + PDF page for provenance). Target question to validate the schema against: "how much money per year does the district pay to $VENDOR, and how has that been changing over time?" Publish the tables machine-readable (data.rcsd.info + an MCP tool) so the answer is queryable before any dashboard exists.
-  - [ ] Scrape all warrant registers from board meeting attachments (they're PDFs of tabular data; extraction quality per register varies — keep per-cell provenance so bad parses are auditable)
-  - [ ] Payee-name normalization table (the same vendor appears with different spellings/abbreviations across years)
-- [ ] **Vendor spending dashboard** — a top-level "Vendors" page on the database above: who the district does business with, annual spend, per-vendor trends, per-fund breakdowns
+- [x] **Warrant-register database (the foundation)** — built 2026-06-24 (PR #64, branch `feat/warrant-registers`; plan + caveats in [`WARRANTS.md`](WARRANTS.md)). 76 registers (Mar 2020 – May 2026), 30,253 per-check line items, each reconciled against the register's printed total; queryable via `warrants.db` (SQLite) + `npm run report:warrants -- "<vendor>"`. Validated against the target question — Van Pelt Construction = $5.19M across FY2023-24…FY2025-26.
+  - [x] Scrape all warrant registers from board attachments (BoardDocs `$file` backfill + Simbli; two ERP formats QSS + Escape; OCR fallback for broken-font PDFs; per-register provenance + printed-total checksum so bad parses are auditable)
+  - [x] Payee-name normalization (`normalizePayeeKey` + curated `data/warrant-vendor-aliases.json` rollup, e.g. CalPERS' several legal names)
+- [ ] **Root-cause the attachment-download bug** — Feb 2026's register came down as a misfiled SPSA (our metadata had the right Simbli AID 1433020; the saved bytes were wrong). Could not reproduce from current `scrape-board-packets.mjs`. A filename-vs-content scan of all 77 warrant/SPSA-named cached PDFs found no other mismatches, but the bug class is unexplained.
+  - [ ] Broader audit: filename-vs-content check across all ~1,600 cached board-packet attachments (content-typing arbitrary docs is fuzzier than warrants, but would confirm nothing else got crossed)
+- [ ] **Re-ingest 2021-05/06/07 in Detail format** — these QSS "Summary" sheets have complete line items but a printed total that over-counts (~1.9–2.3×, likely fund-line summing). Spend figures use the summed line items and are correct; re-exporting in Detail format would let them reconcile and remove the footnote.
+- [ ] **PR4 — public bilingual vendor-spend page** (deferred) — EN + ES pages, OG cards, search integration. **Gated on the individual-name privacy decision**: registers list employee mileage/expense reimbursements by name (tagged `payeeType: individual`); decide whether to publish, aggregate, or suppress those before any public surface. `warrants.db` is deliberately gitignored + not R2-synced until then.
+- [ ] **Vendor spending dashboard** — top-level "Vendors" page on the DB: who the district does business with, annual spend, per-vendor trends, per-fund breakdowns (fund/object codes are captured for the Escape-era registers)
 - [ ] Cross-reference contracts from consent agendas (agreements, amendments, service contracts) with warrant payments
 - [ ] Vendor search: "How much have we paid PowerFlex?" or "What contracts does Eide Bailly have?"
+- [ ] MCP tool for vendor spend (`query-vendor`) so the data is answerable through the existing RCSD data MCP server
 
 ## Document Index
 - [x] Unified document index from all meeting attachments (data/document-index.json) — 1,000+ docs classified

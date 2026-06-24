@@ -1,0 +1,105 @@
+{
+  "_metadata": {
+    "description": "Curated vendor-name alias map for warrant-register spend reporting. Payee names are first normalized (uppercase, strip Inc/LLC/Corp/punctuation — see normalizePayeeKey in scripts/lib/warrant-parsers.mjs), which already collapses most case/punctuation variants. This file handles the cases normalization cannot: distinct legal names that are the same payer (e.g. CalPERS bills under several entity names), and abbreviations. Each entry maps a canonical display name to the list of NORMALIZED keys that should roll up into it.",
+    "source": "Hand-curated from the top payees in data/warrants/*.json; extend as queries surface new variants.",
+    "generated": "2026-06-24",
+    "howToExtend": "Run `node scripts/report-vendor-spend.mjs --top 50` to see normalized keys; add any that are the same real payer under a shared canonical name here, then re-run `npm run build:warrants-db`."
+  },
+  "aliases": {
+    "CalPERS (retirement & benefits)": [
+      "CALPERS",
+      "PUBLIC EMPLOYEES RETIREMENT SY",
+      "PUBLIC EMPLOYEES RETIREMENT SYSTEM",
+      "CALPERS FINANCIAL REPORTING AND",
+      "CALPERS 457PLAN",
+      "CALPERS SUPPLEMENTAL INCOME 457 PLAN",
+      "CALPERS 457 PLAN"
+    ],
+    "Pacific Gas & Electric (PG&E)": [
+      "PACIFIC GAS AND ELECTRIC",
+      "PGE",
+      "PG E"
+    ],
+    "Amazon": [
+      "AMAZON CAPITAL SERVICES",
+      "AMAZON SERVICES",
+      "AMAZON",
+      "AMAZON BUSINESS",
+      "AMAZONCOM"
+    ],
+    "AT&T": [
+      "AT T",
+      "ATT",
+      "AT T MOBILITY",
+      "AT T CALNET"
+    ],
+    "Home Depot": [
+      "HOME DEPOT",
+      "HOME DEPOT CREDIT SERVICES",
+      "THE HOME DEPOT"
+    ],
+    "U.S. Bank": [
+      "US BANK",
+      "US BANK CORPORATE PAYMENT",
+      "US BANCORP",
+      "US BANK NA"
+    ],
+    "Dannis Woliver Kelley (DWK, district counsel)": [
+      "DANNIS WOLIVER KELLEY",
+      "DWK"
+    ],
+    "Boys & Girls Clubs of the Peninsula (after-school programs)": [
+      "BOYS AND GIRLS CLUBS",
+      "BOYS AND GIRLS CLUBS OF PENINSULA",
+      "BOYS AND GIRLS CLUBS OF THE PENINSULA"
+    ],
+    "Connect Community Charter School (district charter)": [
+      "CONNECT COMMUNITY",
+      "CONNECT COMMUNITY CHARTER SCHOOL",
+      "CONNECT COMMUNITY CHARTER"
+    ],
+    "CDW-G": ["CDW G", "CDW GOVERNMENT"],
+    "Children's Health Council": [
+      "CHILDRENS HEALTH COUNCIL",
+      "CHILDRENS HEALTH COUNCIL ATTN",
+      "CHILDRENS HEALTH COUNCIL ESTHER B",
+      "CHILDRENS HEALTH COUNCIL NP"
+    ],
+    "One Life Counseling Center": ["ONE LIFE COUNSELING CENTER", "ONE LIFE COUNSELING SERVICES"],
+    "Apple": ["APPLE", "APPLE COMPUTER"],
+    "T-Mobile": ["T MOBILE", "T MOBILE USA"],
+    "Edtheory": ["EDTHEORY", "EDTHEORY STAFFING SERVICES"],
+    "Amergis Healthcare Staffing": ["AMERGIS HEALTHCARE", "AMERGIS HEALTHCARE STAFFING"],
+    "Aequor Healthcare Services": ["AEQUOR", "AEQUOR HEALTHCARE SERVICES"],
+    "AchieveKids": ["ACHIEVEKIDS", "ACHIEVEKIDS A"],
+    "Sunbelt Staffing": ["SUNBELT", "SUNBELT STAFFING"],
+    "Maxim Healthcare Staffing": [
+      "MAXIM HEALTHCARE SERVICES HOLD",
+      "MAXIM HEALTHCARE STAFFING",
+      "MAXIM HEALTHCARE STAFFING SRVS",
+      "MAXIM HEALTHCARE STAFFING SVCS",
+      "MAXIM STAFFING SOLUTIONS"
+    ],
+    "Therapeutic Learning Consultants": [
+      "THERAPEUTIC LEARNING",
+      "THERAPEUTIC LEARNING CNSLTS",
+      "THERAPEUTIC LEARNING CONSULTANTS"
+    ],
+    "San Mateo County Behavioral Health": ["SAN MATEO COUNTY BEHAVIORAL", "SAN MATEO COUNTY BEHAVIORAL HEALTH"],
+    "Schools Excess Liability Fund (SELF)": ["SCHOOL EXCESS LIABILITY FUND", "SCHOOLS EXCESS LIABILITY FUND"],
+    "Menlo Park City School District": [
+      "MENLO PARK CITY SCHOOL",
+      "MENLO PARK CITY SCHOOL DIST",
+      "MENLO PARK CITY SCHOOL DISTRICT"
+    ],
+    "Tasty Pizza / Healthy Kids": ["TASTY PIZZA", "TASTY PIZZA HEALTHY KIDS", "TASTY PIZZA HEALTHY KIDS PIZZA"],
+    "County School Service Fund (SMCOE)": ["COUNTY SCHOOL SERVICE FUND", "COUNTY SCHOOL SERVICE FUND SMCOE"],
+    "County Counsel, San Mateo County": [
+      "COUNTY COUNSEL",
+      "COUNTY COUNSEL SAN MATEO COUNTY",
+      "COUNTY COUNSEL SMC ATTN SHIRLEY L"
+    ],
+    "Recology (San Bruno / Peninsula)": ["RECOLOGY PENINSULA SERVICE", "RECOLOGY PENINSULA SERVICES", "RECOLOGY SAN BRUNO"],
+    "Siemens Industry": ["SIEMENS INDUSTRY", "SIEMENS PUBLIC", "SIEMENS PUBLIC C O SIEMENS"]
+  }
+}

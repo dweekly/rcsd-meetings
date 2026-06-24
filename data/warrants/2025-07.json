@@ -1,0 +1,2948 @@
+{
+  "_metadata": {
+    "description": "Warrant register for 2025-07: per-payment line items parsed from the board-ratified register.",
+    "month": "2025-07",
+    "meetingDate": "2025-08-19",
+    "meetingItem": "13.30",
+    "title": "Ratification of Warrant Registers, June 1, 2025 - June 30, 2025",
+    "source": "simbli",
+    "sourceUrl": "https://data.rcsd.info/board-packets/2025-08-19/Warrant-Register-July-2025.pdf",
+    "reportFormat": "escape",
+    "extraction": "pdftotext -layout",
+    "pdfSha256": "3342dfea289cd80b4b4af7f5b75415894f772105a3dd56464071b83bcb2032d3",
+    "script": "scripts/extract-warrants.mjs",
+    "generated": "2026-06-24",
+    "period": {
+      "from": "07/01/2025",
+      "to": "07/31/2025",
+      "monthKey": "2025-07"
+    },
+    "checksum": {
+      "printedTotal": 7717656.79,
+      "parsedTotal": 7717656.79,
+      "disbursedTotal": 7717656.79,
+      "reconciled": true,
+      "parseStatus": "reconciled",
+      "coverageRatio": 1,
+      "diff": 0,
+      "note": "parsedTotal sums non-cancelled checks; should equal the printed \"Net (Check Amount)\". disbursedTotal excludes cancelled checks."
+    },
+    "printedCheckCount": 219,
+    "fundRecap": [
+      {
+        "fund": "01",
+        "description": "General Fund",
+        "checkCount": 178,
+        "expensed": 1007429.29
+      },
+      {
+        "fund": "12",
+        "description": "Child Development Fund",
+        "checkCount": 14,
+        "expensed": 6954.54
+      },
+      {
+        "fund": "13",
+        "description": "Cafeteria Fund",
+        "checkCount": 18,
+        "expensed": 76233.95
+      },
+      {
+        "fund": "21",
+        "description": "Building Fund",
+        "checkCount": 10,
+        "expensed": 6622984.34
+      },
+      {
+        "fund": "25",
+        "description": "Capital Facilities Fund",
+        "checkCount": 1,
+        "expensed": 103
+      },
+      {
+        "fund": "40",
+        "description": "Special Reserve Fund Cap",
+        "checkCount": 3,
+        "expensed": 4330
+      }
+    ]
+  },
+  "_index": {
+    "month": "2025-07",
+    "meetingDate": "2025-08-19",
+    "title": "Ratification of Warrant Registers, June 1, 2025 - June 30, 2025",
+    "source": "simbli",
+    "format": "escape",
+    "viaOcr": false,
+    "lineItemCount": 219,
+    "total": 7717656.79,
+    "disbursedTotal": 7717656.79,
+    "printedTotal": 7717656.79,
+    "reconciled": true,
+    "parseStatus": "reconciled",
+    "coverageRatio": 1,
+    "diff": 0,
+    "period": {
+      "from": "07/01/2025",
+      "to": "07/31/2025",
+      "monthKey": "2025-07"
+    },
+    "sourceUrl": "https://data.rcsd.info/board-packets/2025-08-19/Warrant-Register-July-2025.pdf",
+    "file": "data/warrants/2025-07.json"
+  },
+  "lineItems": [
+    {
+      "check": "700201",
+      "dateIssued": "07/03/2025",
+      "payee": "AIR EDUCATION INC",
+      "amount": 37500,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AIR EDUCATION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700202",
+      "dateIssued": "07/03/2025",
+      "payee": "Association for Middle Level",
+      "amount": 2849.97,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ASSOCIATION FOR MIDDLE LEVEL",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700203",
+      "dateIssued": "07/03/2025",
+      "payee": "Childcare Careers Llc",
+      "amount": 2045.26,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CHILDCARE CAREERS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700204",
+      "dateIssued": "07/03/2025",
+      "payee": "College Advising Prep",
+      "amount": 16640,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "COLLEGE ADVISING PREP",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700205",
+      "dateIssued": "07/03/2025",
+      "payee": "Compu Pro Services Corporation",
+      "amount": 3984.37,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "COMPU PRO SERVICES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700206",
+      "dateIssued": "07/03/2025",
+      "payee": "CoStar Realty Information Inc.",
+      "amount": 430,
+      "fundObjects": [
+        "40-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "COSTAR REALTY INFORMATION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700207",
+      "dateIssued": "07/03/2025",
+      "payee": "Imagine Learning LLC",
+      "amount": 20000,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "IMAGINE LEARNING",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700208",
+      "dateIssued": "07/03/2025",
+      "payee": "Museum Of Science",
+      "amount": 1196.36,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MUSEUM OF SCIENCE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700209",
+      "dateIssued": "07/03/2025",
+      "payee": "PrimoBrands BlueTriton Brands, Inc.",
+      "amount": 43.92,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PRIMOBRANDS BLUETRITON BRANDS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700210",
+      "dateIssued": "07/03/2025",
+      "payee": "Readyexgo Wellness Solutions LLC",
+      "amount": 520,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "READYEXGO WELLNESS SOLUTIONS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700211",
+      "dateIssued": "07/03/2025",
+      "payee": "Teacher Created Materials Inc.",
+      "amount": 2000,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "TEACHER CREATED MATERIALS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700212",
+      "dateIssued": "07/03/2025",
+      "payee": "The Parent Venture",
+      "amount": 10000,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PARENT VENTURE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700213",
+      "dateIssued": "07/03/2025",
+      "payee": "Al Perez",
+      "amount": 607.82,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AL PEREZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700214",
+      "dateIssued": "07/03/2025",
+      "payee": "Alberto Martinez",
+      "amount": 847.82,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ALBERTO MARTINEZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700215",
+      "dateIssued": "07/03/2025",
+      "payee": "Angela Quilici",
+      "amount": 853.27,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ANGELA QUILICI",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700216",
+      "dateIssued": "07/03/2025",
+      "payee": "Carol Mcnamara",
+      "amount": 852.71,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CAROL MCNAMARA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700217",
+      "dateIssued": "07/03/2025",
+      "payee": "Christine Hiltbrand",
+      "amount": 602.17,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CHRISTINE HILTBRAND",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700218",
+      "dateIssued": "07/03/2025",
+      "payee": "COSTA, LINDA",
+      "amount": 852.1,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "COSTA LINDA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700219",
+      "dateIssued": "07/03/2025",
+      "payee": "Elvira Perez",
+      "amount": 604.91,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ELVIRA PEREZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700220",
+      "dateIssued": "07/03/2025",
+      "payee": "Fanny Gonzales-sprouse",
+      "amount": 830.78,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "FANNY GONZALES SPROUSE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700221",
+      "dateIssued": "07/03/2025",
+      "payee": "Franklin Glaser",
+      "amount": 868.33,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "FRANKLIN GLASER",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700222",
+      "dateIssued": "07/03/2025",
+      "payee": "GODCHARLES, NURIA",
+      "amount": 852.16,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "GODCHARLES NURIA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700223",
+      "dateIssued": "07/03/2025",
+      "payee": "Heather Farrar",
+      "amount": 850.36,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HEATHER FARRAR",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700224",
+      "dateIssued": "07/03/2025",
+      "payee": "Heidi Pim",
+      "amount": 835.76,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HEIDI PIM",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700225",
+      "dateIssued": "07/03/2025",
+      "payee": "HOWELL, BRYAN",
+      "amount": 847.25,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HOWELL BRYAN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700226",
+      "dateIssued": "07/03/2025",
+      "payee": "Janet Wilkerson",
+      "amount": 843.65,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "JANET WILKERSON",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700227",
+      "dateIssued": "07/03/2025",
+      "payee": "Jesse Silverman",
+      "amount": 1013.7,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "JESSE SILVERMAN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700228",
+      "dateIssued": "07/03/2025",
+      "payee": "Jorge Aguilera-Mota",
+      "amount": 946.58,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "JORGE AGUILERA MOTA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700229",
+      "dateIssued": "07/03/2025",
+      "payee": "Lawrence Goity",
+      "amount": 848.4,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LAWRENCE GOITY",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700230",
+      "dateIssued": "07/03/2025",
+      "payee": "Leslie Daniele",
+      "amount": 753.07,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LESLIE DANIELE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700231",
+      "dateIssued": "07/03/2025",
+      "payee": "Linda Montes",
+      "amount": 910.32,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LINDA MONTES",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700232",
+      "dateIssued": "07/03/2025",
+      "payee": "Lourdes Conde",
+      "amount": 852.16,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LOURDES CONDE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700233",
+      "dateIssued": "07/03/2025",
+      "payee": "Maureen Cole",
+      "amount": 852.89,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MAUREEN COLE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700234",
+      "dateIssued": "07/03/2025",
+      "payee": "Michael Breen",
+      "amount": 690.42,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MICHAEL BREEN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700235",
+      "dateIssued": "07/03/2025",
+      "payee": "Michelle Beutler",
+      "amount": 853.03,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MICHELLE BEUTLER",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700236",
+      "dateIssued": "07/03/2025",
+      "payee": "MILLER, DAVID",
+      "amount": 847.68,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MILLER DAVID",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700237",
+      "dateIssued": "07/03/2025",
+      "payee": "Nina Lapick",
+      "amount": 850.36,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "NINA LAPICK",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700238",
+      "dateIssued": "07/03/2025",
+      "payee": "PARADA, DINA",
+      "amount": 855.09,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PARADA DINA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700239",
+      "dateIssued": "07/03/2025",
+      "payee": "Patricia Rivera Pelino",
+      "amount": 847.06,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PATRICIA RIVERA PELINO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700240",
+      "dateIssued": "07/03/2025",
+      "payee": "Peter Bartok",
+      "amount": 853.27,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PETER BARTOK",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700241",
+      "dateIssued": "07/03/2025",
+      "payee": "Renee Hirsch",
+      "amount": 536.7,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RENEE HIRSCH",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700242",
+      "dateIssued": "07/03/2025",
+      "payee": "Richard Wallace",
+      "amount": 853.03,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RICHARD WALLACE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700243",
+      "dateIssued": "07/03/2025",
+      "payee": "Rodney Corsiglia",
+      "amount": 449.77,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RODNEY CORSIGLIA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700244",
+      "dateIssued": "07/03/2025",
+      "payee": "Rosa M Juarez",
+      "amount": 747.42,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ROSA M JUAREZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700245",
+      "dateIssued": "07/03/2025",
+      "payee": "Sandra Portasio",
+      "amount": 790.25,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SANDRA PORTASIO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700246",
+      "dateIssued": "07/03/2025",
+      "payee": "Shirley Grana",
+      "amount": 568.2,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SHIRLEY GRANA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700247",
+      "dateIssued": "07/03/2025",
+      "payee": "Tamela Schmalz",
+      "amount": 320.78,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "TAMELA SCHMALZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700248",
+      "dateIssued": "07/03/2025",
+      "payee": "Tracey Gardella",
+      "amount": 853.03,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "TRACEY GARDELLA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700249",
+      "dateIssued": "07/03/2025",
+      "payee": "Vilma Leiva",
+      "amount": 650.3,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "VILMA LEIVA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700250",
+      "dateIssued": "07/03/2025",
+      "payee": "Xiomara Navarro",
+      "amount": 652.97,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "XIOMARA NAVARRO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700251",
+      "dateIssued": "07/03/2025",
+      "payee": "HMH Education Company",
+      "amount": 21800,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HMH EDUCATION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700829",
+      "dateIssued": "07/07/2025",
+      "payee": "Bayshore Plumbers",
+      "amount": 8671.53,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "BAYSHORE PLUMBERS",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700830",
+      "dateIssued": "07/07/2025",
+      "payee": "Crest/good Mfg. Co.",
+      "amount": 291.9,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CREST GOOD MFG",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700831",
+      "dateIssued": "07/07/2025",
+      "payee": "Critter Control of San Jose",
+      "amount": 298,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CRITTER CONTROL OF SAN JOSE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700832",
+      "dateIssued": "07/07/2025",
+      "payee": "Dale Plumbing & Heating",
+      "amount": 105,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "DALE PLUMBING AND HEATING",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700833",
+      "dateIssued": "07/07/2025",
+      "payee": "Ecolab Pest Elimination",
+      "amount": 500,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ECOLAB PEST ELIMINATION",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700834",
+      "dateIssued": "07/07/2025",
+      "payee": "NV5 Consultants, Inc.",
+      "amount": 760,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "NV5 CONSULTANTS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700835",
+      "dateIssued": "07/07/2025",
+      "payee": "Rainbow Mobile Wash",
+      "amount": 317,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RAINBOW MOBILE WASH",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700836",
+      "dateIssued": "07/07/2025",
+      "payee": "Recology Peninsula Services",
+      "amount": 2300,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RECOLOGY PENINSULA SERVICES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700837",
+      "dateIssued": "07/07/2025",
+      "payee": "Resource Solutions Of Sf Group, Inc.",
+      "amount": 8705.48,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RESOURCE SOLUTIONS OF SF GROUP",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700838",
+      "dateIssued": "07/07/2025",
+      "payee": "Sage Energy Consulting NV5 INV",
+      "amount": 4942.5,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SAGE ENERGY CONSULTING NV5 INV",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700839",
+      "dateIssued": "07/07/2025",
+      "payee": "San Mateo Lawn Mower Shop",
+      "amount": 418.18,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SAN MATEO LAWN MOWER SHOP",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700840",
+      "dateIssued": "07/07/2025",
+      "payee": "Unifirst Corporation",
+      "amount": 2513.07,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "UNIFIRST",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700929",
+      "dateIssued": "07/08/2025",
+      "payee": "California Department Of Ed",
+      "amount": 255.25,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA DEPARTMENT OF ED",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700930",
+      "dateIssued": "07/08/2025",
+      "payee": "AnaMarie Rafael",
+      "amount": 2000,
+      "fundObjects": [
+        "01-4390"
+      ],
+      "status": "Active",
+      "payeeKey": "ANAMARIE RAFAEL",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700931",
+      "dateIssued": "07/08/2025",
+      "payee": "T-mobile",
+      "amount": 5140.52,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "T MOBILE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "700932",
+      "dateIssued": "07/08/2025",
+      "payee": "Unifirst Corporation",
+      "amount": 125.45,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "UNIFIRST",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700933",
+      "dateIssued": "07/08/2025",
+      "payee": "Employment Development Dept",
+      "amount": 11394.23,
+      "fundObjects": [
+        "01-9590"
+      ],
+      "status": "Active",
+      "payeeKey": "EMPLOYMENT DEVELOPMENT DEPT",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700934",
+      "dateIssued": "07/08/2025",
+      "payee": "At&t",
+      "amount": 94.22,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AT AND T",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700935",
+      "dateIssued": "07/08/2025",
+      "payee": "California Water Service",
+      "amount": 11226.59,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA WATER SERVICE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700936",
+      "dateIssued": "07/08/2025",
+      "payee": "City Of Redwood City",
+      "amount": 591.68,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CITY OF REDWOOD CITY",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "700937",
+      "dateIssued": "07/08/2025",
+      "payee": "Pacific Gas & Electric",
+      "amount": 2777.23,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PACIFIC GAS AND ELECTRIC",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701134",
+      "dateIssued": "07/09/2025",
+      "payee": "Delta Dental Of California",
+      "amount": 3483.54,
+      "fundObjects": [
+        "01-9564"
+      ],
+      "status": "Active",
+      "payeeKey": "DELTA DENTAL OF CALIFORNIA",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701135",
+      "dateIssued": "07/09/2025",
+      "payee": "Holt Renewables LLC",
+      "amount": 2000,
+      "fundObjects": [
+        "40-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HOLT RENEWABLES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701136",
+      "dateIssued": "07/09/2025",
+      "payee": "Spot Coolers",
+      "amount": 209554.8,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SPOT COOLERS",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701137",
+      "dateIssued": "07/09/2025",
+      "payee": "California Water Service",
+      "amount": 7537.11,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA WATER SERVICE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701138",
+      "dateIssued": "07/09/2025",
+      "payee": "Pacific Gas & Electric",
+      "amount": 19.01,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PACIFIC GAS AND ELECTRIC",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701139",
+      "dateIssued": "07/09/2025",
+      "payee": "DAYLIGHT FOODS INC",
+      "amount": 4467.57,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "DAYLIGHT FOODS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701140",
+      "dateIssued": "07/09/2025",
+      "payee": "Hillyard",
+      "amount": 902.12,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HILLYARD",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701141",
+      "dateIssued": "07/09/2025",
+      "payee": "PACIFIC PRODUCE",
+      "amount": 3888.5,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PACIFIC PRODUCE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701142",
+      "dateIssued": "07/09/2025",
+      "payee": "SYSCO SAN FRANCISCO INC",
+      "amount": 7119.61,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SYSCO SAN FRANCISCO",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701143",
+      "dateIssued": "07/09/2025",
+      "payee": "Tasty Pizza Healthy Kids Pizza",
+      "amount": 1573,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "TASTY PIZZA HEALTHY KIDS PIZZA",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701144",
+      "dateIssued": "07/09/2025",
+      "payee": "Amazon Capital Services",
+      "amount": 181.24,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AMAZON CAPITAL SERVICES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701145",
+      "dateIssued": "07/09/2025",
+      "payee": "Childcare Careers Llc",
+      "amount": 888,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CHILDCARE CAREERS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701146",
+      "dateIssued": "07/09/2025",
+      "payee": "Demco Inc",
+      "amount": 421.47,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "DEMCO",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701147",
+      "dateIssued": "07/09/2025",
+      "payee": "Lakeshore Learning Materials",
+      "amount": 164.8,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LAKESHORE LEARNING MATERIALS",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701148",
+      "dateIssued": "07/09/2025",
+      "payee": "Peter Ingram Consulting",
+      "amount": 1900,
+      "fundObjects": [
+        "40-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PETER INGRAM CONSULTING",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701149",
+      "dateIssued": "07/09/2025",
+      "payee": "PrimoBrands BlueTriton Brands, Inc.",
+      "amount": 218.52,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PRIMOBRANDS BLUETRITON BRANDS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701692",
+      "dateIssued": "07/14/2025",
+      "payee": "County School Service Fund SMCOE",
+      "amount": 137220,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "COUNTY SCHOOL SERVICE FUND SMCOE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701693",
+      "dateIssued": "07/14/2025",
+      "payee": "Bay Area Floor Machine Co Inc",
+      "amount": 160,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "BAY AREA FLOOR MACHINE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701694",
+      "dateIssued": "07/14/2025",
+      "payee": "Dryco Construction Inc",
+      "amount": 1580,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "DRYCO CONSTRUCTION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701695",
+      "dateIssued": "07/14/2025",
+      "payee": "PREMIERONE CREDIT UNION",
+      "amount": 2419.58,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PREMIERONE CREDIT UNION",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701696",
+      "dateIssued": "07/14/2025",
+      "payee": "Shoreway Plumbing Inc",
+      "amount": 32329,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SHOREWAY PLUMBING",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701697",
+      "dateIssued": "07/14/2025",
+      "payee": "T-mobile",
+      "amount": 955.87,
+      "fundObjects": [
+        "01-9510",
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "T MOBILE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701698",
+      "dateIssued": "07/14/2025",
+      "payee": "Unifirst Corporation",
+      "amount": 165.03,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "UNIFIRST",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701699",
+      "dateIssued": "07/14/2025",
+      "payee": "360 Degree Customer Inc.",
+      "amount": 10556.5,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "360 DEGREE CUSTOMER",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701700",
+      "dateIssued": "07/14/2025",
+      "payee": "County School Service Fund SMCOE",
+      "amount": 20470,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "COUNTY SCHOOL SERVICE FUND SMCOE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701701",
+      "dateIssued": "07/14/2025",
+      "payee": "Orange County Dept. of Education",
+      "amount": 2296,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ORANGE COUNTY DEPT OF EDUCATION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701702",
+      "dateIssued": "07/14/2025",
+      "payee": "Peninsula Catering & Events, Inc.",
+      "amount": 1000,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PENINSULA CATERING AND EVENTS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701703",
+      "dateIssued": "07/14/2025",
+      "payee": "PREMIERONE CREDIT UNION",
+      "amount": 6808.07,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PREMIERONE CREDIT UNION",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701704",
+      "dateIssued": "07/14/2025",
+      "payee": "Tipping Point Consulting LLC",
+      "amount": 444.78,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "TIPPING POINT CONSULTING",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701705",
+      "dateIssued": "07/14/2025",
+      "payee": "Swing Education Inc",
+      "amount": 120000,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SWING EDUCATION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701706",
+      "dateIssued": "07/14/2025",
+      "payee": "Lakeshore Learning Materials",
+      "amount": 82.4,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LAKESHORE LEARNING MATERIALS",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701707",
+      "dateIssued": "07/14/2025",
+      "payee": "Avanti Restaurant Solutions, Inc",
+      "amount": 37402.12,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AVANTI RESTAURANT SOLUTIONS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701708",
+      "dateIssued": "07/14/2025",
+      "payee": "Myers Foodservice Equipment Supply",
+      "amount": 14421.72,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MYERS FOODSERVICE EQUIPMENT SUPPLY",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701709",
+      "dateIssued": "07/14/2025",
+      "payee": "Mayra Martinez",
+      "amount": 149,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MAYRA MARTINEZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "701710",
+      "dateIssued": "07/14/2025",
+      "payee": "California Water Service",
+      "amount": 191.02,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA WATER SERVICE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701711",
+      "dateIssued": "07/14/2025",
+      "payee": "Pacific Gas & Electric",
+      "amount": 718.56,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PACIFIC GAS AND ELECTRIC",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701712",
+      "dateIssued": "07/14/2025",
+      "payee": "Recology Peninsula Services",
+      "amount": 4885,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RECOLOGY PENINSULA SERVICES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "701713",
+      "dateIssued": "07/14/2025",
+      "payee": "Recology San Bruno",
+      "amount": 34202.84,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RECOLOGY SAN BRUNO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702655",
+      "dateIssued": "07/17/2025",
+      "payee": "Blach Construction Company",
+      "amount": 4570560.13,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "BLACH CONSTRUCTION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702656",
+      "dateIssued": "07/17/2025",
+      "payee": "Heritage Bank of Commerce",
+      "amount": 228906.65,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HERITAGE BANK OF COMMERCE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702657",
+      "dateIssued": "07/17/2025",
+      "payee": "Russell Signer Inc",
+      "amount": 13438.96,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RUSSELL SIGNER",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702658",
+      "dateIssued": "07/17/2025",
+      "payee": "Tasty Pizza Healthy Kids Pizza",
+      "amount": 3040,
+      "fundObjects": [
+        "13-4700"
+      ],
+      "status": "Active",
+      "payeeKey": "TASTY PIZZA HEALTHY KIDS PIZZA",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702659",
+      "dateIssued": "07/17/2025",
+      "payee": "All Bay Mechanical Inc",
+      "amount": 7306.17,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ALL BAY MECHANICAL",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702660",
+      "dateIssued": "07/17/2025",
+      "payee": "Southland Industries",
+      "amount": 1589120.39,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SOUTHLAND INDUSTRIES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702661",
+      "dateIssued": "07/17/2025",
+      "payee": "City Of Redwood City",
+      "amount": 56280.87,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CITY OF REDWOOD CITY",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702662",
+      "dateIssued": "07/17/2025",
+      "payee": "Pacific Gas & Electric",
+      "amount": 125225.69,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PACIFIC GAS AND ELECTRIC",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702663",
+      "dateIssued": "07/17/2025",
+      "payee": "California Water Service",
+      "amount": 15144.9,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA WATER SERVICE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702664",
+      "dateIssued": "07/17/2025",
+      "payee": "Rosaura Lopez Velasquez",
+      "amount": 102.19,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ROSAURA LOPEZ VELASQUEZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702665",
+      "dateIssued": "07/17/2025",
+      "payee": "Sonoma County Meat Co.",
+      "amount": 45096.4,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SONOMA COUNTY MEAT",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702666",
+      "dateIssued": "07/17/2025",
+      "payee": "Tasty Pizza Healthy Kids Pizza",
+      "amount": 1309,
+      "fundObjects": [
+        "13-4700"
+      ],
+      "status": "Active",
+      "payeeKey": "TASTY PIZZA HEALTHY KIDS PIZZA",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702667",
+      "dateIssued": "07/17/2025",
+      "payee": "Advanced Ipm",
+      "amount": 1045,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ADVANCED IPM",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702668",
+      "dateIssued": "07/17/2025",
+      "payee": "Amazon Capital Services",
+      "amount": 148.88,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AMAZON CAPITAL SERVICES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702669",
+      "dateIssued": "07/17/2025",
+      "payee": "Dannis Woliver Kelley",
+      "amount": 11984,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "DANNIS WOLIVER KELLEY",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702670",
+      "dateIssued": "07/17/2025",
+      "payee": "Ecolab Pest Elimination Div",
+      "amount": 1391,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ECOLAB PEST ELIMINATION DIV",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702671",
+      "dateIssued": "07/17/2025",
+      "payee": "Hillyard",
+      "amount": 1958.61,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HILLYARD",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702672",
+      "dateIssued": "07/17/2025",
+      "payee": "Leeta-Rose Ballester",
+      "amount": 1152,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LEETA ROSE BALLESTER",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702673",
+      "dateIssued": "07/17/2025",
+      "payee": "PrimoBrands BlueTriton Brands, Inc.",
+      "amount": 184.29,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PRIMOBRANDS BLUETRITON BRANDS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702674",
+      "dateIssued": "07/17/2025",
+      "payee": "Rentacrate Enterprises Llc",
+      "amount": 500,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "RENTACRATE ENTERPRISES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702675",
+      "dateIssued": "07/17/2025",
+      "payee": "Safety-kleen Systems Inc",
+      "amount": 426.74,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "SAFETY KLEEN SYSTEMS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702676",
+      "dateIssued": "07/17/2025",
+      "payee": "Wave",
+      "amount": 3207.6,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "WAVE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702677",
+      "dateIssued": "07/17/2025",
+      "payee": "California School Boards Association",
+      "amount": 13125,
+      "fundObjects": [
+        "01-5860"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA SCHOOL BOARDS ASSOCIATION",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702678",
+      "dateIssued": "07/17/2025",
+      "payee": "Chamber San Mateo County",
+      "amount": 3600,
+      "fundObjects": [
+        "01-5860"
+      ],
+      "status": "Active",
+      "payeeKey": "CHAMBER SAN MATEO COUNTY",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702679",
+      "dateIssued": "07/17/2025",
+      "payee": "Marine Science Institute",
+      "amount": 600,
+      "fundObjects": [
+        "01-4300"
+      ],
+      "status": "Active",
+      "payeeKey": "MARINE SCIENCE INSTITUTE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702680",
+      "dateIssued": "07/17/2025",
+      "payee": "Hancock Park & Delong, Inc.",
+      "amount": 225,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HANCOCK PARK AND DELONG",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702985",
+      "dateIssued": "07/21/2025",
+      "payee": "Tasty Pizza Healthy Kids Pizza",
+      "amount": 66,
+      "fundObjects": [
+        "13-4700"
+      ],
+      "status": "Active",
+      "payeeKey": "TASTY PIZZA HEALTHY KIDS PIZZA",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702986",
+      "dateIssued": "07/21/2025",
+      "payee": "Dannis Woliver Kelley",
+      "amount": 11445,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "DANNIS WOLIVER KELLEY",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702987",
+      "dateIssued": "07/21/2025",
+      "payee": "Document Tracking Services Aaron",
+      "amount": 8203.95,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "DOCUMENT TRACKING SERVICES AARON",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702988",
+      "dateIssued": "07/21/2025",
+      "payee": "PrimoBrands BlueTriton Brands, Inc.",
+      "amount": 38.78,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PRIMOBRANDS BLUETRITON BRANDS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702989",
+      "dateIssued": "07/21/2025",
+      "payee": "CLEVER INC",
+      "amount": 10868,
+      "fundObjects": [
+        "01-5860"
+      ],
+      "status": "Active",
+      "payeeKey": "CLEVER",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702990",
+      "dateIssued": "07/21/2025",
+      "payee": "De Lage Landen Financial Services",
+      "amount": 81.31,
+      "fundObjects": [
+        "01-5620"
+      ],
+      "status": "Active",
+      "payeeKey": "DE LAGE LANDEN FINANCIAL SERVICES",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702991",
+      "dateIssued": "07/21/2025",
+      "payee": "Powerschool Group LLC",
+      "amount": 5620.12,
+      "fundObjects": [
+        "01-5860"
+      ],
+      "status": "Active",
+      "payeeKey": "POWERSCHOOL GROUP",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702992",
+      "dateIssued": "07/21/2025",
+      "payee": "Eldorado Forklift Co",
+      "amount": 266.4,
+      "fundObjects": [
+        "01-5660"
+      ],
+      "status": "Active",
+      "payeeKey": "ELDORADO FORKLIFT",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702993",
+      "dateIssued": "07/21/2025",
+      "payee": "Resource Solutions Of Sf Group, Inc.",
+      "amount": 5237.31,
+      "fundObjects": [
+        "01-4300"
+      ],
+      "status": "Active",
+      "payeeKey": "RESOURCE SOLUTIONS OF SF GROUP",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702994",
+      "dateIssued": "07/21/2025",
+      "payee": "San Mateo Lawn Mower Shop",
+      "amount": 431.6,
+      "fundObjects": [
+        "01-4300",
+        "01-5860"
+      ],
+      "status": "Active",
+      "payeeKey": "SAN MATEO LAWN MOWER SHOP",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702995",
+      "dateIssued": "07/21/2025",
+      "payee": "Hancock Park & Delong, Inc.",
+      "amount": 225,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HANCOCK PARK AND DELONG",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702996",
+      "dateIssued": "07/21/2025",
+      "payee": "Rosaura Lopez Velasquez",
+      "amount": 35.24,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "ROSAURA LOPEZ VELASQUEZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "702997",
+      "dateIssued": "07/21/2025",
+      "payee": "Bay Alarm Company",
+      "amount": 4407.71,
+      "fundObjects": [
+        "01-5690"
+      ],
+      "status": "Active",
+      "payeeKey": "BAY ALARM",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "702998",
+      "dateIssued": "07/21/2025",
+      "payee": "Brightly Software, Inc.",
+      "amount": 15314.91,
+      "fundObjects": [
+        "01-5860"
+      ],
+      "status": "Active",
+      "payeeKey": "BRIGHTLY SOFTWARE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703416",
+      "dateIssued": "07/22/2025",
+      "payee": "Imelda Barrera Hoover Elementary",
+      "amount": 106.71,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "IMELDA BARRERA HOOVER ELEMENTARY",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "703417",
+      "dateIssued": "07/22/2025",
+      "payee": "California Dept Of Tax And Fee",
+      "amount": 1244,
+      "fundObjects": [
+        "01-9510",
+        "13-9510",
+        "21-9510",
+        "25-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA DEPT OF TAX AND FEE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703735",
+      "dateIssued": "07/24/2025",
+      "payee": "Mobile Modular Mgmt Corp",
+      "amount": 539.84,
+      "fundObjects": [
+        "21-5610"
+      ],
+      "status": "Active",
+      "payeeKey": "MOBILE MODULAR MGMT",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703736",
+      "dateIssued": "07/24/2025",
+      "payee": "AQUINO, YURIDIA E",
+      "amount": 210.84,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AQUINO YURIDIA E",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703737",
+      "dateIssued": "07/24/2025",
+      "payee": "CASTILLO-SMITH, IVONNE M",
+      "amount": 139.71,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CASTILLO SMITH IVONNE M",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703738",
+      "dateIssued": "07/24/2025",
+      "payee": "FRANCESCHI, ANNAMARIE",
+      "amount": 740.12,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "FRANCESCHI ANNAMARIE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703739",
+      "dateIssued": "07/24/2025",
+      "payee": "NGUYEN, PHUONG C",
+      "amount": 128.68,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "NGUYEN PHUONG C",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703740",
+      "dateIssued": "07/24/2025",
+      "payee": "PINEDA, ELENA Y",
+      "amount": 818.46,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PINEDA ELENA Y",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "703741",
+      "dateIssued": "07/24/2025",
+      "payee": "WATSON, ATALYA",
+      "amount": 932.12,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "WATSON ATALYA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704436",
+      "dateIssued": "07/29/2025",
+      "payee": "AQUINO, YURIDIA E",
+      "amount": 7.18,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AQUINO YURIDIA E",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704437",
+      "dateIssued": "07/29/2025",
+      "payee": "PINEDA, ELENA Y",
+      "amount": 2.19,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PINEDA ELENA Y",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704438",
+      "dateIssued": "07/29/2025",
+      "payee": "Maria Carillo CDC Taft",
+      "amount": 139,
+      "fundObjects": [
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MARIA CARILLO CDC TAFT",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704439",
+      "dateIssued": "07/29/2025",
+      "payee": "At&t",
+      "amount": 398.97,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AT AND T",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704440",
+      "dateIssued": "07/29/2025",
+      "payee": "At&t",
+      "amount": 3584.09,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "AT AND T",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704441",
+      "dateIssued": "07/29/2025",
+      "payee": "Pacific Gas & Electric",
+      "amount": 803.59,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PACIFIC GAS AND ELECTRIC",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704442",
+      "dateIssued": "07/29/2025",
+      "payee": "BAKER, JOHN",
+      "amount": 1015.23,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "BAKER JOHN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704443",
+      "dateIssued": "07/29/2025",
+      "payee": "BERLJAFA, ANN T",
+      "amount": 228.31,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "BERLJAFA ANN T",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704444",
+      "dateIssued": "07/29/2025",
+      "payee": "HITCHCOCK, REBECCA J",
+      "amount": 25.34,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "HITCHCOCK REBECCA J",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704445",
+      "dateIssued": "07/29/2025",
+      "payee": "JAMES, CATHERINE A",
+      "amount": 728.64,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "JAMES CATHERINE A",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704446",
+      "dateIssued": "07/29/2025",
+      "payee": "KNOPF, JENNIFER J",
+      "amount": 803.72,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "KNOPF JENNIFER J",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704447",
+      "dateIssued": "07/29/2025",
+      "payee": "LANEY, SHANNA M",
+      "amount": 521.29,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "LANEY SHANNA M",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704448",
+      "dateIssued": "07/29/2025",
+      "payee": "MORALES, JOCELYN",
+      "amount": 21.63,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "MORALES JOCELYN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704449",
+      "dateIssued": "07/29/2025",
+      "payee": "OCHOA BEJAR, YULIZMA S",
+      "amount": 3825,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "OCHOA BEJAR YULIZMA S",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704450",
+      "dateIssued": "07/29/2025",
+      "payee": "REID-CHAMBERS, PHOEBE D",
+      "amount": 24.08,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "REID CHAMBERS PHOEBE D",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704451",
+      "dateIssued": "07/29/2025",
+      "payee": "THOMAS, COURTNEY P",
+      "amount": 25.96,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "THOMAS COURTNEY P",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704452",
+      "dateIssued": "07/29/2025",
+      "payee": "CUMMING MANAGEMENT GROUP",
+      "amount": 9694,
+      "fundObjects": [
+        "21-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CUMMING MANAGEMENT GROUP",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704453",
+      "dateIssued": "07/29/2025",
+      "payee": "Al Perez",
+      "amount": 609.6,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "AL PEREZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704454",
+      "dateIssued": "07/29/2025",
+      "payee": "Alberto Martinez",
+      "amount": 849.6,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "ALBERTO MARTINEZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704455",
+      "dateIssued": "07/29/2025",
+      "payee": "Angela Quilici",
+      "amount": 854.89,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "ANGELA QUILICI",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704456",
+      "dateIssued": "07/29/2025",
+      "payee": "Carol Mcnamara",
+      "amount": 854.7,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "CAROL MCNAMARA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704457",
+      "dateIssued": "07/29/2025",
+      "payee": "Christine Hiltbrand",
+      "amount": 603.95,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "CHRISTINE HILTBRAND",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704458",
+      "dateIssued": "07/29/2025",
+      "payee": "COSTA, LINDA",
+      "amount": 854.5,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "COSTA LINDA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704459",
+      "dateIssued": "07/29/2025",
+      "payee": "Elvira Perez",
+      "amount": 608.47,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "ELVIRA PEREZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704460",
+      "dateIssued": "07/29/2025",
+      "payee": "Fanny Gonzales-sprouse",
+      "amount": 833.14,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "FANNY GONZALES SPROUSE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704461",
+      "dateIssued": "07/29/2025",
+      "payee": "Franklin Glaser",
+      "amount": 868.33,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "FRANKLIN GLASER",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704462",
+      "dateIssued": "07/29/2025",
+      "payee": "GODCHARLES, NURIA",
+      "amount": 854.52,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "GODCHARLES NURIA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704463",
+      "dateIssued": "07/29/2025",
+      "payee": "Heather Farrar",
+      "amount": 853.92,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "HEATHER FARRAR",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704464",
+      "dateIssued": "07/29/2025",
+      "payee": "HOWELL, BRYAN",
+      "amount": 849.65,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "HOWELL BRYAN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704465",
+      "dateIssued": "07/29/2025",
+      "payee": "Janet Wilkerson",
+      "amount": 848.45,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "JANET WILKERSON",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704466",
+      "dateIssued": "07/29/2025",
+      "payee": "Jesse Silverman",
+      "amount": 1013.7,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "JESSE SILVERMAN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704467",
+      "dateIssued": "07/29/2025",
+      "payee": "Jorge Aguilera-Mota",
+      "amount": 948.36,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "JORGE AGUILERA MOTA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704468",
+      "dateIssued": "07/29/2025",
+      "payee": "Lawrence Goity",
+      "amount": 853.27,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "LAWRENCE GOITY",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704469",
+      "dateIssued": "07/29/2025",
+      "payee": "Leslie Daniele",
+      "amount": 754.85,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "LESLIE DANIELE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704470",
+      "dateIssued": "07/29/2025",
+      "payee": "Linda Montes",
+      "amount": 916.56,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "LINDA MONTES",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704471",
+      "dateIssued": "07/29/2025",
+      "payee": "Lourdes Conde",
+      "amount": 854.52,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "LOURDES CONDE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704472",
+      "dateIssued": "07/29/2025",
+      "payee": "Maureen Cole",
+      "amount": 854.76,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "MAUREEN COLE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704473",
+      "dateIssued": "07/29/2025",
+      "payee": "Michael Breen",
+      "amount": 692.41,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "MICHAEL BREEN",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704474",
+      "dateIssued": "07/29/2025",
+      "payee": "Michelle Beutler",
+      "amount": 854.81,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "MICHELLE BEUTLER",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704475",
+      "dateIssued": "07/29/2025",
+      "payee": "MILLER, DAVID",
+      "amount": 849.55,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "MILLER DAVID",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704476",
+      "dateIssued": "07/29/2025",
+      "payee": "Nina Lapick",
+      "amount": 853.92,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "NINA LAPICK",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704477",
+      "dateIssued": "07/29/2025",
+      "payee": "PARADA, DINA",
+      "amount": 856.87,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "PARADA DINA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "704478",
+      "dateIssued": "07/29/2025",
+      "payee": "Patricia Rivera Pelino",
+      "amount": 849.05,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "PATRICIA RIVERA PELINO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704479",
+      "dateIssued": "07/29/2025",
+      "payee": "Peter Bartok",
+      "amount": 854.89,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "PETER BARTOK",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704480",
+      "dateIssued": "07/29/2025",
+      "payee": "Richard Wallace",
+      "amount": 854.81,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "RICHARD WALLACE",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704481",
+      "dateIssued": "07/29/2025",
+      "payee": "Rodney Corsiglia",
+      "amount": 451.55,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "RODNEY CORSIGLIA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704482",
+      "dateIssued": "07/29/2025",
+      "payee": "Rosa M Juarez",
+      "amount": 749.2,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "ROSA M JUAREZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704483",
+      "dateIssued": "07/29/2025",
+      "payee": "Sandra Portasio",
+      "amount": 790.25,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "SANDRA PORTASIO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704484",
+      "dateIssued": "07/29/2025",
+      "payee": "Shirley Grana",
+      "amount": 572.93,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "SHIRLEY GRANA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704485",
+      "dateIssued": "07/29/2025",
+      "payee": "Tamela Schmalz",
+      "amount": 325.51,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "TAMELA SCHMALZ",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704486",
+      "dateIssued": "07/29/2025",
+      "payee": "Tracey Gardella",
+      "amount": 854.81,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "TRACEY GARDELLA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704487",
+      "dateIssued": "07/29/2025",
+      "payee": "Vilma Leiva",
+      "amount": 653.86,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "VILMA LEIVA",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704488",
+      "dateIssued": "07/29/2025",
+      "payee": "Xiomara Navarro",
+      "amount": 654.75,
+      "fundObjects": [
+        "01-3702"
+      ],
+      "status": "Active",
+      "payeeKey": "XIOMARA NAVARRO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704489",
+      "dateIssued": "07/29/2025",
+      "payee": "Heidi Pim",
+      "amount": 837.75,
+      "fundObjects": [
+        "01-3701"
+      ],
+      "status": "Active",
+      "payeeKey": "HEIDI PIM",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704490",
+      "dateIssued": "07/29/2025",
+      "payee": "Tasty Pizza Healthy Kids Pizza",
+      "amount": 659,
+      "fundObjects": [
+        "13-4700"
+      ],
+      "status": "Active",
+      "payeeKey": "TASTY PIZZA HEALTHY KIDS PIZZA",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "704491",
+      "dateIssued": "07/29/2025",
+      "payee": "Caltronics Business Systems",
+      "amount": 16350.45,
+      "fundObjects": [
+        "01-9510",
+        "12-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALTRONICS BUSINESS SYSTEMS",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "705296",
+      "dateIssued": "07/30/2025",
+      "payee": "Flyers Energy Llc",
+      "amount": 2618.59,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "FLYERS ENERGY",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "705297",
+      "dateIssued": "07/30/2025",
+      "payee": "California Dept Of Tax And Fee",
+      "amount": 20,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "CALIFORNIA DEPT OF TAX AND FEE",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    },
+    {
+      "check": "705298",
+      "dateIssued": "07/30/2025",
+      "payee": "Karin Chocano",
+      "amount": 106.38,
+      "fundObjects": [
+        "13-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "KARIN CHOCANO",
+      "payeeType": "individual",
+      "payeeTypeConfidence": "low"
+    },
+    {
+      "check": "705688",
+      "dateIssued": "07/31/2025",
+      "payee": "Pacific Gas & Electric",
+      "amount": 16.15,
+      "fundObjects": [
+        "01-9510"
+      ],
+      "status": "Active",
+      "payeeKey": "PACIFIC GAS AND ELECTRIC",
+      "payeeType": "vendor",
+      "payeeTypeConfidence": "high"
+    }
+  ]
+}
