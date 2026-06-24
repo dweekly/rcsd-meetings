@@ -126,7 +126,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/board-memos/ data/board-memos-es/ data/boarddocs-es.json data/youtube-index.json sources/rcsd-meetings.md
+          git add data/board-memos/ data/youtube-index.json sources/rcsd-meetings.md
+          # ES translation outputs only exist after a full run; add them only if
+          # present so quick runs (which skip translation) don't fail on a
+          # pathspec that matches nothing.
+          for p in data/board-memos-es data/boarddocs-es.json; do
+            [ -e "$p" ] && git add "$p"
+          done
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): auto-update scraped agenda/meeting metadata [skip ci]"
             git push
