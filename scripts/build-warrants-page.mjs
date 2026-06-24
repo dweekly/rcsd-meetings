@@ -51,6 +51,15 @@ function categorize(name, type, categories) {
   return 'other';
 }
 
+// Manual payee overrides (e.g. contractors paid by personal name → real counterparty + category),
+// keyed by person-match-key. See data/warrant-payee-overrides.json.
+function loadOverrides() {
+  const p = resolve(ROOT, 'data/warrant-payee-overrides.json');
+  if (!existsSync(p)) return {};
+  const { overrides } = JSON.parse(readFileSync(p, 'utf8'));
+  return Object.fromEntries(Object.entries(overrides || {}).map(([k, v]) => [k.toUpperCase(), v]));
+}
+
 function loadAliasMap() {
   const p = resolve(ROOT, 'data/warrant-vendor-aliases.json');
   const map = new Map();
@@ -106,6 +115,7 @@ function aggregate() {
     return null;
   };
 
+  const overrides = loadOverrides();
   const vendors = new Map();
   const allFy = new Set();
   let grand = 0, payCount = 0;
@@ -117,14 +127,15 @@ function aggregate() {
       if (/^(Cancelled|Voided)/i.test(r.status || '')) continue;
       const fy = fiscalYear(r.dateIssued); if (!fy) continue;
       allFy.add(fy);
-      // Individuals (incl. cross-era matches) group under one "Given Surname" person, tagged
-      // individual; businesses group under their canonical name.
+      // Manual overrides win (contractors paid by personal name); then individuals (incl. cross-era
+      // matches) group under one "Given Surname" person; everything else is a business.
       const personKey = individualOf(r.payee);
-      const canon = personKey ? titleCasePerson(personKey) : canonicalFor(r.payeeKey);
+      const ov = personKey ? overrides[personKey] : null;
+      const canon = ov ? ov.canonical : (personKey ? titleCasePerson(personKey) : canonicalFor(r.payeeKey));
       let v = vendors.get(canon);
-      if (!v) { v = { name: canon, type: personKey ? 'individual' : 'vendor', total: 0, checks: 0, byFy: {} }; vendors.set(canon, v); }
+      if (!v) { v = { name: canon, type: (ov || !personKey) ? 'vendor' : 'individual', forcedCat: ov?.category || null, total: 0, checks: 0, byFy: {} }; vendors.set(canon, v); }
       v.total += r.amount; v.checks++; v.byFy[fy] = (v.byFy[fy] || 0) + r.amount;
-      if (!personKey && r.payeeType === 'vendor') v.type = 'vendor';
+      if (!ov && !personKey && r.payeeType === 'vendor') v.type = 'vendor';
       grand += r.amount; payCount++;
       const d = ymd(r.dateIssued); if (d) { if (d < minDate) minDate = d; if (d > maxDate) maxDate = d; }
     }
@@ -133,7 +144,7 @@ function aggregate() {
   const list = [...vendors.values()]
     .map((v) => ({
       name: v.name, type: v.type, checks: v.checks,
-      cat: categorize(v.name, v.type, categories),
+      cat: v.forcedCat || categorize(v.name, v.type, categories),
       total: Math.round(v.total * 100) / 100,
       byFy: Object.fromEntries(Object.entries(v.byFy).map(([k, x]) => [k, Math.round(x * 100) / 100])),
     }))

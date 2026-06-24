@@ -98,6 +98,12 @@ function main() {
   const index = JSON.parse(readFileSync(resolve(ROOT, 'data/warrants-index.json'), 'utf8'));
   const superseded = supersededMap(index);
   const keyToCanonical = loadAliasMap();
+  const overrides = (() => {
+    const p = resolve(ROOT, 'data/warrant-payee-overrides.json');
+    if (!existsSync(p)) return {};
+    const { overrides: o } = JSON.parse(readFileSync(p, 'utf8'));
+    return Object.fromEntries(Object.entries(o || {}).map(([k, v]) => [k.toUpperCase(), v]));
+  })();
 
   // First pass: collect a display name per normalized key (most frequent original spelling),
   // so non-aliased vendors get a readable canonical instead of the stripped key.
@@ -165,8 +171,8 @@ function main() {
           fiscal_year: fiscalYear(r.dateIssued),
           payee: r.payee,
           payee_key: r.payeeKey || null,
-          canonical: (() => { const pk = individualOf(r.payee); return pk ? titleCasePerson(pk) : canonicalFor(r.payeeKey); })(),
-          payee_type: individualOf(r.payee) ? 'individual' : (r.payeeType || null),
+          canonical: (() => { const pk = individualOf(r.payee); const ov = pk ? overrides[pk] : null; return ov ? ov.canonical : (pk ? titleCasePerson(pk) : canonicalFor(r.payeeKey)); })(),
+          payee_type: (() => { const pk = individualOf(r.payee); return (pk && !overrides[pk]) ? 'individual' : (r.payeeType || (pk ? 'vendor' : null)); })(),
           amount: r.amount,
           status: r.status || null,
           fund_objects: (r.fundObjects || []).join(',') || null,
