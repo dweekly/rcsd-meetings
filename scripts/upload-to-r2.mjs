@@ -92,6 +92,7 @@ run(`${verb} data → ${BUCKET}/json`, [
   `${BUCKET}/json`,
   '--filter', '- llm-timestamp-cache/**',
   '--filter', '+ board-policies/*.json',
+  '--filter', '+ warrants/*.json',
   '--filter', '+ *.json',
   '--filter', '- *',
   '--progress',
