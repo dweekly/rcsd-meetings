@@ -29,6 +29,8 @@
     "scrape:packets": "node scripts/scrape-board-packets.mjs",
     "scrape:warrants": "node scripts/scrape-warrant-pdfs.mjs",
     "extract:warrants": "node scripts/extract-warrants.mjs",
+    "build:warrants-db": "node scripts/build-warrants-db.mjs",
+    "report:warrants": "node scripts/report-vendor-spend.mjs",
     "extract:sarc": "node scripts/extract-sarc.mjs",
     "transcribe": "node scripts/transcribe-assemblyai.mjs",
     "pipeline": "node scripts/run-pipeline.mjs"
@@ -36,6 +38,7 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.104.1",
     "assemblyai": "^4.34.5",
+    "better-sqlite3": "^12.11.1",
     "dotenv": "^17.4.2",
     "playwright": "^1.60.0"
   },

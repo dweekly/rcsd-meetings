@@ -69,9 +69,16 @@ them perfectly. Both formats carry a printed grand total used as a parse **check
   format reconciles per its own rule (Escape "Net" excludes cancelled checks; QSS "TOTAL DISTRICT"
   includes them) — line items carry `status` + `disbursedTotal` so spend reporting can net out
   cancelled/voided. Period-overlap pairs flagged for the reporting layer to dedupe.
-- [ ] **PR3 — Canonicalization + DB + reports.** `data/warrant-vendor-aliases.json`,
-  `scripts/build-warrants-db.mjs` (SQLite), `scripts/report-vendor-spend.mjs "van pelt"` → spend by
-  fiscal year with check-level drill-down and source PDF links.
+- [x] **PR3 — Canonicalization + DB + reports.** `data/warrant-vendor-aliases.json` (curated rollup,
+  e.g. CalPERS' several legal names), `scripts/build-warrants-db.mjs` → `warrants.db` (SQLite,
+  gitignored, **not** R2-synced — carries individual names), `scripts/report-vendor-spend.mjs`.
+  **Done 2026-06-24: 30,253 payments indexed; 612 excluded (cancelled/voided + 2 superseded subset
+  registers). `npm run report:warrants -- "van pelt"` → $5.19M across FY2023-24…FY2025-26;
+  `--top N` lists biggest vendors; `--detail` adds every check + source PDF links.** Spend queries
+  filter `excluded = 0`, so cancelled checks and overlapping-register double-counts are handled
+  automatically; non-reconciled months are footnoted, never silently dropped. Warrant numbers recycle
+  across years, so overlap dedup is scoped to the two flagged register pairs (period-containment), not
+  global.
 - [ ] **PR4 (deferred) — Public bilingual page.** EN + ES vendor-spend pages, OG cards, search
   integration — gated on accuracy review and the individual-name privacy decision.
 

@@ -1,0 +1,48 @@
+{
+  "_metadata": {
+    "description": "Curated vendor-name alias map for warrant-register spend reporting. Payee names are first normalized (uppercase, strip Inc/LLC/Corp/punctuation — see normalizePayeeKey in scripts/lib/warrant-parsers.mjs), which already collapses most case/punctuation variants. This file handles the cases normalization cannot: distinct legal names that are the same payer (e.g. CalPERS bills under several entity names), and abbreviations. Each entry maps a canonical display name to the list of NORMALIZED keys that should roll up into it.",
+    "source": "Hand-curated from the top payees in data/warrants/*.json; extend as queries surface new variants.",
+    "generated": "2026-06-24",
+    "howToExtend": "Run `node scripts/report-vendor-spend.mjs --top 50` to see normalized keys; add any that are the same real payer under a shared canonical name here, then re-run `npm run build:warrants-db`."
+  },
+  "aliases": {
+    "CalPERS (retirement & benefits)": [
+      "CALPERS",
+      "PUBLIC EMPLOYEES RETIREMENT SY",
+      "PUBLIC EMPLOYEES RETIREMENT SYSTEM",
+      "CALPERS FINANCIAL REPORTING AND",
+      "CALPERS 457PLAN",
+      "CALPERS SUPPLEMENTAL INCOME 457 PLAN",
+      "CALPERS 457 PLAN"
+    ],
+    "Pacific Gas & Electric (PG&E)": [
+      "PACIFIC GAS AND ELECTRIC",
+      "PGE",
+      "PG E"
+    ],
+    "Amazon": [
+      "AMAZON CAPITAL SERVICES",
+      "AMAZON SERVICES",
+      "AMAZON",
+      "AMAZON BUSINESS",
+      "AMAZONCOM"
+    ],
+    "AT&T": [
+      "AT T",
+      "ATT",
+      "AT T MOBILITY",
+      "AT T CALNET"
+    ],
+    "Home Depot": [
+      "HOME DEPOT",
+      "HOME DEPOT CREDIT SERVICES",
+      "THE HOME DEPOT"
+    ],
+    "U.S. Bank": [
+      "US BANK",
+      "US BANK CORPORATE PAYMENT",
+      "US BANCORP",
+      "US BANK NA"
+    ]
+  }
+}
