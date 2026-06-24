@@ -1362,3 +1362,54 @@ AI-generated one-sentence summaries of every board policy, English AND Spanish, 
 | `summaries[key].es` | string | One-sentence Spanish summary, generated in the same request as the English one so both describe the same substance. |
 | `summaries[key].sourceHash` | string | sha256 of the policy's full English `contentText`; entries whose hash still matches are reused on re-runs, so only new/revised policies hit the API. |
 
+
+---
+
+## data/warrants-index.json
+
+Index of every monthly warrant register (board-ratified check list), Mar 2020 – present. Read this first for coverage and per-month reconciliation status. Built by `scripts/extract-warrants.mjs`.
+
+### Schema Description
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `_metadata.counts` | object | `{registers, reconciled, mismatch, viaOcr, failed, coverageGaps, skipped}`. |
+| `_metadata.periodOverlaps` | array | Pairs of `month` keys whose date ranges overlap (e.g. a 6/1–6/25 and a 6/1–6/30 sheet). When aggregating, keep one and drop the other to avoid double-counting. |
+| `registers[]` | array | One entry per register. |
+| `registers[].month` | string | `YYYY-MM`; a `-b`/`-c` suffix disambiguates two registers covering the same month. |
+| `registers[].meetingDate` | string | Meeting that ratified it (`YYYY-MM-DD`). |
+| `registers[].format` | string | `qss` (Mar 2020 – May 2025) or `escape` (Jun 2025+). |
+| `registers[].total` | number | Sum of parsed line items used for checksum (format-specific rule). |
+| `registers[].disbursedTotal` | number | Money actually paid (cancelled/voided excluded). **Use this for spend.** |
+| `registers[].printedTotal` | number | The register's printed grand total. Do **not** use for the 3 `total-exceeds-detail` months. |
+| `registers[].parseStatus` | string | `reconciled` (line items = printed total), `minor-mismatch` (≤0.5%), `total-exceeds-detail` (complete line items, inflated printed total — 2021-05/06/07), or `coverage-gap`. |
+| `registers[].period` | object | `{from, to, monthKey}` MM/DD/YYYY range covered. |
+| `registers[].sourceUrl` | string | Public PDF (BoardDocs `$file` or `data.rcsd.info/board-packets/...`). |
+| `registers[].file` | string | Path to the per-register line-item file. |
+
+## data/warrants/{YYYY-MM}.json
+
+Per-register line items (one file per register; key matches `warrants-index.json` `month`).
+
+### Schema Description
+
+| Field | Type | Notes |
+|-------|------|-------|
+| `_metadata` | object | Provenance: `month`, `meetingDate`, `source`, `sourceUrl`, `reportFormat`, `extraction` (pdftotext vs OCR), `pdfSha256`, `period`, `checksum` (`printedTotal`, `parsedTotal`, `disbursedTotal`, `reconciled`, `parseStatus`), and `fundRecap`/`printedCheckCount` for Escape registers. |
+| `lineItems[]` | array | One row per check/warrant. |
+| `lineItems[].warrant` / `.check` | string | Warrant (QSS) or check (Escape) number. **Recycles across years — not a global unique key.** |
+| `lineItems[].dateIssued` | string | MM/DD/YYYY. |
+| `lineItems[].payee` | string | Payee as printed. |
+| `lineItems[].payeeKey` | string | Normalized key (uppercase, stripped Inc/LLC/punctuation) for aggregation; map via `warrant-vendor-aliases.json`. |
+| `lineItems[].payeeType` | string | `vendor` or `individual` (heuristic; individuals are employee reimbursements). |
+| `lineItems[].amount` | number | Check amount. Negative = credit/unpaid-tax adjustment. |
+| `lineItems[].status` | string | `Redeemed`, `Outstanding`, `Cancelled`, `Voided`, etc. Exclude Cancelled/Voided from spend. |
+| `lineItems[].fundObjects` | array | SACS fund-object codes (Escape-era registers only). |
+
+## data/warrant-vendor-aliases.json
+
+Curated rollup of normalized payee keys → canonical display name, for names normalization can't merge (CalPERS' multiple legal names, CDW-G, Siemens, etc.). `aliases` maps `"Canonical Name"` → array of normalized keys. Consumed by `scripts/build-warrants-db.mjs`.
+
+## warrants.db (built locally, not committed)
+
+`scripts/build-warrants-db.mjs` assembles the above into a SQLite DB: tables `registers` and `payments` (one row per line item, with `canonical`, `fiscal_year`, and an `excluded` flag = cancelled/voided OR superseded register). Query via `scripts/report-vendor-spend.mjs`.
