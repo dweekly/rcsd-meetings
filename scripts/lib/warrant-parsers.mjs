@@ -257,6 +257,44 @@ export function prettyVendorName(spellingCounts) {
   return titleCaseName(entries[0][0]);
 }
 
+/**
+ * Cross-era individual detection. The Escape era (Jun 2025+) prints employees as
+ * "Surname, Given M" (a reliable person signal); the older QSS era prints "GIVEN SURNAME",
+ * indistinguishable from a 2-word company. To recover QSS-era reimbursements, build a roster of
+ * person keys from the comma-format names, then match plain names against it.
+ */
+export function isCommaName(payee) {
+  return /^[A-Z][A-Za-z'’.\-]+,\s+[A-Z]/.test((payee || '').trim());
+}
+// Normalized "GIVEN SURNAME" key so the same person matches across both name formats.
+export function personMatchKey(payee) {
+  const n = (payee || '').trim();
+  let first, last;
+  const comma = n.match(/^([^,]+),\s*(.+)$/);
+  if (comma) {
+    const surname = comma[1].trim().split(/\s+/);
+    last = surname[surname.length - 1];
+    first = comma[2].trim().split(/\s+/)[0];
+  } else {
+    const w = n.split(/\s+/);
+    if (w.length < 2) return null;
+    first = w[0]; last = w[w.length - 1];
+  }
+  const norm = (s) => s.toUpperCase().replace(/[^A-Z]/g, '');
+  const fk = norm(first), lk = norm(last);
+  return fk && lk ? `${fk} ${lk}` : null;
+}
+// A plain (non-comma) name worth testing against the roster: 2-3 alpha words, no business tokens.
+export function isPlainPersonCandidate(payee) {
+  const n = (payee || '').trim();
+  if (n.includes(',') || BIZ_TOKENS.test(n)) return false;
+  const w = n.split(/\s+/);
+  return w.length >= 2 && w.length <= 3 && w.every((x) => /^[A-Za-z][A-Za-z'’.\-]*$/.test(x));
+}
+export function titleCasePerson(key) {
+  return key.toLowerCase().split(' ').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+}
+
 /** Normalize a payee into a match key for aggregation (PR3 refines with a curated alias map). */
 export function normalizePayeeKey(name) {
   return (name || '')
