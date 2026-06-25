@@ -293,10 +293,18 @@
 .year-chart{display:flex;align-items:flex-end;gap:.6rem;height:140px}
 .ybar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:90px;height:100%}
 .ybar-val{font-family:var(--font-mono);font-size:.72rem;color:var(--green-800);margin-bottom:.25rem;white-space:nowrap}
-.ybar-fill{width:100%;background:var(--green-600);border-radius:3px 3px 0 0;transition:background .12s}
-.ybar:hover .ybar-fill{background:var(--green-800)}
-.ybar.partial .ybar-fill{background:var(--green-300)}
+.ybar-stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;border-radius:3px 3px 0 0;overflow:hidden}
+.ybar-con{width:100%;background:var(--amber)}
+.ybar-op{width:100%;background:var(--green-600)}
+.ybar:hover .ybar-op{background:var(--green-800)}
+.ybar.partial .ybar-op{background:var(--green-300)}
+.ybar.partial .ybar-con{background:var(--amber-light)}
 .ybar.partial .ybar-val{color:var(--ink-soft)}
+.year-legend{display:flex;gap:1.1rem;margin:.2rem 0 .7rem;font-size:.78rem;color:var(--ink-soft)}
+.lg{display:inline-flex;align-items:center}
+.lg::before{content:"";width:11px;height:11px;border-radius:2px;margin-right:.35rem}
+.lg-op::before{background:var(--green-600)}
+.lg-con::before{background:var(--amber)}
 .ybar-lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);margin-top:.35rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
@@ -382,57 +390,94 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
       <div class="stat"><div class="stat-num">2014–2026</div><div class="stat-lbl">Período</div></div>
     </div>
     <div class="trend-block">
-      <h2 class="trend-h">Gasto total en cheques por año fiscal</h2>
-      <div class="year-chart"><div class="ybar" title="FY 2014-15: USD 29,737,543">
+      <h2 class="trend-h">Gasto en cheques por año fiscal</h2>
+      <div class="year-legend"><span class="lg lg-op">Operación</span><span class="lg lg-con">Construcción e instalaciones</span></div>
+  <div class="year-chart"><div class="ybar" title="FY 2014-15 — Operación: USD 28,634,230; Construcción e instalaciones: USD 1,103,312">
       <span class="ybar-val">$30M</span>
-      <div class="ybar-fill" style="height:30px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:1px"></div>
+        <div class="ybar-op" style="height:29px"></div>
+      </div>
       <span class="ybar-lbl">14-15</span>
-    </div><div class="ybar" title="FY 2015-16: USD 32,083,035">
+    </div><div class="ybar" title="FY 2015-16 — Operación: USD 31,062,337; Construcción e instalaciones: USD 1,020,698">
       <span class="ybar-val">$32M</span>
-      <div class="ybar-fill" style="height:32px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:1px"></div>
+        <div class="ybar-op" style="height:31px"></div>
+      </div>
       <span class="ybar-lbl">15-16</span>
-    </div><div class="ybar" title="FY 2016-17: USD 34,922,975">
+    </div><div class="ybar" title="FY 2016-17 — Operación: USD 32,828,276; Construcción e instalaciones: USD 2,094,699">
       <span class="ybar-val">$35M</span>
-      <div class="ybar-fill" style="height:35px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:2px"></div>
+        <div class="ybar-op" style="height:33px"></div>
+      </div>
       <span class="ybar-lbl">16-17</span>
-    </div><div class="ybar" title="FY 2017-18: USD 50,554,952">
+    </div><div class="ybar" title="FY 2017-18 — Operación: USD 44,168,225; Construcción e instalaciones: USD 6,386,727">
       <span class="ybar-val">$51M</span>
-      <div class="ybar-fill" style="height:51px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:6px"></div>
+        <div class="ybar-op" style="height:44px"></div>
+      </div>
       <span class="ybar-lbl">17-18</span>
-    </div><div class="ybar" title="FY 2018-19: USD 52,677,892">
+    </div><div class="ybar" title="FY 2018-19 — Operación: USD 43,028,215; Construcción e instalaciones: USD 9,649,678">
       <span class="ybar-val">$53M</span>
-      <div class="ybar-fill" style="height:53px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:10px"></div>
+        <div class="ybar-op" style="height:43px"></div>
+      </div>
       <span class="ybar-lbl">18-19</span>
-    </div><div class="ybar" title="FY 2019-20: USD 78,569,354">
+    </div><div class="ybar" title="FY 2019-20 — Operación: USD 48,272,675; Construcción e instalaciones: USD 30,296,679">
       <span class="ybar-val">$79M</span>
-      <div class="ybar-fill" style="height:79px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:31px"></div>
+        <div class="ybar-op" style="height:49px"></div>
+      </div>
       <span class="ybar-lbl">19-20</span>
-    </div><div class="ybar" title="FY 2020-21: USD 90,940,276">
+    </div><div class="ybar" title="FY 2020-21 — Operación: USD 42,322,365; Construcción e instalaciones: USD 48,617,911">
       <span class="ybar-val">$91M</span>
-      <div class="ybar-fill" style="height:92px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:49px"></div>
+        <div class="ybar-op" style="height:43px"></div>
+      </div>
       <span class="ybar-lbl">20-21</span>
-    </div><div class="ybar" title="FY 2021-22: USD 92,893,474">
+    </div><div class="ybar" title="FY 2021-22 — Operación: USD 45,039,731; Construcción e instalaciones: USD 47,853,743">
       <span class="ybar-val">$93M</span>
-      <div class="ybar-fill" style="height:94px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:48px"></div>
+        <div class="ybar-op" style="height:45px"></div>
+      </div>
       <span class="ybar-lbl">21-22</span>
-    </div><div class="ybar" title="FY 2022-23: USD 79,663,943">
+    </div><div class="ybar" title="FY 2022-23 — Operación: USD 60,187,039; Construcción e instalaciones: USD 19,476,904">
       <span class="ybar-val">$80M</span>
-      <div class="ybar-fill" style="height:80px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:20px"></div>
+        <div class="ybar-op" style="height:61px"></div>
+      </div>
       <span class="ybar-lbl">22-23</span>
-    </div><div class="ybar" title="FY 2023-24: USD 69,295,363">
+    </div><div class="ybar" title="FY 2023-24 — Operación: USD 64,380,568; Construcción e instalaciones: USD 4,914,795">
       <span class="ybar-val">$69M</span>
-      <div class="ybar-fill" style="height:70px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:5px"></div>
+        <div class="ybar-op" style="height:65px"></div>
+      </div>
       <span class="ybar-lbl">23-24</span>
-    </div><div class="ybar" title="FY 2024-25: USD 74,072,687">
+    </div><div class="ybar" title="FY 2024-25 — Operación: USD 60,757,465; Construcción e instalaciones: USD 13,315,222">
       <span class="ybar-val">$74M</span>
-      <div class="ybar-fill" style="height:75px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:13px"></div>
+        <div class="ybar-op" style="height:61px"></div>
+      </div>
       <span class="ybar-lbl">24-25</span>
-    </div><div class="ybar partial" title="FY 2025-26: USD 95,325,515">
+    </div><div class="ybar partial" title="FY 2025-26 — Operación: USD 57,311,708; Construcción e instalaciones: USD 38,013,807">
       <span class="ybar-val">$95M</span>
-      <div class="ybar-fill" style="height:96px"></div>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:38px"></div>
+        <div class="ybar-op" style="height:58px"></div>
+      </div>
       <span class="ybar-lbl">25-26∗</span>
     </div></div>
-      <p class="partial-note">∗ el año fiscal actual aún está en curso</p>
+      <p class="partial-note">∗ el año fiscal actual aún está en curso. La construcción e instalaciones es en gran parte capital financiado por bonos (Medidas T y S) y varía mucho de un año a otro; la parte de operación es la base más estable.</p>
     </div>
   </header>
 

@@ -176,6 +176,11 @@ function aggregate() {
   const totalByFy = {};
   for (const v of list) for (const [fy, amt] of Object.entries(v.byFy)) totalByFy[fy] = (totalByFy[fy] || 0) + amt;
   for (const k of Object.keys(totalByFy)) totalByFy[k] = Math.round(totalByFy[k] * 100) / 100;
+  // Construction & facilities is overwhelmingly bond-funded capital and is lumpy year to year;
+  // splitting it out keeps the operating baseline from looking like it tripled.
+  const constructionByFy = {};
+  for (const v of list) if (v.cat === 'construction') for (const [fy, amt] of Object.entries(v.byFy)) constructionByFy[fy] = (constructionByFy[fy] || 0) + amt;
+  for (const k of Object.keys(constructionByFy)) constructionByFy[k] = Math.round(constructionByFy[k] * 100) / 100;
 
   // The dataset is floored at the start of the first fiscal year, so only the final (current,
   // in-progress) fiscal year is partial — unless the first year's data starts well after its July 1.
@@ -183,7 +188,7 @@ function aggregate() {
   if (minDate > `${fyList[0].slice(2, 6)}-07-08`) partialFy.push(fyList[0]);
 
   return {
-    vendors: list, fyList, categories: catList, totalByFy,
+    vendors: list, fyList, categories: catList, totalByFy, constructionByFy,
     partialFy,
     stats: {
       grand: Math.round(grand * 100) / 100, payCount, vendorCount: list.length,
@@ -221,7 +226,8 @@ const T = {
     intro: 'Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.',
     statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
     coverageNote: 'These are <strong>accounts-payable warrants</strong> — payments to vendors, contractors, and benefits. They do <strong>not</strong> include employee salaries (payroll), the district\'s single largest cost, which is paid on separate payroll warrants.',
-    trendHeading: 'Total warrant spend by fiscal year', partialNote: '∗ the current fiscal year is still in progress',
+    trendHeading: 'Warrant spend by fiscal year', opLabel: 'Operating', conLabel: 'Construction & facilities',
+    partialNote: '∗ the current fiscal year is still in progress. Construction &amp; facilities is largely bond-funded capital (Measures T and S) and is lumpy year to year; the operating segment is the steadier baseline.',
     searchLabel: 'Search for a vendor', searchPh: 'e.g. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Payee', thTotal: 'Total paid', thChecks: 'Checks', thTrend: 'Trend by year',
     catHeading: 'Spend by category', allCat: 'All', catNote: 'Categories are a rough name-based grouping, not an accounting classification.',
@@ -244,7 +250,8 @@ const T = {
     intro: 'Cada mes la Junta de Síndicos aprueba un <strong>registro de cheques</strong> (warrant register) — la lista de cada cheque que emitió el distrito. Esta página los reúne en una base de datos con búsqueda para que veas cuánto le paga el distrito a cualquier proveedor, y cómo cambia año con año.',
     statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
     coverageNote: 'Estos son <strong>cheques de cuentas por pagar</strong> — pagos a proveedores, contratistas y beneficios. <strong>No</strong> incluyen los salarios del personal (nómina), el mayor gasto del distrito, que se paga en cheques de nómina aparte.',
-    trendHeading: 'Gasto total en cheques por año fiscal', partialNote: '∗ el año fiscal actual aún está en curso',
+    trendHeading: 'Gasto en cheques por año fiscal', opLabel: 'Operación', conLabel: 'Construcción e instalaciones',
+    partialNote: '∗ el año fiscal actual aún está en curso. La construcción e instalaciones es en gran parte capital financiado por bonos (Medidas T y S) y varía mucho de un año a otro; la parte de operación es la base más estable.',
     searchLabel: 'Busca un proveedor', searchPh: 'p. ej. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Beneficiario', thTotal: 'Total pagado', thChecks: 'Cheques', thTrend: 'Tendencia por año',
     catHeading: 'Gasto por categoría', allCat: 'Todas', catNote: 'Las categorías son una agrupación aproximada por nombre, no una clasificación contable.',
@@ -286,25 +293,36 @@ function abbrevUsd(n) {
   if (n >= 1e3) return '$' + Math.round(n / 1e3) + 'k';
   return '$' + Math.round(n);
 }
-// Hero bar chart: total AP spend per fiscal year, partial years marked + de-emphasized.
-function yearChart(totalByFy, fyList, partialFy, fmtLoc) {
+// Hero bar chart: AP spend per fiscal year, stacked into operating (baseline) vs construction &
+// facilities (lumpy, bond-funded capital) so steady operating growth reads apart from the
+// bond-program spikes. Partial (in-progress) years are marked + de-emphasized.
+function yearChart(totalByFy, constructionByFy, fyList, partialFy, fmtLoc, labels) {
+  const H = 96;
   const max = Math.max(1, ...fyList.map((fy) => totalByFy[fy] || 0));
   const bars = fyList.map((fy) => {
-    const v = totalByFy[fy] || 0;
-    const hpx = Math.max(2, Math.round(96 * (v / max)));
+    const total = totalByFy[fy] || 0;
+    const con = constructionByFy[fy] || 0;
+    const op = Math.max(0, total - con);
+    const conH = Math.round(H * (con / max));
+    const opH = Math.round(H * (op / max));
     const partial = partialFy.includes(fy);
     const lbl = fy.replace('FY', '').replace(/^20/, '') + (partial ? '∗' : '');
-    return `<div class="ybar${partial ? ' partial' : ''}" title="${fy.replace('FY', 'FY ')}: ${fmtUsd(fmtLoc, v)}">
-      <span class="ybar-val">${abbrevUsd(v)}</span>
-      <div class="ybar-fill" style="height:${hpx}px"></div>
+    const tip = `${fy.replace('FY', 'FY ')} — ${labels.op}: ${fmtUsd(fmtLoc, op)}; ${labels.con}: ${fmtUsd(fmtLoc, con)}`;
+    return `<div class="ybar${partial ? ' partial' : ''}" title="${tip}">
+      <span class="ybar-val">${abbrevUsd(total)}</span>
+      <div class="ybar-stack">
+        <div class="ybar-con" style="height:${conH}px"></div>
+        <div class="ybar-op" style="height:${opH}px"></div>
+      </div>
       <span class="ybar-lbl">${lbl}</span>
     </div>`;
   }).join('');
-  return `<div class="year-chart">${bars}</div>`;
+  return `<div class="year-legend"><span class="lg lg-op">${labels.op}</span><span class="lg lg-con">${labels.con}</span></div>
+  <div class="year-chart">${bars}</div>`;
 }
 
 function renderPage(t, data) {
-  const { vendors, stats, fyList, categories, totalByFy, partialFy } = data;
+  const { vendors, stats, fyList, categories, totalByFy, constructionByFy, partialFy } = data;
   const topN = vendors.slice(0, 100);
   const periodTxt = `${stats.minDate.slice(0, 4)}–${stats.maxDate.slice(0, 4)}`;
   const catLabel = (id) => { const c = categories.find((x) => x.id === id); return c ? c.label[t.lang] : id; };
@@ -364,7 +382,7 @@ ${siteNav({ activePage: 'budget', lang: t.lang, altLangHref: t.alt })}
     </div>
     <div class="trend-block">
       <h2 class="trend-h">${t.trendHeading}</h2>
-      ${yearChart(totalByFy, fyList, partialFy, t.fmtLoc)}
+      ${yearChart(totalByFy, constructionByFy, fyList, partialFy, t.fmtLoc, { op: t.opLabel, con: t.conLabel })}
       <p class="partial-note">${t.partialNote}</p>
     </div>
   </header>
@@ -493,10 +511,18 @@ const PAGE_CSS = `
 .year-chart{display:flex;align-items:flex-end;gap:.6rem;height:140px}
 .ybar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:90px;height:100%}
 .ybar-val{font-family:var(--font-mono);font-size:.72rem;color:var(--green-800);margin-bottom:.25rem;white-space:nowrap}
-.ybar-fill{width:100%;background:var(--green-600);border-radius:3px 3px 0 0;transition:background .12s}
-.ybar:hover .ybar-fill{background:var(--green-800)}
-.ybar.partial .ybar-fill{background:var(--green-300)}
+.ybar-stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;border-radius:3px 3px 0 0;overflow:hidden}
+.ybar-con{width:100%;background:var(--amber)}
+.ybar-op{width:100%;background:var(--green-600)}
+.ybar:hover .ybar-op{background:var(--green-800)}
+.ybar.partial .ybar-op{background:var(--green-300)}
+.ybar.partial .ybar-con{background:var(--amber-light)}
 .ybar.partial .ybar-val{color:var(--ink-soft)}
+.year-legend{display:flex;gap:1.1rem;margin:.2rem 0 .7rem;font-size:.78rem;color:var(--ink-soft)}
+.lg{display:inline-flex;align-items:center}
+.lg::before{content:"";width:11px;height:11px;border-radius:2px;margin-right:.35rem}
+.lg-op::before{background:var(--green-600)}
+.lg-con::before{background:var(--amber)}
 .ybar-lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);margin-top:.35rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
@@ -560,6 +586,7 @@ function main() {
     },
     fiscalYears: data.fyList,
     totalByFiscalYear: data.totalByFy,
+    constructionByFiscalYear: data.constructionByFy,
     categories: data.categories,
     vendors: data.vendors,
   };
