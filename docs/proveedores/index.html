@@ -305,6 +305,12 @@
 .lg::before{content:"";width:11px;height:11px;border-radius:2px;margin-right:.35rem}
 .lg-op::before{background:var(--green-600)}
 .lg-con::before{background:var(--amber)}
+.year-chart .ybar{cursor:default}
+.yc-tip{position:fixed;z-index:50;pointer-events:none;background:#fff;border:1px solid var(--green-200);border-radius:8px;box-shadow:0 6px 22px rgba(0,0,0,.16);padding:.55rem .7rem;font-size:.8rem;min-width:210px;max-width:300px}
+.yc-tip-h{font-family:var(--font-mono);font-weight:600;color:var(--green-800);border-bottom:1px solid var(--green-100);padding-bottom:.3rem;margin-bottom:.3rem}
+.yc-tip-row{display:flex;justify-content:space-between;gap:1rem;padding:.13rem 0;line-height:1.25}
+.yc-tip-amt{font-family:var(--font-mono);white-space:nowrap}
+.yc-tip-amt em{color:var(--ink-soft);font-style:normal}
 .ybar-lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);margin-top:.35rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
@@ -1331,6 +1337,7 @@ const STR = {"showingAll":"Mostrando","matches":"beneficiarios"};
 const CATS = {"construction":"Construcción e instalaciones","other":"Otros / sin categoría","charter":"Escuelas chárter","benefits":"Pensiones y beneficios","sped-health":"Educación especial y salud","food":"Servicio de alimentos","government":"Gobierno y agencias","instruction":"Instrucción y currículo","utilities":"Servicios y telecom","afterschool":"Después de clases y enriquecimiento","technology":"Tecnología","reimbursements":"Reembolsos a empleados","professional":"Servicios profesionales y legales","staffing":"Personal temporal y suplentes","transportation":"Transporte"};
 const ICONS = {"charter":"🎓","benefits":"🪙","utilities":"💡","food":"🍎","sped-health":"🩺","staffing":"👥","construction":"🏗️","instruction":"📚","technology":"💻","professional":"⚖️","government":"🏛️","afterschool":"⚽","transportation":"🚌","reimbursements":"🧾","other":"▫️"};
 const FYS = ["FY2014-15","FY2015-16","FY2016-17","FY2017-18","FY2018-19","FY2019-20","FY2020-21","FY2021-22","FY2022-23","FY2023-24","FY2024-25","FY2025-26"];
+const CAT_BY_FY = {"FY2014-15":{"benefits":7592205.34,"construction":1103312.42,"government":1606686.44,"utilities":1326216.63,"charter":301239.49,"sped-health":3083798.17,"afterschool":797549.97,"food":2073023.23,"technology":1209420.31,"instruction":1295591.95,"other":7639815.46,"transportation":161952.04,"professional":261670.39,"reimbursements":1281229.05,"staffing":3831.75},"FY2015-16":{"benefits":7366543.2,"charter":3340888.83,"construction":1020698.13,"government":1603554.37,"utilities":1355805.06,"sped-health":3289574.55,"afterschool":592232.5,"food":1820662.71,"technology":1228898.88,"instruction":1404832.95,"other":6810821.95,"transportation":294281.29,"professional":176591.24,"reimbursements":1753290.51,"staffing":24358.95},"FY2016-17":{"benefits":7101224.25,"charter":6407221.07,"construction":2094699.05,"government":1726127.64,"food":2000723.02,"utilities":1409526.2,"sped-health":3368307.24,"afterschool":750250.19,"other":6839721.86,"technology":586051.79,"transportation":78726.92,"professional":276005.65,"instruction":989383.88,"reimbursements":1276648.11,"staffing":18357.9},"FY2017-18":{"benefits":7957448.7,"charter":9308397.93,"construction":6386727.41,"government":2132525.61,"food":2284828.31,"utilities":1455689.33,"sped-health":3453307.1,"afterschool":898625.19,"other":12384185.9,"technology":985112.87,"instruction":998113.93,"transportation":103056.4,"professional":450884.67,"reimbursements":1648457.26,"staffing":107591.7},"FY2018-19":{"benefits":7885410.5,"charter":5582227.8,"construction":9649677.63,"government":2091736.96,"food":2060787.36,"utilities":1916842.47,"sped-health":4738240.27,"afterschool":1120084,"other":13075400.52,"technology":1202492.74,"instruction":863013.13,"transportation":280519.7,"professional":490688.97,"reimbursements":1703970.12,"staffing":16800},"FY2019-20":{"benefits":8179519.57,"charter":11300538.75,"construction":30296679.06,"government":2374722.35,"food":1527192.35,"utilities":1562468.52,"sped-health":3926940.62,"afterschool":1291580,"other":12964477.33,"instruction":1089381.23,"technology":1708943.39,"transportation":151203.33,"professional":385882.68,"staffing":49441,"reimbursements":1760384.03},"FY2020-21":{"benefits":7951916.16,"charter":10641104.43,"construction":48617911.3,"government":1064621.8,"food":1494634.82,"utilities":1516770.27,"sped-health":2424597.28,"afterschool":546576.01,"other":10166662.15,"instruction":1469099.21,"technology":3064994.36,"transportation":7545.41,"professional":315282.73,"reimbursements":1458201.17,"staffing":200358.84},"FY2021-22":{"benefits":7754258.1,"charter":10079226.5,"construction":47853743.13,"government":1438118.06,"food":1796664.96,"utilities":1644512.29,"sped-health":4868973.01,"afterschool":1036590.99,"other":10695556.57,"instruction":1535623.27,"technology":486518.48,"transportation":1810786.33,"professional":783201.56,"reimbursements":935482.85,"staffing":174217.8},"FY2022-23":{"benefits":10046086.13,"charter":14652201.1,"construction":19476903.62,"government":2736286.49,"food":2487484.87,"utilities":2384616.24,"sped-health":6780334.27,"afterschool":3937509.38,"instruction":2960145.4,"technology":949766.72,"other":10581006.9,"transportation":414564.46,"professional":1026432.69,"staffing":210698.95,"reimbursements":1019905.61},"FY2023-24":{"benefits":9356236.88,"charter":12607507,"construction":4914795.43,"government":2943391.08,"food":2636450.88,"utilities":2931463.08,"sped-health":10517584.75,"afterschool":3530279.36,"instruction":6011951.59,"technology":1062216.59,"other":10423989.37,"transportation":106597.31,"professional":1064594.61,"staffing":382904.61,"reimbursements":805400.55},"FY2024-25":{"benefits":10856181.77,"charter":13190392.71,"construction":13315222.13,"government":2410926.52,"food":2307286.9,"utilities":2951506.94,"sped-health":8928154.55,"afterschool":4045016.9,"instruction":2462349.52,"technology":1321406.89,"other":9508645.36,"transportation":23349.24,"professional":1012938.03,"staffing":1221551.13,"reimbursements":517758.08},"FY2025-26":{"benefits":10759342.44,"charter":12301008.88,"construction":38013806.95,"government":2414918.3,"utilities":2455262.8,"sped-health":6187424.55,"afterschool":3677015.53,"instruction":2117469.83,"technology":1489639.44,"other":9676645.35,"transportation":20607.42,"professional":1024362.31,"food":3064008.06,"staffing":1606158.35,"reimbursements":517844.91}};
 const usd = (n) => new Intl.NumberFormat(FMT_LOC, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 let ALL = null, activeCat = '', query = '';
 const body = document.getElementById('vbody');
@@ -1382,6 +1389,42 @@ chips.addEventListener('click', (e) => {
   chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c===b));
   apply();
 });
+
+// Rich per-year hover: show the full category breakdown for the hovered fiscal-year bar.
+(function(){
+  const chart = document.querySelector('.year-chart');
+  if(!chart) return;
+  const tip = document.createElement('div');
+  tip.className = 'yc-tip'; tip.hidden = true;
+  document.body.appendChild(tip);
+  const fyOf = lbl => 'FY' + (lbl.replace('∗','').length===5 ? '20'+lbl.replace('∗','') : lbl.replace('∗',''));
+  function build(fy){
+    const cats = CAT_BY_FY[fy] || {};
+    const rows = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
+    const total = rows.reduce((s,r)=>s+r[1],0);
+    let html = '<div class="yc-tip-h">'+fy.replace('FY','FY ')+' · '+usd(total)+'</div>';
+    for(const [c,a] of rows){
+      const pct = total? Math.round(100*a/total):0;
+      html += '<div class="yc-tip-row"><span>'+(ICONS[c]||'▫️')+' '+esc(CATS[c]||c)+'</span><span class="yc-tip-amt">'+usd(a)+' <em>'+pct+'%</em></span></div>';
+    }
+    return html;
+  }
+  chart.addEventListener('mouseover', e => {
+    const bar = e.target.closest('.ybar'); if(!bar) return;
+    const lbl = bar.querySelector('.ybar-lbl').textContent;
+    tip.innerHTML = build(fyOf(lbl)); tip.hidden = false; bar.removeAttribute('title');
+    bar.querySelectorAll('[title]').forEach(x=>x.removeAttribute('title'));
+  });
+  chart.addEventListener('mousemove', e => {
+    if(tip.hidden) return;
+    const pad=14, w=tip.offsetWidth, h=tip.offsetHeight;
+    let x=e.clientX+pad, y=e.clientY+pad;
+    if(x+w>innerWidth-8) x=e.clientX-w-pad;
+    if(y+h>innerHeight-8) y=e.clientY-h-pad;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  });
+  chart.addEventListener('mouseleave', ()=>{ tip.hidden = true; });
+})();
 </script>
 </body>
 </html>

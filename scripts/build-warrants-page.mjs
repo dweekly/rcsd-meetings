@@ -181,6 +181,14 @@ function aggregate() {
   const constructionByFy = {};
   for (const v of list) if (v.cat === 'construction') for (const [fy, amt] of Object.entries(v.byFy)) constructionByFy[fy] = (constructionByFy[fy] || 0) + amt;
   for (const k of Object.keys(constructionByFy)) constructionByFy[k] = Math.round(constructionByFy[k] * 100) / 100;
+  // Full category × fiscal-year matrix, for the rich per-year hover breakdown.
+  const categoryByFy = {};
+  for (const v of list) for (const [fy, amt] of Object.entries(v.byFy)) {
+    (categoryByFy[fy] ||= {})[v.cat] = (categoryByFy[fy][v.cat] || 0) + amt;
+  }
+  for (const fy of Object.keys(categoryByFy)) for (const c of Object.keys(categoryByFy[fy])) {
+    categoryByFy[fy][c] = Math.round(categoryByFy[fy][c] * 100) / 100;
+  }
 
   // The dataset is floored at the start of the first fiscal year, so only the final (current,
   // in-progress) fiscal year is partial — unless the first year's data starts well after its July 1.
@@ -188,7 +196,7 @@ function aggregate() {
   if (minDate > `${fyList[0].slice(2, 6)}-07-08`) partialFy.push(fyList[0]);
 
   return {
-    vendors: list, fyList, categories: catList, totalByFy, constructionByFy,
+    vendors: list, fyList, categories: catList, totalByFy, constructionByFy, categoryByFy,
     partialFy,
     stats: {
       grand: Math.round(grand * 100) / 100, payCount, vendorCount: list.length,
@@ -322,7 +330,7 @@ function yearChart(totalByFy, constructionByFy, fyList, partialFy, fmtLoc, label
 }
 
 function renderPage(t, data) {
-  const { vendors, stats, fyList, categories, totalByFy, constructionByFy, partialFy } = data;
+  const { vendors, stats, fyList, categories, totalByFy, constructionByFy, categoryByFy, partialFy } = data;
   const topN = vendors.slice(0, 100);
   const periodTxt = `${stats.minDate.slice(0, 4)}–${stats.maxDate.slice(0, 4)}`;
   const catLabel = (id) => { const c = categories.find((x) => x.id === id); return c ? c.label[t.lang] : id; };
@@ -424,6 +432,7 @@ const STR = ${JSON.stringify({ showingAll: t.showingAll, matches: t.matches })};
 const CATS = ${JSON.stringify(Object.fromEntries(categories.map((c) => [c.id, c.label[t.lang]])))};
 const ICONS = ${JSON.stringify(ICONS)};
 const FYS = ${JSON.stringify(fyList)};
+const CAT_BY_FY = ${JSON.stringify(categoryByFy)};
 const usd = (n) => new Intl.NumberFormat(FMT_LOC, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 let ALL = null, activeCat = '', query = '';
 const body = document.getElementById('vbody');
@@ -475,6 +484,42 @@ chips.addEventListener('click', (e) => {
   chips.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c===b));
   apply();
 });
+
+// Rich per-year hover: show the full category breakdown for the hovered fiscal-year bar.
+(function(){
+  const chart = document.querySelector('.year-chart');
+  if(!chart) return;
+  const tip = document.createElement('div');
+  tip.className = 'yc-tip'; tip.hidden = true;
+  document.body.appendChild(tip);
+  const fyOf = lbl => 'FY' + (lbl.replace('∗','').length===5 ? '20'+lbl.replace('∗','') : lbl.replace('∗',''));
+  function build(fy){
+    const cats = CAT_BY_FY[fy] || {};
+    const rows = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
+    const total = rows.reduce((s,r)=>s+r[1],0);
+    let html = '<div class="yc-tip-h">'+fy.replace('FY','FY ')+' · '+usd(total)+'</div>';
+    for(const [c,a] of rows){
+      const pct = total? Math.round(100*a/total):0;
+      html += '<div class="yc-tip-row"><span>'+(ICONS[c]||'▫️')+' '+esc(CATS[c]||c)+'</span><span class="yc-tip-amt">'+usd(a)+' <em>'+pct+'%</em></span></div>';
+    }
+    return html;
+  }
+  chart.addEventListener('mouseover', e => {
+    const bar = e.target.closest('.ybar'); if(!bar) return;
+    const lbl = bar.querySelector('.ybar-lbl').textContent;
+    tip.innerHTML = build(fyOf(lbl)); tip.hidden = false; bar.removeAttribute('title');
+    bar.querySelectorAll('[title]').forEach(x=>x.removeAttribute('title'));
+  });
+  chart.addEventListener('mousemove', e => {
+    if(tip.hidden) return;
+    const pad=14, w=tip.offsetWidth, h=tip.offsetHeight;
+    let x=e.clientX+pad, y=e.clientY+pad;
+    if(x+w>innerWidth-8) x=e.clientX-w-pad;
+    if(y+h>innerHeight-8) y=e.clientY-h-pad;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  });
+  chart.addEventListener('mouseleave', ()=>{ tip.hidden = true; });
+})();
 </script>
 </body>
 </html>`;
@@ -523,6 +568,12 @@ const PAGE_CSS = `
 .lg::before{content:"";width:11px;height:11px;border-radius:2px;margin-right:.35rem}
 .lg-op::before{background:var(--green-600)}
 .lg-con::before{background:var(--amber)}
+.year-chart .ybar{cursor:default}
+.yc-tip{position:fixed;z-index:50;pointer-events:none;background:#fff;border:1px solid var(--green-200);border-radius:8px;box-shadow:0 6px 22px rgba(0,0,0,.16);padding:.55rem .7rem;font-size:.8rem;min-width:210px;max-width:300px}
+.yc-tip-h{font-family:var(--font-mono);font-weight:600;color:var(--green-800);border-bottom:1px solid var(--green-100);padding-bottom:.3rem;margin-bottom:.3rem}
+.yc-tip-row{display:flex;justify-content:space-between;gap:1rem;padding:.13rem 0;line-height:1.25}
+.yc-tip-amt{font-family:var(--font-mono);white-space:nowrap}
+.yc-tip-amt em{color:var(--ink-soft);font-style:normal}
 .ybar-lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);margin-top:.35rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
@@ -587,6 +638,7 @@ function main() {
     fiscalYears: data.fyList,
     totalByFiscalYear: data.totalByFy,
     constructionByFiscalYear: data.constructionByFy,
+    categoryByFiscalYear: data.categoryByFy,
     categories: data.categories,
     vendors: data.vendors,
   };
