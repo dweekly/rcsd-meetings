@@ -304,6 +304,9 @@
 .yc-tip-row{display:flex;justify-content:space-between;gap:1rem;padding:.13rem 0;line-height:1.25}
 .yc-tip-amt{font-family:var(--font-mono);white-space:nowrap}
 .yc-tip-amt em{color:var(--ink-soft);font-style:normal}
+.yc-sw{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:.4rem;vertical-align:middle}
+.yc-tip-sub{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin:.4rem 0 .15rem;border-top:1px solid var(--green-100);padding-top:.35rem}
+.yc-tip-row.sub{padding:.08rem 0;color:var(--ink-soft);font-size:.76rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
 .search-label{display:block;font-weight:600;margin-bottom:.4rem}
@@ -1241,11 +1244,14 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
 </footer>
 <script>
 const FMT_LOC = "en-US";
-const STR = {"showingAll":"Showing","matches":"payees"};
+const STR = {"showingAll":"Showing","matches":"payees","opIncludes":"Operating breakdown"};
 const CATS = {"construction":"Construction & facilities","charter":"Charter pass-through","benefits":"Pension & benefits","other":"Other / uncategorized","sped-health":"Special-ed & health services","instruction":"Instruction & curriculum","utilities":"Utilities & telecom","food":"Food service","government":"Government & agencies","afterschool":"After-school & enrichment","technology":"Technology","reimbursements":"Employee reimbursements","professional":"Professional & legal","staffing":"Staffing & substitutes","transportation":"Transportation"};
 const ICONS = {"charter":"🎓","benefits":"🪙","utilities":"💡","food":"🍎","sped-health":"🩺","staffing":"👥","construction":"🏗️","instruction":"📚","technology":"💻","professional":"⚖️","government":"🏛️","afterschool":"⚽","transportation":"🚌","reimbursements":"🧾","other":"▫️"};
 const FYS = ["FY2014-15","FY2015-16","FY2016-17","FY2017-18","FY2018-19","FY2019-20","FY2020-21","FY2021-22","FY2022-23","FY2023-24","FY2024-25","FY2025-26"];
 const CAT_BY_FY = {"FY2014-15":{"benefits":7592205.34,"construction":1103312.42,"government":1606686.44,"utilities":1410199.12,"charter":301239.49,"sped-health":3483354.07,"afterschool":797549.97,"food":2073023.23,"technology":1437149.34,"instruction":1524441.63,"transportation":161952.04,"professional":261670.39,"reimbursements":1281229.05,"other":6699698.36,"staffing":3831.75},"FY2015-16":{"benefits":7366543.2,"charter":3340888.83,"construction":1020698.13,"government":1603554.37,"utilities":1427845.28,"sped-health":3475183.55,"afterschool":592232.5,"food":1820662.71,"technology":1760825.09,"instruction":1653395.52,"transportation":294281.29,"professional":176591.24,"reimbursements":1753290.51,"other":5772683.95,"staffing":24358.95},"FY2016-17":{"benefits":7101224.25,"charter":6407221.07,"construction":2210576.15,"government":1726127.64,"food":2000723.02,"utilities":1484012.55,"sped-health":3686081.08,"afterschool":750250.19,"technology":853978.4,"instruction":1746407.6,"transportation":78726.92,"professional":276005.65,"reimbursements":1276648.11,"other":5306634.24,"staffing":18357.9},"FY2017-18":{"benefits":7957448.7,"charter":9308397.93,"construction":7980823.64,"government":2132525.61,"food":2284828.31,"utilities":1542353.51,"sped-health":3746620.66,"afterschool":898625.19,"technology":1586036.12,"instruction":3432582.64,"transportation":103056.4,"professional":450884.67,"reimbursements":1648457.26,"other":7374719.97,"staffing":107591.7},"FY2018-19":{"benefits":7885410.5,"charter":5582227.8,"construction":12733979.57,"government":2091736.96,"food":2060787.36,"utilities":2259126.14,"sped-health":4777650.27,"afterschool":1120084,"technology":1916179.66,"instruction":1105759.55,"transportation":280519.7,"professional":490688.97,"reimbursements":1703970.12,"other":8652971.57,"staffing":16800},"FY2019-20":{"benefits":8179519.57,"charter":11300538.75,"construction":31514086.59,"government":2374722.35,"food":1527192.35,"utilities":3495913.26,"sped-health":3926940.62,"afterschool":1291580,"instruction":1305663.38,"technology":2504292.84,"transportation":151203.33,"professional":385882.68,"staffing":49441,"reimbursements":1760384.03,"other":8801993.46},"FY2020-21":{"benefits":7951916.16,"charter":10641104.43,"construction":50234062.85,"government":1064621.8,"food":1494634.82,"utilities":1622380.32,"sped-health":2424597.28,"afterschool":546576.01,"instruction":1487850.12,"technology":3373277.69,"transportation":7545.41,"professional":315282.73,"reimbursements":1458201.17,"other":8117866.31,"staffing":200358.84},"FY2021-22":{"benefits":7754258.1,"charter":10079226.5,"construction":48297107.14,"government":1438118.06,"food":1796664.96,"utilities":1790363.97,"sped-health":4868973.01,"afterschool":1036590.99,"instruction":2227380.31,"technology":765597.56,"transportation":1810786.33,"professional":783201.56,"reimbursements":935482.85,"other":9135504.76,"staffing":174217.8},"FY2022-23":{"benefits":10046086.13,"charter":14652201.1,"construction":19788805.12,"government":2736286.49,"food":2487484.87,"utilities":2525671.22,"sped-health":6780334.27,"afterschool":3937509.38,"instruction":3134372.18,"technology":1253371.37,"transportation":414564.46,"professional":1026432.69,"staffing":210698.95,"reimbursements":1019905.61,"other":9650218.99},"FY2023-24":{"benefits":9356236.88,"charter":12607507,"construction":4914795.43,"government":2943391.08,"food":2636450.88,"utilities":3088126.61,"sped-health":10517584.75,"afterschool":3530279.36,"instruction":6110548.78,"technology":1354453.96,"transportation":106597.31,"professional":1064594.61,"staffing":382904.61,"reimbursements":805400.55,"other":9876491.28},"FY2024-25":{"benefits":10856181.77,"charter":13190392.71,"construction":13315222.13,"government":2410926.52,"food":2307286.9,"utilities":3092547.29,"sped-health":8928154.55,"afterschool":4045016.9,"instruction":2517331.44,"technology":1491982.68,"transportation":23349.24,"professional":1012938.03,"staffing":1221551.13,"reimbursements":517758.08,"other":9142047.3},"FY2025-26":{"benefits":10759342.44,"charter":12301008.88,"construction":38013806.95,"government":2414918.3,"utilities":2609094.7,"sped-health":6187424.55,"afterschool":3677015.53,"instruction":2410881.17,"technology":1651769.52,"transportation":20607.42,"professional":1024362.31,"food":3064008.06,"staffing":1606158.35,"reimbursements":517844.91,"other":9067272.03}};
+const OP_LABEL = "Operating";
+// Same buckets/colors as the four chart lines, so the hover matches what you see.
+const LINE_BUCKETS = [['op', OP_LABEL, '#2d5a3f'], ['benefits', CATS.benefits||'Pension & benefits', '#8a4fb0'], ['charter', CATS.charter||'Charter pass-through', '#2f6fb0'], ['construction', CATS.construction||'Construction & facilities', '#c4842d']];
 const usd = (n) => new Intl.NumberFormat(FMT_LOC, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 let ALL = null, activeCat = '', query = '';
 const body = document.getElementById('vbody');
@@ -1307,12 +1313,21 @@ chips.addEventListener('click', (e) => {
   document.body.appendChild(tip);
   function build(fy){
     const cats = CAT_BY_FY[fy] || {};
-    const rows = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
-    const total = rows.reduce((s,r)=>s+r[1],0);
+    const total = Object.values(cats).reduce((s,a)=>s+a,0);
+    const con = cats.construction||0, ben = cats.benefits||0, cha = cats.charter||0;
+    const op = Math.max(0, total - con - ben - cha);
+    const vals = { op: op, benefits: ben, charter: cha, construction: con };
     let html = '<div class="yc-tip-h">'+fy.replace('FY','FY ')+' · '+usd(total)+'</div>';
-    for(const [c,a] of rows){
-      const pct = total? Math.round(100*a/total):0;
-      html += '<div class="yc-tip-row"><span>'+(ICONS[c]||'▫️')+' '+esc(CATS[c]||c)+'</span><span class="yc-tip-amt">'+usd(a)+' <em>'+pct+'%</em></span></div>';
+    // The four lines, in chart order + colors, so the tooltip matches the graph.
+    for(const [id,label,color] of LINE_BUCKETS){
+      const a = vals[id]||0, pct = total? Math.round(100*a/total):0;
+      html += '<div class="yc-tip-row"><span><span class="yc-sw" style="background:'+color+'"></span>'+esc(label)+'</span><span class="yc-tip-amt">'+usd(a)+' <em>'+pct+'%</em></span></div>';
+    }
+    // Operating is the catch-all line — break it down so the green line is explorable too.
+    const sub = Object.entries(cats).filter(([c])=>c!=='construction'&&c!=='benefits'&&c!=='charter').sort((a,b)=>b[1]-a[1]);
+    if(sub.length){
+      html += '<div class="yc-tip-sub">'+esc(STR.opIncludes)+'</div>';
+      for(const [c,a] of sub) html += '<div class="yc-tip-row sub"><span>'+(ICONS[c]||'▫️')+' '+esc(CATS[c]||c)+'</span><span class="yc-tip-amt">'+usd(a)+'</span></div>';
     }
     return html;
   }

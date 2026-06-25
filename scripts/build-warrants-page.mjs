@@ -234,7 +234,7 @@ const T = {
     intro: 'Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.',
     statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
     coverageNote: 'These are <strong>accounts-payable warrants</strong> — payments to vendors, contractors, and benefits. They do <strong>not</strong> include employee salaries (payroll), the district\'s single largest cost, which is paid on separate payroll warrants.',
-    trendHeading: 'Warrant spend by fiscal year', opLabel: 'Operating', conLabel: 'Construction & facilities',
+    trendHeading: 'Warrant spend by fiscal year', opLabel: 'Operating', conLabel: 'Construction & facilities', opIncludes: 'Operating breakdown',
     partialNote: '∗ current fiscal year still in progress. Each line is a separate spend bucket — &ldquo;Operating&rdquo; is everything not in the other three. Construction is largely bond capital (Measures T &amp; S); pension &amp; benefits and charter pass-through are largely mandated, not discretionary. Hover a year for the full category breakdown.',
     searchLabel: 'Search for a vendor', searchPh: 'e.g. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Payee', thTotal: 'Total paid', thChecks: 'Checks', thTrend: 'Trend by year',
@@ -258,7 +258,7 @@ const T = {
     intro: 'Cada mes la Junta de Síndicos aprueba un <strong>registro de cheques</strong> (warrant register) — la lista de cada cheque que emitió el distrito. Esta página los reúne en una base de datos con búsqueda para que veas cuánto le paga el distrito a cualquier proveedor, y cómo cambia año con año.',
     statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
     coverageNote: 'Estos son <strong>cheques de cuentas por pagar</strong> — pagos a proveedores, contratistas y beneficios. <strong>No</strong> incluyen los salarios del personal (nómina), el mayor gasto del distrito, que se paga en cheques de nómina aparte.',
-    trendHeading: 'Gasto en cheques por año fiscal', opLabel: 'Operación', conLabel: 'Construcción e instalaciones',
+    trendHeading: 'Gasto en cheques por año fiscal', opLabel: 'Operación', conLabel: 'Construcción e instalaciones', opIncludes: 'Desglose de operación',
     partialNote: '∗ el año fiscal actual aún está en curso. Cada línea es un grupo de gasto distinto — &ldquo;Operación&rdquo; es todo lo que no está en las otras tres. La construcción es en gran parte capital de bonos (Medidas T y S); las pensiones y beneficios y los pagos a chárter son en gran parte obligatorios, no discrecionales. Pasa el cursor por un año para ver el desglose completo.',
     searchLabel: 'Busca un proveedor', searchPh: 'p. ej. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Beneficiario', thTotal: 'Total pagado', thChecks: 'Cheques', thTrend: 'Tendencia por año',
@@ -445,11 +445,14 @@ ${siteNav({ activePage: 'budget', lang: t.lang, altLangHref: t.alt })}
 ${siteFooter({ lang: t.lang })}
 <script>
 const FMT_LOC = ${JSON.stringify(t.fmtLoc)};
-const STR = ${JSON.stringify({ showingAll: t.showingAll, matches: t.matches })};
+const STR = ${JSON.stringify({ showingAll: t.showingAll, matches: t.matches, opIncludes: t.opIncludes })};
 const CATS = ${JSON.stringify(Object.fromEntries(categories.map((c) => [c.id, c.label[t.lang]])))};
 const ICONS = ${JSON.stringify(ICONS)};
 const FYS = ${JSON.stringify(fyList)};
 const CAT_BY_FY = ${JSON.stringify(categoryByFy)};
+const OP_LABEL = ${JSON.stringify(t.opLabel)};
+// Same buckets/colors as the four chart lines, so the hover matches what you see.
+const LINE_BUCKETS = [['op', OP_LABEL, '#2d5a3f'], ['benefits', CATS.benefits||'Pension & benefits', '#8a4fb0'], ['charter', CATS.charter||'Charter pass-through', '#2f6fb0'], ['construction', CATS.construction||'Construction & facilities', '#c4842d']];
 const usd = (n) => new Intl.NumberFormat(FMT_LOC, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 let ALL = null, activeCat = '', query = '';
 const body = document.getElementById('vbody');
@@ -511,12 +514,21 @@ chips.addEventListener('click', (e) => {
   document.body.appendChild(tip);
   function build(fy){
     const cats = CAT_BY_FY[fy] || {};
-    const rows = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
-    const total = rows.reduce((s,r)=>s+r[1],0);
+    const total = Object.values(cats).reduce((s,a)=>s+a,0);
+    const con = cats.construction||0, ben = cats.benefits||0, cha = cats.charter||0;
+    const op = Math.max(0, total - con - ben - cha);
+    const vals = { op: op, benefits: ben, charter: cha, construction: con };
     let html = '<div class="yc-tip-h">'+fy.replace('FY','FY ')+' · '+usd(total)+'</div>';
-    for(const [c,a] of rows){
-      const pct = total? Math.round(100*a/total):0;
-      html += '<div class="yc-tip-row"><span>'+(ICONS[c]||'▫️')+' '+esc(CATS[c]||c)+'</span><span class="yc-tip-amt">'+usd(a)+' <em>'+pct+'%</em></span></div>';
+    // The four lines, in chart order + colors, so the tooltip matches the graph.
+    for(const [id,label,color] of LINE_BUCKETS){
+      const a = vals[id]||0, pct = total? Math.round(100*a/total):0;
+      html += '<div class="yc-tip-row"><span><span class="yc-sw" style="background:'+color+'"></span>'+esc(label)+'</span><span class="yc-tip-amt">'+usd(a)+' <em>'+pct+'%</em></span></div>';
+    }
+    // Operating is the catch-all line — break it down so the green line is explorable too.
+    const sub = Object.entries(cats).filter(([c])=>c!=='construction'&&c!=='benefits'&&c!=='charter').sort((a,b)=>b[1]-a[1]);
+    if(sub.length){
+      html += '<div class="yc-tip-sub">'+esc(STR.opIncludes)+'</div>';
+      for(const [c,a] of sub) html += '<div class="yc-tip-row sub"><span>'+(ICONS[c]||'▫️')+' '+esc(CATS[c]||c)+'</span><span class="yc-tip-amt">'+usd(a)+'</span></div>';
     }
     return html;
   }
@@ -581,6 +593,9 @@ const PAGE_CSS = `
 .yc-tip-row{display:flex;justify-content:space-between;gap:1rem;padding:.13rem 0;line-height:1.25}
 .yc-tip-amt{font-family:var(--font-mono);white-space:nowrap}
 .yc-tip-amt em{color:var(--ink-soft);font-style:normal}
+.yc-sw{display:inline-block;width:10px;height:3px;border-radius:2px;margin-right:.4rem;vertical-align:middle}
+.yc-tip-sub{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin:.4rem 0 .15rem;border-top:1px solid var(--green-100);padding-top:.35rem}
+.yc-tip-row.sub{padding:.08rem 0;color:var(--ink-soft);font-size:.76rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
 .search-label{display:block;font-weight:600;margin-bottom:.4rem}
