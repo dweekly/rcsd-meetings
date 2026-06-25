@@ -290,28 +290,20 @@
 .coverage-note{font-size:.92rem;color:var(--ink-soft);max-width:64ch;margin:1rem 0 0;padding:.7rem .9rem;background:var(--green-50);border-left:3px solid var(--green-400);border-radius:0 8px 8px 0}
 .trend-block{margin-top:1.8rem}
 .trend-h{font-family:var(--font-display);font-size:1.15rem;margin:0 0 .8rem}
-.year-chart{display:flex;align-items:flex-end;gap:.6rem;height:140px}
-.ybar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:90px;height:100%}
-.ybar-val{font-family:var(--font-mono);font-size:.72rem;color:var(--green-800);margin-bottom:.25rem;white-space:nowrap}
-.ybar-stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;border-radius:3px 3px 0 0;overflow:hidden}
-.ybar-con{width:100%;background:var(--amber)}
-.ybar-op{width:100%;background:var(--green-600)}
-.ybar:hover .ybar-op{background:var(--green-800)}
-.ybar.partial .ybar-op{background:var(--green-300)}
-.ybar.partial .ybar-con{background:var(--amber-light)}
-.ybar.partial .ybar-val{color:var(--ink-soft)}
-.year-legend{display:flex;gap:1.1rem;margin:.2rem 0 .7rem;font-size:.78rem;color:var(--ink-soft)}
-.lg{display:inline-flex;align-items:center}
-.lg::before{content:"";width:11px;height:11px;border-radius:2px;margin-right:.35rem}
-.lg-op::before{background:var(--green-600)}
-.lg-con::before{background:var(--amber)}
-.year-chart .ybar{cursor:default}
+.line-legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;margin:.2rem 0 .6rem;font-size:.8rem;color:var(--ink)}
+.line-legend .lg{display:inline-flex;align-items:center}
+.line-legend .lg-sw{width:14px;height:3px;border-radius:2px;margin-right:.4rem;display:inline-block}
+.line-chart{width:100%;height:auto;display:block;overflow:visible}
+.line-chart .lc-grid{stroke:var(--green-100);stroke-width:1}
+.line-chart .lc-ytxt{fill:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:9px;text-anchor:end}
+.line-chart .lc-xtxt{fill:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:9px;text-anchor:middle}
+.line-chart .yc-hit{cursor:crosshair}
+.line-chart .yc-hit:hover{fill:rgba(45,90,63,.05)}
 .yc-tip{position:fixed;z-index:50;pointer-events:none;background:#fff;border:1px solid var(--green-200);border-radius:8px;box-shadow:0 6px 22px rgba(0,0,0,.16);padding:.55rem .7rem;font-size:.8rem;min-width:210px;max-width:300px}
 .yc-tip-h{font-family:var(--font-mono);font-weight:600;color:var(--green-800);border-bottom:1px solid var(--green-100);padding-bottom:.3rem;margin-bottom:.3rem}
 .yc-tip-row{display:flex;justify-content:space-between;gap:1rem;padding:.13rem 0;line-height:1.25}
 .yc-tip-amt{font-family:var(--font-mono);white-space:nowrap}
 .yc-tip-amt em{color:var(--ink-soft);font-style:normal}
-.ybar-lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);margin-top:.35rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
 .search-label{display:block;font-weight:600;margin-bottom:.4rem}
@@ -349,8 +341,8 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
   .vendors-hero{padding:1rem 0 1rem}
   .stat-grid{grid-template-columns:1fr 1fr;gap:.7rem}
   .stat-num{font-size:1.2rem}
-  .year-chart{gap:.3rem;height:120px}
-  .ybar-val,.ybar-lbl{font-size:.58rem}
+  .line-legend{font-size:.72rem;gap:.3rem .8rem}
+  .line-chart .lc-xtxt,.line-chart .lc-ytxt{font-size:11px}
   .chip{font-size:.68rem;padding:.2rem .5rem}
   .vtable{font-size:.88rem}
   .vtable th,.vtable td{padding:.45rem .3rem}
@@ -397,93 +389,9 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
     </div>
     <div class="trend-block">
       <h2 class="trend-h">Gasto en cheques por año fiscal</h2>
-      <div class="year-legend"><span class="lg lg-op">Operación</span><span class="lg lg-con">Construcción e instalaciones</span></div>
-  <div class="year-chart"><div class="ybar" title="FY 2014-15 — Operación: USD 28,634,230; Construcción e instalaciones: USD 1,103,312">
-      <span class="ybar-val">$30M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:1px"></div>
-        <div class="ybar-op" style="height:29px"></div>
-      </div>
-      <span class="ybar-lbl">14-15</span>
-    </div><div class="ybar" title="FY 2015-16 — Operación: USD 31,062,337; Construcción e instalaciones: USD 1,020,698">
-      <span class="ybar-val">$32M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:1px"></div>
-        <div class="ybar-op" style="height:31px"></div>
-      </div>
-      <span class="ybar-lbl">15-16</span>
-    </div><div class="ybar" title="FY 2016-17 — Operación: USD 32,712,399; Construcción e instalaciones: USD 2,210,576">
-      <span class="ybar-val">$35M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:2px"></div>
-        <div class="ybar-op" style="height:33px"></div>
-      </div>
-      <span class="ybar-lbl">16-17</span>
-    </div><div class="ybar" title="FY 2017-18 — Operación: USD 42,574,129; Construcción e instalaciones: USD 7,980,824">
-      <span class="ybar-val">$51M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:8px"></div>
-        <div class="ybar-op" style="height:43px"></div>
-      </div>
-      <span class="ybar-lbl">17-18</span>
-    </div><div class="ybar" title="FY 2018-19 — Operación: USD 39,943,913; Construcción e instalaciones: USD 12,733,980">
-      <span class="ybar-val">$53M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:13px"></div>
-        <div class="ybar-op" style="height:40px"></div>
-      </div>
-      <span class="ybar-lbl">18-19</span>
-    </div><div class="ybar" title="FY 2019-20 — Operación: USD 47,055,268; Construcción e instalaciones: USD 31,514,087">
-      <span class="ybar-val">$79M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:32px"></div>
-        <div class="ybar-op" style="height:47px"></div>
-      </div>
-      <span class="ybar-lbl">19-20</span>
-    </div><div class="ybar" title="FY 2020-21 — Operación: USD 40,706,213; Construcción e instalaciones: USD 50,234,063">
-      <span class="ybar-val">$91M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:51px"></div>
-        <div class="ybar-op" style="height:41px"></div>
-      </div>
-      <span class="ybar-lbl">20-21</span>
-    </div><div class="ybar" title="FY 2021-22 — Operación: USD 44,596,367; Construcción e instalaciones: USD 48,297,107">
-      <span class="ybar-val">$93M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:49px"></div>
-        <div class="ybar-op" style="height:45px"></div>
-      </div>
-      <span class="ybar-lbl">21-22</span>
-    </div><div class="ybar" title="FY 2022-23 — Operación: USD 59,875,138; Construcción e instalaciones: USD 19,788,805">
-      <span class="ybar-val">$80M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:20px"></div>
-        <div class="ybar-op" style="height:60px"></div>
-      </div>
-      <span class="ybar-lbl">22-23</span>
-    </div><div class="ybar" title="FY 2023-24 — Operación: USD 64,380,568; Construcción e instalaciones: USD 4,914,795">
-      <span class="ybar-val">$69M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:5px"></div>
-        <div class="ybar-op" style="height:65px"></div>
-      </div>
-      <span class="ybar-lbl">23-24</span>
-    </div><div class="ybar" title="FY 2024-25 — Operación: USD 60,757,465; Construcción e instalaciones: USD 13,315,222">
-      <span class="ybar-val">$74M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:13px"></div>
-        <div class="ybar-op" style="height:61px"></div>
-      </div>
-      <span class="ybar-lbl">24-25</span>
-    </div><div class="ybar partial" title="FY 2025-26 — Operación: USD 57,311,708; Construcción e instalaciones: USD 38,013,807">
-      <span class="ybar-val">$95M</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:38px"></div>
-        <div class="ybar-op" style="height:58px"></div>
-      </div>
-      <span class="ybar-lbl">25-26∗</span>
-    </div></div>
-      <p class="partial-note">∗ el año fiscal actual aún está en curso. La construcción e instalaciones es en gran parte capital financiado por bonos (Medidas T y S) y varía mucho de un año a otro; la parte de operación es la base más estable.</p>
+      <div class="line-legend"><span class="lg"><span class="lg-sw" style="background:#2d5a3f"></span>Operación</span><span class="lg"><span class="lg-sw" style="background:#8a4fb0"></span>Pensiones y beneficios</span><span class="lg"><span class="lg-sw" style="background:#2f6fb0"></span>Escuelas chárter</span><span class="lg"><span class="lg-sw" style="background:#c4842d"></span>Construcción e instalaciones</span></div>
+  <svg class="line-chart" viewBox="0 0 660 178" role="img" aria-label="Warrant spend by category and fiscal year"><line class="lc-grid" x1="30" y1="152.0" x2="652" y2="152.0"/><text class="lc-ytxt" x="26" y="155.0">$0</text><line class="lc-grid" x1="30" y1="82.0" x2="652" y2="82.0"/><text class="lc-ytxt" x="26" y="85.0">$25M</text><line class="lc-grid" x1="30" y1="12.0" x2="652" y2="12.0"/><text class="lc-ytxt" x="26" y="15.0">$50M</text><polyline points="30.0,94.2 86.5,95.3 143.1,98.5 199.6,81.5 256.2,78.2 312.7,75.1 369.3,90.4 425.8,77.4 482.4,54.0 538.9,33.8 595.5,49.7 652.0,56.5" fill="none" stroke="#2d5a3f" stroke-width="2.1" stroke-linejoin="round"/><circle cx="30.0" cy="94.2" r="2.4" fill="#2d5a3f"/><circle cx="86.5" cy="95.3" r="2.4" fill="#2d5a3f"/><circle cx="143.1" cy="98.5" r="2.4" fill="#2d5a3f"/><circle cx="199.6" cy="81.5" r="2.4" fill="#2d5a3f"/><circle cx="256.2" cy="78.2" r="2.4" fill="#2d5a3f"/><circle cx="312.7" cy="75.1" r="2.4" fill="#2d5a3f"/><circle cx="369.3" cy="90.4" r="2.4" fill="#2d5a3f"/><circle cx="425.8" cy="77.4" r="2.4" fill="#2d5a3f"/><circle cx="482.4" cy="54.0" r="2.4" fill="#2d5a3f"/><circle cx="538.9" cy="33.8" r="2.4" fill="#2d5a3f"/><circle cx="595.5" cy="49.7" r="2.4" fill="#2d5a3f"/><circle cx="652.0" cy="56.5" r="2.4" fill="#2d5a3f"/><polyline points="30.0,130.8 86.5,131.5 143.1,132.2 199.6,129.8 256.2,130.0 312.7,129.2 369.3,129.8 425.8,130.4 482.4,124.0 538.9,125.9 595.5,121.7 652.0,122.0" fill="none" stroke="#8a4fb0" stroke-width="2.1" stroke-linejoin="round"/><circle cx="30.0" cy="130.8" r="2.4" fill="#8a4fb0"/><circle cx="86.5" cy="131.5" r="2.4" fill="#8a4fb0"/><circle cx="143.1" cy="132.2" r="2.4" fill="#8a4fb0"/><circle cx="199.6" cy="129.8" r="2.4" fill="#8a4fb0"/><circle cx="256.2" cy="130.0" r="2.4" fill="#8a4fb0"/><circle cx="312.7" cy="129.2" r="2.4" fill="#8a4fb0"/><circle cx="369.3" cy="129.8" r="2.4" fill="#8a4fb0"/><circle cx="425.8" cy="130.4" r="2.4" fill="#8a4fb0"/><circle cx="482.4" cy="124.0" r="2.4" fill="#8a4fb0"/><circle cx="538.9" cy="125.9" r="2.4" fill="#8a4fb0"/><circle cx="595.5" cy="121.7" r="2.4" fill="#8a4fb0"/><circle cx="652.0" cy="122.0" r="2.4" fill="#8a4fb0"/><polyline points="30.0,151.2 86.5,142.7 143.1,134.1 199.6,126.1 256.2,136.4 312.7,120.5 369.3,122.3 425.8,123.9 482.4,111.2 538.9,116.9 595.5,115.2 652.0,117.7" fill="none" stroke="#2f6fb0" stroke-width="2.1" stroke-linejoin="round"/><circle cx="30.0" cy="151.2" r="2.4" fill="#2f6fb0"/><circle cx="86.5" cy="142.7" r="2.4" fill="#2f6fb0"/><circle cx="143.1" cy="134.1" r="2.4" fill="#2f6fb0"/><circle cx="199.6" cy="126.1" r="2.4" fill="#2f6fb0"/><circle cx="256.2" cy="136.4" r="2.4" fill="#2f6fb0"/><circle cx="312.7" cy="120.5" r="2.4" fill="#2f6fb0"/><circle cx="369.3" cy="122.3" r="2.4" fill="#2f6fb0"/><circle cx="425.8" cy="123.9" r="2.4" fill="#2f6fb0"/><circle cx="482.4" cy="111.2" r="2.4" fill="#2f6fb0"/><circle cx="538.9" cy="116.9" r="2.4" fill="#2f6fb0"/><circle cx="595.5" cy="115.2" r="2.4" fill="#2f6fb0"/><circle cx="652.0" cy="117.7" r="2.4" fill="#2f6fb0"/><polyline points="30.0,148.9 86.5,149.2 143.1,145.8 199.6,129.8 256.2,116.5 312.7,64.2 369.3,12.0 425.8,17.4 482.4,96.8 538.9,138.3 595.5,114.9 652.0,46.1" fill="none" stroke="#c4842d" stroke-width="2.1" stroke-linejoin="round"/><circle cx="30.0" cy="148.9" r="2.4" fill="#c4842d"/><circle cx="86.5" cy="149.2" r="2.4" fill="#c4842d"/><circle cx="143.1" cy="145.8" r="2.4" fill="#c4842d"/><circle cx="199.6" cy="129.8" r="2.4" fill="#c4842d"/><circle cx="256.2" cy="116.5" r="2.4" fill="#c4842d"/><circle cx="312.7" cy="64.2" r="2.4" fill="#c4842d"/><circle cx="369.3" cy="12.0" r="2.4" fill="#c4842d"/><circle cx="425.8" cy="17.4" r="2.4" fill="#c4842d"/><circle cx="482.4" cy="96.8" r="2.4" fill="#c4842d"/><circle cx="538.9" cy="138.3" r="2.4" fill="#c4842d"/><circle cx="595.5" cy="114.9" r="2.4" fill="#c4842d"/><circle cx="652.0" cy="46.1" r="2.4" fill="#c4842d"/><text class="lc-xtxt" x="30.0" y="169">14-15</text><text class="lc-xtxt" x="86.5" y="169">15-16</text><text class="lc-xtxt" x="143.1" y="169">16-17</text><text class="lc-xtxt" x="199.6" y="169">17-18</text><text class="lc-xtxt" x="256.2" y="169">18-19</text><text class="lc-xtxt" x="312.7" y="169">19-20</text><text class="lc-xtxt" x="369.3" y="169">20-21</text><text class="lc-xtxt" x="425.8" y="169">21-22</text><text class="lc-xtxt" x="482.4" y="169">22-23</text><text class="lc-xtxt" x="538.9" y="169">23-24</text><text class="lc-xtxt" x="595.5" y="169">24-25</text><text class="lc-xtxt" x="652.0" y="169">25-26∗</text><rect class="yc-hit" data-fy="FY2014-15" x="1.7" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2015-16" x="58.3" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2016-17" x="114.8" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2017-18" x="171.4" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2018-19" x="227.9" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2019-20" x="284.5" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2020-21" x="341.0" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2021-22" x="397.5" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2022-23" x="454.1" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2023-24" x="510.6" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2024-25" x="567.2" y="12" width="56.5" height="140" fill="transparent"/><rect class="yc-hit" data-fy="FY2025-26" x="623.7" y="12" width="56.5" height="140" fill="transparent"/></svg>
+      <p class="partial-note">∗ el año fiscal actual aún está en curso. Cada línea es un grupo de gasto distinto — &ldquo;Operación&rdquo; es todo lo que no está en las otras tres. La construcción es en gran parte capital de bonos (Medidas T y S); las pensiones y beneficios y los pagos a chárter son en gran parte obligatorios, no discrecionales. Pasa el cursor por un año para ver el desglose completo.</p>
     </div>
   </header>
 
@@ -1390,14 +1298,13 @@ chips.addEventListener('click', (e) => {
   apply();
 });
 
-// Rich per-year hover: show the full category breakdown for the hovered fiscal-year bar.
+// Rich per-year hover: show the full category breakdown for the hovered fiscal-year column.
 (function(){
-  const chart = document.querySelector('.year-chart');
+  const chart = document.querySelector('.line-chart');
   if(!chart) return;
   const tip = document.createElement('div');
   tip.className = 'yc-tip'; tip.hidden = true;
   document.body.appendChild(tip);
-  const fyOf = lbl => 'FY' + (lbl.replace('∗','').length===5 ? '20'+lbl.replace('∗','') : lbl.replace('∗',''));
   function build(fy){
     const cats = CAT_BY_FY[fy] || {};
     const rows = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
@@ -1410,10 +1317,8 @@ chips.addEventListener('click', (e) => {
     return html;
   }
   chart.addEventListener('mouseover', e => {
-    const bar = e.target.closest('.ybar'); if(!bar) return;
-    const lbl = bar.querySelector('.ybar-lbl').textContent;
-    tip.innerHTML = build(fyOf(lbl)); tip.hidden = false; bar.removeAttribute('title');
-    bar.querySelectorAll('[title]').forEach(x=>x.removeAttribute('title'));
+    const hit = e.target.closest('.yc-hit'); if(!hit) return;
+    tip.innerHTML = build(hit.dataset.fy); tip.hidden = false;
   });
   chart.addEventListener('mousemove', e => {
     if(tip.hidden) return;

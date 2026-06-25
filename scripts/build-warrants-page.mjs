@@ -235,7 +235,7 @@ const T = {
     statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
     coverageNote: 'These are <strong>accounts-payable warrants</strong> — payments to vendors, contractors, and benefits. They do <strong>not</strong> include employee salaries (payroll), the district\'s single largest cost, which is paid on separate payroll warrants.',
     trendHeading: 'Warrant spend by fiscal year', opLabel: 'Operating', conLabel: 'Construction & facilities',
-    partialNote: '∗ the current fiscal year is still in progress. Construction &amp; facilities is largely bond-funded capital (Measures T and S) and is lumpy year to year; the operating segment is the steadier baseline.',
+    partialNote: '∗ current fiscal year still in progress. Each line is a separate spend bucket — &ldquo;Operating&rdquo; is everything not in the other three. Construction is largely bond capital (Measures T &amp; S); pension &amp; benefits and charter pass-through are largely mandated, not discretionary. Hover a year for the full category breakdown.',
     searchLabel: 'Search for a vendor', searchPh: 'e.g. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Payee', thTotal: 'Total paid', thChecks: 'Checks', thTrend: 'Trend by year',
     catHeading: 'Spend by category', allCat: 'All', catNote: 'Categories are a rough name-based grouping, not an accounting classification.',
@@ -259,7 +259,7 @@ const T = {
     statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
     coverageNote: 'Estos son <strong>cheques de cuentas por pagar</strong> — pagos a proveedores, contratistas y beneficios. <strong>No</strong> incluyen los salarios del personal (nómina), el mayor gasto del distrito, que se paga en cheques de nómina aparte.',
     trendHeading: 'Gasto en cheques por año fiscal', opLabel: 'Operación', conLabel: 'Construcción e instalaciones',
-    partialNote: '∗ el año fiscal actual aún está en curso. La construcción e instalaciones es en gran parte capital financiado por bonos (Medidas T y S) y varía mucho de un año a otro; la parte de operación es la base más estable.',
+    partialNote: '∗ el año fiscal actual aún está en curso. Cada línea es un grupo de gasto distinto — &ldquo;Operación&rdquo; es todo lo que no está en las otras tres. La construcción es en gran parte capital de bonos (Medidas T y S); las pensiones y beneficios y los pagos a chárter son en gran parte obligatorios, no discrecionales. Pasa el cursor por un año para ver el desglose completo.',
     searchLabel: 'Busca un proveedor', searchPh: 'p. ej. Van Pelt, Sodexo, PG&E…',
     thRank: '#', thVendor: 'Beneficiario', thTotal: 'Total pagado', thChecks: 'Cheques', thTrend: 'Tendencia por año',
     catHeading: 'Gasto por categoría', allCat: 'Todas', catNote: 'Las categorías son una agrupación aproximada por nombre, no una clasificación contable.',
@@ -304,29 +304,33 @@ function abbrevUsd(n) {
 // Hero bar chart: AP spend per fiscal year, stacked into operating (baseline) vs construction &
 // facilities (lumpy, bond-funded capital) so steady operating growth reads apart from the
 // bond-program spikes. Partial (in-progress) years are marked + de-emphasized.
-function yearChart(totalByFy, constructionByFy, fyList, partialFy, fmtLoc, labels) {
-  const H = 96;
-  const max = Math.max(1, ...fyList.map((fy) => totalByFy[fy] || 0));
-  const bars = fyList.map((fy) => {
-    const total = totalByFy[fy] || 0;
-    const con = constructionByFy[fy] || 0;
-    const op = Math.max(0, total - con);
-    const conH = Math.round(H * (con / max));
-    const opH = Math.round(H * (op / max));
-    const partial = partialFy.includes(fy);
-    const lbl = fy.replace('FY', '').replace(/^20/, '') + (partial ? '∗' : '');
-    const tip = `${fy.replace('FY', 'FY ')} — ${labels.op}: ${fmtUsd(fmtLoc, op)}; ${labels.con}: ${fmtUsd(fmtLoc, con)}`;
-    return `<div class="ybar${partial ? ' partial' : ''}" title="${tip}">
-      <span class="ybar-val">${abbrevUsd(total)}</span>
-      <div class="ybar-stack">
-        <div class="ybar-con" style="height:${conH}px"></div>
-        <div class="ybar-op" style="height:${opH}px"></div>
-      </div>
-      <span class="ybar-lbl">${lbl}</span>
-    </div>`;
+// Non-stacked multi-line chart: each spend bucket gets its own line from a zero baseline, so the
+// growth trajectory of each (discretionary operating vs mandated benefits vs charter pass-through
+// vs lumpy bond construction) is independently legible. Per-year hover gives the full breakdown.
+function lineChart(series, fyList, partialFy) {
+  const n = fyList.length;
+  const W = 660, H = 178, padL = 30, padR = 8, padT = 12, padB = 26;
+  const plotW = W - padL - padR, plotH = H - padT - padB;
+  const max = Math.max(1, ...series.flatMap((s) => fyList.map((fy) => s.byFy[fy] || 0)));
+  const X = (i) => padL + (n <= 1 ? 0 : i * (plotW / (n - 1)));
+  const Y = (v) => padT + plotH - (v / max) * plotH;
+  const grid = [0, max / 2, max].map((g) =>
+    `<line class="lc-grid" x1="${padL}" y1="${Y(g).toFixed(1)}" x2="${W - padR}" y2="${Y(g).toFixed(1)}"/>` +
+    `<text class="lc-ytxt" x="${padL - 4}" y="${(Y(g) + 3).toFixed(1)}">${abbrevUsd(g)}</text>`).join('');
+  const lines = series.map((s) => {
+    const pts = fyList.map((fy, i) => `${X(i).toFixed(1)},${Y(s.byFy[fy] || 0).toFixed(1)}`).join(' ');
+    const dots = fyList.map((fy, i) => `<circle cx="${X(i).toFixed(1)}" cy="${Y(s.byFy[fy] || 0).toFixed(1)}" r="2.4" fill="${s.color}"/>`).join('');
+    return `<polyline points="${pts}" fill="none" stroke="${s.color}" stroke-width="2.1" stroke-linejoin="round"/>${dots}`;
   }).join('');
-  return `<div class="year-legend"><span class="lg lg-op">${labels.op}</span><span class="lg lg-con">${labels.con}</span></div>
-  <div class="year-chart">${bars}</div>`;
+  const xlabels = fyList.map((fy, i) =>
+    `<text class="lc-xtxt" x="${X(i).toFixed(1)}" y="${H - 9}">${fy.replace('FY', '').replace(/^20/, '')}${partialFy.includes(fy) ? '∗' : ''}</text>`).join('');
+  const hits = fyList.map((fy, i) => {
+    const w = n <= 1 ? plotW : plotW / (n - 1);
+    return `<rect class="yc-hit" data-fy="${fy}" x="${(X(i) - w / 2).toFixed(1)}" y="${padT}" width="${w.toFixed(1)}" height="${plotH}" fill="transparent"/>`;
+  }).join('');
+  const legend = series.map((s) => `<span class="lg"><span class="lg-sw" style="background:${s.color}"></span>${escapeHtml(s.label)}</span>`).join('');
+  return `<div class="line-legend">${legend}</div>
+  <svg class="line-chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Warrant spend by category and fiscal year">${grid}${lines}${xlabels}${hits}</svg>`;
 }
 
 function renderPage(t, data) {
@@ -334,6 +338,19 @@ function renderPage(t, data) {
   const topN = vendors.slice(0, 100);
   const periodTxt = `${stats.minDate.slice(0, 4)}–${stats.maxDate.slice(0, 4)}`;
   const catLabel = (id) => { const c = categories.find((x) => x.id === id); return c ? c.label[t.lang] : id; };
+
+  // Four trajectory lines: discretionary operating vs the three "not-really-elective" buckets.
+  const catByFy = (cat) => Object.fromEntries(fyList.map((fy) => [fy, Math.round((categoryByFy[fy]?.[cat] || 0) * 100) / 100]));
+  const opByFy = Object.fromEntries(fyList.map((fy) => {
+    const con = constructionByFy[fy] || 0, ben = categoryByFy[fy]?.benefits || 0, cha = categoryByFy[fy]?.charter || 0;
+    return [fy, Math.round(Math.max(0, (totalByFy[fy] || 0) - con - ben - cha) * 100) / 100];
+  }));
+  const lineSeries = [
+    { label: t.opLabel, color: '#2d5a3f', byFy: opByFy },
+    { label: catLabel('benefits'), color: '#8a4fb0', byFy: catByFy('benefits') },
+    { label: catLabel('charter'), color: '#2f6fb0', byFy: catByFy('charter') },
+    { label: catLabel('construction'), color: '#c4842d', byFy: constructionByFy },
+  ];
 
   const rowsHtml = topN.map((v, i) => `
     <tr>
@@ -390,7 +407,7 @@ ${siteNav({ activePage: 'budget', lang: t.lang, altLangHref: t.alt })}
     </div>
     <div class="trend-block">
       <h2 class="trend-h">${t.trendHeading}</h2>
-      ${yearChart(totalByFy, constructionByFy, fyList, partialFy, t.fmtLoc, { op: t.opLabel, con: t.conLabel })}
+      ${lineChart(lineSeries, fyList, partialFy)}
       <p class="partial-note">${t.partialNote}</p>
     </div>
   </header>
@@ -485,14 +502,13 @@ chips.addEventListener('click', (e) => {
   apply();
 });
 
-// Rich per-year hover: show the full category breakdown for the hovered fiscal-year bar.
+// Rich per-year hover: show the full category breakdown for the hovered fiscal-year column.
 (function(){
-  const chart = document.querySelector('.year-chart');
+  const chart = document.querySelector('.line-chart');
   if(!chart) return;
   const tip = document.createElement('div');
   tip.className = 'yc-tip'; tip.hidden = true;
   document.body.appendChild(tip);
-  const fyOf = lbl => 'FY' + (lbl.replace('∗','').length===5 ? '20'+lbl.replace('∗','') : lbl.replace('∗',''));
   function build(fy){
     const cats = CAT_BY_FY[fy] || {};
     const rows = Object.entries(cats).sort((a,b)=>b[1]-a[1]);
@@ -505,10 +521,8 @@ chips.addEventListener('click', (e) => {
     return html;
   }
   chart.addEventListener('mouseover', e => {
-    const bar = e.target.closest('.ybar'); if(!bar) return;
-    const lbl = bar.querySelector('.ybar-lbl').textContent;
-    tip.innerHTML = build(fyOf(lbl)); tip.hidden = false; bar.removeAttribute('title');
-    bar.querySelectorAll('[title]').forEach(x=>x.removeAttribute('title'));
+    const hit = e.target.closest('.yc-hit'); if(!hit) return;
+    tip.innerHTML = build(hit.dataset.fy); tip.hidden = false;
   });
   chart.addEventListener('mousemove', e => {
     if(tip.hidden) return;
@@ -553,28 +567,20 @@ const PAGE_CSS = `
 .coverage-note{font-size:.92rem;color:var(--ink-soft);max-width:64ch;margin:1rem 0 0;padding:.7rem .9rem;background:var(--green-50);border-left:3px solid var(--green-400);border-radius:0 8px 8px 0}
 .trend-block{margin-top:1.8rem}
 .trend-h{font-family:var(--font-display);font-size:1.15rem;margin:0 0 .8rem}
-.year-chart{display:flex;align-items:flex-end;gap:.6rem;height:140px}
-.ybar{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:90px;height:100%}
-.ybar-val{font-family:var(--font-mono);font-size:.72rem;color:var(--green-800);margin-bottom:.25rem;white-space:nowrap}
-.ybar-stack{width:100%;display:flex;flex-direction:column;justify-content:flex-end;border-radius:3px 3px 0 0;overflow:hidden}
-.ybar-con{width:100%;background:var(--amber)}
-.ybar-op{width:100%;background:var(--green-600)}
-.ybar:hover .ybar-op{background:var(--green-800)}
-.ybar.partial .ybar-op{background:var(--green-300)}
-.ybar.partial .ybar-con{background:var(--amber-light)}
-.ybar.partial .ybar-val{color:var(--ink-soft)}
-.year-legend{display:flex;gap:1.1rem;margin:.2rem 0 .7rem;font-size:.78rem;color:var(--ink-soft)}
-.lg{display:inline-flex;align-items:center}
-.lg::before{content:"";width:11px;height:11px;border-radius:2px;margin-right:.35rem}
-.lg-op::before{background:var(--green-600)}
-.lg-con::before{background:var(--amber)}
-.year-chart .ybar{cursor:default}
+.line-legend{display:flex;flex-wrap:wrap;gap:.4rem 1.1rem;margin:.2rem 0 .6rem;font-size:.8rem;color:var(--ink)}
+.line-legend .lg{display:inline-flex;align-items:center}
+.line-legend .lg-sw{width:14px;height:3px;border-radius:2px;margin-right:.4rem;display:inline-block}
+.line-chart{width:100%;height:auto;display:block;overflow:visible}
+.line-chart .lc-grid{stroke:var(--green-100);stroke-width:1}
+.line-chart .lc-ytxt{fill:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:9px;text-anchor:end}
+.line-chart .lc-xtxt{fill:var(--ink-soft);font-family:'IBM Plex Mono',monospace;font-size:9px;text-anchor:middle}
+.line-chart .yc-hit{cursor:crosshair}
+.line-chart .yc-hit:hover{fill:rgba(45,90,63,.05)}
 .yc-tip{position:fixed;z-index:50;pointer-events:none;background:#fff;border:1px solid var(--green-200);border-radius:8px;box-shadow:0 6px 22px rgba(0,0,0,.16);padding:.55rem .7rem;font-size:.8rem;min-width:210px;max-width:300px}
 .yc-tip-h{font-family:var(--font-mono);font-weight:600;color:var(--green-800);border-bottom:1px solid var(--green-100);padding-bottom:.3rem;margin-bottom:.3rem}
 .yc-tip-row{display:flex;justify-content:space-between;gap:1rem;padding:.13rem 0;line-height:1.25}
 .yc-tip-amt{font-family:var(--font-mono);white-space:nowrap}
 .yc-tip-amt em{color:var(--ink-soft);font-style:normal}
-.ybar-lbl{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-soft);margin-top:.35rem}
 .partial-note{font-size:.76rem;color:var(--ink-soft);font-style:italic;margin:.6rem 0 0}
 .search-sec{margin:2rem 0 1rem}
 .search-label{display:block;font-weight:600;margin-bottom:.4rem}
@@ -612,8 +618,8 @@ th.r-total,th.r-checks,th.r-trend{text-align:right}
   .vendors-hero{padding:1rem 0 1rem}
   .stat-grid{grid-template-columns:1fr 1fr;gap:.7rem}
   .stat-num{font-size:1.2rem}
-  .year-chart{gap:.3rem;height:120px}
-  .ybar-val,.ybar-lbl{font-size:.58rem}
+  .line-legend{font-size:.72rem;gap:.3rem .8rem}
+  .line-chart .lc-xtxt,.line-chart .lc-ytxt{font-size:11px}
   .chip{font-size:.68rem;padding:.2rem .5rem}
   .vtable{font-size:.88rem}
   .vtable th,.vtable td{padding:.45rem .3rem}
