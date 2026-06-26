@@ -17,252 +17,107 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two agenda changes announced: Item 10.1 pulled/held for further information; Item 9.3 moved from consent to action for elaboration",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Item 10.1 pulled - will not discuss tonight, will come forward at another time. Item 9.3 moved from consent to action for discussion and individual vote.",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
+        "intro_words": "Call to Order",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Here. Vice President Lawson. Here. President Marquez. Here. Thank",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "You. Good evening, everyone. Welcome to another Redwood City School",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "District study session. And I'm just going to read a",
+        "intro_words": "Welcome by the School Board President, Cecilia Marquez - presented by President Marquez at opening",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And with that, is there any oral communication? We have",
-        "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "And with that, moving on to our study session discussion",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Approval of the Agenda (Action required) and Approval of the",
-        "status": "not_found"
-      },
-      {
-        "item": 8,
-        "intro_words": "Approval of the Agenda. Are there any changes to the",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "Yes, it is going to be 10.1. We are going",
+        "intro_words": "Does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "And with that, does somebody want to make a motion",
+        "intro_words": "moving on to bond program consent Items, again with 9.3. That move to action.",
         "status": "found"
       },
       {
-        "item": 12,
-        "intro_words": "And with that, moving on to bond program consent items, again",
+        "item": 11.1,
+        "intro_words": "Approval of proposal for the infrastructure of two video intercom buzzers with Atlas Pelissari",
+        "status": "found"
+      },
+      {
+        "item": "11.1_hoover",
+        "intro_words": "moving to 11.11.1 being Hoover and Henry Ford school presentations for the 2324 school year.",
+        "status": "found"
+      },
+      {
+        "item": "11.1_henry_ford",
+        "intro_words": "Next. Okay, so next we have Henry 14, Ms. Knopf, and Hema. All right, so good evening.",
+        "status": "found"
+      },
+      {
+        "item": 12.1,
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
+        "status": "found"
+      },
+      {
+        "item": 12.2,
+        "intro_words": "So with that we could move on to 12.2. Again, First Reading and Discussion of Foreign Policy",
+        "status": "found"
+      },
+      {
+        "item": 12.3,
+        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
+        "status": "found"
+      },
+      {
+        "item": 12.4,
+        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171 Title 1 programs.",
+        "status": "found"
+      },
+      {
+        "item": 12.5,
+        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use of technology.",
+        "status": "found"
+      },
+      {
+        "item": 12.6,
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal",
+        "intro_words": "Okay. All right. Yep. Okay, great. Thank you. Yeah. And so moving to item 13, consent items.",
         "status": "found"
       },
       {
-        "item": 14,
-        "intro_words": "So again, moving to 11.11.1 being Hoover and Henry Ford",
+        "item": 14.1,
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five to approve continued funding",
         "status": "found"
       },
       {
-        "item": 15,
-        "intro_words": "So we are going to begin to share information about",
-        "status": "consent_bundle"
+        "item": 14.2,
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023",
+        "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "Good evening trustees, Dr. Baker and cabinet members. I'm Mr.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 17,
-        "intro_words": "All right, so my name is John Michael Gomez. Good",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 18,
-        "intro_words": "And I'm Alma Rosas. I'm the community school coordinator. All",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 19,
-        "intro_words": "So this concludes our presentation. Thank you so much. And",
-        "status": "found"
-      },
-      {
-        "item": 20,
-        "intro_words": "All right, so good evening. President Marquez, Superintendent, Dr. Baker",
-        "status": "found"
-      },
-      {
-        "item": 21,
-        "intro_words": "So I've kind of talked to teachers about like what",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 22,
-        "intro_words": "Good evening. I'm just, I first want to say that",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 23,
-        "intro_words": "Hi everybody. I'm so excited to be here in my",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 24,
-        "intro_words": "So this last one's short. Okay, so the last one",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 25,
-        "intro_words": "So moving to item 12 for discussion. 12.1 being first",
-        "status": "found"
-      },
-      {
-        "item": 26,
-        "intro_words": "Good evening. Well, we are here tonight with a variety",
-        "status": "found"
-      },
-      {
-        "item": 27,
-        "intro_words": "Are there any other specific questions regarding this policy?",
-        "status": "found"
-      },
-      {
-        "item": 28,
-        "intro_words": "With that we could move on to 12.2. Again, First",
-        "status": "found"
-      },
-      {
-        "item": 29,
-        "intro_words": "Moving on to 12.3, which is BP and AR 6020",
-        "status": "found"
-      },
-      {
-        "item": 30,
-        "intro_words": "Looks like none. Thank you again for all the responses.",
-        "status": "found"
-      },
-      {
-        "item": 31,
-        "intro_words": "So with that 12.5 first reading of BP 6163.4 student",
-        "status": "found"
-      },
-      {
-        "item": 32,
-        "intro_words": "Moving on to 12.6 first reading and discussion of board",
-        "status": "found"
-      },
-      {
-        "item": 33,
-        "intro_words": "And with that, it is 9:03. Do we want",
-        "status": "found"
-      },
-      {
-        "item": 34,
-        "intro_words": "Okay. I'm fine too. Okay, great. Just. Just wanted",
-        "status": "found"
-      },
-      {
-        "item": 35,
-        "intro_words": "All right. Yep. Okay, great. Thank you. Yeah. And",
-        "status": "found"
-      },
-      {
-        "item": 36,
-        "intro_words": "Yeah, this is a regular one. Can you just clarify?",
-        "status": "found"
-      },
-      {
-        "item": 37,
-        "intro_words": "14.2 Adoption of annual organizational meeting date set for",
-        "status": "found"
-      },
-      {
-        "item": 38,
-        "intro_words": "Okay, so now on to board and superintendent report. I",
-        "status": "found"
-      },
-      {
-        "item": 39,
-        "intro_words": "Just two things we had. The RCTA climate committee meeting",
-        "status": "found"
-      },
-      {
-        "item": 40,
-        "intro_words": "Yeah, that's it for me was the cboc. They kind",
-        "status": "found"
-      },
-      {
-        "item": 41,
-        "intro_words": "So that's pretty much what was covered. There was a",
-        "status": "found"
-      },
-      {
-        "item": 42,
-        "intro_words": "Let's see. We had a San Mateo County School Boards",
-        "status": "found"
-      },
-      {
-        "item": 43,
-        "intro_words": "And then I will say we're going to be talking",
-        "status": "found"
-      },
-      {
-        "item": 44,
-        "intro_words": "And then finally, I just want to let you know",
-        "status": "found"
-      },
-      {
-        "item": 45,
-        "intro_words": "All I have is I attended the Oye Planning committee,",
-        "status": "found"
-      },
-      {
-        "item": 46,
-        "intro_words": "The only thing I have at this point in time",
-        "status": "found"
-      },
-      {
-        "item": 47,
-        "intro_words": "So moving on to item 16.1, information on San Mateo",
-        "status": "found"
-      },
-      {
-        "item": 48,
-        "intro_words": "And corresponding correspondence. Yeah, I got a correspondence from. I",
-        "status": "found"
-      },
-      {
-        "item": 49,
-        "intro_words": "Okay, so moving on to item 18. Other business possible",
-        "status": "found"
-      },
-      {
-        "item": 50,
-        "intro_words": "Okay, so moving on to board meeting calendar. Are there",
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund. Are there any questions?",
         "status": "found"
       }
     ]
@@ -270,6 +125,7 @@
   "result": {
     "videoId": "LPmyvuhgudA",
     "items": [
+      null,
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
@@ -277,52 +133,33 @@
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
-      },
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
-      {
-        "timestamp": "00:00:12",
-        "timestampSeconds": 12
-      },
-      {
-        "timestamp": "00:00:49",
-        "timestampSeconds": 49
-      },
-      {
-        "timestamp": "00:00:49",
-        "timestampSeconds": 49
       },
       null,
       {
-        "timestamp": "00:00:59",
-        "timestampSeconds": 59
-      },
-      {
-        "timestamp": "01:10:00",
-        "timestampSeconds": 4200
+        "timestamp": "01:10:10",
+        "timestampSeconds": 4210
       },
       null,
       {
         "timestamp": "01:10:41",
         "timestampSeconds": 4241
       },
+      null,
+      null,
+      null,
       {
-        "timestamp": "01:11:15",
-        "timestampSeconds": 4275
+        "timestamp": "01:11:21",
+        "timestampSeconds": 4281
       },
+      null,
       {
-        "timestamp": "01:11:26",
-        "timestampSeconds": 4286
+        "timestamp": "03:03:30",
+        "timestampSeconds": 11010
       },
-      {
-        "timestamp": "01:13:31",
-        "timestampSeconds": 4411
-      }
+      null
     ]
   },
-  "cachedAt": "2026-05-28T19:42:21.152Z",
+  "cachedAt": "2026-06-26T01:09:58.163Z",
   "inputTokens": 37863,
-  "outputTokens": 2322
+  "outputTokens": 1172
 }

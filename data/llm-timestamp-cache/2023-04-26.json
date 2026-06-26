@@ -6,181 +6,78 @@
     "Welcome",
     "Welcome by the School Board President, Cecilia Márquez",
     "Changes to the Agenda",
-    "Additions, Deletions or Modifications to the Agenda",
-    "Approval of the Agenda (Action Required)",
+    "Additions, Deletions or Modifications to the agenda.",
     "Approval of Agenda",
-    "Oral Communication on Closed Session Items Only",
-    "If you have a public comment related to a Closed Session item, please post it on the links available under Public Content prior to the Closed Session Meeting or immediately upon the meeting opening.",
-    "Closed Session – 5:20 PM",
-    "Approval of Comprehensive School Safety Plans (Tactical / Non-Public) 2022-2023",
-    "Conference with Labor Negotiators (§54957.6) Agency designated representative: Wendy Kelly Employee organization: RCTA",
-    "Conference with Labor Negotiators (§54957.6) Agency designated representative: Wendy Kelly Employee organization: CSEA",
-    "RCAA Negotiations Update with District Representative, Superintendent Baker, (§54957.6)",
-    "Adjournment (Action Required)",
+    "Approval of Agenda",
+    "Oral Communication",
+    "If you have public comment related to a Study Session Board Meeting item, please post it on the links available under Public Content prior to the Study Session Board Meeting or immediately upon the meeting opening.",
+    "Information",
+    "Bond Oversight Committee Roles and Responsibilities",
+    "Adjournment",
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (recognition of classified employees) was moved from later in the agenda to immediately after the changes to agenda section and before oral communication. Additionally, items 6.1 (bond program consent items), 6.2, and 6.3 were moved from consent to action items due to public comments received.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its posted position to immediately after oral communication, before other agenda items. Additionally, item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action due to public comments received. Items 6.2 and 6.3 were also moved to action. A staff recognition for Wendy Kelly was added to item 13.1.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Evelyn. Trustee Weekley. Present. Trustee McEvoy. Present.",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "Thank you. Next item is 1.2 reported on closed session.",
-        "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "And so item 6.2 through 6.4, we will come back at the end",
+        "intro_words": "Next item is 1.2 reported on closed session.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
-        "status": "found"
-      },
-      {
-        "item": 6,
         "intro_words": "And are there any changes to the agenda?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "With that, if there's no other changes to the agenda, can I please",
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
         "status": "found"
       },
       {
         "item": 13.1,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
-        "item": 8,
+        "item": 6.2,
+        "intro_words": "Item 6.2, Approval of Measure T bond program tracking list of items under 20,000.",
+        "status": "found"
+      },
+      {
+        "item": 6.3,
+        "intro_words": "6.3, approval of proposal for the furnishing and installation of the water pump",
+        "status": "found"
+      },
+      {
+        "item": 7.1,
+        "intro_words": "And then bond program action items 7.1, approval of measure T final projects list.",
+        "status": "found"
+      },
+      {
+        "item": 7.2,
+        "intro_words": "7.2. Approval of amendment number two to the Program Management Services Agreement with RGMK.",
+        "status": "found"
+      },
+      {
+        "item": 8.1,
         "intro_words": "Okay, so item 8, school and community reports. 8.1.",
         "status": "found"
       },
       {
-        "item": "8.1a",
-        "intro_words": "Yeah, so it's with great enthusiasm that we present our final two",
-        "status": "found"
-      },
-      {
-        "item": "8.1b",
-        "intro_words": "Good evening. Good evening. Dr. Baker, President Marquez, Vice President",
-        "status": "found"
-      },
-      {
-        "item": "8.1c",
-        "intro_words": "Hello. I'm Fannie Gonzalez Sprouse. I'm the assistant principal",
-        "status": "found"
-      },
-      {
-        "item": "8.1d",
-        "intro_words": "So I'm Lisette Hernandez. I'm the community school coordinator",
-        "status": "found"
-      },
-      {
-        "item": "8.2",
-        "intro_words": "Good evening Superintendent, Dr. Baker, President Marquez, cabinet members",
-        "status": "found"
-      },
-      {
-        "item": "8.2a",
-        "intro_words": "So goal one is designed to ensure our students social emotional",
-        "status": "found"
-      },
-      {
-        "item": "8.2b",
-        "intro_words": "Hi everybody. I'm so excited to be here to talk about",
-        "status": "found"
-      },
-      {
-        "item": "8.2c",
-        "intro_words": "Thank you. I'm Nicole Crawford. I'm the assistant principal at Henry",
-        "status": "found"
-      },
-      {
-        "item": "8.2d",
-        "intro_words": "All right, so if you go to the next slide.",
-        "status": "found"
-      },
-      {
-        "item": "8.2e",
-        "intro_words": "pulls back up. All right, so if you go to the next",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "I'm right. So moving along then, we're on to item nine,",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "So moving on to consent items, can I please get a motion",
-        "status": "found"
-      },
-      {
-        "item": "11.1",
-        "intro_words": "Hi. Hi. And action. Item 11.1, approval of recruitment incentive stipend",
-        "status": "found"
-      },
-      {
-        "item": "11.2",
-        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment",
-        "status": "found"
-      },
-      {
         "item": 12,
-        "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "intro_words": "Great. So I know it's been a long day, but I just want to say",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And then information Items. We move 13.1.",
-        "status": "found"
-      },
-      {
-        "item": "13.2",
-        "intro_words": "So 13.2 is contract update information and credit card summary",
-        "status": "found"
-      },
-      {
-        "item": "13.3",
-        "intro_words": "And then 13.3 information on San Mateo county investment fund",
-        "status": "found"
-      },
-      {
-        "item": "13.4",
-        "intro_words": "And then 13.4 information, the SEO county for March.",
-        "status": "found"
-      },
-      {
-        "item": "14",
-        "intro_words": "Okay, great. Thank you. Correspondence. Continue to get public records.",
-        "status": "found"
-      },
-      {
-        "item": "15",
-        "intro_words": "And okay. Any possible other business or suggested items.",
-        "status": "found"
-      },
-      {
-        "item": "16",
-        "intro_words": "And then any changes to the board meeting calendar?",
-        "status": "found"
-      },
-      {
-        "item": "17",
-        "intro_words": "Okay, so does somebody want to make a motion to adjourn",
+        "intro_words": "We have another one coming up. And she is ready. Henry Ford.",
         "status": "found"
       }
     ]
@@ -196,54 +93,33 @@
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
-      },
+      null,
+      null,
       {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
-      {
-        "timestamp": "00:02:28",
-        "timestampSeconds": 148
-      },
-      {
-        "timestamp": "00:20:22",
-        "timestampSeconds": 1222
-      },
-      {
-        "timestamp": "03:10:16",
-        "timestampSeconds": 11416
-      },
-      {
-        "timestamp": "03:16:26",
-        "timestampSeconds": 11786
-      },
       null,
       {
-        "timestamp": "03:18:59",
-        "timestampSeconds": 11939
-      },
-      {
-        "timestamp": "03:26:42",
-        "timestampSeconds": 12402
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
       },
       null,
       null,
       null,
+      null,
+      {
+        "timestamp": "01:20:05",
+        "timestampSeconds": 4805
+      },
+      {
+        "timestamp": "01:32:27",
+        "timestampSeconds": 5547
+      },
       null
     ]
   },
-  "cachedAt": "2026-05-28T19:42:58.052Z",
-  "inputTokens": 43596,
-  "outputTokens": 1623
+  "cachedAt": "2026-06-26T01:10:16.210Z",
+  "inputTokens": 43475,
+  "outputTokens": 733
 }
