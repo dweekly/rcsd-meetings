@@ -1,40 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="index, follow">
-<title>Blog — RCSD Open Data</title>
-<meta name="description" content="Blog posts about the rcsd.info open data project for the Redwood City School District.">
+<title>¿A quién le paga el distrito? Ahora lo puedes buscar — RCSD Open Data</title>
+<meta name="description" content="Cada cheque que el distrito ha emitido desde 2014, con búsqueda por proveedor y por año fiscal — hecho con los registros de cheques aprobados por la junta. Y una mirada honesta a si de verdad creció el gasto: en su mayoría es construcción de bonos y dinero de paso a las chárter, no la operación base.">
 <meta name="theme-color" content="#1a3a2a">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="canonical" href="https://rcsd.info/blog/">
-<link rel="alternate" hreflang="en" href="https://rcsd.info/blog/">
-<link rel="alternate" hreflang="es" href="https://rcsd.info/blog/es/">
-<meta property="og:title" content="Blog — RCSD Open Data">
-<meta property="og:description" content="Blog posts about the rcsd.info open data project for the Redwood City School District.">
-<meta property="og:url" content="https://rcsd.info/blog/">
+<link rel="canonical" href="https://rcsd.info/blog/gastos-a-proveedores/">
+<link rel="alternate" hreflang="en" href="https://rcsd.info/blog/vendor-spending/">
+<link rel="alternate" hreflang="es" href="https://rcsd.info/blog/gastos-a-proveedores/">
+<meta property="og:title" content="¿A quién le paga el distrito? Ahora lo puedes buscar — RCSD Open Data">
+<meta property="og:description" content="Cada cheque que el distrito ha emitido desde 2014, con búsqueda por proveedor y por año fiscal — hecho con los registros de cheques aprobados por la junta. Y una mirada honesta a si de verdad creció el gasto: en su mayoría es construcción de bonos y dinero de paso a las chárter, no la operación base.">
+<meta property="og:url" content="https://rcsd.info/blog/gastos-a-proveedores/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://data.rcsd.info/og/page-blog.png">
+<meta property="og:image" content="https://data.rcsd.info/og/blog-gastos-a-proveedores.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Blog — RCSD Open Data">
-<meta property="og:locale" content="en_US">
+<meta property="og:image:alt" content="¿A quién le paga el distrito? Ahora lo puedes buscar — RCSD Open Data">
+<meta property="og:locale" content="es_US">
 <meta property="og:site_name" content="RCSD Open Data">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://data.rcsd.info/og/page-blog.png">
-<meta name="twitter:title" content="Blog — RCSD Open Data">
-<meta name="twitter:description" content="Blog posts about the rcsd.info open data project for the Redwood City School District.">
+<meta name="twitter:image" content="https://data.rcsd.info/og/blog-gastos-a-proveedores.png">
+<meta name="twitter:title" content="¿A quién le paga el distrito? Ahora lo puedes buscar — RCSD Open Data">
+<meta name="twitter:description" content="Cada cheque que el distrito ha emitido desde 2014, con búsqueda por proveedor y por año fiscal — hecho con los registros de cheques aprobados por la junta. Y una mirada honesta a si de verdad creció el gasto: en su mayoría es construcción de bonos y dinero de paso a las chárter, no la operación base.">
 <link rel="describedby" href="/llms.txt">
 <link rel="preload" href="/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/newsreader-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "¿A quién le paga el distrito? Ahora lo puedes buscar",
+  "description": "Cada cheque que el distrito ha emitido desde 2014, con búsqueda por proveedor y por año fiscal — hecho con los registros de cheques aprobados por la junta. Y una mirada honesta a si de verdad creció el gasto: en su mayoría es construcción de bonos y dinero de paso a las chárter, no la operación base.",
+  "datePublished": "2026-06-25",
+  "author": {
+    "@type": "Person",
+    "name": "David Weekly",
+    "url": "https://david.weekly.org"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RCSD Open Data",
+    "url": "https://rcsd.info"
+  },
+  "url": "https://rcsd.info/blog/gastos-a-proveedores/",
+  "inLanguage": "es",
+  "mainEntityOfPage": "https://rcsd.info/blog/gastos-a-proveedores/"
+}
+</script>
 
 <style>
 
@@ -464,76 +485,88 @@
 <body>
 
 <nav class="site-nav">
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
   <div class="site-nav-inner">
     <div class="site-nav-tabs">
-      <a href="/" class="site-nav-tab">Home</a>
-      <a href="/meetings/" class="site-nav-tab">Meetings</a>
-      <a href="/schools/" class="site-nav-tab">Schools</a>
-      <a href="/district/" class="site-nav-tab">District</a>
-      <a href="/budget/" class="site-nav-tab">Budget</a>
-      <a href="/committees/" class="site-nav-tab">Committees</a>
-      <a href="/blog/" class="site-nav-tab active">Blog</a>
+      <a href="/" class="site-nav-tab">Inicio</a>
+      <a href="/reuniones/" class="site-nav-tab">Reuniones</a>
+      <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
+      <a href="/distrito/" class="site-nav-tab">Distrito</a>
+      <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/comites/" class="site-nav-tab">Comités</a>
+      <a href="/blog/es/" class="site-nav-tab active">Blog</a>
     </div>
     <div class="site-nav-right">
-      <form class="site-nav-search" role="search" action="/search/" method="get"><input type="search" name="q" placeholder="Search…" aria-label="Search" autocomplete="off"><button type="submit" class="site-nav-search-btn" aria-label="Search">🔍</button></form>
-      <a href="/blog/es/" class="site-nav-lang">ES</a>
+      <form class="site-nav-search" role="search" action="/buscar/" method="get"><input type="search" name="q" placeholder="Buscar…" aria-label="Buscar" autocomplete="off"><button type="submit" class="site-nav-search-btn" aria-label="Buscar">🔍</button></form>
+      <a href="/blog/vendor-spending/" class="site-nav-lang">EN</a>
     </div>
   </div>
 </nav>
 <span id="main-content" tabindex="-1"></span>
 
-<header class="blog-header">
-  <div class="blog-header-inner">
-    <h1>Blog</h1>
-    <p>Updates on the rcsd.info open data project.</p>
+<header class="post-header">
+  <div class="post-header-inner">
+    <div class="post-meta">
+      <span class="post-date">25 de junio de 2026</span>
+      <span class="post-author">por <a href="https://david.weekly.org">David Weekly</a></span>
+    </div>
+    <h1>¿A quién le paga el distrito? Ahora lo puedes buscar</h1>
+    <p class="post-subtitle">Cada cheque que el distrito ha emitido desde 2014, con búsqueda por proveedor y por año. Siempre fue información pública — nada más que no era fácil de leer, hasta ahora.</p>
   </div>
 </header>
 
-<div class="blog-list">
-    <a href="/blog/vendor-spending/" class="blog-post-card">
-      <div class="blog-card-date">June 25, 2026</div>
-      <div class="blog-card-title">Who does the district pay? Now you can look it up</div>
-      <div class="blog-card-excerpt">A new Vendor Spending page, under Budget, indexes a decade-plus of district checks: search any vendor, see year-by-year totals, browse by category. And it answers the obvious question — did we really triple our spending? Mostly no: the big swings are bond construction and pass-through, not baseline operating.</div>
-    </a>
-    <a href="/blog/june-tune-up/" class="blog-post-card">
-      <div class="blog-card-date">June 10, 2026</div>
-      <div class="blog-card-title">A big June tune-up (and two mistakes to own up to)</div>
-      <div class="blog-card-excerpt">The board's 619 policies now have searchable Spanish titles. Every school page shows who teaches there. The site behaves on a phone. And two bugs in our own data — doubled English Learner counts and 22 broken Spanish transcripts — that we found and fixed.</div>
-    </a>
-    <a href="/blog/search/" class="blog-post-card">
-      <div class="blog-card-date">May 31, 2026</div>
-      <div class="blog-card-title">Now you can search the whole thing</div>
-      <div class="blog-card-excerpt">There's a search box now. Type a school, a topic, a dollar figure — it searches six years of public record in English or Spanish, and links straight to the document, not just the meeting that mentioned it.</div>
-    </a>
-    <a href="/blog/charter-schools-and-mcp-fix/" class="blog-post-card">
-      <div class="blog-card-date">April 20, 2026</div>
-      <div class="blog-card-title">Charter schools, district property, and a small MCP fix</div>
-      <div class="blog-card-excerpt">Three RCSD-authorized charters were a 404 on the site for months because a branch never merged. Tonight they're live, the /schools/ index has three sections instead of one, and the MCP tool can finally see what each board item actually proposes.</div>
-    </a>
-    <a href="/blog/two-weeks-in/" class="blog-post-card">
-      <div class="blog-card-date">March 26, 2026</div>
-      <div class="blog-card-title">Two weeks in: from 58 meetings to 189</div>
-      <div class="blog-card-excerpt">Two weeks ago I launched rcsd.info with 58 meetings. Yesterday I announced it at the board meeting. In between, the corpus tripled.</div>
-    </a>
-    <a href="/blog/open-data-for-rcsd/" class="blog-post-card">
-      <div class="blog-card-date">March 13, 2026</div>
-      <div class="blog-card-title">Open data for a school district: why and how</div>
-      <div class="blog-card-excerpt">Public school districts produce a staggering amount of public data, but almost none of it is easy to find or understand. I built rcsd.info to change that.</div>
-    </a>
-</div>
+<main class="post-content">
+  <div class="post-body">
+
+    <section>
+      <h2>En resumen</h2>
+      <p>Cada mes, la Junta de Síndicos aprueba un "registro de cheques" (warrant register) — la lista de cada cheque que el distrito emitió ese mes. Es información pública, pero vive como PDFs escondidos en los paquetes de las reuniones, un mes a la vez, con miles de líneas cada uno. Sumar un año entero es casi imposible, ni hablar de una década.</p>
+      <p>Así que los sumamos nosotros. Hay una nueva página de <a href="/proveedores/">Gastos a Proveedores</a>, conectada desde la sección de <a href="/presupuesto/">Presupuesto</a>: escribe el nombre de un proveedor y mira cuánto le ha pagado el distrito, por año fiscal, desde 2014. Busca "Sodexo", "PG&amp;E" o el programa de después de clases de tu hijo y tendrás la respuesta en un segundo.</p>
+    </section>
+
+    <section>
+      <h2>Algo importante primero</h2>
+      <p>Estos son cheques de <strong>cuentas por pagar</strong> — pagos a proveedores, contratistas y beneficios. <strong>No</strong> incluyen los salarios del personal. La nómina es por mucho el mayor gasto del distrito y se maneja en un sistema aparte, así que el total grande de la página es dinero real que pagamos, pero no es todo el presupuesto. La página de <a href="/presupuesto/">Presupuesto</a> da el panorama completo; esta es su acompañante, cheque por cheque.</p>
+    </section>
+
+    <section>
+      <h2>¿Estamos gastando mucho más que antes?</h2>
+      <p>Esa fue mi primera pregunta cuando vi que los totales subían de unos $30 millones al año hace una década a casi $95 millones ahora. ¿El triple? No puede ser.</p>
+      <p>En su mayoría, no lo es. La gráfica arriba de la página separa el gasto en líneas distintas, y al verlas la historia queda clara. Los grandes saltos son de <strong>construcción</strong> — los programas de bonos que aprobaron los votantes (las Medidas T y S). Esa línea sube cuando estamos construyendo y baja cuando no; no es un gasto de operación continuo. Otra parte son los <strong>pagos a las chárter</strong>: dinero del estado que pasa por nosotros hacia las escuelas chárter del distrito, y que en realidad no es gasto propio del distrito. Las pensiones y los beneficios, que son obligatorios, se mantienen más o menos planos. Lo que queda — el gasto de operación que de verdad es discrecional — creció poco a poco, no de golpe, y buena parte de ese aumento son servicios de educación especial, que son un costo real y en gran parte obligatorio.</p>
+      <p>Entonces, la respuesta honesta es: nuestro gasto base de operación creció más o menos como uno esperaría, y los saltos grandes son construcción y dinero de paso, no el distrito duplicando sus gastos en silencio. Pasa el cursor por cualquier año de la gráfica para ver el desglose completo.</p>
+    </section>
+
+    <section>
+      <h2>Qué puedes hacer con esto</h2>
+      <p>Busca a cualquiera de los casi 5,000 beneficiarios. Cada uno muestra un total, una mini-gráfica por año y una categoría aproximada — construcción, servicios de educación especial, servicios públicos, alimentos, tecnología, y demás. Haz clic en una categoría para ver quién está en ella, o nada más recorre los beneficiarios más grandes. Los datos también se publican de forma abierta, para quien quiera hacer su propio análisis.</p>
+    </section>
+
+    <section>
+      <h2>Lo que todavía no hace bien</h2>
+      <p>Prefiero decirte los límites a que los descubras. Las categorías son una agrupación aproximada por palabras clave para ayudarte a ojear — no una clasificación contable, y ya he tenido que corregir varias a mano. A unos cuantos contratistas se les paga bajo el nombre de una persona, lo que los hace parecer reembolsos a empleados hasta que los marcamos. Y aunque los registros de la junta llegan hasta 2011, los de 2011–2013 son imágenes escaneadas que nuestras herramientas todavía no pueden leer bien, así que la página empieza en el año fiscal 2014–15. Guardamos esos PDFs viejos y volveremos a ellos.</p>
+      <p>Si ves algo que se ve mal — un proveedor mal categorizado, un nombre que debería unirse, un número que no cuadra — dime. Mucho de lo que ya está correcto aquí salió justo de eso.</p>
+    </section>
+
+    <section>
+      <h2>¿Para qué molestarse?</h2>
+      <p>Un distrito escolar gasta dinero público, y el público debería poder ver cómo — sin hacer una solicitud ni saber qué PDF abrir. Los registros siempre fueron públicos. Esto solo los hace legibles. Échale un vistazo: <a href="/proveedores/">rcsd.info/proveedores</a>.</p>
+    </section>
+
+  </div>
+</main>
+
 
 <footer class="site-footer">
-  <p>Independently compiled from publicly available RCSD documents. Source documents at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>.</p>
+  <p>Preparado con documentos públicos de RCSD. Los documentos originales están disponibles en <a href="https://www.rcsdk8.net">rcsdk8.net</a> y en el <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">portal de la mesa directiva GAMUT</a>.</p>
   <div class="footer-nav">
-    <a href="/">Home</a>
-    <a href="/meetings/">Meetings</a>
-    <a href="/schools/">Schools</a>
-    <a href="/district/">District</a>
-    <a href="/budget/">Budget</a>
-    <a href="/committees/">Committees</a>
-    <a href="/mcp/">API &amp; data for developers</a>
-    <a href="https://github.com/dweekly/rcsd-meetings">Source Code &#8599;</a>
+    <a href="/">Inicio</a>
+    <a href="/reuniones/">Reuniones</a>
+    <a href="/escuelas/">Escuelas</a>
+    <a href="/distrito/">Distrito</a>
+    <a href="/presupuesto/">Presupuesto</a>
+    <a href="/comites/">Comités</a>
+    <a href="/mcp/">API y datos para desarrolladores</a>
+    <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>
     <a href="mailto:team@rcsd.info">team@rcsd.info</a>
   </div>
 </footer>
