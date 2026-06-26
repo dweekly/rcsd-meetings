@@ -587,14 +587,14 @@ const TOP_LEVEL_PAGES = [
     en: {
       kicker: 'DISTRICT SPENDING',
       title: 'Vendor Spending',
-      tagline: 'Every check the district has written since 2020 — searchable by vendor and fiscal year.',
-      badgeParts: ['$560M tracked', '76 warrant registers'],
+      tagline: 'Every check the district has written since 2014 — searchable by vendor and fiscal year.',
+      badgeParts: ['$781M tracked', '143 warrant registers'],
     },
     es: {
       kicker: 'GASTOS DEL DISTRITO',
       title: 'Gastos a Proveedores',
-      tagline: 'Cada cheque que el distrito ha emitido desde 2020 — por proveedor y año fiscal.',
-      badgeParts: ['$560M registrados', '76 registros de cheques'],
+      tagline: 'Cada cheque que el distrito ha emitido desde 2014 — por proveedor y año fiscal.',
+      badgeParts: ['$781M registrados', '143 registros de cheques'],
     },
   },
   {

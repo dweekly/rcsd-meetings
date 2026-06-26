@@ -229,7 +229,7 @@ const T = {
   en: {
     lang: 'en', loc: 'en_US', nav: 'vendors', alt: '/proveedores/', other: '/proveedores/',
     title: 'Vendor Spending — RCSD Open Data',
-    desc: 'Every check the Redwood City School District has written since 2020, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.',
+    desc: 'Every check the Redwood City School District has written since 2014, searchable by vendor and fiscal year. Compiled from board-ratified warrant registers.',
     kicker: 'District spending', h1: 'Vendor Spending', crumbHref: '/budget/', crumb: 'Budget',
     intro: 'Each month the Board of Trustees ratifies a <strong>warrant register</strong> — the list of every check the district issued. This page indexes them into one searchable database so you can see how much the district pays any vendor, and how that changes year over year.',
     statSpend: 'Total disbursed', statVendors: 'Distinct payees', statRegisters: 'Warrant registers', statPeriod: 'Period',
@@ -253,7 +253,7 @@ const T = {
   es: {
     lang: 'es', loc: 'es_US', nav: 'vendors', alt: '/vendors/', other: '/vendors/',
     title: 'Gastos a Proveedores — Datos Abiertos de RCSD',
-    desc: 'Cada cheque que el Distrito Escolar de Redwood City ha emitido desde 2020, con búsqueda por proveedor y año fiscal. Compilado de los registros de cheques aprobados por la junta.',
+    desc: 'Cada cheque que el Distrito Escolar de Redwood City ha emitido desde 2014, con búsqueda por proveedor y año fiscal. Compilado de los registros de cheques aprobados por la junta.',
     kicker: 'Gastos del distrito', h1: 'Gastos a Proveedores', crumbHref: '/presupuesto/', crumb: 'Presupuesto',
     intro: 'Cada mes la Junta de Síndicos aprueba un <strong>registro de cheques</strong> (warrant register) — la lista de cada cheque que emitió el distrito. Esta página los reúne en una base de datos con búsqueda para que veas cuánto le paga el distrito a cualquier proveedor, y cómo cambia año con año.',
     statSpend: 'Total pagado', statVendors: 'Beneficiarios distintos', statRegisters: 'Registros de cheques', statPeriod: 'Período',
