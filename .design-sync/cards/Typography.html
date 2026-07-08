@@ -1,0 +1,59 @@
+<!-- @dsCard group="Foundations" name="Typography" subtitle="Fraunces display, Newsreader body, IBM Plex Mono data labels" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>rcsd.info — Typography</title>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+  body { padding: 2rem; }
+  .spec {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin: 1.6rem 0 0.3rem;
+  }
+  .spec:first-child { margin-top: 0; }
+  h1.demo {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--green-deep);
+    font-optical-sizing: auto;
+  }
+</style>
+</head>
+<body>
+<div class="content">
+  <span class="spec">Fraunces 300 — page titles (h1)</span>
+  <h1 class="demo">Redwood City School District, in the open</h1>
+
+  <span class="spec">Fraunces 400, --green-deep — section heads (h2)</span>
+  <div class="section-head" style="padding-top:0">
+    <h2>Board meetings &amp; decisions</h2>
+    <p>Every agenda, transcript, and vote since 2014</p>
+    <div class="section-rule"></div>
+  </div>
+
+  <span class="spec">Newsreader 400 / 17px / 1.65 — body</span>
+  <p>The district serves about 6,200 students across sixteen schools. Newsreader
+  carries all running text; it reads like a broadsheet, and italics mark
+  <em>secondary, editorial asides</em> rather than emphasis.</p>
+
+  <span class="spec">IBM Plex Mono — data labels, numbers, badges</span>
+  <div class="school-badges">
+    <span class="school-badge school-badge--neighborhood">Neighborhood</span>
+    <span class="school-badge school-badge--choice">Choice</span>
+    <span class="school-badge school-badge--community">Community</span>
+  </div>
+  <span class="school-label">Enrollment (2025–26)</span>
+  <div class="hero-stat" style="text-align:left">
+    <span class="hero-stat-value" style="color:var(--green-deep)">6,214</span>
+  </div>
+</div>
+</body>
+</html>

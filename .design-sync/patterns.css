@@ -1,0 +1,400 @@
+/*
+ * rcsd.info recurring page-level patterns — curated for the claude.ai/design
+ * styles-only sync.
+ *
+ * Provenance: copied verbatim from the site's builders on 2026-07-08:
+ *   - bilingual columns, hero, section heads, quick links, school cards,
+ *     badges, pill links, event rows, resource items, AI section:
+ *     scripts/build-homepage.mjs (homepageCSS)
+ *   - data tables + bar cells: scripts/build-district.mjs
+ * These blocks are hand-curated (the builders keep them as per-page CSS, so
+ * there is no importable export). On re-sync, re-verify against the builders
+ * and re-copy any drifted block. Class names are the site's real vocabulary —
+ * do not rename.
+ */
+
+/* ---- BILINGUAL TWO-COLUMN CORE ---- */
+.bi-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.bi-en {
+  text-align: right;
+  padding-right: 2.5rem;
+}
+.bi-es {
+  text-align: left;
+  padding-left: 2.5rem;
+  border-left: 1px solid var(--rule-light);
+}
+
+/* ---- HERO ---- */
+.hero {
+  background: var(--green-deep);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(74,140,106,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(196,132,45,0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2.5rem;
+  position: relative;
+}
+.hero .bi-es { border-left-color: rgba(255,255,255,0.1); }
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #fff;
+  font-optical-sizing: auto;
+}
+.hero p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+}
+.hero-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hero-stat { display: flex; flex-direction: column; text-align: center; }
+.hero-stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.3rem;
+}
+
+/* ---- CONTENT CONTAINER ---- */
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 0 3rem;
+}
+
+/* ---- SECTION HEADINGS ---- */
+.section-head {
+  padding: 2.5rem 0 0;
+}
+.section-head h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--green-deep);
+  line-height: 1.3;
+}
+.section-head p {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-style: italic;
+  margin-top: 0.3rem;
+}
+.section-rule {
+  height: 1px;
+  background: var(--rule-light);
+  margin-top: 0.8rem;
+}
+
+/* ---- QUICK LINKS ---- */
+.nav-links {
+  padding: 1.5rem 0 0;
+}
+.nav-link-item {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+.nav-link-item:first-child { border-top: 1px solid var(--rule-light); }
+.nav-link-item h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.nav-link-item h3 a {
+  color: var(--green-deep);
+  text-decoration: none;
+}
+.nav-link-item h3 a:hover {
+  color: var(--green-mid);
+  text-decoration: underline;
+}
+.nav-link-item p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ---- CARDS (school-card is the site's canonical card) ---- */
+.school-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+.school-card {
+  position: relative;
+  display: block;
+  background: #fff;
+  border: 1px solid var(--rule-light);
+  padding: 0.8rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.school-card:hover {
+  border-color: var(--green-light);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.school-card:focus-within {
+  border-color: var(--green-light);
+  box-shadow: 0 0 0 2px var(--green-light);
+}
+.school-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.2rem;
+}
+.school-name-link {
+  font-family: 'Fraunces', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--green-deep);
+  transition: color 0.2s;
+}
+.school-grades {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+}
+.school-details {
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+.school-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
+/* ---- BADGES ---- */
+.school-badges {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.4rem;
+}
+.school-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+.school-badge--neighborhood { background: var(--green-wash); color: var(--green-mid); }
+/* Badge text darkened from var(--amber)/var(--coral): those tokens only hit
+   2.27:1 / 3.23:1 on their wash backgrounds; these hit >=4.5:1 (WCAG AA). */
+.school-badge--choice { background: var(--amber-light); color: #7a4f12; }
+.school-badge--community { background: var(--coral-light); color: #9c3f2e; }
+
+/* ---- PILL LINKS (small bordered action links) ---- */
+.school-links {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--rule-light);
+}
+.school-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 30px;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  background: var(--cream);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  color: var(--green-mid);
+  text-decoration: none;
+}
+.school-links a:hover {
+  border-color: var(--green-light);
+  background: var(--green-wash);
+  text-decoration: none;
+}
+
+/* ---- EVENT ROWS ---- */
+.event-row {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+.event-date-inline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+.event-text {
+  font-size: 0.82rem;
+  color: var(--text);
+  display: block;
+  line-height: 1.4;
+}
+.event-summary {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+  line-height: 1.35;
+}
+
+/* ---- RESOURCE ITEMS ---- */
+.resource-item {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule-light);
+}
+.resource-item h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--green-deep);
+  margin-bottom: 0.15rem;
+}
+.resource-item p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+.resource-item a.resource-url {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--green-mid);
+  text-decoration: none;
+}
+.resource-item a.resource-url:hover { text-decoration: underline; }
+
+/* ---- MONO CALLOUT PANEL ---- */
+.ai-section {
+  background: var(--cream-dark);
+  border: 1px solid var(--rule);
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 2rem 0;
+  text-align: left;
+}
+.ai-section h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.ai-section pre {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ---- DATA TABLES (from scripts/build-district.mjs) ---- */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.2rem 0 1.5rem;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+thead th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 2px solid var(--green-deep);
+  white-space: nowrap;
+}
+thead th.num { text-align: right; }
+tbody td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--rule-light);
+  vertical-align: top;
+}
+tbody td.num {
+  text-align: right;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: 2px solid var(--rule); }
+tbody tr.total-row td {
+  font-weight: 500;
+  border-top: 2px solid var(--green-deep);
+  border-bottom: 2px solid var(--green-deep);
+  background: var(--green-wash);
+}
+tbody tr:hover td { background: var(--green-wash); }
+
+/* ---- BAR CELLS (inline data bars in tables) ---- */
+.bar-cell {
+  position: relative;
+  min-width: 100px;
+}
+.bar {
+  display: inline-block;
+  height: 6px;
+  border-radius: 3px;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  transition: width 0.4s ease;
+}
+.bar-green { background: var(--green-light); }
+.bar-amber { background: var(--amber); }

@@ -1,0 +1,62 @@
+<!-- @dsCard group="Foundations" name="Colors" subtitle="Greens, creams, amber & coral accents, text & rules" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>rcsd.info — Colors</title>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+  body { padding: 2rem; }
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.8rem;
+  }
+  .swatch {
+    background: #fff;
+    border: 1px solid var(--rule-light);
+  }
+  .swatch-chip { height: 56px; }
+  .swatch-meta { padding: 0.5rem 0.7rem; }
+  .swatch-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    color: var(--text);
+    display: block;
+  }
+  .swatch-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--text-muted);
+  }
+</style>
+</head>
+<body>
+<div class="content">
+  <div class="section-head">
+    <h2>Color tokens</h2>
+    <p>Defined in tokens/colors.css — always reference via var(--*)</p>
+    <div class="section-rule"></div>
+  </div>
+  <div style="margin-top:1.2rem" class="swatch-grid">
+    <div class="swatch"><div class="swatch-chip" style="background:var(--green-deep)"></div><div class="swatch-meta"><span class="swatch-name">--green-deep</span><span class="swatch-val">#1a3a2a · headings, hero</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--green-mid)"></div><div class="swatch-meta"><span class="swatch-name">--green-mid</span><span class="swatch-val">#2d5a3f · links</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--green-light)"></div><div class="swatch-meta"><span class="swatch-name">--green-light</span><span class="swatch-val">#4a8c6a · accents, bars</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--green-pale)"></div><div class="swatch-meta"><span class="swatch-name">--green-pale</span><span class="swatch-val">#dcebd5</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--green-wash)"></div><div class="swatch-meta"><span class="swatch-name">--green-wash</span><span class="swatch-val">#f0f6ed · tint bg</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--cream)"></div><div class="swatch-meta"><span class="swatch-name">--cream</span><span class="swatch-val">#faf8f4 · page bg</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--cream-dark)"></div><div class="swatch-meta"><span class="swatch-name">--cream-dark</span><span class="swatch-val">#f2efe8 · panels</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--amber)"></div><div class="swatch-meta"><span class="swatch-name">--amber</span><span class="swatch-val">#c4842d · accent</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--amber-light)"></div><div class="swatch-meta"><span class="swatch-name">--amber-light</span><span class="swatch-val">#f0d9a8 · badge wash</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--coral)"></div><div class="swatch-meta"><span class="swatch-name">--coral</span><span class="swatch-val">#c45d4a · accent</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--coral-light)"></div><div class="swatch-meta"><span class="swatch-name">--coral-light</span><span class="swatch-val">#f5ddd8 · badge wash</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--text)"></div><div class="swatch-meta"><span class="swatch-name">--text</span><span class="swatch-val">#2a2a28 · body</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--text-secondary)"></div><div class="swatch-meta"><span class="swatch-name">--text-secondary</span><span class="swatch-val">#5a5a56</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--text-muted)"></div><div class="swatch-meta"><span class="swatch-name">--text-muted</span><span class="swatch-val">#6b6b64 · AA-safe muted</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--rule)"></div><div class="swatch-meta"><span class="swatch-name">--rule</span><span class="swatch-val">#d4d0c8 · hairlines</span></div></div>
+    <div class="swatch"><div class="swatch-chip" style="background:var(--rule-light)"></div><div class="swatch-meta"><span class="swatch-name">--rule-light</span><span class="swatch-val">#e8e4dc · hairlines</span></div></div>
+  </div>
+</div>
+</body>
+</html>

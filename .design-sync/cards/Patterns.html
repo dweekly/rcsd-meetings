@@ -1,0 +1,81 @@
+<!-- @dsCard group="Foundations" name="Patterns" subtitle="Hero, cards, badges, pill links, data table, bilingual columns" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>rcsd.info — Patterns</title>
+<link rel="stylesheet" href="../../../styles.css">
+<style>
+  .demo-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: block;
+    margin: 2rem 2rem 0.5rem;
+  }
+</style>
+</head>
+<body>
+<span class="demo-label" style="margin-top:1.5rem">.hero + .hero-stats</span>
+<div class="hero">
+  <div class="hero-inner" style="padding:2rem">
+    <h1>What is our school district doing?</h1>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-value">212</span><span class="hero-stat-label">Meetings</span></div>
+      <div class="hero-stat"><span class="hero-stat-value">16</span><span class="hero-stat-label">Schools</span></div>
+      <div class="hero-stat"><span class="hero-stat-value">$118M</span><span class="hero-stat-label">Budget</span></div>
+    </div>
+  </div>
+</div>
+
+<span class="demo-label">.school-grid > .school-card (badges, labels, pill links)</span>
+<div class="school-grid" style="margin:0 2rem">
+  <div class="school-card">
+    <div class="school-card-header">
+      <span class="school-name-link">Orion Alternative</span>
+      <span class="school-grades">TK–5</span>
+    </div>
+    <div class="school-badges"><span class="school-badge school-badge--choice">Choice</span></div>
+    <div class="school-details">
+      <span class="school-label">Program</span>
+      <div>Mandarin Immersion</div>
+    </div>
+    <div class="school-links"><a href="#">Profile</a><a href="#">SARC</a></div>
+  </div>
+  <div class="school-card">
+    <div class="school-card-header">
+      <span class="school-name-link">Roosevelt</span>
+      <span class="school-grades">TK–8</span>
+    </div>
+    <div class="school-badges"><span class="school-badge school-badge--neighborhood">Neighborhood</span></div>
+    <div class="school-details">
+      <span class="school-label">Enrollment</span>
+      <div>438 students</div>
+    </div>
+    <div class="school-links"><a href="#">Profile</a></div>
+  </div>
+</div>
+
+<span class="demo-label">.table-wrap (mono headers, .num cells, .bar-cell, .total-row)</span>
+<div class="table-wrap" style="margin:0 2rem">
+  <table>
+    <thead><tr><th>School</th><th class="num">Students</th><th>Share</th></tr></thead>
+    <tbody>
+      <tr><td class="school-name">Roosevelt</td><td class="num">438</td>
+          <td class="bar-cell"><span class="bar bar-green" style="width:70px"></span>7.0%</td></tr>
+      <tr><td class="school-name">Hoover</td><td class="num">612</td>
+          <td class="bar-cell"><span class="bar bar-amber" style="width:98px"></span>9.8%</td></tr>
+      <tr class="total-row"><td>Total</td><td class="num">6,214</td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<span class="demo-label">.bi-row bilingual columns</span>
+<div class="bi-row" style="margin:0 2rem 2rem">
+  <div class="bi-en"><p>Every board meeting, transcribed and searchable.</p></div>
+  <div class="bi-es"><p>Cada reunión de la mesa directiva, transcrita y disponible para buscar.</p></div>
+</div>
+</body>
+</html>
