@@ -1,0 +1,161 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/district-source-manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "manifestId": "district-manifest.ca.cde.district.4169005",
+  "status": "reconnaissance",
+  "lastReviewedAt": "2026-07-09",
+  "publication": {
+    "automatic": false,
+    "classification": "internal-reconnaissance-config"
+  },
+  "district": {
+    "id": "ca.cde.district.4169005",
+    "slug": "rcsd",
+    "name": "Redwood City Elementary",
+    "publicName": "Redwood City School District",
+    "aliases": ["RCSD"],
+    "jurisdiction": {
+      "country": "US",
+      "state": "CA",
+      "county": "San Mateo"
+    },
+    "identifiers": {
+      "cdsDistrictCode": "4169005"
+    },
+    "districtType": "elementary-school-district",
+    "gradeSpan": {
+      "low": "P",
+      "high": "8",
+      "sourceId": "cde-directory"
+    },
+    "timezone": "America/Los_Angeles",
+    "officialWebsite": "https://www.rcsdk8.net/"
+  },
+  "languages": {
+    "coverageRule": "Measure availability for each artifact.",
+    "orderedPilotLocales": [
+      {
+        "locale": "en-US",
+        "role": "source-and-publication",
+        "status": "confirmed"
+      },
+      {
+        "locale": "es-US",
+        "role": "publication",
+        "status": "machine-assisted"
+      }
+    ],
+    "evidenceSourceIds": ["official-website"]
+  },
+  "governingBodies": [
+    {
+      "id": "board-of-trustees",
+      "name": "Board of Trustees",
+      "type": "governing-board",
+      "primary": true,
+      "sourceIds": ["governance-simbli"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "cde-directory",
+      "domain": "district-identity",
+      "artifactTypes": ["district-directory-record"],
+      "url": "https://www.cde.ca.gov/schooldirectory/",
+      "authority": "state",
+      "vendor": {
+        "name": "California Department of Education",
+        "product": "California School Directory",
+        "confidence": "high",
+        "basis": "Official state directory."
+      },
+      "cadence": {
+        "kind": "irregular",
+        "expectation": "Check before identity releases."
+      },
+      "archiveNotes": "Self-reported directory data can lag.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "official-website",
+      "domain": "cms",
+      "artifactTypes": ["district-page"],
+      "url": "https://www.rcsdk8.net/",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS",
+        "confidence": "high",
+        "basis": "Official site footer."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Monitor high-value pages."
+      },
+      "archiveNotes": "Current public website.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-simbli",
+      "domain": "governance",
+      "artifactTypes": ["meeting", "agenda", "minutes"],
+      "url": "https://simbli.eboardsolutions.com/",
+      "authority": "district-linked-vendor",
+      "adapter": "simbli-meetings-v1",
+      "vendor": {
+        "name": "Simbli",
+        "product": "Meetings",
+        "confidence": "high",
+        "basis": "Official board link."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Check around every meeting."
+      },
+      "archiveNotes": "Current source; historical boundary remains observed rather than asserted.",
+      "checkedAt": "2026-07-09"
+    }
+  ],
+  "sourceRegimes": [
+    {
+      "id": "governance-simbli-observed",
+      "domain": "governance",
+      "sourceIds": ["governance-simbli"],
+      "fromInclusive": null,
+      "toExclusive": null,
+      "precision": "day",
+      "observedFrom": "2025-06-11",
+      "observedThrough": "2026-06-24",
+      "boundaryConfidence": "corpus-observation",
+      "notes": "Null bounds avoid claiming an official cutover."
+    }
+  ],
+  "accessibility": {
+    "policyStatus": "pilot-default",
+    "auditHtmlSemantics": true,
+    "auditPdfTextAndReadingOrder": true,
+    "auditVideoCaptions": true,
+    "provideLowBandwidthTextAlternative": true,
+    "neverTreatVendorAccessibilityClaimsAsArtifactVerification": true
+  },
+  "privacy": {
+    "policyStatus": "pilot-default",
+    "sourceBeingPublicIsNotSufficientForRepublication": true,
+    "reviewPersonalNamesBeforeIndexing": true,
+    "suppressProtectedSmallCells": true,
+    "doNotPublishStudentRecordsOrMeetingCredentials": true,
+    "classifyEveryMirroredArtifactBeforeRelease": true
+  },
+  "pilot": {
+    "role": "reference-implementation",
+    "sampleTargets": [
+      {
+        "domain": "governance",
+        "count": 10,
+        "selection": "Meetings across source regimes."
+      }
+    ],
+    "successSignals": ["Shared adapters reproduce current records."]
+  },
+  "openQuestions": ["Confirm the official platform cutover date."]
+}

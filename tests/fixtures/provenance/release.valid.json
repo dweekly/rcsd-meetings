@@ -1,0 +1,46 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/release-manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "releaseId": "rcsd.2026-07-09.1",
+  "districtIds": ["ca.cde.district.4169005"],
+  "generatedAt": "2026-07-09T12:00:00Z",
+  "gitCommit": "abcdef1234567890",
+  "status": "candidate",
+  "artifacts": [
+    {
+      "channel": "r2",
+      "sourcePath": "data/provenance/board-policies.json",
+      "path": "json/provenance/board-policies.json",
+      "immutablePath": "releases/rcsd.2026-07-09.1/json/provenance/board-policies.json",
+      "mediaType": "application/json",
+      "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "bytes": 4096,
+      "datasetId": "rcsd.board-policies",
+      "language": "en-US",
+      "publicationClass": "public-derived-record"
+    },
+    {
+      "channel": "pages",
+      "sourcePath": "docs/policies/index.html",
+      "path": "/policies/index.html",
+      "immutablePath": null,
+      "mediaType": "text/html; charset=utf-8",
+      "hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "bytes": 8192,
+      "datasetId": "rcsd.board-policies",
+      "language": "en-US",
+      "publicationClass": "public-derived-record"
+    }
+  ],
+  "qualityGates": [
+    {
+      "name": "provenance",
+      "status": "passed"
+    },
+    {
+      "name": "language-parity",
+      "status": "waived",
+      "details": "Known scanned source exception is enumerated in dataset provenance."
+    }
+  ]
+}

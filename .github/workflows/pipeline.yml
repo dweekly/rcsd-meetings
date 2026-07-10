@@ -114,19 +114,11 @@ jobs:
             node scripts/run-pipeline.mjs
           fi
 
-      - name: Deploy Static Web App to Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
-        run: npx wrangler pages deploy docs --project-name=rcsd-meetings
-
-      - name: Upload Data & Assets to Cloudflare R2 Archival Storage
-        run: npm run upload
-
       - name: Commit Scraped Agenda Metadata Changes (Incremental)
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/board-memos/ data/youtube-index.json sources/rcsd-meetings.md
+          git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md
           # ES translation outputs only exist after a full run; add them only if
           # present so quick runs (which skip translation) don't fail on a
           # pathspec that matches nothing.
@@ -139,3 +131,29 @@ jobs:
           else
             echo "No incremental data updates to commit."
           fi
+
+      # Regenerate after the incremental commit so release.gitCommit identifies
+      # the exact source commit being deployed. Generated data/docs are allowed;
+      # changes to scripts/configuration still fail the clean-source guard.
+      - name: Generate and Validate Release Manifest
+        run: npm run release:manifest -- --require-clean-source
+
+      # Publish data first. The manifest-driven policy release uploads immutable
+      # content, verifies hashes, and refreshes shape-compatible stable URLs.
+      # Pages then records a release-bound receipt; current.json advances last.
+      - name: Upload Legacy Data & Assets to Cloudflare R2
+        run: npm run upload
+
+      - name: Stage Verified Policy Release
+        run: npm run release:stage
+
+      - name: Deploy Static Web App to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
+        run: npm run release:deploy-pages
+
+      - name: Promote Policy Release as Current
+        run: npm run release:promote
+
+      - name: Verify Promoted Release in Production
+        run: npm run release:smoke

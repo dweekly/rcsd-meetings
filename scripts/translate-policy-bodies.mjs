@@ -23,9 +23,10 @@
  * CHUNK_THRESHOLD_CHARS are split into chunks at paragraph boundaries and
  * reassembled with their original separators, byte-exact.
  *
- * Idempotent: a policy is skipped when its ES file exists AND the stored
- * _metadata.sourceHash matches the sha256 of the current English
- * contentText. Use --force to retranslate everything. Partial output is
+ * Idempotent: a policy is skipped when its ES file exists, sourceHash is
+ * current, and its complete LLM/output cache fingerprint matches. Legacy
+ * cache entries without invocation provenance are upgraded on the next
+ * deliberate run. Use --force to retranslate everything. Partial output is
  * fine — the site falls back to English for any policy without an ES file.
  *
  * Flags: --force        retranslate even when the cache is fresh
@@ -35,17 +36,26 @@
  */
 
 import 'dotenv/config';
-import { createHash } from 'crypto';
 import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
+import {
+  buildLlmCacheFingerprint,
+  getInstalledPackageVersion,
+  hashCanonicalJson,
+  PROVENANCE_SCHEMA_VERSION,
+  sha256,
+  sha256Hex,
+  validateLlmInvocation,
+} from './lib/provenance.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const INPUT_DIR = resolve(ROOT, 'data', 'board-policies');
 const OUTPUT_DIR = resolve(ROOT, 'data', 'board-policies-es');
 const TITLES_PATH = resolve(ROOT, 'data', 'policy-titles-es.json');
+const SDK_VERSION = getInstalledPackageVersion('@anthropic-ai/sdk', import.meta.url);
 
 const FORCE = process.argv.includes('--force');
 const limitIdx = process.argv.indexOf('--limit');
@@ -82,11 +92,6 @@ const PARA_RATIO_TOLERANCE = 0.3;
 const META_COMMENTARY_RE =
   /^(here (is|are)|here's|i('ve| have) translated|sure[,!]|certainly|aqu[ií] (est[aá]|tienes)|esta es la traducci[oó]n|a continuaci[oó]n,? (se presenta|la traducci[oó]n))/i;
 
-if (!process.env.ANTHROPIC_API_KEY) {
-  console.error('Error: ANTHROPIC_API_KEY not set. Add it to .env or export it.');
-  process.exit(1);
-}
-
 const SYSTEM_PROMPT = `You translate the body text of school board policy documents for the Redwood City School District (a TK-8 public district in Redwood City, California) from English to Spanish.
 
 Audience: Spanish-speaking families in Redwood City, California. Use plain, natural Spanish as spoken in California / Mexico (es-MX). These are legal policy documents, so accuracy comes first: translate faithfully and plainly — do not simplify, summarize, embellish, or editorialize.
@@ -100,16 +105,48 @@ Rules:
 - Prefer terms California districts actually use with families (e.g. "Asistencia escolar" for attendance, "Quejas" for complaints, "Procedimientos uniformes de quejas" for Uniform Complaint Procedures).
 - Output ONLY the translated text. No preamble, no notes, no meta-commentary, no markdown fences.`;
 
-const client = new Anthropic();
+const API_REVISION = '2023-06-01';
+const SYSTEM_TEMPLATE_ID = 'policy-body-translation-system-v1';
+const USER_TEMPLATE_ID = 'policy-body-translation-user-v1';
+const USER_TEMPLATE = 'Translate this board policy text to Spanish:\n\n{{contentText}}';
+const OUTPUT_SCHEMA_ID = 'policy-body-translation-text-v1';
+const GENERATION_PARAMETERS = {
+  sent: { max_tokens: MAX_TOKENS, stream: true },
+  providerDefaults: 'unknown',
+  unsupported: ['seed'],
+};
+const SAFETY_SETTINGS = { settings: {}, providerDefaults: 'unknown' };
+const PROMPT_HASHES = {
+  systemTemplateId: SYSTEM_TEMPLATE_ID,
+  systemTemplateHash: sha256(SYSTEM_PROMPT),
+  renderedSystemHash: sha256(SYSTEM_PROMPT),
+  userTemplateId: USER_TEMPLATE_ID,
+  userTemplateHash: sha256(USER_TEMPLATE),
+};
+const OUTPUT_CONTRACT = {
+  schemaId: OUTPUT_SCHEMA_ID,
+  schemaHash: hashCanonicalJson({
+    type: 'plain-text',
+    completeness: 'complete-source-text',
+    chunking: { maximumCharacters: MAX_CHUNK_CHARS, boundary: 'blank-line-v1' },
+    reassembly: 'restore-held-paragraph-separators-v1',
+    validation: {
+      lengthRatio: [LEN_RATIO_MIN, LEN_RATIO_MAX],
+      paragraphRatioTolerance: PARA_RATIO_TOLERANCE,
+      metaCommentaryPattern: META_COMMENTARY_RE.source,
+    },
+    retryPolicy: { maximumAttempts: 2, strategy: 'whole-policy' },
+  }),
+  toolSchemas: [],
+};
 
-const usageTotals = { input: 0, output: 0 };
+let client;
+const getClient = () => (client ||= new Anthropic());
+
+const usageTotals = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
 
 function runningCost() {
   return (usageTotals.input * INPUT_USD_PER_MTOK + usageTotals.output * OUTPUT_USD_PER_MTOK) / 1e6;
-}
-
-function sha256(text) {
-  return createHash('sha256').update(text, 'utf8').digest('hex');
 }
 
 function paragraphCount(text) {
@@ -151,33 +188,155 @@ function splitIntoChunks(text, maxChars) {
   }));
 }
 
-async function translateChunk(text) {
-  // Streaming keeps long responses clear of SDK HTTP timeouts; no system
-  // cache_control — the prompt prefix is ~500 tokens, below Sonnet 4.6's
-  // 2048-token cacheable minimum, so a breakpoint would silently no-op.
-  const stream = client.messages.stream({
-    model: MODEL,
-    max_tokens: MAX_TOKENS,
-    system: SYSTEM_PROMPT,
-    messages: [{
-      role: 'user',
-      content: `Translate this board policy text to Spanish:\n\n${text}`,
-    }],
+function responseUsage(response) {
+  return {
+    inputTokens: response.usage?.input_tokens ?? 0,
+    outputTokens: response.usage?.output_tokens ?? 0,
+    cacheReadInputTokens: response.usage?.cache_read_input_tokens ?? 0,
+    cacheCreationInputTokens: response.usage?.cache_creation_input_tokens ?? 0,
+  };
+}
+
+function addUsage(usage) {
+  usageTotals.input += usage.inputTokens || 0;
+  usageTotals.output += usage.outputTokens || 0;
+  usageTotals.cacheRead += usage.cacheReadInputTokens || 0;
+  usageTotals.cacheWrite += usage.cacheCreationInputTokens || 0;
+}
+
+function estimatedCost(usage) {
+  return {
+    amount: ((usage.inputTokens || 0) * INPUT_USD_PER_MTOK +
+      (usage.outputTokens || 0) * OUTPUT_USD_PER_MTOK) / 1e6,
+    currency: 'USD',
+  };
+}
+
+function policyIdSegment(policyKey) {
+  return policyKey
+    .toLowerCase()
+    .replace(/[^a-z0-9.]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function chunkInputRecords(source, chunk, policyKey, chunkIndex) {
+  const normalizedKey = policyIdSegment(policyKey);
+  return [
+    {
+      datasetId: `rcsd.board-policy.${normalizedKey}`,
+      pointer: '/contentText',
+      hash: sha256(source),
+    },
+    {
+      datasetId: `rcsd.board-policy.${normalizedKey}.translation-chunk-${chunkIndex + 1}`,
+      hash: sha256(chunk.text),
+    },
+  ];
+}
+
+function invocationForChunk(source, chunk, policyKey, chunkIndex) {
+  const userPrompt = USER_TEMPLATE.replace('{{contentText}}', chunk.text);
+  const fingerprintFields = {
+    purpose: 'translation',
+    provider: 'anthropic',
+    model: { requested: MODEL, resolved: null },
+    endpoint: { api: 'messages', revision: API_REVISION },
+    client: { name: '@anthropic-ai/sdk', version: SDK_VERSION },
+    parameters: GENERATION_PARAMETERS,
+    prompts: { ...PROMPT_HASHES, renderedUserHash: sha256(userPrompt) },
+    outputContract: OUTPUT_CONTRACT,
+    inputs: chunkInputRecords(source, chunk, policyKey, chunkIndex),
+    localization: { sourceLocale: 'en-US', targetLocale: 'es-MX', glossaryHash: null },
+    safety: SAFETY_SETTINGS,
+    processing: {
+      maximumChunkCharacters: MAX_CHUNK_CHARS,
+      chunkBoundary: 'blank-line-v1',
+      reassembly: 'restore-held-paragraph-separators-v1',
+      retryLimit: 2,
+      retryStrategy: 'whole-policy',
+    },
+  };
+  const cacheFingerprint = buildLlmCacheFingerprint(fingerprintFields);
+  return {
+    schemaVersion: PROVENANCE_SCHEMA_VERSION,
+    invocationId: `policy-body-${policyIdSegment(policyKey)}-chunk-${chunkIndex + 1}-${cacheFingerprint.replace(/^sha256:/, '').slice(0, 16)}`,
+    ...fingerprintFields,
+    model: { requested: MODEL, resolved: null },
+    attempts: [],
+    effectiveAttempt: null,
+    outputHash: null,
+    cacheFingerprint,
+  };
+}
+
+export function buildBodyTranslationPlan(source, policyKey, titleEs = null) {
+  const chunks = splitIntoChunks(source, MAX_CHUNK_CHARS);
+  const invocations = chunks.map((chunk, index) =>
+    invocationForChunk(source, chunk, policyKey, index));
+  const cacheFingerprint = hashCanonicalJson({
+    fingerprintVersion: 'policy-body-output-v1',
+    titleEsHash: titleEs === null ? null : sha256(titleEs),
+    chunkFingerprints: invocations.map(inv => inv.cacheFingerprint),
+    separators: chunks.map(chunk => sha256(chunk.sep)),
   });
-  const response = await stream.finalMessage();
+  return { chunks, invocations, cacheFingerprint };
+}
 
-  usageTotals.input += response.usage.input_tokens;
-  usageTotals.output += response.usage.output_tokens;
-
-  if (response.stop_reason !== 'end_turn') {
-    throw new Error(`unexpected stop_reason "${response.stop_reason}"`);
+async function callChunk(chunk, invocation, apiClient) {
+  const attemptNumber = invocation.attempts.length + 1;
+  const userPrompt = USER_TEMPLATE.replace('{{contentText}}', chunk.text);
+  const startedAt = new Date().toISOString();
+  let response;
+  try {
+    // Streaming keeps long responses clear of SDK HTTP timeouts.
+    const stream = apiClient.messages.stream({
+      model: MODEL,
+      max_tokens: MAX_TOKENS,
+      system: SYSTEM_PROMPT,
+      messages: [{ role: 'user', content: userPrompt }],
+    });
+    response = await stream.finalMessage();
+  } catch (err) {
+    invocation.attempts.push({
+      attempt: attemptNumber,
+      startedAt,
+      completedAt: new Date().toISOString(),
+      model: { requested: MODEL, resolved: null },
+      promptHashes: { system: sha256(SYSTEM_PROMPT), user: sha256(userPrompt) },
+      outcome: 'failed',
+      validation: { status: 'not-run', errors: [] },
+      finishReason: null,
+    });
+    throw err;
   }
+
+  const usage = responseUsage(response);
+  addUsage(usage);
   const out = response.content
     .filter(b => b.type === 'text')
     .map(b => b.text)
     .join('');
-  if (!out.trim()) throw new Error('empty translation');
-  return out.trim();
+  const errors = [];
+  if (response.stop_reason !== 'end_turn') {
+    errors.push(`unexpected stop_reason "${response.stop_reason}"`);
+  }
+  if (!out.trim()) errors.push('empty translation');
+  const attempt = {
+    attempt: attemptNumber,
+    startedAt,
+    completedAt: new Date().toISOString(),
+    model: { requested: MODEL, resolved: response.model && response.model !== MODEL ? response.model : null },
+    promptHashes: { system: sha256(SYSTEM_PROMPT), user: sha256(userPrompt) },
+    outcome: errors.length ? 'rejected' : 'succeeded',
+    validation: { status: errors.length ? 'failed' : 'not-run', errors },
+    finishReason: response.stop_reason || null,
+    responseHash: sha256(out),
+    usage: { inputTokens: usage.inputTokens, outputTokens: usage.outputTokens },
+    estimatedCost: estimatedCost(usage),
+  };
+  invocation.attempts.push(attempt);
+  if (errors.length) throw new Error(errors.join('; '));
+  return { text: out.trim(), attempt };
 }
 
 /** Validate the assembled translation against the English source. */
@@ -195,24 +354,75 @@ function validateTranslation(source, translated) {
     return `paragraph count ${outParas} outside ±30% of source ${srcParas} (${lo}-${hi})`;
   }
   if (META_COMMENTARY_RE.test(translated.trimStart())) {
-    return `starts with meta-commentary: "${translated.slice(0, 60)}..."`;
+    return 'starts with translator meta-commentary';
   }
   return null;
 }
 
-async function translatePolicy(source) {
-  const chunks = splitIntoChunks(source, MAX_CHUNK_CHARS);
-  const translated = [];
-  for (const chunk of chunks) {
-    translated.push(await translateChunk(chunk.text));
+export async function translatePolicy(source, {
+  policyKey = 'unknown',
+  titleEs = null,
+  apiClient = getClient(),
+} = {}) {
+  const plan = buildBodyTranslationPlan(source, policyKey, titleEs);
+  let lastError;
+
+  for (let policyAttempt = 1; policyAttempt <= 2; policyAttempt++) {
+    const translated = [];
+    const attemptRecords = [];
+    try {
+      for (let i = 0; i < plan.chunks.length; i++) {
+        const result = await callChunk(plan.chunks[i], plan.invocations[i], apiClient);
+        translated.push(result.text);
+        attemptRecords.push(result.attempt);
+      }
+    } catch (err) {
+      lastError = err;
+      for (const record of attemptRecords) {
+        record.outcome = 'rejected';
+        record.validation = {
+          status: 'failed',
+          errors: ['whole-policy attempt abandoned after another chunk failed'],
+        };
+      }
+      if (policyAttempt === 1) continue;
+      err.llmInvocations = plan.invocations;
+      throw err;
+    }
+
+    const assembled = translated.map((text, i) => text + plan.chunks[i].sep).join('');
+    const problem = validateTranslation(source, assembled);
+    for (let i = 0; i < attemptRecords.length; i++) {
+      const record = attemptRecords[i];
+      record.outcome = problem ? 'rejected' : 'succeeded';
+      record.validation = { status: problem ? 'failed' : 'passed', errors: problem ? [problem] : [] };
+      if (!problem) {
+        plan.invocations[i].effectiveAttempt = record.attempt;
+        plan.invocations[i].outputHash = sha256(translated[i]);
+      }
+    }
+    if (problem) {
+      lastError = new Error(problem);
+      if (policyAttempt === 1) continue;
+      lastError.llmInvocations = plan.invocations;
+      throw lastError;
+    }
+
+    return {
+      assembled,
+      chunkCount: plan.chunks.length,
+      llmInvocations: plan.invocations,
+      cacheFingerprint: plan.cacheFingerprint,
+    };
   }
-  const assembled = translated.map((t, i) => t + chunks[i].sep).join('');
-  const problem = validateTranslation(source, assembled);
-  if (problem) throw new Error(problem);
-  return { assembled, chunkCount: chunks.length };
+
+  throw lastError || new Error('Unreachable policy translation retry state.');
 }
 
 async function main() {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error('ANTHROPIC_API_KEY not set. Add it to .env or export it.');
+  }
   const titlesData = JSON.parse(readFileSync(TITLES_PATH, 'utf-8'));
   mkdirSync(OUTPUT_DIR, { recursive: true });
 
@@ -231,16 +441,27 @@ async function main() {
       emptySources++;
       continue;
     }
-    const hash = sha256(source);
+    const hash = sha256Hex(source);
+    const key = file.replace(/\.json$/, '');
+    const titleEs = titlesData.titles?.[key]?.es ?? null;
+    const expectedPlan = buildBodyTranslationPlan(source, key, titleEs);
+    const cacheFingerprint = expectedPlan.cacheFingerprint;
     const outPath = resolve(OUTPUT_DIR, file);
     if (!FORCE && existsSync(outPath)) {
       const prev = JSON.parse(readFileSync(outPath, 'utf-8'));
-      if (prev._metadata?.sourceHash === hash) {
+      const previousInvocations = prev._metadata?.llmInvocations;
+      if (prev._metadata?.sourceHash === hash &&
+          prev._metadata?.cacheFingerprint === cacheFingerprint &&
+          Array.isArray(previousInvocations) &&
+          previousInvocations.length === expectedPlan.invocations.length &&
+          previousInvocations.every((invocation, index) =>
+            validateLlmInvocation(invocation).valid &&
+            invocation.cacheFingerprint === expectedPlan.invocations[index].cacheFingerprint)) {
         cached++;
         continue;
       }
     }
-    pending.push({ file, policy, source, hash, outPath });
+    pending.push({ file, policy, source, hash, titleEs, cacheFingerprint, outPath });
   }
 
   const work = pending.slice(0, LIMIT);
@@ -254,24 +475,20 @@ async function main() {
   async function worker() {
     while (next < work.length) {
       const job = work[next++];
-      const { file, policy, source, hash, outPath } = job;
+      const { file, policy, source, hash, titleEs, cacheFingerprint, outPath } = job;
       const key = file.replace(/\.json$/, '');
-      const titleEs = titlesData.titles?.[key]?.es ?? null;
       if (titleEs === null) {
         console.warn(`  ${key}: no Spanish title in policy-titles-es.json; titleEs will be null.`);
       }
 
       let result = null;
       let lastError = null;
-      // Retry once on failure or validation miss, then skip (partial output
-      // is fine per the contract — the site falls back to English).
-      for (let attempt = 1; attempt <= 2 && !result; attempt++) {
-        try {
-          result = await translatePolicy(source);
-        } catch (err) {
-          lastError = err.message;
-          if (attempt === 1) console.warn(`  ${key}: attempt 1 failed (${err.message}), retrying...`);
-        }
+      // translatePolicy retains both attempts and retries once internally so
+      // a successful repair publishes the complete attempt history.
+      try {
+        result = await translatePolicy(source, { policyKey: key, titleEs });
+      } catch (err) {
+        lastError = err.message;
       }
 
       done++;
@@ -292,6 +509,9 @@ async function main() {
           method: `AI translation of contentText via the Claude API (scripts/translate-policy-bodies.mjs); one policy per request, bodies over ${MAX_CHUNK_CHARS / 1000}KB split at paragraph boundaries into ${result.chunkCount > 1 ? result.chunkCount + ' chunks' : 'chunks'} and reassembled; validated for length, paragraph structure, and meta-commentary`,
           sourceFile: `data/board-policies/${file}`,
           sourceHash: hash,
+          cacheFingerprint,
+          llmInvocationIds: result.llmInvocations.map(invocation => invocation.invocationId),
+          llmInvocations: result.llmInvocations,
           note: 'Machine translation. The English Simbli version is authoritative.',
         },
       };
@@ -307,10 +527,12 @@ async function main() {
   console.log(`Written: ${written}. Cached: ${cached}. Empty sources skipped: ${emptySources}. Failures: ${failures.length}.`);
   for (const f of failures) console.log(`  FAILED ${f.key}: ${f.reason}`);
   const cost = runningCost();
-  console.log(`Token usage: ${usageTotals.input} in, ${usageTotals.output} out ≈ $${cost.toFixed(2)} (${MODEL} at $${INPUT_USD_PER_MTOK}/$${OUTPUT_USD_PER_MTOK} per MTok)`);
+  console.log(`Token usage: ${usageTotals.input} in (${usageTotals.cacheRead} cache-read, ${usageTotals.cacheWrite} cache-write), ${usageTotals.output} out ≈ $${cost.toFixed(2)} (${MODEL} at $${INPUT_USD_PER_MTOK}/$${OUTPUT_USD_PER_MTOK} per MTok)`);
 }
 
-main().catch(err => {
-  console.error('Translation failed:', err.message);
-  process.exit(1);
-});
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch(err => {
+    console.error('Translation failed:', err.message);
+    process.exit(1);
+  });
+}

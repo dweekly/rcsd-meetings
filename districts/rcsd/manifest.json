@@ -1,0 +1,295 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/district-source-manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "manifestId": "district-manifest.ca.cde.district.4169005",
+  "status": "reconnaissance",
+  "lastReviewedAt": "2026-07-09",
+  "publication": {
+    "automatic": false,
+    "classification": "internal-reconnaissance-config"
+  },
+  "district": {
+    "id": "ca.cde.district.4169005",
+    "slug": "rcsd",
+    "name": "Redwood City Elementary",
+    "publicName": "Redwood City School District",
+    "aliases": ["RCSD"],
+    "jurisdiction": {
+      "country": "US",
+      "state": "CA",
+      "county": "San Mateo"
+    },
+    "identifiers": {
+      "cdsDistrictCode": "4169005",
+      "cdsEntityCode": "41690050000000",
+      "ncesDistrictId": "0632130"
+    },
+    "districtType": "elementary-school-district",
+    "gradeSpan": {
+      "low": "P",
+      "high": "8",
+      "sourceId": "cde-directory"
+    },
+    "timezone": "America/Los_Angeles",
+    "officialWebsite": "https://www.rcsdk8.net/"
+  },
+  "languages": {
+    "coverageRule": "Measure availability and fallback per artifact; never infer district-wide parity.",
+    "orderedPilotLocales": [
+      {
+        "locale": "en-US",
+        "role": "authoritative-source-and-publication",
+        "status": "confirmed"
+      },
+      {
+        "locale": "es-US",
+        "role": "publication",
+        "status": "confirmed-machine-assisted-with-official-source-caveats"
+      }
+    ],
+    "evidenceSourceIds": ["official-website", "instructional-calendar", "meal-menu"]
+  },
+  "governingBodies": [
+    {
+      "id": "board-of-trustees",
+      "name": "Board of Trustees",
+      "type": "governing-board",
+      "primary": true,
+      "sourceIds": ["governance-simbli", "governance-boarddocs", "meeting-video"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "cde-directory",
+      "domain": "district-identity",
+      "artifactTypes": ["district-directory-record", "school-directory-record"],
+      "url": "https://www.cde.ca.gov/SchoolDirectory/details?cdscode=41690050000000",
+      "authority": "state",
+      "vendor": {
+        "name": "California Department of Education",
+        "product": "California School Directory",
+        "confidence": "high",
+        "basis": "Official CDE directory URL keyed by the district CDS entity code."
+      },
+      "cadence": {
+        "kind": "irregular",
+        "expectation": "Check before identity or school-roster releases."
+      },
+      "archiveNotes": "CDE warns that directory details are self-reported and may be stale.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "official-website",
+      "domain": "cms",
+      "artifactTypes": ["district-page", "school-page", "news", "document-link"],
+      "url": "https://www.rcsdk8.net/",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS",
+        "confidence": "high",
+        "basis": "Official pages and assets identify the Finalsite platform."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Monitor only configured high-value pages; do not crawl the whole CMS by default."
+      },
+      "archiveNotes": "Page URLs and asset revisions can change independently.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-simbli",
+      "domain": "governance",
+      "artifactTypes": ["meeting", "agenda", "agenda-item", "attachment", "minutes", "policy"],
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "Simbli",
+        "product": "Meetings",
+        "confidence": "high",
+        "basis": "Official RCSD meeting source and stable Simbli site identifier."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Discover daily; reconcile around each scheduled board meeting."
+      },
+      "archiveNotes": "Current source. Keep meeting publication state separate from meeting occurrence state.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-boarddocs",
+      "domain": "governance",
+      "artifactTypes": ["meeting", "agenda", "agenda-item", "attachment", "minutes"],
+      "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/Public",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "Diligent",
+        "product": "BoardDocs",
+        "confidence": "high",
+        "basis": "Legacy RCSD records resolve under the district BoardDocs tenant."
+      },
+      "cadence": {
+        "kind": "archive-only",
+        "expectation": "Recheck only for reconciliation or backfill."
+      },
+      "archiveNotes": "Legacy source; attachment links may be more durable than listing navigation.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "meeting-video",
+      "domain": "video",
+      "artifactTypes": ["meeting-recording", "livestream"],
+      "url": "https://www.youtube.com/@redwoodcityschooldistrict/videos",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "YouTube",
+        "product": "Channel videos",
+        "confidence": "high",
+        "basis": "Official RCSD channel linked by the district and used by the existing pipeline."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Discover after meetings and reconcile against the governance portal."
+      },
+      "archiveNotes": "Recording publication can lag a meeting; video identity must not be inferred from title alone.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "fiscal-library",
+      "domain": "finance",
+      "artifactTypes": ["adopted-budget", "interim-report", "presentation", "audit", "lcap"],
+      "url": "https://www.rcsdk8.net/our-programs-and-services/business-services/district-budget",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS document library",
+        "confidence": "high",
+        "basis": "Official budget page is hosted in the district Finalsite site."
+      },
+      "cadence": {
+        "kind": "fiscal-milestones",
+        "expectation": "Check at adopted budget, unaudited actuals, first interim, second interim, and audit milestones."
+      },
+      "archiveNotes": "Board packets remain a second path for reports not retained on the landing page.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "instructional-calendar",
+      "domain": "calendar",
+      "artifactTypes": ["instructional-calendar", "board-approved-pdf"],
+      "url": "https://resources.finalsite.net/images/v1768516513/rcsdk8net/t7o8c7pigujqr9kbrmzl/2026-2027TK-8InstructionalCalendar.pdf",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "Asset CDN",
+        "confidence": "high",
+        "basis": "Board-approved calendar is hosted on the district Finalsite asset domain."
+      },
+      "cadence": {
+        "kind": "annual-with-revisions",
+        "expectation": "Check for a newly approved school year and later revisions."
+      },
+      "archiveNotes": "A versioned asset URL is evidence for one calendar edition, not a permanent discovery endpoint.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "meal-menu",
+      "domain": "meals",
+      "artifactTypes": ["school-menu", "recipe", "nutrition", "allergen"],
+      "url": "https://menus.healthepro.com/organizations/1184",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "Health-e Pro",
+        "product": "My School Menus",
+        "confidence": "high",
+        "basis": "Official RCSD school records point to organization 1184 and the district announced My School Menus."
+      },
+      "cadence": {
+        "kind": "monthly-with-last-minute-changes",
+        "expectation": "Fetch live for family queries and preserve the retrieval time."
+      },
+      "archiveNotes": "Menus are operational data and can change after publication; do not present a cached item as guaranteed service.",
+      "checkedAt": "2026-07-09"
+    }
+  ],
+  "sourceRegimes": [
+    {
+      "id": "governance-boarddocs-observed",
+      "domain": "governance",
+      "sourceIds": ["governance-boarddocs"],
+      "fromInclusive": null,
+      "toExclusive": null,
+      "precision": "day",
+      "observedFrom": "2020-04-01",
+      "observedThrough": "2025-05-28",
+      "boundaryConfidence": "corpus-observation-not-official-cutover",
+      "notes": "Dates are the first and last BoardDocs meetings currently represented in local data."
+    },
+    {
+      "id": "governance-simbli-observed",
+      "domain": "governance",
+      "sourceIds": ["governance-simbli"],
+      "fromInclusive": null,
+      "toExclusive": null,
+      "precision": "day",
+      "observedFrom": "2025-06-11",
+      "observedThrough": "2026-06-24",
+      "boundaryConfidence": "corpus-observation-not-official-cutover",
+      "notes": "The current source continues beyond the observed-through date; null bounds avoid inventing contract dates."
+    }
+  ],
+  "accessibility": {
+    "policyStatus": "pilot-default",
+    "auditHtmlSemantics": true,
+    "auditPdfTextAndReadingOrder": true,
+    "auditVideoCaptions": true,
+    "provideLowBandwidthTextAlternative": true,
+    "neverTreatVendorAccessibilityClaimsAsArtifactVerification": true
+  },
+  "privacy": {
+    "policyStatus": "pilot-default",
+    "sourceBeingPublicIsNotSufficientForRepublication": true,
+    "reviewPersonalNamesBeforeIndexing": true,
+    "suppressProtectedSmallCells": true,
+    "doNotPublishStudentRecordsOrMeetingCredentials": true,
+    "classifyEveryMirroredArtifactBeforeRelease": true
+  },
+  "pilot": {
+    "role": "reference-implementation-and-regression-baseline",
+    "sampleTargets": [
+      {
+        "domain": "governance",
+        "count": 10,
+        "selection": "Meetings spanning BoardDocs and Simbli, including regular and special meetings."
+      },
+      {
+        "domain": "finance",
+        "count": 3,
+        "unit": "fiscal-year-bundles",
+        "selection": "Adopted budget, interim reports, unaudited actuals, and audit where available."
+      },
+      {
+        "domain": "calendar",
+        "count": 1,
+        "unit": "school-year",
+        "selection": "Reconcile source PDF, normalized dates, and generated ICS."
+      },
+      {
+        "domain": "meals",
+        "count": 1,
+        "unit": "menu-month",
+        "selection": "Sample schools with distinct menu identifiers and record live retrieval time."
+      }
+    ],
+    "successSignals": [
+      "Existing RCSD records can be reproduced from source adapters plus this configuration.",
+      "No adapter contains district-name conditionals or editorial district facts.",
+      "Every source discrepancy is retained rather than silently overwritten."
+    ]
+  },
+  "openQuestions": [
+    "Establish official platform cutover dates rather than extrapolating them from the local corpus.",
+    "Inventory subordinate governing bodies and define which ones belong in the first reusable contract.",
+    "Replace the versioned calendar asset with an official discovery page when one is confirmed."
+  ]
+}

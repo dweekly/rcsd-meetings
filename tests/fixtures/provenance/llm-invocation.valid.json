@@ -1,0 +1,95 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/llm-invocation.schema.json",
+  "schemaVersion": "1.0.0",
+  "invocationId": "policy-summary.0100-bp.en",
+  "purpose": "summarization",
+  "provider": "example-provider",
+  "model": {
+    "requested": "example-model-v1",
+    "resolved": "example-model-v1-20260701"
+  },
+  "endpoint": {
+    "api": "messages",
+    "revision": "2026-07-01"
+  },
+  "client": {
+    "name": "example-sdk",
+    "version": "1.2.3"
+  },
+  "parameters": {
+    "sent": {
+      "max_tokens": 512,
+      "stream": false,
+      "temperature": 0
+    },
+    "providerDefaults": "unknown",
+    "unsupported": ["seed"]
+  },
+  "prompts": {
+    "systemTemplateId": "policy-summary-system-v1",
+    "systemTemplateHash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "userTemplateId": "policy-summary-user-v1",
+    "userTemplateHash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "renderedSystemHash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "renderedUserHash": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+  },
+  "outputContract": {
+    "schemaId": "policy-summary-result-v1",
+    "schemaHash": "sha256:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "toolSchemas": []
+  },
+  "inputs": [
+    {
+      "datasetId": "rcsd.board-policy.0100-bp",
+      "pointer": "/contentText",
+      "hash": "sha256:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+    }
+  ],
+  "localization": {
+    "sourceLocale": "en-US",
+    "targetLocale": "en-US",
+    "glossaryHash": null
+  },
+  "safety": {
+    "settings": {},
+    "providerDefaults": "unknown"
+  },
+  "processing": {
+    "chunking": "none",
+    "validator": "policy-summary-v1",
+    "maxAttempts": 2
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "startedAt": "2026-07-09T12:00:00Z",
+      "completedAt": "2026-07-09T12:00:01Z",
+      "model": {
+        "requested": "example-model-v1",
+        "resolved": "example-model-v1-20260701"
+      },
+      "outcome": "succeeded",
+      "validation": {
+        "status": "passed",
+        "errors": []
+      },
+      "finishReason": "end_turn",
+      "responseHash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+      "promptHashes": {
+        "system": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "user": "sha256:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+      },
+      "usage": {
+        "inputTokens": 123,
+        "outputTokens": 45
+      },
+      "estimatedCost": {
+        "amount": 0.0012,
+        "currency": "USD"
+      }
+    }
+  ],
+  "effectiveAttempt": 1,
+  "outputHash": "sha256:2222222222222222222222222222222222222222222222222222222222222222",
+  "cacheFingerprint": "sha256:321493f87de0784b5c8e5fcb8c7553c008fe16b27d730d577c59350dca256ed5"
+}

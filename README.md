@@ -21,6 +21,47 @@ Independently compiled public records for the [Redwood City School District](htt
 
 *Counts reflect the data snapshot of May 2026; the pipeline runs continuously, so live figures will be higher.*
 
+## Provenance Contracts and Verified Releases
+
+The first v1 provenance-gated release covers the board-policy family while
+preserving every existing data URL and payload shape. The full contract,
+quality states, LLM invocation envelope, and migration boundaries are described
+in [`PROVENANCE.md`](PROVENANCE.md).
+
+- Versioned contracts live in [`schemas/provenance/v1/`](schemas/provenance/v1/)
+  and are published under `https://rcsd.info/schemas/provenance/v1/` (for
+  example, the
+  [dataset provenance schema](https://rcsd.info/schemas/provenance/v1/dataset-provenance.schema.json)).
+- Dataset sidecars live in [`data/provenance/`](data/provenance/) and are
+  published under `https://data.rcsd.info/json/provenance/` (for example, the
+  [English policy sidecar](https://data.rcsd.info/json/provenance/rcsd.board-policies.json)).
+- The public release pointer is
+  [`https://data.rcsd.info/json/releases/current.json`](https://data.rcsd.info/json/releases/current.json).
+- Non-publishing pilot source manifests for RCSD, Ravenswood, Fresno, and
+  San Mateo–Foster City live in [`districts/`](districts/). They are
+  reconnaissance configuration, not district-endorsed facts.
+
+```bash
+npm run provenance:policies       # regenerate policy sidecars
+npm run validate:provenance       # JSON Schema + lineage/artifact checks
+npm run test:provenance           # provenance unit tests
+npm run build:provenance-schemas  # copy public contracts into docs/
+
+npm run release:manifest -- --require-clean-source
+npm run release:stage             # immutable + stable R2 bytes; candidate receipt
+npm run release:deploy-pages      # deploy Pages + write a release-bound receipt
+npm run release:promote           # immutable manifest + current.json, published last
+npm run release:smoke             # verify public EN, ES, provenance + release pointer
+```
+
+Staging refreshes and verifies shape-compatible stable URLs but never changes
+the current pointer. If the Pages deploy fails, promotion does not run and the
+prior release remains current. Promotion can recover its durable R2 candidate
+after an interruption and refuses to overwrite a current release that changed
+since staging.
+The release intentionally accepts a short, shape-compatible Pages/R2 overlap;
+see the copy-paste [`RELEASE-RUNBOOK.md`](RELEASE-RUNBOOK.md) for recovery.
+
 ## Data Provenance
 
 Every dataset on this site is traceable to its public source. We document the origin, extraction method, and any transformations for each pipeline. Methodology documents live alongside the data they describe:
