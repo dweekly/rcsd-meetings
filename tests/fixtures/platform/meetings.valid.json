@@ -1,0 +1,84 @@
+{
+  "$schema": "urn:district-data-lab:schema:v0:meetings",
+  "schemaVersion": "0.1.0",
+  "apiVersion": "v0",
+  "contractStatus": "experimental",
+  "datasetId": "ca.cde.district.0000001.board-meetings",
+  "district": {
+    "id": "ca.cde.district.0000001",
+    "slug": "example-school-district",
+    "name": "Example School District"
+  },
+  "generatedAt": "2026-07-09T18:00:00.000Z",
+  "records": [
+    {
+      "id": "ca.cde.district.0000001.meeting.example.20260114",
+      "districtId": "ca.cde.district.0000001",
+      "governingBodyId": "board-of-trustees",
+      "title": {
+        "text": "Regular Board Meeting",
+        "locale": "en-US"
+      },
+      "startsAt": "2026-01-14T18:30:00-08:00",
+      "timezone": "America/Los_Angeles",
+      "occurrence": {
+        "state": "held",
+        "evidence": [
+          {
+            "sourceId": "governance-example",
+            "url": "https://example.invalid/meetings/2026-01-14#meeting",
+            "checkedAt": "2026-01-15T18:00:00.000Z"
+          }
+        ]
+      },
+      "agenda": {
+        "state": "revised",
+        "evidence": [
+          {
+            "sourceId": "governance-example",
+            "url": "https://example.invalid/meetings/2026-01-14#agenda",
+            "checkedAt": "2026-01-15T18:00:00.000Z"
+          }
+        ]
+      },
+      "minutes": {
+        "state": "absent",
+        "evidence": [
+          {
+            "sourceId": "governance-example",
+            "url": "https://example.invalid/meetings/2026-01-14#minutes",
+            "checkedAt": "2026-01-15T18:00:00.000Z"
+          }
+        ]
+      },
+      "recording": {
+        "state": "expected",
+        "evidence": [
+          {
+            "sourceId": "governance-example",
+            "url": "https://example.invalid/meetings/2026-01-14#recording",
+            "checkedAt": "2026-01-15T18:00:00.000Z"
+          }
+        ]
+      },
+      "discrepancies": []
+    }
+  ],
+  "_metadata": {
+    "provenanceUrl": "https://example.invalid/api/v0/districts/example-school-district/provenance/meetings.json",
+    "scrapedAt": "2026-01-15T18:00:00.000Z",
+    "method": {
+      "kind": "deterministic-extraction",
+      "tool": "example-meeting-adapter",
+      "toolVersion": "0.1.0"
+    },
+    "sources": [
+      {
+        "id": "governance-example",
+        "url": "https://example.invalid/meetings/",
+        "authority": "district-linked-vendor",
+        "checkedAt": "2026-01-15T18:00:00.000Z"
+      }
+    ]
+  }
+}

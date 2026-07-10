@@ -20,8 +20,13 @@ contracts can change without notice.
   complete.
 - Nothing here authorizes contacting district staff, publishing a derived
   claim, or mirroring a document.
+- `active.json` is the platform lab's only publication allowlist. Directory
+  discovery must never publish a district. An allowlisted entry must also
+  reference a manifest explicitly approved for public pilot publication;
+  reconnaissance and internal manifests make the build fail closed.
 - Before any manifest becomes public, verify every source again, apply the
-  release allowlist, and attach normal RCSD provenance.
+  release allowlist, and attach the versioned dataset provenance required by
+  the platform.
 
 ## Reading the manifests
 

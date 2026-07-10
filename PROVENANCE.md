@@ -138,7 +138,9 @@ Tracked pilot configuration lives under `districts/`; raw samples belong in
 portal regimes because districts routinely migrate between governance, CMS,
 video, calendar, finance, and meal vendors.
 
-Ravenswood and Fresno form the first implementation pair. San Mateo–Foster City is
-the immediate semantic-validation district. Expert corrections must be supported
-by publishable official sources and converted into repeatable tests; personal
-knowledge is not silently treated as public provenance.
+RCSD remains the shadow regression baseline. San Mateo–Foster City is the first
+semantic-validation pilot; Ravenswood follows to prove configuration-only reuse,
+and Fresno follows only after the meeting contract stabilizes to test a materially
+different stack and scale. Expert corrections must be supported by publishable
+official sources and converted into repeatable tests; personal knowledge is not
+silently treated as public provenance.

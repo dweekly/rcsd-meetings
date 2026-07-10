@@ -38,6 +38,11 @@ jobs:
           npm run test:release-smoke
           npm run validate:provenance -- --metadata-only
 
+      - name: Verify Fail-Closed Multi-District Lab Build
+        run: |
+          npm run test:platform
+          npm run build:platform
+
       - name: Verify Policy Provenance Pages and Release Allowlist
         run: |
           npm run build:policies
