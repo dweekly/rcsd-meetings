@@ -12,11 +12,21 @@ in commit messages, `CHANGELOG.md`, and the project blog.
   outputs, evaluate building bulky `docs/` derivatives only in CI, and add a diff-budget
   check that flags repeated inline blocks or unexpectedly large generated churn. Preserve
   static no-JavaScript semantics, bilingual parity, and release-manifest coverage.
-- [ ] **Use San Mateo–Foster City as the immediate semantic-validation district.**
-  Reconcile its Simbli/Agenda Online/YouTube records, fiscal bundles, PDF/ICS calendar,
-  and PDF/LINQ menus; measure English/Spanish/Chinese/Japanese coverage per artifact;
-  turn authorized expert corrections into source-linked tests rather than uncited
-  provenance.
+- [ ] **Prove the first Pages-only platform slice with San Mateo–Foster City.**
+  Extract the shared Simbli acquisition boundary and canonical meeting contract, match
+  an RCSD shadow fixture, then publish an explicitly allowlisted SMFCSD `v0` sample to
+  the no-index holding Pages project. Reconcile 12 meetings across Agenda Online,
+  Simbli, and YouTube; retain independent occurrence, agenda, minutes, and recording
+  states; show discrepancies and record-level provenance; and measure language coverage
+  per artifact. Use official menu PDFs and test a vendor feed only after the district
+  links it. Require English/Spanish structural parity and no zero score in the
+  `actionSafety` dimension defined by the SMFCSD expert-review rubric; require at least
+  90% of the sample to pass first review without major correction; and turn every
+  accepted correction into
+  a source-linked generic fixture, rule, or terminology entry. Run for two board cycles
+  or 30 unattended days and stay below 15 minutes of maintenance per district per month
+  before onboarding Ravenswood. Keep at most three active districts until combined
+  maintenance stays below 45 minutes per month.
 - [ ] **Continuously refresh the official policy index.** Schedule periodic rescans of
   the GAMUT/Simbli policy portal, compare catalog and source hashes, and queue delayed
   rechecks after policies clear a second reading in a board consent agenda (for example,
@@ -27,9 +37,11 @@ in commit messages, `CHANGELOG.md`, and the project blog.
   policy contract to meeting summaries, memo/transcript translation, chapters,
   timestamp mapping, and future extraction/classification jobs; retain explicit
   historical exceptions rather than inventing missing parameters.
-- [ ] **Prove tenant configuration with Ravenswood and adapter contrast with Fresno.**
-  Model dated source regimes and extract representative meeting, finance, calendar,
-  menu, video, and language samples without publishing reconnaissance artifacts.
+- [ ] **Prove configuration-only reuse with Ravenswood, then adapter contrast with
+  Fresno.** Model dated source regimes and extract representative meeting, finance,
+  calendar, menu, video, and language samples without publishing reconnaissance
+  artifacts. Keep district quirks in source-linked configuration and fixtures rather
+  than district-name branches in shared adapters.
 - [ ] **Migrate the strongest deterministic datasets next.** Bring warrants, CDE, and
   SARC behind schema, source-snapshot, hash, reporting-period, and reconciliation gates.
 - [ ] **Move composite facts and editorial claims out of page builders.** Give schools,
@@ -41,6 +53,10 @@ in commit messages, `CHANGELOG.md`, and the project blog.
 - [ ] **Generate provenance for every audience from one source.** Add bilingual source
   and methodology panels, public provenance/release JSON, and MCP provenance lookup
   without changing existing routes or requiring client migration.
+- [ ] **Choose a neutral public identity only after the pilot earns permanence.** Keep
+  links derived from `PUBLIC_BASE_URL` and the holding deployment excluded from search
+  indexing; attach a custom domain and remove `noindex` only through an explicit
+  publication decision.
 - [ ] **Expand the California cohort only after the pilot contracts stabilize.** Use
   Menlo Park City and Pajaro Valley to test Diligent generations, OpenGov, CatapultCMS,
   and fragmented multilingual publishing; use Oakland/Legistar as the later high-volume

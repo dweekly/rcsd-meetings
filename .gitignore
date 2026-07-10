@@ -13,6 +13,11 @@ data/caaspp-cache/
 # Deployed to Cloudflare Pages directly; no need to track the binary index.
 docs/pagefind/
 
+# Multi-district lab output is generated in CI for a future Pages project and
+# stays separate from the tracked RCSD site in docs/.
+/build/platform/
+/build/platform-test-*/
+
 # Google Search Console monitor (scripts/gsc_monitor.py): credentials + real
 # API output stay out of the (public) repo. The script + methodology are tracked;
 # run `npm run monitor:gsc` locally to regenerate the report/data.
