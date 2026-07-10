@@ -6,6 +6,12 @@ Highest priority appears first. This list is intentionally not numbered: reorder
 bullets when priorities change. Keep only forward work here; completed work belongs
 in commit messages, `CHANGELOG.md`, and the project blog.
 
+- [ ] **Make generated-site changes small and reviewable before the next bulk
+  regeneration.** Extract the remaining shared policy CSS and stable page chrome into
+  release-managed assets or partials, keep authored sources distinct from generated
+  outputs, evaluate building bulky `docs/` derivatives only in CI, and add a diff-budget
+  check that flags repeated inline blocks or unexpectedly large generated churn. Preserve
+  static no-JavaScript semantics, bilingual parity, and release-manifest coverage.
 - [ ] **Use San Mateo–Foster City as the immediate semantic-validation district.**
   Reconcile its Simbli/Agenda Online/YouTube records, fiscal bundles, PDF/ICS calendar,
   and PDF/LINQ menus; measure English/Spanish/Chinese/Japanese coverage per artifact;
