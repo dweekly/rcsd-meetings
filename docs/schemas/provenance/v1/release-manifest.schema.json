@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rcsd.info/schemas/provenance/v1/release-manifest.schema.json",
+  "title": "Allowlisted release manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "releaseId", "districtIds", "generatedAt", "gitCommit", "status", "artifacts", "qualityGates"],
+  "properties": {
+    "$schema": { "const": "https://rcsd.info/schemas/provenance/v1/release-manifest.schema.json" },
+    "schemaVersion": { "$ref": "common.schema.json#/$defs/schemaVersion" },
+    "releaseId": { "$ref": "common.schema.json#/$defs/id" },
+    "districtIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/id" }
+    },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "publishedAt": { "type": "string", "format": "date-time" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" },
+    "status": { "enum": ["candidate", "published", "superseded"] },
+    "previousReleaseId": { "$ref": "common.schema.json#/$defs/id" },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/releaseArtifact" }
+    },
+    "qualityGates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/qualityGate" }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "published" } }, "required": ["status"] },
+      "then": { "required": ["publishedAt"] }
+    }
+  ],
+  "$defs": {
+    "releaseArtifact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["channel", "sourcePath", "path", "mediaType", "hash", "bytes", "datasetId", "publicationClass"],
+      "properties": {
+        "channel": { "enum": ["r2", "pages"] },
+        "sourcePath": { "$ref": "common.schema.json#/$defs/relativePath" },
+        "path": { "$ref": "common.schema.json#/$defs/publicPath" },
+        "immutablePath": {
+          "oneOf": [
+            { "$ref": "common.schema.json#/$defs/relativePath" },
+            { "type": "null" }
+          ]
+        },
+        "mediaType": { "type": "string", "minLength": 1 },
+        "hash": { "$ref": "common.schema.json#/$defs/hash" },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "datasetId": { "$ref": "common.schema.json#/$defs/id" },
+        "language": { "$ref": "common.schema.json#/$defs/locale" },
+        "publicationClass": {
+          "enum": ["public-source-record", "public-derived-record", "public-redacted-record"]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "channel": { "const": "r2" } }, "required": ["channel"] },
+          "then": { "required": ["immutablePath"], "properties": { "immutablePath": { "$ref": "common.schema.json#/$defs/relativePath" } } }
+        },
+        {
+          "if": { "properties": { "channel": { "const": "pages" } }, "required": ["channel"] },
+          "then": { "properties": { "immutablePath": { "type": "null" } } }
+        }
+      ]
+    },
+    "qualityGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "status"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["passed", "failed", "waived"] },
+        "details": { "type": "string", "minLength": 1 }
+      },
+      "if": { "properties": { "status": { "const": "waived" } }, "required": ["status"] },
+      "then": { "required": ["details"] }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.policy-provenance {
+  background: var(--green-wash);
+  border: 1px solid var(--green-pale);
+  border-left: 3px solid var(--green-light);
+  padding: 1rem 1.2rem;
+  margin: 2rem 0 1.5rem;
+  font-size: 0.82rem;
+}
+
+.policy-provenance h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--green-deep);
+  margin-bottom: 0.65rem;
+}
+
+.policy-provenance dl {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.25rem 0.8rem;
+}
+
+.policy-provenance dt {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.policy-provenance dd {
+  overflow-wrap: anywhere;
+}
+
+.policy-provenance p {
+  color: var(--text-secondary);
+  margin-top: 0.7rem;
+  line-height: 1.45;
+}
+
+.policy-provenance-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  margin-top: 0.7rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+}
+
+@media (max-width: 480px) {
+  .policy-provenance dl {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+
+  .policy-provenance dd {
+    margin-bottom: 0.45rem;
+  }
+}

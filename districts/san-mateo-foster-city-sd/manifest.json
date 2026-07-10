@@ -1,0 +1,378 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/district-source-manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "manifestId": "district-manifest.ca.cde.district.4169039",
+  "status": "reconnaissance",
+  "lastReviewedAt": "2026-07-09",
+  "publication": {
+    "automatic": false,
+    "classification": "internal-reconnaissance-config"
+  },
+  "district": {
+    "id": "ca.cde.district.4169039",
+    "slug": "san-mateo-foster-city-sd",
+    "name": "San Mateo-Foster City",
+    "publicName": "San Mateo-Foster City School District",
+    "aliases": ["SMFCSD", "San Mateo-Foster City"],
+    "jurisdiction": {
+      "country": "US",
+      "state": "CA",
+      "county": "San Mateo"
+    },
+    "identifiers": {
+      "cdsDistrictCode": "4169039",
+      "cdsEntityCode": "41690390000000",
+      "ncesDistrictId": "0634920"
+    },
+    "districtType": "elementary-school-district",
+    "gradeSpan": {
+      "low": "P",
+      "high": "8",
+      "sourceId": "cde-directory"
+    },
+    "timezone": "America/Los_Angeles",
+    "officialWebsite": "https://www.smfcsd.net/"
+  },
+  "languages": {
+    "coverageRule": "Measure availability and fallback per artifact; the district's support languages do not imply that every public artifact is translated.",
+    "orderedPilotLocales": [
+      {
+        "locale": "en-US",
+        "role": "source-and-publication",
+        "status": "confirmed"
+      },
+      {
+        "locale": "es-US",
+        "role": "publication-and-validation",
+        "status": "confirmed-support-language"
+      },
+      {
+        "locale": "zh",
+        "role": "coverage-measurement",
+        "status": "confirmed-support-language-script-unspecified"
+      },
+      {
+        "locale": "ja",
+        "role": "coverage-measurement",
+        "status": "confirmed-support-language"
+      }
+    ],
+    "evidenceSourceIds": ["language-services"]
+  },
+  "governingBodies": [
+    {
+      "id": "board-of-trustees",
+      "name": "Board of Trustees",
+      "type": "governing-board",
+      "primary": true,
+      "sourceIds": ["governance-landing", "governance-simbli", "governance-agenda-online", "meeting-video"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "cde-directory",
+      "domain": "district-identity",
+      "artifactTypes": ["district-directory-record", "school-directory-record"],
+      "url": "https://www.cde.ca.gov/schooldirectory/details?cdscode=41690390000000",
+      "authority": "state",
+      "vendor": {
+        "name": "California Department of Education",
+        "product": "California School Directory",
+        "confidence": "high",
+        "basis": "Official CDE directory URL keyed by the district CDS entity code."
+      },
+      "cadence": {
+        "kind": "irregular",
+        "expectation": "Check before identity or school-roster releases."
+      },
+      "archiveNotes": "CDE warns that directory details are self-reported and may be stale; the displayed last-updated date is itself important provenance.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "official-website",
+      "domain": "cms",
+      "artifactTypes": ["district-page", "school-page", "news", "document-link"],
+      "url": "https://www.smfcsd.net/",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS",
+        "confidence": "high",
+        "basis": "Official site footer identifies Finalsite."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Monitor configured high-value pages rather than crawling every school site."
+      },
+      "archiveNotes": "The site mixes current Simbli links with an inline historical meeting archive.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-landing",
+      "domain": "governance",
+      "artifactTypes": ["meeting", "meeting-type", "agenda-link", "minutes-link", "recording-link", "schedule", "participation-instructions"],
+      "url": "https://www.smfcsd.net/board-of-trustees/board-agendas-minutes",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS page",
+        "confidence": "high",
+        "basis": "Official board page and Finalsite footer."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Use as the discovery bridge and revisit meetings until minutes and recordings settle."
+      },
+      "archiveNotes": "Inline history includes regular, special, study-session, closed-session, and school-visitation meetings; preserve those semantics.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-simbli",
+      "domain": "governance",
+      "artifactTypes": ["meeting", "agenda", "agenda-item", "attachment", "minutes"],
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030428",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "Simbli",
+        "product": "Meetings",
+        "confidence": "high",
+        "basis": "Direct links from the official district governance page and stable Simbli site identifier."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Discover daily around scheduled meetings and reconcile publication state with the district page."
+      },
+      "archiveNotes": "The listing exposes meeting types and agenda content; displayed minutes status must be checked against separately linked district minutes.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-agenda-online",
+      "domain": "governance",
+      "artifactTypes": ["meeting", "agenda", "agenda-item", "attachment", "minutes"],
+      "url": "https://www.smfcsd.net/board-of-trustees/board-agendas-minutes",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "Agenda Online",
+        "product": "Public meeting archive",
+        "confidence": "high",
+        "basis": "The official district page links Agenda Online records and identifies the historical years."
+      },
+      "cadence": {
+        "kind": "archive-only",
+        "expectation": "Use for backfill and cross-regime reconciliation."
+      },
+      "archiveNotes": "The official page is the stable discovery source; individual Agenda Online links use AgencyID 127 and meeting-specific identifiers.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "meeting-video",
+      "domain": "video",
+      "artifactTypes": ["meeting-recording", "livestream"],
+      "url": "https://www.youtube.com/channel/UCV5QW3IqM4iKzZEiOrAWc5Q",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "YouTube",
+        "product": "Channel videos",
+        "confidence": "high",
+        "basis": "The official governance page links the SMFCSD Board of Trustees channel."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Discover after meetings and reconcile to the matching agenda and district-page recording link."
+      },
+      "archiveNotes": "Not every special or visitation meeting necessarily has a recording; absence must be explicit, not inferred as failure.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "fiscal-library",
+      "domain": "finance",
+      "artifactTypes": ["adopted-budget", "interim-report", "unaudited-actuals", "audit", "financial-document"],
+      "url": "https://www.smfcsd.net/district-departments/business-services/fiscal-services",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS document library",
+        "confidence": "high",
+        "basis": "Official fiscal page on the district Finalsite site."
+      },
+      "cadence": {
+        "kind": "fiscal-milestones",
+        "expectation": "Check adopted budget, unaudited actuals, interim reports, and audit milestones."
+      },
+      "archiveNotes": "Group documents by fiscal year and report type rather than page order or filename alone.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "calendar-page",
+      "domain": "calendar",
+      "artifactTypes": ["board-approved-calendar", "calendar-pdf", "district-event", "subscription-link"],
+      "url": "https://www.smfcsd.net/our-district/calendar",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS calendar page",
+        "confidence": "high",
+        "basis": "Official calendar page and Finalsite footer."
+      },
+      "cadence": {
+        "kind": "annual-with-continuous-events",
+        "expectation": "Check each school year and compare PDF dates to the live event calendar."
+      },
+      "archiveNotes": "Board-approved PDFs and the live calendar are separate representations and may change on different schedules.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "calendar-feed",
+      "domain": "calendar",
+      "artifactTypes": ["ical-feed"],
+      "url": "https://calendar.google.com/calendar/ical/c_p15kljj49uposg3s3vef2cep4k%40group.calendar.google.com/public/basic.ics",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "Google",
+        "product": "Google Calendar iCalendar feed",
+        "confidence": "high",
+        "basis": "The official calendar page publishes this subscription URL."
+      },
+      "cadence": {
+        "kind": "continuous",
+        "expectation": "Fetch with retrieval time and compare event identifiers and dates to the official page."
+      },
+      "archiveNotes": "A live feed is not an immutable school-year snapshot; snapshot before deriving changes.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "meal-menu",
+      "domain": "meals",
+      "artifactTypes": ["menu-pdf", "carbohydrate-count", "school-menu"],
+      "url": "https://www.smfcsd.net/district-departments/business-services/child-nutrition-services/menu",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS news and document collection",
+        "confidence": "high",
+        "basis": "Current official menu page publishes dated menu and carbohydrate-count documents."
+      },
+      "cadence": {
+        "kind": "monthly-with-operational-changes",
+        "expectation": "Discover monthly menu bundles and preserve school or program applicability."
+      },
+      "archiveNotes": "Current official evidence exposes district PDFs. A previously suggested LINQ source is not considered confirmed until the district links it.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "language-services",
+      "domain": "language-access",
+      "artifactTypes": ["translation-policy", "interpretation-policy", "support-language-list"],
+      "url": "https://www.smfcsd.net/district-departments/education-services/multilingual-learner-services/translation-interpretation-services",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS page",
+        "confidence": "high",
+        "basis": "Official language-services page on the district Finalsite site."
+      },
+      "cadence": {
+        "kind": "annual-review",
+        "expectation": "Recheck stated support languages and service policy before each pilot release."
+      },
+      "archiveNotes": "The page states that Spanish, Chinese, and Japanese met the district's described threshold as of 2024; preserve that effective-date qualifier.",
+      "checkedAt": "2026-07-09"
+    }
+  ],
+  "sourceRegimes": [
+    {
+      "id": "governance-agenda-online-observed",
+      "domain": "governance",
+      "sourceIds": ["governance-agenda-online", "governance-landing"],
+      "fromInclusive": null,
+      "toExclusive": "2022-07",
+      "precision": "month",
+      "observedFrom": "2019-20",
+      "observedThrough": "2022-06",
+      "boundaryConfidence": "official-page-observation-not-contract-date",
+      "notes": "The district page exposes Agenda Online records through June 2022 and history at least to the 2019-20 school year; the earlier bound is unknown."
+    },
+    {
+      "id": "governance-simbli-observed-current",
+      "domain": "governance",
+      "sourceIds": ["governance-simbli", "governance-landing"],
+      "fromInclusive": "2022-08",
+      "toExclusive": null,
+      "precision": "month",
+      "observedFrom": "2022-08",
+      "observedThrough": "2026-06",
+      "boundaryConfidence": "official-page-observation-current-end-open",
+      "notes": "The official archive links August 2022 agendas to Simbli; no exact contractual cutover date is asserted."
+    }
+  ],
+  "accessibility": {
+    "policyStatus": "pilot-default",
+    "auditHtmlSemantics": true,
+    "auditPdfTextAndReadingOrder": true,
+    "auditVideoCaptions": true,
+    "provideLowBandwidthTextAlternative": true,
+    "neverTreatVendorAccessibilityClaimsAsArtifactVerification": true
+  },
+  "privacy": {
+    "policyStatus": "pilot-default",
+    "sourceBeingPublicIsNotSufficientForRepublication": true,
+    "reviewPersonalNamesBeforeIndexing": true,
+    "suppressProtectedSmallCells": true,
+    "doNotPublishStudentRecordsOrMeetingCredentials": true,
+    "classifyEveryMirroredArtifactBeforeRelease": true
+  },
+  "pilot": {
+    "role": "nearby-semantic-and-expert-validation-district",
+    "validationTemplate": "districts/san-mateo-foster-city-sd/expert-validation-template.json",
+    "sampleTargets": [
+      {
+        "domain": "governance",
+        "count": 12,
+        "selection": "Meetings across Agenda Online and Simbli: regular, special, study-session, closed-session, and school-visitation examples."
+      },
+      {
+        "domain": "minutes-reconciliation",
+        "count": 12,
+        "selection": "Compare Simbli minutes status, separately linked district minutes, agenda state, and YouTube availability."
+      },
+      {
+        "domain": "finance",
+        "count": 3,
+        "unit": "fiscal-year-bundles",
+        "selection": "Adopted budget, interim reports, unaudited actuals, and audit where available."
+      },
+      {
+        "domain": "calendar",
+        "count": 1,
+        "unit": "school-year",
+        "selection": "Reconcile board-approved PDF, public iCalendar feed, and live Finalsite events."
+      },
+      {
+        "domain": "meals",
+        "count": 1,
+        "unit": "menu-month",
+        "selection": "Reconcile official district PDFs by school/program; test any vendor feed only after a current official link confirms it."
+      },
+      {
+        "domain": "expert-validation",
+        "minimum": 20,
+        "maximum": 30,
+        "unit": "blinded-review-items",
+        "selection": "Balance factual correctness, temporal correctness, source support, agenda semantics, school/program identity, budget interpretation, terminology, translation usefulness, and actionability."
+      }
+    ],
+    "successSignals": [
+      "The same shared Simbli adapter handles RCSD, Ravenswood, and SMFCSD through configuration.",
+      "Agenda Online history and Simbli records reconcile without flattening meeting types.",
+      "Language coverage is reported per artifact for English, Spanish, Chinese, and Japanese.",
+      "Accepted expert corrections point to publishable sources and become reusable fixtures or rules."
+    ]
+  },
+  "openQuestions": [
+    "Confirm whether a live LINQ or other menu feed remains an official district source; the current menu page exposes PDFs and does not establish that vendor.",
+    "Identify the complete Agenda Online archive bound before the 2019-20 records shown on the district page.",
+    "Determine the Chinese script or locale per artifact instead of assigning one at district level.",
+    "Inventory governing committees and distinguish board study sessions from advisory-body meetings.",
+    "Have an authorized human coordinate any expert review; this manifest does not authorize outreach."
+  ]
+}

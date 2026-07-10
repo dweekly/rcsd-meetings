@@ -18,12 +18,12 @@ const quick = process.argv.includes('--quick');
 const upload = process.argv.includes('--upload');
 const deploy = process.argv.includes('--deploy');
 
-function run(label, script, { nonFatal = false } = {}) {
+function run(label, script, { nonFatal = false, args = [] } = {}) {
   console.log(`\n${'='.repeat(60)}`);
   console.log(`  ${label}`);
   console.log('='.repeat(60));
   try {
-    execFileSync('node', [resolve(ROOT, 'scripts', script)], { cwd: ROOT, stdio: 'inherit', timeout: 1800000 });
+    execFileSync('node', [resolve(ROOT, 'scripts', script), ...args], { cwd: ROOT, stdio: 'inherit', timeout: 1800000 });
   } catch (err) {
     console.error(`\n  FAILED: ${label} (${script})`);
     console.error(`  ${err.message}\n`);
@@ -103,6 +103,8 @@ run(`${step++}. Charter school pages`, 'build-charters.mjs');
 run(`${step++}. Budget pages`, 'build-budget.mjs');
 run(`${step++}. Vendor spending pages`, 'build-warrants-page.mjs');
 run(`${step++}. Blog`, 'build-blog.mjs');
+run(`${step++}. Publish provenance schemas`, 'publish-provenance-schemas.mjs');
+run(`${step++}. Policy provenance`, 'generate-policy-provenance.mjs');
 run(`${step++}. Board policy pages`, 'build-policies.mjs');
 run(`${step++}. Search pages`, 'build-search.mjs');
 
@@ -111,13 +113,18 @@ run(`${step++}. Search pages`, 'build-search.mjs');
 // so searches link directly to files. Writes docs/pagefind/, which the wrangler
 // deploy below ships. See SEARCH.md.
 run(`${step++}. Build search index`, 'build-search-index.mjs');
+// Candidate manifest is local-only. CI regenerates it after committing freshly
+// ingested metadata so the release points at the exact source commit it deploys.
+run(`${step++}. Candidate release manifest`, 'generate-release-manifest.mjs');
 
 console.log(`\n${'='.repeat(60)}`);
 console.log('  Pipeline complete!');
 console.log('='.repeat(60));
 
 if (upload) {
+  run('Generate production release manifest', 'generate-release-manifest.mjs', { args: ['--require-clean-source'] });
   run('Upload data & transcripts to Cloudflare R2', 'upload-to-r2.mjs');
+  run('Stage manifest-driven policy release', 'upload-release.mjs', { args: ['--stage'] });
 } else {
   console.log('\nUpload data to R2 (run with --upload to automate):');
   console.log('  node scripts/upload-to-r2.mjs');
@@ -128,14 +135,23 @@ if (deploy) {
   console.log('  Deploying to Cloudflare Pages');
   console.log('='.repeat(60));
   try {
-    execFileSync('npx', ['wrangler', 'pages', 'deploy', 'docs', '--project-name=rcsd-meetings'], { cwd: ROOT, stdio: 'inherit' });
+    if (upload) {
+      execFileSync('node', [resolve(ROOT, 'scripts', 'deploy-pages.mjs')], { cwd: ROOT, stdio: 'inherit' });
+    } else {
+      execFileSync('npx', ['wrangler', 'pages', 'deploy', 'docs', '--project-name=rcsd-meetings'], { cwd: ROOT, stdio: 'inherit' });
+    }
   } catch (err) {
     console.error(`\n  FAILED: Wrangler Deploy`);
     console.error(`  ${err.message}\n`);
     process.exit(1);
   }
+  if (upload) {
+    run('Promote verified policy release', 'upload-release.mjs', { args: ['--promote'] });
+    run('Verify promoted release in production', 'verify-production-release.mjs');
+  }
 } else {
   console.log('\nDeploy (run with --deploy to automate):');
   console.log('  npx wrangler pages deploy docs --project-name=rcsd-meetings');
+  if (upload) console.log('  Policy release is staged but not current; rerun with --upload --deploy to promote it after Pages succeeds.');
 }
 console.log('');

@@ -1,0 +1,219 @@
+{
+  "templateVersion": "0.1.0",
+  "templateId": "expert-validation.smfcsd.v1",
+  "status": "reconnaissance-template",
+  "districtId": "ca.cde.district.4169039",
+  "purpose": "Evaluate factual correctness and practical utility of a representative SMFCSD pilot package without treating expert recollection as public provenance.",
+  "coordination": {
+    "authorizedHumanRequired": true,
+    "contactPerformedByThisRepository": false,
+    "districtEndorsementImplied": false
+  },
+  "reviewPackage": {
+    "targetItemCount": 25,
+    "minimumItemCount": 20,
+    "maximumItemCount": 30,
+    "selectionRules": [
+      "Use a frozen release candidate so every reviewer sees the same content.",
+      "Include the official source links and effective dates needed to verify each item.",
+      "Exclude pipeline, model, prompt, and implementer identity from the reviewer view.",
+      "Do not hide whether text is official, normalized, derived, or machine translated.",
+      "Include both correct-looking and known-risk cases; do not preselect only polished outputs."
+    ],
+    "targetComposition": [
+      {
+        "category": "governance-and-agenda-semantics",
+        "targetCount": 6,
+        "requiredCoverage": ["regular", "special", "study-session", "school-visitation", "minutes-status", "recording-match"]
+      },
+      {
+        "category": "calendar-and-temporal-correctness",
+        "targetCount": 3,
+        "requiredCoverage": ["effective-date", "school-year-boundary", "revision-or-cancellation"]
+      },
+      {
+        "category": "school-and-program-identity",
+        "targetCount": 3,
+        "requiredCoverage": ["school-name", "grade-or-program", "historical-versus-current-identity"]
+      },
+      {
+        "category": "budget-and-finance-interpretation",
+        "targetCount": 4,
+        "requiredCoverage": ["fiscal-year", "adopted-versus-interim", "amount-context", "official-versus-derived"]
+      },
+      {
+        "category": "language-and-terminology",
+        "targetCount": 6,
+        "requiredCoverage": ["spanish", "chinese-language-script-unresolved", "japanese", "district-terminology", "machine-translation-label", "fallback-disclosure"]
+      },
+      {
+        "category": "family-and-staff-actionability",
+        "targetCount": 3,
+        "requiredCoverage": ["family-decision", "staff-decision", "community-participation"]
+      }
+    ]
+  },
+  "blinding": {
+    "reviewerMaySee": [
+      "candidate content",
+      "surface and locale",
+      "official or derived status",
+      "source links",
+      "source effective dates",
+      "relevant neighboring context"
+    ],
+    "reviewerMustNotSeeUntilAfterScoring": [
+      "model provider or model name",
+      "prompt or pipeline implementation",
+      "implementer identity",
+      "expected score",
+      "another reviewer's response"
+    ],
+    "reason": "Blind implementation details to reduce halo effects while retaining the evidence needed for verification."
+  },
+  "ratingScale": {
+    "minimum": 0,
+    "maximum": 3,
+    "anchors": {
+      "0": "Unsafe or unusable: materially wrong, unsupported, or likely to cause an incorrect action.",
+      "1": "Major correction needed: useful intent but important facts, context, language, or sourcing are wrong or missing.",
+      "2": "Minor correction needed: substantially correct and usable with a limited fix or clarification.",
+      "3": "Correct and useful as shown: source-supported, appropriately qualified, and actionable for the intended audience."
+    },
+    "notApplicableAllowed": true
+  },
+  "dimensions": [
+    {
+      "id": "factualAccuracy",
+      "label": "Factual accuracy",
+      "question": "Are the stated facts correct at the stated level of precision?"
+    },
+    {
+      "id": "temporalAccuracy",
+      "label": "Temporal accuracy",
+      "question": "Are dates, school years, fiscal years, current/historical status, and revision state represented correctly?"
+    },
+    {
+      "id": "sourceSupport",
+      "label": "Source support",
+      "question": "Does the cited official source support the claim, and can a reviewer find the supporting evidence?"
+    },
+    {
+      "id": "semanticAccuracy",
+      "label": "District semantics",
+      "question": "Are meeting types, agenda actions, minutes status, school/program identity, and budget terms interpreted as district users understand them?"
+    },
+    {
+      "id": "plainLanguageUtility",
+      "label": "Plain-language utility",
+      "question": "Would the intended family, staff, student, or community audience understand the important point without specialist knowledge?"
+    },
+    {
+      "id": "actionSafety",
+      "label": "Action safety",
+      "question": "Would a user relying on this item take the correct next step and understand uncertainty or official-source caveats?"
+    },
+    {
+      "id": "translationUsefulness",
+      "label": "Translation usefulness",
+      "question": "For non-English content, is the meaning accurate, natural, consistent with district terminology, and clear about machine assistance or fallback?"
+    }
+  ],
+  "errorTypes": [
+    "factual-error",
+    "temporal-error",
+    "missing-or-mismatched-source",
+    "agenda-or-meeting-semantics",
+    "school-or-program-identity",
+    "budget-or-finance-interpretation",
+    "terminology",
+    "translation-meaning",
+    "translation-fluency",
+    "missing-machine-translation-label",
+    "missing-language-fallback-label",
+    "not-actionable",
+    "accessibility-barrier",
+    "privacy-or-safety-risk",
+    "other"
+  ],
+  "reviewItemTemplate": {
+    "itemId": "smfcsd-review-000",
+    "category": "governance-and-agenda-semantics",
+    "audience": "family",
+    "surface": "meeting-summary",
+    "locale": "en-US",
+    "contentStatus": "derived",
+    "machineAssistanceDisclosure": "not-applicable-or-user-visible-label",
+    "candidateContent": "",
+    "context": "",
+    "sourceEffectiveAt": null,
+    "sourceCheckedAt": "",
+    "sources": [
+      {
+        "url": "",
+        "title": "",
+        "locator": "",
+        "official": true
+      }
+    ],
+    "review": {
+      "scores": {
+        "factualAccuracy": null,
+        "temporalAccuracy": null,
+        "sourceSupport": null,
+        "semanticAccuracy": null,
+        "plainLanguageUtility": null,
+        "actionSafety": null,
+        "translationUsefulness": null
+      },
+      "errorTypes": [],
+      "wouldUserActCorrectly": null,
+      "whatIsWrongOrMissing": "",
+      "suggestedCorrection": "",
+      "correctionSourceUrl": null,
+      "correctionSourceLocator": null,
+      "unpublishedExpertContext": "",
+      "confidence": "medium"
+    },
+    "disposition": {
+      "status": "pending",
+      "decisionRationale": "",
+      "publishableEvidenceUrl": null,
+      "resultingFixtureOrRule": null,
+      "owner": null
+    }
+  },
+  "dispositionRules": [
+    "An expert's unpublished recollection may trigger research but may not become public provenance.",
+    "Accept a factual correction only when a publishable official source supports it; otherwise mark it needs-research.",
+    "A source-supported accepted correction must produce a fixture, validation rule, terminology entry, or documented no-code editorial correction.",
+    "Rejecting a suggestion requires a written source-based rationale.",
+    "Do not average away an action-safety score of 0; block the affected output until it is resolved.",
+    "Do not identify or rank individual reviewers in published evaluation results."
+  ],
+  "summaryTemplate": {
+    "releaseCandidateId": "",
+    "reviewStartedAt": "",
+    "reviewCompletedAt": "",
+    "reviewerRole": "district-domain-expert",
+    "itemCount": 0,
+    "itemsByLocale": {},
+    "itemsByCategory": {},
+    "scoreDistributionByDimension": {},
+    "wouldActCorrectly": {
+      "yes": 0,
+      "no": 0,
+      "uncertain": 0
+    },
+    "dispositions": {
+      "accepted": 0,
+      "rejected": 0,
+      "needsResearch": 0,
+      "pending": 0
+    },
+    "blockingFindings": [],
+    "fixturesOrRulesCreated": [],
+    "unresolvedQuestions": [],
+    "publicationApproved": false
+  }
+}

@@ -1,7 +1,7 @@
 ---
 name: RCSD Data Analyst
 description: This skill should be used when the user asks about "Redwood City schools", "RCSD", "school hours", "school enrollment", "school calendar", "is there school today", "next board meeting", "what's for lunch", "lunch menu", "report an absence", "IEP data", "special education", "EL percentage", "LTEL", "long-term English learner", "chronic absenteeism", "teacher diversity", "staff demographics", "teacher experience", "pupil-teacher ratio", "school site council", "SSC", "SPSA", "free and reduced lunch", "PTO", "Konstella", "ParentSquare", "which school", "board meeting", "SARC", "test scores", "CAASPP", "school budget", "RCEF", "Measure U", "expenditures", "district property", "former school site", "who leases the old campus", "watch board meeting", "compare schools", "school demographics", "meeting transcript", "board discussion", "who is my trustee", "who represents my area", "board member", "trustee area", "board president", "who is the superintendent", "new superintendent", "district cabinet", "CBO", "chief business official", "find the resolution", "board resolution", "employment contract", "find the agreement", "MOU", "board packet", "agenda item document", "warrant register", "change order", "vendor spend", "how much does the district pay", "how much do we pay", "vendor payments", "check register", "top vendors", "who do we pay", "annual spend to", or any question about Redwood City School District schools, demographics, calendars, meetings, lunch menus, funding, staffing, trustees, board documents, vendor payments, or parent resources. Also activates when the user mentions a child's name in the context of school.
-version: 0.6.0
+version: 0.7.0
 ---
 
 # RCSD Data Analyst
@@ -10,7 +10,7 @@ Answer any question about Redwood City School District (RCSD) — a TK-8 public 
 
 ## Core Approach
 
-All structured data lives in `data/` within the rcsd.info project (typically `/Users/dew/dev/rcsd/rcsd.info/data/`). The files are small JSON (under 500KB total) — read them directly with the Read tool and reason over the contents. This enables arbitrary queries, comparisons, and cross-file analysis that no pre-built tool can match.
+All structured data lives in `data/` within the rcsd.info project (typically `/Users/dew/dev/rcsd/rcsd.info/data/`). Most fact datasets are small JSON files; provenance sidecars can be larger because they enumerate artifact hashes and record-level lineage. Read the relevant fact files directly and consult the matching sidecar when source or generation history matters. This enables arbitrary queries, comparisons, and cross-file analysis that no pre-built tool can match.
 
 For questions requiring live external data (lunch menus), use the bundled scripts.
 
@@ -113,6 +113,23 @@ The CLI already excludes cancelled checks + superseded registers and footnotes n
 | `board-policies-es/` | 618 JSONs | Spanish machine-translations of policy **bodies** — `{ code, type, titleEs, contentTextEs, _metadata }`, same filenames as `board-policies/`. One policy (`6174-E PDF(1)-AR`, a scanned PDF exhibit with no extractable text) intentionally has no file; its page falls back to English. The English Simbli version is the only official text |
 | `policy-summaries.json` | 618 entries | AI-generated one-sentence summaries, English AND Spanish, under `.summaries["{code}-{type}"]` = `{ title, en, es, sourceHash }`; powers the /policies/ + /politicas/ index pages. Same one intentional gap (no source text → no summary, never invented) |
 
+### Provenance Sidecars
+
+These v1 sidecars describe provenance-migrated datasets without changing their
+existing public JSON shapes. Read the matching sidecar for questions such as
+“where did this come from?”, “is this official?”, “what generated this?”, or
+“which source version was translated?”
+
+| File | Use For |
+|------|---------|
+| `provenance/rcsd.board-policies.json` | English policy catalog and bodies: official Simbli sources, artifact hashes, record-level lineage, generator version, quality state, and the declared scanned-source exception |
+| `provenance/rcsd.board-policies-es.json` | Spanish policy titles and bodies: source-English hashes, translation lineage, LLM invocation references when available, and official-language caveats |
+| `provenance/rcsd.board-policy-summaries.json` | Bilingual policy summaries: source-text hashes, derived-record lineage, LLM invocation references when available, and quality exceptions |
+
+Only provenance-migrated families have v1 sidecars today; absence of a sidecar
+for a legacy dataset is not evidence that the fact has no source. Fall back to
+that dataset's `_metadata`, source fields, and methodology document.
+
 ### School Slugs
 
 | Slug | School | Grades | Type |
@@ -163,6 +180,21 @@ For "what is the district's policy on X?", follow this 3-step strategy:
 2. **Read Detail File**: Once you identify the relevant policy code and type, read its individual detail JSON file directly from `data/board-policies/{code}-{type}.json` (e.g. `data/board-policies/9223-AR.json`). For a Spanish answer, the machine-translated body is in `data/board-policies-es/{code}-{type}.json` (`contentTextEs`); note it is unofficial — the English version is authoritative.
 3. **Analyze & Present**: Extract the `contentText` for the core policy rules, the `footnotes` for statutory citations (like the CA Education or Government Code), and the `crossRefs` for related governance rules to synthesize an authoritative answer.
 
+### Provenance and generation-history queries
+
+For “where did this policy text or summary come from?” or “which model made
+this?”:
+
+1. Identify the output family: English policy, Spanish title/body, or bilingual summary.
+2. Read the corresponding `data/provenance/*.json` sidecar above.
+3. Use `authority` and `kind` to distinguish official-source mirrors from translations and derived explanations.
+4. Follow `recordLineage` inputs and JSON Pointers to the exact source record and hash; report the sidecar's `quality.state` and relevant exceptions.
+5. Inspect `llmInvocations` for instrumented generations. Historical cached translations and summaries predate exact invocation capture, so their sidecars are deliberately `partial`: known model/source hashes are retained, but missing request parameters are never invented. Future instrumented calls record the exact requested model, installed SDK, parameters sent, prompt/schema/input hashes, attempts, and the resolved model version when the provider exposes it.
+
+When working outside the repo, replace `data/provenance/` with
+`https://data.rcsd.info/json/provenance/`. The currently published release
+pointer is `https://data.rcsd.info/json/releases/current.json`.
+
 ### Comparative queries
 Read the relevant data for all schools and present side-by-side. The data is small enough to load entirely.
 
@@ -204,6 +236,7 @@ node ${SKILL_DIR}/scripts/query-school.mjs --list
 - **Staff ratios**: `null` ratio means denominator FTE < 1.0 (CDE doesn't compute ratio).
 - **504 plans**: Not tracked by CDE; only available from OCR CRDC (lags ~5 years).
 - **AI-generated content**: Meeting summaries and SSC membership data (extracted from PDFs via Claude) are AI-generated and labeled as such.
+- **Historical LLM provenance**: Cached policy translations and summaries created before v1 invocation tracking have partial execution metadata. Do not infer absent parameters or claim byte-for-byte reproducibility; newly generated outputs retain the exact invocation envelope described above.
 - **Lunch menus**: Published monthly; future months may not yet be available.
 - **Bilingual**: Calendar events have `en` and `es` fields. The site has `/schools/` and `/escuelas/` mirrors.
 - **Warrant registers**: every line item is reconciled against the register's printed grand total. Most months reconcile exactly; check `parseStatus` in `warrants-index.json`. Three months — **2021-05, 2021-06, 2021-07** (`total-exceeds-detail`) — have complete line items but a printed monthly total that over-counts (~1.9–2.3×, a "Summary"-format artifact); use the summed line items / `disbursedTotal`, never `printedTotal`, for those. Cancelled/voided warrants are listed but disbursed $0 (exclude from spend). Registers list **individual employee reimbursements by name** (`payeeType: "individual"`) alongside business vendors — these are public records. Fiscal year is California Jul–Jun. Fund/object codes (`fundObjects`) are captured for the Escape-era (Jun 2025+) registers only.

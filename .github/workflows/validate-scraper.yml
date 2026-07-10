@@ -30,6 +30,27 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install chromium --with-deps
 
+      - name: Run Provenance Contract Tests
+        run: |
+          npm run test:provenance
+          npm run test:policy-llm-provenance
+          npm run test:release
+          npm run test:release-smoke
+          npm run validate:provenance -- --metadata-only
+
+      - name: Verify Policy Provenance Pages and Release Allowlist
+        run: |
+          npm run build:policies
+          node scripts/verify-policy-pages.mjs
+          git diff --exit-code -- \
+            data/provenance/ \
+            docs/policies-index.json \
+            docs/policies/ \
+            docs/politicas/ \
+            docs/board-policies/ \
+            docs/board-policies-es/ \
+            docs/schemas/provenance/v1/
+
       - name: Run HTML sanitizer regression tests
         run: node scripts/test-html-sanitizers.mjs
 

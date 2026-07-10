@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rcsd.info/schemas/provenance/v1/dataset-provenance.schema.json",
+  "title": "Dataset provenance manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "datasetId", "districtId", "kind", "authority", "sources", "lineage", "quality"],
+  "properties": {
+    "$schema": { "const": "https://rcsd.info/schemas/provenance/v1/dataset-provenance.schema.json" },
+    "schemaVersion": { "$ref": "common.schema.json#/$defs/schemaVersion" },
+    "datasetId": { "$ref": "common.schema.json#/$defs/id" },
+    "districtId": { "$ref": "common.schema.json#/$defs/id" },
+    "kind": { "enum": ["source-mirror", "normalized", "derived", "translation"] },
+    "artifact": { "$ref": "common.schema.json#/$defs/artifact" },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "common.schema.json#/$defs/artifact" }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["official", "derived", "unofficial", "mixed"] },
+        "officialLanguage": { "$ref": "common.schema.json#/$defs/locale" },
+        "notes": { "type": "string" }
+      }
+    },
+    "reportingPeriod": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "from": { "type": "string", "format": "date" },
+        "to": { "type": "string", "format": "date" },
+        "label": { "type": "string", "minLength": 1 }
+      },
+      "anyOf": [
+        { "required": ["from"] },
+        { "required": ["to"] },
+        { "required": ["label"] }
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["generatedAt", "generator", "inputs"],
+      "properties": {
+        "generatedAt": { "type": "string", "format": "date-time" },
+        "generator": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["script"],
+          "properties": {
+            "script": { "$ref": "common.schema.json#/$defs/relativePath" },
+            "version": { "type": "string", "minLength": 1 },
+            "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{7,40}$" }
+          }
+        },
+        "inputs": {
+          "type": "array",
+          "items": { "$ref": "common.schema.json#/$defs/lineageInput" }
+        }
+      }
+    },
+    "quality": { "$ref": "common.schema.json#/$defs/quality" },
+    "llmInvocations": {
+      "type": "array",
+      "items": { "$ref": "llm-invocation.schema.json" }
+    },
+    "recordLineage": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/recordLineage" }
+    }
+  },
+  "oneOf": [
+    { "required": ["artifact"], "properties": { "artifact": true } },
+    { "required": ["artifacts"], "properties": { "artifacts": true } }
+  ],
+  "anyOf": [
+    { "properties": { "sources": { "type": "array", "minItems": 1 } } },
+    {
+      "properties": {
+        "lineage": {
+          "type": "object",
+          "properties": { "inputs": { "type": "array", "minItems": 1 } }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "url", "acquiredAt"],
+      "properties": {
+        "sourceId": { "$ref": "common.schema.json#/$defs/id" },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+        "acquiredAt": { "type": "string", "format": "date-time" },
+        "effectiveAt": {
+          "type": "string",
+          "oneOf": [
+            { "format": "date" },
+            { "format": "date-time" }
+          ]
+        },
+        "hash": { "$ref": "common.schema.json#/$defs/hash" },
+        "snapshot": { "$ref": "common.schema.json#/$defs/artifact" }
+      }
+    },
+    "recordLineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outputArtifactPath", "outputPointer", "inputs"],
+      "properties": {
+        "outputArtifactPath": { "$ref": "common.schema.json#/$defs/relativePath" },
+        "outputPointer": { "$ref": "common.schema.json#/$defs/jsonPointer" },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "common.schema.json#/$defs/lineageInput" }
+        },
+        "llmInvocationId": { "$ref": "common.schema.json#/$defs/id" }
+      }
+    }
+  }
+}
