@@ -11,7 +11,7 @@ Independently compiled public records for the [Redwood City School District](htt
 - **192 board meetings** (April 2020 – present) from BoardDocs and Simbli/GAMUT
 - **8,073 agenda items** with **4,845 attachments** and source links
 - **619 school board policies, bylaws, and regulations** across 9 governance sections
-- **157 meeting recordings** with diarized transcripts (AssemblyAI Universal Pro models)
+- **157 meeting recordings** with diarized transcripts (AssemblyAI Universal models; see methodology for the per-era mix)
 - **4,198 agenda items mapped to video timestamps** via LLM analysis of transcripts (148 meetings)
 - **12 school profile pages** with demographics, test scores, bell schedules, safety plans, and board presentations
 - **3 charter school profiles** plus a **district property index** (district-owned sites that aren't operating schools)
@@ -247,7 +247,7 @@ npm run scrape:packets -- --skip-existing    # skip cached meetings
 
 ### Transcription
 
-Board meeting audio is transcribed with AssemblyAI Universal-3.5 Pro with speaker diarization (Universal 3 Pro before July 2026). See [`data/METHODOLOGY-transcription.md`](data/METHODOLOGY-transcription.md) for full details on audio source selection, model settings, output schema, and quality observations.
+Board meeting audio is transcribed with AssemblyAI Universal-3.5 Pro with speaker diarization (the cached corpus is mixed Universal-2 / Universal 3 Pro; each transcript records its model in `speech_model_used`). See [`data/METHODOLOGY-transcription.md`](data/METHODOLOGY-transcription.md) for full details on audio source selection, model settings, output schema, and quality observations.
 
 ```bash
 npm run transcribe                          # all unprocessed meetings

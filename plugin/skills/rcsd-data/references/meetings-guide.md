@@ -175,7 +175,7 @@ Read `document-index.json` and filter by `type`/`subtype`.
 
 ## Transcript Access
 
-Full diarized transcripts live in `artifacts/transcripts-aai/` (local, gitignored) and are published to `data.rcsd.info/transcripts-aai/`. These are large JSON files with word-level timestamps and speaker diarization from AssemblyAI Universal Pro models (Universal-3.5 Pro for meetings transcribed from July 2026).
+Full diarized transcripts live in `artifacts/transcripts-aai/` (local, gitignored) and are published to `data.rcsd.info/transcripts-aai/`. These are large JSON files with word-level timestamps and speaker diarization from AssemblyAI Universal models (Universal-3.5 Pro from July 2026; older transcripts are Universal-2 or Universal 3 Pro — check each JSON's `speech_model_used`).
 
 For transcript-level queries, use the slim transcripts at `artifacts/transcripts-slim/` (compressed, ~34MB total) or fetch from the remote URL.
 
