@@ -2,7 +2,7 @@
 
 ## Overview
 
-All RCSD board meeting recordings posted to the district's YouTube channel are transcribed using AssemblyAI's Universal 3 Pro speech recognition model with speaker diarization. This replaces the YouTube auto-generated captions, which suffer from poor accuracy on proper nouns, missing punctuation, and no speaker attribution.
+All RCSD board meeting recordings posted to the district's YouTube channel are transcribed using AssemblyAI's Universal-3.5 Pro speech recognition model with speaker diarization (meetings transcribed before July 2026 used Universal 3 Pro). This replaces the YouTube auto-generated captions, which suffer from poor accuracy on proper nouns, missing punctuation, and no speaker attribution.
 
 ## Audio Source
 
@@ -24,9 +24,9 @@ All RCSD board meeting recordings posted to the district's YouTube channel are t
 ## Transcription Service
 
 - **Provider:** AssemblyAI
-- **Model:** Universal 3 Pro (`speech_model: 'best'` in API)
+- **Model:** Universal-3.5 Pro (`speech_models: ['universal-3-5-pro', 'universal-2']` in API; Universal-2 is the automatic fallback for languages Universal-3.5 Pro doesn't cover). Transcripts produced before 2026-07-12 used Universal 3 Pro.
 - **Speaker diarization:** Enabled (`speaker_labels: true`)
-- **Word-level timestamps:** Included by default with Universal 3 Pro (millisecond precision)
+- **Word-level timestamps:** Included by default (millisecond precision)
 - **Word boost:** Custom vocabulary list to improve recognition of district-specific terms:
   - Board members: Trustee Weekly, Trustee Sena, Trustee Hanna, Trustee Varma, Trustee Patel
   - District leadership: Superintendent Ramsey, Dr. Ramsey
@@ -92,7 +92,7 @@ Based on initial batch (verified on 5 completed transcripts):
 
 ## Costs
 
-- **Rate:** $0.37/hour of audio (AssemblyAI Universal 3 Pro with speaker diarization)
+- **Rate:** $0.28/hour of audio since July 2026 (AssemblyAI Universal-3.5 Pro: $0.21 base + $0.02 speaker diarization + $0.05 contextual prompting); earlier transcripts were $0.37/hour on Universal 3 Pro
 - **Total corpus:** ~90 hours across 49 meetings
 - **Estimated total cost:** ~$33
 

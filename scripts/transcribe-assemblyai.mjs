@@ -247,8 +247,8 @@ Key terms: RCSD, LCAP, SPSA, CAASPP, ELPAC, SARC, Measure U, Measure S, Measure 
 
 /**
  * Upload local audio to AssemblyAI and transcribe with diarization.
- * Uses Universal-3 Pro with a contextual prompt for best accuracy.
- * Falls back to Universal-2 for non-English segments via speech_models array.
+ * Uses Universal-3.5 Pro with a contextual prompt for best accuracy.
+ * Falls back to Universal-2 for non-supported languages via speech_models array.
  * Returns the full transcript object.
  */
 async function transcribe(audioPath, meeting) {
@@ -256,7 +256,7 @@ async function transcribe(audioPath, meeting) {
 
   const transcript = await client.transcripts.transcribe({
     audio: audioPath,
-    speech_models: ['universal-3-pro', 'universal-2'], // Universal-3 Pro + Universal-2 fallback
+    speech_models: ['universal-3-5-pro', 'universal-2'], // Universal-3.5 Pro + Universal-2 fallback
     speaker_labels: true,
     speakers_expected: 10, // board meetings typically have 7-15 distinct speakers
     language_detection: true, // handle English/Spanish code-switching

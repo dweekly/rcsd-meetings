@@ -535,7 +535,7 @@ const HTML = `<!DOCTYPE html>
   </div>
 
   <div class="footer">
-    ASSEMBLYAI UNIVERSAL 3 PRO &middot; SPEAKER DIARIZATION &middot; WORD-LEVEL TIMESTAMPS &middot; RAW OPUS AUDIO<br>
+    ASSEMBLYAI UNIVERSAL 3.5 PRO &middot; SPEAKER DIARIZATION &middot; WORD-LEVEL TIMESTAMPS &middot; RAW OPUS AUDIO<br>
     Auto-refreshes every 10s &middot; <span id="lastUpdate"></span>
   </div>
 </div>
