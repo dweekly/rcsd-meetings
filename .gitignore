@@ -34,7 +34,8 @@ warrants.db-shm
 # - sacs*.exe / sacs/: CDE SACS unaudited-actuals self-extracting archives and
 #   the Access databases (.mdb) extracted from them (cde.ca.gov/ds/fd/fd/)
 # - rcef.json: ProPublica Nonprofit Explorer API snapshot for the Redwood City
-#   Education Foundation (EIN 94-2903141)
+#   Education Foundation (EIN 94-2903141); a tracked copy lives in
+#   data/analysis/rcef/
 /sacs/
 /sacs*.exe
 /rcef.json
@@ -42,4 +43,5 @@ warrants.db-shm
 # Local working notes and analysis inputs. teacher-cost/ holds CDE J-90 salary
 # archives, StaffFTE files, and BLS CPI series (~600MB of raw downloads); other
 # drafts are private notes/email drafts that don't belong in a public repo.
+# Derived findings + provenance docs are tracked in data/analysis/teacher-cost/.
 /drafts/
