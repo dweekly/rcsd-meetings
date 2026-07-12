@@ -28,3 +28,18 @@ data/gsc-monitoring-report.md
 warrants.db
 warrants.db-wal
 warrants.db-shm
+
+# Local-only raw data downloads (~3GB) — too large for the repo and all
+# re-downloadable from public sources:
+# - sacs*.exe / sacs/: CDE SACS unaudited-actuals self-extracting archives and
+#   the Access databases (.mdb) extracted from them (cde.ca.gov/ds/fd/fd/)
+# - rcef.json: ProPublica Nonprofit Explorer API snapshot for the Redwood City
+#   Education Foundation (EIN 94-2903141)
+/sacs/
+/sacs*.exe
+/rcef.json
+
+# Local working notes and analysis inputs. teacher-cost/ holds CDE J-90 salary
+# archives, StaffFTE files, and BLS CPI series (~600MB of raw downloads); other
+# drafts are private notes/email drafts that don't belong in a public repo.
+/drafts/
