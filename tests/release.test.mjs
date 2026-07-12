@@ -233,3 +233,41 @@ test('release state machine is content-addressed, recoverable, write-once, and b
     rmSync(temp, { recursive: true, force: true });
   }
 });
+
+test('bootstrap treats a never-published current pointer as absent but refuses corrupt ones', async () => {
+  const temp = mkdtempSync(resolve(tmpdir(), 'rcsd-release-bootstrap-test-'));
+  const bucket = resolve(temp, 'bucket');
+  const manifestPath = resolve(temp, 'current.json');
+  const pagesReceipt = resolve(temp, 'pages.json');
+  const currentPointer = resolve(bucket, 'json/releases/current.json');
+  try {
+    // First-ever scheduled run: nothing exists in the bucket. On R2, `rclone
+    // cat` of the missing current.json exits 0 with empty output (the July
+    // 2026 pipeline failure) — staging and promotion must still bootstrap.
+    const first = await candidate();
+    writeJson(manifestPath, first);
+    runUploader(manifestPath, bucket, ['--stage']);
+    receipt(pagesReceipt, first.releaseId);
+    runUploader(manifestPath, bucket, ['--promote', `--pages-receipt=${pagesReceipt}`]);
+    assert.equal(JSON.parse(readFileSync(currentPointer, 'utf8')).releaseId, first.releaseId);
+
+    // An existing-but-unparseable pointer is corruption, not absence.
+    const second = await candidate('rcsd.board-policy-summaries');
+    writeJson(manifestPath, second);
+    writeFileSync(currentPointer, '{"releaseId": trunca');
+    assert.throws(
+      () => runUploader(manifestPath, bucket, ['--stage']),
+      /exists but is not valid JSON/,
+    );
+
+    // So is a zero-byte object: the key exists, so empty bytes must refuse
+    // rather than be mistaken for the bootstrap case.
+    writeFileSync(currentPointer, '');
+    assert.throws(
+      () => runUploader(manifestPath, bucket, ['--stage']),
+      /exists but is not valid JSON/,
+    );
+  } finally {
+    rmSync(temp, { recursive: true, force: true });
+  }
+});

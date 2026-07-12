@@ -62,13 +62,38 @@ function copyOne(from, to, immutable, checksum) {
   copyFileSync(from, to);
 }
 
+function positional() {
+  return args.filter((arg) => !arg.startsWith('--'));
+}
+
 try {
   if (command === 'cat') {
-    if (!existsSync(source)) {
-      console.error(`object not found: ${source}`);
-      process.exit(3);
+    const path = positional()[0];
+    // Match S3-class backends (R2 included): cat of a missing key exits 0
+    // with empty output rather than erroring like the filesystem backend.
+    if (existsSync(path)) process.stdout.write(readFileSync(path));
+  } else if (command === 'lsjson') {
+    const path = positional()[0];
+    if (!args.includes('--stat')) throw new Error('fake-rclone lsjson only supports --stat');
+    if (existsSync(path)) {
+      const stat = statSync(path);
+      process.stdout.write(`${JSON.stringify({
+        Path: path.split('/').pop(),
+        Name: path.split('/').pop(),
+        Size: stat.size,
+        ModTime: stat.mtime.toISOString(),
+        IsDir: false,
+      })}\n`);
+    } else {
+      // S3-class backends stat a missing key as a synthetic directory entry.
+      process.stdout.write(`${JSON.stringify({
+        Path: path.split('/').pop(),
+        Name: path.split('/').pop(),
+        Size: -1,
+        ModTime: '2000-01-01T00:00:00.000000000Z',
+        IsDir: true,
+      })}\n`);
     }
-    process.stdout.write(readFileSync(source));
   } else if (command === 'copyto') {
     if (!args.includes('--dry-run')) copyOne(source, destination, args.includes('--immutable'), args.includes('--checksum'));
   } else if (command === 'copy') {

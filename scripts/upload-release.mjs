@@ -144,19 +144,45 @@ function missingRemote(error) {
   return /(?:object|directory|file)?\s*not found|does not exist|no such file/i.test(message);
 }
 
+function remoteFileExists(remotePath, label) {
+  let body;
+  try {
+    body = run(`Probe ${label}`, ['lsjson', '--stat', remotePath], { capture: true });
+  } catch (error) {
+    if (missingRemote(error)) return false;
+    throw new Error(`Unable to probe ${label}: ${error?.stderr || error.message}`, { cause: error });
+  }
+  let stat;
+  try {
+    stat = JSON.parse(body);
+  } catch (error) {
+    throw new Error(`Unexpected lsjson output while probing ${label}.`, { cause: error });
+  }
+  // S3-class backends (R2 included) stat a missing key as a synthetic
+  // directory entry (IsDir true, Size -1) with exit code 0 instead of
+  // erroring; release objects are always files, so only a file entry counts.
+  return stat?.IsDir === false;
+}
+
 function readRemoteJson(remotePath, { optional = false, label = remotePath } = {}) {
   if (dryRun) return null;
+  if (!remoteFileExists(remotePath, label)) {
+    if (optional) return null;
+    throw new Error(`${label} does not exist at ${remotePath}.`);
+  }
+  // `rclone cat` of a missing S3 key exits 0 with empty output, so absence is
+  // established by the probe above; from here an unparseable (or zero-byte)
+  // body means a corrupt object, never a missing one.
   let body;
   try {
     body = run(`Read ${label}`, ['cat', remotePath], { capture: true });
   } catch (error) {
-    if (optional && missingRemote(error)) return null;
     throw new Error(`Unable to read ${label}: ${error?.stderr || error.message}`, { cause: error });
   }
   try {
     return JSON.parse(body);
   } catch (error) {
-    throw new Error(`${label} is not valid JSON; refusing to treat it as absent.`, { cause: error });
+    throw new Error(`${label} exists but is not valid JSON; refusing to treat it as absent.`, { cause: error });
   }
 }
 
