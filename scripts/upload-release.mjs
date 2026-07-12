@@ -44,8 +44,18 @@ function run(label, args, { capture = false } = {}) {
     cwd: ROOT,
     stdio: capture ? ['ignore', 'pipe', 'pipe'] : 'inherit',
     encoding: capture ? 'utf8' : undefined,
+    // Release manifests grow with the policy catalog (already ~1.7MB); Node's
+    // default 1MB maxBuffer kills `rclone cat` of a healthy receipt.
+    maxBuffer: 64 * 1024 * 1024,
     timeout: 30 * 60_000,
   });
+}
+
+function runFailure(error) {
+  // execFileSync failures carry the real cause (non-zero exit, maxBuffer
+  // exceeded, timeout) in error.message; rclone's stderr is supplementary and
+  // must not mask it.
+  return [error?.message, error?.stderr].filter(Boolean).join('\n');
 }
 
 function validationError(label, errors) {
@@ -150,7 +160,7 @@ function remoteFileExists(remotePath, label) {
     body = run(`Probe ${label}`, ['lsjson', '--stat', remotePath], { capture: true });
   } catch (error) {
     if (missingRemote(error)) return false;
-    throw new Error(`Unable to probe ${label}: ${error?.stderr || error.message}`, { cause: error });
+    throw new Error(`Unable to probe ${label}: ${runFailure(error)}`, { cause: error });
   }
   let stat;
   try {
@@ -177,7 +187,7 @@ function readRemoteJson(remotePath, { optional = false, label = remotePath } = {
   try {
     body = run(`Read ${label}`, ['cat', remotePath], { capture: true });
   } catch (error) {
-    throw new Error(`Unable to read ${label}: ${error?.stderr || error.message}`, { cause: error });
+    throw new Error(`Unable to read ${label}: ${runFailure(error)}`, { cause: error });
   }
   try {
     return JSON.parse(body);

@@ -245,6 +245,11 @@ test('bootstrap treats a never-published current pointer as absent but refuses c
     // cat` of the missing current.json exits 0 with empty output (the July
     // 2026 pipeline failure) — staging and promotion must still bootstrap.
     const first = await candidate();
+    // The production policy manifest is ~1.7MB (619 policies of artifact
+    // hashes), past Node's default 1MB execFileSync maxBuffer; pad this one
+    // past that limit so promotion actually reads a production-sized receipt.
+    // Gate details are excluded from the release content identity.
+    first.qualityGates.find((gate) => gate.name === 'pages-deployed').details = `Candidate. ${'x'.repeat(1_500_000)}`;
     writeJson(manifestPath, first);
     runUploader(manifestPath, bucket, ['--stage']);
     receipt(pagesReceipt, first.releaseId);
