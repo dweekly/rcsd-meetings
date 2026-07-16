@@ -127,7 +127,15 @@ jobs:
           done
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): auto-update scraped agenda/meeting metadata [skip ci]"
-            git push
+            # A run that queued behind the `ingest-pipeline` concurrency group (or a
+            # busy self-hosted runner) can resume with a checkout that is hours stale,
+            # so `git push` gets rejected non-fast-forward and the deploy steps are
+            # skipped — a freshly-scraped agenda then silently never reaches the site.
+            # Rebase onto the current remote tip before pushing so a stale checkout
+            # heals itself instead of red-failing. Retry once in case the remote moves
+            # again during the rebase.
+            git pull --rebase origin main || true
+            git push || (git pull --rebase origin main && git push)
           else
             echo "No incremental data updates to commit."
           fi

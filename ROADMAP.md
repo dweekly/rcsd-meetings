@@ -325,6 +325,12 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Bilingual (EN/ES)
 
 ## Automation & Infrastructure
+- [ ] **Install PyMuPDF (`fitz`) on the pipeline runner.** `scripts/extract-agenda-links.py`
+  (`import fitz  # pymupdf`, which harvests hyperlink rectangles from agenda PDFs) fails
+  every scheduled run with `ModuleNotFoundError: No module named 'fitz'` — the self-hosted
+  runner (trogdor) has no `.venv` with PyMuPDF installed. The step is currently
+  soft-failing, so agenda-link extraction silently degrades. Add a `.venv` + `pip install
+  pymupdf` (latest) to the runner or a pipeline setup step, per the venv-always rule.
 - [ ] **Screencap demo** — narrated screen recording showing: homepage, clicking into a meeting, transcript click-to-seek, Spanish toggle, chapter markers, MCP query. For embedding on the site and social sharing.
 
 ## Data Attribution (in progress)
