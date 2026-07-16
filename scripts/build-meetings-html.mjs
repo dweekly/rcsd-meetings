@@ -864,12 +864,17 @@ function renderUpcomingSection() {
 
     const visibleItems = listItems.slice(0, 3).join('\n');
     const hiddenItems = listItems.slice(3).join('\n');
+    const hiddenCount = listItems.length - 3;
 
+    // These dates are the board-adopted meeting calendar (agendas simply aren't
+    // posted yet), so the drawer defaults to open and carries no "tentative" framing.
     let collapsibleHtml = '';
     if (hiddenItems) {
+      const moreLabel = L.lang === 'es' ? `▸ Ver ${hiddenCount} fechas más` : `▸ Show ${hiddenCount} more dates`;
+      const lessLabel = L.lang === 'es' ? '▾ Mostrar menos' : '▾ Show fewer';
       collapsibleHtml = `
-    <details class="upcoming-details-toggle">
-      <summary>${L.lang === 'es' ? `▶ Ver ${listItems.length - 3} fechas futuras más (tentativas)` : `▶ Show ${listItems.length - 3} more future tentative dates`}</summary>
+    <details class="upcoming-details-toggle" open>
+      <summary><span class="toggle-more">${moreLabel}</span><span class="toggle-less">${lessLabel}</span></summary>
       <div class="upcoming-provisional-list-hidden">
         ${hiddenItems}
       </div>
@@ -878,7 +883,7 @@ function renderUpcomingSection() {
 
     provisionalHtml = `
     <div class="upcoming-provisional-section">
-      <h3 class="upcoming-provisional-title">${L.lang === 'es' ? 'Fechas Futuras Planeadas (Sin Agenda)' : 'Planned Future Dates (No Agenda)'}</h3>
+      <h3 class="upcoming-provisional-title">${L.lang === 'es' ? 'Calendario de Reuniones Aprobado (Agendas aún no publicadas)' : 'Approved Meeting Calendar (Agendas Not Yet Posted)'}</h3>
       <div class="upcoming-provisional-list">
         ${visibleItems}
         ${collapsibleHtml}
@@ -2045,6 +2050,13 @@ const pageCSS = `
     color: var(--green-deep);
     text-decoration: underline;
   }
+
+  /* Drawer defaults to open; swap the summary label to a collapse control. */
+  .upcoming-details-toggle summary { list-style: none; }
+  .upcoming-details-toggle summary::-webkit-details-marker { display: none; }
+  .upcoming-details-toggle .toggle-less { display: none; }
+  .upcoming-details-toggle[open] .toggle-more { display: none; }
+  .upcoming-details-toggle[open] .toggle-less { display: inline; }
 
   .upcoming-provisional-list-hidden {
     margin-top: 0.4rem;

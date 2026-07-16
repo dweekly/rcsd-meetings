@@ -1165,6 +1165,13 @@
     text-decoration: underline;
   }
 
+  /* Drawer defaults to open; swap the summary label to a collapse control. */
+  .upcoming-details-toggle summary { list-style: none; }
+  .upcoming-details-toggle summary::-webkit-details-marker { display: none; }
+  .upcoming-details-toggle .toggle-less { display: none; }
+  .upcoming-details-toggle[open] .toggle-more { display: none; }
+  .upcoming-details-toggle[open] .toggle-less { display: inline; }
+
   .upcoming-provisional-list-hidden {
     margin-top: 0.4rem;
     display: flex;
@@ -1406,103 +1413,103 @@ Comments in Spanish are welcome — an interpreter is available at every meeting
   </div>
   
     <div class="upcoming-provisional-section">
-      <h3 class="upcoming-provisional-title">Planned Future Dates (No Agenda)</h3>
+      <h3 class="upcoming-provisional-title">Approved Meeting Calendar (Agendas Not Yet Posted)</h3>
       <div class="upcoming-provisional-list">
               <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>August 10, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>August 26, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>September 9, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
         
-    <details class="upcoming-details-toggle">
-      <summary>▶ Show 20 more future tentative dates</summary>
+    <details class="upcoming-details-toggle" open>
+      <summary><span class="toggle-more">▸ Show 20 more dates</span><span class="toggle-less">▾ Show fewer</span></summary>
       <div class="upcoming-provisional-list-hidden">
               <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>September 23, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>October 14, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>October 28, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>November 4, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>November 18, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>December 9, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>December 16, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>January 13, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>January 20, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>February 10, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>February 24, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>March 10, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>March 24, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>April 7, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>April 28, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>May 12, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>May 26, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>June 9, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>June 16, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>June 23, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
+        <span class="upcoming-provisional-type">Board Meeting</span>
       </div>
       </div>
     </details>
