@@ -258,7 +258,11 @@ async function transcribe(audioPath, meeting) {
     audio: audioPath,
     speech_models: ['universal-3-5-pro', 'universal-2'], // Universal-3.5 Pro + Universal-2 fallback
     speaker_labels: true,
-    speakers_expected: 10, // board meetings typically have 7-15 distinct speakers
+    // A range, not an exact count: passing speakers_expected anchors the model
+    // to that number and merges extra voices (every meeting came back with
+    // exactly 10 speakers). Board meetings run ~6 voices (special meeting, no
+    // public comment) to 25+ (budget hearings).
+    speaker_options: { min_speakers_expected: 5, max_speakers_expected: 30 },
     language_detection: true, // handle English/Spanish code-switching
     disfluencies: false, // omit um, uh, stutters
     remove_audio_tags: 'all', // strip [MUSIC], [APPLAUSE], etc.
