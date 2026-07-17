@@ -763,6 +763,65 @@ function renderRotationDivider(rotation) {
     </div>`;
 }
 
+// "At a glance" — surface the two things people come for (what happened at the
+// last meeting, and when the next one is / what it covers) at the very top,
+// above the topic filters and the archive.
+function renderAtAGlance() {
+  const past = data.meetings
+    .filter(m => m.date <= todayStr)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  const last = past[0];
+  const nextDate = futureBoardMeetingDates[0];
+  const nextMeeting = nextDate ? data.meetings.find(m => m.date === nextDate) : null;
+  if (!last && !nextDate) return '';
+
+  const cards = [];
+
+  if (last) {
+    cards.push(`    <div class="glance-card">
+      <div class="glance-label">${L.lang === 'es' ? 'Última reunión' : 'Latest meeting'}</div>
+${renderMeeting(last)}
+    </div>`);
+  }
+
+  if (nextDate) {
+    let body;
+    if (nextMeeting) {
+      body = renderMeeting(nextMeeting);
+    } else {
+      const { month, day, year } = formatDateBadge(nextDate);
+      const topics = govCalTopics[nextDate];
+      const topicText = topics ? topics[L.lang] || topics.en : null;
+      const noAgenda = L.lang === 'es'
+        ? 'La agenda se publica unas 72 horas antes de la reunión.'
+        : 'Agenda is posted about 72 hours before the meeting.';
+      body = `    <div class="meeting-row">
+      <div class="meeting-date meeting-date--static">
+        <span class="meeting-date-month">${month}</span>
+        <span class="meeting-date-day">${day}</span>
+        <span class="meeting-date-year">${year}</span>
+      </div>
+      <div class="meeting-body">
+        <div class="meeting-header">
+          <span class="meeting-type">${escapeHtml(L.meetingTypes['Board Meeting'] || 'Board Meeting')}</span>
+        </div>
+        <p class="meeting-summary">${topicText ? escapeHtml(topicText) + ' ' : ''}${noAgenda}</p>
+      </div>
+    </div>`;
+    }
+    cards.push(`    <div class="glance-card">
+      <div class="glance-label">${L.lang === 'es' ? 'Próxima reunión' : 'Next meeting'}</div>
+${body}
+    </div>`);
+  }
+
+  return `<section class="glance-section" id="glance">
+  <div class="glance-grid">
+${cards.join('\n')}
+  </div>
+</section>`;
+}
+
 // Render the "Upcoming Meetings" section with two tiers
 function renderUpcomingSection() {
   if (upcomingPublished.length === 0 && upcomingProvisional.length === 0) return '';
@@ -839,55 +898,39 @@ function renderUpcomingSection() {
     </div>`;
   }
 
-  // Tier 2: Provisional meetings (no agenda yet) — render in a beautiful, compact list with collapsible drawer
+  // Tier 2: Board-adopted future dates (no agenda posted yet). These are the
+  // formally approved calendar, so they render as a compact, fully-visible date
+  // grid — no accordion, no per-row "Board Meeting" repetition. A date carrying a
+  // specific planned topic surfaces it on hover.
   let provisionalHtml = '';
   if (upcomingProvisional.length > 0) {
-    const listItems = upcomingProvisional.map(dateStr => {
+    const cells = upcomingProvisional.map(dateStr => {
       const [yStr, mStr, dStr] = dateStr.split('-');
       const monthIdx = parseInt(mStr, 10) - 1;
       const dayVal = parseInt(dStr, 10);
-      const dateLabel = L.lang === 'es' 
-        ? `${dayVal} de ${L.monthFull[monthIdx]}`
-        : `${L.monthFull[monthIdx]} ${dayVal}, ${yStr}`;
+      const dateLabel = L.lang === 'es'
+        ? `${dayVal} ${L.monthFull[monthIdx].slice(0, 3).toLowerCase()} ${yStr}`
+        : `${L.monthFull[monthIdx].slice(0, 3)} ${dayVal}, ${yStr}`;
 
       const topics = govCalTopics[dateStr];
       const topicText = topics ? topics[L.lang] || topics.en : null;
-      const topicHtml = topicText
-        ? ` — <span class="upcoming-provisional-topic">${escapeHtml(topicText)}</span>`
-        : '';
+      const titleAttr = topicText ? ` title="${escapeHtml(topicText)}"` : '';
+      const topicMark = topicText ? '<span class="cal-cell-dot" aria-hidden="true">•</span>' : '';
 
-      return `      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>${dateLabel}</strong></span>
-        <span class="upcoming-provisional-type">${escapeHtml(L.meetingTypes['Board Meeting'] || 'Board Meeting')}${topicHtml}</span>
-      </div>`;
-    });
+      return `        <li class="cal-cell"${titleAttr}>${dateLabel}${topicMark}</li>`;
+    }).join('\n');
 
-    const visibleItems = listItems.slice(0, 3).join('\n');
-    const hiddenItems = listItems.slice(3).join('\n');
-    const hiddenCount = listItems.length - 3;
-
-    // These dates are the board-adopted meeting calendar (agendas simply aren't
-    // posted yet), so the drawer defaults to open and carries no "tentative" framing.
-    let collapsibleHtml = '';
-    if (hiddenItems) {
-      const moreLabel = L.lang === 'es' ? `▸ Ver ${hiddenCount} fechas más` : `▸ Show ${hiddenCount} more dates`;
-      const lessLabel = L.lang === 'es' ? '▾ Mostrar menos' : '▾ Show fewer';
-      collapsibleHtml = `
-    <details class="upcoming-details-toggle" open>
-      <summary><span class="toggle-more">${moreLabel}</span><span class="toggle-less">${lessLabel}</span></summary>
-      <div class="upcoming-provisional-list-hidden">
-        ${hiddenItems}
-      </div>
-    </details>`;
-    }
+    const noteText = L.lang === 'es'
+      ? 'Reuniones ordinarias de la Junta adoptadas para 2026–27. Las agendas se publican unas 72 horas antes de cada reunión.'
+      : 'Regular Board meetings adopted for 2026–27. Agendas post about 72 hours before each meeting.';
 
     provisionalHtml = `
     <div class="upcoming-provisional-section">
-      <h3 class="upcoming-provisional-title">${L.lang === 'es' ? 'Calendario de Reuniones Aprobado (Agendas aún no publicadas)' : 'Approved Meeting Calendar (Agendas Not Yet Posted)'}</h3>
-      <div class="upcoming-provisional-list">
-        ${visibleItems}
-        ${collapsibleHtml}
-      </div>
+      <h3 class="upcoming-provisional-title">${L.lang === 'es' ? 'Calendario de Reuniones Aprobado' : 'Approved Meeting Calendar'}</h3>
+      <p class="upcoming-provisional-note">${noteText}</p>
+      <ul class="cal-grid">
+${cells}
+      </ul>
     </div>`;
   }
 
@@ -1210,7 +1253,7 @@ const pageCSS = `
   .header-inner {
     max-width: 900px;
     margin: 0 auto;
-    padding: 4rem 2rem 3.5rem;
+    padding: 2.5rem 2rem 2rem;
     position: relative;
   }
 
@@ -1221,7 +1264,7 @@ const pageCSS = `
     text-transform: uppercase;
     /* lightened from --green-light (3.12:1) for WCAG AA 4.5:1 on --green-deep */
     color: #73b390;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.7rem;
   }
 
   .header-title {
@@ -1235,29 +1278,31 @@ const pageCSS = `
   }
 
   .header-subtitle {
-    margin-top: 1.5rem;
-    font-size: 0.95rem;
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
     color: rgba(255,255,255,0.6);
-    line-height: 1.6;
+    line-height: 1.55;
     max-width: 520px;
     font-style: italic;
   }
 
   .header-meta {
-    margin-top: 2rem;
+    margin-top: 1.1rem;
     display: flex;
-    gap: 2rem;
+    align-items: baseline;
+    gap: 0.5rem 1.4rem;
     flex-wrap: wrap;
   }
 
   .header-stat {
     display: flex;
-    flex-direction: column;
+    align-items: baseline;
+    gap: 0.35rem;
   }
 
   .header-stat-value {
     font-family: 'Fraunces', serif;
-    font-size: 1.8rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: #fff;
     line-height: 1;
@@ -1703,8 +1748,8 @@ const pageCSS = `
 
   /* ---- BOARD ROSTER ---- */
   .board-roster {
-    margin-top: 2.2rem;
-    padding-top: 1.5rem;
+    margin-top: 1.3rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255,255,255,0.12);
   }
 
@@ -1988,92 +2033,90 @@ const pageCSS = `
     margin: 0 0 0.8rem;
   }
 
-  .upcoming-provisional-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid rgba(0, 128, 0, 0.12);
-    border-radius: 6px;
-    padding: 0.8rem 1.2rem;
-  }
-
-  .upcoming-provisional-item {
-    display: flex;
-    align-items: baseline;
-    font-size: 0.85rem;
-    padding: 0.35rem 0;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
-    line-height: 1.4;
-  }
-
-  .upcoming-provisional-item:last-child {
-    border-bottom: none;
-  }
-
-  .upcoming-provisional-date {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--green-mid);
-    flex-shrink: 0;
-    width: 9rem;
-  }
-
-  .upcoming-provisional-type {
-    color: var(--text);
-  }
-
-  .upcoming-provisional-topic {
+  .upcoming-provisional-note {
+    font-size: 0.82rem;
     color: var(--text-secondary);
-    font-style: italic;
+    margin: 0 0 0.75rem;
+    line-height: 1.45;
+    max-width: 46rem;
   }
 
-  .upcoming-details-toggle {
-    margin-top: 0.4rem;
-    padding-top: 0.4rem;
-  }
-
-  .upcoming-details-toggle summary {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--green-mid);
-    cursor: pointer;
-    user-select: none;
-    outline: none;
-    transition: color 0.2s;
-    display: inline-block;
-  }
-
-  .upcoming-details-toggle summary:hover {
-    color: var(--green-deep);
-    text-decoration: underline;
-  }
-
-  /* Drawer defaults to open; swap the summary label to a collapse control. */
-  .upcoming-details-toggle summary { list-style: none; }
-  .upcoming-details-toggle summary::-webkit-details-marker { display: none; }
-  .upcoming-details-toggle .toggle-less { display: none; }
-  .upcoming-details-toggle[open] .toggle-more { display: none; }
-  .upcoming-details-toggle[open] .toggle-less { display: inline; }
-
-  .upcoming-provisional-list-hidden {
-    margin-top: 0.4rem;
-    display: flex;
-    flex-direction: column;
+  .cal-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(116px, 1fr));
     gap: 0.4rem;
+  }
+
+  .cal-cell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(0, 128, 0, 0.14);
+    border-radius: 5px;
+    padding: 0.4rem 0.55rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .cal-cell-dot {
+    color: var(--green-mid);
+    margin-left: 0.25rem;
+  }
+
+  /* ---- AT A GLANCE (latest + next meeting) ---- */
+  .glance-section {
+    margin-top: 1.75rem;
+  }
+
+  .glance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .glance-card {
+    border: 1px solid var(--rule-light);
+    border-radius: 8px;
+    padding: 0.55rem 1.1rem 0.35rem;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .glance-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin: 0.15rem 0 0.15rem;
+  }
+
+  /* Meeting rows sit flush inside the glance cards (no list separators). */
+  .glance-card .meeting-row {
+    border-bottom: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .meeting-date--static {
+    cursor: default;
+    text-decoration: none;
+  }
+
+  @media (max-width: 720px) {
+    .glance-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 640px) {
-    .upcoming-provisional-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.15rem;
-      padding: 0.5rem 0;
-    }
-    .upcoming-provisional-date {
-      width: auto;
+    .cal-grid {
+      grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
     }
   }
 
@@ -2164,6 +2207,10 @@ ${siteNav({ activePage: 'meetings', lang: L.lang, altLangHref: L.altLangHref })}
 </nav>
 
 <main class="content">
+${renderAtAGlance()}
+
+${renderUpcomingSection()}
+
 ${renderThreadFilters()}
 
 <div class="tip-boxes">
@@ -2176,8 +2223,6 @@ ${renderThreadFilters()}
     <div class="tip-box-body">${L.tipTopicBody}</div>
   </details>
 </div>
-
-${renderUpcomingSection()}
 
 ${schoolYears.map(([sy, meetings]) => {
   // Filter out meetings that appear in the Upcoming section to avoid duplication
@@ -2209,7 +2254,7 @@ ${siteFooter({ lang: L.lang })}
         activeType = null;
         btns.forEach(function(b) { b.classList.remove('active'); });
         allRows.forEach(function(r) {
-          if (!r.closest('#upcoming')) {
+          if (!r.closest('#upcoming, #glance')) {
             r.classList.remove('hidden');
           }
         });
@@ -2219,7 +2264,7 @@ ${siteFooter({ lang: L.lang })}
         activeType = type;
         btns.forEach(function(b) { b.classList.toggle('active', b.dataset.filter === filter && b.dataset.filterType === type); });
         allRows.forEach(function(r) {
-          if (r.closest('#upcoming')) return;
+          if (r.closest('#upcoming, #glance')) return;
           var match = false;
           if (type === 'thread') {
             var threads = r.dataset.threads || '';
