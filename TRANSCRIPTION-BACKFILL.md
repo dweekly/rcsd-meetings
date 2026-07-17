@@ -35,7 +35,7 @@ custom_spelling (reserved for the separate normalization pass).
 ## How it runs
 
 `scripts/backfill-transcripts.mjs`, on trogdor in a **standalone clone at
-`/mnt/data/rcsd-backfill/`** — never the Actions runner workspace, so scheduled
+`~dew/rcsd-backfill/` (home filesystem, 1.2TB free; /mnt/data is root-owned)** — never the Actions runner workspace, so scheduled
 pipeline runs can't collide with it. Audio is pre-staged from the R2 mirror
 (`data.rcsd.info/audio/{videoId}.webm`), not YouTube. Resumable: transcripts
 already showing `speech_model_used: 'universal-3-5-pro'` are skipped on
@@ -54,7 +54,7 @@ rest if it looks large).
 
 Publish step, once approved:
 ```bash
-ssh trogdor 'cp /mnt/data/rcsd-backfill/rcsd.info/artifacts/transcripts-aai/*.json \
+ssh trogdor 'cp ~/rcsd-backfill/rcsd.info/artifacts/transcripts-aai/*.json \
   /mnt/data/actions-runner/_work/rcsd-meetings/rcsd-meetings/artifacts/transcripts-aai/'
 ```
 then let the scheduled pipeline run (or dispatch it) to rebuild and sync R2.
