@@ -276,8 +276,9 @@ async function transcribe(audioPath, meeting) {
 // ---- Main ----
 async function main() {
   const toProcess = [];
-  // Several dates carry multiple meeting records (e.g. closed + regular
-  // session) that share one recording; transcribe each video only once.
+  // Several dates carry multiple BoardDocs agenda records (e.g. a study
+  // session preceding the regular meeting, or a re-noticed agenda) that all
+  // link the evening's one public video; transcribe each video only once.
   const seenVids = new Set();
   for (const m of meetings) {
     if (filterDate && m.date !== filterDate) continue;
