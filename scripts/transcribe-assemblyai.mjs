@@ -276,8 +276,13 @@ async function transcribe(audioPath, meeting) {
 // ---- Main ----
 async function main() {
   const toProcess = [];
+  // Several dates carry multiple meeting records (e.g. closed + regular
+  // session) that share one recording; transcribe each video only once.
+  const seenVids = new Set();
   for (const m of meetings) {
     if (filterDate && m.date !== filterDate) continue;
+    if (seenVids.has(m.youtube)) continue;
+    seenVids.add(m.youtube);
     if (await hasCachedOrRestored(m.youtube, m.date)) continue;
     toProcess.push(m);
   }
