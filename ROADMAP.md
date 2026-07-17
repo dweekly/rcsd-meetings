@@ -188,6 +188,8 @@ A meeting progresses through distinct states, each with different data confidenc
 
 The calendar widget and meeting pages should reflect which state each meeting is in, and be clear about the confidence level of any summary shown.
 
+- [ ] **Slot governance-calendar topics into future dates before formal agendas post** (realizes state 1's "high-level preview if available"). The "Schedule of Board Agenda Items" (a.k.a. governance calendar) lists high-level planned topics per future meeting; it is attached to the **"Other Business / Future Topics"** agenda item and is already located by `findGovernanceCalendar()`. Extract its per-date topics into `data/governance-calendar.json` `provisionalTopics` so the **Approved Meeting Calendar** grid (topic dot + hover title), the **"Next meeting"** glance card, the homepage, and the ICS feed all show a high-level preview *before* the concrete agenda posts (~72h before each meeting). **Blocked:** the 2026‑27 Schedule of Board Agenda Items has not posted yet — expected on/after the **Aug 10, 2026** agenda; this becomes a live TODO once it posts. (25‑26 reference PDF, most recent: `https://simbli.eboardsolutions.com/meetings/TempFolder/Meetings/25-26%20Schedule%20of%20Board%20Agenda%20Items_1585773rqjlb03ajnwipfdmziqkg0gu.pdf`)
+
 ## Board Meetings — School Relevance
 - [ ] Better summarize school-relevant meetings: "What was discussed/approved in this board meeting (per the minutes) that could impact $SCHOOL?"
 - [ ] For meetings without minutes: "What was on the agenda that could impact $SCHOOL?"
