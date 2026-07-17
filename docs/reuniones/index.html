@@ -1165,6 +1165,13 @@
     text-decoration: underline;
   }
 
+  /* Drawer defaults to open; swap the summary label to a collapse control. */
+  .upcoming-details-toggle summary { list-style: none; }
+  .upcoming-details-toggle summary::-webkit-details-marker { display: none; }
+  .upcoming-details-toggle .toggle-less { display: none; }
+  .upcoming-details-toggle[open] .toggle-more { display: none; }
+  .upcoming-details-toggle[open] .toggle-less { display: inline; }
+
   .upcoming-provisional-list-hidden {
     margin-top: 0.4rem;
     display: flex;
@@ -1406,103 +1413,103 @@ Los comentarios en español son bienvenidos — hay un intérprete disponible en
   </div>
   
     <div class="upcoming-provisional-section">
-      <h3 class="upcoming-provisional-title">Fechas Futuras Planeadas (Sin Agenda)</h3>
+      <h3 class="upcoming-provisional-title">Calendario de Reuniones Aprobado (Agendas aún no publicadas)</h3>
       <div class="upcoming-provisional-list">
               <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>10 de Agosto</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>26 de Agosto</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>9 de Septiembre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
         
-    <details class="upcoming-details-toggle">
-      <summary>▶ Ver 20 fechas futuras más (tentativas)</summary>
+    <details class="upcoming-details-toggle" open>
+      <summary><span class="toggle-more">▸ Ver 20 fechas más</span><span class="toggle-less">▾ Mostrar menos</span></summary>
       <div class="upcoming-provisional-list-hidden">
               <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>23 de Septiembre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>14 de Octubre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>28 de Octubre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>4 de Noviembre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>18 de Noviembre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>9 de Diciembre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>16 de Diciembre</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>13 de Enero</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>20 de Enero</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>10 de Febrero</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>24 de Febrero</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>10 de Marzo</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>24 de Marzo</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>7 de Abril</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>28 de Abril</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>12 de Mayo</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>26 de Mayo</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>9 de Junio</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>16 de Junio</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       <div class="upcoming-provisional-item">
         <span class="upcoming-provisional-date"><strong>23 de Junio</strong></span>
-        <span class="upcoming-provisional-type">Reunión de la Junta — <span class="upcoming-provisional-topic">Reunión de la Junta (Tentativa)</span></span>
+        <span class="upcoming-provisional-type">Reunión de la Junta</span>
       </div>
       </div>
     </details>
