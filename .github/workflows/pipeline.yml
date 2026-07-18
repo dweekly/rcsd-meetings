@@ -105,18 +105,21 @@ jobs:
             --ignore-existing --progress
 
       # Operator inbox for out-of-band (re-)transcriptions: anything staged in
-      # ~/transcript-inbox on the self-hosted runner overrides the R2 restore,
-      # flows through the normal rebuild, and is published to R2 by the upload
-      # step — after which the restore serves it forever. Used for the July
-      # 2026 full-corpus Universal-3.5 Pro backfill (TRANSCRIPTION-BACKFILL.md);
-      # clear the inbox once the published files are verified.
+      # /mnt/data/actions-runner/transcript-inbox on the self-hosted runner
+      # overrides the R2 restore, flows through the normal rebuild, and is
+      # published to R2 by the upload step — after which the restore serves it
+      # forever. (Absolute path: the runner service runs as gha-runner, whose
+      # $HOME is not the operator's.) Used for the July 2026 full-corpus
+      # Universal-3.5 Pro backfill (TRANSCRIPTION-BACKFILL.md); clear the inbox
+      # once the published files are verified.
       - name: Ingest Staged Transcripts (operator inbox)
         if: runner.environment == 'self-hosted'
         run: |
-          if ls "$HOME"/transcript-inbox/*.json >/dev/null 2>&1; then
-            count=$(ls "$HOME"/transcript-inbox/*.json | wc -l)
-            echo "Ingesting $count staged transcripts from ~/transcript-inbox"
-            cp "$HOME"/transcript-inbox/*.json artifacts/transcripts-aai/
+          INBOX=/mnt/data/actions-runner/transcript-inbox
+          if ls "$INBOX"/*.json >/dev/null 2>&1; then
+            count=$(ls "$INBOX"/*.json | wc -l)
+            echo "Ingesting $count staged transcripts from $INBOX"
+            cp "$INBOX"/*.json artifacts/transcripts-aai/
           else
             echo "No staged transcripts."
           fi
