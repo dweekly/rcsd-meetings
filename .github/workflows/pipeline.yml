@@ -96,6 +96,13 @@ jobs:
           mkdir -p artifacts
           # Sync slim transcripts from R2 transcripts/ to local artifacts/transcripts-slim/
           rclone copy r2:rcsd-meetings/transcripts/ artifacts/transcripts-slim/ --progress
+          # Raw AAI transcripts: the runner's local cache is the source of truth
+          # (it is where new/re-transcriptions land); R2 is a backup. Restore
+          # only files the runner is missing — a plain copy would overwrite a
+          # locally-updated transcript with the older R2 version (this reverted
+          # the July 2026 full-corpus re-transcription until run 29650799425).
+          rclone copy r2:rcsd-meetings/transcripts-aai/ artifacts/transcripts-aai/ \
+            --ignore-existing --progress
           # Sync other cache folders (excluding heavy media, json, and transcripts)
           rclone copy r2:rcsd-meetings/ artifacts/ \
             --exclude "audio/**" \
@@ -103,6 +110,7 @@ jobs:
             --exclude "board-packets-cache/**" \
             --exclude "json/**" \
             --exclude "transcripts/**" \
+            --exclude "transcripts-aai/**" \
             --progress
 
       - name: Run Data Pipeline (Full or Quick)
