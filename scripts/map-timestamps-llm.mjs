@@ -37,7 +37,13 @@ const args = process.argv.slice(2);
 const force = args.includes('--force');
 // Cap per-run refreshes of maps whose transcript changed (see July 2026
 // re-transcription); new meetings are never capped.
-const maxRefresh = args.includes('--max-refresh') ? parseInt(args[args.indexOf('--max-refresh') + 1], 10) : 25;
+const maxRefresh = args.includes('--max-refresh')
+  ? parseInt(args[args.indexOf('--max-refresh') + 1], 10)
+  : process.env.MAX_REFRESH === 'all'
+    ? Infinity
+    : process.env.MAX_REFRESH
+      ? parseInt(process.env.MAX_REFRESH, 10)
+      : 25;
 const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : null;
 
 // ---- Parse AssemblyAI transcript JSON into blocks ----

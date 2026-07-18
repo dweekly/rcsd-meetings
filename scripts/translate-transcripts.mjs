@@ -45,7 +45,13 @@ const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : 
 // corpus-wide re-transcription (July 2026 Universal-3.5 Pro backfill) spreads
 // its translation cost across nightly runs instead of one giant API bill.
 // Brand-new meetings are never capped.
-const maxRefresh = args.includes('--max-refresh') ? parseInt(args[args.indexOf('--max-refresh') + 1], 10) : 25;
+const maxRefresh = args.includes('--max-refresh')
+  ? parseInt(args[args.indexOf('--max-refresh') + 1], 10)
+  : process.env.MAX_REFRESH === 'all'
+    ? Infinity
+    : process.env.MAX_REFRESH
+      ? parseInt(process.env.MAX_REFRESH, 10)
+      : 25;
 
 const client = new Anthropic();
 

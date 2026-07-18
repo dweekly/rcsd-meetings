@@ -11,6 +11,11 @@ on:
         required: true
         type: boolean
         default: false
+      refresh_all:
+        description: 'Uncap stale-cache refreshes (translations, chapter markers, timestamp maps) for this run'
+        required: false
+        type: boolean
+        default: false
       runner:
         description: 'Runner environment to execute on'
         required: true
@@ -134,6 +139,10 @@ jobs:
           fi
 
       - name: Run Data Pipeline (Full or Quick)
+        env:
+          # 'all' removes the per-run cap on stale-cache refreshes; unset uses
+          # each script's default of 25 (see --max-refresh).
+          MAX_REFRESH: ${{ github.event.inputs.refresh_all == 'true' && 'all' || '' }}
         run: |
           if [ "${{ github.event.inputs.quick }}" = "true" ]; then
             node scripts/run-pipeline.mjs --quick
