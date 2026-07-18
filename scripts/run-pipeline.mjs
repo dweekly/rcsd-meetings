@@ -18,17 +18,25 @@ const quick = process.argv.includes('--quick');
 const upload = process.argv.includes('--upload');
 const deploy = process.argv.includes('--deploy');
 
+// LLM steps (translate / chapter markers / timestamp maps) process up to the
+// whole corpus when MAX_REFRESH=all, which takes hours, not minutes — the old
+// flat 30-min timeout killed an uncapped translation run mid-flight and its
+// paid-for output was lost with it (2026-07-18, run 29656578184). Self-hosted
+// jobs have no 6-hour GitHub limit, so give steps 6h and let the per-run
+// refresh caps be the cost/runtime guardrail on scheduled runs.
+const STEP_TIMEOUT_MS = 6 * 60 * 60_000;
+
 function run(label, script, { nonFatal = false, args = [] } = {}) {
   console.log(`\n${'='.repeat(60)}`);
   console.log(`  ${label}`);
   console.log('='.repeat(60));
   try {
-    execFileSync('node', [resolve(ROOT, 'scripts', script), ...args], { cwd: ROOT, stdio: 'inherit', timeout: 1800000 });
+    execFileSync('node', [resolve(ROOT, 'scripts', script), ...args], { cwd: ROOT, stdio: 'inherit', timeout: STEP_TIMEOUT_MS });
   } catch (err) {
     console.error(`\n  FAILED: ${label} (${script})`);
     console.error(`  ${err.message}\n`);
     // Some steps are best-effort enrichment (e.g. ES translation of agenda
-    // content): a failure or 30-min timeout there must not abort the deploy.
+    // content): a failure or step timeout there must not abort the deploy.
     // Their output is cached, so the next run resumes where this one stopped.
     if (nonFatal) {
       console.error(`  (non-fatal — continuing; cached output lets the next run resume.)\n`);
