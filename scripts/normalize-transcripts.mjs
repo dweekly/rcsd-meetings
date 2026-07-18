@@ -33,17 +33,17 @@ const RULES_VERSION = 1;
 
 // Single-token rules: [wrong token regex, replacement]
 const TOKEN_RULES = [
-  [/^McAvoy([.,?!]?)$/, 'MacAvoy$1'], // Trustee Alisa MacAvoy
-  [/^LCP([.,?!]?)$/, 'LCAP$1'], // Local Control and Accountability Plan
-  [/^Weekley([.,?!'’]?s?)$/, 'Weekly$1'], // Trustee David Weekly
-  [/^CASPP?([.,?!]?)$/, 'CAASPP$1'], // state assessment, spoken "cass-p"
-  [/^LPAC([.,?!]?)$/, 'ELPAC$1'], // English Language Proficiency Assessments
+  [/^McAvoy(['’]?s?[.,?!]?)$/, 'MacAvoy$1'], // Trustee Alisa MacAvoy
+  [/^LCP(['’]?s?[.,?!]?)$/, 'LCAP$1'], // Local Control and Accountability Plan
+  [/^Weekley(['’]?s?[.,?!]?)$/, 'Weekly$1'], // Trustee David Weekly
+  [/^CASPP?(['’]?s?[.,?!]?)$/, 'CAASPP$1'], // state assessment, spoken "cass-p"
+  [/^LPAC(['’]?s?[.,?!]?)$/, 'ELPAC$1'], // English Language Proficiency Assessments
 ];
 
 // Bigram rules: rewrite the second token only when preceded by the first.
 const BIGRAM_RULES = [
-  ['Trustee', /^Lee([.,?!'’]?s?)$/, 'Li$1'], // Trustee David Li
-  ['Trustee', /^Wheatley([.,?!'’]?s?)$/, 'Weekly$1'], // Trustee David Weekly
+  ['Trustee', /^Lee(['’]?s?[.,?!]?)$/, 'Li$1'], // Trustee David Li
+  ['Trustee', /^Wheatley(['’]?s?[.,?!]?)$/, 'Weekly$1'], // Trustee David Weekly
 ];
 
 // The same rules expressed over running text (for text / utterances[].text).
