@@ -58,15 +58,13 @@ the timestamp it was observed at and resolve against the interval-valued role
 table. Era tables (`BOARD_ERAS`) have day granularity and are fine for
 transcription prompts, but not for role attribution on reorganization days.
 
-## Editorial question before publishing (for David)
+## Editorial policy (decided 2026-07-18)
 
-Minutes sometimes deliberately summarize public comment without naming the
-commenters, while the recording contains their names. Publishing our own
-name-level attribution goes beyond the district's written record — speakers
-did identify themselves in a public meeting, but surfacing names in a
-searchable index is an editorial choice to make explicitly before speaker maps
-ship on public pages. Options: full names, first name + affiliation as spoken,
-or role-only labels ("Hoover parent") for non-officials.
+Full-name attribution is in scope: everything here is synthesized from the
+public record (speakers identify themselves on the record in a noticed public
+meeting), so name-level speaker maps are publishable. Attribution accuracy is
+the bar — a name only ships when the evidence chain supports it; uncertain
+letters stay unnamed rather than guessed.
 
 ## Pipeline sketch
 
