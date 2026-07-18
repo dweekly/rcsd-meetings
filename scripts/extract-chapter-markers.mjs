@@ -17,6 +17,7 @@
 import 'dotenv/config';
 import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { createHash } from 'crypto';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execFileSync } from 'child_process';
@@ -36,6 +37,9 @@ mkdirSync(CACHE_DIR, { recursive: true });
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
+// Cap per-run refreshes of markers whose transcript changed (see July 2026
+// re-transcription); new meetings are never capped.
+const maxRefresh = args.includes('--max-refresh') ? parseInt(args[args.indexOf('--max-refresh') + 1], 10) : 25;
 const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : null;
 const slugFilter = args.includes('--slug') ? args[args.indexOf('--slug') + 1] : null;
 
@@ -401,6 +405,8 @@ async function main() {
   let apiCalls = 0;
   let cached = 0;
   let skipped = 0;
+  let staleQueued = 0;
+  let staleDeferred = 0;
   let errors = 0;
 
   for (const meeting of data.meetings) {
@@ -419,19 +425,32 @@ async function main() {
     const cacheFile = resolve(CACHE_DIR, `${markerKey}.json`);
     const legacyCacheFile = resolve(CACHE_DIR, `${meeting.date}.json`);
     const activeCacheFile = existsSync(cacheFile) ? cacheFile : (existsSync(legacyCacheFile) ? legacyCacheFile : null);
+    const aaiRaw = readFileSync(aaiPath, 'utf-8');
+    const aaiHash = createHash('sha256').update(aaiRaw).digest('hex').slice(0, 16);
     if (!force && activeCacheFile) {
       try {
         const cacheData = JSON.parse(readFileSync(activeCacheFile, 'utf-8'));
         if (cacheData.result && cacheData.itemCount === meeting.items.length) {
-          chapterMarkers[markerKey] = cacheData.result;
-          cached++;
-          continue;
+          if (cacheData.transcriptHash === aaiHash) {
+            chapterMarkers[markerKey] = cacheData.result;
+            cached++;
+            continue;
+          }
+          // Transcript changed under a valid cache entry (pre-hash entries
+          // count as changed): refresh up to --max-refresh per run, serving
+          // the stale result until this meeting's turn comes up.
+          if (staleQueued >= maxRefresh) {
+            chapterMarkers[markerKey] = cacheData.result;
+            staleDeferred++;
+            continue;
+          }
+          staleQueued++;
         }
       } catch { /* re-process if cache is corrupt */ }
     }
 
     // Parse AAI transcript
-    const aai = JSON.parse(readFileSync(aaiPath, 'utf-8'));
+    const aai = JSON.parse(aaiRaw);
     if (!aai.utterances || aai.utterances.length === 0) { skipped++; continue; }
 
     const compactTranscript = formatUtterances(aai.utterances);
@@ -513,6 +532,7 @@ async function main() {
         date: meeting.date,
         slug: markerKey,
         itemCount: meeting.items.length,
+        transcriptHash: aaiHash,
         llmResponse: llmResult,
         result,
         cachedAt: new Date().toISOString(),
@@ -531,7 +551,7 @@ async function main() {
   }
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(chapterMarkers, null, 2));
-  console.log(`\nDone: ${apiCalls} API calls, ${cached} cached, ${skipped} skipped, ${errors} errors`);
+  console.log(`\nDone: ${apiCalls} API calls, ${cached} cached, ${staleDeferred} stale-deferred, ${skipped} skipped, ${errors} errors`);
   console.log(`Wrote ${OUTPUT_PATH}`);
 }
 

@@ -24,15 +24,28 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execFileSync } from 'child_process';
+import { createHash } from 'crypto';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const SLIM_DIR = resolve(ROOT, 'artifacts/transcripts-slim');
 
+// Identity of the translation *input*: the EN utterance texts. Stored in each
+// ES file as _sourceHash so a changed EN transcript invalidates its
+// translation; ES files without the field (pre-July-2026) count as stale.
+function sourceHash(en) {
+  return createHash('sha256').update(JSON.stringify((en.utterances || []).map(u => u.text))).digest('hex').slice(0, 16);
+}
+
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const doUpload = args.includes('--upload');
 const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : null;
+// Cap per-run refreshes of translations whose EN source changed, so a
+// corpus-wide re-transcription (July 2026 Universal-3.5 Pro backfill) spreads
+// its translation cost across nightly runs instead of one giant API bill.
+// Brand-new meetings are never capped.
+const maxRefresh = args.includes('--max-refresh') ? parseInt(args[args.indexOf('--max-refresh') + 1], 10) : 25;
 
 const client = new Anthropic();
 
@@ -96,10 +109,14 @@ async function translateMeeting(date) {
   const esPath = resolve(SLIM_DIR, `${date}-es.json`);
 
   if (!existsSync(enPath)) return null;
-  if (!force && existsSync(esPath)) return 'cached';
-
   const en = JSON.parse(readFileSync(enPath, 'utf-8'));
   if (!en.utterances || en.utterances.length === 0) return 'empty';
+  const enHash = sourceHash(en);
+  if (!force && existsSync(esPath)) {
+    try {
+      if (JSON.parse(readFileSync(esPath, 'utf-8'))._sourceHash === enHash) return 'cached';
+    } catch { /* unreadable ES: retranslate */ }
+  }
 
   // Build compact input: just index + text
   const input = en.utterances.map((u, i) => ({ i, t: u.text }));
@@ -214,6 +231,7 @@ async function translateMeeting(date) {
     ...en,
     lang: 'es',
     translatedFrom: 'en',
+    _sourceHash: enHash,
     utterances: en.utterances.map((u, i) => ({
       ...u,
       text: allTranslations[i] || u.text,
@@ -270,7 +288,8 @@ async function checkAndRestoreTranslation(date) {
           assertValidTranslation(parsed, null, `${date}-es (CDN restore)`);
           writeFileSync(esPath, JSON.stringify(parsed, null, 2));
           console.log(`  [Cache Restore] Restored Spanish slim transcript for ${date} from CDN`);
-          return true;
+          // no early return: fall through to the hash check below, so a
+          // restored translation of a since-changed EN source reads as stale
         }
       }
     } catch (err) {
@@ -278,7 +297,14 @@ async function checkAndRestoreTranslation(date) {
     }
   }
 
-  return !force && existsSync(esPath);
+  if (force || !existsSync(esPath)) return false;
+  try {
+    const en = JSON.parse(readFileSync(enPath, 'utf-8'));
+    const es = JSON.parse(readFileSync(esPath, 'utf-8'));
+    return es._sourceHash === sourceHash(en) ? 'cached' : 'stale';
+  } catch {
+    return 'stale';
+  }
 }
 
 async function main() {
@@ -323,20 +349,30 @@ async function main() {
   let translated = 0, cached = 0, errors = 0;
   let totalCost = 0;
 
-  // Filter to uncached
+  // Filter to uncached; stale refreshes (EN source changed under an existing
+  // translation) are capped per run via --max-refresh.
   const needsWork = [];
+  let staleQueued = 0;
+  let staleDeferred = 0;
   for (const date of toProcess) {
-    const isCached = await checkAndRestoreTranslation(date);
-    if (isCached) {
+    const state = await checkAndRestoreTranslation(date);
+    if (state === 'cached') {
       cached++;
       continue;
     }
     const enPath = resolve(SLIM_DIR, `${date}.json`);
     if (!existsSync(enPath)) continue;
+    if (state === 'stale') {
+      if (staleQueued >= maxRefresh) {
+        staleDeferred++;
+        continue;
+      }
+      staleQueued++;
+    }
     needsWork.push(date);
   }
 
-  console.log(`${needsWork.length} to translate (${cached} cached, ${toProcess.length} total)`);
+  console.log(`${needsWork.length} to translate (${staleQueued} stale refreshes queued, ${staleDeferred} deferred to later runs, ${cached} cached, ${toProcess.length} total)`);
 
   // Process in parallel batches of CONCURRENCY
   const CONCURRENCY = 10;
