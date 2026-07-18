@@ -96,13 +96,30 @@ jobs:
           mkdir -p artifacts
           # Sync slim transcripts from R2 transcripts/ to local artifacts/transcripts-slim/
           rclone copy r2:rcsd-meetings/transcripts/ artifacts/transcripts-slim/ --progress
-          # Raw AAI transcripts: the runner's local cache is the source of truth
-          # (it is where new/re-transcriptions land); R2 is a backup. Restore
-          # only files the runner is missing — a plain copy would overwrite a
-          # locally-updated transcript with the older R2 version (this reverted
-          # the July 2026 full-corpus re-transcription until run 29650799425).
+          # Raw AAI transcripts: R2 is the source of truth — checkout's default
+          # `git clean -ffdx` wipes the gitignored artifacts/ tree at the start
+          # of every run, so nothing local survives between runs. Keep the
+          # restore non-clobbering anyway in case a same-run step already wrote
+          # a newer transcript before a retry of this step.
           rclone copy r2:rcsd-meetings/transcripts-aai/ artifacts/transcripts-aai/ \
             --ignore-existing --progress
+
+      # Operator inbox for out-of-band (re-)transcriptions: anything staged in
+      # ~/transcript-inbox on the self-hosted runner overrides the R2 restore,
+      # flows through the normal rebuild, and is published to R2 by the upload
+      # step — after which the restore serves it forever. Used for the July
+      # 2026 full-corpus Universal-3.5 Pro backfill (TRANSCRIPTION-BACKFILL.md);
+      # clear the inbox once the published files are verified.
+      - name: Ingest Staged Transcripts (operator inbox)
+        if: runner.environment == 'self-hosted'
+        run: |
+          if ls "$HOME"/transcript-inbox/*.json >/dev/null 2>&1; then
+            count=$(ls "$HOME"/transcript-inbox/*.json | wc -l)
+            echo "Ingesting $count staged transcripts from ~/transcript-inbox"
+            cp "$HOME"/transcript-inbox/*.json artifacts/transcripts-aai/
+          else
+            echo "No staged transcripts."
+          fi
           # Sync other cache folders (excluding heavy media, json, and transcripts)
           rclone copy r2:rcsd-meetings/ artifacts/ \
             --exclude "audio/**" \
