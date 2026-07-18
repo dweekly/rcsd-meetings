@@ -43,12 +43,17 @@ try {
   process.exit(0);
 }
 
-// 1. Restore transcripts-aai
+// 1. Restore transcripts-aai. --ignore-existing: only fetch files the
+// workspace is missing — a transcript already present locally (a same-run
+// re-transcription, or one staged via the workflow's operator inbox) is newer
+// than R2 and must not be clobbered by this restore. A plain copy here
+// silently reverted the July 2026 full-corpus backfill twice.
 console.log('\nSyncing transcripts-aai (AssemblyAI raw transcripts cache) from R2...');
 const ok1 = runRclone([
   'copy',
   `${BUCKET}/transcripts-aai`,
   resolve(ROOT, 'artifacts/transcripts-aai'),
+  '--ignore-existing',
   '--s3-no-check-bucket',
   '--progress',
   '--stats-one-line',

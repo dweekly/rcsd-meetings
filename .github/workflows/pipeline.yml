@@ -103,6 +103,15 @@ jobs:
           # a newer transcript before a retry of this step.
           rclone copy r2:rcsd-meetings/transcripts-aai/ artifacts/transcripts-aai/ \
             --ignore-existing --progress
+          # Sync other cache folders (excluding heavy media, json, and transcripts)
+          rclone copy r2:rcsd-meetings/ artifacts/ \
+            --exclude "audio/**" \
+            --exclude "board-packets/**" \
+            --exclude "board-packets-cache/**" \
+            --exclude "json/**" \
+            --exclude "transcripts/**" \
+            --exclude "transcripts-aai/**" \
+            --progress
 
       # Operator inbox for out-of-band (re-)transcriptions: anything staged in
       # /mnt/data/actions-runner/transcript-inbox on the self-hosted runner
@@ -123,15 +132,6 @@ jobs:
           else
             echo "No staged transcripts."
           fi
-          # Sync other cache folders (excluding heavy media, json, and transcripts)
-          rclone copy r2:rcsd-meetings/ artifacts/ \
-            --exclude "audio/**" \
-            --exclude "board-packets/**" \
-            --exclude "board-packets-cache/**" \
-            --exclude "json/**" \
-            --exclude "transcripts/**" \
-            --exclude "transcripts-aai/**" \
-            --progress
 
       - name: Run Data Pipeline (Full or Quick)
         run: |
