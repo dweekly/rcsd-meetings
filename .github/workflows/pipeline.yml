@@ -135,7 +135,19 @@ jobs:
             echo "Ingesting $count staged transcripts from $INBOX"
             cp "$INBOX"/*.json artifacts/transcripts-aai/
           else
-            echo "No staged transcripts."
+            echo "No staged raw transcripts."
+          fi
+          # Same pattern for slim transcripts (EN or ES): lets operator-salvaged
+          # translation output re-enter the pipeline instead of being
+          # re-generated at API cost (used to recover the 2026-07-19 cancelled
+          # full-corpus translation run).
+          SLIM_INBOX=/mnt/data/actions-runner/slim-inbox
+          if ls "$SLIM_INBOX"/*.json >/dev/null 2>&1; then
+            count=$(ls "$SLIM_INBOX"/*.json | wc -l)
+            echo "Ingesting $count staged slim transcripts from $SLIM_INBOX"
+            cp "$SLIM_INBOX"/*.json artifacts/transcripts-slim/
+          else
+            echo "No staged slim transcripts."
           fi
 
       - name: Run Data Pipeline (Full or Quick)
