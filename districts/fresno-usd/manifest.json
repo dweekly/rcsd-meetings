@@ -1,0 +1,307 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/district-source-manifest.schema.json",
+  "schemaVersion": "1.0.0",
+  "manifestId": "district-manifest.ca.cde.district.1062166",
+  "status": "reconnaissance",
+  "lastReviewedAt": "2026-07-09",
+  "publication": {
+    "automatic": false,
+    "classification": "internal-reconnaissance-config"
+  },
+  "district": {
+    "id": "ca.cde.district.1062166",
+    "slug": "fresno-usd",
+    "name": "Fresno Unified",
+    "publicName": "Fresno Unified School District",
+    "aliases": ["Fresno Unified", "FUSD"],
+    "jurisdiction": {
+      "country": "US",
+      "state": "CA",
+      "county": "Fresno"
+    },
+    "identifiers": {
+      "cdsDistrictCode": "1062166",
+      "cdsEntityCode": "10621660000000",
+      "ncesDistrictId": "0614550"
+    },
+    "districtType": "unified-school-district",
+    "gradeSpan": {
+      "low": "P",
+      "high": "Adult",
+      "sourceId": "cde-directory"
+    },
+    "timezone": "America/Los_Angeles",
+    "officialWebsite": "https://www.fresnounified.org/"
+  },
+  "languages": {
+    "coverageRule": "Measure availability and fallback per artifact; blank labels or planned links do not count as a published translation.",
+    "orderedPilotLocales": [
+      {
+        "locale": "en-US",
+        "role": "source-and-publication",
+        "status": "confirmed"
+      },
+      {
+        "locale": "es-US",
+        "role": "publication",
+        "status": "confirmed-for-board-artifacts"
+      },
+      {
+        "locale": "hmn",
+        "role": "publication",
+        "status": "confirmed-for-board-artifacts-language-variety-unspecified"
+      }
+    ],
+    "evidenceSourceIds": ["governance-archive", "official-website"]
+  },
+  "governingBodies": [
+    {
+      "id": "board-of-education",
+      "name": "Board of Education",
+      "type": "governing-board",
+      "primary": true,
+      "sourceIds": ["governance-landing", "governance-archive", "meeting-video"]
+    }
+  ],
+  "sources": [
+    {
+      "id": "cde-directory",
+      "domain": "district-identity",
+      "artifactTypes": ["district-directory-record", "school-directory-record"],
+      "url": "https://www.cde.ca.gov/schooldirectory/details?cdscode=10621660000000",
+      "authority": "state",
+      "vendor": {
+        "name": "California Department of Education",
+        "product": "California School Directory",
+        "confidence": "high",
+        "basis": "Official CDE directory URL keyed by the district CDS entity code."
+      },
+      "cadence": {
+        "kind": "irregular",
+        "expectation": "Check before identity or school-roster releases."
+      },
+      "archiveNotes": "CDE warns that directory details are self-reported and may be stale.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "official-website",
+      "domain": "cms",
+      "artifactTypes": ["district-page", "school-page", "news", "document-link"],
+      "url": "https://www.fresnounified.org/",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS",
+        "confidence": "high",
+        "basis": "Official pages identify Finalsite in the site footer."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Monitor configured high-value pages; do not crawl every school site by default."
+      },
+      "archiveNotes": "The site is large and repeats navigation content; adapters must scope extraction to the content region.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-landing",
+      "domain": "governance",
+      "artifactTypes": ["source-directory", "meeting-schedule", "participation-instructions", "livestream-link"],
+      "url": "https://www.fresnounified.org/departments/board-of-education/meetings",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS page",
+        "confidence": "high",
+        "basis": "Official board page on the district's identified Finalsite site."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Use for discovery and check around every scheduled board meeting."
+      },
+      "archiveNotes": "This is a navigation hub; meeting records are organized on separate school-year pages.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "governance-archive",
+      "domain": "governance",
+      "artifactTypes": ["meeting", "agenda", "support-material", "minutes", "question-and-answer", "language-variant-link", "video-part-link"],
+      "url": "https://www.fresnounified.org/board/board-agendas-and-minutes/2025-2026",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS structured content page",
+        "confidence": "high",
+        "basis": "Official page and Finalsite footer; no separate agenda-portal vendor is exposed on the index."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Check after each meeting and revisit until minutes and all recording parts are published."
+      },
+      "archiveNotes": "School-year pages expose English, Spanish, Hmong, Q&A, minutes, and one or more recording links, but some labels can be present without a live link.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "meeting-video",
+      "domain": "video",
+      "artifactTypes": ["meeting-recording-part", "livestream"],
+      "url": "https://www.fresnounified.org/board/watch-live",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "IBM",
+        "product": "IBM Video Streaming",
+        "confidence": "high",
+        "basis": "Official archive pages link recording parts to video.ibm.com."
+      },
+      "cadence": {
+        "kind": "event-driven",
+        "expectation": "Discover every linked part and reconcile ordered parts to one meeting."
+      },
+      "archiveNotes": "A meeting may have one, two, or three recordings. Multipart video is a first-class relationship, not duplicate meetings.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "fiscal-library",
+      "domain": "finance",
+      "artifactTypes": ["adopted-budget", "budget-revision", "interim-report", "presentation", "financial-statement"],
+      "url": "https://www.fresnounified.org/departments/business-and-financial-services",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS document library",
+        "confidence": "high",
+        "basis": "Official finance page on the district Finalsite site."
+      },
+      "cadence": {
+        "kind": "fiscal-milestones",
+        "expectation": "Check adopted budget, revisions, interim reports, unaudited actuals, and audit milestones."
+      },
+      "archiveNotes": "Financial documents are split across landing, statements, presentations, and revisions pages; preserve the originating collection.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "academic-calendar",
+      "domain": "calendar",
+      "artifactTypes": ["academic-calendar", "accessible-calendar", "calendar-event", "subscription-feed"],
+      "url": "https://www.fresnounified.org/about/calendar",
+      "authority": "district",
+      "vendor": {
+        "name": "Finalsite",
+        "product": "CMS calendar",
+        "confidence": "high",
+        "basis": "Official calendar page on the district Finalsite site."
+      },
+      "cadence": {
+        "kind": "annual-with-continuous-events",
+        "expectation": "Check each school year and compare printable, accessible, and event representations."
+      },
+      "archiveNotes": "The district separately publishes printable and accessible calendars and an archived-calendar page.",
+      "checkedAt": "2026-07-09"
+    },
+    {
+      "id": "meal-menu",
+      "domain": "meals",
+      "artifactTypes": ["school-menu", "fresh-fruit-and-vegetable-menu", "nutrition", "allergen"],
+      "url": "https://fresnounified.nutrislice.com/",
+      "authority": "district-linked-vendor",
+      "vendor": {
+        "name": "Nutrislice",
+        "product": "Digital menus",
+        "confidence": "high",
+        "basis": "Official Fresno Unified Nutrition Services pages direct families to this tenant."
+      },
+      "cadence": {
+        "kind": "monthly-with-operational-changes",
+        "expectation": "Discover menus by site and preserve retrieval time and service date."
+      },
+      "archiveNotes": "Treat menus as operational data; verify site and meal-period identity before comparing across schools.",
+      "checkedAt": "2026-07-09"
+    }
+  ],
+  "sourceRegimes": [
+    {
+      "id": "governance-finalsite-observed-archive",
+      "domain": "governance",
+      "sourceIds": ["governance-landing", "governance-archive"],
+      "fromInclusive": null,
+      "toExclusive": null,
+      "precision": "school-year",
+      "observedFrom": "2014-15",
+      "observedThrough": "2026-27",
+      "boundaryConfidence": "official-index-observation-not-platform-cutover",
+      "notes": "Official navigation exposes school-year archives back to 2014-15; platform contract and earlier coverage remain unknown."
+    },
+    {
+      "id": "video-ibm-observed-current",
+      "domain": "video",
+      "sourceIds": ["meeting-video"],
+      "fromInclusive": null,
+      "toExclusive": null,
+      "precision": "unknown",
+      "observedFrom": null,
+      "observedThrough": "2026-06",
+      "boundaryConfidence": "current-provider-only",
+      "notes": "Do not infer when IBM Video became the provider until archive sampling establishes bounds."
+    }
+  ],
+  "accessibility": {
+    "policyStatus": "pilot-default",
+    "auditHtmlSemantics": true,
+    "auditPdfTextAndReadingOrder": true,
+    "auditVideoCaptions": true,
+    "provideLowBandwidthTextAlternative": true,
+    "neverTreatVendorAccessibilityClaimsAsArtifactVerification": true
+  },
+  "privacy": {
+    "policyStatus": "pilot-default",
+    "sourceBeingPublicIsNotSufficientForRepublication": true,
+    "reviewPersonalNamesBeforeIndexing": true,
+    "suppressProtectedSmallCells": true,
+    "doNotPublishStudentRecordsOrMeetingCredentials": true,
+    "classifyEveryMirroredArtifactBeforeRelease": true
+  },
+  "pilot": {
+    "role": "large-district-and-new-stack-contrast",
+    "sampleTargets": [
+      {
+        "domain": "governance",
+        "count": 10,
+        "selection": "Regular, special, and atypical meetings, including examples with one, two, and three recording parts."
+      },
+      {
+        "domain": "language-coverage",
+        "count": 10,
+        "selection": "Record live-link availability for English, Spanish, and Hmong per artifact rather than trusting labels."
+      },
+      {
+        "domain": "finance",
+        "count": 3,
+        "unit": "fiscal-year-bundles",
+        "selection": "Adopted budget, revisions, interim reports, unaudited actuals, and audit where available."
+      },
+      {
+        "domain": "calendar",
+        "count": 1,
+        "unit": "school-year",
+        "selection": "Compare printable, accessible, event, and subscription representations."
+      },
+      {
+        "domain": "meals",
+        "count": 1,
+        "unit": "menu-month",
+        "selection": "Sample elementary, middle, high, and special-program sites without assuming one shared menu."
+      }
+    ],
+    "successSignals": [
+      "The custom Finalsite meeting index can be normalized without district-specific editorial code.",
+      "Multipart IBM recordings remain ordered parts of one meeting.",
+      "Language coverage reports distinguish live artifacts from empty or future placeholders.",
+      "Runtime and storage estimates are measured at large-district volume."
+    ]
+  },
+  "openQuestions": [
+    "Establish the earliest complete meeting year and any pre-Finalsite source regimes.",
+    "Determine whether support-material pages have a stable machine-readable interface or require constrained HTML extraction.",
+    "Identify all board and committee bodies that share the archive and which are in pilot scope.",
+    "Determine the Hmong language variety and terminology-review process without inferring it from a generic site label."
+  ]
+}

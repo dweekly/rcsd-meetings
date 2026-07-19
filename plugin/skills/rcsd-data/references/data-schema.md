@@ -1321,7 +1321,27 @@ Spanish machine-translations of policy **bodies**, one file per policy with the 
 | `_metadata.method` | string | How the translation was produced (script, chunking, validation). |
 | `_metadata.sourceFile` | string | Path of the English source file. |
 | `_metadata.sourceHash` | string | sha256 of the English `contentText` at translation time. The translator skips any policy whose stored hash still matches, so re-runs only touch new/revised policies. |
+| `_metadata.cacheFingerprint` | string | Canonical sha256 over the exact model/API/SDK, sent parameters, prompt/output-schema hashes, inputs, localization, safety, and chunking configuration. Legacy cached files may omit it until deliberately regenerated. |
+| `_metadata.llmInvocationIds` | string[] | Invocation IDs that produced the published body. Long policies have one ID per translated chunk. |
+| `_metadata.llmInvocations` | object[] | Full validated invocation records, including retry/repair attempts, effective response, usage/cost, output hash, and cache fingerprint. Secrets and raw sensitive prompts are never included. |
 | `_metadata.note` | string | Disclaimer that the English Simbli version is authoritative. |
+
+---
+
+## data/policy-titles-es.json
+
+Spanish machine-translations of policy and section titles. Existing `sections`
+and `titles` maps retain their public shape. Newly generated files add invocation
+provenance under `_metadata`:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_metadata.cacheFingerprints.sections` / `.titles` | object | Per-output cache fingerprint maps. |
+| `_metadata.llmInvocationIds.sections` / `.titles` | object | Maps each translated key to the batch invocation that produced it. |
+| `_metadata.llmInvocations` | object[] | Deduplicated, validated batch invocation records. |
+
+Older cached title files remain valid but are marked partial in the provenance
+sidecar until a deliberate translation run upgrades them.
 
 ---
 
@@ -1361,6 +1381,44 @@ AI-generated one-sentence summaries of every board policy, English AND Spanish, 
 | `summaries[key].en` | string | One-sentence English summary. |
 | `summaries[key].es` | string | One-sentence Spanish summary, generated in the same request as the English one so both describe the same substance. |
 | `summaries[key].sourceHash` | string | sha256 of the policy's full English `contentText`; entries whose hash still matches are reused on re-runs, so only new/revised policies hit the API. |
+| `_metadata.cacheFingerprints` | object | Per-policy canonical invocation fingerprints; a mismatch forces regeneration. |
+| `_metadata.llmInvocationIds` | object | Maps each summary key to the invocation that produced its English/Spanish pair. |
+| `_metadata.llmInvocations` | object[] | Full validated invocation records, including rejected drafts and successful repair attempts. |
+
+---
+
+## data/provenance/*.json
+
+Compatibility-preserving provenance sidecars. They document existing public
+payloads without inserting keys into top-level maps that consumers may iterate.
+The v1 contract is defined by
+`schemas/provenance/v1/dataset-provenance.schema.json`.
+
+Current policy sidecars:
+
+| File | Dataset |
+|------|---------|
+| `rcsd.board-policies.json` | Simbli catalog, 619 English policy mirrors, and exhibit snapshots |
+| `rcsd.board-policies-es.json` | Spanish title/body translations and their English input hashes |
+| `rcsd.board-policy-summaries.json` | English/Spanish one-sentence summaries and source lineage |
+
+Key fields:
+
+| Field | Description |
+|-------|-------------|
+| `$schema`, `schemaVersion`, `datasetId`, `districtId` | Contract and stable identity |
+| `kind` | `source-mirror`, `normalized`, `derived`, or `translation` |
+| `artifacts[]` | Repository-relative path, media type, bytes, and `sha256:` hash |
+| `authority` | Whether the artifact is official, derived, unofficial, or mixed; official language where applicable |
+| `sources[]` | Official URL, publisher, acquisition/effective date, and optional snapshot hash |
+| `lineage` | Generator, source commit, generated date, and hashed dataset inputs |
+| `recordLineage[]` | Output artifact + JSON Pointer mapped to source/dataset inputs and optional LLM invocation |
+| `quality` | Machine/human review state and explicit exceptions; `partial` always lists why |
+| `llmInvocations[]` | Exact, safe execution metadata for newly generated AI derivatives |
+
+The known `6174-E PDF(1)-AR` scanned source gap and legacy pre-instrumentation
+LLM metadata are explicit `partial` exceptions, never inferred from file counts.
+Public copies live at `https://data.rcsd.info/json/provenance/`.
 
 
 ---

@@ -1,5 +1,67 @@
 # RCSD.info Roadmap
 
+## Provenance and Multi-District Platform — Stack Ranked
+
+Highest priority appears first. This list is intentionally not numbered: reorder the
+bullets when priorities change. Keep only forward work here; completed work belongs
+in commit messages, `CHANGELOG.md`, and the project blog.
+
+- [ ] **Make generated-site changes small and reviewable before the next bulk
+  regeneration.** Extract the remaining shared policy CSS and stable page chrome into
+  release-managed assets or partials, keep authored sources distinct from generated
+  outputs, evaluate building bulky `docs/` derivatives only in CI, and add a diff-budget
+  check that flags repeated inline blocks or unexpectedly large generated churn. Preserve
+  static no-JavaScript semantics, bilingual parity, and release-manifest coverage.
+- [ ] **Prove the first Pages-only platform slice with San Mateo–Foster City.**
+  Extract the shared Simbli acquisition boundary and canonical meeting contract, match
+  an RCSD shadow fixture, then publish an explicitly allowlisted SMFCSD `v0` sample to
+  the no-index holding Pages project. Reconcile 12 meetings across Agenda Online,
+  Simbli, and YouTube; retain independent occurrence, agenda, minutes, and recording
+  states; show discrepancies and record-level provenance; and measure language coverage
+  per artifact. Use official menu PDFs and test a vendor feed only after the district
+  links it. Require English/Spanish structural parity and no zero score in the
+  `actionSafety` dimension defined by the SMFCSD expert-review rubric; require at least
+  90% of the sample to pass first review without major correction; and turn every
+  accepted correction into
+  a source-linked generic fixture, rule, or terminology entry. Run for two board cycles
+  or 30 unattended days and stay below 15 minutes of maintenance per district per month
+  before onboarding Ravenswood. Keep at most three active districts until combined
+  maintenance stays below 45 minutes per month.
+- [ ] **Continuously refresh the official policy index.** Schedule periodic rescans of
+  the GAMUT/Simbli policy portal, compare catalog and source hashes, and queue delayed
+  rechecks after policies clear a second reading in a board consent agenda (for example,
+  one and two weeks later). Ingest only official portal changes, retain the adopting
+  meeting/item as lineage, and regenerate Spanish and summary derivatives with their
+  exact LLM provenance.
+- [ ] **Extend exact LLM invocation envelopes to every mutating pipeline.** Apply the
+  policy contract to meeting summaries, memo/transcript translation, chapters,
+  timestamp mapping, and future extraction/classification jobs; retain explicit
+  historical exceptions rather than inventing missing parameters.
+- [ ] **Prove configuration-only reuse with Ravenswood, then adapter contrast with
+  Fresno.** Model dated source regimes and extract representative meeting, finance,
+  calendar, menu, video, and language samples without publishing reconnaissance
+  artifacts. Keep district quirks in source-linked configuration and fixtures rather
+  than district-name branches in shared adapters.
+- [ ] **Migrate the strongest deterministic datasets next.** Bring warrants, CDE, and
+  SARC behind schema, source-snapshot, hash, reporting-period, and reconciliation gates.
+- [ ] **Move composite facts and editorial claims out of page builders.** Give schools,
+  charters, trustees, properties, calendars, and budgets record/field-group sources;
+  represent calculated or plain-language assertions as reviewable derived claims.
+- [ ] **Connect the full meeting lineage.** Trace portal records, agendas, packet
+  attachments, video, audio, raw/slim transcripts, chapters, timestamp mappings,
+  summaries, and translations with explicit lifecycle and official/derived status.
+- [ ] **Generate provenance for every audience from one source.** Add bilingual source
+  and methodology panels, public provenance/release JSON, and MCP provenance lookup
+  without changing existing routes or requiring client migration.
+- [ ] **Choose a neutral public identity only after the pilot earns permanence.** Keep
+  links derived from `PUBLIC_BASE_URL` and the holding deployment excluded from search
+  indexing; attach a custom domain and remove `noindex` only through an explicit
+  publication decision.
+- [ ] **Expand the California cohort only after the pilot contracts stabilize.** Use
+  Menlo Park City and Pajaro Valley to test Diligent generations, OpenGov, CatapultCMS,
+  and fragmented multilingual publishing; use Oakland/Legistar as the later high-volume
+  multi-body stress test, with Dixon available for Granicus coverage.
+
 ## Calendars
 - [ ] Full district calendar page (not just homepage widget) with clearer visual treatment of multi-day windows (e.g. Spring Break shown as a block, not just start date)
 - [ ] Per-school calendars with school-specific events layered on top of district calendar
@@ -33,7 +95,6 @@
 - [ ] School Site Councils (SSCs) — scrape and index meeting agendas, minutes, and materials per school
   - Currently "Coming soon" on school pages
   - SSCs approve CSSPs and SPSAs; membership is public record
-  - [x] Extract structured SSC membership from SPSA PDFs (member names, roles [parent/staff/community]) into `data/ssc-membership.json` — 12 schools × 3 years extracted, surfaced on school pages and MCP server
   - Subject to Greene Act (Ed Code 35147): 72-hour agenda posting, open meetings, 3-year record retention
   - Known sources: Taft has Google Docs (https://docs.google.com/document/d/1YsMiY6CFhrxRX9ploZViPZqy4UigzYUTZMVYTf53VdI/); Kennedy has Sept/Oct 2023 on website; Orion has a public Google Drive folder at https://drive.google.com/drive/folders/1ZM8gRkBjer18QwlvNG_pEKOYmgFmwRZa (anonymously scrapable, per Board President 2026-04-20); MIT has placeholder pages only
   - Most schools have no publicly visible SSC documentation
@@ -127,19 +188,14 @@ A meeting progresses through distinct states, each with different data confidenc
 
 The calendar widget and meeting pages should reflect which state each meeting is in, and be clear about the confidence level of any summary shown.
 
+- [ ] **Slot governance-calendar topics into future dates before formal agendas post** (realizes state 1's "high-level preview if available"). The "Schedule of Board Agenda Items" (a.k.a. governance calendar) lists high-level planned topics per future meeting; it is attached to the **"Other Business / Future Topics"** agenda item and is already located by `findGovernanceCalendar()`. Extract its per-date topics into `data/governance-calendar.json` `provisionalTopics` so the **Approved Meeting Calendar** grid (topic dot + hover title), the **"Next meeting"** glance card, the homepage, and the ICS feed all show a high-level preview *before* the concrete agenda posts (~72h before each meeting). **Blocked:** the 2026‑27 Schedule of Board Agenda Items has not posted yet — expected on/after the **Aug 10, 2026** agenda; this becomes a live TODO once it posts. (25‑26 reference PDF, most recent: `https://simbli.eboardsolutions.com/meetings/TempFolder/Meetings/25-26%20Schedule%20of%20Board%20Agenda%20Items_1585773rqjlb03ajnwipfdmziqkg0gu.pdf`)
+
 ## Board Meetings — School Relevance
 - [ ] Better summarize school-relevant meetings: "What was discussed/approved in this board meeting (per the minutes) that could impact $SCHOOL?"
 - [ ] For meetings without minutes: "What was on the agenda that could impact $SCHOOL?"
 - [ ] Surface these per-school summaries on school pages
 
 ## Board Meetings — Transcription & Chapters
-- [x] Replace YouTube auto-captions with proper ASR (AssemblyAI Universal 3 Pro) — 144 meetings transcribed
-- [x] Generate chapter markers linking formal agenda items to meeting timestamps with phase data (opened, presentation, publicComment, discussion, vote)
-- [x] Diarized speaker identification in transcripts (AAI speaker diarization + LLM speaker-to-name mapping)
-- [x] Individual public comment speaker extraction with names, timestamps, and summaries
-- [x] Formal agenda structure with hierarchical item labels (e.g., 7.1, 11.3) from board memos and BoardDocs
-- [x] Web transcript viewer — full-width sticky YouTube player with scrollable diarized transcript, bidirectional sync, search with highlighting
-- [x] Downloadable transcript JSON per meeting — slim format on R2 at transcripts/{date}.json
 - [ ] Unified meeting page with tab selector: Transcript / Agenda / Minutes — all synced to video playback (click agenda item 9.3 → scrub video to that timestamp; agenda highlights current item during playback)
 - [ ] Spanish translation of transcripts
 
@@ -147,7 +203,6 @@ The calendar widget and meeting pages should reflect which state each meeting is
 Build a pipeline for rich per-meeting summaries (inputs already in place: AAI transcripts + formal agenda + minutes + chapter markers):
 - [ ] Per-agenda-item discussion summary (what was said, by whom, key points raised)
 - [ ] Ordered by actual discussion sequence (not agenda order); note agenda changes proposed/approved at the top
-- [x] Each public comment: who spoke + summary of remarks (done via chapter markers extraction)
 - [ ] Spanish-language public comments: capture interpreter's English translation alongside original
 - [ ] EN and ES output, written at sixth-grade reading level (Californian colloquial Spanish for ES)
 - [ ] District-specific terms (LCAP, CAASPP, unduplicated pupil, SARC, etc.) get hover-over/clickable inline glossary definitions
@@ -204,9 +259,6 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Consider same treatment for the KIPP Excelencia Fair Oaks site given the ongoing Prop 2 CSFP funding workstream (Res 11 Sept 2025, Res 23 April 2026)
 
 ## Vendors / Warrant Registers
-- [x] **Warrant-register database (the foundation)** — built 2026-06-24 (PR #64, branch `feat/warrant-registers`; plan + caveats in [`WARRANTS.md`](WARRANTS.md)). 76 registers (Mar 2020 – May 2026), 30,253 per-check line items, each reconciled against the register's printed total; queryable via `warrants.db` (SQLite) + `npm run report:warrants -- "<vendor>"`. Validated against the target question — Van Pelt Construction = $5.19M across FY2023-24…FY2025-26.
-  - [x] Scrape all warrant registers from board attachments (BoardDocs `$file` backfill + Simbli; two ERP formats QSS + Escape; OCR fallback for broken-font PDFs; per-register provenance + printed-total checksum so bad parses are auditable)
-  - [x] Payee-name normalization (`normalizePayeeKey` + curated `data/warrant-vendor-aliases.json` rollup, e.g. CalPERS' several legal names)
 - [ ] **Root-cause the attachment-download bug** — Feb 2026's register came down as a misfiled SPSA (our metadata had the right Simbli AID 1433020; the saved bytes were wrong). Could not reproduce from current `scrape-board-packets.mjs`. A filename-vs-content scan of all 77 warrant/SPSA-named cached PDFs found no other mismatches, but the bug class is unexplained.
   - [ ] Broader audit: filename-vs-content check across all ~1,600 cached board-packet attachments (content-typing arbitrary docs is fuzzier than warrants, but would confirm nothing else got crossed)
 - [ ] **Re-ingest 2021-05/06/07 in Detail format** — these QSS "Summary" sheets have complete line items but a printed total that over-counts (~1.9–2.3×, likely fund-line summing). Spend figures use the summed line items and are correct; re-exporting in Detail format would let them reconcile and remove the footnote.
@@ -219,9 +271,6 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] MCP tool for vendor spend (`query-vendor`) so the data is answerable through the existing RCSD data MCP server
 
 ## Document Index
-- [x] Unified document index from all meeting attachments (data/document-index.json) — 1,000+ docs classified
-- [x] Ontology: budget, lcap, spsa, sarc, school-report, resolution, policy, tax (parcel/bond), sped, english-learners (elac/delac/data), early-ed (preschool/tk), labor (rcta/csea), compliance, safety
-- [x] Multi-school tagging per document
 - [ ] Surface document index on meetings page and school pages
 - [ ] Document timeline/history view per type (e.g., all adopted budgets chronologically)
 
@@ -285,13 +334,12 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Bilingual (EN/ES)
 
 ## Automation & Infrastructure
-- [ ] **Trogdor cron automation** — move scraping pipeline to trogdor (beefy Linux server with CUDA) on a schedule:
-  - Simbli agenda scrape (daily or 2x/week)
-  - YouTube channel index (daily)
-  - Board packet download (daily)
-  - AssemblyAI transcription (triggered on new video detection)
-  - Timestamp mapping via Claude (after transcription)
-  - Site rebuild + `wrangler pages deploy` (after any data change)
+- [ ] **Install PyMuPDF (`fitz`) on the pipeline runner.** `scripts/extract-agenda-links.py`
+  (`import fitz  # pymupdf`, which harvests hyperlink rectangles from agenda PDFs) fails
+  every scheduled run with `ModuleNotFoundError: No module named 'fitz'` — the self-hosted
+  runner (trogdor) has no `.venv` with PyMuPDF installed. The step is currently
+  soft-failing, so agenda-link extraction silently degrades. Add a `.venv` + `pip install
+  pymupdf` (latest) to the runner or a pipeline setup step, per the venv-always rule.
 - [ ] **Screencap demo** — narrated screen recording showing: homepage, clicking into a meeting, transcript click-to-seek, Spanish toggle, chapter markers, MCP query. For embedding on the site and social sharing.
 
 ## Data Attribution (in progress)
@@ -303,11 +351,13 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] **Provenance tagging across all hardcoded data.** Every value in the `SCHOOL_DATA` object (CAASPP, demographics, funding, staffing) should carry a `source` attribute pointing to the specific document and page/row it came from, so readers (and future us) can audit each claim. Design a lightweight schema (e.g. `{ value: 11.4, source: "2025-26 SPSA, p.12" }`) and migrate existing fields.
 - [ ] Pull CDE growth model spreadsheet (growthmodeldownload2025.xlsx) to check for useful RCSD data not yet represented
 
-## Follow-ups from the June 2026 fix-sprint verification (2026-06-10)
-- [ ] **Capture the 12 "E PDF" policy exhibits.** Simbli stores exhibit-series policies (e.g. 1312.4-E PDF(1) Williams complaint forms, 6174-E PDF(1) EL education) as embedded PDFs; scrape-board-policies.mjs captures neither the text nor the PDF (contentText and attachments both empty — only footnotes come through the metadata API). Extend the scraper to download the embedded PDF to R2 and text-extract it, then these 12 flow into the Spanish translation + summary pipelines like the other 607.
+## Targeted Repairs
+- [ ] **OCR the captured "E PDF" policy exhibits.** The embedded source PDFs are now
+  snapshotted and provenance-indexed; extract trustworthy text where possible, then
+  generate Spanish and summary derivatives while retaining explicit no-text
+  exceptions for scans that cannot be recovered reliably.
 - [ ] **Render AI summaries for multi-meeting dates.** 25 suffixed detail pages (8 multi-meeting dates, e.g. 2020-04-01) have summaries in `data/meeting-summaries.json` under suffixed slugs that the detail builder never looks up — they render unlabeled/summary-less while the data exists.
 - [ ] **Migrate `/mcp/` pages into the build.** `docs/mcp/index.html` + `es/` are hand-maintained static files; they drift from the shared chrome every time html-parts changes (hand-patched 2026-06-10: token, describedby, Committees tab — still no search box or skip link).
 - [ ] **Generate dedicated OG cards for /policies/ + /politicas/** (currently reuse the homepage cards; ES uses page-home-es as a stopgap).
 - [ ] **`DATA_BASE` env var for the MCP worker** so `wrangler dev` can point at local `data/` instead of production R2 — today, data-dependent fixes can't be verified end-to-end before upload.
-- [ ] **Dependabot: 5 moderate vulnerabilities** flagged on the default branch (GitHub banner on every push) — review and bump.
 - [ ] **Drop `build-transcript-viewer.mjs`** — legacy, not in run-pipeline, and overwrites bilingual pages with EN-only if run manually (header now warns).

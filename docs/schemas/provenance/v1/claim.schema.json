@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rcsd.info/schemas/provenance/v1/claim.schema.json",
+  "title": "Claim provenance v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "claimId", "datasetId", "outputPointer", "kind", "language", "sources", "quality"],
+  "properties": {
+    "$schema": { "const": "https://rcsd.info/schemas/provenance/v1/claim.schema.json" },
+    "schemaVersion": { "$ref": "common.schema.json#/$defs/schemaVersion" },
+    "claimId": { "$ref": "common.schema.json#/$defs/id" },
+    "datasetId": { "$ref": "common.schema.json#/$defs/id" },
+    "outputPointer": { "$ref": "common.schema.json#/$defs/jsonPointer" },
+    "kind": { "enum": ["fact", "derived", "summary", "translation", "classification", "editorial"] },
+    "language": { "$ref": "common.schema.json#/$defs/locale" },
+    "text": { "type": "string", "minLength": 1 },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "common.schema.json#/$defs/lineageInput" }
+    },
+    "derivation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method"],
+      "properties": {
+        "method": { "type": "string", "minLength": 1 },
+        "script": { "$ref": "common.schema.json#/$defs/relativePath" },
+        "llmInvocationId": { "$ref": "common.schema.json#/$defs/id" }
+      }
+    },
+    "quality": { "$ref": "common.schema.json#/$defs/quality" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "kind": { "enum": ["derived", "summary", "translation", "classification"] }
+        },
+        "required": ["kind"]
+      },
+      "then": { "required": ["derivation"] }
+    }
+  ]
+}

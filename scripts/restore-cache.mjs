@@ -43,24 +43,35 @@ try {
   process.exit(0);
 }
 
-// 1. Restore transcripts-aai
+// 1. Restore transcripts-aai. --ignore-existing: only fetch files the
+// workspace is missing — a transcript already present locally (a same-run
+// re-transcription, or one staged via the workflow's operator inbox) is newer
+// than R2 and must not be clobbered by this restore. A plain copy here
+// silently reverted the July 2026 full-corpus backfill twice.
 console.log('\nSyncing transcripts-aai (AssemblyAI raw transcripts cache) from R2...');
 const ok1 = runRclone([
   'copy',
   `${BUCKET}/transcripts-aai`,
   resolve(ROOT, 'artifacts/transcripts-aai'),
+  '--ignore-existing',
   '--s3-no-check-bucket',
   '--progress',
   '--stats-one-line',
   '-v'
 ]);
 
-// 2. Restore transcripts-slim (slim EN + ES transcripts)
+// 2. Restore transcripts-slim (slim EN + ES transcripts). --ignore-existing
+// for the same reason as transcripts-aai above: files already in the
+// workspace (operator slim-inbox ingest, or regenerated earlier this run)
+// are newer than R2 and must not be clobbered — a plain copy here silently
+// re-clobbered the salvaged full-corpus ES translations on 2026-07-19 and
+// triggered a duplicate paid re-translation.
 console.log('\nSyncing transcripts-slim (slim English & Spanish transcripts) from R2...');
 const ok2 = runRclone([
   'copy',
   `${BUCKET}/transcripts`,
   resolve(ROOT, 'artifacts/transcripts-slim'),
+  '--ignore-existing',
   '--s3-no-check-bucket',
   '--include', '*.json',
   '--progress',

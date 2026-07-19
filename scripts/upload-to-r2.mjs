@@ -67,6 +67,9 @@ run(`${verb} artifacts → ${BUCKET}`, [
   BUCKET,
   '--exclude', 'json/**',
   '--exclude', 'transcripts-slim/**',
+  // Board-policy exhibits are provenance-migrated and publish only through
+  // upload-release.mjs after immutable upload + hash verification.
+  '--exclude', 'board-policy-exhibits/**',
   // Scratch/discard dirs must never publish (this one briefly did; the live
   // tmp-may13-discards/ prefix is deleted at deploy).
   '--exclude', 'tmp-*/**',
@@ -91,7 +94,14 @@ run(`${verb} data → ${BUCKET}/json`, [
   DATA_DIR,
   `${BUCKET}/json`,
   '--filter', '- llm-timestamp-cache/**',
-  '--filter', '+ board-policies/*.json',
+  // Migrated policy data must never advance through the unverified legacy
+  // path. upload-release.mjs owns these stable keys.
+  '--filter', '- provenance/**',
+  '--filter', '- board-policies/**',
+  '--filter', '- board-policies-es/**',
+  '--filter', '- policies-index.json',
+  '--filter', '- policy-titles-es.json',
+  '--filter', '- policy-summaries.json',
   '--filter', '+ warrants/*.json',
   '--filter', '+ *.json',
   '--filter', '- *',

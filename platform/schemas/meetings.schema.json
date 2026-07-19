@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:district-data-lab:schema:v0:meetings",
+  "title": "District Data Lab meeting dataset v0",
+  "description": "Experimental canonical meeting records with independent occurrence, agenda, minutes, and recording states. Every state requires dated source evidence.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schemaVersion",
+    "apiVersion",
+    "contractStatus",
+    "datasetId",
+    "district",
+    "generatedAt",
+    "records",
+    "_metadata"
+  ],
+  "properties": {
+    "$schema": { "const": "urn:district-data-lab:schema:v0:meetings" },
+    "schemaVersion": { "const": "0.1.0" },
+    "apiVersion": { "const": "v0" },
+    "contractStatus": { "const": "experimental" },
+    "datasetId": { "$ref": "#/$defs/id" },
+    "district": { "$ref": "#/$defs/district" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/meeting" }
+    },
+    "_metadata": { "$ref": "#/$defs/metadata" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[._-][a-z0-9]+)*$"
+    },
+    "httpUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https://"
+    },
+    "district": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "slug", "name"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": { "type": "string", "minLength": 1 }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provenanceUrl", "scrapedAt", "method", "sources"],
+      "properties": {
+        "provenanceUrl": { "$ref": "#/$defs/httpUrl" },
+        "scrapedAt": { "type": "string", "format": "date-time" },
+        "method": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "tool", "toolVersion"],
+          "properties": {
+            "kind": {
+              "enum": ["deterministic-extraction", "machine-assisted-extraction", "manual-curation"]
+            },
+            "tool": { "type": "string", "minLength": 1 },
+            "toolVersion": { "type": "string", "minLength": 1 }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/source" }
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "url", "authority", "checkedAt"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "url": { "$ref": "#/$defs/httpUrl" },
+        "authority": {
+          "enum": ["district", "state", "district-linked-vendor"]
+        },
+        "checkedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "meeting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "districtId",
+        "governingBodyId",
+        "title",
+        "startsAt",
+        "timezone",
+        "occurrence",
+        "agenda",
+        "minutes",
+        "recording",
+        "discrepancies"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "districtId": { "$ref": "#/$defs/id" },
+        "governingBodyId": { "$ref": "#/$defs/id" },
+        "title": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text", "locale"],
+          "properties": {
+            "text": { "type": "string", "minLength": 1 },
+            "locale": {
+              "type": "string",
+              "pattern": "^[A-Za-z]{2,3}(?:-[A-Za-z0-9]{2,8})*$"
+            }
+          }
+        },
+        "startsAt": { "type": "string", "format": "date-time" },
+        "timezone": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9+_-]*(?:/[A-Za-z0-9+_-]+)+$"
+        },
+        "occurrence": { "$ref": "#/$defs/occurrenceState" },
+        "agenda": { "$ref": "#/$defs/agendaState" },
+        "minutes": { "$ref": "#/$defs/minutesState" },
+        "recording": { "$ref": "#/$defs/recordingState" },
+        "discrepancies": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/discrepancy" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "url", "checkedAt"],
+      "properties": {
+        "sourceId": { "$ref": "#/$defs/id" },
+        "url": { "$ref": "#/$defs/httpUrl" },
+        "checkedAt": { "type": "string", "format": "date-time" },
+        "artifactHash": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "evidenceList": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evidence" }
+    },
+    "occurrenceState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "evidence"],
+      "properties": {
+        "state": {
+          "enum": ["scheduled", "held", "cancelled", "unknown"]
+        },
+        "evidence": { "$ref": "#/$defs/evidenceList" }
+      }
+    },
+    "agendaState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "evidence"],
+      "properties": {
+        "state": {
+          "enum": ["absent", "published", "revised", "unknown"]
+        },
+        "evidence": { "$ref": "#/$defs/evidenceList" }
+      }
+    },
+    "minutesState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "evidence"],
+      "properties": {
+        "state": {
+          "enum": ["absent", "published", "approved", "unknown"]
+        },
+        "evidence": { "$ref": "#/$defs/evidenceList" }
+      }
+    },
+    "recordingState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "evidence"],
+      "properties": {
+        "state": {
+          "enum": ["absent", "expected", "published", "not-applicable", "unknown"]
+        },
+        "evidence": { "$ref": "#/$defs/evidenceList" }
+      }
+    },
+    "discrepancy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "field", "summary", "status", "evidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "field": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 },
+        "status": {
+          "enum": ["open", "resolved", "accepted-uncertainty"]
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/$defs/evidence" }
+        }
+      }
+    }
+  }
+}

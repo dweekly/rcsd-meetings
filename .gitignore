@@ -13,6 +13,11 @@ data/caaspp-cache/
 # Deployed to Cloudflare Pages directly; no need to track the binary index.
 docs/pagefind/
 
+# Multi-district lab output is generated in CI for a future Pages project and
+# stays separate from the tracked RCSD site in docs/.
+/build/platform/
+/build/platform-test-*/
+
 # Google Search Console monitor (scripts/gsc_monitor.py): credentials + real
 # API output stay out of the (public) repo. The script + methodology are tracked;
 # run `npm run monitor:gsc` locally to regenerate the report/data.
@@ -25,3 +30,20 @@ warrants.db-wal
 warrants.db-shm
 # claude.ai/design sync build output (regenerate with .design-sync/build-bundle.mjs)
 .design-sync/ds-bundle/
+
+# Local-only raw data downloads (~3GB) — too large for the repo and all
+# re-downloadable from public sources:
+# - sacs*.exe / sacs/: CDE SACS unaudited-actuals self-extracting archives and
+#   the Access databases (.mdb) extracted from them (cde.ca.gov/ds/fd/fd/)
+# - rcef.json: ProPublica Nonprofit Explorer API snapshot for the Redwood City
+#   Education Foundation (EIN 94-2903141); a tracked copy lives in
+#   data/analysis/rcef/
+/sacs/
+/sacs*.exe
+/rcef.json
+
+# Local working notes and analysis inputs. teacher-cost/ holds CDE J-90 salary
+# archives, StaffFTE files, and BLS CPI series (~600MB of raw downloads); other
+# drafts are private notes/email drafts that don't belong in a public repo.
+# Derived findings + provenance docs are tracked in data/analysis/teacher-cost/.
+/drafts/

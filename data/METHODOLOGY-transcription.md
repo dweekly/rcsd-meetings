@@ -2,7 +2,9 @@
 
 ## Overview
 
-All RCSD board meeting recordings posted to the district's YouTube channel are transcribed using AssemblyAI's Universal 3 Pro speech recognition model with speaker diarization. This replaces the YouTube auto-generated captions, which suffer from poor accuracy on proper nouns, missing punctuation, and no speaker attribution.
+All RCSD board meeting recordings posted to the district's YouTube channel are transcribed using AssemblyAI speech recognition with speaker diarization. This replaces the YouTube auto-generated captions, which suffer from poor accuracy on proper nouns, missing punctuation, and no speaker attribution.
+
+New transcriptions use Universal-3.5 Pro, but the cached corpus is mixed — each transcript JSON records its actual model in `speech_model_used`. See "Model history" below.
 
 ## Audio Source
 
@@ -24,9 +26,9 @@ All RCSD board meeting recordings posted to the district's YouTube channel are t
 ## Transcription Service
 
 - **Provider:** AssemblyAI
-- **Model:** Universal 3 Pro (`speech_model: 'best'` in API)
+- **Model:** Universal-3.5 Pro (`speech_models: ['universal-3-5-pro', 'universal-2']` in API; Universal-2 is the automatic fallback for languages Universal-3.5 Pro doesn't cover). See "Model history" below for the mixed cached corpus.
 - **Speaker diarization:** Enabled (`speaker_labels: true`)
-- **Word-level timestamps:** Included by default with Universal 3 Pro (millisecond precision)
+- **Word-level timestamps:** Included by default (millisecond precision)
 - **Word boost:** Custom vocabulary list to improve recognition of district-specific terms:
   - Board members: Trustee Weekly, Trustee Sena, Trustee Hanna, Trustee Varma, Trustee Patel
   - District leadership: Superintendent Ramsey, Dr. Ramsey
@@ -92,9 +94,23 @@ Based on initial batch (verified on 5 completed transcripts):
 
 ## Costs
 
-- **Rate:** $0.37/hour of audio (AssemblyAI Universal 3 Pro with speaker diarization)
+- **Rate:** $0.28/hour of audio since July 2026 (AssemblyAI Universal-3.5 Pro: $0.21 base + $0.02 speaker diarization + $0.05 contextual prompting)
 - **Total corpus:** ~90 hours across 49 meetings
 - **Estimated total cost:** ~$33
+
+## Model history
+
+The transcription script's requested model changed over time, and AssemblyAI
+records the model that actually ran in each transcript's `speech_model_used`
+field. Tallied across all 169 published transcripts on 2026-07-12:
+
+| Transcribed | Requested | Actually ran | Count |
+|---|---|---|---|
+| 2026-03-13 → 03-16 (initial backfill) | `speech_model: 'best'` | **`universal-2`** — the `'best'` alias resolved to Universal-2, not Universal 3 Pro as this document previously claimed | 141 |
+| 2026-03-17 → 07-12 | `speech_models: ['universal-3-pro', 'universal-2']` | `universal-3-pro` | 28 |
+| since 2026-07-12 | `speech_models: ['universal-3-5-pro', 'universal-2']` | (new meetings) | 0 yet |
+
+To check any single transcript: `curl -s https://data.rcsd.info/transcripts-aai/{videoId}.json | jq .speech_model_used`
 
 ## Scripts
 

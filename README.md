@@ -11,7 +11,7 @@ Independently compiled public records for the [Redwood City School District](htt
 - **192 board meetings** (April 2020 – present) from BoardDocs and Simbli/GAMUT
 - **8,073 agenda items** with **4,845 attachments** and source links
 - **619 school board policies, bylaws, and regulations** across 9 governance sections
-- **157 meeting recordings** with diarized transcripts (AssemblyAI Universal 3 Pro)
+- **157 meeting recordings** with diarized transcripts (AssemblyAI Universal models; see methodology for the per-era mix)
 - **4,198 agenda items mapped to video timestamps** via LLM analysis of transcripts (148 meetings)
 - **12 school profile pages** with demographics, test scores, bell schedules, safety plans, and board presentations
 - **3 charter school profiles** plus a **district property index** (district-owned sites that aren't operating schools)
@@ -21,13 +21,54 @@ Independently compiled public records for the [Redwood City School District](htt
 
 *Counts reflect the data snapshot of May 2026; the pipeline runs continuously, so live figures will be higher.*
 
+## Provenance Contracts and Verified Releases
+
+The first v1 provenance-gated release covers the board-policy family while
+preserving every existing data URL and payload shape. The full contract,
+quality states, LLM invocation envelope, and migration boundaries are described
+in [`PROVENANCE.md`](PROVENANCE.md).
+
+- Versioned contracts live in [`schemas/provenance/v1/`](schemas/provenance/v1/)
+  and are published under `https://rcsd.info/schemas/provenance/v1/` (for
+  example, the
+  [dataset provenance schema](https://rcsd.info/schemas/provenance/v1/dataset-provenance.schema.json)).
+- Dataset sidecars live in [`data/provenance/`](data/provenance/) and are
+  published under `https://data.rcsd.info/json/provenance/` (for example, the
+  [English policy sidecar](https://data.rcsd.info/json/provenance/rcsd.board-policies.json)).
+- The public release pointer is
+  [`https://data.rcsd.info/json/releases/current.json`](https://data.rcsd.info/json/releases/current.json).
+- Non-publishing pilot source manifests for RCSD, Ravenswood, Fresno, and
+  San Mateo–Foster City live in [`districts/`](districts/). They are
+  reconnaissance configuration, not district-endorsed facts.
+
+```bash
+npm run provenance:policies       # regenerate policy sidecars
+npm run validate:provenance       # JSON Schema + lineage/artifact checks
+npm run test:provenance           # provenance unit tests
+npm run build:provenance-schemas  # copy public contracts into docs/
+
+npm run release:manifest -- --require-clean-source
+npm run release:stage             # immutable + stable R2 bytes; candidate receipt
+npm run release:deploy-pages      # deploy Pages + write a release-bound receipt
+npm run release:promote           # immutable manifest + current.json, published last
+npm run release:smoke             # verify public EN, ES, provenance + release pointer
+```
+
+Staging refreshes and verifies shape-compatible stable URLs but never changes
+the current pointer. If the Pages deploy fails, promotion does not run and the
+prior release remains current. Promotion can recover its durable R2 candidate
+after an interruption and refuses to overwrite a current release that changed
+since staging.
+The release intentionally accepts a short, shape-compatible Pages/R2 overlap;
+see the copy-paste [`RELEASE-RUNBOOK.md`](RELEASE-RUNBOOK.md) for recovery.
+
 ## Data Provenance
 
 Every dataset on this site is traceable to its public source. We document the origin, extraction method, and any transformations for each pipeline. Methodology documents live alongside the data they describe:
 
 | Pipeline | Methodology | Key Details |
 |----------|-------------|-------------|
-| Meeting transcription | [`data/METHODOLOGY-transcription.md`](data/METHODOLOGY-transcription.md) | AssemblyAI Universal 3 Pro, Opus audio from YouTube, speaker diarization |
+| Meeting transcription | [`data/METHODOLOGY-transcription.md`](data/METHODOLOGY-transcription.md) | AssemblyAI Universal-3.5 Pro, Opus audio from YouTube, speaker diarization |
 | Meeting aggregation | [Data sources](#data-sources) below | Simbli + BoardDocs APIs |
 | Board policies | `data/policies-index.json`, `data/board-policies/`, `data/policy-titles-es.json` | Full policy text, cross-references, footnotes, and metadata scraped from Simbli's REST APIs; titles machine-translated to Spanish via `scripts/translate-policy-titles.mjs` (Claude, cached, labeled) |
 | Policy bodies in Spanish | `data/board-policies-es/` | Policy body text machine-translated via `scripts/translate-policy-bodies.mjs` (Claude Sonnet, ~$16 one-time for the full manual). Idempotent: each output file stores a sha256 of its English source in `_metadata`, so re-runs only translate new or revised policies. Every file carries model, timestamp, and method in `_metadata`; each Spanish policy page is labeled that the English Simbli version is the only official text |
@@ -56,7 +97,7 @@ AI-generated content (meeting summaries, timestamp mappings) is always labeled a
 | [BoardDocs](https://go.boarddocs.com/ca/redwood/Board.nsf) | Agendas, item bodies, attachments (Apr 2020 – Jun 2025) | REST API scraping (browser UA) | `scrape-boarddocs.mjs` |
 | [YouTube](https://www.youtube.com/@redwoodcityschooldistrict) | Meeting videos | `yt-dlp` channel index | `scrape-youtube-index.mjs` |
 | YouTube audio | Raw Opus 48kHz audio streams | `yt-dlp -f bestaudio` | `transcribe-assemblyai.mjs` |
-| [AssemblyAI](https://www.assemblyai.com/) | Diarized transcripts with word-level timestamps | Universal 3 Pro API | `transcribe-assemblyai.mjs` |
+| [AssemblyAI](https://www.assemblyai.com/) | Diarized transcripts with word-level timestamps | Universal-3.5 Pro API | `transcribe-assemblyai.mjs` |
 | Claude Haiku | Agenda item → video timestamp mapping | LLM transcript analysis | `map-timestamps-llm.mjs` |
 | [CDE DataQuest](https://data1.cde.ca.gov/dataquest/) | Enrollment, demographics, test scores, SpEd | Public data files | `data/sped-enrollment.json`, `data/sped-categories.json` |
 | [CDE Chronic Absenteeism](https://www.cde.ca.gov/ds/ad/fsabd.asp) | Chronic absenteeism by subgroup | CDE bulk download | `data/cde/absenteeism-2024-25.json` |
@@ -206,7 +247,7 @@ npm run scrape:packets -- --skip-existing    # skip cached meetings
 
 ### Transcription
 
-Board meeting audio is transcribed with AssemblyAI Universal 3 Pro with speaker diarization. See [`data/METHODOLOGY-transcription.md`](data/METHODOLOGY-transcription.md) for full details on audio source selection, model settings, output schema, and quality observations.
+Board meeting audio is transcribed with AssemblyAI Universal-3.5 Pro with speaker diarization (the cached corpus is mixed Universal-2 / Universal 3 Pro; each transcript records its model in `speech_model_used`). See [`data/METHODOLOGY-transcription.md`](data/METHODOLOGY-transcription.md) for full details on audio source selection, model settings, output schema, and quality observations.
 
 ```bash
 npm run transcribe                          # all unprocessed meetings

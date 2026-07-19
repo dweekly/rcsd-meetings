@@ -324,7 +324,7 @@
   .header-inner {
     max-width: 900px;
     margin: 0 auto;
-    padding: 4rem 2rem 3.5rem;
+    padding: 2.5rem 2rem 2rem;
     position: relative;
   }
 
@@ -335,7 +335,7 @@
     text-transform: uppercase;
     /* lightened from --green-light (3.12:1) for WCAG AA 4.5:1 on --green-deep */
     color: #73b390;
-    margin-bottom: 1.2rem;
+    margin-bottom: 0.7rem;
   }
 
   .header-title {
@@ -349,29 +349,31 @@
   }
 
   .header-subtitle {
-    margin-top: 1.5rem;
-    font-size: 0.95rem;
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
     color: rgba(255,255,255,0.6);
-    line-height: 1.6;
+    line-height: 1.55;
     max-width: 520px;
     font-style: italic;
   }
 
   .header-meta {
-    margin-top: 2rem;
+    margin-top: 1.1rem;
     display: flex;
-    gap: 2rem;
+    align-items: baseline;
+    gap: 0.5rem 1.4rem;
     flex-wrap: wrap;
   }
 
   .header-stat {
     display: flex;
-    flex-direction: column;
+    align-items: baseline;
+    gap: 0.35rem;
   }
 
   .header-stat-value {
     font-family: 'Fraunces', serif;
-    font-size: 1.8rem;
+    font-size: 1.05rem;
     font-weight: 600;
     color: #fff;
     line-height: 1;
@@ -817,8 +819,8 @@
 
   /* ---- BOARD ROSTER ---- */
   .board-roster {
-    margin-top: 2.2rem;
-    padding-top: 1.5rem;
+    margin-top: 1.3rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255,255,255,0.12);
   }
 
@@ -1102,85 +1104,90 @@
     margin: 0 0 0.8rem;
   }
 
-  .upcoming-provisional-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    background: rgba(255, 255, 255, 0.65);
-    border: 1px solid rgba(0, 128, 0, 0.12);
-    border-radius: 6px;
-    padding: 0.8rem 1.2rem;
-  }
-
-  .upcoming-provisional-item {
-    display: flex;
-    align-items: baseline;
-    font-size: 0.85rem;
-    padding: 0.35rem 0;
-    border-bottom: 1px dashed rgba(0, 0, 0, 0.05);
-    line-height: 1.4;
-  }
-
-  .upcoming-provisional-item:last-child {
-    border-bottom: none;
-  }
-
-  .upcoming-provisional-date {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--green-mid);
-    flex-shrink: 0;
-    width: 9rem;
-  }
-
-  .upcoming-provisional-type {
-    color: var(--text);
-  }
-
-  .upcoming-provisional-topic {
+  .upcoming-provisional-note {
+    font-size: 0.82rem;
     color: var(--text-secondary);
-    font-style: italic;
+    margin: 0 0 0.75rem;
+    line-height: 1.45;
+    max-width: 46rem;
   }
 
-  .upcoming-details-toggle {
-    margin-top: 0.4rem;
-    padding-top: 0.4rem;
-  }
-
-  .upcoming-details-toggle summary {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 600;
-    color: var(--green-mid);
-    cursor: pointer;
-    user-select: none;
-    outline: none;
-    transition: color 0.2s;
-    display: inline-block;
-  }
-
-  .upcoming-details-toggle summary:hover {
-    color: var(--green-deep);
-    text-decoration: underline;
-  }
-
-  .upcoming-provisional-list-hidden {
-    margin-top: 0.4rem;
-    display: flex;
-    flex-direction: column;
+  .cal-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(116px, 1fr));
     gap: 0.4rem;
+  }
+
+  .cal-cell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(0, 128, 0, 0.14);
+    border-radius: 5px;
+    padding: 0.4rem 0.55rem;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .cal-cell-dot {
+    color: var(--green-mid);
+    margin-left: 0.25rem;
+  }
+
+  /* ---- AT A GLANCE (latest + next meeting) ---- */
+  .glance-section {
+    margin-top: 1.75rem;
+  }
+
+  .glance-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .glance-card {
+    border: 1px solid var(--rule-light);
+    border-radius: 8px;
+    padding: 0.55rem 1.1rem 0.35rem;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .glance-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin: 0.15rem 0 0.15rem;
+  }
+
+  /* Meeting rows sit flush inside the glance cards (no list separators). */
+  .glance-card .meeting-row {
+    border-bottom: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .meeting-date--static {
+    cursor: default;
+    text-decoration: none;
+  }
+
+  @media (max-width: 720px) {
+    .glance-grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   @media (max-width: 640px) {
-    .upcoming-provisional-item {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.15rem;
-      padding: 0.5rem 0;
-    }
-    .upcoming-provisional-date {
-      width: auto;
+    .cal-grid {
+      grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
     }
   }
 
@@ -1280,6 +1287,85 @@
 </nav>
 
 <main class="content">
+<section class="glance-section" id="glance">
+  <div class="glance-grid">
+    <div class="glance-card">
+      <div class="glance-label">Latest meeting</div>
+    <div class="meeting-row" data-threads="budget facilities-bond" data-schools="clifford hoover orion" data-topics="hvac el">
+      <a href="/meetings/2026-06-24/" class="meeting-date">
+        <span class="meeting-date-month">JUN</span>
+        <span class="meeting-date-day">24</span>
+        <span class="meeting-date-year">2026</span>
+      </a>
+      <div class="meeting-body">
+        <div class="meeting-header">
+          <a href="/meetings/2026-06-24/" class="meeting-type">Regular</a>
+          <div class="meeting-links"><a href="https://rcsdk8-net.zoom.us/s/83168537535" class="meeting-link meeting-link--zoom" data-zoom-date="2026-06-24" target="_blank" rel="noopener">&#9678; Join via Zoom</a><a href="https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&amp;MID=51017" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; Agenda</a></div>
+        </div>
+        <div class="meeting-threads"><span class="meeting-thread-tag" data-thread="budget">Budget & Resource Alignment</span><span class="meeting-thread-tag" data-thread="facilities-bond">Facilities Bonds (Measure S/T)</span></div>
+        <p class="meeting-summary">The Board was scheduled to consider the <strong>2026-2027 Proposed Budget</strong> and <strong>Local Control Accountability Plan (<strong>LCAP</strong>)</strong>, along with multiple vendor and service agreements for the upcoming school year including <strong>i-Ready</strong>, <strong>PowerSchool Analytics</strong>, and <strong>Ellevation</strong>. The agenda also proposed recognition of <strong><strong>Superintendent</strong> Baker</strong> and approval of hazardous materials removal agreements at <strong>Orion Alternative</strong>, <strong>Clifford</strong>, and other district facilities. <span class="ai-label">AI-generated summary — may contain errors. Not an official record.</span></p>
+        <a href="/meetings/2026-06-24/#agenda" class="meeting-item-count">15 agenda items &#8594;</a>
+      </div>
+    </div>
+    </div>
+    <div class="glance-card">
+      <div class="glance-label">Next meeting</div>
+    <div class="meeting-row">
+      <div class="meeting-date meeting-date--static">
+        <span class="meeting-date-month">AUG</span>
+        <span class="meeting-date-day">10</span>
+        <span class="meeting-date-year">2026</span>
+      </div>
+      <div class="meeting-body">
+        <div class="meeting-header">
+          <span class="meeting-type">Board Meeting</span>
+        </div>
+        <p class="meeting-summary">Agenda is posted about 72 hours before the meeting.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section upcoming-section" id="upcoming">
+  <div class="section-rule"></div>
+  <h2>Upcoming Meetings</h2>
+  <p class="section-subtitle">Board meetings scheduled for the coming weeks.</p>
+  <div class="meeting-list">
+
+  </div>
+  
+    <div class="upcoming-provisional-section">
+      <h3 class="upcoming-provisional-title">Approved Meeting Calendar</h3>
+      <p class="upcoming-provisional-note">Regular Board meetings adopted for 2026–27. Agendas post about 72 hours before each meeting.</p>
+      <ul class="cal-grid">
+        <li class="cal-cell">Aug 10, 2026</li>
+        <li class="cal-cell">Aug 26, 2026</li>
+        <li class="cal-cell">Sep 9, 2026</li>
+        <li class="cal-cell">Sep 23, 2026</li>
+        <li class="cal-cell">Oct 14, 2026</li>
+        <li class="cal-cell">Oct 28, 2026</li>
+        <li class="cal-cell">Nov 4, 2026</li>
+        <li class="cal-cell">Nov 18, 2026</li>
+        <li class="cal-cell">Dec 9, 2026</li>
+        <li class="cal-cell">Dec 16, 2026</li>
+        <li class="cal-cell">Jan 13, 2027</li>
+        <li class="cal-cell">Jan 20, 2027</li>
+        <li class="cal-cell">Feb 10, 2027</li>
+        <li class="cal-cell">Feb 24, 2027</li>
+        <li class="cal-cell">Mar 10, 2027</li>
+        <li class="cal-cell">Mar 24, 2027</li>
+        <li class="cal-cell">Apr 7, 2027</li>
+        <li class="cal-cell">Apr 28, 2027</li>
+        <li class="cal-cell">May 12, 2027</li>
+        <li class="cal-cell">May 26, 2027</li>
+        <li class="cal-cell">Jun 9, 2027</li>
+        <li class="cal-cell">Jun 16, 2027</li>
+        <li class="cal-cell">Jun 23, 2027</li>
+      </ul>
+    </div>
+</section>
+
 <section class="section" id="threads">
   <div class="section-rule"></div>
   <h2>Key Topics This Year</h2>
@@ -1396,119 +1482,6 @@ Comments in Spanish are welcome — an interpreter is available at every meeting
 <strong>Written communication:</strong> Send a letter or email to the Board Secretary at the District Office (750 Bradford St, Redwood City, CA 94063).</div>
   </details>
 </div>
-
-<section class="section upcoming-section" id="upcoming">
-  <div class="section-rule"></div>
-  <h2>Upcoming Meetings</h2>
-  <p class="section-subtitle">Board meetings scheduled for the coming weeks.</p>
-  <div class="meeting-list">
-
-  </div>
-  
-    <div class="upcoming-provisional-section">
-      <h3 class="upcoming-provisional-title">Planned Future Dates (No Agenda)</h3>
-      <div class="upcoming-provisional-list">
-              <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>August 10, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>August 26, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>September 9, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-        
-    <details class="upcoming-details-toggle">
-      <summary>▶ Show 20 more future tentative dates</summary>
-      <div class="upcoming-provisional-list-hidden">
-              <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>September 23, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>October 14, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>October 28, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>November 4, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>November 18, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>December 9, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>December 16, 2026</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>January 13, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>January 20, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>February 10, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>February 24, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>March 10, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>March 24, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>April 7, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>April 28, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>May 12, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>May 26, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>June 9, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>June 16, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      <div class="upcoming-provisional-item">
-        <span class="upcoming-provisional-date"><strong>June 23, 2027</strong></span>
-        <span class="upcoming-provisional-type">Board Meeting — <span class="upcoming-provisional-topic">Tentative Board Meeting</span></span>
-      </div>
-      </div>
-    </details>
-      </div>
-    </div>
-</section>
 
 <section class="section" id="sy202526">
   <div class="section-rule"></div>
@@ -4827,7 +4800,7 @@ Comments in Spanish are welcome — an interpreter is available at every meeting
         activeType = null;
         btns.forEach(function(b) { b.classList.remove('active'); });
         allRows.forEach(function(r) {
-          if (!r.closest('#upcoming')) {
+          if (!r.closest('#upcoming, #glance')) {
             r.classList.remove('hidden');
           }
         });
@@ -4837,7 +4810,7 @@ Comments in Spanish are welcome — an interpreter is available at every meeting
         activeType = type;
         btns.forEach(function(b) { b.classList.toggle('active', b.dataset.filter === filter && b.dataset.filterType === type); });
         allRows.forEach(function(r) {
-          if (r.closest('#upcoming')) return;
+          if (r.closest('#upcoming, #glance')) return;
           var match = false;
           if (type === 'thread') {
             var threads = r.dataset.threads || '';

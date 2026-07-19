@@ -77,6 +77,18 @@ const MONTHS = {
   september: '09', october: '10', november: '11', december: '12'
 };
 
+// District-mistitled videos: the date in the YouTube title is wrong, so the
+// video never matches its scraped meeting and gets re-downloaded forever.
+// Keyed by video id → the meeting's real date, verified against the recording
+// (spoken welcome / closed-session report-out) and the BoardDocs agenda.
+// Reported to the district (Jorge) 2026-07-12. If they retitle the videos,
+// these entries become redundant but stay correct; safe to delete then.
+const DATE_CORRECTIONS = {
+  vuzddXz9v4U: '2021-10-20', // titled "October 10, 2021"; opens "Welcome to our October 20 board meeting"
+  vs_F7D0rAmE: '2024-05-22', // titled "May 24, 2024"; reports out from that evening's closed session "on May 22nd 2024"
+  '5405HztJTp0': '2020-05-06', // titled "May 7, 2020"; agenda matches BoardDocs 5/6/20 ("Report Out on Closed Session from 5.6.20")
+};
+
 /**
  * Parse meeting date from title.
  * Titles look like:
@@ -107,7 +119,7 @@ for (const line of lines) {
   const kind = classifyKind(title);
   if (!kind) continue;
 
-  const meetingDate = parseDateFromTitle(title);
+  const meetingDate = DATE_CORRECTIONS[id] ?? parseDateFromTitle(title);
   if (!meetingDate) {
     console.warn(`  Could not parse date from title: "${title}"`);
     continue;

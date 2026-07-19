@@ -18,6 +18,7 @@
 import 'dotenv/config';
 import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { createHash } from 'crypto';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { execFileSync } from 'child_process';
@@ -34,6 +35,15 @@ mkdirSync(CACHE_DIR, { recursive: true });
 
 const args = process.argv.slice(2);
 const force = args.includes('--force');
+// Cap per-run refreshes of maps whose transcript changed (see July 2026
+// re-transcription); new meetings are never capped.
+const maxRefresh = args.includes('--max-refresh')
+  ? parseInt(args[args.indexOf('--max-refresh') + 1], 10)
+  : process.env.MAX_REFRESH === 'all'
+    ? Infinity
+    : process.env.MAX_REFRESH
+      ? parseInt(process.env.MAX_REFRESH, 10)
+      : 25;
 const dateFilter = args.includes('--date') ? args[args.indexOf('--date') + 1] : null;
 
 // ---- Parse AssemblyAI transcript JSON into blocks ----
@@ -184,6 +194,8 @@ async function main() {
   let apiCalls = 0;
   let cached = 0;
   let skipped = 0;
+  let staleQueued = 0;
+  let staleDeferred = 0;
 
   for (const meeting of data.meetings) {
     if (dateFilter && meeting.date !== dateFilter) continue;
@@ -195,19 +207,32 @@ async function main() {
 
     // Check cache
     const cacheFile = resolve(CACHE_DIR, `${meeting.date}.json`);
+    const aaiRaw = readFileSync(aaiPath, 'utf-8');
+    const aaiHash = createHash('sha256').update(aaiRaw).digest('hex').slice(0, 16);
     if (!force && existsSync(cacheFile)) {
       try {
         const cacheData = JSON.parse(readFileSync(cacheFile, 'utf-8'));
         if (cacheData.result && cacheData.items?.length === meeting.items.length) {
-          timestampMap[meeting.date] = cacheData.result;
-          cached++;
-          continue;
+          if (cacheData.transcriptHash === aaiHash) {
+            timestampMap[meeting.date] = cacheData.result;
+            cached++;
+            continue;
+          }
+          // Transcript changed under a valid cache entry (pre-hash entries
+          // count as changed): refresh up to --max-refresh per run, serving
+          // the stale result until this meeting's turn comes up.
+          if (staleQueued >= maxRefresh) {
+            timestampMap[meeting.date] = cacheData.result;
+            staleDeferred++;
+            continue;
+          }
+          staleQueued++;
         }
       } catch { /* re-process if cache is corrupt */ }
     }
 
     // Parse transcript
-    const aaiContent = JSON.parse(readFileSync(aaiPath, 'utf-8'));
+    const aaiContent = JSON.parse(aaiRaw);
     const blocks = parseAAI(aaiContent);
     const transcriptText = blocksToCompactText(blocks);
     if (blocks.length === 0) { skipped++; continue; }
@@ -295,6 +320,7 @@ async function main() {
 
       writeFileSync(cacheFile, JSON.stringify({
         date: meeting.date,
+        transcriptHash: aaiHash,
         items: meeting.items.map(it => it.title),
         llmResponse: llmResult,
         result,

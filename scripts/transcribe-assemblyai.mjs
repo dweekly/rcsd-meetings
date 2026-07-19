@@ -247,8 +247,8 @@ Key terms: RCSD, LCAP, SPSA, CAASPP, ELPAC, SARC, Measure U, Measure S, Measure 
 
 /**
  * Upload local audio to AssemblyAI and transcribe with diarization.
- * Uses Universal-3 Pro with a contextual prompt for best accuracy.
- * Falls back to Universal-2 for non-English segments via speech_models array.
+ * Uses Universal-3.5 Pro with a contextual prompt for best accuracy.
+ * Falls back to Universal-2 for non-supported languages via speech_models array.
  * Returns the full transcript object.
  */
 async function transcribe(audioPath, meeting) {
@@ -256,9 +256,13 @@ async function transcribe(audioPath, meeting) {
 
   const transcript = await client.transcripts.transcribe({
     audio: audioPath,
-    speech_models: ['universal-3-pro', 'universal-2'], // Universal-3 Pro + Universal-2 fallback
+    speech_models: ['universal-3-5-pro', 'universal-2'], // Universal-3.5 Pro + Universal-2 fallback
     speaker_labels: true,
-    speakers_expected: 10, // board meetings typically have 7-15 distinct speakers
+    // A range, not an exact count: passing speakers_expected anchors the model
+    // to that number and merges extra voices (every meeting came back with
+    // exactly 10 speakers). Board meetings run ~6 voices (special meeting, no
+    // public comment) to 25+ (budget hearings).
+    speaker_options: { min_speakers_expected: 5, max_speakers_expected: 30 },
     language_detection: true, // handle English/Spanish code-switching
     disfluencies: false, // omit um, uh, stutters
     remove_audio_tags: 'all', // strip [MUSIC], [APPLAUSE], etc.
@@ -272,8 +276,14 @@ async function transcribe(audioPath, meeting) {
 // ---- Main ----
 async function main() {
   const toProcess = [];
+  // Several dates carry multiple BoardDocs agenda records (e.g. a study
+  // session preceding the regular meeting, or a re-noticed agenda) that all
+  // link the evening's one public video; transcribe each video only once.
+  const seenVids = new Set();
   for (const m of meetings) {
     if (filterDate && m.date !== filterDate) continue;
+    if (seenVids.has(m.youtube)) continue;
+    seenVids.add(m.youtube);
     if (await hasCachedOrRestored(m.youtube, m.date)) continue;
     toProcess.push(m);
   }

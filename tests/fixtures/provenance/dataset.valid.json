@@ -1,0 +1,66 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/dataset-provenance.schema.json",
+  "schemaVersion": "1.0.0",
+  "datasetId": "rcsd.board-policies",
+  "districtId": "ca.cde.district.4169005",
+  "kind": "normalized",
+  "artifacts": [
+    {
+      "path": "data/board-policies/0100-BP.json",
+      "mediaType": "application/json",
+      "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "bytes": 1024
+    },
+    {
+      "path": "data/board-policies-es/0100-BP.json",
+      "mediaType": "application/json",
+      "hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "bytes": 1100
+    }
+  ],
+  "authority": {
+    "status": "mixed",
+    "officialLanguage": "en-US",
+    "notes": "English is official source text; Spanish is a machine translation."
+  },
+  "sources": [
+    {
+      "sourceId": "simbli-policy.0100-bp",
+      "publisher": "Redwood City School District",
+      "url": "https://simbli.example.test/policy/0100",
+      "acquiredAt": "2026-07-09T10:00:00Z",
+      "effectiveAt": "2024-01-01",
+      "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+    }
+  ],
+  "lineage": {
+    "generatedAt": "2026-07-09T12:00:00Z",
+    "generator": {
+      "script": "scripts/generate-policy-provenance.mjs",
+      "version": "1",
+      "gitCommit": "abcdef1234567890"
+    },
+    "inputs": [
+      {
+        "sourceId": "simbli-policy.0100-bp",
+        "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+      }
+    ]
+  },
+  "quality": {
+    "state": "machine-checked",
+    "checkedAt": "2026-07-09T12:00:01Z"
+  },
+  "recordLineage": [
+    {
+      "outputArtifactPath": "data/board-policies/0100-BP.json",
+      "outputPointer": "/contentText",
+      "inputs": [
+        {
+          "sourceId": "simbli-policy.0100-bp",
+          "hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+        }
+      ]
+    }
+  ]
+}

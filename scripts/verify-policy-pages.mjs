@@ -32,6 +32,7 @@ const { policySlug } = await import(resolve(ROOT, 'scripts/lib/policy-slug.mjs')
 // truly-empty (PDF-box) policies. Requires a build that matches data/.
 const keyOf = (f) => f.replace(/\.json$/, '');
 const policyFiles = readdirSync(resolve(ROOT, 'data/board-policies')).filter(f => f.endsWith('.json'));
+const expectedSummaryCount = Object.keys(JSON.parse(readFileSync(resolve(ROOT, 'data/policy-summaries.json'), 'utf8')).summaries || {}).length;
 let emptyKey = null;       // truly-empty contentText -> PDF box page
 let extractedKey = null;   // "E PDF" exhibit WITH extracted text -> body page
 for (const f of policyFiles) {
@@ -95,7 +96,7 @@ await page.goto(`${base}/policies/`, { waitUntil: 'networkidle' });
 const rowCount = await page.locator('.policy-row').count();
 check('EN index: 619 rows', rowCount === 619, `got ${rowCount}`);
 const summaryCount = await page.locator('.policy-summary').count();
-check('EN index: 607 summaries (12 exhibits empty)', summaryCount === 607, `got ${summaryCount}`);
+check(`EN index: ${expectedSummaryCount} source-backed summaries`, summaryCount === expectedSummaryCount, `got ${summaryCount}`);
 const aiNote = await page.locator('.ai-summaries-note').textContent();
 check('EN index: AI-summaries note present', /AI-generated/.test(aiNote || ''));
 // Search by a summary-only word: "gender identity" appears in 5132's summary.
@@ -118,6 +119,9 @@ await page.click('.filter-btn[data-filter="all"]');
 await page.screenshot({ path: join(TMP, 'verify-index-en.png'), fullPage: false });
 
 // ---- 2. Click-through ----
+// Clearing filters intentionally collapses the accordion. Open the row's
+// native <details> container before exercising the real click-through.
+await page.locator('[id="5132-bp"]').evaluate((row) => { row.closest('details').open = true; });
 await page.click('[id="5132-bp"]');
 await page.waitForLoadState('networkidle');
 check('Click-through: lands on /policies/5132-bp/', page.url() === `${base}/policies/5132-bp/`, page.url());
@@ -128,6 +132,11 @@ check('EN policy page: full body rendered', bodyLen > 3000, `${bodyLen} chars`);
 check('EN policy page: official Simbli link', (await page.locator('.policy-meta-links a[href*="simbli"]').count()) === 1);
 check('EN policy page: View JSON link', (await page.locator('.policy-meta-links a[href="/board-policies/5132-BP.json"]').count()) === 1);
 check('EN policy page: no ES disclaimer', (await page.locator('.policy-es-note').count()) === 0);
+check('EN policy page: provenance panel', (await page.locator('.policy-provenance').count()) === 1);
+check('EN policy page: shared provenance stylesheet', (await page.locator('link[rel="stylesheet"][href="/styles/policy-provenance.css"]').count()) === 1);
+const provenanceLayout = await page.locator('.policy-provenance dl').evaluate((node) => getComputedStyle(node).display);
+check('EN policy page: provenance stylesheet loaded', provenanceLayout === 'grid', provenanceLayout);
+check('EN policy page: provenance JSON link', (await page.locator('.policy-provenance a[href*="/json/provenance/rcsd.board-policies.json"]').count()) === 1);
 const enLangToggle = await page.locator('.site-nav-lang').getAttribute('href');
 check('EN policy page: lang toggle -> ES twin', enLangToggle === '/politicas/5132-bp/', enLangToggle);
 await page.screenshot({ path: join(TMP, 'verify-policy-5132-en.png') });
@@ -143,6 +152,8 @@ check('ES policy page: disclaimer links to Simbli', /^https:\/\/simbli\.eboardso
 const esBody = (await page.locator('.policy-body-text').textContent()) || '';
 check('ES policy page: Spanish body', esBody.includes('Mesa Directiva'), esBody.slice(0, 60));
 check('ES policy page: View JSON -> ES json', (await page.locator('.policy-meta-links a[href="/board-policies-es/5132-BP.json"]').count()) === 1);
+check('ES policy page: provenance panel', (await page.locator('.policy-provenance').count()) === 1);
+check('ES policy page: translation provenance JSON link', (await page.locator('.policy-provenance a[href*="/json/provenance/rcsd.board-policies-es.json"]').count()) === 1);
 const esLangToggle = await page.locator('.site-nav-lang').getAttribute('href');
 check('ES policy page: lang toggle -> EN twin', esLangToggle === '/policies/5132-bp/', esLangToggle);
 check('ES policy page: hreflang pair', (await page.locator('link[hreflang="en"][href$="/policies/5132-bp/"]').count()) === 1);

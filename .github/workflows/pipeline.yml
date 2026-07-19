@@ -11,6 +11,11 @@ on:
         required: true
         type: boolean
         default: false
+      refresh_all:
+        description: 'Uncap stale-cache refreshes (translations, chapter markers, timestamp maps) for this run'
+        required: false
+        type: boolean
+        default: false
       runner:
         description: 'Runner environment to execute on'
         required: true
@@ -96,6 +101,13 @@ jobs:
           mkdir -p artifacts
           # Sync slim transcripts from R2 transcripts/ to local artifacts/transcripts-slim/
           rclone copy r2:rcsd-meetings/transcripts/ artifacts/transcripts-slim/ --progress
+          # Raw AAI transcripts: R2 is the source of truth — checkout's default
+          # `git clean -ffdx` wipes the gitignored artifacts/ tree at the start
+          # of every run, so nothing local survives between runs. Keep the
+          # restore non-clobbering anyway in case a same-run step already wrote
+          # a newer transcript before a retry of this step.
+          rclone copy r2:rcsd-meetings/transcripts-aai/ artifacts/transcripts-aai/ \
+            --ignore-existing --progress
           # Sync other cache folders (excluding heavy media, json, and transcripts)
           rclone copy r2:rcsd-meetings/ artifacts/ \
             --exclude "audio/**" \
@@ -103,9 +115,46 @@ jobs:
             --exclude "board-packets-cache/**" \
             --exclude "json/**" \
             --exclude "transcripts/**" \
+            --exclude "transcripts-aai/**" \
             --progress
 
+      # Operator inbox for out-of-band (re-)transcriptions: anything staged in
+      # /mnt/data/actions-runner/transcript-inbox on the self-hosted runner
+      # overrides the R2 restore, flows through the normal rebuild, and is
+      # published to R2 by the upload step — after which the restore serves it
+      # forever. (Absolute path: the runner service runs as gha-runner, whose
+      # $HOME is not the operator's.) Used for the July 2026 full-corpus
+      # Universal-3.5 Pro backfill (TRANSCRIPTION-BACKFILL.md); clear the inbox
+      # once the published files are verified.
+      - name: Ingest Staged Transcripts (operator inbox)
+        if: runner.environment == 'self-hosted'
+        run: |
+          INBOX=/mnt/data/actions-runner/transcript-inbox
+          if ls "$INBOX"/*.json >/dev/null 2>&1; then
+            count=$(ls "$INBOX"/*.json | wc -l)
+            echo "Ingesting $count staged transcripts from $INBOX"
+            cp "$INBOX"/*.json artifacts/transcripts-aai/
+          else
+            echo "No staged raw transcripts."
+          fi
+          # Same pattern for slim transcripts (EN or ES): lets operator-salvaged
+          # translation output re-enter the pipeline instead of being
+          # re-generated at API cost (used to recover the 2026-07-19 cancelled
+          # full-corpus translation run).
+          SLIM_INBOX=/mnt/data/actions-runner/slim-inbox
+          if ls "$SLIM_INBOX"/*.json >/dev/null 2>&1; then
+            count=$(ls "$SLIM_INBOX"/*.json | wc -l)
+            echo "Ingesting $count staged slim transcripts from $SLIM_INBOX"
+            cp "$SLIM_INBOX"/*.json artifacts/transcripts-slim/
+          else
+            echo "No staged slim transcripts."
+          fi
+
       - name: Run Data Pipeline (Full or Quick)
+        env:
+          # 'all' removes the per-run cap on stale-cache refreshes; unset uses
+          # each script's default of 25 (see --max-refresh).
+          MAX_REFRESH: ${{ github.event.inputs.refresh_all == 'true' && 'all' || '' }}
         run: |
           if [ "${{ github.event.inputs.quick }}" = "true" ]; then
             node scripts/run-pipeline.mjs --quick
@@ -114,19 +163,11 @@ jobs:
             node scripts/run-pipeline.mjs
           fi
 
-      - name: Deploy Static Web App to Cloudflare Pages
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
-        run: npx wrangler pages deploy docs --project-name=rcsd-meetings
-
-      - name: Upload Data & Assets to Cloudflare R2 Archival Storage
-        run: npm run upload
-
       - name: Commit Scraped Agenda Metadata Changes (Incremental)
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/board-memos/ data/youtube-index.json sources/rcsd-meetings.md
+          git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md
           # ES translation outputs only exist after a full run; add them only if
           # present so quick runs (which skip translation) don't fail on a
           # pathspec that matches nothing.
@@ -135,7 +176,41 @@ jobs:
           done
           if ! git diff --cached --quiet; then
             git commit -m "chore(data): auto-update scraped agenda/meeting metadata [skip ci]"
-            git push
+            # A run that queued behind the `ingest-pipeline` concurrency group (or a
+            # busy self-hosted runner) can resume with a checkout that is hours stale,
+            # so `git push` gets rejected non-fast-forward and the deploy steps are
+            # skipped — a freshly-scraped agenda then silently never reaches the site.
+            # Rebase onto the current remote tip before pushing so a stale checkout
+            # heals itself instead of red-failing. Retry once in case the remote moves
+            # again during the rebase.
+            git pull --rebase origin main || true
+            git push || (git pull --rebase origin main && git push)
           else
             echo "No incremental data updates to commit."
           fi
+
+      # Regenerate after the incremental commit so release.gitCommit identifies
+      # the exact source commit being deployed. Generated data/docs are allowed;
+      # changes to scripts/configuration still fail the clean-source guard.
+      - name: Generate and Validate Release Manifest
+        run: npm run release:manifest -- --require-clean-source
+
+      # Publish data first. The manifest-driven policy release uploads immutable
+      # content, verifies hashes, and refreshes shape-compatible stable URLs.
+      # Pages then records a release-bound receipt; current.json advances last.
+      - name: Upload Legacy Data & Assets to Cloudflare R2
+        run: npm run upload
+
+      - name: Stage Verified Policy Release
+        run: npm run release:stage
+
+      - name: Deploy Static Web App to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_PAGES_API_TOKEN }}
+        run: npm run release:deploy-pages
+
+      - name: Promote Policy Release as Current
+        run: npm run release:promote
+
+      - name: Verify Promoted Release in Production
+        run: npm run release:smoke

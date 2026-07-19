@@ -11,9 +11,11 @@
  *     titles:    { "0100-BP": { en, es }, ... } // keyed by `${code}-${type}`
  *   }
  *
- * Idempotent: re-runs only translate entries that are missing from the
- * cache or whose stored English title no longer matches the index (i.e.
- * the policy was renamed upstream). Use --force to retranslate everything.
+ * Idempotent: deterministic batches are reused only when their source titles
+ * and full LLM cache fingerprint (model, SDK, parameters, prompts, schema,
+ * locale, safety, and processing settings) match. Legacy cache entries without
+ * invocation provenance are upgraded on the next deliberate run. Use --force
+ * to retranslate everything.
  *
  * Duplicate English titles (e.g. "Dress And Grooming" appears under four
  * codes) are translated once and fanned out, so wording stays consistent.
@@ -26,11 +28,20 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
+import {
+  buildLlmCacheFingerprint,
+  getInstalledPackageVersion,
+  hashCanonicalJson,
+  PROVENANCE_SCHEMA_VERSION,
+  sha256,
+  validateLlmInvocation,
+} from './lib/provenance.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const INDEX_PATH = resolve(ROOT, 'data', 'policies-index.json');
 const OUTPUT_PATH = resolve(ROOT, 'data', 'policy-titles-es.json');
+const SDK_VERSION = getInstalledPackageVersion('@anthropic-ai/sdk', import.meta.url);
 
 const FORCE = process.argv.includes('--force');
 
@@ -45,11 +56,6 @@ const MAX_TOKENS = 4096;
 // skill's model table (cached 2026-05-26): $3 input / $15 output.
 const INPUT_USD_PER_MTOK = 3.0;
 const OUTPUT_USD_PER_MTOK = 15.0;
-
-if (!process.env.ANTHROPIC_API_KEY) {
-  console.error('Error: ANTHROPIC_API_KEY not set. Add it to .env or export it.');
-  process.exit(1);
-}
 
 const SYSTEM_PROMPT = `You translate the titles of school board policy documents for the Redwood City School District (a TK-8 public district in Redwood City, California) from English to Spanish.
 
@@ -86,120 +92,299 @@ const OUTPUT_SCHEMA = {
   additionalProperties: false,
 };
 
-const client = new Anthropic();
+const API_REVISION = '2023-06-01';
+const SYSTEM_TEMPLATE_ID = 'policy-title-translation-system-v1';
+const USER_TEMPLATE_ID = 'policy-title-translation-user-v1';
+const USER_TEMPLATE = 'Translate these policy titles to Spanish:\n{{itemsJson}}';
+const OUTPUT_SCHEMA_ID = 'policy-title-translations-v1';
+const GENERATION_PARAMETERS = {
+  sent: { max_tokens: MAX_TOKENS },
+  providerDefaults: 'unknown',
+  unsupported: ['seed'],
+};
+const SAFETY_SETTINGS = { settings: {}, providerDefaults: 'unknown' };
+
+let client;
+const getClient = () => (client ||= new Anthropic());
 
 const usageTotals = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
 
-async function translateBatch(items, attempt = 1) {
-  const response = await client.messages.create({
-    model: MODEL,
-    max_tokens: MAX_TOKENS,
-    // No cache_control: the prompt prefix is ~350 tokens, below Sonnet 4.6's
-    // 2048-token cacheable minimum, so a breakpoint would silently no-op.
-    system: SYSTEM_PROMPT,
-    output_config: { format: { type: 'json_schema', schema: OUTPUT_SCHEMA } },
-    messages: [{
-      role: 'user',
-      content: `Translate these policy titles to Spanish:\n${JSON.stringify(items, null, 1)}`,
-    }],
+const promptHashes = {
+  systemTemplateId: SYSTEM_TEMPLATE_ID,
+  systemTemplateHash: sha256(SYSTEM_PROMPT),
+  renderedSystemHash: sha256(SYSTEM_PROMPT),
+  userTemplateId: USER_TEMPLATE_ID,
+  userTemplateHash: sha256(USER_TEMPLATE),
+};
+
+const OUTPUT_CONTRACT_SPEC = {
+  modelOutputSchema: OUTPUT_SCHEMA,
+  clientValidation: {
+    exactRequestedIdSet: true,
+    exactlyOnce: true,
+    nonEmptySpanish: true,
+  },
+  batching: { maximumItems: BATCH_SIZE, ordering: 'policy-index-first-occurrence-v1' },
+  retryPolicy: { maximumAttempts: 2, strategy: 'same-request' },
+};
+const outputContract = {
+  schemaId: OUTPUT_SCHEMA_ID,
+  schemaHash: hashCanonicalJson(OUTPUT_CONTRACT_SPEC),
+  toolSchemas: [],
+};
+
+function titleBatchInputs(items) {
+  return items.map((item) => ({
+    datasetId: `rcsd.policy-index.title-batch-input.${item.id.toLowerCase()}`,
+    hash: hashCanonicalJson(item),
+  }));
+}
+
+export function buildTitleBatchFingerprint(items) {
+  const userPrompt = USER_TEMPLATE.replace('{{itemsJson}}', JSON.stringify(items, null, 1));
+  return buildLlmCacheFingerprint({
+    purpose: 'translation',
+    provider: 'anthropic',
+    model: { requested: MODEL, resolved: null },
+    endpoint: { api: 'messages', revision: API_REVISION },
+    client: { name: '@anthropic-ai/sdk', version: SDK_VERSION },
+    parameters: GENERATION_PARAMETERS,
+    prompts: { ...promptHashes, renderedUserHash: sha256(userPrompt) },
+    outputContract,
+    inputs: titleBatchInputs(items),
+    localization: { sourceLocale: 'en-US', targetLocale: 'es-MX', glossaryHash: null },
+    safety: SAFETY_SETTINGS,
+    processing: { batchSize: BATCH_SIZE, retryLimit: 2, validation: 'exact-id-set-v1' },
   });
+}
 
-  usageTotals.input += response.usage.input_tokens;
-  usageTotals.output += response.usage.output_tokens;
-  usageTotals.cacheRead += response.usage.cache_read_input_tokens || 0;
-  usageTotals.cacheWrite += response.usage.cache_creation_input_tokens || 0;
+function invocationForTitleBatch(items) {
+  const cacheFingerprint = buildTitleBatchFingerprint(items);
+  const userPrompt = USER_TEMPLATE.replace('{{itemsJson}}', JSON.stringify(items, null, 1));
+  return {
+    schemaVersion: PROVENANCE_SCHEMA_VERSION,
+    invocationId: `policy-title-batch-${(items[0]?.id || 'empty').toLowerCase()}-${cacheFingerprint.replace(/^sha256:/, '').slice(0, 16)}`,
+    purpose: 'translation',
+    provider: 'anthropic',
+    model: { requested: MODEL, resolved: null },
+    endpoint: { api: 'messages', revision: API_REVISION },
+    client: { name: '@anthropic-ai/sdk', version: SDK_VERSION },
+    parameters: GENERATION_PARAMETERS,
+    prompts: { ...promptHashes, renderedUserHash: sha256(userPrompt) },
+    outputContract,
+    inputs: titleBatchInputs(items),
+    localization: { sourceLocale: 'en-US', targetLocale: 'es-MX', glossaryHash: null },
+    safety: SAFETY_SETTINGS,
+    processing: { batchSize: BATCH_SIZE, retryLimit: 2, validation: 'exact-id-set-v1' },
+    attempts: [],
+    effectiveAttempt: null,
+    outputHash: null,
+    cacheFingerprint,
+  };
+}
 
-  const text = response.content.find(b => b.type === 'text')?.text || '';
-  let parsed;
-  try {
-    parsed = JSON.parse(text);
-  } catch (err) {
-    parsed = null;
-  }
+function responseUsage(response) {
+  return {
+    inputTokens: response.usage?.input_tokens ?? 0,
+    outputTokens: response.usage?.output_tokens ?? 0,
+    cacheReadInputTokens: response.usage?.cache_read_input_tokens ?? 0,
+    cacheCreationInputTokens: response.usage?.cache_creation_input_tokens ?? 0,
+  };
+}
 
-  // Validate: exactly the requested ids, each exactly once, non-empty Spanish.
-  const wanted = new Set(items.map(it => it.id));
-  const got = parsed?.translations || [];
-  const valid =
-    got.length === items.length &&
-    got.every(t => wanted.has(t.id) && typeof t.es === 'string' && t.es.trim().length > 0) &&
-    new Set(got.map(t => t.id)).size === got.length;
+function estimatedCost(usage) {
+  return {
+    amount: ((usage.inputTokens || 0) * INPUT_USD_PER_MTOK +
+      (usage.outputTokens || 0) * OUTPUT_USD_PER_MTOK) / 1e6,
+    currency: 'USD',
+  };
+}
 
-  if (!valid) {
-    if (attempt >= 2) {
-      throw new Error(`Batch failed validation twice (wanted ${items.length}, got ${got.length}).`);
+function addUsage(usage) {
+  usageTotals.input += usage.inputTokens || 0;
+  usageTotals.output += usage.outputTokens || 0;
+  usageTotals.cacheRead += usage.cacheReadInputTokens || 0;
+  usageTotals.cacheWrite += usage.cacheCreationInputTokens || 0;
+}
+
+/** Translate one deterministic title batch and retain every API attempt. */
+export async function translateBatch(items, { apiClient = getClient() } = {}) {
+  const invocation = invocationForTitleBatch(items);
+  const userPrompt = USER_TEMPLATE.replace('{{itemsJson}}', JSON.stringify(items, null, 1));
+
+  for (let attemptNumber = 1; attemptNumber <= 2; attemptNumber++) {
+    const startedAt = new Date().toISOString();
+    let response;
+    try {
+      response = await apiClient.messages.create({
+        model: MODEL,
+        max_tokens: MAX_TOKENS,
+        // No cache_control: the prompt prefix is below the model's cacheable minimum.
+        system: SYSTEM_PROMPT,
+        output_config: { format: { type: 'json_schema', schema: OUTPUT_SCHEMA } },
+        messages: [{ role: 'user', content: userPrompt }],
+      });
+    } catch (err) {
+      invocation.attempts.push({
+        attempt: attemptNumber,
+        startedAt,
+        completedAt: new Date().toISOString(),
+        model: { requested: MODEL, resolved: null },
+        promptHashes: { system: sha256(SYSTEM_PROMPT), user: sha256(userPrompt) },
+        outcome: 'failed',
+        finishReason: null,
+        validation: { status: 'not-run', errors: [] },
+      });
+      if (attemptNumber === 2) {
+        err.llmInvocation = invocation;
+        throw err;
+      }
+      console.warn(`  Batch request failed (attempt ${attemptNumber}), retrying...`);
+      continue;
     }
-    console.warn(`  Batch validation failed (attempt ${attempt}), retrying...`);
-    return translateBatch(items, attempt + 1);
+
+    const usage = responseUsage(response);
+    addUsage(usage);
+    const text = response.content.find(b => b.type === 'text')?.text || '';
+    let parsed = null;
+    try { parsed = JSON.parse(text); } catch { /* validation reports this below */ }
+
+    const wanted = new Set(items.map(it => it.id));
+    const got = parsed?.translations || [];
+    const valid =
+      got.length === items.length &&
+      got.every(t => wanted.has(t.id) && typeof t.es === 'string' && t.es.trim().length > 0) &&
+      new Set(got.map(t => t.id)).size === got.length;
+    const problems = valid
+      ? []
+      : [`wanted ${items.length} unique requested ids; received ${got.length} valid-looking entries`];
+
+    invocation.attempts.push({
+      attempt: attemptNumber,
+      startedAt,
+      completedAt: new Date().toISOString(),
+      model: { requested: MODEL, resolved: response.model && response.model !== MODEL ? response.model : null },
+      promptHashes: { system: sha256(SYSTEM_PROMPT), user: sha256(userPrompt) },
+      outcome: valid ? 'succeeded' : 'rejected',
+      finishReason: response.stop_reason || null,
+      validation: { status: valid ? 'passed' : 'failed', errors: problems },
+      usage: { inputTokens: usage.inputTokens, outputTokens: usage.outputTokens },
+      estimatedCost: estimatedCost(usage),
+      responseHash: sha256(text),
+    });
+
+    if (!valid) {
+      if (attemptNumber === 2) {
+        const err = new Error(`Batch failed validation twice (wanted ${items.length}, got ${got.length}).`);
+        err.llmInvocation = invocation;
+        throw err;
+      }
+      console.warn(`  Batch validation failed (attempt ${attemptNumber}), retrying...`);
+      continue;
+    }
+
+    const translations = Object.fromEntries(got.map(t => [t.id, t.es.trim()]));
+    invocation.effectiveAttempt = attemptNumber;
+    invocation.outputHash = hashCanonicalJson(translations);
+    return { translations, invocation };
   }
 
-  return Object.fromEntries(got.map(t => [t.id, t.es.trim()]));
+  throw new Error('Unreachable title translation retry state.');
 }
 
 async function main() {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error('ANTHROPIC_API_KEY not set. Add it to .env or export it.');
+  }
   const index = JSON.parse(readFileSync(INDEX_PATH, 'utf-8'));
   const sections = index.sections || [];
   const policies = index.policies || [];
 
-  // Load prior run (cache). An entry is reusable if its stored English title
-  // still matches the current index — otherwise the policy was renamed and
-  // we retranslate it.
-  let cache = { sections: {}, titles: {} };
+  // Build every unique source string first, not only cache misses. Stable
+  // whole-corpus batches make the full ordered model context part of each
+  // output's fingerprint; changing one title invalidates its affected batch.
+  const slotsByEn = new Map();
+  const addSlot = (en, slot) => {
+    if (!slotsByEn.has(en)) slotsByEn.set(en, []);
+    slotsByEn.get(en).push(slot);
+  };
+  for (const sec of sections) addSlot(sec.name, { kind: 'section', key: sec.code });
+  for (const pol of policies) addSlot(pol.title, { kind: 'title', key: `${pol.code}-${pol.type}` });
+
+  let previous = { _metadata: {}, sections: {}, titles: {} };
   if (!FORCE && existsSync(OUTPUT_PATH)) {
-    const prev = JSON.parse(readFileSync(OUTPUT_PATH, 'utf-8'));
-    cache = { sections: prev.sections || {}, titles: prev.titles || {} };
+    previous = JSON.parse(readFileSync(OUTPUT_PATH, 'utf-8'));
   }
 
   const outSections = {};
   const outTitles = {};
+  const cacheFingerprints = { sections: {}, titles: {} };
+  const llmInvocationIds = { sections: {}, titles: {} };
+  const priorFingerprints = previous._metadata?.cacheFingerprints || { sections: {}, titles: {} };
+  const priorInvocations = new Map(
+    (previous._metadata?.llmInvocations || [])
+      .filter(inv => validateLlmInvocation(inv).valid)
+      .map(inv => [inv.cacheFingerprint, inv])
+  );
+  const activeInvocations = [];
 
-  // Collect unique English strings still needing translation.
-  // pendingByEn: english string -> list of {kind, key} slots to fill.
-  const pendingByEn = new Map();
-  const addPending = (en, slot) => {
-    if (!pendingByEn.has(en)) pendingByEn.set(en, []);
-    pendingByEn.get(en).push(slot);
-  };
-
-  for (const sec of sections) {
-    const cached = cache.sections[sec.code];
-    if (cached && cached.en === sec.name) {
-      outSections[sec.code] = cached;
-    } else {
-      addPending(sec.name, { kind: 'section', key: sec.code });
-    }
-  }
-
-  for (const pol of policies) {
-    const key = `${pol.code}-${pol.type}`;
-    const cached = cache.titles[key];
-    if (cached && cached.en === pol.title) {
-      outTitles[key] = cached;
-    } else {
-      addPending(pol.title, { kind: 'title', key });
-    }
-  }
-
-  const uniqueEn = [...pendingByEn.keys()];
+  const uniqueEn = [...slotsByEn.keys()];
+  const items = uniqueEn.map((en, i) => ({ id: `T${String(i).padStart(4, '0')}`, en }));
   console.log(`Sections: ${sections.length}, policies: ${policies.length}.`);
-  console.log(`Cached: ${Object.keys(outSections).length + Object.keys(outTitles).length} entries; ` +
-    `${uniqueEn.length} unique strings to translate (covering ` +
-    `${[...pendingByEn.values()].reduce((n, s) => n + s.length, 0)} entries).`);
+  console.log(`${uniqueEn.length} unique strings cover ${[...slotsByEn.values()].reduce((n, s) => n + s.length, 0)} entries.`);
 
-  if (uniqueEn.length > 0) {
-    const items = uniqueEn.map((en, i) => ({ id: `T${String(i).padStart(4, '0')}`, en }));
-    const idToEn = new Map(items.map(it => [it.id, it.en]));
+  let translatedBatchCount = 0;
+  let cachedBatchCount = 0;
+  for (let i = 0; i < items.length; i += BATCH_SIZE) {
+    const batch = items.slice(i, i + BATCH_SIZE);
+    const fingerprint = buildTitleBatchFingerprint(batch);
+    const previousInvocation = priorInvocations.get(fingerprint);
+    const reusable = !FORCE && Boolean(previousInvocation) && batch.every((item) =>
+      slotsByEn.get(item.en).every((slot) => {
+        const entry = slot.kind === 'section'
+          ? previous.sections?.[slot.key]
+          : previous.titles?.[slot.key];
+        const storedFingerprint = slot.kind === 'section'
+          ? priorFingerprints.sections?.[slot.key]
+          : priorFingerprints.titles?.[slot.key];
+        return entry?.en === item.en && entry?.es && storedFingerprint === fingerprint;
+      })
+    );
 
-    for (let i = 0; i < items.length; i += BATCH_SIZE) {
-      const batch = items.slice(i, i + BATCH_SIZE);
+    let translations;
+    let batchInvocation;
+    if (reusable) {
+      cachedBatchCount++;
+      activeInvocations.push(previousInvocation);
+      batchInvocation = previousInvocation;
+      translations = Object.fromEntries(batch.map((item) => {
+        const firstSlot = slotsByEn.get(item.en)[0];
+        const entry = firstSlot.kind === 'section'
+          ? previous.sections[firstSlot.key]
+          : previous.titles[firstSlot.key];
+        return [item.id, entry.es];
+      }));
+    } else {
+      translatedBatchCount++;
       console.log(`Translating batch ${Math.floor(i / BATCH_SIZE) + 1}/${Math.ceil(items.length / BATCH_SIZE)} (${batch.length} titles)...`);
-      const translations = await translateBatch(batch);
-      for (const [id, es] of Object.entries(translations)) {
-        const en = idToEn.get(id);
-        for (const slot of pendingByEn.get(en)) {
-          const entry = { en, es };
-          if (slot.kind === 'section') outSections[slot.key] = entry;
-          else outTitles[slot.key] = entry;
+      const result = await translateBatch(batch);
+      translations = result.translations;
+      activeInvocations.push(result.invocation);
+      batchInvocation = result.invocation;
+    }
+
+    for (const item of batch) {
+      const es = translations[item.id];
+      for (const slot of slotsByEn.get(item.en)) {
+        const entry = { en: item.en, es };
+        if (slot.kind === 'section') {
+          outSections[slot.key] = entry;
+          cacheFingerprints.sections[slot.key] = fingerprint;
+          llmInvocationIds.sections[slot.key] = batchInvocation.invocationId;
+        } else {
+          outTitles[slot.key] = entry;
+          cacheFingerprints.titles[slot.key] = fingerprint;
+          llmInvocationIds.titles[slot.key] = batchInvocation.invocationId;
         }
       }
     }
@@ -221,6 +406,9 @@ async function main() {
       model: MODEL,
       generatedAt: new Date().toISOString(),
       note: 'Machine-generated Spanish translations of official English policy titles. Titles only — policy body text is not translated. May contain errors; the English titles and Simbli are authoritative.',
+      cacheFingerprints,
+      llmInvocationIds,
+      llmInvocations: activeInvocations,
     },
     sections: Object.fromEntries(Object.entries(outSections).sort(([a], [b]) => a.localeCompare(b))),
     titles: Object.fromEntries(Object.entries(outTitles).sort(([a], [b]) =>
@@ -229,12 +417,15 @@ async function main() {
 
   writeFileSync(OUTPUT_PATH, JSON.stringify(output, null, 2) + '\n');
   console.log(`Wrote ${Object.keys(outTitles).length} titles + ${Object.keys(outSections).length} sections to ${OUTPUT_PATH}`);
+  console.log(`Batches: ${cachedBatchCount} cached, ${translatedBatchCount} generated.`);
 
   const cost = (usageTotals.input * INPUT_USD_PER_MTOK + usageTotals.output * OUTPUT_USD_PER_MTOK) / 1e6;
   console.log(`Token usage: ${usageTotals.input} in (${usageTotals.cacheRead} cache-read, ${usageTotals.cacheWrite} cache-write), ${usageTotals.output} out ≈ $${cost.toFixed(4)} (${MODEL} at $${INPUT_USD_PER_MTOK}/$${OUTPUT_USD_PER_MTOK} per MTok)`);
 }
 
-main().catch(err => {
-  console.error('Translation failed:', err.message);
-  process.exit(1);
-});
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch(err => {
+    console.error('Translation failed:', err.message);
+    process.exit(1);
+  });
+}

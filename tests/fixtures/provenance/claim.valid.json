@@ -1,0 +1,27 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/claim.schema.json",
+  "schemaVersion": "1.0.0",
+  "claimId": "rcsd.policy.0100-bp.summary.en",
+  "datasetId": "rcsd.board-policies",
+  "outputPointer": "/0100-BP/summary/en",
+  "kind": "summary",
+  "language": "en-US",
+  "text": "The policy states the district's educational philosophy.",
+  "sources": [
+    {
+      "datasetId": "rcsd.board-policies",
+      "artifactPath": "data/board-policies/0100-BP.json",
+      "pointer": "/contentText",
+      "hash": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "derivation": {
+    "method": "llm-summary",
+    "script": "scripts/generate-policy-summaries.mjs",
+    "llmInvocationId": "policy-summary.0100-bp.en"
+  },
+  "quality": {
+    "state": "machine-checked",
+    "checkedAt": "2026-07-09T12:00:01Z"
+  }
+}

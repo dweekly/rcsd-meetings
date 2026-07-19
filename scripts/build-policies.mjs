@@ -56,6 +56,10 @@ const POLICIES_ES_DATA_DIR = resolve(DATA_DIR, 'board-policies-es');
 const INDEX_DATA_PATH = resolve(DATA_DIR, 'policies-index.json');
 const TITLES_ES_PATH = resolve(DATA_DIR, 'policy-titles-es.json');
 const SUMMARIES_PATH = resolve(DATA_DIR, 'policy-summaries.json');
+const PROVENANCE_DIR = resolve(DATA_DIR, 'provenance');
+const POLICY_PROVENANCE_PATH = resolve(PROVENANCE_DIR, 'rcsd.board-policies.json');
+const POLICY_ES_PROVENANCE_PATH = resolve(PROVENANCE_DIR, 'rcsd.board-policies-es.json');
+const POLICY_SUMMARY_PROVENANCE_PATH = resolve(PROVENANCE_DIR, 'rcsd.board-policy-summaries.json');
 
 const DOCS_DIR = resolve(ROOT, 'docs');
 const POLICIES_DOCS_DIR = resolve(DOCS_DIR, 'board-policies');
@@ -139,6 +143,14 @@ const PAGES = {
     dateLocale: 'en-US',
     official: 'Official version on Simbli &#8599;',
     viewJson: 'View JSON &#8599;',
+    provenanceTitle: 'Source &amp; methodology',
+    provenanceStatus: 'RCSD.info status',
+    provenanceStatusValue: 'Independent mirror of the official English source',
+    provenanceQuality: 'PROVENANCE CHECK',
+    provenanceSource: 'Official source',
+    provenanceData: 'Dataset provenance JSON &#8599;',
+    provenanceSummary: 'Summary provenance JSON &#8599;',
+    provenanceNote: 'Hashes and lineage are machine-checked. AI execution details are recorded when available; older cached outputs are explicitly marked partial rather than reconstructed.',
     legalRefs: 'Legal &amp; Management References',
     crossRefs: 'Cross References',
     attachmentsLabel: 'Attachments',
@@ -193,6 +205,14 @@ const PAGES = {
     official: 'Versión oficial en Simbli &#8599;',
     englishVersion: 'Versión en inglés',
     viewJson: 'Ver JSON &#8599;',
+    provenanceTitle: 'Fuente y metodología',
+    provenanceStatus: 'Estado en RCSD.info',
+    provenanceStatusValue: 'Copia independiente; la fuente oficial sigue siendo el texto en inglés',
+    provenanceQuality: 'REVISIÓN DE PROCEDENCIA',
+    provenanceSource: 'Fuente oficial',
+    provenanceData: 'JSON de procedencia del conjunto &#8599;',
+    provenanceSummary: 'JSON de procedencia del resumen &#8599;',
+    provenanceNote: 'Los hashes y el linaje se revisan automáticamente. Los detalles de ejecución de IA se guardan cuando están disponibles; las salidas antiguas se marcan como parciales en vez de inventar datos.',
     legalRefs: 'Referencias legales y administrativas',
     crossRefs: 'Referencias cruzadas',
     attachmentsLabel: 'Anexos',
@@ -1154,7 +1174,7 @@ ${indexClientScript()}
 
 // ---- Per-policy page assembly ----
 
-function buildPolicyPage({ p, page, detail, esBody, titlesEs, summaries, catalogByKey, catalogByCode }) {
+function buildPolicyPage({ p, page, detail, esBody, titlesEs, summaries, provenance, catalogByKey, catalogByCode }) {
   const isEs = page.lang === 'es';
   const key = `${p.code}-${p.type}`;
   const slug = policySlug(p.code, p.type);
@@ -1174,6 +1194,10 @@ function buildPolicyPage({ p, page, detail, esBody, titlesEs, summaries, catalog
     || (isExhibit ? page.exhibitDesc(p, displayTitle) : page.fallbackDesc(p, displayTitle));
 
   const officialUrl = officialSimbliUrl(detail, p.revid);
+  const datasetManifest = isEs ? provenance.translation : provenance.english;
+  const datasetManifestName = isEs ? 'rcsd.board-policies-es.json' : 'rcsd.board-policies.json';
+  const datasetManifestUrl = `https://data.rcsd.info/json/provenance/${datasetManifestName}`;
+  const summaryManifestUrl = 'https://data.rcsd.info/json/provenance/rcsd.board-policy-summaries.json';
   // The catalog filename is the raw "{code}-{type}.json"; codes can contain
   // spaces and parens ("0420.41-E PDF(1)"), so the href is URI-encoded.
   const hasEsBody = !!(esBody && typeof esBody.contentTextEs === 'string' && esBody.contentTextEs.trim());
@@ -1251,6 +1275,38 @@ function buildPolicyPage({ p, page, detail, esBody, titlesEs, summaries, catalog
     ? `\n  <p class="sr-only" data-pagefind-weight="10">${escapeText(page.alsoSearchedAs)}: ${escapeText(synonyms)}</p>`
     : '';
   bodyHtml += synonymsHtml;
+
+  // One machine-readable source drives both this panel and the public
+  // provenance JSON. Never infer a stronger status than the sidecar declares.
+  const qualityStateRaw = datasetManifest?.quality?.state || 'unreviewed';
+  const qualityLabelsEs = {
+    'unreviewed': 'sin revisar',
+    'machine-checked': 'revisado automáticamente',
+    'human-reviewed': 'revisado por una persona',
+    'reconciled': 'conciliado',
+    'partial': 'parcial',
+  };
+  const qualityState = isEs ? (qualityLabelsEs[qualityStateRaw] || qualityStateRaw) : qualityStateRaw;
+  const provenanceChecked = datasetManifest?.quality?.checkedAt
+    ? new Date(datasetManifest.quality.checkedAt).toLocaleDateString(page.dateLocale)
+    : checkedDate;
+  const provenanceHtml = `
+  <aside class="policy-provenance" aria-labelledby="policy-provenance-title">
+    <h2 id="policy-provenance-title">${page.provenanceTitle}</h2>
+    <dl>
+      <dt>${escapeText(page.provenanceStatus)}</dt>
+      <dd>${escapeText(page.provenanceStatusValue)}</dd>
+      <dt>${escapeText(page.provenanceQuality)}</dt>
+      <dd>${escapeText(qualityState)} &middot; ${escapeText(provenanceChecked)}</dd>
+      <dt>${escapeText(page.provenanceSource)}</dt>
+      <dd><a href="${escapeAttr(officialUrl)}" target="_blank" rel="noopener">Simbli</a></dd>
+    </dl>
+    <p>${escapeText(page.provenanceNote)}</p>
+    <div class="policy-provenance-links">
+      <a href="${escapeAttr(datasetManifestUrl)}" target="_blank" rel="noopener">${page.provenanceData}</a>
+      <a href="${escapeAttr(summaryManifestUrl)}" target="_blank" rel="noopener">${page.provenanceSummary}</a>
+    </div>
+  </aside>`;
 
   // ---- Footnotes / legal references ----
   // Citations render verbatim; only http(s) URLs become links.
@@ -1331,6 +1387,8 @@ ${headMeta({
   ogImageKey: page.ogImageKey,
   hreflang,
   jsonLd: policyJsonLd({ p, page, displayTitle, summary, canonicalUrl, twinUrl }),
+  extraHead: `<link rel="describedby" href="${escapeAttr(datasetManifestUrl)}" type="application/json">
+<link rel="stylesheet" href="/styles/policy-provenance.css">`,
   pageCSS: policyCSS,
 })}
 </head>
@@ -1363,7 +1421,7 @@ ${siteNav({ activePage: 'district', lang: page.lang, altLangHref: `${page.altInd
       <a href="${escapeAttr(jsonHref)}" target="_blank" rel="noopener">${page.viewJson}</a>
     </div>
   </div>
-${langNoteHtml}${bodyHtml}${footnotesHtml}${crossRefsHtml}
+${langNoteHtml}${bodyHtml}${provenanceHtml}${footnotesHtml}${crossRefsHtml}
 </main>
 
 ${siteFooter({ lang: page.lang })}
@@ -1382,6 +1440,9 @@ function main() {
     [INDEX_DATA_PATH, 'Run scrape-board-policies.mjs first.'],
     [TITLES_ES_PATH, 'Run scripts/translate-policy-titles.mjs first.'],
     [SUMMARIES_PATH, 'Run scripts/generate-policy-summaries.mjs first.'],
+    [POLICY_PROVENANCE_PATH, 'Run scripts/generate-policy-provenance.mjs first.'],
+    [POLICY_ES_PROVENANCE_PATH, 'Run scripts/generate-policy-provenance.mjs first.'],
+    [POLICY_SUMMARY_PROVENANCE_PATH, 'Run scripts/generate-policy-provenance.mjs first.'],
   ]) {
     if (!existsSync(path)) {
       console.error(`Error: ${path} does not exist. ${hint}`);
@@ -1419,6 +1480,11 @@ function main() {
   const indexData = JSON.parse(indexJsonStr);
   const titlesEs = JSON.parse(readFileSync(TITLES_ES_PATH, 'utf-8'));
   const summaries = JSON.parse(readFileSync(SUMMARIES_PATH, 'utf-8')).summaries || {};
+  const provenance = {
+    english: JSON.parse(readFileSync(POLICY_PROVENANCE_PATH, 'utf-8')),
+    translation: JSON.parse(readFileSync(POLICY_ES_PROVENANCE_PATH, 'utf-8')),
+    summaries: JSON.parse(readFileSync(POLICY_SUMMARY_PROVENANCE_PATH, 'utf-8')),
+  };
 
   const sections = indexData.sections || [];
   const policies = indexData.policies || [];
@@ -1509,7 +1575,7 @@ function main() {
     for (const page of Object.values(PAGES)) {
       const outDir = resolve(page.outputDir, slug);
       mkdirSync(outDir, { recursive: true });
-      const html = buildPolicyPage({ p, page, detail, esBody, titlesEs, summaries, catalogByKey, catalogByCode });
+      const html = buildPolicyPage({ p, page, detail, esBody, titlesEs, summaries, provenance, catalogByKey, catalogByCode });
       writeFileSync(resolve(outDir, 'index.html'), html);
       pageCount++;
     }
