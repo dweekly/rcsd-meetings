@@ -224,7 +224,7 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] **Voice agent: upgrade to Gemini 3.1 Flash Live** — current prototype uses `gemini-2.5-flash-native-audio-latest` because 3.1 returned internal errors via API key auth (may need ephemeral tokens via v1alpha). 3.1 scores higher on function calling benchmarks.
 - [ ] **"Dial the District" voice agent** — two phone numbers (English and Spanish) that parents can call, text, or WhatsApp to ask questions about the district. **In progress 2026-07-19.** Plan: numbers owned in Twilio (vendor-portable); Synthflow voice agents (EN/ES) + Synthflow chat agents for SMS/WhatsApp via the Twilio integration; thin REST facade worker wrapping MCP-server data tools for Synthflow custom actions. Greeting must disclose AI + independent-of-district status (CA B&P §17941).
   - [x] English number registered: **(650) 482-8912**, Twilio SID `PN362f56b4c53d16a1c7d3f7f56004e907` (2026-07-19)
-  - [ ] Spanish number (650 preferred)
+  - [x] Spanish number registered: **(650) 399-7203**, Twilio SID `PN321fe9e3d033d9f36ba9db4b33a2c5fb` (2026-07-19)
   - [ ] A2P 10DLC brand (Primatech Paper Co LLC) + campaign registration — long pole for SMS
   - [ ] WhatsApp sender registration (Meta Business verification) — second-longest pole
   - [ ] REST facade worker (`workers/agent-api`) with flat GET endpoints (lunch menu, calendar, school info, meeting summaries)
