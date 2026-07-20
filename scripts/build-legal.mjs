@@ -82,7 +82,9 @@ logs to improve answer quality and to keep the service safe.</p>
 
 <h2>What we don't do</h2>
 <p><strong>No mobile information will be shared with third parties or
-affiliates for marketing or promotional purposes.</strong> We do not sell your
+affiliates for marketing or promotional purposes.</strong> All the above
+categories exclude text messaging originator opt-in data and consent; this
+information will not be shared with any third parties. We do not sell your
 phone number or messages. We do not send marketing. The service replies only
 when you contact it first.</p>
 
@@ -116,7 +118,7 @@ important details with your school or the district
 <h2>Message frequency &amp; rates</h2>
 <p>This is a conversational service: it only replies to questions you send.
 Message frequency varies with your usage. <strong>Message and data rates may
-apply</strong> according to your mobile plan. Carriers are not liable for
+apply</strong> according to your mobile plan. Carriers are not liable for any
 delayed or undelivered messages.</p>
 
 <h2>Opting out</h2>
@@ -161,8 +163,10 @@ distrito escolar.</p>
 
 <h2>Lo que NO hacemos</h2>
 <p><strong>No compartimos tu información móvil con terceros ni afiliados para
-marketing o promociones.</strong> No vendemos tu número ni tus mensajes. No
-mandamos publicidad. El servicio solo responde cuando tú escribes primero.</p>
+marketing o promociones.</strong> Los datos de consentimiento (opt-in) de
+mensajes de texto nunca se comparten con terceros. No vendemos tu número ni
+tus mensajes. No mandamos publicidad. El servicio solo responde cuando tú
+escribes primero.</p>
 
 <h2>Niños</h2>
 <p>El servicio es para papás, tutores y miembros de la comunidad — adultos. Por
@@ -197,7 +201,8 @@ confirma los detalles importantes con tu escuela o con el distrito
 <p>Este es un servicio de conversación: solo responde a las preguntas que tú
 mandas. La frecuencia de mensajes depende de tu uso. <strong>Pueden aplicar
 tarifas de mensajes y datos</strong> según tu plan de teléfono. Las compañías
-de teléfono no son responsables por mensajes retrasados o no entregados.</p>
+de teléfono no son responsables por ningún mensaje retrasado o no
+entregado.</p>
 
 <h2>Para cancelar</h2>
 <p>Responde <strong>STOP</strong> en cualquier momento para dejar de recibir

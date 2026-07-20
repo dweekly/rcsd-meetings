@@ -824,7 +824,7 @@ ${siteNav({ activePage: 'home', lang: 'en' })}
   <div class="bi-row">
     <div class="bi-en">
       📞 <strong>Call or text the rcsd.info info line: <a href="tel:+16504828912">(650) 482-8912</a></strong> — ask about calendars, lunch menus, schools, or board meetings and an AI assistant answers from public data.
-      <span class="cta-fine">By texting you agree to receive an automated informational reply. Msg &amp; data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a>. A service of Primatech Paper Co LLC, independent of RCSD.</span>
+      <span class="cta-fine">By texting you agree to receive an automated informational reply. Message and data rates may apply. Message frequency varies. Reply STOP to opt out, HELP for help. <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a>. A service of Primatech Paper Co LLC, independent of RCSD.</span>
     </div>
     <div class="bi-es" lang="es">
       📞 <strong>Llama o manda texto a la línea de rcsd.info: <a href="tel:+16503997203">(650) 399-7203</a></strong> — pregunta sobre calendarios, menús de almuerzo, escuelas o reuniones de la mesa directiva y un asistente de AI te contesta con datos públicos.
