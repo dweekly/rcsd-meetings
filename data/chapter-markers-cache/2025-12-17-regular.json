@@ -1,44 +1,66 @@
 {
   "date": "2025-12-17",
+  "slug": "2025-12-17-regular",
   "itemCount": 38,
+  "transcriptHash": "c84e87d37d94c9b3",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Mike Wells",
-        "role": "Outgoing Board President / Trustee"
+        "role": "President of the Board (outgoing)"
       },
       "B": {
-        "name": "Unknown/Multiple",
-        "role": "Various background voices"
+        "name": "Rick Edson",
+        "role": "Chief Business Official"
       },
       "C": {
-        "name": "David Weekly",
-        "role": "Incoming Board President / Vice President"
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "D": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
-      },
-      "E": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "F": {
         "name": "David Li",
         "role": "Trustee"
       },
+      "E": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk of the Board"
+      },
+      "F": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President of the Board (outgoing)"
+      },
       "G": {
-        "name": "Unidentified speaker / public commenter",
-        "role": "Member of public / multiple"
+        "name": "Wendy Kelly",
+        "role": "Deputy Superintendent"
+      },
+      "H": {
+        "name": "John Baker",
+        "role": "Superintendent"
+      },
+      "I": {
+        "name": "David Weekly",
+        "role": "Trustee (incoming President)"
+      },
+      "J": {
+        "name": "Unknown/Mixed",
+        "role": "Multiple unidentified brief responses"
+      },
+      "K": {
+        "name": "Patricia",
+        "role": "Public speaker / parent"
+      },
+      "L": {
+        "name": "Agustín Espino",
+        "role": "Public speaker / community member"
       }
     },
-    "agendaChanges": "The formal agenda lists sections with numbers that do not perfectly correspond to the agenda item numbering used in the meeting. Sections 4 and 5 on the posted agenda correspond to 'Changes to the Agenda' and 'Approval of the Agenda' which were handled under the Secretary to the Board segment (Section 6 on agenda). No items were pulled or resequenced; the meeting followed the posted agenda order. The agenda was approved with no changes.",
+    "agendaChanges": null,
     "items": [
       {
         "itemLabel": "1",
         "title": "Call to Order",
         "phases": {
-          "opened": 6,
+          "opened": 5,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -78,9 +100,9 @@
       },
       {
         "itemLabel": "3",
-        "title": "Annual Board Officers' Rotation",
+        "title": "Annual Board Officer's Rotation",
         "phases": {
-          "opened": 98,
+          "opened": 87,
           "presentation": 98,
           "publicComment": null,
           "discussion": null,
@@ -91,10 +113,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "6",
-        "title": "Secretary to the Board of Trustees (Superintendent) / Changes to the Agenda",
+        "itemLabel": "4",
+        "title": "Changes to the Agenda",
         "phases": {
-          "opened": 410,
+          "opened": 417,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -105,17 +127,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "Approval of the Agenda",
-        "title": "Approval of the Agenda",
+        "itemLabel": "5",
+        "title": "Approval of the Agenda (Action Required)",
         "phases": {
-          "opened": 417,
+          "opened": 435,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 435,
+            "seconds": 439,
             "type": "voice",
-            "result": "5-0 unanimous"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -123,33 +145,33 @@
         "pulled": false
       },
       {
-        "itemLabel": "Public Comment",
+        "itemLabel": "6",
         "title": "Public Comment",
         "phases": {
-          "opened": 439,
+          "opened": 440,
           "presentation": null,
-          "publicComment": 439,
+          "publicComment": 440,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Patricia Renderos",
-            "startSeconds": 491,
-            "endSeconds": 630,
-            "summary": "Requested increased support for teachers and students and urged the district to avoid making staff cuts that disrupt continuity of education."
+            "name": "Patricia",
+            "startSeconds": 474,
+            "endSeconds": 544,
+            "summary": "Asked the board not to make teacher cuts, and instead provide extra support and enrichment programs for teachers and students."
           },
           {
-            "name": "Agustin Espino",
-            "startSeconds": 649,
-            "endSeconds": 753,
-            "summary": "Thanked outgoing President Wells for his service, congratulated incoming President Weekly, and apologized if past comments were perceived as disrespectful, reaffirming his collaborative intent to support student success."
+            "name": "Agustín Espino",
+            "startSeconds": 648,
+            "endSeconds": 751,
+            "summary": "Congratulated outgoing President Wells and incoming President Weekly, apologized for any unintentional disrespect, and expressed his commitment to advocating for children's education."
           },
           {
-            "name": "Maria Stockton",
-            "startSeconds": 766,
-            "endSeconds": 948,
-            "summary": "Raised concerns about staff surveys lacking true anonymity, expressed worry about increased classified staff workload due to reductions, and requested that the district consider workload formulas for classified staff."
+            "name": "Maria",
+            "startSeconds": 759,
+            "endSeconds": 944,
+            "summary": "Raised concerns on behalf of classified staff about non-anonymous surveys, increasing workload without additional staffing support, and requested the board establish workload formulas for classified employees."
           }
         ],
         "consent": false,
@@ -176,7 +198,7 @@
           "opened": 1003,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1044,
+          "discussion": 1042,
           "vote": null
         },
         "publicComments": [],
@@ -187,10 +209,10 @@
         "itemLabel": "7.3",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 0430: Comprehensive Local Plan For Special Education",
         "phases": {
-          "opened": 1052,
+          "opened": 1059,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1073,
+          "discussion": 1077,
           "vote": null
         },
         "publicComments": [],
@@ -201,10 +223,10 @@
         "itemLabel": "7.4",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 6159: Individualized Education Program",
         "phases": {
-          "opened": 1124,
+          "opened": 1128,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1149,
+          "discussion": 1148,
           "vote": null
         },
         "publicComments": [],
@@ -215,7 +237,7 @@
         "itemLabel": "7.5",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 6159.2: Nonpublic, Nonsectarian School and Agency Services for Special Education",
         "phases": {
-          "opened": 1186,
+          "opened": 1194,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -229,7 +251,7 @@
         "itemLabel": "7.6",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 6159.3: Appointment of Surrogate Parent for Special Education Students",
         "phases": {
-          "opened": 1196,
+          "opened": 1218,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -243,10 +265,10 @@
         "itemLabel": "7.7",
         "title": "First Reading and Discussion of Board Policy 5145.11: Questioning and Apprehension by Law Enforcement",
         "phases": {
-          "opened": 1205,
+          "opened": 1218,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1249,
+          "discussion": 1247,
           "vote": null
         },
         "publicComments": [],
@@ -255,124 +277,16 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (Action Required)",
         "phases": {
-          "opened": 1357,
+          "opened": 1359,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 1379,
             "type": "voice",
-            "result": "5-0 unanimous"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.1",
-        "title": "Approval of the November 21, 2025, Board Meeting Minutes",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.2",
-        "title": "Approval of the Amended September 18, 2025 Board Meeting Minutes",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.3",
-        "title": "Acceptance of Donation",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.4",
-        "title": "Approval of Annual Developer Fee Report - Fiscal Year 2024-25",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.5",
-        "title": "Authorization to Declare Outdated Kitchen Equipment as Surplus and Approve Disposal",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.6",
-        "title": "Approval of the Citizens' Bond Oversight Committee Membership",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -384,13 +298,13 @@
         "title": "Approval of the 2025-26 First Interim Budget Report for RCSD",
         "phases": {
           "opened": 1379,
-          "presentation": 1490,
+          "presentation": 1488,
           "publicComment": null,
-          "discussion": 2451,
+          "discussion": 2457,
           "vote": {
-            "seconds": 3210,
+            "seconds": 3239,
             "type": "voice",
-            "result": "5-0 unanimous"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -401,7 +315,7 @@
         "itemLabel": "10",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 3238,
+          "opened": 3253,
           "presentation": 3262,
           "publicComment": null,
           "discussion": null,
@@ -412,11 +326,11 @@
         "pulled": false
       },
       {
-        "itemLabel": "11.1",
+        "itemLabel": "11",
         "title": "Information on San Mateo County Investment Fund - November 2025",
         "phases": {
-          "opened": 3649,
-          "presentation": null,
+          "opened": 3653,
+          "presentation": 3664,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -429,7 +343,7 @@
         "itemLabel": "12",
         "title": "Correspondence",
         "phases": {
-          "opened": 3669,
+          "opened": 3667,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -443,10 +357,10 @@
         "itemLabel": "13",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 3715,
+          "opened": 3722,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3715,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -460,7 +374,7 @@
           "opened": 3757,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3795,
+          "discussion": 3794,
           "vote": null
         },
         "publicComments": [],
@@ -471,7 +385,7 @@
         "itemLabel": "15",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 4097,
+          "opened": 4104,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -483,14 +397,14 @@
       },
       {
         "itemLabel": "16",
-        "title": "Adjournment",
+        "title": "Adjournment (Action Required)",
         "phases": {
           "opened": 4176,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4187,
+            "seconds": 4190,
             "type": "voice",
             "result": "unanimous"
           }
@@ -506,40 +420,60 @@
     "speakers": {
       "A": {
         "name": "Mike Wells",
-        "role": "Outgoing Board President / Trustee"
+        "role": "President of the Board (outgoing)"
       },
       "B": {
-        "name": "Unknown/Multiple",
-        "role": "Various background voices"
+        "name": "Rick Edson",
+        "role": "Chief Business Official"
       },
       "C": {
-        "name": "David Weekly",
-        "role": "Incoming Board President / Vice President"
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "D": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
-      },
-      "E": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "F": {
         "name": "David Li",
         "role": "Trustee"
       },
+      "E": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk of the Board"
+      },
+      "F": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President of the Board (outgoing)"
+      },
       "G": {
-        "name": "Unidentified speaker / public commenter",
-        "role": "Member of public / multiple"
+        "name": "Wendy Kelly",
+        "role": "Deputy Superintendent"
+      },
+      "H": {
+        "name": "John Baker",
+        "role": "Superintendent"
+      },
+      "I": {
+        "name": "David Weekly",
+        "role": "Trustee (incoming President)"
+      },
+      "J": {
+        "name": "Unknown/Mixed",
+        "role": "Multiple unidentified brief responses"
+      },
+      "K": {
+        "name": "Patricia",
+        "role": "Public speaker / parent"
+      },
+      "L": {
+        "name": "Agustín Espino",
+        "role": "Public speaker / community member"
       }
     },
-    "agendaChanges": "The formal agenda lists sections with numbers that do not perfectly correspond to the agenda item numbering used in the meeting. Sections 4 and 5 on the posted agenda correspond to 'Changes to the Agenda' and 'Approval of the Agenda' which were handled under the Secretary to the Board segment (Section 6 on agenda). No items were pulled or resequenced; the meeting followed the posted agenda order. The agenda was approved with no changes.",
+    "agendaChanges": null,
     "items": [
       {
         "itemLabel": "1",
         "title": "Call to Order",
         "phases": {
-          "opened": 6,
+          "opened": 5,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -579,9 +513,9 @@
       },
       {
         "itemLabel": "3",
-        "title": "Annual Board Officers' Rotation",
+        "title": "Annual Board Officer's Rotation",
         "phases": {
-          "opened": 98,
+          "opened": 87,
           "presentation": 98,
           "publicComment": null,
           "discussion": null,
@@ -592,10 +526,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "6",
-        "title": "Secretary to the Board of Trustees (Superintendent) / Changes to the Agenda",
+        "itemLabel": "4",
+        "title": "Changes to the Agenda",
         "phases": {
-          "opened": 410,
+          "opened": 417,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -606,17 +540,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "Approval of the Agenda",
-        "title": "Approval of the Agenda",
+        "itemLabel": "5",
+        "title": "Approval of the Agenda (Action Required)",
         "phases": {
-          "opened": 417,
+          "opened": 435,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 435,
+            "seconds": 439,
             "type": "voice",
-            "result": "5-0 unanimous"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -624,33 +558,33 @@
         "pulled": false
       },
       {
-        "itemLabel": "Public Comment",
+        "itemLabel": "6",
         "title": "Public Comment",
         "phases": {
-          "opened": 439,
+          "opened": 440,
           "presentation": null,
-          "publicComment": 439,
+          "publicComment": 440,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Patricia Renderos",
-            "startSeconds": 491,
-            "endSeconds": 630,
-            "summary": "Requested increased support for teachers and students and urged the district to avoid making staff cuts that disrupt continuity of education."
+            "name": "Patricia",
+            "startSeconds": 474,
+            "endSeconds": 544,
+            "summary": "Asked the board not to make teacher cuts, and instead provide extra support and enrichment programs for teachers and students."
           },
           {
-            "name": "Agustin Espino",
-            "startSeconds": 649,
-            "endSeconds": 753,
-            "summary": "Thanked outgoing President Wells for his service, congratulated incoming President Weekly, and apologized if past comments were perceived as disrespectful, reaffirming his collaborative intent to support student success."
+            "name": "Agustín Espino",
+            "startSeconds": 648,
+            "endSeconds": 751,
+            "summary": "Congratulated outgoing President Wells and incoming President Weekly, apologized for any unintentional disrespect, and expressed his commitment to advocating for children's education."
           },
           {
-            "name": "Maria Stockton",
-            "startSeconds": 766,
-            "endSeconds": 948,
-            "summary": "Raised concerns about staff surveys lacking true anonymity, expressed worry about increased classified staff workload due to reductions, and requested that the district consider workload formulas for classified staff."
+            "name": "Maria",
+            "startSeconds": 759,
+            "endSeconds": 944,
+            "summary": "Raised concerns on behalf of classified staff about non-anonymous surveys, increasing workload without additional staffing support, and requested the board establish workload formulas for classified employees."
           }
         ],
         "consent": false,
@@ -677,7 +611,7 @@
           "opened": 1003,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1044,
+          "discussion": 1042,
           "vote": null
         },
         "publicComments": [],
@@ -688,10 +622,10 @@
         "itemLabel": "7.3",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 0430: Comprehensive Local Plan For Special Education",
         "phases": {
-          "opened": 1052,
+          "opened": 1059,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1073,
+          "discussion": 1077,
           "vote": null
         },
         "publicComments": [],
@@ -702,10 +636,10 @@
         "itemLabel": "7.4",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 6159: Individualized Education Program",
         "phases": {
-          "opened": 1124,
+          "opened": 1128,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1149,
+          "discussion": 1148,
           "vote": null
         },
         "publicComments": [],
@@ -716,7 +650,7 @@
         "itemLabel": "7.5",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 6159.2: Nonpublic, Nonsectarian School and Agency Services for Special Education",
         "phases": {
-          "opened": 1186,
+          "opened": 1194,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -730,7 +664,7 @@
         "itemLabel": "7.6",
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 6159.3: Appointment of Surrogate Parent for Special Education Students",
         "phases": {
-          "opened": 1196,
+          "opened": 1218,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -744,10 +678,10 @@
         "itemLabel": "7.7",
         "title": "First Reading and Discussion of Board Policy 5145.11: Questioning and Apprehension by Law Enforcement",
         "phases": {
-          "opened": 1205,
+          "opened": 1218,
           "presentation": null,
           "publicComment": null,
-          "discussion": 1249,
+          "discussion": 1247,
           "vote": null
         },
         "publicComments": [],
@@ -756,124 +690,16 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (Action Required)",
         "phases": {
-          "opened": 1357,
+          "opened": 1359,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 1379,
             "type": "voice",
-            "result": "5-0 unanimous"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.1",
-        "title": "Approval of the November 21, 2025, Board Meeting Minutes",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.2",
-        "title": "Approval of the Amended September 18, 2025 Board Meeting Minutes",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.3",
-        "title": "Acceptance of Donation",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.4",
-        "title": "Approval of Annual Developer Fee Report - Fiscal Year 2024-25",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.5",
-        "title": "Authorization to Declare Outdated Kitchen Equipment as Surplus and Approve Disposal",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.6",
-        "title": "Approval of the Citizens' Bond Oversight Committee Membership",
-        "phases": {
-          "opened": 1357,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1379,
-            "type": "voice",
-            "result": "5-0 unanimous (consent bundle)"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -885,13 +711,13 @@
         "title": "Approval of the 2025-26 First Interim Budget Report for RCSD",
         "phases": {
           "opened": 1379,
-          "presentation": 1490,
+          "presentation": 1488,
           "publicComment": null,
-          "discussion": 2451,
+          "discussion": 2457,
           "vote": {
-            "seconds": 3210,
+            "seconds": 3239,
             "type": "voice",
-            "result": "5-0 unanimous"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -902,7 +728,7 @@
         "itemLabel": "10",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 3238,
+          "opened": 3253,
           "presentation": 3262,
           "publicComment": null,
           "discussion": null,
@@ -913,11 +739,11 @@
         "pulled": false
       },
       {
-        "itemLabel": "11.1",
+        "itemLabel": "11",
         "title": "Information on San Mateo County Investment Fund - November 2025",
         "phases": {
-          "opened": 3649,
-          "presentation": null,
+          "opened": 3653,
+          "presentation": 3664,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -930,7 +756,7 @@
         "itemLabel": "12",
         "title": "Correspondence",
         "phases": {
-          "opened": 3669,
+          "opened": 3667,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -944,10 +770,10 @@
         "itemLabel": "13",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 3715,
+          "opened": 3722,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3715,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -961,7 +787,7 @@
           "opened": 3757,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3795,
+          "discussion": 3794,
           "vote": null
         },
         "publicComments": [],
@@ -972,7 +798,7 @@
         "itemLabel": "15",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 4097,
+          "opened": 4104,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -984,14 +810,14 @@
       },
       {
         "itemLabel": "16",
-        "title": "Adjournment",
+        "title": "Adjournment (Action Required)",
         "phases": {
           "opened": 4176,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4187,
+            "seconds": 4190,
             "type": "voice",
             "result": "unanimous"
           }
@@ -1002,7 +828,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:03:00.637Z",
-  "inputTokens": 20671,
-  "outputTokens": 3789
+  "cachedAt": "2026-07-20T10:20:26.983Z",
+  "inputTokens": 19880,
+  "outputTokens": 2998
 }

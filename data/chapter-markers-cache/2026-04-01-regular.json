@@ -2,6 +2,7 @@
   "date": "2026-04-01",
   "slug": "2026-04-01-regular",
   "itemCount": 58,
+  "transcriptHash": "9b09baaa656b591b",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -25,31 +26,77 @@
         "role": "Clerk / Trustee"
       },
       "F": {
-        "name": "Interpreter / Maria Stockton",
-        "role": "Spanish interpreter; also CSEA Chapter 5 President (when identified as Maria Stockton)"
+        "name": "Interpreter / Other",
+        "role": "Spanish interpreter and various speakers"
       },
       "G": {
-        "name": "Multiple speakers",
-        "role": "Various: includes Wendy Kelly (Deputy Superintendent), Sally Dunaway Young, May Liang, Catherine Stewart, Kristy Jackson (Clifford Principal), Brenna Gear (RCTA President), and others identified in context"
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk / Trustee (alternate label overlap — see note)"
       },
       "H": {
-        "name": "Multiple speakers",
-        "role": "Various: includes David Li questions, Josh Hill (public comment), Kristy Herrera (public comment), and board member comments identified in context as Jennifer Ng Kwing King or Mike Wells"
+        "name": "Mike Wells",
+        "role": "Trustee (alternate label)"
       },
       "I": {
+        "name": "Interpreter",
+        "role": "Spanish-English interpreter"
+      },
+      "J": {
+        "name": "Michelle Strode",
+        "role": "Public speaker / Orion parent"
+      },
+      "K": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "J": {
-        "name": "Multiple speakers",
-        "role": "Various: includes Joanne (Roy Cloud Assistant Principal), Sophia Santos (public comment)"
+      "L": {
+        "name": "Sally Dunaway Young",
+        "role": "Public speaker / Orion parent"
+      },
+      "M": {
+        "name": "Mei Liang",
+        "role": "Public speaker / Orion parent"
+      },
+      "N": {
+        "name": "Christy Herrera",
+        "role": "Public speaker / Hoover teacher"
+      },
+      "O": {
+        "name": "Sophia Santos",
+        "role": "Public speaker / Hoover first grade teacher"
+      },
+      "P": {
+        "name": "Maria Stockton",
+        "role": "CSEA Chapter 5 President"
+      },
+      "Q": {
+        "name": "Anna Herrera",
+        "role": "Assistant Superintendent, Educational Services"
+      },
+      "R": {
+        "name": "Melissa (Roy Cloud Principal)",
+        "role": "Principal, Roy Cloud School"
       }
     },
-    "agendaChanges": "Board President Weekly proposed moving Item 14.15 (Board Policy 4119.11: Sexual Harassment) from the Consent Calendar to a Discussion item, renumbered as a discussion item considered after Action Items (between Section 12 and Section 14). The item was discussed but no separate vote was taken on it as a pulled item; it was approved as part of the full consent calendar vote. Section 2 (not listed in agenda) was skipped. Sections 11 and 13 had no items to consider. The meeting recording begins at the Reconvene to Open Session (Section 5); no recording of earlier closed session portions.",
+    "agendaChanges": "Item 14.15 (BP 4119.11: Sexual Harassment) was pulled from the Consent Calendar and moved to Discussion Items as item 12.3 (discussed as a discussion item, not an action item). The Pledge of Allegiance under Section 6 was skipped (no student-led pledge available). Section 11 (Bond Program Action Items) had no items. Section 13 (Discussion Items) originally had no items but received the pulled item 14.15/4119.11. Items were heard in this order: Reconvene/Roll Call, Report Out on Closed Session, Welcome/Pledge, Changes to Agenda, Approval of Agenda, Public Comment, Labor Association Comments, Section 10 Bond Consent, Section 12 Action Items (Roy Cloud SPSA, Clifford SPSA), Discussion Item (4119.11), Section 14 Consent Items (remaining), Board/Superintendent Reports, Section 16 Information (RCTA Class Size Presentation), Correspondence, Other Business, Meeting Reflection, Calendar, Adjournment.",
     "items": [
       {
-        "itemLabel": "5",
-        "title": "Reconvene to Open Session / Roll Call",
+        "itemLabel": "1",
+        "title": "Call to Order",
+        "phases": {
+          "opened": 5,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "Roll Call (Open Session)",
+        "title": "Roll Call (Reconvene to Open Session)",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -63,9 +110,9 @@
       },
       {
         "itemLabel": "5",
-        "title": "Report Out on Closed Session from April 1, 2026",
+        "title": "Reconvene to Open Session / Report Out on Closed Session",
         "phases": {
-          "opened": 32,
+          "opened": 5,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -93,10 +140,10 @@
         "itemLabel": "7",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 192,
+          "opened": 193,
           "presentation": null,
           "publicComment": null,
-          "discussion": 217,
+          "discussion": 218,
           "vote": null
         },
         "publicComments": [],
@@ -107,14 +154,14 @@
         "itemLabel": "8",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 229,
+          "opened": 246,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 251,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -123,7 +170,7 @@
       },
       {
         "itemLabel": "9",
-        "title": "Public Comment",
+        "title": "Public Comment / Labor Association Comments",
         "phases": {
           "opened": 253,
           "presentation": null,
@@ -133,79 +180,64 @@
         },
         "publicComments": [
           {
-            "name": "Aida Vázquez",
+            "name": "Aida Vasquez",
             "startSeconds": 291,
-            "endSeconds": 572,
-            "summary": "A Garfield School parent of two children spoke in Spanish (with translation provided) expressing disagreement with proposed changes to the bilingual program, urging the board to maintain and strengthen the existing bilingual classes rather than making drastic changes."
+            "endSeconds": 459,
+            "summary": "Spoke in Spanish as a Garfield School parent opposing proposed changes to the bilingual program, expressing that bilingual classes have been effective and asking the board to support and maintain rather than change the existing program."
           },
           {
             "name": "Michelle Strode",
             "startSeconds": 592,
-            "endSeconds": 719,
-            "summary": "An Orion School parent of a kindergartner and incoming TK student requested that the board expand after-school program availability at Orion to support working families who cannot make use of the TK program without reliable aftercare."
+            "endSeconds": 717,
+            "summary": "Spoke as an Orion School TK and kindergarten parent requesting expansion of after-school programs at Orion to support working families who cannot fully utilize the TK program without reliable after-school care."
           },
           {
             "name": "Sally Dunaway Young",
             "startSeconds": 757,
-            "endSeconds": 876,
-            "summary": "A community parent of an incoming Mandarin Immersion TK student thanked the board for expanding the TK program but urged allocation of additional campus space so aftercare providers can expand to serve working families."
+            "endSeconds": 875,
+            "summary": "Spoke as an Orion parent urging the board to allocate additional campus space to qualified aftercare providers so they can expand to meet demand from working families with TK students."
           },
           {
-            "name": "May Liang",
+            "name": "Mei Liang",
             "startSeconds": 889,
             "endSeconds": 986,
-            "summary": "A parent of an incoming Orion kindergartner who lives in San Carlos and obtained an interdistrict transfer urged the board to add a third classroom for the Play Thrive after-school program to support the Mandarin Immersion community."
+            "summary": "Spoke as an incoming Orion kindergarten parent from San Carlos advocating for the addition of a third Play Thrive classroom to support families waitlisted for after-school care in the Mandarin immersion program."
           },
           {
             "name": "Catherine Stewart",
             "startSeconds": 996,
-            "endSeconds": 1064,
-            "summary": "A Mandarin Immersion and North Star Academy parent thanked Dr. Baker for his years of support for both programs as he approaches the end of his tenure."
+            "endSeconds": 1033,
+            "summary": "Spoke as a parent of a former Mandarin immersion student now at North Star, thanking Dr. Baker for his years of support for both the Mandarin immersion and North Star programs."
           },
           {
             "name": "Josh Hill",
             "startSeconds": 1087,
-            "endSeconds": 1111,
-            "summary": "An online commenter expressed excitement about his child's acceptance to the Orion Mandarin program but requested expansion of after-school care programs to alleviate family anxiety."
+            "endSeconds": 1108,
+            "summary": "Echoed other parents' comments welcoming his child's acceptance to the Orion Mandarin program and requesting expansion of after-school care to alleviate anxiety about placement."
           },
           {
             "name": "Lilia Amalia Valdez-Monet",
-            "startSeconds": 1131,
-            "endSeconds": 1219,
-            "summary": "A Hoover community member since 2017 and classroom volunteer advocated for smaller class sizes, noting that the single Spanish kindergarten class has many high-need students and that reducing class sizes would improve learning and equity."
+            "startSeconds": 1130,
+            "endSeconds": 1218,
+            "summary": "Spoke as a longtime Hoover community volunteer and parent advocate urging the board to support smaller class sizes and additional assistance, noting that one Spanish kindergarten class with many high-need students is insufficient for equitable education."
           },
           {
             "name": "Sophia Santos",
-            "startSeconds": 1234,
-            "endSeconds": 1337,
-            "summary": "A first grade teacher at Hoover School spoke online about the challenges of large class sizes, noting her class of 27 includes students with IEPs, multilingual learners, and behavioral needs, and urged the board to prioritize manageable class sizes especially in primary grades."
+            "startSeconds": 1224,
+            "endSeconds": 1335,
+            "summary": "Spoke as a first-grade teacher at Hoover School urging the board to prioritize manageable class sizes, citing research supporting smaller classes in primary grades and describing her own class of 27 students with high percentages of IEP, multilingual learner, and behavioral needs."
           },
           {
-            "name": "Kristy Herrera",
+            "name": "Christy Herrera",
             "startSeconds": 1378,
-            "endSeconds": 1566,
-            "summary": "A Hoover kindergarten teacher and lifelong RCSD community member with 34 years of combined experience as student, parent, and educator urged the board to invest in smaller class sizes and equitable distribution of students, warning that the current unequal class sizes are failing to build adequate foundational learning."
-          }
-        ],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9",
-        "title": "Labor Association Comments",
-        "phases": {
-          "opened": 1566,
-          "presentation": null,
-          "publicComment": 1566,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [
+            "endSeconds": 1559,
+            "summary": "Spoke as a Hoover kindergarten teacher with deep roots in RCSD as a former student, parent, and 34-year combined community member, urging the board to invest in smaller class sizes and equitable support, describing her current class of 28 students with high IEP, multilingual, and behavioral needs."
+          },
           {
             "name": "Maria Stockton",
-            "startSeconds": 1590,
-            "endSeconds": 1614,
-            "summary": "CSEA Chapter 5 President introduced herself, acknowledged the Clifford family present, and expressed eagerness to hear the school reports and the CTA presentation, yielding the remainder of her time."
+            "startSeconds": 1589,
+            "endSeconds": 1611,
+            "summary": "Spoke as CSEA Chapter 5 President expressing eagerness to hear the Roy Cloud and Clifford school reports and the CTA presentation."
           }
         ],
         "consent": false,
@@ -213,16 +245,16 @@
       },
       {
         "itemLabel": "10",
-        "title": "Approval of the Bond Program Consent Items — Approval of the Measure T Bond Program Tracking List of Items Under $20k",
+        "title": "Approval of the Bond Program Consent Items (Measure T Tracking List Under $20k)",
         "phases": {
-          "opened": 1615,
+          "opened": 1612,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1630,
+            "seconds": 1628,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -230,31 +262,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "12",
         "title": "Roy Cloud School Presentation and SPSA Approval",
         "phases": {
-          "opened": 1636,
+          "opened": 1628,
           "presentation": 1691,
           "publicComment": null,
-          "discussion": 2550,
+          "discussion": 2560,
           "vote": {
             "seconds": 3409,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -265,14 +283,14 @@
         "itemLabel": "12",
         "title": "Clifford School Presentation and SPSA Approval",
         "phases": {
-          "opened": 3423,
-          "presentation": 3431,
+          "opened": 3412,
+          "presentation": 3450,
           "publicComment": null,
-          "discussion": 4313,
+          "discussion": 4308,
           "vote": {
-            "seconds": 5233,
+            "seconds": 5232,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -280,24 +298,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "14.15",
-        "title": "Approval of Board Policy 4119.11: Sexual Harassment (pulled from consent for discussion)",
+        "title": "Discussion of Board Policy 4119.11: Sexual Harassment (pulled from consent to discussion)",
         "phases": {
-          "opened": 5239,
+          "opened": 5236,
           "presentation": null,
           "publicComment": null,
           "discussion": 5239,
@@ -309,484 +313,16 @@
       },
       {
         "itemLabel": "14",
-        "title": "Approval of Consent Items (full bundle including all remaining consent items)",
+        "title": "Approval of Consent Items (Action Required) — remaining items",
         "phases": {
-          "opened": 5354,
+          "opened": 5355,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5430,
+            "seconds": 5429,
             "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.1",
-        "title": "Approval of the McKinley Institute of Technology (MIT) Field Trip Requests (2) to Treasure Island",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.2",
-        "title": "Approval of Kennedy's Field Trip Request to the Grand Canyon",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.3",
-        "title": "Approval of Personnel Changes for the 2025-2026 School Year",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.4",
-        "title": "Approval of Board Policy 1312.1: Complaints Concerning District Employees",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.5",
-        "title": "Approval of Board Policy 4030: Nondiscrimination In Employment",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.6",
-        "title": "Approval of Board Policy 4111.2: Legal Status Requirement",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.7",
-        "title": "Approval of Board Policy 4211.2: Legal Status Requirement",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.8",
-        "title": "Approval of Board Policy 4311.2: Legal Status Requirement",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.9",
-        "title": "Approval of Board Policy 4212.41: Employee Drug Testing",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.10",
-        "title": "Approval of Board Policy 4312.41: Employee Drug Testing",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.11",
-        "title": "Approval of Board Policy 4112.9: Employee Notifications",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.12",
-        "title": "Approval of Board Policy 4212.9: Employee Notifications",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.13",
-        "title": "Approval of Board Policy 4312.9: Employee Notifications",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.14",
-        "title": "Approval of Board Policy 4117.3: Personnel Reduction",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.16",
-        "title": "Approval of Board Policy 4219.11: Sexual Harassment",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.17",
-        "title": "Approval of Board Policy 4319.11: Sexual Harassment",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.18",
-        "title": "Approval of Board Policy 4119.21: Professional Standards",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.19",
-        "title": "Approval of Board Policy 4219.21: Professional Standards",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.20",
-        "title": "Approval of Board Policy 4161.3: Professional Leaves",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.21",
-        "title": "Approval of Board Policy 4119.25: Political Activities of Employees",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.22",
-        "title": "Approval of Board Policy 4219.25: Political Activities of Employees",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.23",
-        "title": "Approval of Board Policy 4127: Temporary Athletic Team Coaches",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.24",
-        "title": "Approval of Board Policy 4227: Temporary Athletic Team Coaches",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.25",
-        "title": "Approval of Board Policy 4327: Temporary Athletic Team Coaches",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.26",
-        "title": "Second Reading and Approval of Board Policy and Administrative Regulation 3580: District Records",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.27",
-        "title": "Approval of Service Agreement for Election Services between Superintendent and San Mateo County Chief Elections Officer",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -797,7 +333,7 @@
         "itemLabel": "15",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 5438,
+          "opened": 5431,
           "presentation": null,
           "publicComment": null,
           "discussion": 5438,
@@ -809,10 +345,10 @@
       },
       {
         "itemLabel": "16",
-        "title": "Information — Redwood City Teachers Association Presentation: Class Size",
+        "title": "Information: Redwood City Teachers Association Presentation on Class Size",
         "phases": {
           "opened": 5655,
-          "presentation": 5712,
+          "presentation": 5716,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -825,7 +361,7 @@
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 6065,
+          "opened": 6064,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -839,10 +375,10 @@
         "itemLabel": "18",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6072,
+          "opened": 6080,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6072,
+          "discussion": 6080,
           "vote": null
         },
         "publicComments": [],
@@ -853,10 +389,10 @@
         "itemLabel": "19",
         "title": "Board of Trustees Meeting Reflection",
         "phases": {
-          "opened": 6144,
+          "opened": 6156,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6161,
+          "discussion": 6156,
           "vote": null
         },
         "publicComments": [],
@@ -867,7 +403,7 @@
         "itemLabel": "20",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 6461,
+          "opened": 6516,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -886,9 +422,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6540,
+            "seconds": 6541,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -921,31 +457,77 @@
         "role": "Clerk / Trustee"
       },
       "F": {
-        "name": "Interpreter / Maria Stockton",
-        "role": "Spanish interpreter; also CSEA Chapter 5 President (when identified as Maria Stockton)"
+        "name": "Interpreter / Other",
+        "role": "Spanish interpreter and various speakers"
       },
       "G": {
-        "name": "Multiple speakers",
-        "role": "Various: includes Wendy Kelly (Deputy Superintendent), Sally Dunaway Young, May Liang, Catherine Stewart, Kristy Jackson (Clifford Principal), Brenna Gear (RCTA President), and others identified in context"
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk / Trustee (alternate label overlap — see note)"
       },
       "H": {
-        "name": "Multiple speakers",
-        "role": "Various: includes David Li questions, Josh Hill (public comment), Kristy Herrera (public comment), and board member comments identified in context as Jennifer Ng Kwing King or Mike Wells"
+        "name": "Mike Wells",
+        "role": "Trustee (alternate label)"
       },
       "I": {
+        "name": "Interpreter",
+        "role": "Spanish-English interpreter"
+      },
+      "J": {
+        "name": "Michelle Strode",
+        "role": "Public speaker / Orion parent"
+      },
+      "K": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "J": {
-        "name": "Multiple speakers",
-        "role": "Various: includes Joanne (Roy Cloud Assistant Principal), Sophia Santos (public comment)"
+      "L": {
+        "name": "Sally Dunaway Young",
+        "role": "Public speaker / Orion parent"
+      },
+      "M": {
+        "name": "Mei Liang",
+        "role": "Public speaker / Orion parent"
+      },
+      "N": {
+        "name": "Christy Herrera",
+        "role": "Public speaker / Hoover teacher"
+      },
+      "O": {
+        "name": "Sophia Santos",
+        "role": "Public speaker / Hoover first grade teacher"
+      },
+      "P": {
+        "name": "Maria Stockton",
+        "role": "CSEA Chapter 5 President"
+      },
+      "Q": {
+        "name": "Anna Herrera",
+        "role": "Assistant Superintendent, Educational Services"
+      },
+      "R": {
+        "name": "Melissa (Roy Cloud Principal)",
+        "role": "Principal, Roy Cloud School"
       }
     },
-    "agendaChanges": "Board President Weekly proposed moving Item 14.15 (Board Policy 4119.11: Sexual Harassment) from the Consent Calendar to a Discussion item, renumbered as a discussion item considered after Action Items (between Section 12 and Section 14). The item was discussed but no separate vote was taken on it as a pulled item; it was approved as part of the full consent calendar vote. Section 2 (not listed in agenda) was skipped. Sections 11 and 13 had no items to consider. The meeting recording begins at the Reconvene to Open Session (Section 5); no recording of earlier closed session portions.",
+    "agendaChanges": "Item 14.15 (BP 4119.11: Sexual Harassment) was pulled from the Consent Calendar and moved to Discussion Items as item 12.3 (discussed as a discussion item, not an action item). The Pledge of Allegiance under Section 6 was skipped (no student-led pledge available). Section 11 (Bond Program Action Items) had no items. Section 13 (Discussion Items) originally had no items but received the pulled item 14.15/4119.11. Items were heard in this order: Reconvene/Roll Call, Report Out on Closed Session, Welcome/Pledge, Changes to Agenda, Approval of Agenda, Public Comment, Labor Association Comments, Section 10 Bond Consent, Section 12 Action Items (Roy Cloud SPSA, Clifford SPSA), Discussion Item (4119.11), Section 14 Consent Items (remaining), Board/Superintendent Reports, Section 16 Information (RCTA Class Size Presentation), Correspondence, Other Business, Meeting Reflection, Calendar, Adjournment.",
     "items": [
       {
-        "itemLabel": "5",
-        "title": "Reconvene to Open Session / Roll Call",
+        "itemLabel": "1",
+        "title": "Call to Order",
+        "phases": {
+          "opened": 5,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "Roll Call (Open Session)",
+        "title": "Roll Call (Reconvene to Open Session)",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -959,9 +541,9 @@
       },
       {
         "itemLabel": "5",
-        "title": "Report Out on Closed Session from April 1, 2026",
+        "title": "Reconvene to Open Session / Report Out on Closed Session",
         "phases": {
-          "opened": 32,
+          "opened": 5,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -989,10 +571,10 @@
         "itemLabel": "7",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 192,
+          "opened": 193,
           "presentation": null,
           "publicComment": null,
-          "discussion": 217,
+          "discussion": 218,
           "vote": null
         },
         "publicComments": [],
@@ -1003,14 +585,14 @@
         "itemLabel": "8",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 229,
+          "opened": 246,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 251,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -1019,7 +601,7 @@
       },
       {
         "itemLabel": "9",
-        "title": "Public Comment",
+        "title": "Public Comment / Labor Association Comments",
         "phases": {
           "opened": 253,
           "presentation": null,
@@ -1029,79 +611,64 @@
         },
         "publicComments": [
           {
-            "name": "Aida Vázquez",
+            "name": "Aida Vasquez",
             "startSeconds": 291,
-            "endSeconds": 572,
-            "summary": "A Garfield School parent of two children spoke in Spanish (with translation provided) expressing disagreement with proposed changes to the bilingual program, urging the board to maintain and strengthen the existing bilingual classes rather than making drastic changes."
+            "endSeconds": 459,
+            "summary": "Spoke in Spanish as a Garfield School parent opposing proposed changes to the bilingual program, expressing that bilingual classes have been effective and asking the board to support and maintain rather than change the existing program."
           },
           {
             "name": "Michelle Strode",
             "startSeconds": 592,
-            "endSeconds": 719,
-            "summary": "An Orion School parent of a kindergartner and incoming TK student requested that the board expand after-school program availability at Orion to support working families who cannot make use of the TK program without reliable aftercare."
+            "endSeconds": 717,
+            "summary": "Spoke as an Orion School TK and kindergarten parent requesting expansion of after-school programs at Orion to support working families who cannot fully utilize the TK program without reliable after-school care."
           },
           {
             "name": "Sally Dunaway Young",
             "startSeconds": 757,
-            "endSeconds": 876,
-            "summary": "A community parent of an incoming Mandarin Immersion TK student thanked the board for expanding the TK program but urged allocation of additional campus space so aftercare providers can expand to serve working families."
+            "endSeconds": 875,
+            "summary": "Spoke as an Orion parent urging the board to allocate additional campus space to qualified aftercare providers so they can expand to meet demand from working families with TK students."
           },
           {
-            "name": "May Liang",
+            "name": "Mei Liang",
             "startSeconds": 889,
             "endSeconds": 986,
-            "summary": "A parent of an incoming Orion kindergartner who lives in San Carlos and obtained an interdistrict transfer urged the board to add a third classroom for the Play Thrive after-school program to support the Mandarin Immersion community."
+            "summary": "Spoke as an incoming Orion kindergarten parent from San Carlos advocating for the addition of a third Play Thrive classroom to support families waitlisted for after-school care in the Mandarin immersion program."
           },
           {
             "name": "Catherine Stewart",
             "startSeconds": 996,
-            "endSeconds": 1064,
-            "summary": "A Mandarin Immersion and North Star Academy parent thanked Dr. Baker for his years of support for both programs as he approaches the end of his tenure."
+            "endSeconds": 1033,
+            "summary": "Spoke as a parent of a former Mandarin immersion student now at North Star, thanking Dr. Baker for his years of support for both the Mandarin immersion and North Star programs."
           },
           {
             "name": "Josh Hill",
             "startSeconds": 1087,
-            "endSeconds": 1111,
-            "summary": "An online commenter expressed excitement about his child's acceptance to the Orion Mandarin program but requested expansion of after-school care programs to alleviate family anxiety."
+            "endSeconds": 1108,
+            "summary": "Echoed other parents' comments welcoming his child's acceptance to the Orion Mandarin program and requesting expansion of after-school care to alleviate anxiety about placement."
           },
           {
             "name": "Lilia Amalia Valdez-Monet",
-            "startSeconds": 1131,
-            "endSeconds": 1219,
-            "summary": "A Hoover community member since 2017 and classroom volunteer advocated for smaller class sizes, noting that the single Spanish kindergarten class has many high-need students and that reducing class sizes would improve learning and equity."
+            "startSeconds": 1130,
+            "endSeconds": 1218,
+            "summary": "Spoke as a longtime Hoover community volunteer and parent advocate urging the board to support smaller class sizes and additional assistance, noting that one Spanish kindergarten class with many high-need students is insufficient for equitable education."
           },
           {
             "name": "Sophia Santos",
-            "startSeconds": 1234,
-            "endSeconds": 1337,
-            "summary": "A first grade teacher at Hoover School spoke online about the challenges of large class sizes, noting her class of 27 includes students with IEPs, multilingual learners, and behavioral needs, and urged the board to prioritize manageable class sizes especially in primary grades."
+            "startSeconds": 1224,
+            "endSeconds": 1335,
+            "summary": "Spoke as a first-grade teacher at Hoover School urging the board to prioritize manageable class sizes, citing research supporting smaller classes in primary grades and describing her own class of 27 students with high percentages of IEP, multilingual learner, and behavioral needs."
           },
           {
-            "name": "Kristy Herrera",
+            "name": "Christy Herrera",
             "startSeconds": 1378,
-            "endSeconds": 1566,
-            "summary": "A Hoover kindergarten teacher and lifelong RCSD community member with 34 years of combined experience as student, parent, and educator urged the board to invest in smaller class sizes and equitable distribution of students, warning that the current unequal class sizes are failing to build adequate foundational learning."
-          }
-        ],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9",
-        "title": "Labor Association Comments",
-        "phases": {
-          "opened": 1566,
-          "presentation": null,
-          "publicComment": 1566,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [
+            "endSeconds": 1559,
+            "summary": "Spoke as a Hoover kindergarten teacher with deep roots in RCSD as a former student, parent, and 34-year combined community member, urging the board to invest in smaller class sizes and equitable support, describing her current class of 28 students with high IEP, multilingual, and behavioral needs."
+          },
           {
             "name": "Maria Stockton",
-            "startSeconds": 1590,
-            "endSeconds": 1614,
-            "summary": "CSEA Chapter 5 President introduced herself, acknowledged the Clifford family present, and expressed eagerness to hear the school reports and the CTA presentation, yielding the remainder of her time."
+            "startSeconds": 1589,
+            "endSeconds": 1611,
+            "summary": "Spoke as CSEA Chapter 5 President expressing eagerness to hear the Roy Cloud and Clifford school reports and the CTA presentation."
           }
         ],
         "consent": false,
@@ -1109,16 +676,16 @@
       },
       {
         "itemLabel": "10",
-        "title": "Approval of the Bond Program Consent Items — Approval of the Measure T Bond Program Tracking List of Items Under $20k",
+        "title": "Approval of the Bond Program Consent Items (Measure T Tracking List Under $20k)",
         "phases": {
-          "opened": 1615,
+          "opened": 1612,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1630,
+            "seconds": 1628,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -1126,31 +693,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "12",
         "title": "Roy Cloud School Presentation and SPSA Approval",
         "phases": {
-          "opened": 1636,
+          "opened": 1628,
           "presentation": 1691,
           "publicComment": null,
-          "discussion": 2550,
+          "discussion": 2560,
           "vote": {
             "seconds": 3409,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -1161,14 +714,14 @@
         "itemLabel": "12",
         "title": "Clifford School Presentation and SPSA Approval",
         "phases": {
-          "opened": 3423,
-          "presentation": 3431,
+          "opened": 3412,
+          "presentation": 3450,
           "publicComment": null,
-          "discussion": 4313,
+          "discussion": 4308,
           "vote": {
-            "seconds": 5233,
+            "seconds": 5232,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -1176,24 +729,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "14.15",
-        "title": "Approval of Board Policy 4119.11: Sexual Harassment (pulled from consent for discussion)",
+        "title": "Discussion of Board Policy 4119.11: Sexual Harassment (pulled from consent to discussion)",
         "phases": {
-          "opened": 5239,
+          "opened": 5236,
           "presentation": null,
           "publicComment": null,
           "discussion": 5239,
@@ -1205,484 +744,16 @@
       },
       {
         "itemLabel": "14",
-        "title": "Approval of Consent Items (full bundle including all remaining consent items)",
+        "title": "Approval of Consent Items (Action Required) — remaining items",
         "phases": {
-          "opened": 5354,
+          "opened": 5355,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5430,
+            "seconds": 5429,
             "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.1",
-        "title": "Approval of the McKinley Institute of Technology (MIT) Field Trip Requests (2) to Treasure Island",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.2",
-        "title": "Approval of Kennedy's Field Trip Request to the Grand Canyon",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.3",
-        "title": "Approval of Personnel Changes for the 2025-2026 School Year",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.4",
-        "title": "Approval of Board Policy 1312.1: Complaints Concerning District Employees",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.5",
-        "title": "Approval of Board Policy 4030: Nondiscrimination In Employment",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.6",
-        "title": "Approval of Board Policy 4111.2: Legal Status Requirement",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.7",
-        "title": "Approval of Board Policy 4211.2: Legal Status Requirement",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.8",
-        "title": "Approval of Board Policy 4311.2: Legal Status Requirement",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.9",
-        "title": "Approval of Board Policy 4212.41: Employee Drug Testing",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.10",
-        "title": "Approval of Board Policy 4312.41: Employee Drug Testing",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.11",
-        "title": "Approval of Board Policy 4112.9: Employee Notifications",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.12",
-        "title": "Approval of Board Policy 4212.9: Employee Notifications",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.13",
-        "title": "Approval of Board Policy 4312.9: Employee Notifications",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.14",
-        "title": "Approval of Board Policy 4117.3: Personnel Reduction",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.16",
-        "title": "Approval of Board Policy 4219.11: Sexual Harassment",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.17",
-        "title": "Approval of Board Policy 4319.11: Sexual Harassment",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.18",
-        "title": "Approval of Board Policy 4119.21: Professional Standards",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.19",
-        "title": "Approval of Board Policy 4219.21: Professional Standards",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.20",
-        "title": "Approval of Board Policy 4161.3: Professional Leaves",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.21",
-        "title": "Approval of Board Policy 4119.25: Political Activities of Employees",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.22",
-        "title": "Approval of Board Policy 4219.25: Political Activities of Employees",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.23",
-        "title": "Approval of Board Policy 4127: Temporary Athletic Team Coaches",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.24",
-        "title": "Approval of Board Policy 4227: Temporary Athletic Team Coaches",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.25",
-        "title": "Approval of Board Policy 4327: Temporary Athletic Team Coaches",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.26",
-        "title": "Second Reading and Approval of Board Policy and Administrative Regulation 3580: District Records",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.27",
-        "title": "Approval of Service Agreement for Election Services between Superintendent and San Mateo County Chief Elections Officer",
-        "phases": {
-          "opened": 5354,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 5430,
-            "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -1693,7 +764,7 @@
         "itemLabel": "15",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 5438,
+          "opened": 5431,
           "presentation": null,
           "publicComment": null,
           "discussion": 5438,
@@ -1705,10 +776,10 @@
       },
       {
         "itemLabel": "16",
-        "title": "Information — Redwood City Teachers Association Presentation: Class Size",
+        "title": "Information: Redwood City Teachers Association Presentation on Class Size",
         "phases": {
           "opened": 5655,
-          "presentation": 5712,
+          "presentation": 5716,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -1721,7 +792,7 @@
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 6065,
+          "opened": 6064,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1735,10 +806,10 @@
         "itemLabel": "18",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6072,
+          "opened": 6080,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6072,
+          "discussion": 6080,
           "vote": null
         },
         "publicComments": [],
@@ -1749,10 +820,10 @@
         "itemLabel": "19",
         "title": "Board of Trustees Meeting Reflection",
         "phases": {
-          "opened": 6144,
+          "opened": 6156,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6161,
+          "discussion": 6156,
           "vote": null
         },
         "publicComments": [],
@@ -1763,7 +834,7 @@
         "itemLabel": "20",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 6461,
+          "opened": 6516,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1782,9 +853,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6540,
+            "seconds": 6541,
             "type": "voice",
-            "result": "passes"
+            "result": "unanimous ayes"
           }
         },
         "publicComments": [],
@@ -1793,7 +864,7 @@
       }
     ]
   },
-  "cachedAt": "2026-04-13T19:27:18.237Z",
-  "inputTokens": 29985,
-  "outputTokens": 6821
+  "cachedAt": "2026-07-20T10:12:50.915Z",
+  "inputTokens": 30675,
+  "outputTokens": 3576
 }

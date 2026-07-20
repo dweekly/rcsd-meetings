@@ -1,6 +1,8 @@
 {
   "date": "2025-09-10",
+  "slug": "2025-09-10-regular",
   "itemCount": 43,
+  "transcriptHash": "18a9ec7724c8fcb7",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -16,27 +18,51 @@
         "role": "Trustee"
       },
       "D": {
-        "name": "Cecilia I. Márquez",
-        "role": "Trustee / Clerk (also Jennifer Ng Kwing King in some exchanges)"
+        "name": "Jennifer Ng Kwing King",
+        "role": "Trustee"
       },
       "E": {
+        "name": "Cecilia I. Márquez",
+        "role": "Board Clerk"
+      },
+      "F": {
         "name": "David Weekly",
         "role": "Vice President"
       },
-      "F": {
-        "name": "Mike Wells / Jeff Melendez (context-dependent)",
-        "role": "Board President / ZEAL presenter"
-      },
       "G": {
-        "name": "David Li / Nick Olsen (context-dependent)",
-        "role": "Trustee / Bond Program Manager VPCS"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "H": {
-        "name": "Cindy Meek / Jackie Horejs (context-dependent)",
-        "role": "Public speaker / Leadership Associates presenter"
+        "name": "David Li",
+        "role": "Trustee"
+      },
+      "I": {
+        "name": "Cindy Meek",
+        "role": "Public speaker / teacher"
+      },
+      "J": {
+        "name": "Nick Olsen",
+        "role": "Bond Program Manager, VPCS"
+      },
+      "K": {
+        "name": "Jackie Horsch",
+        "role": "Leadership Associates presenter"
+      },
+      "L": {
+        "name": "Stella Kemp",
+        "role": "HYA presenter / Associate"
+      },
+      "M": {
+        "name": "Jackie Selby",
+        "role": "Public speaker / parent"
+      },
+      "N": {
+        "name": "David Miyashiro",
+        "role": "Zeal presenter / Superintendent, Cajon Valley USD"
       }
     },
-    "agendaChanges": "Item 9.1 (School Board Self-Evaluation – Discussion of Results) was moved by President Wells to after item 12.3 (KIPP Excelencia Community Prep information item). A late public comment speaker (Jackie Selby) spoke after item 9.1 during the closing portion of the meeting.",
+    "agendaChanges": "Item 9.1 (School Board Self-Evaluation – Discussion of Results) was moved to after item 12.3 (the last Information item), so it was taken up after the Information section rather than in its original position. The motion to approve this change was made and passed at approximately 113s. Items were otherwise taken in order, with Section 9 (as resequenced) occurring after Section 12.",
     "items": [
       {
         "itemLabel": "1",
@@ -56,7 +82,7 @@
         "itemLabel": "Roll Call",
         "title": "Roll Call",
         "phases": {
-          "opened": 5,
+          "opened": 9,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -70,7 +96,7 @@
         "itemLabel": "2",
         "title": "Welcome",
         "phases": {
-          "opened": 19,
+          "opened": 17,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -84,10 +110,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 75,
+          "opened": 93,
           "presentation": null,
           "publicComment": null,
-          "discussion": 75,
+          "discussion": 93,
           "vote": null
         },
         "publicComments": [],
@@ -103,9 +129,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 122,
+            "seconds": 125,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -116,18 +142,18 @@
         "itemLabel": "5",
         "title": "Public Comment",
         "phases": {
-          "opened": 125,
+          "opened": 127,
           "presentation": null,
-          "publicComment": 125,
+          "publicComment": 127,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Cindy Meek",
-            "startSeconds": 160,
-            "endSeconds": 322,
-            "summary": "A 14-year district teacher raised concerns about low teacher retention rates (20-25% annual turnover costing ~$1.5M), poor classroom conditions including inconsistent AC, broken Chromebooks, insufficient textbooks, and unreliable district-wide Wi-Fi, all contributing to low teacher morale."
+            "startSeconds": 159,
+            "endSeconds": 320,
+            "summary": "A 14-year district teacher raised concerns about high teacher turnover, inconsistent AC and Chromebook availability, and district-wide Wi-Fi issues affecting classroom conditions and morale."
           }
         ],
         "consent": false,
@@ -137,14 +163,14 @@
         "itemLabel": "6",
         "title": "Approval of the Bond Program Consent Items",
         "phases": {
-          "opened": 334,
+          "opened": 335,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 355,
+            "seconds": 357,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -155,14 +181,14 @@
         "itemLabel": "7.1",
         "title": "Approval of the Pre-Construction Services Agreement with Siemens Building Management Systems for the Phase II HVAC Upgrades Projects at Kennedy MS, Orion, and Clifford",
         "phases": {
-          "opened": 358,
-          "presentation": 377,
+          "opened": 359,
+          "presentation": 376,
           "publicComment": null,
-          "discussion": 446,
+          "discussion": 447,
           "vote": {
-            "seconds": 461,
+            "seconds": 462,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -174,13 +200,13 @@
         "title": "Approval of Contracts with Quattrocchi Kwok Architects (QKA) for Design Services for HVAC Upgrades Projects at Kennedy Middle, Orion Alternative, and Clifford schools",
         "phases": {
           "opened": 464,
-          "presentation": 473,
+          "presentation": 472,
           "publicComment": null,
-          "discussion": 500,
+          "discussion": 501,
           "vote": {
-            "seconds": 516,
+            "seconds": 515,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -192,13 +218,13 @@
         "title": "Discussion and Action – Superintendent Search Firm Presentations and Selection",
         "phases": {
           "opened": 521,
-          "presentation": 658,
+          "presentation": 656,
           "publicComment": null,
-          "discussion": 1756,
+          "discussion": 1757,
           "vote": {
-            "seconds": 6199,
+            "seconds": 6197,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed (Leadership Associates selected)"
           }
         },
         "publicComments": [],
@@ -212,11 +238,11 @@
           "opened": 6269,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6282,
+          "discussion": null,
           "vote": {
-            "seconds": 6288,
+            "seconds": 6291,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -228,13 +254,13 @@
         "title": "Second Reading and Approval of Board Policy 3320: Claims and Actions Against the District and Adoption of Resolution No. 9",
         "phases": {
           "opened": 6293,
-          "presentation": null,
+          "presentation": 6309,
           "publicComment": null,
-          "discussion": 6308,
+          "discussion": null,
           "vote": {
-            "seconds": 6342,
+            "seconds": 6343,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -245,14 +271,14 @@
         "itemLabel": "10",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 6343,
+          "opened": 6348,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 6362,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -263,10 +289,10 @@
         "itemLabel": "11",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 6362,
+          "opened": 6363,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6374,
+          "discussion": 6363,
           "vote": null
         },
         "publicComments": [],
@@ -277,52 +303,10 @@
         "itemLabel": "12",
         "title": "Information",
         "phases": {
-          "opened": 6507,
+          "opened": 6497,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6507,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.1",
-        "title": "Connect Community Charter School 2025–26 Adopted Budget, LCAP, and RCSD Fiscal Oversight Review Letter",
-        "phases": {
-          "opened": 6507,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.2",
-        "title": "Rocketship Redwood City Prep 2025–26 Adopted Budget, LCAP, and RCSD Fiscal Oversight Review Letter",
-        "phases": {
-          "opened": 6507,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.3",
-        "title": "KIPP Excelencia Community Prep 2025–26 Adopted Budget, LCAP, and RCSD Fiscal Oversight Review Letter",
-        "phases": {
-          "opened": 6507,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": 6523,
+          "discussion": 6497,
           "vote": null
         },
         "publicComments": [],
@@ -331,20 +315,20 @@
       },
       {
         "itemLabel": "9.1",
-        "title": "School Board Self-Evaluation – Discussion of Results (moved to after 12.3)",
+        "title": "School Board Self-Evaluation – Discussion of Results (moved to after Section 12)",
         "phases": {
-          "opened": 6532,
+          "opened": 6533,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6570,
+          "discussion": 6533,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Jackie Selby",
-            "startSeconds": 9192,
-            "endSeconds": 9376,
-            "summary": "Parent of an incoming TK student at Orion Alternative School described how over 70 families were left without aftercare on the first day of school due to Catalyst Kids' failure to obtain licenses for two new classrooms and their lack of communication with waitlisted families, a situation still unresolved four weeks into the school year."
+            "startSeconds": 9213,
+            "endSeconds": 9453,
+            "summary": "A parent of an incoming TK student at Orion Alternative School described how over 70 families were left without aftercare on the first day of school due to Catalyst Kids' failure to obtain licensing for 2 new classrooms and their lack of communication with waitlisted families."
           }
         ],
         "consent": false,
@@ -354,7 +338,7 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 9464,
+          "opened": 9461,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -368,7 +352,7 @@
         "itemLabel": "14",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 9471,
+          "opened": 9465,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -382,7 +366,7 @@
         "itemLabel": "15",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 9480,
+          "opened": 9481,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -396,14 +380,14 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 9488,
+          "opened": 9489,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9493,
+            "seconds": 9495,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -428,27 +412,51 @@
         "role": "Trustee"
       },
       "D": {
-        "name": "Cecilia I. Márquez",
-        "role": "Trustee / Clerk (also Jennifer Ng Kwing King in some exchanges)"
+        "name": "Jennifer Ng Kwing King",
+        "role": "Trustee"
       },
       "E": {
+        "name": "Cecilia I. Márquez",
+        "role": "Board Clerk"
+      },
+      "F": {
         "name": "David Weekly",
         "role": "Vice President"
       },
-      "F": {
-        "name": "Mike Wells / Jeff Melendez (context-dependent)",
-        "role": "Board President / ZEAL presenter"
-      },
       "G": {
-        "name": "David Li / Nick Olsen (context-dependent)",
-        "role": "Trustee / Bond Program Manager VPCS"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "H": {
-        "name": "Cindy Meek / Jackie Horejs (context-dependent)",
-        "role": "Public speaker / Leadership Associates presenter"
+        "name": "David Li",
+        "role": "Trustee"
+      },
+      "I": {
+        "name": "Cindy Meek",
+        "role": "Public speaker / teacher"
+      },
+      "J": {
+        "name": "Nick Olsen",
+        "role": "Bond Program Manager, VPCS"
+      },
+      "K": {
+        "name": "Jackie Horsch",
+        "role": "Leadership Associates presenter"
+      },
+      "L": {
+        "name": "Stella Kemp",
+        "role": "HYA presenter / Associate"
+      },
+      "M": {
+        "name": "Jackie Selby",
+        "role": "Public speaker / parent"
+      },
+      "N": {
+        "name": "David Miyashiro",
+        "role": "Zeal presenter / Superintendent, Cajon Valley USD"
       }
     },
-    "agendaChanges": "Item 9.1 (School Board Self-Evaluation – Discussion of Results) was moved by President Wells to after item 12.3 (KIPP Excelencia Community Prep information item). A late public comment speaker (Jackie Selby) spoke after item 9.1 during the closing portion of the meeting.",
+    "agendaChanges": "Item 9.1 (School Board Self-Evaluation – Discussion of Results) was moved to after item 12.3 (the last Information item), so it was taken up after the Information section rather than in its original position. The motion to approve this change was made and passed at approximately 113s. Items were otherwise taken in order, with Section 9 (as resequenced) occurring after Section 12.",
     "items": [
       {
         "itemLabel": "1",
@@ -468,7 +476,7 @@
         "itemLabel": "Roll Call",
         "title": "Roll Call",
         "phases": {
-          "opened": 5,
+          "opened": 9,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -482,7 +490,7 @@
         "itemLabel": "2",
         "title": "Welcome",
         "phases": {
-          "opened": 19,
+          "opened": 17,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -496,10 +504,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 75,
+          "opened": 93,
           "presentation": null,
           "publicComment": null,
-          "discussion": 75,
+          "discussion": 93,
           "vote": null
         },
         "publicComments": [],
@@ -515,9 +523,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 122,
+            "seconds": 125,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -528,18 +536,18 @@
         "itemLabel": "5",
         "title": "Public Comment",
         "phases": {
-          "opened": 125,
+          "opened": 127,
           "presentation": null,
-          "publicComment": 125,
+          "publicComment": 127,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Cindy Meek",
-            "startSeconds": 160,
-            "endSeconds": 322,
-            "summary": "A 14-year district teacher raised concerns about low teacher retention rates (20-25% annual turnover costing ~$1.5M), poor classroom conditions including inconsistent AC, broken Chromebooks, insufficient textbooks, and unreliable district-wide Wi-Fi, all contributing to low teacher morale."
+            "startSeconds": 159,
+            "endSeconds": 320,
+            "summary": "A 14-year district teacher raised concerns about high teacher turnover, inconsistent AC and Chromebook availability, and district-wide Wi-Fi issues affecting classroom conditions and morale."
           }
         ],
         "consent": false,
@@ -549,14 +557,14 @@
         "itemLabel": "6",
         "title": "Approval of the Bond Program Consent Items",
         "phases": {
-          "opened": 334,
+          "opened": 335,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 355,
+            "seconds": 357,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -567,14 +575,14 @@
         "itemLabel": "7.1",
         "title": "Approval of the Pre-Construction Services Agreement with Siemens Building Management Systems for the Phase II HVAC Upgrades Projects at Kennedy MS, Orion, and Clifford",
         "phases": {
-          "opened": 358,
-          "presentation": 377,
+          "opened": 359,
+          "presentation": 376,
           "publicComment": null,
-          "discussion": 446,
+          "discussion": 447,
           "vote": {
-            "seconds": 461,
+            "seconds": 462,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -586,13 +594,13 @@
         "title": "Approval of Contracts with Quattrocchi Kwok Architects (QKA) for Design Services for HVAC Upgrades Projects at Kennedy Middle, Orion Alternative, and Clifford schools",
         "phases": {
           "opened": 464,
-          "presentation": 473,
+          "presentation": 472,
           "publicComment": null,
-          "discussion": 500,
+          "discussion": 501,
           "vote": {
-            "seconds": 516,
+            "seconds": 515,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -604,13 +612,13 @@
         "title": "Discussion and Action – Superintendent Search Firm Presentations and Selection",
         "phases": {
           "opened": 521,
-          "presentation": 658,
+          "presentation": 656,
           "publicComment": null,
-          "discussion": 1756,
+          "discussion": 1757,
           "vote": {
-            "seconds": 6199,
+            "seconds": 6197,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed (Leadership Associates selected)"
           }
         },
         "publicComments": [],
@@ -624,11 +632,11 @@
           "opened": 6269,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6282,
+          "discussion": null,
           "vote": {
-            "seconds": 6288,
+            "seconds": 6291,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -640,13 +648,13 @@
         "title": "Second Reading and Approval of Board Policy 3320: Claims and Actions Against the District and Adoption of Resolution No. 9",
         "phases": {
           "opened": 6293,
-          "presentation": null,
+          "presentation": 6309,
           "publicComment": null,
-          "discussion": 6308,
+          "discussion": null,
           "vote": {
-            "seconds": 6342,
+            "seconds": 6343,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -657,14 +665,14 @@
         "itemLabel": "10",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 6343,
+          "opened": 6348,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 6362,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -675,10 +683,10 @@
         "itemLabel": "11",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 6362,
+          "opened": 6363,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6374,
+          "discussion": 6363,
           "vote": null
         },
         "publicComments": [],
@@ -689,52 +697,10 @@
         "itemLabel": "12",
         "title": "Information",
         "phases": {
-          "opened": 6507,
+          "opened": 6497,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6507,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.1",
-        "title": "Connect Community Charter School 2025–26 Adopted Budget, LCAP, and RCSD Fiscal Oversight Review Letter",
-        "phases": {
-          "opened": 6507,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.2",
-        "title": "Rocketship Redwood City Prep 2025–26 Adopted Budget, LCAP, and RCSD Fiscal Oversight Review Letter",
-        "phases": {
-          "opened": 6507,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.3",
-        "title": "KIPP Excelencia Community Prep 2025–26 Adopted Budget, LCAP, and RCSD Fiscal Oversight Review Letter",
-        "phases": {
-          "opened": 6507,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": 6523,
+          "discussion": 6497,
           "vote": null
         },
         "publicComments": [],
@@ -743,20 +709,20 @@
       },
       {
         "itemLabel": "9.1",
-        "title": "School Board Self-Evaluation – Discussion of Results (moved to after 12.3)",
+        "title": "School Board Self-Evaluation – Discussion of Results (moved to after Section 12)",
         "phases": {
-          "opened": 6532,
+          "opened": 6533,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6570,
+          "discussion": 6533,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Jackie Selby",
-            "startSeconds": 9192,
-            "endSeconds": 9376,
-            "summary": "Parent of an incoming TK student at Orion Alternative School described how over 70 families were left without aftercare on the first day of school due to Catalyst Kids' failure to obtain licenses for two new classrooms and their lack of communication with waitlisted families, a situation still unresolved four weeks into the school year."
+            "startSeconds": 9213,
+            "endSeconds": 9453,
+            "summary": "A parent of an incoming TK student at Orion Alternative School described how over 70 families were left without aftercare on the first day of school due to Catalyst Kids' failure to obtain licensing for 2 new classrooms and their lack of communication with waitlisted families."
           }
         ],
         "consent": false,
@@ -766,7 +732,7 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 9464,
+          "opened": 9461,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -780,7 +746,7 @@
         "itemLabel": "14",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 9471,
+          "opened": 9465,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -794,7 +760,7 @@
         "itemLabel": "15",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 9480,
+          "opened": 9481,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -808,14 +774,14 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 9488,
+          "opened": 9489,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9493,
+            "seconds": 9495,
             "type": "voice",
-            "result": "5-0"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -824,7 +790,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:09:12.935Z",
-  "inputTokens": 44197,
-  "outputTokens": 3192
+  "cachedAt": "2026-07-20T10:26:55.304Z",
+  "inputTokens": 42558,
+  "outputTokens": 2894
 }

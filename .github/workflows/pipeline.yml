@@ -167,7 +167,17 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md
+          # meetings-data + LLM caches: committing the pipeline-rebuilt versions
+          # keeps git authoritative — a stale git meetings-data.json fed
+          # out-of-pipeline page builds that deployed "No transcript" pages to
+          # production (June 24 regression, twice), and uncommitted marker/
+          # timestamp caches were wiped by checkout each run, re-spending API
+          # calls nightly on work already done.
+          git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md \
+            data/meetings-data.json data/chapter-markers.json data/chapter-markers-cache/ \
+            data/timestamp-map.json data/llm-timestamp-cache/ 2>/dev/null || \
+          git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md \
+            data/meetings-data.json data/chapter-markers.json data/chapter-markers-cache/ data/timestamp-map.json
           # ES translation outputs only exist after a full run; add them only if
           # present so quick runs (which skip translation) don't fail on a
           # pathspec that matches nothing.

@@ -1,6 +1,8 @@
 {
   "date": "2025-08-27",
+  "slug": "2025-08-27-regular",
   "itemCount": 36,
+  "transcriptHash": "00f42a4e8aa79c74",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -13,7 +15,7 @@
       },
       "C": {
         "name": "Cecilia I. Márquez",
-        "role": "Trustee / Clerk"
+        "role": "Board Clerk"
       },
       "D": {
         "name": "David Li",
@@ -28,23 +30,23 @@
         "role": "Trustee"
       },
       "G": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "H": {
-        "name": "Martin Cervantes",
-        "role": "Director of Facilities / Interim Bond Director"
-      },
-      "I": {
         "name": "Wendy Kelly",
         "role": "Deputy Superintendent"
       },
+      "H": {
+        "name": "Unknown",
+        "role": "Unidentified speaker / acknowledgment responses"
+      },
+      "I": {
+        "name": "John Baker",
+        "role": "Superintendent"
+      },
       "J": {
-        "name": "Megan Dawe",
-        "role": "NV5 Energy Consultant (remote)"
+        "name": "Martín Cervantes",
+        "role": "Director of Facilities / Bond Director"
       }
     },
-    "agendaChanges": "Item 8.2 (First Reading and Discussion of Board Policy 1112: Media Relations) was pulled from the agenda before approval. Item 9.2 (Approval of the School Assignments and Committee Assignments for Board Members for the 2025–26 School Year) was moved out of the Consent Calendar and placed as an Action Item, taken up immediately after Section 9 consent vote. Discussion items were renumbered accordingly: 8.3 became the second discussion item taken up (as 8.1 was discussed first), and 8.2 was skipped. Section 10 Action Items were preceded by the pulled 9.2 item.",
+    "agendaChanges": "Item 8.2 (First Reading and Discussion of Board Policy 1112: Media Relations) was removed from the agenda before approval. Item 9.2 (Approval of the School Assignments and Committee Assignments for Board Members for the 2025-26 School Year) was pulled from the consent calendar for individual discussion and action. The remaining discussion items were renumbered in practice: agenda item 8.3 (BP 1114) was taken up as the first discussion item, followed by 8.4 (BP 3320), 8.5 (BP 5145.13), and 8.6 (BB 9010).",
     "items": [
       {
         "itemLabel": "1",
@@ -61,7 +63,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call",
+        "itemLabel": "1",
         "title": "Roll Call",
         "phases": {
           "opened": 11,
@@ -92,10 +94,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 20,
+          "opened": 88,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 88,
           "vote": null
         },
         "publicComments": [],
@@ -104,16 +106,16 @@
       },
       {
         "itemLabel": "4",
-        "title": "Approval of the Agenda",
+        "title": "Approval of the Agenda (Action Required)",
         "phases": {
-          "opened": 100,
+          "opened": 105,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 110,
+            "seconds": 109,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved with removal of item 8.2"
           }
         },
         "publicComments": [],
@@ -138,14 +140,14 @@
         "itemLabel": "6",
         "title": "Approval of the Bond Program Consent Items",
         "phases": {
-          "opened": 111,
+          "opened": 120,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 136,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -153,27 +155,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "7",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": 138,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "8.1",
         "title": "Discussion on the Process for a National Search for the Next Superintendent of Schools",
         "phases": {
-          "opened": 138,
+          "opened": 137,
           "presentation": null,
           "publicComment": null,
-          "discussion": 504,
+          "discussion": 168,
           "vote": null
         },
         "publicComments": [],
@@ -198,8 +186,8 @@
         "itemLabel": "8.3",
         "title": "First Reading and Discussion of Board Policy 1114: District-Sponsored Social Media",
         "phases": {
-          "opened": 1287,
-          "presentation": 1314,
+          "opened": 1297,
+          "presentation": 1312,
           "publicComment": null,
           "discussion": 1378,
           "vote": null
@@ -213,9 +201,9 @@
         "title": "First Reading and Discussion of Board Policy 3320: Claims And Actions Against The District",
         "phases": {
           "opened": 1418,
-          "presentation": 1450,
+          "presentation": 1447,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 1575,
           "vote": null
         },
         "publicComments": [],
@@ -227,7 +215,7 @@
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 5145.13: Response To Immigration Enforcement",
         "phases": {
           "opened": 1575,
-          "presentation": 1599,
+          "presentation": 1597,
           "publicComment": null,
           "discussion": 1643,
           "vote": null
@@ -240,10 +228,10 @@
         "itemLabel": "8.6",
         "title": "First Reading and Discussion of Board Bylaw 9010: Public Statements",
         "phases": {
-          "opened": 1986,
-          "presentation": 2003,
+          "opened": 1982,
+          "presentation": 2002,
           "publicComment": null,
-          "discussion": 2031,
+          "discussion": 2029,
           "vote": null
         },
         "publicComments": [],
@@ -252,16 +240,34 @@
       },
       {
         "itemLabel": "9",
-        "title": "Approval of Consent Items (excluding 9.2)",
+        "title": "Approval of Consent Items (Action Required) — Bundle (excluding 9.2)",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 2499,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved without item 9.2"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.1",
+        "title": "Approval of the August 12, 2025, Board Meeting Minutes",
         "phases": {
           "opened": 2493,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2585,
+            "seconds": 2579,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -272,14 +278,14 @@
         "itemLabel": "9.2",
         "title": "Approval of the School Assignments and Committee Assignments for Board Members for the 2025–26 School Year",
         "phases": {
-          "opened": 2585,
+          "opened": 2584,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2597,
+          "discussion": 2596,
           "vote": {
             "seconds": 2650,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -287,17 +293,107 @@
         "pulled": true
       },
       {
+        "itemLabel": "9.3",
+        "title": "Approval of Kennedy Middle School Field Trip to Yosemite – October 19 - 24, 2025",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.4",
+        "title": "Approval of the Agreement between Redwood City School District and One Life Counseling for the 2025-2026 School Year",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.5",
+        "title": "Approval of the Agreement between Redwood City School District and College Advising Prep for the 2025-2026 School Year",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.6",
+        "title": "Approval of the Agreement between the Redwood City School District and One Life Counseling Center for the 2025-2026 School Year for Services during the Extended Learning Programs",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.7",
+        "title": "Adoption of Resolution No. 6 to Engage a Third-Party Administrator for the District's existing 403b and 457b Voluntary Deferred Compensation Retirement Plans",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 2499,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
         "itemLabel": "10.1",
         "title": "Readoption of the Local Control and Accountability Plan (LCAP) for the 2025/2026 School Year",
         "phases": {
-          "opened": 2663,
-          "presentation": 2665,
+          "opened": 2662,
+          "presentation": 2662,
           "publicComment": null,
-          "discussion": 2716,
+          "discussion": 2715,
           "vote": {
-            "seconds": 2731,
+            "seconds": 2725,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -309,13 +405,13 @@
         "title": "Approval of the Expanded Learning Opportunities Program Guide for 2025-2026",
         "phases": {
           "opened": 2735,
-          "presentation": 2747,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 2758,
+          "discussion": 2752,
           "vote": {
-            "seconds": 2843,
+            "seconds": 2840,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -326,14 +422,14 @@
         "itemLabel": "10.3",
         "title": "Adoption of Resolutions 4 and 5, Approval of Sole Sourcing Resolution and Resolution to Authorize Technology Procurement under PCC 20118.2 for EV Charging Stations Across District Sites",
         "phases": {
-          "opened": 2845,
+          "opened": 2846,
           "presentation": 2865,
           "publicComment": null,
-          "discussion": 2999,
+          "discussion": 3000,
           "vote": {
-            "seconds": 3108,
+            "seconds": 3107,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -344,14 +440,14 @@
         "itemLabel": "10.4",
         "title": "Adoption of Resolution No. 7, Approval of Education Code and Title V Options for Teaching Assignments",
         "phases": {
-          "opened": 3117,
-          "presentation": 3127,
+          "opened": 3113,
+          "presentation": 3125,
           "publicComment": null,
-          "discussion": 3148,
+          "discussion": 3146,
           "vote": {
-            "seconds": 3157,
+            "seconds": 3158,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -362,10 +458,10 @@
         "itemLabel": "11",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 3162,
+          "opened": 3161,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3170,
+          "discussion": 3168,
           "vote": null
         },
         "publicComments": [],
@@ -379,7 +475,7 @@
           "opened": 3325,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3325,
           "vote": null
         },
         "publicComments": [],
@@ -390,10 +486,10 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 3344,
+          "opened": 3342,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3344,
+          "discussion": 3342,
           "vote": null
         },
         "publicComments": [],
@@ -404,10 +500,10 @@
         "itemLabel": "14",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 3361,
+          "opened": 3360,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3368,
+          "discussion": 3364,
           "vote": null
         },
         "publicComments": [],
@@ -418,10 +514,10 @@
         "itemLabel": "15",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 3419,
+          "opened": 3405,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3405,
           "vote": null
         },
         "publicComments": [],
@@ -430,16 +526,16 @@
       },
       {
         "itemLabel": "16",
-        "title": "Adjournment",
+        "title": "Adjournment (Action Required)",
         "phases": {
-          "opened": 3428,
+          "opened": 3427,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 3435,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -461,7 +557,7 @@
       },
       "C": {
         "name": "Cecilia I. Márquez",
-        "role": "Trustee / Clerk"
+        "role": "Board Clerk"
       },
       "D": {
         "name": "David Li",
@@ -476,23 +572,23 @@
         "role": "Trustee"
       },
       "G": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "H": {
-        "name": "Martin Cervantes",
-        "role": "Director of Facilities / Interim Bond Director"
-      },
-      "I": {
         "name": "Wendy Kelly",
         "role": "Deputy Superintendent"
       },
+      "H": {
+        "name": "Unknown",
+        "role": "Unidentified speaker / acknowledgment responses"
+      },
+      "I": {
+        "name": "John Baker",
+        "role": "Superintendent"
+      },
       "J": {
-        "name": "Megan Dawe",
-        "role": "NV5 Energy Consultant (remote)"
+        "name": "Martín Cervantes",
+        "role": "Director of Facilities / Bond Director"
       }
     },
-    "agendaChanges": "Item 8.2 (First Reading and Discussion of Board Policy 1112: Media Relations) was pulled from the agenda before approval. Item 9.2 (Approval of the School Assignments and Committee Assignments for Board Members for the 2025–26 School Year) was moved out of the Consent Calendar and placed as an Action Item, taken up immediately after Section 9 consent vote. Discussion items were renumbered accordingly: 8.3 became the second discussion item taken up (as 8.1 was discussed first), and 8.2 was skipped. Section 10 Action Items were preceded by the pulled 9.2 item.",
+    "agendaChanges": "Item 8.2 (First Reading and Discussion of Board Policy 1112: Media Relations) was removed from the agenda before approval. Item 9.2 (Approval of the School Assignments and Committee Assignments for Board Members for the 2025-26 School Year) was pulled from the consent calendar for individual discussion and action. The remaining discussion items were renumbered in practice: agenda item 8.3 (BP 1114) was taken up as the first discussion item, followed by 8.4 (BP 3320), 8.5 (BP 5145.13), and 8.6 (BB 9010).",
     "items": [
       {
         "itemLabel": "1",
@@ -509,7 +605,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call",
+        "itemLabel": "1",
         "title": "Roll Call",
         "phases": {
           "opened": 11,
@@ -540,10 +636,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 20,
+          "opened": 88,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 88,
           "vote": null
         },
         "publicComments": [],
@@ -552,16 +648,16 @@
       },
       {
         "itemLabel": "4",
-        "title": "Approval of the Agenda",
+        "title": "Approval of the Agenda (Action Required)",
         "phases": {
-          "opened": 100,
+          "opened": 105,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 110,
+            "seconds": 109,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved with removal of item 8.2"
           }
         },
         "publicComments": [],
@@ -586,14 +682,14 @@
         "itemLabel": "6",
         "title": "Approval of the Bond Program Consent Items",
         "phases": {
-          "opened": 111,
+          "opened": 120,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 136,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -601,27 +697,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "7",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": 138,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "8.1",
         "title": "Discussion on the Process for a National Search for the Next Superintendent of Schools",
         "phases": {
-          "opened": 138,
+          "opened": 137,
           "presentation": null,
           "publicComment": null,
-          "discussion": 504,
+          "discussion": 168,
           "vote": null
         },
         "publicComments": [],
@@ -646,8 +728,8 @@
         "itemLabel": "8.3",
         "title": "First Reading and Discussion of Board Policy 1114: District-Sponsored Social Media",
         "phases": {
-          "opened": 1287,
-          "presentation": 1314,
+          "opened": 1297,
+          "presentation": 1312,
           "publicComment": null,
           "discussion": 1378,
           "vote": null
@@ -661,9 +743,9 @@
         "title": "First Reading and Discussion of Board Policy 3320: Claims And Actions Against The District",
         "phases": {
           "opened": 1418,
-          "presentation": 1450,
+          "presentation": 1447,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 1575,
           "vote": null
         },
         "publicComments": [],
@@ -675,7 +757,7 @@
         "title": "First Reading and Discussion of Board Policy and Administrative Regulation 5145.13: Response To Immigration Enforcement",
         "phases": {
           "opened": 1575,
-          "presentation": 1599,
+          "presentation": 1597,
           "publicComment": null,
           "discussion": 1643,
           "vote": null
@@ -688,10 +770,10 @@
         "itemLabel": "8.6",
         "title": "First Reading and Discussion of Board Bylaw 9010: Public Statements",
         "phases": {
-          "opened": 1986,
-          "presentation": 2003,
+          "opened": 1982,
+          "presentation": 2002,
           "publicComment": null,
-          "discussion": 2031,
+          "discussion": 2029,
           "vote": null
         },
         "publicComments": [],
@@ -700,16 +782,34 @@
       },
       {
         "itemLabel": "9",
-        "title": "Approval of Consent Items (excluding 9.2)",
+        "title": "Approval of Consent Items (Action Required) — Bundle (excluding 9.2)",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 2499,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved without item 9.2"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.1",
+        "title": "Approval of the August 12, 2025, Board Meeting Minutes",
         "phases": {
           "opened": 2493,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2585,
+            "seconds": 2579,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -720,14 +820,14 @@
         "itemLabel": "9.2",
         "title": "Approval of the School Assignments and Committee Assignments for Board Members for the 2025–26 School Year",
         "phases": {
-          "opened": 2585,
+          "opened": 2584,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2597,
+          "discussion": 2596,
           "vote": {
             "seconds": 2650,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -735,17 +835,107 @@
         "pulled": true
       },
       {
+        "itemLabel": "9.3",
+        "title": "Approval of Kennedy Middle School Field Trip to Yosemite – October 19 - 24, 2025",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.4",
+        "title": "Approval of the Agreement between Redwood City School District and One Life Counseling for the 2025-2026 School Year",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.5",
+        "title": "Approval of the Agreement between Redwood City School District and College Advising Prep for the 2025-2026 School Year",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.6",
+        "title": "Approval of the Agreement between the Redwood City School District and One Life Counseling Center for the 2025-2026 School Year for Services during the Extended Learning Programs",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.7",
+        "title": "Adoption of Resolution No. 6 to Engage a Third-Party Administrator for the District's existing 403b and 457b Voluntary Deferred Compensation Retirement Plans",
+        "phases": {
+          "opened": 2493,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 2499,
+          "vote": {
+            "seconds": 2579,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
         "itemLabel": "10.1",
         "title": "Readoption of the Local Control and Accountability Plan (LCAP) for the 2025/2026 School Year",
         "phases": {
-          "opened": 2663,
-          "presentation": 2665,
+          "opened": 2662,
+          "presentation": 2662,
           "publicComment": null,
-          "discussion": 2716,
+          "discussion": 2715,
           "vote": {
-            "seconds": 2731,
+            "seconds": 2725,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -757,13 +947,13 @@
         "title": "Approval of the Expanded Learning Opportunities Program Guide for 2025-2026",
         "phases": {
           "opened": 2735,
-          "presentation": 2747,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 2758,
+          "discussion": 2752,
           "vote": {
-            "seconds": 2843,
+            "seconds": 2840,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -774,14 +964,14 @@
         "itemLabel": "10.3",
         "title": "Adoption of Resolutions 4 and 5, Approval of Sole Sourcing Resolution and Resolution to Authorize Technology Procurement under PCC 20118.2 for EV Charging Stations Across District Sites",
         "phases": {
-          "opened": 2845,
+          "opened": 2846,
           "presentation": 2865,
           "publicComment": null,
-          "discussion": 2999,
+          "discussion": 3000,
           "vote": {
-            "seconds": 3108,
+            "seconds": 3107,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -792,14 +982,14 @@
         "itemLabel": "10.4",
         "title": "Adoption of Resolution No. 7, Approval of Education Code and Title V Options for Teaching Assignments",
         "phases": {
-          "opened": 3117,
-          "presentation": 3127,
+          "opened": 3113,
+          "presentation": 3125,
           "publicComment": null,
-          "discussion": 3148,
+          "discussion": 3146,
           "vote": {
-            "seconds": 3157,
+            "seconds": 3158,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -810,10 +1000,10 @@
         "itemLabel": "11",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 3162,
+          "opened": 3161,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3170,
+          "discussion": 3168,
           "vote": null
         },
         "publicComments": [],
@@ -827,7 +1017,7 @@
           "opened": 3325,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3325,
           "vote": null
         },
         "publicComments": [],
@@ -838,10 +1028,10 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 3344,
+          "opened": 3342,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3344,
+          "discussion": 3342,
           "vote": null
         },
         "publicComments": [],
@@ -852,10 +1042,10 @@
         "itemLabel": "14",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 3361,
+          "opened": 3360,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3368,
+          "discussion": 3364,
           "vote": null
         },
         "publicComments": [],
@@ -866,10 +1056,10 @@
         "itemLabel": "15",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 3419,
+          "opened": 3405,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3405,
           "vote": null
         },
         "publicComments": [],
@@ -878,16 +1068,16 @@
       },
       {
         "itemLabel": "16",
-        "title": "Adjournment",
+        "title": "Adjournment (Action Required)",
         "phases": {
-          "opened": 3428,
+          "opened": 3427,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 3435,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -896,7 +1086,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:09:49.937Z",
-  "inputTokens": 19481,
-  "outputTokens": 3334
+  "cachedAt": "2026-07-20T10:27:44.884Z",
+  "inputTokens": 17685,
+  "outputTokens": 4122
 }

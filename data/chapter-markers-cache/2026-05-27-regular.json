@@ -2,6 +2,7 @@
   "date": "2026-05-27",
   "slug": "2026-05-27-regular",
   "itemCount": 85,
+  "transcriptHash": "28fc7aa70e8d7222",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -13,39 +14,43 @@
         "role": "Superintendent"
       },
       "C": {
-        "name": "Unknown",
-        "role": "Roll call reader (possibly Evelyn Sanchez reading names)"
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "D": {
         "name": "David Li",
         "role": "Trustee"
       },
       "E": {
-        "name": "Anna Herrera",
-        "role": "Assistant Superintendent, Educational Services"
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk / Trustee"
       },
       "F": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Board Clerk"
-      },
-      "G": {
         "name": "Cecilia I. Márquez",
         "role": "Vice President"
       },
+      "G": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (note: F and G both appear to be Márquez based on context; re-examining — F introduces herself as Grishel Pacheco for pledge, but that is a one-time speaker; G is Márquez)"
+      },
       "H": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Anna Herrera",
+        "role": "Assistant Superintendent Educational Services (also interpreter at 52s)"
       },
       "I": {
         "name": "Mike Wells",
-        "role": "Trustee (secondary label cross-check: Wells makes motions at 455s, 1741s, 1747s, 2619s, 2650s — confirmed)"
+        "role": "Trustee"
       },
       "J": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (secondary label: speaks at 940s asking question, makes motion at 2908s)"
+        "name": "Unknown / Unidentified staff",
+        "role": "Staff member (likely Evelyn Sanchez based on context)"
+      },
+      "K": {
+        "name": "David Li",
+        "role": "Trustee (note: re-examining — K speaks as a trustee making motions alongside D/Li; likely Mike Wells or David Li)"
       }
     },
-    "agendaChanges": "The meeting recording begins at the Reconvene to Open Session (Section 5); the earlier Call to Order, Roll Call for closed session, Public Comment on Closed Session Items, Announcement of Closed Session Purpose, and Closed Session itself are not captured in the transcript. Section 11 (Bond Program Action Items) had no items and was skipped. Section 13 (Discussion Items) had no items and was skipped. Section 17 (Information) had no items and was skipped. Section 18 (Correspondence) had no notable items. The Pledge of Allegiance occurred after the Welcome rather than as a distinct separate step. No agenda items were pulled from consent.",
+    "agendaChanges": "Section 7 (Changes to the Agenda) was called and no changes were announced. The meeting opened directly in open session (Section 5) as closed session had already occurred before recording. Section 1 (Call to Order) and Sections 3-4 (Closed Session) occurred before the recording began at the reconvening point. Speaker label disambiguation note: A=David Weekly (President), B=John Baker (Superintendent), C=Evelyn Sanchez (board secretary, roll call), D=David Li (Trustee), E=Jennifer Ng Kwing King (Clerk), F=Cecilia I. Márquez (Vice President) — note at 174s F introduces herself as Grishel Pacheco for the Pledge only, G=Cecilia I. Márquez (Vice President), H=Anna Herrera (Asst Superintendent Ed Services, also the Spanish interpreter), I=Mike Wells (Trustee), J=Evelyn Sanchez (staff), K=David Li (Trustee making motions). Re-examination: at 455s K makes a motion and at 2526s F moves to approve consent — K is likely David Li. At 1746s K speaks at length about curriculum — this fits David Li or Mike Wells. At 2618s K moves to accept CSEA proposal. Cross-referencing: I speaks extensively about math data questions consistent with Mike Wells. K speaks about rolling out curriculum and asks about initiative fatigue — consistent with David Li. F=Cecilia Márquez throughout (confirmed by name at 18s roll call response and self-introduction context).",
     "items": [
       {
         "itemLabel": "1",
@@ -60,10 +65,10 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Closed session portion not captured in transcript recording."
+        "note": "Call to Order occurred before recording began (closed session was at 5:50 PM; recording starts at reconvening ~7:00 PM)"
       },
       {
-        "itemLabel": "1",
+        "itemLabel": "Roll Call (pre-closed session)",
         "title": "Roll Call (pre-closed session)",
         "phases": {
           "opened": null,
@@ -75,10 +80,10 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
-        "itemLabel": "1",
+        "itemLabel": "Public Comment on Closed Session Items Only",
         "title": "Public Comment on Closed Session Items Only",
         "phases": {
           "opened": null,
@@ -90,7 +95,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
         "itemLabel": "3",
@@ -105,7 +110,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
         "itemLabel": "4",
@@ -120,7 +125,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
         "itemLabel": "5",
@@ -140,7 +145,7 @@
         "itemLabel": "6",
         "title": "Welcome / Pledge of Allegiance",
         "phases": {
-          "opened": 23,
+          "opened": 21,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -154,7 +159,7 @@
         "itemLabel": "7",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 201,
+          "opened": 200,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -168,14 +173,14 @@
         "itemLabel": "8",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 201,
+          "opened": 200,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 222,
+            "seconds": 221,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -184,34 +189,20 @@
       },
       {
         "itemLabel": "9",
-        "title": "Public Comment",
+        "title": "Public Comment / Labor Association Comments",
         "phases": {
-          "opened": 224,
+          "opened": 223,
           "presentation": null,
-          "publicComment": 224,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9",
-        "title": "Labor Association Comments",
-        "phases": {
-          "opened": 234,
-          "presentation": null,
-          "publicComment": 234,
+          "publicComment": 223,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Maria Stockton",
-            "startSeconds": 257,
+            "startSeconds": 252,
             "endSeconds": 428,
-            "summary": "CSEA Chapter 5 President apologized for missing the retirement party, announced $100 scholarships for 8th graders, thanked classified employees during Classified School Employee Week, praised the new superintendent Dr. Rubalcaba's attendance at the appreciation dinner, and congratulated Superintendent Baker on his retirement."
+            "summary": "CSEA Chapter 5 president apologized for missing the retirement party, announced $100 scholarships for 8th graders at each school, thanked classified employees during Classified School Employee Week, described the chapter's appreciation dinner at Harry's Hofbrau, and congratulated Superintendent Baker on his retirement."
           }
         ],
         "consent": false,
@@ -228,7 +219,7 @@
           "vote": {
             "seconds": 458,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -239,7 +230,7 @@
         "itemLabel": "11",
         "title": "Bond Program Action Items",
         "phases": {
-          "opened": null,
+          "opened": 460,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -248,16 +239,16 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "No action items listed under this section; skipped."
+        "note": "President noted no bond program action items tonight"
       },
       {
         "itemLabel": "12",
-        "title": "Update on the Redwood City School District K-8 Math Program: Imagine Mathematics (IM) Three-Year Implementation and Sustainability Plan",
+        "title": "School/Community Reports — Update on K-8 Math Program: Imagine Mathematics Three-Year Implementation and Sustainability Plan",
         "phases": {
           "opened": 460,
           "presentation": 478,
           "publicComment": null,
-          "discussion": 893,
+          "discussion": 890,
           "vote": null
         },
         "publicComments": [],
@@ -277,20 +268,20 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "No discussion items listed; skipped."
+        "note": "No discussion items were taken up"
       },
       {
         "itemLabel": "14",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 2459,
+          "opened": 2457,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2530,
+            "seconds": 2529,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -299,34 +290,31 @@
       },
       {
         "itemLabel": "15",
-        "title": "Acceptance of the California School Employees Association Chapter V Initial Proposal - Successor Negotiations for 2026-2029",
+        "title": "Action Items — Acceptance of CSEA Chapter V Initial Proposal / Receipt of Board's Initial Proposal / Approval of CBO Employment Agreement",
         "phases": {
-          "opened": 2530,
-          "presentation": 2549,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 2630,
-            "type": "voice",
-            "result": "approved unanimously"
-          }
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "15",
-        "title": "Receipt of Governing Board's Initial Proposal for Negotiations with California School Employees Association Chapter V for the 2026-2027 School Year",
-        "phases": {
-          "opened": 2630,
+          "opened": 2531,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false,
+        "note": "Parent item; individual sub-items below"
+      },
+      {
+        "itemLabel": "15.1",
+        "title": "Acceptance of the CSEA Chapter V Initial Proposal – Successor Negotiations for 2026-2029",
+        "phases": {
+          "opened": 2531,
+          "presentation": 2549,
+          "publicComment": null,
+          "discussion": 2607,
           "vote": {
-            "seconds": 2656,
+            "seconds": 2630,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -334,17 +322,35 @@
         "pulled": false
       },
       {
-        "itemLabel": "15",
+        "itemLabel": "15.2",
+        "title": "Receipt of Governing Board's Initial Proposal for Negotiations with CSEA Chapter V for 2026-2027",
+        "phases": {
+          "opened": 2632,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 2636,
+          "vote": {
+            "seconds": 2654,
+            "type": "voice",
+            "result": "unanimous aye"
+          }
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "15.3",
         "title": "Approval of the Employment Agreement between the Redwood City School District and Richard W. Edson II, Chief Business Official",
         "phases": {
           "opened": 2660,
-          "presentation": 2664,
+          "presentation": 2663,
           "publicComment": null,
-          "discussion": 2831,
+          "discussion": 2829,
           "vote": {
             "seconds": 2919,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -355,10 +361,10 @@
         "itemLabel": "16",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 2926,
-          "presentation": 2940,
+          "opened": 2922,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 2938,
           "vote": null
         },
         "publicComments": [],
@@ -378,7 +384,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "No information items; skipped."
+        "note": "No information items were taken up"
       },
       {
         "itemLabel": "18",
@@ -398,7 +404,7 @@
         "itemLabel": "19",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 3537,
+          "opened": 3538,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -412,10 +418,10 @@
         "itemLabel": "20",
         "title": "Board of Trustees Meeting Reflection",
         "phases": {
-          "opened": 3543,
+          "opened": 3552,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3559,
+          "discussion": 3557,
           "vote": null
         },
         "publicComments": [],
@@ -426,10 +432,10 @@
         "itemLabel": "21",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 3810,
+          "opened": 3818,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3831,
           "vote": null
         },
         "publicComments": [],
@@ -440,14 +446,14 @@
         "itemLabel": "22",
         "title": "Adjournment",
         "phases": {
-          "opened": 3841,
+          "opened": 3838,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 3844,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -468,39 +474,43 @@
         "role": "Superintendent"
       },
       "C": {
-        "name": "Unknown",
-        "role": "Roll call reader (possibly Evelyn Sanchez reading names)"
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "D": {
         "name": "David Li",
         "role": "Trustee"
       },
       "E": {
-        "name": "Anna Herrera",
-        "role": "Assistant Superintendent, Educational Services"
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk / Trustee"
       },
       "F": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Board Clerk"
-      },
-      "G": {
         "name": "Cecilia I. Márquez",
         "role": "Vice President"
       },
+      "G": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (note: F and G both appear to be Márquez based on context; re-examining — F introduces herself as Grishel Pacheco for pledge, but that is a one-time speaker; G is Márquez)"
+      },
       "H": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Anna Herrera",
+        "role": "Assistant Superintendent Educational Services (also interpreter at 52s)"
       },
       "I": {
         "name": "Mike Wells",
-        "role": "Trustee (secondary label cross-check: Wells makes motions at 455s, 1741s, 1747s, 2619s, 2650s — confirmed)"
+        "role": "Trustee"
       },
       "J": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (secondary label: speaks at 940s asking question, makes motion at 2908s)"
+        "name": "Unknown / Unidentified staff",
+        "role": "Staff member (likely Evelyn Sanchez based on context)"
+      },
+      "K": {
+        "name": "David Li",
+        "role": "Trustee (note: re-examining — K speaks as a trustee making motions alongside D/Li; likely Mike Wells or David Li)"
       }
     },
-    "agendaChanges": "The meeting recording begins at the Reconvene to Open Session (Section 5); the earlier Call to Order, Roll Call for closed session, Public Comment on Closed Session Items, Announcement of Closed Session Purpose, and Closed Session itself are not captured in the transcript. Section 11 (Bond Program Action Items) had no items and was skipped. Section 13 (Discussion Items) had no items and was skipped. Section 17 (Information) had no items and was skipped. Section 18 (Correspondence) had no notable items. The Pledge of Allegiance occurred after the Welcome rather than as a distinct separate step. No agenda items were pulled from consent.",
+    "agendaChanges": "Section 7 (Changes to the Agenda) was called and no changes were announced. The meeting opened directly in open session (Section 5) as closed session had already occurred before recording. Section 1 (Call to Order) and Sections 3-4 (Closed Session) occurred before the recording began at the reconvening point. Speaker label disambiguation note: A=David Weekly (President), B=John Baker (Superintendent), C=Evelyn Sanchez (board secretary, roll call), D=David Li (Trustee), E=Jennifer Ng Kwing King (Clerk), F=Cecilia I. Márquez (Vice President) — note at 174s F introduces herself as Grishel Pacheco for the Pledge only, G=Cecilia I. Márquez (Vice President), H=Anna Herrera (Asst Superintendent Ed Services, also the Spanish interpreter), I=Mike Wells (Trustee), J=Evelyn Sanchez (staff), K=David Li (Trustee making motions). Re-examination: at 455s K makes a motion and at 2526s F moves to approve consent — K is likely David Li. At 1746s K speaks at length about curriculum — this fits David Li or Mike Wells. At 2618s K moves to accept CSEA proposal. Cross-referencing: I speaks extensively about math data questions consistent with Mike Wells. K speaks about rolling out curriculum and asks about initiative fatigue — consistent with David Li. F=Cecilia Márquez throughout (confirmed by name at 18s roll call response and self-introduction context).",
     "items": [
       {
         "itemLabel": "1",
@@ -515,10 +525,10 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Closed session portion not captured in transcript recording."
+        "note": "Call to Order occurred before recording began (closed session was at 5:50 PM; recording starts at reconvening ~7:00 PM)"
       },
       {
-        "itemLabel": "1",
+        "itemLabel": "Roll Call (pre-closed session)",
         "title": "Roll Call (pre-closed session)",
         "phases": {
           "opened": null,
@@ -530,10 +540,10 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
-        "itemLabel": "1",
+        "itemLabel": "Public Comment on Closed Session Items Only",
         "title": "Public Comment on Closed Session Items Only",
         "phases": {
           "opened": null,
@@ -545,7 +555,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
         "itemLabel": "3",
@@ -560,7 +570,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
         "itemLabel": "4",
@@ -575,7 +585,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "Not captured in transcript."
+        "note": "Occurred before recording began"
       },
       {
         "itemLabel": "5",
@@ -595,7 +605,7 @@
         "itemLabel": "6",
         "title": "Welcome / Pledge of Allegiance",
         "phases": {
-          "opened": 23,
+          "opened": 21,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -609,7 +619,7 @@
         "itemLabel": "7",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 201,
+          "opened": 200,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -623,14 +633,14 @@
         "itemLabel": "8",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 201,
+          "opened": 200,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 222,
+            "seconds": 221,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -639,34 +649,20 @@
       },
       {
         "itemLabel": "9",
-        "title": "Public Comment",
+        "title": "Public Comment / Labor Association Comments",
         "phases": {
-          "opened": 224,
+          "opened": 223,
           "presentation": null,
-          "publicComment": 224,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9",
-        "title": "Labor Association Comments",
-        "phases": {
-          "opened": 234,
-          "presentation": null,
-          "publicComment": 234,
+          "publicComment": 223,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Maria Stockton",
-            "startSeconds": 257,
+            "startSeconds": 252,
             "endSeconds": 428,
-            "summary": "CSEA Chapter 5 President apologized for missing the retirement party, announced $100 scholarships for 8th graders, thanked classified employees during Classified School Employee Week, praised the new superintendent Dr. Rubalcaba's attendance at the appreciation dinner, and congratulated Superintendent Baker on his retirement."
+            "summary": "CSEA Chapter 5 president apologized for missing the retirement party, announced $100 scholarships for 8th graders at each school, thanked classified employees during Classified School Employee Week, described the chapter's appreciation dinner at Harry's Hofbrau, and congratulated Superintendent Baker on his retirement."
           }
         ],
         "consent": false,
@@ -683,7 +679,7 @@
           "vote": {
             "seconds": 458,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -694,7 +690,7 @@
         "itemLabel": "11",
         "title": "Bond Program Action Items",
         "phases": {
-          "opened": null,
+          "opened": 460,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -703,16 +699,16 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "No action items listed under this section; skipped."
+        "note": "President noted no bond program action items tonight"
       },
       {
         "itemLabel": "12",
-        "title": "Update on the Redwood City School District K-8 Math Program: Imagine Mathematics (IM) Three-Year Implementation and Sustainability Plan",
+        "title": "School/Community Reports — Update on K-8 Math Program: Imagine Mathematics Three-Year Implementation and Sustainability Plan",
         "phases": {
           "opened": 460,
           "presentation": 478,
           "publicComment": null,
-          "discussion": 893,
+          "discussion": 890,
           "vote": null
         },
         "publicComments": [],
@@ -732,20 +728,20 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "No discussion items listed; skipped."
+        "note": "No discussion items were taken up"
       },
       {
         "itemLabel": "14",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 2459,
+          "opened": 2457,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2530,
+            "seconds": 2529,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -754,34 +750,31 @@
       },
       {
         "itemLabel": "15",
-        "title": "Acceptance of the California School Employees Association Chapter V Initial Proposal - Successor Negotiations for 2026-2029",
+        "title": "Action Items — Acceptance of CSEA Chapter V Initial Proposal / Receipt of Board's Initial Proposal / Approval of CBO Employment Agreement",
         "phases": {
-          "opened": 2530,
-          "presentation": 2549,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 2630,
-            "type": "voice",
-            "result": "approved unanimously"
-          }
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "15",
-        "title": "Receipt of Governing Board's Initial Proposal for Negotiations with California School Employees Association Chapter V for the 2026-2027 School Year",
-        "phases": {
-          "opened": 2630,
+          "opened": 2531,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false,
+        "note": "Parent item; individual sub-items below"
+      },
+      {
+        "itemLabel": "15.1",
+        "title": "Acceptance of the CSEA Chapter V Initial Proposal – Successor Negotiations for 2026-2029",
+        "phases": {
+          "opened": 2531,
+          "presentation": 2549,
+          "publicComment": null,
+          "discussion": 2607,
           "vote": {
-            "seconds": 2656,
+            "seconds": 2630,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -789,17 +782,35 @@
         "pulled": false
       },
       {
-        "itemLabel": "15",
+        "itemLabel": "15.2",
+        "title": "Receipt of Governing Board's Initial Proposal for Negotiations with CSEA Chapter V for 2026-2027",
+        "phases": {
+          "opened": 2632,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 2636,
+          "vote": {
+            "seconds": 2654,
+            "type": "voice",
+            "result": "unanimous aye"
+          }
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "15.3",
         "title": "Approval of the Employment Agreement between the Redwood City School District and Richard W. Edson II, Chief Business Official",
         "phases": {
           "opened": 2660,
-          "presentation": 2664,
+          "presentation": 2663,
           "publicComment": null,
-          "discussion": 2831,
+          "discussion": 2829,
           "vote": {
             "seconds": 2919,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -810,10 +821,10 @@
         "itemLabel": "16",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 2926,
-          "presentation": 2940,
+          "opened": 2922,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 2938,
           "vote": null
         },
         "publicComments": [],
@@ -833,7 +844,7 @@
         "publicComments": [],
         "consent": false,
         "pulled": false,
-        "note": "No information items; skipped."
+        "note": "No information items were taken up"
       },
       {
         "itemLabel": "18",
@@ -853,7 +864,7 @@
         "itemLabel": "19",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 3537,
+          "opened": 3538,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -867,10 +878,10 @@
         "itemLabel": "20",
         "title": "Board of Trustees Meeting Reflection",
         "phases": {
-          "opened": 3543,
+          "opened": 3552,
           "presentation": null,
           "publicComment": null,
-          "discussion": 3559,
+          "discussion": 3557,
           "vote": null
         },
         "publicComments": [],
@@ -881,10 +892,10 @@
         "itemLabel": "21",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 3810,
+          "opened": 3818,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3831,
           "vote": null
         },
         "publicComments": [],
@@ -895,14 +906,14 @@
         "itemLabel": "22",
         "title": "Adjournment",
         "phases": {
-          "opened": 3841,
+          "opened": 3838,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 3844,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -911,7 +922,7 @@
       }
     ]
   },
-  "cachedAt": "2026-05-28T19:41:33.856Z",
-  "inputTokens": 23401,
-  "outputTokens": 3446
+  "cachedAt": "2026-07-20T10:09:47.493Z",
+  "inputTokens": 23416,
+  "outputTokens": 3775
 }
