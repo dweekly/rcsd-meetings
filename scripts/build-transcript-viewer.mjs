@@ -314,6 +314,13 @@ const pageCSS = `
     transition: background 0.15s;
     display: flex;
     gap: 0.5rem;
+    /* Per-speaker skim cues: each row carries its diarization color as a left
+       border plus a faint wash, so speaker changes read at a glance while
+       scrolling. --spk is set per-row by the renderer; rows without it (older
+       cached pages) degrade to the plain style. Hover/active/search rules
+       below still win on background. */
+    border-left: 3px solid var(--spk, transparent);
+    background: color-mix(in srgb, var(--spk, transparent) 6%, transparent);
   }
   .tv-utterance:last-child { border-bottom: none; }
   .tv-utterance:hover { background: var(--green-wash); }
@@ -703,6 +710,7 @@ ${siteFooter({ lang: 'en' })}
     utterances.forEach(function(u, i) {
       var row = document.createElement('div');
       row.className = 'tv-utterance';
+      row.style.setProperty('--spk', speakerColor(u.speaker));
       row.dataset.idx = i;
       row.dataset.start = u.start;
 
