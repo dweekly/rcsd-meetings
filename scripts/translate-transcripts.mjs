@@ -100,15 +100,16 @@ STYLE GUIDELINES:
 - Dollar amounts, dates, and numbers stay in their original format
 
 TASK:
-You will receive a JSON array of utterances. Each has an index number and English text.
-Return a JSON array of the SAME length with the Spanish translation for each utterance, in the same order.
+You will receive a JSON array of utterances. Each has an index number "i" and English text "t".
+Return a JSON array of objects with the SAME "i" values, each carrying the Spanish translation as "t".
+Translate every item separately — never merge or skip items, even one-word utterances.
 Return ONLY the JSON array, no markdown fences or explanation.
 
 Example input:
 [{"i":0,"t":"Good evening, everyone. Let's call the meeting to order."},{"i":1,"t":"Here."}]
 
 Example output:
-["Buenas noches a todos. Vamos a iniciar la reunión.","Presente."]`;
+[{"i":0,"t":"Buenas noches a todos. Vamos a iniciar la reunión."},{"i":1,"t":"Presente."}]`;
 
 async function translateMeeting(date) {
   const enPath = resolve(SLIM_DIR, `${date}.json`);
@@ -196,17 +197,31 @@ async function translateMeeting(date) {
       }
     }
 
-    // A count mismatch means the model merged or dropped an item somewhere in
-    // the batch — positional mapping then attaches every later translation to
-    // the WRONG utterance (published 2026-06-24-es shifted one slot from
-    // utterance 7 onward this way). Position is only trustworthy when counts
-    // match exactly: retry the batch once, then fall back to English for the
-    // whole batch (valid, just untranslated) rather than guess alignment.
-    if (translations.length !== batch.length) {
-      console.warn(`  ${date} batch ${b + 1}/${batches.length}: model returned ${translations.length} items for ${batch.length} inputs (attempt ${attempt})`);
-      if (attempt < 2) continue retry;
-      translations = batch.map(item => item.t);
+    // Output is requested in indexed form so alignment never depends on
+    // position: each translation is keyed to its input by "i". (The earlier
+    // bare-array contract let a model-merged short utterance shift every later
+    // translation in the batch — published 2026-06-24-es carried wrong text
+    // under right timestamps from utterance 7 on, and mass whole-batch English
+    // fallbacks left files 70% untranslated.) A batch only retries when the
+    // indexed keys are unusable.
+    const byIndex = new Map();
+    for (let k = 0; k < translations.length; k++) {
+      const val = translations[k];
+      if (val !== null && typeof val === 'object' && typeof val.i === 'number') {
+        const t = [val.t, val.text, val.translation].find((v) => typeof v === 'string' && v.trim() !== '');
+        if (t !== undefined && !byIndex.has(val.i)) byIndex.set(val.i, t);
+      } else if (typeof val === 'string' && val.trim() !== '' && translations.length === batch.length) {
+        // Legacy bare-string output: positional mapping is safe only when
+        // counts match exactly.
+        byIndex.set(batch[k].i, val);
+      }
     }
+    const missing = batch.filter((item) => !byIndex.has(item.i)).length;
+    if (missing > 0) {
+      console.warn(`  ${date} batch ${b + 1}/${batches.length}: ${missing}/${batch.length} items unmapped (attempt ${attempt})`);
+      if (attempt < 2 && missing > batch.length * 0.05) continue retry;
+    }
+    translations = batch.map((item) => byIndex.get(item.i));
     break retry;
     } // retry loop
 
