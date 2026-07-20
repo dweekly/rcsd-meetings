@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<title>Política de Privacidad — rcsd.info</title>
+<meta name="description" content="Política de privacidad del sitio rcsd.info y de sus líneas de texto y voz.">
+<meta name="theme-color" content="#1a3a2a">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="canonical" href="https://rcsd.info/privacidad/">
+<link rel="alternate" hreflang="en" href="/privacy/">
+<meta property="og:title" content="Política de Privacidad — rcsd.info">
+<meta property="og:description" content="Política de privacidad del sitio rcsd.info y de sus líneas de texto y voz.">
+<meta property="og:url" content="https://rcsd.info/privacidad/">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://rcsd.info/og-1200.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Política de Privacidad — rcsd.info">
+<meta property="og:locale" content="es_US">
+<meta property="og:site_name" content="RCSD Open Data">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rcsd.info/og-1200.jpg">
+<meta name="twitter:title" content="Política de Privacidad — rcsd.info">
+<meta name="twitter:description" content="Política de privacidad del sitio rcsd.info y de sus líneas de texto y voz.">
+<link rel="describedby" href="/llms.txt">
+<link rel="preload" href="/fonts/fraunces-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/newsreader-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+
+<style>
+
+  :root {
+    --green-deep: #1a3a2a;
+    --green-mid: #2d5a3f;
+    --green-light: #4a8c6a;
+    --green-pale: #dcebd5;
+    --green-wash: #f0f6ed;
+    --cream: #faf8f4;
+    --cream-dark: #f2efe8;
+    --amber: #c4842d;
+    --amber-light: #f0d9a8;
+    --coral: #c45d4a;
+    --coral-light: #f5ddd8;
+    --text: #2a2a28;
+    --text-secondary: #5a5a56;
+    /* Muted text must still clear WCAG AA 4.5:1 on every background it
+       appears on: 5.06:1 on --cream, 4.67:1 on --cream-dark, 5.37:1 on
+       #fff. (The old lighter gray token hit only ~3:1 on all three.) */
+    --text-muted: #6b6b64;
+    --rule: #d4d0c8;
+    --rule-light: #e8e4dc;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+    background: var(--cream);
+  }
+
+  body {
+    font-family: 'Newsreader', Georgia, serif;
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    background: var(--cream);
+  }
+
+  a {
+    color: var(--green-mid);
+    text-decoration-color: var(--rule);
+    text-underline-offset: 2px;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+  a:hover {
+    color: var(--green-deep);
+    text-decoration-color: var(--green-mid);
+  }
+
+  /* ---- SKIP LINK (keyboard a11y) ---- */
+  /* Visually hidden until keyboard focus; first tab stop on every page.
+     Lives inside nav.site-nav so the search indexer (which excludes the
+     nav) never indexes its text. Targets #main-content, emitted by
+     siteNav() right after the nav closes. */
+  .skip-link {
+    position: absolute;
+    left: -200vw;
+    top: 0;
+    z-index: 100;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    background: var(--green-mid);
+    padding: 0.8rem 1.25rem;
+  }
+  .skip-link:focus { left: 0; outline: 2px solid #fff; outline-offset: -4px; }
+
+  /* ---- SITE NAV ---- */
+  .site-nav {
+    background: #1a2e1a;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .site-nav-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .site-nav-tabs { display: flex; gap: 0; }
+  .site-nav-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    /* 0.75rem horizontal padding (not 1rem): seven tabs incl. COMITÉS plus
+       search + lang toggle must fit the 960px container on one row */
+    padding: 0.75rem;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .site-nav-tab:hover { color: #fff; }
+  .site-nav-tab.active { color: #fff; border-bottom-color: var(--green-light); }
+
+  .site-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .site-nav-search { display: flex; position: relative; }
+  /* Spyglass submit button inside the input's right edge: makes the bare
+     input obviously a search box, and gives phones a tappable submit. */
+  .site-nav-search-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2rem;
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 0.8rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.75;
+  }
+  .site-nav-search-btn:hover, .site-nav-search-btn:focus-visible { opacity: 1; }
+  .site-nav-search-btn:focus-visible { outline: 2px solid #fff; outline-offset: 1px; }
+  .site-nav-search input {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: #fff;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 3px;
+    padding: 0.35rem 2rem 0.35rem 0.65rem;
+    width: 9rem;
+    transition: border-color 0.2s, background 0.2s, width 0.2s;
+  }
+  .site-nav-search input::placeholder { color: rgba(255,255,255,0.55); }
+  .site-nav-search input:focus {
+    /* visible focus ring — a background tint alone fails WCAG 2.4.7 */
+    outline: 2px solid #fff;
+    outline-offset: 1px;
+    background: rgba(255,255,255,0.14);
+    border-color: rgba(255,255,255,0.7);
+    width: 11rem;
+  }
+  .site-nav-lang {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 0.35rem 0.65rem;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 3px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .site-nav-lang:hover {
+    color: #fff;
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  /* ---- FOOTER ---- */
+  .site-footer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 2rem 4rem;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+  }
+  .site-footer p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .site-footer a { color: var(--green-mid); }
+  .footer-nav {
+    margin-top: 0.8rem;
+    font-style: normal;
+  }
+  .footer-nav a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--green-mid);
+    text-decoration: none;
+    /* inline-block + padding lifts the tap target to ~33px tall (the bare
+       0.65rem text was 13px); padding + margin ≈ the old 0.75rem spacing */
+    display: inline-block;
+    padding: 0.45rem 0.5rem;
+    margin: 0 0.25rem;
+  }
+  .footer-nav a:hover { text-decoration: underline; }
+
+  /* ---- RESPONSIVE (nav + footer) ---- */
+  /* The single-row nav needs ~920px (seven ES tabs + search + lang toggle),
+     so below 960px it wraps instead: tabs flow across as many justified rows
+     as needed, then search + lang toggle get a full-width row. Every nav item
+     stays visible — the old horizontal scroll strip hid tabs with no usable
+     affordance, and 641–780px viewports clipped the search box offscreen. */
+  @media (max-width: 960px) {
+    .site-nav-inner {
+      flex-wrap: wrap;
+      padding: 0 0.9rem 0.65rem;
+    }
+    .site-nav-tabs {
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+    }
+    .site-nav-tab {
+      /* flex-grow justifies each wrapped row edge-to-edge; 0.9rem vertical
+         padding keeps tap targets ≥44px tall (0.75rem measured only 41.8px) */
+      flex: 1 0 auto;
+      text-align: center;
+      font-size: 0.7rem;
+      padding: 0.9rem 0.55rem;
+    }
+    .site-nav-right { flex: 1 1 100%; }
+    .site-nav-search { flex: 1 1 auto; }
+    .site-nav-search input,
+    .site-nav-search input:focus { width: 100%; }
+    /* 0.95rem vertical padding -> ≥44px tall tap target (0.75rem gave 39.5px) */
+    .site-nav-search input { padding: 0.95rem 2.6rem 0.95rem 0.75rem; }
+    .site-nav-search-btn { width: 2.6rem; font-size: 1rem; }
+    .site-nav-lang {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+.legal-wrap { max-width: 760px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+.legal-wrap h1 { font-family: 'Fraunces', serif; margin-bottom: .25rem; }
+.legal-wrap .updated { color: #5a6b5d; font-size: .9rem; margin-bottom: 2rem; }
+.legal-wrap h2 { font-family: 'Fraunces', serif; margin: 2rem 0 .5rem; font-size: 1.25rem; }
+.legal-wrap p, .legal-wrap li { line-height: 1.6; }
+.legal-wrap ul { padding-left: 1.25rem; }
+
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div class="site-nav-inner">
+    <div class="site-nav-tabs">
+      <a href="/" class="site-nav-tab">Inicio</a>
+      <a href="/reuniones/" class="site-nav-tab">Reuniones</a>
+      <a href="/escuelas/" class="site-nav-tab">Escuelas</a>
+      <a href="/distrito/" class="site-nav-tab">Distrito</a>
+      <a href="/presupuesto/" class="site-nav-tab">Presupuesto</a>
+      <a href="/comites/" class="site-nav-tab">Comités</a>
+      <a href="/blog/es/" class="site-nav-tab">Blog</a>
+    </div>
+    <div class="site-nav-right">
+      <form class="site-nav-search" role="search" action="/buscar/" method="get"><input type="search" name="q" placeholder="Buscar…" aria-label="Buscar" autocomplete="off"><button type="submit" class="site-nav-search-btn" aria-label="Buscar">🔍</button></form>
+      <a href="/privacy/" class="site-nav-lang">EN</a>
+    </div>
+  </div>
+</nav>
+<span id="main-content" tabindex="-1"></span>
+<main class="legal-wrap">
+
+<h1>Política de Privacidad</h1>
+<p class="updated">Última actualización: 2026-07-19</p>
+
+<p>rcsd.info es un sitio web independiente con información pública sobre el
+Distrito Escolar de Redwood City, operado por Primatech Paper Co LLC. No es un
+sitio oficial del distrito. Esta política cubre el sitio web y las líneas de
+texto y voz de rcsd.info (inglés: (650) 482-8912, español: (650) 399-7203).</p>
+
+<h2>Qué información recibimos</h2>
+<ul>
+<li><strong>Sitio web:</strong> no hay cuentas y no usamos cookies de rastreo.
+Nuestro proveedor de hosting (Cloudflare) guarda logs normales del
+servidor.</li>
+<li><strong>Líneas de texto y voz:</strong> cuando nos mandas un texto o nos
+llamas, recibimos tu número de teléfono y tu pregunta. Guardamos el historial
+de la conversación para que el servicio funcione bien y para prevenir
+abuso.</li>
+</ul>
+
+<h2>Cómo la usamos</h2>
+<p>Tu pregunta se procesa, incluso con servicios de AI (inteligencia
+artificial), solamente para darte una respuesta con datos públicos del
+distrito escolar.</p>
+
+<h2>Lo que NO hacemos</h2>
+<p><strong>No compartimos tu información móvil con terceros ni afiliados para
+marketing o promociones.</strong> No vendemos tu número ni tus mensajes. No
+mandamos publicidad. El servicio solo responde cuando tú escribes primero.</p>
+
+<h2>Niños</h2>
+<p>El servicio es para papás, tutores y miembros de la comunidad — adultos. Por
+favor no mandes información personal de estudiantes.</p>
+
+<h2>Contacto</h2>
+<p>¿Preguntas? Escríbenos a
+<a href="mailto:team@rcsd.info">team@rcsd.info</a>.</p>
+
+<p><a href="/terminos/">Términos de Servicio de la línea de texto</a></p>
+
+</main>
+<footer class="site-footer">
+  <p>Preparado con documentos públicos de RCSD. Los documentos originales están disponibles en <a href="https://www.rcsdk8.net">rcsdk8.net</a> y en el <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">portal de la mesa directiva GAMUT</a>.</p>
+  <div class="footer-nav">
+    <a href="/">Inicio</a>
+    <a href="/reuniones/">Reuniones</a>
+    <a href="/escuelas/">Escuelas</a>
+    <a href="/distrito/">Distrito</a>
+    <a href="/presupuesto/">Presupuesto</a>
+    <a href="/comites/">Comités</a>
+    <a href="/mcp/">API y datos para desarrolladores</a>
+    <a href="https://github.com/dweekly/rcsd-meetings">Código Fuente &#8599;</a>
+    <a href="mailto:team@rcsd.info">team@rcsd.info</a>
+  </div>
+</footer>
+</body>
+</html>
