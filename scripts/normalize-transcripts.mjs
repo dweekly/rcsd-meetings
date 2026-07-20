@@ -29,11 +29,12 @@ if (!apply && !process.argv.includes('--dry-run')) {
   process.exit(1);
 }
 
-const RULES_VERSION = 2;
+const RULES_VERSION = 3;
 
 // Single-token rules: [wrong token regex, replacement]
 const TOKEN_RULES = [
   [/^McAvoy(['’]?s?[.,?!]?)$/, 'MacAvoy$1'], // Trustee Alisa MacAvoy
+  [/^McEvoy(['’]?s?[.,?!]?)$/, 'MacAvoy$1'], // Trustee Alisa MacAvoy (v3)
   [/^LCP(['’]?s?[.,?!]?)$/, 'LCAP$1'], // Local Control and Accountability Plan
   [/^Weekley(['’]?s?[.,?!]?)$/, 'Weekly$1'], // Trustee David Weekly
   [/^Weakley(['’]?s?[.,?!]?)$/, 'Weekly$1'], // Trustee David Weekly (v2)
@@ -49,11 +50,26 @@ const BIGRAM_RULES = [
   // calls and vote sequences; standalone "Marcus" is left alone (real first name).
   ['Trustee', /^Marcus([.,?!]?)$/, 'Márquez$1'],
   ['President', /^Marcus([.,?!]?)$/, 'Márquez$1'],
+  // v3, all context-verified in roll calls / vote sequences:
+  ['Trustee', /^(?:Welts|Waltz|Wall|Walls)([.,?!]?)$/, 'Wells$1'],
+  ['President', /^(?:Welts|Waltz|Wall|Walls)([.,?!]?)$/, 'Wells$1'],
+  ['Trustee', /^Mart(?:í|i)?n?ez([.,?!]?)$/, 'Márquez$1'], // Martez/Martinez/Martínez
+  ['President', /^Mart(?:í|i)?n?ez([.,?!]?)$/, 'Márquez$1'],
+  ['Trustee', /^Makovei([.,?!]?)$/, 'MacAvoy$1'],
+  ['President', /^Makovei([.,?!]?)$/, 'MacAvoy$1'],
+  // Nancy Magee, San Mateo County Superintendent of Schools, misheard "McGee"
+  ['Superintendent', /^McGee(['’]?s?[.,?!]?)$/, 'Magee$1'],
+  ['Nancy', /^McGee(['’]?s?[.,?!]?)$/, 'Magee$1'],
 ];
 
 // The same rules expressed over running text (for text / utterances[].text).
 const TEXT_RULES = [
   [/\bMcAvoy\b/g, 'MacAvoy'],
+  [/\bMcEvoy\b/g, 'MacAvoy'],
+  [/\b(Trustee|President) (?:Welts|Waltz|Wall|Walls)\b/g, '$1 Wells'],
+  [/\b(Trustee|President) Mart(?:í|i)?n?ez\b/g, '$1 Márquez'],
+  [/\b(Trustee|President) Makovei\b/g, '$1 MacAvoy'],
+  [/\b(Superintendent|Nancy) McGee\b/g, '$1 Magee'],
   [/\bLCP\b/g, 'LCAP'],
   [/\bWeekley\b/g, 'Weekly'],
   [/\bWeakley\b/g, 'Weekly'],
