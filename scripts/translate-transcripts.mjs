@@ -152,6 +152,10 @@ async function translateMeeting(date) {
   for (let b = 0; b < batches.length; b++) {
     const batch = batches[b];
     const batchJson = JSON.stringify(batch);
+    let attempt = 0;
+    let translations;
+    retry: while (true) {
+    attempt++;
 
     // Use streaming to handle long requests
     const stream = await client.messages.stream({
@@ -166,7 +170,6 @@ async function translateMeeting(date) {
     totalOutput += response.usage.output_tokens;
 
     const text = response.content[0].text;
-    let translations;
     try {
       // Extract JSON array from response
       const match = text.match(/\[[\s\S]*\]/);
@@ -193,17 +196,26 @@ async function translateMeeting(date) {
       }
     }
 
+    // A count mismatch means the model merged or dropped an item somewhere in
+    // the batch — positional mapping then attaches every later translation to
+    // the WRONG utterance (published 2026-06-24-es shifted one slot from
+    // utterance 7 onward this way). Position is only trustworthy when counts
+    // match exactly: retry the batch once, then fall back to English for the
+    // whole batch (valid, just untranslated) rather than guess alignment.
+    if (translations.length !== batch.length) {
+      console.warn(`  ${date} batch ${b + 1}/${batches.length}: model returned ${translations.length} items for ${batch.length} inputs (attempt ${attempt})`);
+      if (attempt < 2) continue retry;
+      translations = batch.map(item => item.t);
+    }
+    break retry;
+    } // retry loop
+
     // The model is asked for a bare string array but sometimes echoes the
     // indexed input format ([{"i":N,"t":"…"}]) instead — un-unwrapped, those
     // objects landed in utterance.text and corrupted 22 published -es.json
-    // files through May 2026. Unwrap positionally: observed model output
-    // preserves order even when its echoed "i" values drift (+1/+3 offsets in
-    // the 2020-08-26 run), so position — not the echoed index — is
-    // authoritative. Anything unusable falls back to the English source text,
-    // which is valid (just untranslated) rather than corrupt.
-    if (translations.length !== batch.length) {
-      console.warn(`  ${date} batch ${b + 1}/${batches.length}: model returned ${translations.length} items for ${batch.length} inputs`);
-    }
+    // files through May 2026. Unwrap positionally (counts are known equal here).
+    // Anything unusable falls back to the English source text.
+    {}
     const fallbackIndices = [];
     let indexDrift = 0;
     const cleanTranslations = batch.map((item, idx) => {
@@ -243,6 +255,21 @@ async function translateMeeting(date) {
       text: allTranslations[i] || u.text,
     })),
   };
+
+  // Alignment guard: numbers survive translation verbatim, so utterances whose
+  // digits match the NEXT English utterance instead of their own mean the
+  // translation array shifted (model merged/dropped an item and slipped past
+  // the count check). Refuse to write a shifted file — error now, retry next run.
+  {
+    const dig = (t) => ((t || '').match(/\d+/g) || []).join(',');
+    let shifted = 0;
+    for (let i = 0; i + 1 < en.utterances.length; i++) {
+      const ds = dig(allTranslations[i]);
+      if (!ds) continue;
+      if (ds !== dig(en.utterances[i].text) && ds === dig(en.utterances[i + 1].text)) shifted++;
+    }
+    if (shifted >= 3) throw new Error(`${date}-es: translation alignment shift detected (${shifted} shifted digit matches)`);
+  }
 
   assertValidTranslation(es, en.utterances.length, `${date}-es`);
   writeFileSync(esPath, JSON.stringify(es));
