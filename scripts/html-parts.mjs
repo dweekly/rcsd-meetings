@@ -412,8 +412,8 @@ ${tabsHtml}
 //   lang: 'en' | 'es'
 
 const FOOTER_TEXT = {
-  en: 'Independently compiled from publicly available RCSD documents. Source documents at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>.',
-  es: 'Preparado con documentos p\u00fablicos de RCSD. Los documentos originales est\u00e1n disponibles en <a href="https://www.rcsdk8.net">rcsdk8.net</a> y en el <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">portal de la mesa directiva GAMUT</a>.',
+  en: 'Independently compiled from publicly available RCSD documents. Source documents at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>. rcsd.info is an independent community project of Primatech Paper Co LLC. Info line: <a href="tel:+16504828912">(650) 482-8912</a> (English) \u00b7 <a href="tel:+16503997203">(650) 399-7203</a> (espa\u00f1ol) \u2014 <a href="/terms/">terms</a>.',
+  es: 'Preparado con documentos p\u00fablicos de RCSD. Los documentos originales est\u00e1n disponibles en <a href="https://www.rcsdk8.net">rcsdk8.net</a> y en el <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">portal de la mesa directiva GAMUT</a>. rcsd.info es un proyecto comunitario independiente de Primatech Paper Co LLC. L\u00ednea de informaci\u00f3n: <a href="tel:+16503997203">(650) 399-7203</a> (espa\u00f1ol) \u00b7 <a href="tel:+16504828912">(650) 482-8912</a> (ingl\u00e9s) \u2014 <a href="/terminos/">t\u00e9rminos</a>.',
 };
 
 export function siteFooter({ lang = 'en' } = {}) {
