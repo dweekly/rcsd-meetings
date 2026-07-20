@@ -24,7 +24,12 @@ for (const name of ['remote-r2-bytes', 'stable-r2-bytes']) {
 }
 
 const startedAt = new Date().toISOString();
-const command = ['wrangler', 'pages', 'deploy', 'docs', `--project-name=${projectName}`];
+// --branch=main explicitly: without it wrangler infers the branch from the
+// checkout, and on the CI runner that inference has produced preview-only
+// deployments — production (rcsd.info) sat frozen at a ~July 10 build while
+// previews accumulated (caught 2026-07-19: the June 24 meeting page had its
+// transcript on the preview URL but not on production).
+const command = ['wrangler', 'pages', 'deploy', 'docs', `--project-name=${projectName}`, '--branch=main'];
 const child = spawn('npx', command, {
   cwd: ROOT,
   env: process.env,
