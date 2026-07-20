@@ -1,5 +1,6 @@
 {
   "date": "2025-10-16",
+  "transcriptHash": "175c3f669a1c808a",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -13,21 +14,21 @@
   ],
   "llmResponse": {
     "agenda_changes": null,
-    "consent_vote_words": "All in favor? Aye.",
+    "consent_vote_words": null,
     "items": [
       {
         "item": 1,
-        "intro_words": "All right, we can get started before we do roll call then.",
+        "intro_words": "All right, we can get started before we do roll call.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "With that, we can commence with roll call. Trustee Lee.",
+        "intro_words": "Trustee Li? Here. Trustee King? Here. Trustee Márquez?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Good evening. Welcome to our October 16, 2025, special meeting of the Redwood City School Board.",
+        "intro_words": "Uh, good evening. Welcome to our October 16th, 2025 special meeting",
         "status": "found"
       },
       {
@@ -37,22 +38,22 @@
       },
       {
         "item": 5,
-        "intro_words": "Can I get a motion to approve the agenda? I move we approve the agenda.",
+        "intro_words": "Seeing none, can I get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "We'll move on to public comment. I did not. I don't have any.",
+        "intro_words": "Um, all right then, uh, agenda's approved. We'll move on to public comment.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "With that, I am going to hand it off to Rick. Good evening. Tonight's session is focused on the Facilities Master Plan, specifically the implementation plan that we're working to create, which builds upon the work completed under Measure T and guides the next phase of improvements.",
+        "intro_words": "With that, I am going to hand it off to Rick. Good evening.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Can I just check real fast? Jen, did you have any comments? You don't have to. I just wanted to make sure we didn't ignore you for being online. No, all good. Thank you. Okay. Anyone else? Cecilia or David? No. Okay, great. All right, perfect. Let's go. Great. So again, this conversation we kind of thought would happen. So the next section of this presentation is the next scenario of the the other identified high IOQ scoring projects.",
+        "intro_words": "Can I just check real fast, Jen? Did you have any comments?",
         "status": "found"
       }
     ]
@@ -65,37 +66,37 @@
         "timestampSeconds": 7
       },
       {
-        "timestamp": "00:01:01",
-        "timestampSeconds": 61
+        "timestamp": "00:01:02",
+        "timestampSeconds": 62
       },
       {
-        "timestamp": "00:01:16",
-        "timestampSeconds": 76
+        "timestamp": "00:01:17",
+        "timestampSeconds": 77
       },
       {
-        "timestamp": "00:02:11",
-        "timestampSeconds": 131
+        "timestamp": "00:02:14",
+        "timestampSeconds": 134
       },
       {
-        "timestamp": "00:02:16",
-        "timestampSeconds": 136
+        "timestamp": "00:02:25",
+        "timestampSeconds": 145
       },
       {
-        "timestamp": "00:02:42",
-        "timestampSeconds": 162
+        "timestamp": "00:02:30",
+        "timestampSeconds": 150
       },
       null,
       {
-        "timestamp": "00:03:07",
-        "timestampSeconds": 187
+        "timestamp": "00:03:32",
+        "timestampSeconds": 212
       },
       {
-        "timestamp": "01:00:55",
-        "timestampSeconds": 3655
+        "timestamp": "01:01:30",
+        "timestampSeconds": 3690
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:26:34.945Z",
-  "inputTokens": 23742,
-  "outputTokens": 556
+  "cachedAt": "2026-07-20T10:36:20.875Z",
+  "inputTokens": 24729,
+  "outputTokens": 420
 }

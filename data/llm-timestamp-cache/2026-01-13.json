@@ -1,5 +1,6 @@
 {
   "date": "2026-01-13",
+  "transcriptHash": "8e2c804d33e9035b",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -13,52 +14,57 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": null,
+    "agenda_changes": "No changes to the posted agenda were announced. Items were taken in the posted order.",
     "consent_vote_words": null,
     "items": [
       {
         "item": 1,
-        "intro_words": "Good evening, everyone. Thank you for coming to tonight's special meeting and study session.",
+        "intro_words": "Good evening, everyone. Thank you for coming to tonight's special meeting",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "So we are going to do we roll call and then approval of the agenda. Roll call.",
+        "intro_words": "So we are going to do a roll call and then approval of the",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Okay, great. So can we kick off a roll call, please, for all Trustee Wells here.",
+        "intro_words": "So thank you for coming. I can see that there's quite a",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "I think we're. We can skip the pledge of allegiance for tonight. We'll do that tomorrow.",
+        "intro_words": "I think we're— we can skip the Pledge of Allegiance for tonight.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And so do we have any changes to the agenda? All right, Sound like to move.",
+        "intro_words": "And so do we have any changes to the agenda? All right.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "I'll move that we approve the agenda. Thank you. Second. Second. Wonderful. All those in favor?",
+        "intro_words": "Would someone like to move? I'll move that we approve the agenda.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Great. So now we would like to open things up for public comment. You want to do a comment right now?",
+        "intro_words": "So now we would like to open things up for public comment.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Good evening, everyone, and welcome to tonight's study session. I want to welcome not only board members,",
+        "intro_words": "All right, good evening everyone and welcome to tonight's study session.",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "So tonight's agenda: we're going to give a board update on the",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "All right, thanks. Awesome. So some things I heard, I really want to call it out for the community",
+        "intro_words": "Would someone like to move to adjourn? We'll move to adjourn.",
         "status": "found"
       }
     ]
@@ -75,8 +81,8 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
+        "timestamp": "00:00:33",
+        "timestampSeconds": 33
       },
       {
         "timestamp": "00:01:23",
@@ -87,25 +93,28 @@
         "timestampSeconds": 78
       },
       {
-        "timestamp": "00:01:18",
-        "timestampSeconds": 78
+        "timestamp": "00:01:08",
+        "timestampSeconds": 68
       },
       {
         "timestamp": "00:01:23",
         "timestampSeconds": 83
       },
       {
-        "timestamp": "00:01:59",
-        "timestampSeconds": 119
+        "timestamp": "00:01:54",
+        "timestampSeconds": 114
       },
-      null,
       {
-        "timestamp": "01:51:22",
-        "timestampSeconds": 6682
+        "timestamp": "00:01:23",
+        "timestampSeconds": 83
+      },
+      {
+        "timestamp": "02:02:19",
+        "timestampSeconds": 7339
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:25:17.747Z",
-  "inputTokens": 19831,
-  "outputTokens": 510
+  "cachedAt": "2026-07-20T10:34:52.849Z",
+  "inputTokens": 24004,
+  "outputTokens": 507
 }

@@ -1,5 +1,6 @@
 {
   "date": "2022-01-12",
+  "transcriptHash": "2cb972bbf8356da6",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -16,43 +17,78 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Items 10.5, 10.6, and 10.7 (three measure U's) moved to consent. Items 10.3 and 10.4 moved to consent.",
-    "consent_vote_words": "Do I have a motion to approve all those three?",
+    "agenda_changes": "At the start of the meeting, President Díaz-Slocum asked: 'Are there any changes to the agenda this evening?' A trustee proposed moving items 10.5, 10.6, 10.7 to consent, and also moving 10.3 and 10.4 to consent. This was moved and seconded, and approved by voice vote (all in favor).",
+    "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay, let's get started. Once again, for those of you",
+        "intro_words": "Okay, let's get started once again. For those of you that are just joining us, welcome.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present. Trustee Wells",
+        "intro_words": "Eliana, roll call, please. Trustee McEvoy.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's great to see you in person",
+        "intro_words": "Welcome everybody, it's great to see you in person, although we're 6 feet apart",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening",
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening",
+        "intro_words": "Allie, do we have any oral communication this evening? We have 3 speakers'",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving right along to the bond program consent items",
+        "intro_words": "Okay, moving right along to the bond program consent items. Recommendation regarding approval",
+        "status": "consent_bundle"
+      },
+      {
+        "item": "8.1",
+        "intro_words": "Okay, on to 8 discussion items. The first one is 8.1, COVID-19 Update",
         "status": "found"
       },
       {
-        "item": 12,
-        "intro_words": "Update on Workforce Housing at 750 Bradford Street",
-        "status": "not_found"
+        "item": "8.2",
+        "intro_words": "8.2, just first reading and discussion of Board Policy 1240, Volunteer Assistance.",
+        "status": "found"
+      },
+      {
+        "item": "8.3",
+        "intro_words": "Okay, 8.3, first reading and discussion of Board Policy 3555, Nutrition Program Compliance",
+        "status": "found"
+      },
+      {
+        "item": "8.4",
+        "intro_words": "8.4, First Reading and Discussion of Board Policy 0460, Local Control and Accountability Plan.",
+        "status": "found"
+      },
+      {
+        "item": "10.1",
+        "intro_words": "Okay, can I have a motion to move the consent items, which include Action items",
+        "status": "found"
+      },
+      {
+        "item": "10.2",
+        "intro_words": "Okay, moving on to 10.2. It's recommendation adoption of Resolution 22, authorizing electronic",
+        "status": "found"
+      },
+      {
+        "item": "12.1",
+        "intro_words": "12.1, the Quarterly Williams Report. Do we have any questions or comments on",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Can we have a motion to adjourn? So moved. Second. All in favor? Aye.",
+        "status": "found"
       }
     ]
   },
@@ -64,12 +100,12 @@
         "timestampSeconds": 0
       },
       {
-        "timestamp": "00:00:16",
-        "timestampSeconds": 16
+        "timestamp": "00:00:21",
+        "timestampSeconds": 21
       },
       {
-        "timestamp": "00:00:46",
-        "timestampSeconds": 46
+        "timestamp": "00:00:50",
+        "timestampSeconds": 50
       },
       null,
       {
@@ -80,19 +116,23 @@
       null,
       null,
       {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
+        "timestamp": "00:01:43",
+        "timestampSeconds": 103
       },
       null,
       {
-        "timestamp": "00:02:53",
-        "timestampSeconds": 173
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108,
+        "consent": true
       },
       null,
-      null
+      {
+        "timestamp": "00:01:32",
+        "timestampSeconds": 92
+      }
     ]
   },
-  "cachedAt": "2026-06-26T04:14:21.007Z",
-  "inputTokens": 18781,
-  "outputTokens": 396
+  "cachedAt": "2026-07-20T10:39:29.287Z",
+  "inputTokens": 19587,
+  "outputTokens": 865
 }
