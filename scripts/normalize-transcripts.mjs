@@ -29,13 +29,14 @@ if (!apply && !process.argv.includes('--dry-run')) {
   process.exit(1);
 }
 
-const RULES_VERSION = 1;
+const RULES_VERSION = 2;
 
 // Single-token rules: [wrong token regex, replacement]
 const TOKEN_RULES = [
   [/^McAvoy(['’]?s?[.,?!]?)$/, 'MacAvoy$1'], // Trustee Alisa MacAvoy
   [/^LCP(['’]?s?[.,?!]?)$/, 'LCAP$1'], // Local Control and Accountability Plan
   [/^Weekley(['’]?s?[.,?!]?)$/, 'Weekly$1'], // Trustee David Weekly
+  [/^Weakley(['’]?s?[.,?!]?)$/, 'Weekly$1'], // Trustee David Weekly (v2)
   [/^CASPP?(['’]?s?[.,?!]?)$/, 'CAASPP$1'], // state assessment, spoken "cass-p"
   [/^LPAC(['’]?s?[.,?!]?)$/, 'ELPAC$1'], // English Language Proficiency Assessments
 ];
@@ -44,6 +45,10 @@ const TOKEN_RULES = [
 const BIGRAM_RULES = [
   ['Trustee', /^Lee(['’]?s?[.,?!]?)$/, 'Li$1'], // Trustee David Li
   ['Trustee', /^Wheatley(['’]?s?[.,?!]?)$/, 'Weekly$1'], // Trustee David Weekly
+  // v2: "Vice President Marcus"/"Trustee Marcus" = Cecilia Márquez in roll
+  // calls and vote sequences; standalone "Marcus" is left alone (real first name).
+  ['Trustee', /^Marcus([.,?!]?)$/, 'Márquez$1'],
+  ['President', /^Marcus([.,?!]?)$/, 'Márquez$1'],
 ];
 
 // The same rules expressed over running text (for text / utterances[].text).
@@ -51,6 +56,8 @@ const TEXT_RULES = [
   [/\bMcAvoy\b/g, 'MacAvoy'],
   [/\bLCP\b/g, 'LCAP'],
   [/\bWeekley\b/g, 'Weekly'],
+  [/\bWeakley\b/g, 'Weekly'],
+  [/\b(Trustee|President) Marcus\b/g, '$1 Márquez'],
   [/\bCASPP?\b/g, 'CAASPP'],
   [/\bLPAC\b/g, 'ELPAC'],
   [/\bTrustee Lee\b/g, 'Trustee Li'],
