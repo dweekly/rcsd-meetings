@@ -1,6 +1,8 @@
 {
   "date": "2025-06-18",
+  "slug": "2025-06-18-regular",
   "itemCount": 32,
+  "transcriptHash": "68d63992c6b1b531",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,31 +10,31 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "C": {
-        "name": "David Li",
-        "role": "Trustee"
-      },
-      "D": {
         "name": "David Weekly",
         "role": "Vice President"
       },
+      "C": {
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
+      },
+      "D": {
+        "name": "Anna Herrera",
+        "role": "Assistant Superintendent of Educational Services"
+      },
       "E": {
+        "name": "David Li",
+        "role": "Trustee"
+      },
+      "F": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "F": {
-        "name": "David Li",
-        "role": "Trustee (secondary label used in transcript)"
-      },
       "G": {
-        "name": "Agustin Espino",
+        "name": "Augustine Espino",
         "role": "Public speaker / ELAC President"
       }
     },
-    "agendaChanges": "No formal changes to the agenda were made. Oral Communication (Section 5) was briefly introduced out of order at ~128s before President Wells recognized the public comment card was actually for the LCAP item (8.1) and redirected; Oral Communication was then properly held at ~152s with no speakers. Speaker labels C and F both map to David Li — the transcript uses both labels for the same person at different points. Anna Herrera (Assistant Superintendent) presented Item 8.1 as speaker B during that item, overlapping with Evelyn Sanchez's label B used elsewhere; context makes clear Herrera is the presenter for 8.1 and Rick Edson (CBO) is the presenter for 8.2.",
+    "agendaChanges": "Section 7 (Bond Program Action Items) was skipped as there were no action items. The oral communication speaker (Augustine Espino) was initially called during Section 5 but redirected to speak during the Section 8.1 public hearing. Items otherwise proceeded in agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -49,10 +51,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
+        "itemLabel": "1",
         "title": "Roll Call",
         "phases": {
-          "opened": 14,
+          "opened": 10,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -78,7 +80,7 @@
       },
       {
         "itemLabel": "3",
-        "title": "Changes to the Agenda",
+        "title": "Additions, Deletions, or Modifications to the Agenda",
         "phases": {
           "opened": 123,
           "presentation": null,
@@ -99,9 +101,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 127,
+            "seconds": 128,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -112,9 +114,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 152,
+          "opened": 131,
           "presentation": null,
-          "publicComment": 152,
+          "publicComment": 131,
           "discussion": null,
           "vote": null
         },
@@ -124,7 +126,7 @@
       },
       {
         "itemLabel": "6",
-        "title": "Approval of Bond Program Consent Items",
+        "title": "Approval of Bond Program Consent Items – Approval of Phase 2 Solar Project DSA Project Inspector Services Agreement with Pinelli & Associates, Inc.",
         "phases": {
           "opened": 172,
           "presentation": null,
@@ -133,7 +135,7 @@
           "vote": {
             "seconds": 188,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -159,17 +161,17 @@
         "title": "Public Hearing – Local Control and Accountability Plan (LCAP) for 2025-2026",
         "phases": {
           "opened": 191,
-          "presentation": 242,
-          "publicComment": 2189,
-          "discussion": 2431,
+          "presentation": 236,
+          "publicComment": 2187,
+          "discussion": 2430,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Agustin Espino",
+            "name": "Augustine Espino",
             "startSeconds": 2206,
-            "endSeconds": 2390,
-            "summary": "As ELAC President and RCSD parent, he thanked the district for its work but raised concerns about low Hispanic/Latino parent engagement at meetings and the persistent achievement gap between White/Asian and Black/Latino students, asking what the district is doing to close that gap especially if advanced classes are introduced."
+            "endSeconds": 2389,
+            "summary": "As an ELAC president and parent of a Kennedy student, he thanked the board for their efforts, expressed concern about unmet attendance goals, low parent engagement in the Hispanic community, the achievement gap between student groups, and asked what the district is doing to close that gap, especially if advanced classes are added."
           }
         ],
         "consent": false,
@@ -180,9 +182,9 @@
         "title": "Public Hearing: RCSD 2025/26 Proposed Budget",
         "phases": {
           "opened": 4729,
-          "presentation": 4779,
-          "publicComment": 5932,
-          "discussion": 5941,
+          "presentation": 4765,
+          "publicComment": 5930,
+          "discussion": 5942,
           "vote": null
         },
         "publicComments": [],
@@ -193,14 +195,14 @@
         "itemLabel": "9",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 6605,
+          "opened": 6602,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6616,
+            "seconds": 6615,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -211,14 +213,14 @@
         "itemLabel": "9.1",
         "title": "Approval of the 2025–2026 Board Meeting Calendar",
         "phases": {
-          "opened": 6605,
+          "opened": 6602,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6616,
+            "seconds": 6615,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -227,16 +229,16 @@
       },
       {
         "itemLabel": "9.2",
-        "title": "Approval of Amendment No. 3 between Redwood City School District and Bullseye Translation",
+        "title": "Approval of Amendment No. 3 between Redwood City School District and Bullseye Translation to provide additional interpretation services 2024-2025 school year",
         "phases": {
-          "opened": 6605,
+          "opened": 6602,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6616,
+            "seconds": 6615,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -244,31 +246,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Action Items",
-        "phases": {
-          "opened": 6620,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "10.1",
         "title": "Approval of the Prop 28 Expenditure Plan for the 2025-2026 School Year",
         "phases": {
-          "opened": 6620,
-          "presentation": 6635,
+          "opened": 6616,
+          "presentation": 6630,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 6672,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -282,7 +270,7 @@
           "opened": 6674,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6674,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -293,7 +281,7 @@
         "itemLabel": "12",
         "title": "Information",
         "phases": {
-          "opened": 6725,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -307,10 +295,10 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 6725,
+          "opened": 6723,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6732,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -319,9 +307,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Other Business/Suggested Items for Future Agenda",
+        "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6806,
+          "opened": 6804,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -335,7 +323,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 6806,
+          "opened": 6855,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -354,9 +342,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6860,
+            "seconds": 6859,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -373,31 +361,31 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "C": {
-        "name": "David Li",
-        "role": "Trustee"
-      },
-      "D": {
         "name": "David Weekly",
         "role": "Vice President"
       },
+      "C": {
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
+      },
+      "D": {
+        "name": "Anna Herrera",
+        "role": "Assistant Superintendent of Educational Services"
+      },
       "E": {
+        "name": "David Li",
+        "role": "Trustee"
+      },
+      "F": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "F": {
-        "name": "David Li",
-        "role": "Trustee (secondary label used in transcript)"
-      },
       "G": {
-        "name": "Agustin Espino",
+        "name": "Augustine Espino",
         "role": "Public speaker / ELAC President"
       }
     },
-    "agendaChanges": "No formal changes to the agenda were made. Oral Communication (Section 5) was briefly introduced out of order at ~128s before President Wells recognized the public comment card was actually for the LCAP item (8.1) and redirected; Oral Communication was then properly held at ~152s with no speakers. Speaker labels C and F both map to David Li — the transcript uses both labels for the same person at different points. Anna Herrera (Assistant Superintendent) presented Item 8.1 as speaker B during that item, overlapping with Evelyn Sanchez's label B used elsewhere; context makes clear Herrera is the presenter for 8.1 and Rick Edson (CBO) is the presenter for 8.2.",
+    "agendaChanges": "Section 7 (Bond Program Action Items) was skipped as there were no action items. The oral communication speaker (Augustine Espino) was initially called during Section 5 but redirected to speak during the Section 8.1 public hearing. Items otherwise proceeded in agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -414,10 +402,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
+        "itemLabel": "1",
         "title": "Roll Call",
         "phases": {
-          "opened": 14,
+          "opened": 10,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -443,7 +431,7 @@
       },
       {
         "itemLabel": "3",
-        "title": "Changes to the Agenda",
+        "title": "Additions, Deletions, or Modifications to the Agenda",
         "phases": {
           "opened": 123,
           "presentation": null,
@@ -464,9 +452,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 127,
+            "seconds": 128,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -477,9 +465,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 152,
+          "opened": 131,
           "presentation": null,
-          "publicComment": 152,
+          "publicComment": 131,
           "discussion": null,
           "vote": null
         },
@@ -489,7 +477,7 @@
       },
       {
         "itemLabel": "6",
-        "title": "Approval of Bond Program Consent Items",
+        "title": "Approval of Bond Program Consent Items – Approval of Phase 2 Solar Project DSA Project Inspector Services Agreement with Pinelli & Associates, Inc.",
         "phases": {
           "opened": 172,
           "presentation": null,
@@ -498,7 +486,7 @@
           "vote": {
             "seconds": 188,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -524,17 +512,17 @@
         "title": "Public Hearing – Local Control and Accountability Plan (LCAP) for 2025-2026",
         "phases": {
           "opened": 191,
-          "presentation": 242,
-          "publicComment": 2189,
-          "discussion": 2431,
+          "presentation": 236,
+          "publicComment": 2187,
+          "discussion": 2430,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Agustin Espino",
+            "name": "Augustine Espino",
             "startSeconds": 2206,
-            "endSeconds": 2390,
-            "summary": "As ELAC President and RCSD parent, he thanked the district for its work but raised concerns about low Hispanic/Latino parent engagement at meetings and the persistent achievement gap between White/Asian and Black/Latino students, asking what the district is doing to close that gap especially if advanced classes are introduced."
+            "endSeconds": 2389,
+            "summary": "As an ELAC president and parent of a Kennedy student, he thanked the board for their efforts, expressed concern about unmet attendance goals, low parent engagement in the Hispanic community, the achievement gap between student groups, and asked what the district is doing to close that gap, especially if advanced classes are added."
           }
         ],
         "consent": false,
@@ -545,9 +533,9 @@
         "title": "Public Hearing: RCSD 2025/26 Proposed Budget",
         "phases": {
           "opened": 4729,
-          "presentation": 4779,
-          "publicComment": 5932,
-          "discussion": 5941,
+          "presentation": 4765,
+          "publicComment": 5930,
+          "discussion": 5942,
           "vote": null
         },
         "publicComments": [],
@@ -558,14 +546,14 @@
         "itemLabel": "9",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 6605,
+          "opened": 6602,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6616,
+            "seconds": 6615,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -576,14 +564,14 @@
         "itemLabel": "9.1",
         "title": "Approval of the 2025–2026 Board Meeting Calendar",
         "phases": {
-          "opened": 6605,
+          "opened": 6602,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6616,
+            "seconds": 6615,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -592,16 +580,16 @@
       },
       {
         "itemLabel": "9.2",
-        "title": "Approval of Amendment No. 3 between Redwood City School District and Bullseye Translation",
+        "title": "Approval of Amendment No. 3 between Redwood City School District and Bullseye Translation to provide additional interpretation services 2024-2025 school year",
         "phases": {
-          "opened": 6605,
+          "opened": 6602,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6616,
+            "seconds": 6615,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -609,31 +597,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Action Items",
-        "phases": {
-          "opened": 6620,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "10.1",
         "title": "Approval of the Prop 28 Expenditure Plan for the 2025-2026 School Year",
         "phases": {
-          "opened": 6620,
-          "presentation": 6635,
+          "opened": 6616,
+          "presentation": 6630,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 6672,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "2-0 (quorum only; Márquez and King absent)"
           }
         },
         "publicComments": [],
@@ -647,7 +621,7 @@
           "opened": 6674,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6674,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -658,7 +632,7 @@
         "itemLabel": "12",
         "title": "Information",
         "phases": {
-          "opened": 6725,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -672,10 +646,10 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 6725,
+          "opened": 6723,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6732,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -684,9 +658,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Other Business/Suggested Items for Future Agenda",
+        "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6806,
+          "opened": 6804,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -700,7 +674,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 6806,
+          "opened": 6855,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -719,9 +693,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6860,
+            "seconds": 6859,
             "type": "voice",
-            "result": "3-0 (Ng Kwing King absent, Márquez absent)"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -730,7 +704,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:13:05.202Z",
-  "inputTokens": 30785,
-  "outputTokens": 2804
+  "cachedAt": "2026-07-20T19:22:38.319Z",
+  "inputTokens": 31536,
+  "outputTokens": 2619
 }

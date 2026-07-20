@@ -1,11 +1,13 @@
 {
   "date": "2024-12-17",
+  "slug": "2024-12-17-board-meeting",
   "itemCount": 41,
+  "transcriptHash": "c491ccfcf8005e01",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President (outgoing)"
+        "role": "Outgoing Board President"
       },
       "B": {
         "name": "Evelyn Sanchez",
@@ -13,42 +15,54 @@
       },
       "C": {
         "name": "Cecilia I. Márquez",
-        "role": "Trustee (incoming Clerk)"
+        "role": "Board Clerk / Trustee"
       },
       "D": {
-        "name": "Mike Wells",
-        "role": "Vice President (incoming President)"
+        "name": "David Weekly",
+        "role": "Board Vice President / Trustee"
       },
       "E": {
-        "name": "Unidentified speaker",
-        "role": "Audience/Spanish interpretation responder"
+        "name": "Elisa MacAvoy",
+        "role": "Outgoing Trustee"
       },
       "F": {
+        "name": "Joan Dentler",
+        "role": "Staff representative for State Senator Josh Becker and Assembly Members"
+      },
+      "G": {
+        "name": "David Li",
+        "role": "Newly elected Trustee"
+      },
+      "H": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "G": {
-        "name": "Dennis McBride",
-        "role": "Community speaker / former board member"
-      },
-      "H": {
-        "name": "Marissa McAvoy",
-        "role": "Community speaker / Elisa McAvoy's daughter"
-      },
       "I": {
-        "name": "Mike Wells",
-        "role": "Board President (newly sworn in)"
+        "name": "Dennis McBride",
+        "role": "Former Board Member / Community speaker"
       },
       "J": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Trustee (newly sworn in)"
+        "name": "Rick (CFO/Director of Business Services)",
+        "role": "District Chief Business Official / presenter for First Interim Budget"
+      },
+      "K": {
+        "name": "Mario Rendon",
+        "role": "Staff representative for Congressman Kevin Mullin"
+      },
+      "L": {
+        "name": "Elisa MacAvoy",
+        "role": "Outgoing Trustee (speaking in farewell remarks)"
+      },
+      "M": {
+        "name": "Mike Wells",
+        "role": "Incoming Board President / Trustee"
       }
     },
-    "agendaChanges": "Per the minutes and transcript, the Reception (Section 5) was moved to occur before the Annual Board Officer's Rotation (Section 4). The oath of office (Section 3) occurred before the reception, and the Annual Board Officer's Rotation occurred after the reception. This resequencing was noted under Changes to the Agenda (Section 6). The actual order was: Call to Order, Roll Call, Welcome, Oath of Office, Reception, Annual Board Officer's Rotation, Changes to the Agenda, Approval of Agenda, then the remaining items in order.",
+    "agendaChanges": "The formal agenda listed Section 2 (Welcome by Janet Lawson) and Section 3 (Oath of Office) and Section 4 (Annual Board Officer Rotation) as separate items after Call to Order/Roll Call, but the meeting began with an extended recognition/farewell ceremony for outgoing trustees Janet Lawson and Elisa MacAvoy (not explicitly listed as a standalone agenda item) introduced by the Superintendent, followed by the Oath of Office, then Officer Rotation, then a reception break, then the remainder of the agenda. Section 5 (Reception) occurred immediately after the Oath/Officer Rotation (~3443s) as an informal break before the business meeting resumed. Sections 6 and 7 (Changes to Agenda and Approval of Agenda) followed the reception. The agenda was otherwise taken up in order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 8,
           "presentation": null,
@@ -61,73 +75,16 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
+        "itemLabel": "2",
+        "title": "Welcome by the School Board President, Janet Lawson",
         "phases": {
-          "opened": 27,
-          "presentation": null,
+          "opened": 8,
+          "presentation": 90,
           "publicComment": null,
           "discussion": null,
           "vote": null
         },
         "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "2",
-        "title": "Welcome by the School Board President",
-        "phases": {
-          "opened": 91,
-          "presentation": 91,
-          "publicComment": 390,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [
-          {
-            "name": "Dennis McBride",
-            "startSeconds": 394,
-            "endSeconds": 661,
-            "summary": "Thanked Janet Lawson for her nine years of dedicated service, recounting her integrity, calm leadership through crises including school closures and COVID, and her personal friendship."
-          },
-          {
-            "name": "Mario Rendon",
-            "startSeconds": 737,
-            "endSeconds": 797,
-            "summary": "Representing Congressman Kevin Mullin's office, commended Janet Lawson for her perseverance and public service, presenting a token of appreciation."
-          },
-          {
-            "name": "Joan Dentler",
-            "startSeconds": 814,
-            "endSeconds": 1017,
-            "summary": "Representing State Senator Josh Becker and Assemblymembers Diane Papan and Marc Berman, presented Janet Lawson with a legislative resolution commending her dedication and service as a board trustee, and also acknowledged Elisa McAvoy's contributions."
-          },
-          {
-            "name": "Lori McBride",
-            "startSeconds": 1076,
-            "endSeconds": 1529,
-            "summary": "Praised Elisa McAvoy's extensive volunteerism, community involvement, professional background, and 17 years of tireless service to the Redwood City School District and beyond."
-          },
-          {
-            "name": "Mario Rendon",
-            "startSeconds": 1542,
-            "endSeconds": 1680,
-            "summary": "Representing Congressman Kevin Mullin, presented Elisa McAvoy with a Congressional Record entry in her honor, thanking her for 17 years of service and her invaluable guidance on education issues."
-          },
-          {
-            "name": "Dennis McBride",
-            "startSeconds": 1686,
-            "endSeconds": 2167,
-            "summary": "Delivered an extended tribute to Elisa McAvoy, highlighting her 17 years of board service, her work on parcel taxes and bonds, her book distribution efforts, her advocacy, and her personal qualities of positivity and dedication to students."
-          },
-          {
-            "name": "Marissa McAvoy",
-            "startSeconds": 2175,
-            "endSeconds": 2241,
-            "summary": "Elisa McAvoy's daughter shared pride in her mother's work, noting that Elisa actually increased her commitment after her daughters left the district."
-          }
-        ],
         "consent": false,
         "pulled": false
       },
@@ -135,22 +92,8 @@
         "itemLabel": "3",
         "title": "Administer Oath of Office",
         "phases": {
-          "opened": 3082,
+          "opened": 3072,
           "presentation": 3175,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "5",
-        "title": "Reception",
-        "phases": {
-          "opened": 3454,
-          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -163,8 +106,22 @@
         "itemLabel": "4",
         "title": "Annual Board Officer's Rotation",
         "phases": {
-          "opened": 3520,
-          "presentation": 3520,
+          "opened": 3534,
+          "presentation": 3534,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "5",
+        "title": "Reception",
+        "phases": {
+          "opened": 3443,
+          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -177,7 +134,7 @@
         "itemLabel": "6",
         "title": "Additions, Deletions, or Modifications to the Agenda",
         "phases": {
-          "opened": 3900,
+          "opened": 3850,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -191,14 +148,14 @@
         "itemLabel": "7",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 3900,
+          "opened": 3850,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3911,
+            "seconds": 3903,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -221,26 +178,12 @@
       },
       {
         "itemLabel": "9",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 3921,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.1",
         "title": "Report on Local Indicator Measurement for the California Dashboard",
         "phases": {
-          "opened": 3936,
+          "opened": 3921,
           "presentation": 3956,
           "publicComment": null,
-          "discussion": 5396,
+          "discussion": 5394,
           "vote": null
         },
         "publicComments": [],
@@ -249,26 +192,12 @@
       },
       {
         "itemLabel": "10",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 6800,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10.1",
         "title": "Discussion of School Assignments and Committee Assignments for Board Members for the Remainder of the 2024-25 School Year",
         "phases": {
-          "opened": 6800,
+          "opened": 6799,
           "presentation": 6813,
           "publicComment": null,
-          "discussion": 6800,
+          "discussion": 6917,
           "vote": null
         },
         "publicComments": [],
@@ -279,14 +208,14 @@
         "itemLabel": "11",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 7809,
+          "opened": 7807,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7824,
+            "seconds": 7822,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -295,30 +224,16 @@
       },
       {
         "itemLabel": "12",
-        "title": "Action Items",
-        "phases": {
-          "opened": 7824,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.1",
         "title": "Approval of the 2024/25 First Interim Budget Report for RCSD",
         "phases": {
-          "opened": 7851,
-          "presentation": 7889,
+          "opened": 7829,
+          "presentation": 7888,
           "publicComment": null,
-          "discussion": 9188,
+          "discussion": 9187,
           "vote": {
-            "seconds": 9407,
+            "seconds": 9401,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -343,7 +258,7 @@
         "itemLabel": "14",
         "title": "Correspondence",
         "phases": {
-          "opened": 9559,
+          "opened": 9555,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -357,7 +272,7 @@
         "itemLabel": "15",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 9559,
+          "opened": 9555,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -371,10 +286,10 @@
         "itemLabel": "16",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 9559,
+          "opened": 9582,
           "presentation": 9582,
           "publicComment": null,
-          "discussion": 9582,
+          "discussion": 9631,
           "vote": null
         },
         "publicComments": [],
@@ -390,9 +305,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9670,
+            "seconds": 9665,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -406,7 +321,7 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President (outgoing)"
+        "role": "Outgoing Board President"
       },
       "B": {
         "name": "Evelyn Sanchez",
@@ -414,42 +329,54 @@
       },
       "C": {
         "name": "Cecilia I. Márquez",
-        "role": "Trustee (incoming Clerk)"
+        "role": "Board Clerk / Trustee"
       },
       "D": {
-        "name": "Mike Wells",
-        "role": "Vice President (incoming President)"
+        "name": "David Weekly",
+        "role": "Board Vice President / Trustee"
       },
       "E": {
-        "name": "Unidentified speaker",
-        "role": "Audience/Spanish interpretation responder"
+        "name": "Elisa MacAvoy",
+        "role": "Outgoing Trustee"
       },
       "F": {
+        "name": "Joan Dentler",
+        "role": "Staff representative for State Senator Josh Becker and Assembly Members"
+      },
+      "G": {
+        "name": "David Li",
+        "role": "Newly elected Trustee"
+      },
+      "H": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "G": {
-        "name": "Dennis McBride",
-        "role": "Community speaker / former board member"
-      },
-      "H": {
-        "name": "Marissa McAvoy",
-        "role": "Community speaker / Elisa McAvoy's daughter"
-      },
       "I": {
-        "name": "Mike Wells",
-        "role": "Board President (newly sworn in)"
+        "name": "Dennis McBride",
+        "role": "Former Board Member / Community speaker"
       },
       "J": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Trustee (newly sworn in)"
+        "name": "Rick (CFO/Director of Business Services)",
+        "role": "District Chief Business Official / presenter for First Interim Budget"
+      },
+      "K": {
+        "name": "Mario Rendon",
+        "role": "Staff representative for Congressman Kevin Mullin"
+      },
+      "L": {
+        "name": "Elisa MacAvoy",
+        "role": "Outgoing Trustee (speaking in farewell remarks)"
+      },
+      "M": {
+        "name": "Mike Wells",
+        "role": "Incoming Board President / Trustee"
       }
     },
-    "agendaChanges": "Per the minutes and transcript, the Reception (Section 5) was moved to occur before the Annual Board Officer's Rotation (Section 4). The oath of office (Section 3) occurred before the reception, and the Annual Board Officer's Rotation occurred after the reception. This resequencing was noted under Changes to the Agenda (Section 6). The actual order was: Call to Order, Roll Call, Welcome, Oath of Office, Reception, Annual Board Officer's Rotation, Changes to the Agenda, Approval of Agenda, then the remaining items in order.",
+    "agendaChanges": "The formal agenda listed Section 2 (Welcome by Janet Lawson) and Section 3 (Oath of Office) and Section 4 (Annual Board Officer Rotation) as separate items after Call to Order/Roll Call, but the meeting began with an extended recognition/farewell ceremony for outgoing trustees Janet Lawson and Elisa MacAvoy (not explicitly listed as a standalone agenda item) introduced by the Superintendent, followed by the Oath of Office, then Officer Rotation, then a reception break, then the remainder of the agenda. Section 5 (Reception) occurred immediately after the Oath/Officer Rotation (~3443s) as an informal break before the business meeting resumed. Sections 6 and 7 (Changes to Agenda and Approval of Agenda) followed the reception. The agenda was otherwise taken up in order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 8,
           "presentation": null,
@@ -462,73 +389,16 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
+        "itemLabel": "2",
+        "title": "Welcome by the School Board President, Janet Lawson",
         "phases": {
-          "opened": 27,
-          "presentation": null,
+          "opened": 8,
+          "presentation": 90,
           "publicComment": null,
           "discussion": null,
           "vote": null
         },
         "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "2",
-        "title": "Welcome by the School Board President",
-        "phases": {
-          "opened": 91,
-          "presentation": 91,
-          "publicComment": 390,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [
-          {
-            "name": "Dennis McBride",
-            "startSeconds": 394,
-            "endSeconds": 661,
-            "summary": "Thanked Janet Lawson for her nine years of dedicated service, recounting her integrity, calm leadership through crises including school closures and COVID, and her personal friendship."
-          },
-          {
-            "name": "Mario Rendon",
-            "startSeconds": 737,
-            "endSeconds": 797,
-            "summary": "Representing Congressman Kevin Mullin's office, commended Janet Lawson for her perseverance and public service, presenting a token of appreciation."
-          },
-          {
-            "name": "Joan Dentler",
-            "startSeconds": 814,
-            "endSeconds": 1017,
-            "summary": "Representing State Senator Josh Becker and Assemblymembers Diane Papan and Marc Berman, presented Janet Lawson with a legislative resolution commending her dedication and service as a board trustee, and also acknowledged Elisa McAvoy's contributions."
-          },
-          {
-            "name": "Lori McBride",
-            "startSeconds": 1076,
-            "endSeconds": 1529,
-            "summary": "Praised Elisa McAvoy's extensive volunteerism, community involvement, professional background, and 17 years of tireless service to the Redwood City School District and beyond."
-          },
-          {
-            "name": "Mario Rendon",
-            "startSeconds": 1542,
-            "endSeconds": 1680,
-            "summary": "Representing Congressman Kevin Mullin, presented Elisa McAvoy with a Congressional Record entry in her honor, thanking her for 17 years of service and her invaluable guidance on education issues."
-          },
-          {
-            "name": "Dennis McBride",
-            "startSeconds": 1686,
-            "endSeconds": 2167,
-            "summary": "Delivered an extended tribute to Elisa McAvoy, highlighting her 17 years of board service, her work on parcel taxes and bonds, her book distribution efforts, her advocacy, and her personal qualities of positivity and dedication to students."
-          },
-          {
-            "name": "Marissa McAvoy",
-            "startSeconds": 2175,
-            "endSeconds": 2241,
-            "summary": "Elisa McAvoy's daughter shared pride in her mother's work, noting that Elisa actually increased her commitment after her daughters left the district."
-          }
-        ],
         "consent": false,
         "pulled": false
       },
@@ -536,22 +406,8 @@
         "itemLabel": "3",
         "title": "Administer Oath of Office",
         "phases": {
-          "opened": 3082,
+          "opened": 3072,
           "presentation": 3175,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "5",
-        "title": "Reception",
-        "phases": {
-          "opened": 3454,
-          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -564,8 +420,22 @@
         "itemLabel": "4",
         "title": "Annual Board Officer's Rotation",
         "phases": {
-          "opened": 3520,
-          "presentation": 3520,
+          "opened": 3534,
+          "presentation": 3534,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "5",
+        "title": "Reception",
+        "phases": {
+          "opened": 3443,
+          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -578,7 +448,7 @@
         "itemLabel": "6",
         "title": "Additions, Deletions, or Modifications to the Agenda",
         "phases": {
-          "opened": 3900,
+          "opened": 3850,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -592,14 +462,14 @@
         "itemLabel": "7",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 3900,
+          "opened": 3850,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3911,
+            "seconds": 3903,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -622,26 +492,12 @@
       },
       {
         "itemLabel": "9",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 3921,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.1",
         "title": "Report on Local Indicator Measurement for the California Dashboard",
         "phases": {
-          "opened": 3936,
+          "opened": 3921,
           "presentation": 3956,
           "publicComment": null,
-          "discussion": 5396,
+          "discussion": 5394,
           "vote": null
         },
         "publicComments": [],
@@ -650,26 +506,12 @@
       },
       {
         "itemLabel": "10",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 6800,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10.1",
         "title": "Discussion of School Assignments and Committee Assignments for Board Members for the Remainder of the 2024-25 School Year",
         "phases": {
-          "opened": 6800,
+          "opened": 6799,
           "presentation": 6813,
           "publicComment": null,
-          "discussion": 6800,
+          "discussion": 6917,
           "vote": null
         },
         "publicComments": [],
@@ -680,14 +522,14 @@
         "itemLabel": "11",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 7809,
+          "opened": 7807,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7824,
+            "seconds": 7822,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -696,30 +538,16 @@
       },
       {
         "itemLabel": "12",
-        "title": "Action Items",
-        "phases": {
-          "opened": 7824,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.1",
         "title": "Approval of the 2024/25 First Interim Budget Report for RCSD",
         "phases": {
-          "opened": 7851,
-          "presentation": 7889,
+          "opened": 7829,
+          "presentation": 7888,
           "publicComment": null,
-          "discussion": 9188,
+          "discussion": 9187,
           "vote": {
-            "seconds": 9407,
+            "seconds": 9401,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -744,7 +572,7 @@
         "itemLabel": "14",
         "title": "Correspondence",
         "phases": {
-          "opened": 9559,
+          "opened": 9555,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -758,7 +586,7 @@
         "itemLabel": "15",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 9559,
+          "opened": 9555,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -772,10 +600,10 @@
         "itemLabel": "16",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 9559,
+          "opened": 9582,
           "presentation": 9582,
           "publicComment": null,
-          "discussion": 9582,
+          "discussion": 9631,
           "vote": null
         },
         "publicComments": [],
@@ -791,9 +619,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9670,
+            "seconds": 9665,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -802,7 +630,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:24:23.166Z",
-  "inputTokens": 39387,
-  "outputTokens": 3105
+  "cachedAt": "2026-07-20T19:33:44.626Z",
+  "inputTokens": 39786,
+  "outputTokens": 2374
 }

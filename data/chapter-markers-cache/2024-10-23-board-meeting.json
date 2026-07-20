@@ -1,18 +1,20 @@
 {
   "date": "2024-10-23",
+  "slug": "2024-10-23-board-meeting",
   "itemCount": 45,
+  "transcriptHash": "5507923ecb132f9e",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "President, Board of Education"
+        "role": "President (acting as chair)"
       },
       "B": {
-        "name": "Patrinia Redd",
-        "role": "Director of Health and Wellness (primary); note: also used briefly by other speakers in back-and-forth"
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Cecilia I. Márquez",
+        "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "D": {
@@ -20,51 +22,41 @@
         "role": "Trustee"
       },
       "E": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
+        "name": "Wendy (staff)",
+        "role": "District staff presenting board policies (likely Wendy, not further identified in roster)"
       },
       "F": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Member (Vice President per agenda Section 2 lists Lawson as VP, but Márquez is President per roster — acting as board member here)"
       },
       "G": {
+        "name": "Patrina Redd",
+        "role": "Director of Health and Wellness"
+      },
+      "H": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "H": {
-        "name": "Lisa Cox",
-        "role": "Lead Nurse (RN)"
-      },
       "I": {
-        "name": "Phoebe Reid-Chambers",
-        "role": "Lead Nurse (RN)"
+        "name": "Lisa Cox",
+        "role": "Lead RN"
       },
       "J": {
+        "name": "Phoebe Reed Chambers",
+        "role": "Lead RN"
+      },
+      "K": {
         "name": "Mike Wells",
-        "role": "Vice President, Board of Education"
+        "role": "Clerk"
       }
     },
-    "agendaChanges": "The agenda noted 'Welcome by the School Board President, Janet Lawson' as Section 2, but in practice the president (Lawson) moved directly from Roll Call into Changes to the Agenda and Approval of Agenda without a distinct welcome segment. Sections 3 (Changes to the Agenda) and 4 (Approval of Agenda) were handled together immediately after Roll Call at approximately 27s. The Roll Call was conducted by Evelyn Sanchez (board secretary) but the transcript label B at that point reflects Patrinia Redd later; label assignments shift. No items were pulled from consent or resequenced beyond the merged procedural items.",
+    "agendaChanges": "Section 2 (Welcome) and Roll Call were compressed/skipped at the start; the president noted skipping the usual spiel. Roll call was conducted by Evelyn Sanchez at ~18s but the president moved immediately to agenda approval without a separate welcome. Sections 3 and 4 (Changes to the Agenda and Approval of Agenda) were handled together at ~25s. Section 9 (Action Items) was noted as having no items. Items were otherwise taken up in agenda order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 6,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 18,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -78,7 +70,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 7,
+          "opened": 6,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -92,7 +84,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 27,
+          "opened": 25,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -106,14 +98,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 27,
+          "opened": 25,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 36,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -124,9 +116,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 37,
+          "opened": 40,
           "presentation": null,
-          "publicComment": 37,
+          "publicComment": 40,
           "discussion": null,
           "vote": null
         },
@@ -136,40 +128,12 @@
       },
       {
         "itemLabel": "6",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 37,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6.1",
         "title": "2024-2025 Health and Wellness Report",
         "phases": {
-          "opened": 37,
-          "presentation": 125,
+          "opened": 40,
+          "presentation": 126,
           "publicComment": null,
           "discussion": 1958,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 3737,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -180,10 +144,10 @@
         "itemLabel": "7.1",
         "title": "First Reading and Discussion of Board Policy 5113 - Absences & Excuses",
         "phases": {
-          "opened": 3737,
-          "presentation": null,
+          "opened": 3738,
+          "presentation": 3760,
           "publicComment": null,
-          "discussion": 3764,
+          "discussion": 3807,
           "vote": null
         },
         "publicComments": [],
@@ -195,9 +159,9 @@
         "title": "First Reading and Discussion of Board Policy 5145.6 - Parent/Guardian Notifications",
         "phases": {
           "opened": 3982,
-          "presentation": null,
+          "presentation": 3992,
           "publicComment": null,
-          "discussion": 3991,
+          "discussion": 4050,
           "vote": null
         },
         "publicComments": [],
@@ -209,9 +173,9 @@
         "title": "First Reading and Discussion of Board Policy 6000 - Concepts and Roles",
         "phases": {
           "opened": 4153,
-          "presentation": null,
+          "presentation": 4160,
           "publicComment": null,
-          "discussion": 4164,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -222,10 +186,10 @@
         "itemLabel": "7.4",
         "title": "First Reading and Discussion of Board Policy 4033 - Lactation Accommodation",
         "phases": {
-          "opened": 4170,
-          "presentation": null,
+          "opened": 4171,
+          "presentation": 4179,
           "publicComment": null,
-          "discussion": 4180,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -236,10 +200,10 @@
         "itemLabel": "7.5",
         "title": "First Reading and Discussion of Board Policy 1113 - District and School Websites",
         "phases": {
-          "opened": 4249,
-          "presentation": null,
+          "opened": 4248,
+          "presentation": 4255,
           "publicComment": null,
-          "discussion": 4256,
+          "discussion": 4264,
           "vote": null
         },
         "publicComments": [],
@@ -255,153 +219,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4303,
+            "seconds": 4302,
             "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.1",
-        "title": "Approval of Consent Items",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.2",
-        "title": "Approval of the October 9 Board Meeting Minutes",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.3",
-        "title": "Approval of Agreement between the Redwood City School District and Redwood City Together to Renew the Partnership for Fiscal Years 2024-26",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.4",
-        "title": "Approval of Agreement between Puao Te'o Visual Impairment and Redwood City School District for Visual Impairment Services",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.5",
-        "title": "Approval of the Agreement between Redwood City School District and Aequor for a SPED Occupational Therapist for the 2024-2025 School Year",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.6",
-        "title": "Approval of Facilities Use Agreement Amendment No. 1 between Redwood City School District and KIPP Excelencia Community Prep",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.7",
-        "title": "Approval of Amendment No. 1 to the Agreement between the Redwood City School District and Amergis Healthcare Staffing Inc. for an Additional Behavior Technician for the 2024-25 School Year",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.8",
-        "title": "Approval of Personnel Report",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -429,21 +249,7 @@
           "opened": 4306,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4306,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "11",
-        "title": "Information",
-        "phases": {
-          "opened": 4692,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 4315,
           "vote": null
         },
         "publicComments": [],
@@ -454,10 +260,10 @@
         "itemLabel": "11.1",
         "title": "Quarterly Williams Report, 1st Quarter, July 2024 through September 2024",
         "phases": {
-          "opened": 4692,
+          "opened": 4691,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4692,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -468,10 +274,10 @@
         "itemLabel": "11.2",
         "title": "Information on San Mateo County Investment Fund - September 2024",
         "phases": {
-          "opened": 4693,
+          "opened": 4697,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4693,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -482,10 +288,10 @@
         "itemLabel": "11.3",
         "title": "Redwood City School District Review of Connect Community Charter School's Unaudited Actuals for Fiscal Year 2023-24",
         "phases": {
-          "opened": 4703,
+          "opened": 4702,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4703,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -496,10 +302,10 @@
         "itemLabel": "11.4",
         "title": "Redwood City School District Review of KIPP's Unaudited Actuals for Fiscal Year 2023-24",
         "phases": {
-          "opened": 4714,
+          "opened": 4716,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4729,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -510,10 +316,10 @@
         "itemLabel": "11.5",
         "title": "Redwood City School District Review of Rocketship's Unaudited Actuals for Fiscal Year 2023-24",
         "phases": {
-          "opened": 4714,
+          "opened": 4716,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4729,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -524,10 +330,10 @@
         "itemLabel": "11.6",
         "title": "Review the Human Resource Department's Hiring Season in Preparation for the 2025/2026 School Year",
         "phases": {
-          "opened": 4744,
+          "opened": 4745,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4750,
+          "discussion": 4747,
           "vote": null
         },
         "publicComments": [],
@@ -538,10 +344,10 @@
         "itemLabel": "12",
         "title": "Correspondence",
         "phases": {
-          "opened": 5122,
+          "opened": 5126,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5131,
+          "discussion": 5129,
           "vote": null
         },
         "publicComments": [],
@@ -552,10 +358,10 @@
         "itemLabel": "13",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5140,
+          "opened": 5148,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5154,
+          "discussion": 5151,
           "vote": null
         },
         "publicComments": [],
@@ -566,10 +372,10 @@
         "itemLabel": "14",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 5197,
+          "opened": 5196,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5197,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -580,14 +386,14 @@
         "itemLabel": "15",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 5201,
+          "opened": 5203,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 5209,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -601,14 +407,14 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "President, Board of Education"
+        "role": "President (acting as chair)"
       },
       "B": {
-        "name": "Patrinia Redd",
-        "role": "Director of Health and Wellness (primary); note: also used briefly by other speakers in back-and-forth"
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Cecilia I. Márquez",
+        "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "D": {
@@ -616,51 +422,41 @@
         "role": "Trustee"
       },
       "E": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
+        "name": "Wendy (staff)",
+        "role": "District staff presenting board policies (likely Wendy, not further identified in roster)"
       },
       "F": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Member (Vice President per agenda Section 2 lists Lawson as VP, but Márquez is President per roster — acting as board member here)"
       },
       "G": {
+        "name": "Patrina Redd",
+        "role": "Director of Health and Wellness"
+      },
+      "H": {
         "name": "John Baker",
         "role": "Superintendent"
       },
-      "H": {
-        "name": "Lisa Cox",
-        "role": "Lead Nurse (RN)"
-      },
       "I": {
-        "name": "Phoebe Reid-Chambers",
-        "role": "Lead Nurse (RN)"
+        "name": "Lisa Cox",
+        "role": "Lead RN"
       },
       "J": {
+        "name": "Phoebe Reed Chambers",
+        "role": "Lead RN"
+      },
+      "K": {
         "name": "Mike Wells",
-        "role": "Vice President, Board of Education"
+        "role": "Clerk"
       }
     },
-    "agendaChanges": "The agenda noted 'Welcome by the School Board President, Janet Lawson' as Section 2, but in practice the president (Lawson) moved directly from Roll Call into Changes to the Agenda and Approval of Agenda without a distinct welcome segment. Sections 3 (Changes to the Agenda) and 4 (Approval of Agenda) were handled together immediately after Roll Call at approximately 27s. The Roll Call was conducted by Evelyn Sanchez (board secretary) but the transcript label B at that point reflects Patrinia Redd later; label assignments shift. No items were pulled from consent or resequenced beyond the merged procedural items.",
+    "agendaChanges": "Section 2 (Welcome) and Roll Call were compressed/skipped at the start; the president noted skipping the usual spiel. Roll call was conducted by Evelyn Sanchez at ~18s but the president moved immediately to agenda approval without a separate welcome. Sections 3 and 4 (Changes to the Agenda and Approval of Agenda) were handled together at ~25s. Section 9 (Action Items) was noted as having no items. Items were otherwise taken up in agenda order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 6,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 18,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -674,7 +470,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 7,
+          "opened": 6,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -688,7 +484,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 27,
+          "opened": 25,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -702,14 +498,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 27,
+          "opened": 25,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 36,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -720,9 +516,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 37,
+          "opened": 40,
           "presentation": null,
-          "publicComment": 37,
+          "publicComment": 40,
           "discussion": null,
           "vote": null
         },
@@ -732,40 +528,12 @@
       },
       {
         "itemLabel": "6",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 37,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6.1",
         "title": "2024-2025 Health and Wellness Report",
         "phases": {
-          "opened": 37,
-          "presentation": 125,
+          "opened": 40,
+          "presentation": 126,
           "publicComment": null,
           "discussion": 1958,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 3737,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -776,10 +544,10 @@
         "itemLabel": "7.1",
         "title": "First Reading and Discussion of Board Policy 5113 - Absences & Excuses",
         "phases": {
-          "opened": 3737,
-          "presentation": null,
+          "opened": 3738,
+          "presentation": 3760,
           "publicComment": null,
-          "discussion": 3764,
+          "discussion": 3807,
           "vote": null
         },
         "publicComments": [],
@@ -791,9 +559,9 @@
         "title": "First Reading and Discussion of Board Policy 5145.6 - Parent/Guardian Notifications",
         "phases": {
           "opened": 3982,
-          "presentation": null,
+          "presentation": 3992,
           "publicComment": null,
-          "discussion": 3991,
+          "discussion": 4050,
           "vote": null
         },
         "publicComments": [],
@@ -805,9 +573,9 @@
         "title": "First Reading and Discussion of Board Policy 6000 - Concepts and Roles",
         "phases": {
           "opened": 4153,
-          "presentation": null,
+          "presentation": 4160,
           "publicComment": null,
-          "discussion": 4164,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -818,10 +586,10 @@
         "itemLabel": "7.4",
         "title": "First Reading and Discussion of Board Policy 4033 - Lactation Accommodation",
         "phases": {
-          "opened": 4170,
-          "presentation": null,
+          "opened": 4171,
+          "presentation": 4179,
           "publicComment": null,
-          "discussion": 4180,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -832,10 +600,10 @@
         "itemLabel": "7.5",
         "title": "First Reading and Discussion of Board Policy 1113 - District and School Websites",
         "phases": {
-          "opened": 4249,
-          "presentation": null,
+          "opened": 4248,
+          "presentation": 4255,
           "publicComment": null,
-          "discussion": 4256,
+          "discussion": 4264,
           "vote": null
         },
         "publicComments": [],
@@ -851,153 +619,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4303,
+            "seconds": 4302,
             "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.1",
-        "title": "Approval of Consent Items",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.2",
-        "title": "Approval of the October 9 Board Meeting Minutes",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.3",
-        "title": "Approval of Agreement between the Redwood City School District and Redwood City Together to Renew the Partnership for Fiscal Years 2024-26",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.4",
-        "title": "Approval of Agreement between Puao Te'o Visual Impairment and Redwood City School District for Visual Impairment Services",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.5",
-        "title": "Approval of the Agreement between Redwood City School District and Aequor for a SPED Occupational Therapist for the 2024-2025 School Year",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.6",
-        "title": "Approval of Facilities Use Agreement Amendment No. 1 between Redwood City School District and KIPP Excelencia Community Prep",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.7",
-        "title": "Approval of Amendment No. 1 to the Agreement between the Redwood City School District and Amergis Healthcare Staffing Inc. for an Additional Behavior Technician for the 2024-25 School Year",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.8",
-        "title": "Approval of Personnel Report",
-        "phases": {
-          "opened": 4294,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4303,
-            "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -1025,21 +649,7 @@
           "opened": 4306,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4306,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "11",
-        "title": "Information",
-        "phases": {
-          "opened": 4692,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 4315,
           "vote": null
         },
         "publicComments": [],
@@ -1050,10 +660,10 @@
         "itemLabel": "11.1",
         "title": "Quarterly Williams Report, 1st Quarter, July 2024 through September 2024",
         "phases": {
-          "opened": 4692,
+          "opened": 4691,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4692,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1064,10 +674,10 @@
         "itemLabel": "11.2",
         "title": "Information on San Mateo County Investment Fund - September 2024",
         "phases": {
-          "opened": 4693,
+          "opened": 4697,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4693,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1078,10 +688,10 @@
         "itemLabel": "11.3",
         "title": "Redwood City School District Review of Connect Community Charter School's Unaudited Actuals for Fiscal Year 2023-24",
         "phases": {
-          "opened": 4703,
+          "opened": 4702,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4703,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1092,10 +702,10 @@
         "itemLabel": "11.4",
         "title": "Redwood City School District Review of KIPP's Unaudited Actuals for Fiscal Year 2023-24",
         "phases": {
-          "opened": 4714,
+          "opened": 4716,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4729,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1106,10 +716,10 @@
         "itemLabel": "11.5",
         "title": "Redwood City School District Review of Rocketship's Unaudited Actuals for Fiscal Year 2023-24",
         "phases": {
-          "opened": 4714,
+          "opened": 4716,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4729,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1120,10 +730,10 @@
         "itemLabel": "11.6",
         "title": "Review the Human Resource Department's Hiring Season in Preparation for the 2025/2026 School Year",
         "phases": {
-          "opened": 4744,
+          "opened": 4745,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4750,
+          "discussion": 4747,
           "vote": null
         },
         "publicComments": [],
@@ -1134,10 +744,10 @@
         "itemLabel": "12",
         "title": "Correspondence",
         "phases": {
-          "opened": 5122,
+          "opened": 5126,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5131,
+          "discussion": 5129,
           "vote": null
         },
         "publicComments": [],
@@ -1148,10 +758,10 @@
         "itemLabel": "13",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5140,
+          "opened": 5148,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5154,
+          "discussion": 5151,
           "vote": null
         },
         "publicComments": [],
@@ -1162,10 +772,10 @@
         "itemLabel": "14",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 5197,
+          "opened": 5196,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5197,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1176,14 +786,14 @@
         "itemLabel": "15",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 5201,
+          "opened": 5203,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 5209,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -1192,7 +802,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:28:01.347Z",
-  "inputTokens": 23858,
-  "outputTokens": 4490
+  "cachedAt": "2026-07-20T19:36:38.474Z",
+  "inputTokens": 22976,
+  "outputTokens": 3018
 }

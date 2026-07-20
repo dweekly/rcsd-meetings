@@ -1,6 +1,8 @@
 {
   "date": "2025-01-15",
+  "slug": "2025-01-15-board-meeting",
   "itemCount": 39,
+  "transcriptHash": "fca7483cd848d3ba",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -9,22 +11,90 @@
       },
       "B": {
         "name": "Evelyn Sanchez",
-        "role": "Executive Assistant / Board Secretary"
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Winnie Wong",
-        "role": "Principal, Orion Alternative School / Mandarin Immersion"
+        "name": "David Li",
+        "role": "Trustee"
       },
       "D": {
+        "name": "Cecilia I. Márquez",
+        "role": "Clerk"
+      },
+      "E": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Trustee"
+      },
+      "F": {
+        "name": "David Weekly",
+        "role": "Vice President"
+      },
+      "G": {
+        "name": "David Weekly",
+        "role": "Vice President (second David — context indicates this is Weekly based on roll call sequence and subsequent dialogue)"
+      },
+      "H": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
+      },
+      "I": {
+        "name": "Kendall Klein",
+        "role": "6-8 Math TOSA / Presenter (also used for Jennifer Ng Kwing King in some exchanges)"
+      },
+      "J": {
         "name": "John Baker",
-        "role": "Superintendent (Dr. Baker)"
+        "role": "Superintendent"
+      },
+      "K": {
+        "name": "Rick (unidentified last name)",
+        "role": "District Staff presenter for charter/action items"
+      },
+      "L": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
+      },
+      "M": {
+        "name": "Martin Cervantes",
+        "role": "Director of Maintenance, Operations & Transportation"
+      },
+      "N": {
+        "name": "Winnie Wong",
+        "role": "Orion Alternative School Principal"
+      },
+      "O": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
+      },
+      "P": {
+        "name": "Anton (last name unclear)",
+        "role": "Connect Charter Music Teacher / Transportation Manager Vidal Duran (context-dependent)"
+      },
+      "Q": {
+        "name": "Michelle Stroby",
+        "role": "Public speaker / Connect Charter staff"
+      },
+      "R": {
+        "name": "Unidentified board member / public speaker",
+        "role": "Context-dependent — likely David Li or Jennifer Ng Kwing King in board discussion"
+      },
+      "S": {
+        "name": "Walter Soto Franco",
+        "role": "Connect Charter alumni speaker"
+      },
+      "T": {
+        "name": "Megan O'Reilly Green",
+        "role": "Public speaker (Orion MI community member)"
+      },
+      "U": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
       }
     },
-    "agendaChanges": "Item 8.5 (Approval of 2024 School Accountability Report Cards) was pulled from the agenda by Superintendent Baker due to errors in the data. Item 11.2 (Recommendation for Mathematics Curriculum Adoption for Grades 6-8) was moved by President Wells to follow item 6.1 (Orion Alternative School Presentation) and precede item 7.1 (Connect Community Charter School Public Hearing). Items were heard in the following order: 1, 1.1, 1.2, 2, 3, 4, 5, 6.1, 11.2, 7.1, 8 (consent bundle without 8.5), 9.1, 9.2, 9.3, 9.4, 10, 11.1, 12, 13, 14, 15.",
+    "agendaChanges": "Two changes were approved at the start of the meeting: (1) Item 8.5 (Approval of 2024 School Accountability Report Cards / SARCs) was pulled from the consent calendar due to errors in the data. (2) Item 11.2 (Recommendation for Mathematics Curriculum Adoption for Grades 6-8) was moved up from Section 11 (Information) to immediately after item 6.1 (Orion Alternative School Presentation) and before item 7.1 (Connect Community Charter School Public Hearing). The actual order of items as heard was: Call to Order / Roll Call, Report Out on Closed Session, Welcome, Changes to Agenda, Approval of Agenda, Oral Communication, 6.1 (Orion Presentation), 11.2 (Math Curriculum - moved up), 7.1 (Connect Charter Public Hearing), Consent Items (without 8.5), 9.1, 9.2, 9.3, 9.4, Board/Superintendent Reports, 11.1 (Williams Report - information only), Correspondence, Other Business, Board Calendar, Adjournment.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 7,
           "presentation": null,
@@ -37,21 +107,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 7,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.2",
+        "itemLabel": "1",
         "title": "Report Out on Closed Session from January 10, 2025",
         "phases": {
           "opened": 28,
@@ -82,7 +138,7 @@
         "itemLabel": "3",
         "title": "Additions, Deletions, or Modifications to the Agenda",
         "phases": {
-          "opened": 105,
+          "opened": 136,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -96,14 +152,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 199,
+          "opened": 195,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 204,
+            "seconds": 203,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -114,9 +170,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 204,
+          "opened": 203,
           "presentation": null,
-          "publicComment": 204,
+          "publicComment": 203,
           "discussion": null,
           "vote": null
         },
@@ -125,27 +181,27 @@
         "pulled": false
       },
       {
-        "itemLabel": "6.1",
+        "itemLabel": "6",
         "title": "Orion Alternative School Presentation for the 2024-2025 School Year",
         "phases": {
-          "opened": 215,
-          "presentation": 231,
-          "publicComment": 1641,
+          "opened": 216,
+          "presentation": 230,
+          "publicComment": 1642,
           "discussion": 1993,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Hai-Ching Yang",
-            "startSeconds": 1682,
+            "name": "Haiqing Yang",
+            "startSeconds": 1679,
             "endSeconds": 1800,
-            "summary": "Expressed concern about the stressful and opaque lottery process for the Mandarin Immersion TK program and requested the board explore ways to prioritize committed families and expand capacity."
+            "summary": "Expressed concern about the stressful and opaque lottery process for the Orion Mandarin Immersion TK program and asked the board to consider ways to prioritize committed families and expand capacity."
           },
           {
-            "name": "Michelle Stroebe",
+            "name": "Michelle Stroby",
             "startSeconds": 1827,
-            "endSeconds": 1989,
-            "summary": "Thanked district staff for their hard work and expressed strong support for expanding the Orion Mandarin Immersion program to meet growing community interest and demand."
+            "endSeconds": 1993,
+            "summary": "Expressed support for expanding the Orion Mandarin Immersion program to meet growing community demand and emphasized the program's role in providing equitable public education."
           }
         ],
         "consent": false,
@@ -153,12 +209,12 @@
       },
       {
         "itemLabel": "11.2",
-        "title": "Recommendation for Mathematics Curriculum Adoption for Grades 6-8",
+        "title": "Recommendation for Mathematics Curriculum Adoption for Grades 6-8 (moved up from Section 11)",
         "phases": {
           "opened": 3035,
           "presentation": 3062,
           "publicComment": null,
-          "discussion": 4754,
+          "discussion": 4769,
           "vote": null
         },
         "publicComments": [],
@@ -166,57 +222,57 @@
         "pulled": false
       },
       {
-        "itemLabel": "7.1",
+        "itemLabel": "7",
         "title": "Public Hearing regarding the Connect Community Charter School Renewal Petition",
         "phases": {
-          "opened": 5322,
-          "presentation": 5539,
+          "opened": 5320,
+          "presentation": 5538,
           "publicComment": 6550,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Julio Suchite",
-            "startSeconds": 6574,
+            "name": "Julio Seguite",
+            "startSeconds": 6584,
             "endSeconds": 6770,
-            "summary": "Spoke in Spanish (interpreted) expressing deep gratitude to the board and community, emphasizing trust in the teachers and the transformative impact Connect has had on his family."
+            "summary": "Spoke in Spanish expressing deep gratitude for the board and Connect school's impact on his family, noting that his child succeeded at Connect and urging the board to trust the teachers and continue supporting the community."
           },
           {
             "name": "Amanda Vaughn",
-            "startSeconds": 6987,
-            "endSeconds": 7170,
-            "summary": "Spoke as Connect's art and newcomer teacher, praising the school's implementation of systematic ELD for newcomer students and the quality of the school's art program."
+            "startSeconds": 6988,
+            "endSeconds": 7169,
+            "summary": "Spoke as Connect's art and newcomer teacher, praising the school's SEL approach, newcomer support program, and the tremendous growth she has witnessed in students over her three years at the school."
           },
           {
-            "name": "Meda Okelo",
-            "startSeconds": 7170,
-            "endSeconds": 7238,
-            "summary": "Described joining Connect as a long-term guest teacher, praised its SEL and project-based learning focus, and strongly urged the board to renew the charter."
+            "name": "Mayda Ocalo",
+            "startSeconds": 7186,
+            "endSeconds": 7309,
+            "summary": "Spoke as a long-term substitute/guest teacher at Connect, explaining why she proposed a contract arrangement with the school and urging the district to renew the charter given the school's transformative impact on students."
           },
           {
-            "name": "Anton Estaniel",
+            "name": "Anton (Monique Pusales card — Anton spoke)",
             "startSeconds": 7343,
-            "endSeconds": 7504,
-            "summary": "Spoke as Connect's music teacher, describing the school-wide musical production 'Space is the Place' as a powerful example of project-based learning involving nearly every student."
+            "endSeconds": 7514,
+            "summary": "Spoke as Connect's music teacher, describing the school's enrichment programs and the student musical production 'Space Is the Place' as a flagship project-based learning accomplishment involving nearly every student."
           },
           {
             "name": "Walter Soto Franco",
-            "startSeconds": 7529,
-            "endSeconds": 7633,
-            "summary": "A recent Connect graduate originally from Guatemala shared how the school helped him learn English and develop his skills, expressing deep gratitude to the staff."
+            "startSeconds": 7537,
+            "endSeconds": 7649,
+            "summary": "Spoke as a recent Connect graduate originally from Guatemala, sharing how the school helped him learn English and build confidence, and expressing hope that his own future children could attend Connect."
           },
           {
-            "name": "Itzamar Giron",
+            "name": "Ixamar Giron",
             "startSeconds": 7678,
-            "endSeconds": 7811,
-            "summary": "A Connect alumna now studying mechanical engineering at San Francisco State shared how the school made a lasting positive impact on her life and spoke fondly of her teachers and the school community."
+            "endSeconds": 7810,
+            "summary": "Spoke as a Connect Class of 2020 alumna now studying mechanical engineering at San Francisco State University, describing the lasting positive impact Connect had on her and her siblings."
           },
           {
             "name": "Ashley Solis",
-            "startSeconds": 7860,
-            "endSeconds": 7888,
-            "summary": "An eighth-grade current Connect student shared that the school helped her learn to speak and read in English and that the staff treats students well."
+            "startSeconds": 7834,
+            "endSeconds": 7890,
+            "summary": "Spoke as a current 8th grader who has attended Connect since 3rd grade, thanking the school for helping her learn English and for the caring treatment from staff."
           }
         ],
         "consent": false,
@@ -224,16 +280,16 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of Consent Items (8.1–8.4; 8.5 pulled)",
+        "title": "Approval of Consent Items (bundle, excluding pulled item 8.5)",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7991,
+            "seconds": 7990,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously (without item 8.5)"
           }
         },
         "publicComments": [],
@@ -242,13 +298,17 @@
       },
       {
         "itemLabel": "8.1",
-        "title": "Approval of Consent Items",
+        "title": "Approval of the December 11 Board Meeting Minutes",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 7990,
+            "type": "voice",
+            "result": "Approved as part of consent bundle"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -256,13 +316,17 @@
       },
       {
         "itemLabel": "8.2",
-        "title": "Approval of the December 11 Board Meeting Minutes",
+        "title": "Approval of the December 17 Board Meeting Minutes",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 7990,
+            "type": "voice",
+            "result": "Approved as part of consent bundle"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -270,13 +334,17 @@
       },
       {
         "itemLabel": "8.3",
-        "title": "Approval of the December 17 Board Meeting Minutes",
+        "title": "Approval of the Agreement between the Redwood City School District and Consultant William Gomez for the 2024-2025 School Year",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 7990,
+            "type": "voice",
+            "result": "Approved as part of consent bundle"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -284,20 +352,6 @@
       },
       {
         "itemLabel": "8.4",
-        "title": "Approval of the Agreement between the Redwood City School District and Consultant William Gomez for the 2024-2025 School Year",
-        "phases": {
-          "opened": 7943,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.5",
         "title": "Approval of 2024 School Accountability Report Cards (SARCs)",
         "phases": {
           "opened": null,
@@ -314,14 +368,14 @@
         "itemLabel": "9.1",
         "title": "Adoption of Resolution No. 15, Resolution to Apply for Zero-Emission School Bus Incentive, ZESBI",
         "phases": {
-          "opened": 7991,
-          "presentation": 8009,
+          "opened": 7994,
+          "presentation": 8007,
           "publicComment": null,
-          "discussion": 8221,
+          "discussion": 8219,
           "vote": {
-            "seconds": 8537,
-            "type": "roll-call",
-            "result": "5-0"
+            "seconds": 8544,
+            "type": "voice",
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -337,9 +391,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8638,
+            "seconds": 8634,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -351,13 +405,13 @@
         "title": "Governing Board's Receipt of Initial Proposal for Negotiations with the California School Employees Association, Chapter V, for 2024-25 & 2025-26",
         "phases": {
           "opened": 8639,
-          "presentation": 8654,
+          "presentation": 8652,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8681,
+            "seconds": 8682,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -366,16 +420,16 @@
       },
       {
         "itemLabel": "9.4",
-        "title": "Approval of Personnel Changes for 2024-2025 school year",
+        "title": "Approval of Personnel Changes for 2024-2025 School Year",
         "phases": {
-          "opened": 8689,
-          "presentation": 8697,
+          "opened": 8687,
+          "presentation": 8694,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8730,
+            "seconds": 8735,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -386,13 +440,20 @@
         "itemLabel": "10",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 8743,
+          "opened": 8742,
           "presentation": null,
-          "publicComment": null,
-          "discussion": 8743,
+          "publicComment": 8757,
+          "discussion": 8953,
           "vote": null
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Megan O'Reilly Green",
+            "startSeconds": 8768,
+            "endSeconds": 8953,
+            "summary": "Highlighted a gap in tutoring programs at Orion that may have contributed to a drop in scores for underserved students, praised the new community-driven WIN block and tutoring initiatives, and presented data from other districts showing that Mandarin Immersion programs significantly improve outcomes for underserved students."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -400,7 +461,7 @@
         "itemLabel": "11.1",
         "title": "Quarterly Williams Report, 2nd Quarter, October 2024 through December 2024",
         "phases": {
-          "opened": 9131,
+          "opened": 9125,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -428,7 +489,7 @@
         "itemLabel": "13",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 9187,
+          "opened": 9205,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -442,8 +503,8 @@
         "itemLabel": "14",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 9196,
-          "presentation": null,
+          "opened": 9205,
+          "presentation": 9225,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -456,14 +517,14 @@
         "itemLabel": "15",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 9236,
+          "opened": 9252,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9256,
+            "seconds": 9257,
             "type": "voice",
-            "result": "unanimous"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -481,22 +542,90 @@
       },
       "B": {
         "name": "Evelyn Sanchez",
-        "role": "Executive Assistant / Board Secretary"
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Winnie Wong",
-        "role": "Principal, Orion Alternative School / Mandarin Immersion"
+        "name": "David Li",
+        "role": "Trustee"
       },
       "D": {
+        "name": "Cecilia I. Márquez",
+        "role": "Clerk"
+      },
+      "E": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Trustee"
+      },
+      "F": {
+        "name": "David Weekly",
+        "role": "Vice President"
+      },
+      "G": {
+        "name": "David Weekly",
+        "role": "Vice President (second David — context indicates this is Weekly based on roll call sequence and subsequent dialogue)"
+      },
+      "H": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
+      },
+      "I": {
+        "name": "Kendall Klein",
+        "role": "6-8 Math TOSA / Presenter (also used for Jennifer Ng Kwing King in some exchanges)"
+      },
+      "J": {
         "name": "John Baker",
-        "role": "Superintendent (Dr. Baker)"
+        "role": "Superintendent"
+      },
+      "K": {
+        "name": "Rick (unidentified last name)",
+        "role": "District Staff presenter for charter/action items"
+      },
+      "L": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
+      },
+      "M": {
+        "name": "Martin Cervantes",
+        "role": "Director of Maintenance, Operations & Transportation"
+      },
+      "N": {
+        "name": "Winnie Wong",
+        "role": "Orion Alternative School Principal"
+      },
+      "O": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
+      },
+      "P": {
+        "name": "Anton (last name unclear)",
+        "role": "Connect Charter Music Teacher / Transportation Manager Vidal Duran (context-dependent)"
+      },
+      "Q": {
+        "name": "Michelle Stroby",
+        "role": "Public speaker / Connect Charter staff"
+      },
+      "R": {
+        "name": "Unidentified board member / public speaker",
+        "role": "Context-dependent — likely David Li or Jennifer Ng Kwing King in board discussion"
+      },
+      "S": {
+        "name": "Walter Soto Franco",
+        "role": "Connect Charter alumni speaker"
+      },
+      "T": {
+        "name": "Megan O'Reilly Green",
+        "role": "Public speaker (Orion MI community member)"
+      },
+      "U": {
+        "name": "Unidentified speaker",
+        "role": "Unknown"
       }
     },
-    "agendaChanges": "Item 8.5 (Approval of 2024 School Accountability Report Cards) was pulled from the agenda by Superintendent Baker due to errors in the data. Item 11.2 (Recommendation for Mathematics Curriculum Adoption for Grades 6-8) was moved by President Wells to follow item 6.1 (Orion Alternative School Presentation) and precede item 7.1 (Connect Community Charter School Public Hearing). Items were heard in the following order: 1, 1.1, 1.2, 2, 3, 4, 5, 6.1, 11.2, 7.1, 8 (consent bundle without 8.5), 9.1, 9.2, 9.3, 9.4, 10, 11.1, 12, 13, 14, 15.",
+    "agendaChanges": "Two changes were approved at the start of the meeting: (1) Item 8.5 (Approval of 2024 School Accountability Report Cards / SARCs) was pulled from the consent calendar due to errors in the data. (2) Item 11.2 (Recommendation for Mathematics Curriculum Adoption for Grades 6-8) was moved up from Section 11 (Information) to immediately after item 6.1 (Orion Alternative School Presentation) and before item 7.1 (Connect Community Charter School Public Hearing). The actual order of items as heard was: Call to Order / Roll Call, Report Out on Closed Session, Welcome, Changes to Agenda, Approval of Agenda, Oral Communication, 6.1 (Orion Presentation), 11.2 (Math Curriculum - moved up), 7.1 (Connect Charter Public Hearing), Consent Items (without 8.5), 9.1, 9.2, 9.3, 9.4, Board/Superintendent Reports, 11.1 (Williams Report - information only), Correspondence, Other Business, Board Calendar, Adjournment.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 7,
           "presentation": null,
@@ -509,21 +638,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 7,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.2",
+        "itemLabel": "1",
         "title": "Report Out on Closed Session from January 10, 2025",
         "phases": {
           "opened": 28,
@@ -554,7 +669,7 @@
         "itemLabel": "3",
         "title": "Additions, Deletions, or Modifications to the Agenda",
         "phases": {
-          "opened": 105,
+          "opened": 136,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -568,14 +683,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 199,
+          "opened": 195,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 204,
+            "seconds": 203,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -586,9 +701,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 204,
+          "opened": 203,
           "presentation": null,
-          "publicComment": 204,
+          "publicComment": 203,
           "discussion": null,
           "vote": null
         },
@@ -597,27 +712,27 @@
         "pulled": false
       },
       {
-        "itemLabel": "6.1",
+        "itemLabel": "6",
         "title": "Orion Alternative School Presentation for the 2024-2025 School Year",
         "phases": {
-          "opened": 215,
-          "presentation": 231,
-          "publicComment": 1641,
+          "opened": 216,
+          "presentation": 230,
+          "publicComment": 1642,
           "discussion": 1993,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Hai-Ching Yang",
-            "startSeconds": 1682,
+            "name": "Haiqing Yang",
+            "startSeconds": 1679,
             "endSeconds": 1800,
-            "summary": "Expressed concern about the stressful and opaque lottery process for the Mandarin Immersion TK program and requested the board explore ways to prioritize committed families and expand capacity."
+            "summary": "Expressed concern about the stressful and opaque lottery process for the Orion Mandarin Immersion TK program and asked the board to consider ways to prioritize committed families and expand capacity."
           },
           {
-            "name": "Michelle Stroebe",
+            "name": "Michelle Stroby",
             "startSeconds": 1827,
-            "endSeconds": 1989,
-            "summary": "Thanked district staff for their hard work and expressed strong support for expanding the Orion Mandarin Immersion program to meet growing community interest and demand."
+            "endSeconds": 1993,
+            "summary": "Expressed support for expanding the Orion Mandarin Immersion program to meet growing community demand and emphasized the program's role in providing equitable public education."
           }
         ],
         "consent": false,
@@ -625,12 +740,12 @@
       },
       {
         "itemLabel": "11.2",
-        "title": "Recommendation for Mathematics Curriculum Adoption for Grades 6-8",
+        "title": "Recommendation for Mathematics Curriculum Adoption for Grades 6-8 (moved up from Section 11)",
         "phases": {
           "opened": 3035,
           "presentation": 3062,
           "publicComment": null,
-          "discussion": 4754,
+          "discussion": 4769,
           "vote": null
         },
         "publicComments": [],
@@ -638,57 +753,57 @@
         "pulled": false
       },
       {
-        "itemLabel": "7.1",
+        "itemLabel": "7",
         "title": "Public Hearing regarding the Connect Community Charter School Renewal Petition",
         "phases": {
-          "opened": 5322,
-          "presentation": 5539,
+          "opened": 5320,
+          "presentation": 5538,
           "publicComment": 6550,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Julio Suchite",
-            "startSeconds": 6574,
+            "name": "Julio Seguite",
+            "startSeconds": 6584,
             "endSeconds": 6770,
-            "summary": "Spoke in Spanish (interpreted) expressing deep gratitude to the board and community, emphasizing trust in the teachers and the transformative impact Connect has had on his family."
+            "summary": "Spoke in Spanish expressing deep gratitude for the board and Connect school's impact on his family, noting that his child succeeded at Connect and urging the board to trust the teachers and continue supporting the community."
           },
           {
             "name": "Amanda Vaughn",
-            "startSeconds": 6987,
-            "endSeconds": 7170,
-            "summary": "Spoke as Connect's art and newcomer teacher, praising the school's implementation of systematic ELD for newcomer students and the quality of the school's art program."
+            "startSeconds": 6988,
+            "endSeconds": 7169,
+            "summary": "Spoke as Connect's art and newcomer teacher, praising the school's SEL approach, newcomer support program, and the tremendous growth she has witnessed in students over her three years at the school."
           },
           {
-            "name": "Meda Okelo",
-            "startSeconds": 7170,
-            "endSeconds": 7238,
-            "summary": "Described joining Connect as a long-term guest teacher, praised its SEL and project-based learning focus, and strongly urged the board to renew the charter."
+            "name": "Mayda Ocalo",
+            "startSeconds": 7186,
+            "endSeconds": 7309,
+            "summary": "Spoke as a long-term substitute/guest teacher at Connect, explaining why she proposed a contract arrangement with the school and urging the district to renew the charter given the school's transformative impact on students."
           },
           {
-            "name": "Anton Estaniel",
+            "name": "Anton (Monique Pusales card — Anton spoke)",
             "startSeconds": 7343,
-            "endSeconds": 7504,
-            "summary": "Spoke as Connect's music teacher, describing the school-wide musical production 'Space is the Place' as a powerful example of project-based learning involving nearly every student."
+            "endSeconds": 7514,
+            "summary": "Spoke as Connect's music teacher, describing the school's enrichment programs and the student musical production 'Space Is the Place' as a flagship project-based learning accomplishment involving nearly every student."
           },
           {
             "name": "Walter Soto Franco",
-            "startSeconds": 7529,
-            "endSeconds": 7633,
-            "summary": "A recent Connect graduate originally from Guatemala shared how the school helped him learn English and develop his skills, expressing deep gratitude to the staff."
+            "startSeconds": 7537,
+            "endSeconds": 7649,
+            "summary": "Spoke as a recent Connect graduate originally from Guatemala, sharing how the school helped him learn English and build confidence, and expressing hope that his own future children could attend Connect."
           },
           {
-            "name": "Itzamar Giron",
+            "name": "Ixamar Giron",
             "startSeconds": 7678,
-            "endSeconds": 7811,
-            "summary": "A Connect alumna now studying mechanical engineering at San Francisco State shared how the school made a lasting positive impact on her life and spoke fondly of her teachers and the school community."
+            "endSeconds": 7810,
+            "summary": "Spoke as a Connect Class of 2020 alumna now studying mechanical engineering at San Francisco State University, describing the lasting positive impact Connect had on her and her siblings."
           },
           {
             "name": "Ashley Solis",
-            "startSeconds": 7860,
-            "endSeconds": 7888,
-            "summary": "An eighth-grade current Connect student shared that the school helped her learn to speak and read in English and that the staff treats students well."
+            "startSeconds": 7834,
+            "endSeconds": 7890,
+            "summary": "Spoke as a current 8th grader who has attended Connect since 3rd grade, thanking the school for helping her learn English and for the caring treatment from staff."
           }
         ],
         "consent": false,
@@ -696,16 +811,16 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of Consent Items (8.1–8.4; 8.5 pulled)",
+        "title": "Approval of Consent Items (bundle, excluding pulled item 8.5)",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7991,
+            "seconds": 7990,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously (without item 8.5)"
           }
         },
         "publicComments": [],
@@ -714,13 +829,17 @@
       },
       {
         "itemLabel": "8.1",
-        "title": "Approval of Consent Items",
+        "title": "Approval of the December 11 Board Meeting Minutes",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 7990,
+            "type": "voice",
+            "result": "Approved as part of consent bundle"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -728,13 +847,17 @@
       },
       {
         "itemLabel": "8.2",
-        "title": "Approval of the December 11 Board Meeting Minutes",
+        "title": "Approval of the December 17 Board Meeting Minutes",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 7990,
+            "type": "voice",
+            "result": "Approved as part of consent bundle"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -742,13 +865,17 @@
       },
       {
         "itemLabel": "8.3",
-        "title": "Approval of the December 17 Board Meeting Minutes",
+        "title": "Approval of the Agreement between the Redwood City School District and Consultant William Gomez for the 2024-2025 School Year",
         "phases": {
-          "opened": 7943,
+          "opened": 7980,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 7990,
+            "type": "voice",
+            "result": "Approved as part of consent bundle"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -756,20 +883,6 @@
       },
       {
         "itemLabel": "8.4",
-        "title": "Approval of the Agreement between the Redwood City School District and Consultant William Gomez for the 2024-2025 School Year",
-        "phases": {
-          "opened": 7943,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.5",
         "title": "Approval of 2024 School Accountability Report Cards (SARCs)",
         "phases": {
           "opened": null,
@@ -786,14 +899,14 @@
         "itemLabel": "9.1",
         "title": "Adoption of Resolution No. 15, Resolution to Apply for Zero-Emission School Bus Incentive, ZESBI",
         "phases": {
-          "opened": 7991,
-          "presentation": 8009,
+          "opened": 7994,
+          "presentation": 8007,
           "publicComment": null,
-          "discussion": 8221,
+          "discussion": 8219,
           "vote": {
-            "seconds": 8537,
-            "type": "roll-call",
-            "result": "5-0"
+            "seconds": 8544,
+            "type": "voice",
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -809,9 +922,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8638,
+            "seconds": 8634,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -823,13 +936,13 @@
         "title": "Governing Board's Receipt of Initial Proposal for Negotiations with the California School Employees Association, Chapter V, for 2024-25 & 2025-26",
         "phases": {
           "opened": 8639,
-          "presentation": 8654,
+          "presentation": 8652,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8681,
+            "seconds": 8682,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -838,16 +951,16 @@
       },
       {
         "itemLabel": "9.4",
-        "title": "Approval of Personnel Changes for 2024-2025 school year",
+        "title": "Approval of Personnel Changes for 2024-2025 School Year",
         "phases": {
-          "opened": 8689,
-          "presentation": 8697,
+          "opened": 8687,
+          "presentation": 8694,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8730,
+            "seconds": 8735,
             "type": "voice",
-            "result": "5-0"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -858,13 +971,20 @@
         "itemLabel": "10",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 8743,
+          "opened": 8742,
           "presentation": null,
-          "publicComment": null,
-          "discussion": 8743,
+          "publicComment": 8757,
+          "discussion": 8953,
           "vote": null
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Megan O'Reilly Green",
+            "startSeconds": 8768,
+            "endSeconds": 8953,
+            "summary": "Highlighted a gap in tutoring programs at Orion that may have contributed to a drop in scores for underserved students, praised the new community-driven WIN block and tutoring initiatives, and presented data from other districts showing that Mandarin Immersion programs significantly improve outcomes for underserved students."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -872,7 +992,7 @@
         "itemLabel": "11.1",
         "title": "Quarterly Williams Report, 2nd Quarter, October 2024 through December 2024",
         "phases": {
-          "opened": 9131,
+          "opened": 9125,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -900,7 +1020,7 @@
         "itemLabel": "13",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 9187,
+          "opened": 9205,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -914,8 +1034,8 @@
         "itemLabel": "14",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 9196,
-          "presentation": null,
+          "opened": 9205,
+          "presentation": 9225,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -928,14 +1048,14 @@
         "itemLabel": "15",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 9236,
+          "opened": 9252,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9256,
+            "seconds": 9257,
             "type": "voice",
-            "result": "unanimous"
+            "result": "Approved unanimously"
           }
         },
         "publicComments": [],
@@ -944,7 +1064,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:22:53.883Z",
-  "inputTokens": 38090,
-  "outputTokens": 3921
+  "cachedAt": "2026-07-20T19:32:26.722Z",
+  "inputTokens": 37755,
+  "outputTokens": 4555
 }
