@@ -364,9 +364,49 @@ function createServer(): McpServer {
   // ---- check-calendar ----
   server.tool(
     "check-calendar",
-    "Check if there is school on a given date, or what event falls on that date",
-    { date: z.string().describe("Date in YYYY-MM-DD format") },
+    "Check what falls on a given date (school day, holiday, break), or — called WITHOUT a date — list the school year's key dates (first/last day of school, breaks, holidays, board meetings). To find WHEN an event happens (e.g. 'when is the first day of school?'), call with no date and read the list; never guess-and-check specific dates.",
+    {
+      date: z
+        .string()
+        .optional()
+        .describe(
+          "Date in YYYY-MM-DD format. Omit to get the full key-dates list for the current (and, if published, next) school year."
+        ),
+    },
     async ({ date }) => {
+      if (!date) {
+        // Key-dates listing: current school year per America/Los_Angeles today,
+        // plus the following year's calendar when it's already published.
+        const today = new Date().toLocaleDateString("en-CA", { timeZone: "America/Los_Angeles" });
+        const startYear = Number(schoolYearFor(today).split("-")[0]);
+        const lines: string[] = [`Today is ${today}. Key district dates:`];
+        const sources: string[] = [];
+        for (const sy of [startYear, startYear + 1]) {
+          const schoolYear = `${sy}-${String((sy + 1) % 100).padStart(2, "0")}`;
+          try {
+            const cal = await fetchJSON(`district-calendar-${schoolYear}.json`);
+            lines.push(`\n${schoolYear} school year:`);
+            for (const evt of cal.events) {
+              const range = evt.dateEnd ? `${evt.date} to ${evt.dateEnd}` : evt.date;
+              lines.push(`  ${range}: ${evt.en} (${evt.type})`);
+            }
+            sources.push(sourceLine(`district-calendar-${schoolYear}.json`).trim());
+          } catch {
+            /* that year's calendar not published yet */
+          }
+        }
+        if (sources.length === 0) {
+          return {
+            content: [
+              {
+                type: "text",
+                text: "No district calendars are published yet. Calendars are added to https://rcsd.info as the district releases them.",
+              },
+            ],
+          };
+        }
+        return { content: [{ type: "text", text: lines.join("\n") + "\n" + sources.join("\n") }] };
+      }
       if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
         return { isError: true, content: [{ type: "text", text: "Date must be YYYY-MM-DD format" }] };
       }
