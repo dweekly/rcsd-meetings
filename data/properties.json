@@ -1,6 +1,6 @@
 {
   "_metadata": {
-    "description": "District-owned properties in the Redwood City School District that are not currently RCSD-operated schools or RCSD-authorized charter school sites. Includes administrative buildings, leased-out former school sites, and operational facilities. Charter sites and district school sites are tracked separately in charters.json and schools.json respectively.",
+    "description": "District-owned properties in the Redwood City School District that are not currently RCSD-operated schools. Includes administrative buildings, leased-out former school sites, and operational facilities. District school sites are tracked in schools.json; charter schools in charters.json. A former-school campus that hosts a charter appears here too when the district also leases parts of it to other tenants (e.g. the Hawes campus).",
     "sources": {
       "districtInventory": "TBD — seed data from Board President (2026-04-17); authoritative list pending",
       "cdeDirectory": "https://www.cde.ca.gov/SchoolDirectory/"
@@ -52,6 +52,47 @@
       "formerUse": "Former Orion Alternative School campus (Orion is now at 555 Avenue del Ora)",
       "formerUseEs": "Antiguo campus de Orion Alternative (Orion ahora está en 555 Avenue del Ora)",
       "notes": null
+    },
+    {
+      "slug": "former-hawes-campus",
+      "name": "Hawes Community School site",
+      "nameEs": "Campus de Hawes Community School",
+      "address": "909 Roosevelt Avenue, Redwood City, CA 94061",
+      "addressNote": "Building Kidz uses the 907 Roosevelt Avenue address for its entrance on the same campus.",
+      "use": "charter-and-leased-out",
+      "useLabel": "Rocketship Redwood City Prep (charter) campus; space also leased to Building Kidz preschool and Touchstone Learning",
+      "useLabelEs": "Campus de la escuela chárter Rocketship Redwood City Prep; también alquila espacio a Building Kidz (preescolar) y Touchstone Learning",
+      "tenant": null,
+      "tenants": [
+        {
+          "name": "Rocketship Redwood City Prep",
+          "type": "charter",
+          "url": "https://www.rocketshipschools.org/en/schools/redwood-city-prep/",
+          "note": "RCSD-authorized charter (see charters.json); CDE lists it at the campus's formal 909 Roosevelt Avenue address."
+        },
+        {
+          "name": "Building Kidz School",
+          "type": "private-preschool",
+          "url": "https://www.buildingkidzschool.com/schools/redwood-city/",
+          "note": "Joint Use Agreement with Little Budz, Inc. dba Building Kidz approved 2020-07-15; first amendment 2020-10-21; renewal with Building Kidz Family LLC approved 2024-09-25, effective July 2025. Publicly lists 907 Roosevelt Avenue."
+        },
+        {
+          "name": "Touchstone Learning",
+          "type": "private",
+          "note": "Leases the Library Media Center (10.3% of building square footage) under a Joint Use Agreement first approved 2020-02-05; renewal approved 2025-06-25 for July 1, 2025 – June 30, 2030 at $3.50/sq ft/month through June 2026, then CPI escalation."
+        }
+      ],
+      "formerUse": "Former Hawes Community School campus",
+      "formerUseEs": "Antiguo campus de Hawes Community School",
+      "notes": "District ownership confirmed by the 2025-06-25 board memo for the Touchstone renewal (“the District’s Hawes Elementary School campus located at 909 Roosevelt Avenue”). The district also spent bond funds on the site in 2023 (playground pour-in-place, intercom/buzzer work).",
+      "source": {
+        "boardMeetings": [
+          { "date": "2020-07-15", "item": "Approval of Joint Use Agreement with Little Budz, Inc. dba BuildingKidz School at Hawes School Site" },
+          { "date": "2020-10-21", "item": "First Amendment to Joint Use Agreement with Little Budz, Inc., dba Building Kidz School" },
+          { "date": "2024-09-25", "item": "Joint Use Renewal Agreement with Building Kidz Family LLC at the Hawes Community School Site", "attachmentUrl": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/D9AV6B7F307A/$file/Building%20Kidz%20Renewal%20Joint%20Use%20July%202025.pdf" },
+          { "date": "2025-06-25", "item": "Joint Use Agreement Lease Renewal between Touchstone Learning and RCSD" }
+        ]
+      }
     },
     {
       "slug": "district-warehouse",

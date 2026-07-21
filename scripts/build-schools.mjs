@@ -2722,7 +2722,7 @@ function buildSchoolsIndex(lang) {
     charterH2: 'Escuelas ch\u00e1rter autorizadas por RCSD',
     charterIntro: 'Tres escuelas ch\u00e1rter financiadas directamente. Sus presupuestos, informes interinos y auditor\u00edas se presentan regularmente a la mesa directiva como parte de la supervisi\u00f3n fiscal del distrito.',
     propertiesH2: 'Otras propiedades del distrito',
-    propertiesIntro: 'Edificios y terrenos propiedad del distrito (o alquilados por el distrito) que actualmente no albergan una escuela operada por el distrito ni una escuela ch\u00e1rter autorizada por RCSD.',
+    propertiesIntro: 'Edificios y terrenos propiedad del distrito (o alquilados por el distrito) que actualmente no albergan una escuela operada por el distrito. Algunos tambi\u00e9n albergan una escuela ch\u00e1rter autorizada por RCSD junto con otros inquilinos.',
     thSchool: 'Escuela', thGrades: 'Grados', thEnroll: 'Inscripci\u00f3n', thHighNeed: '% alta necesidad',
     thGrowthEla: 'Crec. lectura', thGrowthMath: 'Crec. mat',
     growthPendingShort: 'En espera de la presentaci\u00f3n 2025-26',
@@ -2740,7 +2740,7 @@ function buildSchoolsIndex(lang) {
     charterH2: 'RCSD-authorized charter schools',
     charterIntro: 'Three directly-funded charter schools. Their budgets, interim reports, and audits are presented regularly to the Board as part of the district\u2019s fiscal oversight role.',
     propertiesH2: 'Other district properties',
-    propertiesIntro: 'Buildings and sites owned (or leased) by the district that do not currently host a district-operated school or an RCSD-authorized charter.',
+    propertiesIntro: 'Buildings and sites owned (or leased) by the district that do not currently host a district-operated school. Some also house an RCSD-authorized charter alongside other tenants.',
     thSchool: 'School', thGrades: 'Grades', thEnroll: 'Enrollment', thHighNeed: '% high-need',
     thGrowthEla: 'Reading growth', thGrowthMath: 'Math growth',
     growthPendingShort: 'Awaiting 2025-26 presentation',
@@ -2818,9 +2818,16 @@ function buildSchoolsIndex(lang) {
     const name = isEs ? (c.nameEs || c.name) : c.name;
     const gv = gradesSortVal(c.grades);
     const openedYear = (c.dateOpened || '').slice(0, 4);
+    // Drop city/state/zip for the table — every charter is in Redwood City.
+    const streetAddress = (c.address || '').split(',')[0];
+    const addressNote = isEs ? (c.addressNoteEs || c.addressNote) : c.addressNote;
+    const addressCell = addressNote
+      ? `<span title="${addressNote.replace(/"/g, '&quot;')}">${streetAddress}*</span>`
+      : streetAddress;
     return `          <tr data-href="${href}">
             <td class="school-name" data-sort-value="${name.toLowerCase()}"><a href="${href}">${name} <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="${gv ?? ''}">${c.grades || ''}</td>
+            <td data-sort-value="${streetAddress.toLowerCase()}">${addressCell}</td>
             <td class="num" data-sort-value="${c.enrollment ?? ''}">${c.enrollment ? c.enrollment.toLocaleString() : ''}</td>
             <td>${c.network || L.networkIndep}</td>
             <td class="num" data-sort-value="${openedYear || ''}">${openedYear}</td>
@@ -2987,6 +2994,7 @@ ${rows}
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">${L.thSchool}</th>
             <th data-sort-type="num">${L.thGrades}</th>
+            <th data-sort-type="text">${L.thAddress}</th>
             <th class="num" data-sort-type="num">${L.thEnroll}</th>
             <th data-sort-type="text">${L.thNetwork}</th>
             <th class="num" data-sort-type="num">${L.thOpened}</th>

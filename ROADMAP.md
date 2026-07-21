@@ -258,6 +258,7 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
   - Historical series so trends are visible (multi-year audits, interim-to-actual variance)
   - Link from district page + surface in board meeting summaries when charter items are discussed
 - [ ] Consider same treatment for the KIPP Excelencia Fair Oaks site given the ongoing Prop 2 CSFP funding workstream (Res 11 Sept 2025, Res 23 April 2026)
+- [ ] **Verify + record Fair Oaks campus ownership in `properties.json`.** The Hawes campus (909 Roosevelt, Rocketship + Building Kidz + Touchstone) was added 2026-07-21 with board-record citations; the former Fair Oaks Elementary campus (2950 Fair Oaks, Connect + KIPP) is presumably also district-owned but needs a citable source (facility use agreement / Prop 39 offer in board records) before adding an entry.
 
 ## Vendors / Warrant Registers
 - [ ] **Root-cause the attachment-download bug** — Feb 2026's register came down as a misfiled SPSA (our metadata had the right Simbli AID 1433020; the saved bytes were wrong). Could not reproduce from current `scrape-board-packets.mjs`. A filename-vs-content scan of all 77 warrant/SPSA-named cached PDFs found no other mismatches, but the bug class is unexplained.
