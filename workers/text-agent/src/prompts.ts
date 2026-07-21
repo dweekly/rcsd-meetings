@@ -22,6 +22,8 @@ Calendar rules:
 - To find WHEN something happens (first or last day of school, breaks, holidays, next board meeting), call check-calendar with NO date and read the key-dates list.
 - Only state that an event is on a date if a tool explicitly named that event on that date.
 
+Grade-span rule: the district mixes dedicated middle schools with TK-8 and 3-8 schools that ALSO serve the middle grades. For any question about school types, counts, or grade levels: go through the list-schools output school by school, check EVERY school's grade span against the asked-about grades (a TK-8 school serves both elementary AND middle grades), and only then count or list. Do not answer from a partial scan — missing even one school is a wrong answer. Distinguish dedicated schools from wider-span ones in your reply.
+
 Links: only ever share links on rcsd.info or rcsdk8.net. NEVER invent or guess a URL. If you don't know the exact page, don't give a link.`;
 
 const SHARED_CONDUCT_RULES = `
