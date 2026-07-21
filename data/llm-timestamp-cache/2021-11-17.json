@@ -1,6 +1,6 @@
 {
   "date": "2021-11-17",
-  "transcriptHash": "2e5dbb71d30e2051",
+  "transcriptHash": "56a50ea571f5eb4e",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -18,77 +18,147 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced during 'Changes to the Agenda': Items 7.1, 7.2, 7.3 moved to consent; 10.1 (grand jury response) moved to consent; continuation of study session discussion moved to after 8.2 as 8.2A or 8.3",
-    "consent_vote_words": "roll call vote, please. Trustee Wells? Aye. Trustee Lawson? Aye. Trustee Márquez? Aye. Vice President Díaz-Slocum? Aye. President MacAvoy? Aye.",
+    "agenda_changes": "Multiple changes announced: Items 7.1, 7.2, and 7.3 moved to consent agenda (section 6); Item 10.1 (grand jury response) moved to consent; continuation of study session discussion moved to after 8.2 as new item 8.2A/8.3",
+    "consent_vote_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike, roll called out, please.",
     "items": [
       {
         "item": 1,
-        "intro_words": "All right, roll call, please. Trustee Wells. Here.",
+        "intro_words": "All right, roll call, please. Trustee Wells. Here. Trustee Lawson.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "All right, roll call, please. Trustee Wells. Here.",
+        "intro_words": "Let's see. I didn't mute myself, did I? Just a minute.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome everyone to— let's see, it's November 17th",
+        "intro_words": "Vien venidos. Si necesita interpretacion en espanol, por favor.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome everyone to— let's see, it's November 17th",
+        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "do I have any changes to the agenda? I have one— 3 proposed changes",
+        "intro_words": "All right, do I have any changes to the agenda? I have one three proposed changes.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "do I have any changes to the agenda? I have one— 3 proposed changes",
-        "status": "found"
+        "intro_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike",
+        "status": "consent_bundle"
       },
       {
         "item": 7,
-        "intro_words": "Do I have a motion to approve with those changes?",
+        "intro_words": "I do not see any oral communication comments. All right, so we're on to",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Do I have a motion to approve with those changes?",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "I do not see any oral communication comments. All right,",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "As a reminder, we moved 7.1, 2, and 3 up to consent",
+        "intro_words": "the bond program consent items. Do I have a motion to approve?",
         "status": "consent_bundle"
       },
       {
-        "item": 11,
+        "item": 9,
         "intro_words": "All right, 7.4. Does anyone have any questions on this resolution?",
         "status": "found"
       },
       {
+        "item": 10,
+        "intro_words": "All right, thank you, bond team. Thank you, everybody. Right, okay, so we're on to 8.1.",
+        "status": "found"
+      },
+      {
+        "item": 11,
+        "intro_words": "Discussion of reconvening North Star Forward Committee. Yes, we are.",
+        "status": "found"
+      },
+      {
         "item": 12,
-        "intro_words": "Right, okay, so we're on to 8.1, Discussion of Reconvening North Star Forward Committee",
+        "intro_words": "Right, so we're on to 8.2. We're on to the presentation regarding potential trustee area revision.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "All right, we'll have a new board president on December 15th as well",
+        "intro_words": "All right, so let's see. We are on to our 8.2 A or B or and",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Do I have a motion to adjourn? Someone? Second.",
+        "intro_words": "All right, so we are on to. We have a number of board policies in",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "Sure, let's go ahead. All right, so this is 8.3 regarding uniform complaint Procedures.",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Great. So the second.the second. This item 8.4 is regarding staff development.",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "Agreed. Good point. Okay, so I think no comments on that one or no questions",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "Moving ahead to 8.5. This board policy is an update. So we had one",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "Any questions? Okay, I think we're on to the next one. Okay. Moving forward. 8.6.",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "Are there any questions regarding this policy? All right, let's run to the next one.",
+        "status": "found"
+      },
+      {
+        "item": 21,
+        "intro_words": "Okay. And the next one goes hand in hand as well. This is 8.7.",
+        "status": "found"
+      },
+      {
+        "item": 22,
+        "intro_words": "All right, so we're on to the consent items to have a motion to approve.",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 23,
+        "intro_words": "And as a reminder, we had moved 10.1 to consent that we just approved.",
+        "status": "found"
+      },
+      {
+        "item": 24,
+        "intro_words": "All right, great. So do I have a motion to approve? So moved.",
+        "status": "found"
+      },
+      {
+        "item": 25,
+        "intro_words": "All right. Board and superintendent reports. I have none. Since last week.",
+        "status": "found"
+      },
+      {
+        "item": 26,
+        "intro_words": "All right, anything else? Okay, so information. We don't have it. Correspondence.",
+        "status": "found"
+      },
+      {
+        "item": 27,
+        "intro_words": "All right, so we'll get back to everybody on that and any other changes.",
+        "status": "found"
+      },
+      {
+        "item": 28,
+        "intro_words": "All right. Okay. Do I have a motion to adjourn? Second.",
         "status": "found"
       }
     ]
@@ -101,40 +171,33 @@
         "timestampSeconds": 105
       },
       {
-        "timestamp": "00:01:45",
-        "timestampSeconds": 105
+        "timestamp": "00:01:55",
+        "timestampSeconds": 115
       },
       {
-        "timestamp": "00:02:29",
-        "timestampSeconds": 149
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142
       },
       {
-        "timestamp": "00:02:29",
-        "timestampSeconds": 149
+        "timestamp": "00:02:32",
+        "timestampSeconds": 152
       },
       {
-        "timestamp": "00:03:49",
-        "timestampSeconds": 229
+        "timestamp": "00:03:53",
+        "timestampSeconds": 233
       },
       {
-        "timestamp": "00:03:49",
-        "timestampSeconds": 229
-      },
-      {
-        "timestamp": "00:04:00",
-        "timestampSeconds": 240
-      },
-      {
-        "timestamp": "00:04:00",
-        "timestampSeconds": 240
+        "timestamp": "00:05:20",
+        "timestampSeconds": 320,
+        "consent": true
       },
       {
         "timestamp": "00:05:50",
         "timestampSeconds": 350
       },
       {
-        "timestamp": "00:05:40",
-        "timestampSeconds": 340,
+        "timestamp": "00:05:20",
+        "timestampSeconds": 320,
         "consent": true
       },
       {
@@ -142,20 +205,28 @@
         "timestampSeconds": 385
       },
       {
-        "timestamp": "00:07:17",
-        "timestampSeconds": 437
+        "timestamp": "00:07:27",
+        "timestampSeconds": 447
       },
       {
-        "timestamp": "01:36:45",
-        "timestampSeconds": 5805
+        "timestamp": "00:07:44",
+        "timestampSeconds": 464
       },
       {
-        "timestamp": "02:11:04",
-        "timestampSeconds": 7864
+        "timestamp": "01:00:11",
+        "timestampSeconds": 3611
+      },
+      {
+        "timestamp": "01:01:16",
+        "timestampSeconds": 3676
+      },
+      {
+        "timestamp": "01:01:16",
+        "timestampSeconds": 3676
       }
     ]
   },
-  "cachedAt": "2026-07-21T10:02:30.892Z",
-  "inputTokens": 26303,
-  "outputTokens": 823
+  "cachedAt": "2026-07-21T21:00:37.824Z",
+  "inputTokens": 25018,
+  "outputTokens": 1542
 }

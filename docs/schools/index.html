@@ -331,6 +331,15 @@
   .bar-coral { background: var(--coral); }
   .bar-muted { background: var(--rule); }
   .pending-mark { color: var(--text-muted); font-style: italic; cursor: help; }
+  .prop-doc-link {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    background: var(--green-wash); color: var(--green-mid); padding: 0.15rem 0.45rem;
+    border-radius: 3px; text-decoration: none; margin: 0.1rem 0.3rem 0.1rem 0;
+  }
+  .prop-doc-link:hover { background: var(--green-mid); color: #fff; }
+  .prop-docs { margin-top: 0.4rem; }
+  td.prop-name { white-space: normal; min-width: 11em; }
+  .prop-former { font-weight: 400; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
   a.growth-cell-link {
     color: var(--green-mid);
     text-decoration: underline;
@@ -507,6 +516,7 @@
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">School</th>
             <th data-sort-type="num">Grades</th>
+            <th data-sort-type="text">Address</th>
             <th class="num" data-sort-type="num">Enrollment</th>
             <th data-sort-type="text">Network</th>
             <th class="num" data-sort-type="num">Opened</th>
@@ -516,6 +526,7 @@
           <tr data-href="/schools/charters/connect/">
             <td class="school-name" data-sort-value="connect community charter school"><a href="/schools/charters/connect/">Connect Community Charter School <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="0">K-8</td>
+            <td data-sort-value="635 oakside avenue"><span title="Shares the former Fair Oaks Elementary campus with KIPP Excelencia, which uses the campus's formal 2950 Fair Oaks Avenue address.">635 Oakside Avenue*</span></td>
             <td class="num" data-sort-value="142">142</td>
             <td>Independent</td>
             <td class="num" data-sort-value="2013">2013</td>
@@ -523,6 +534,7 @@
           <tr data-href="/schools/charters/kipp-excelencia/">
             <td class="school-name" data-sort-value="kipp excelencia community preparatory"><a href="/schools/charters/kipp-excelencia/">KIPP Excelencia Community Preparatory <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="-1">TK-8</td>
+            <td data-sort-value="2950 fair oaks avenue"><span title="Formal/CDE address for the former Fair Oaks Elementary campus; shares the grounds with Connect Community Charter, which uses a 635 Oakside Avenue entrance.">2950 Fair Oaks Avenue*</span></td>
             <td class="num" data-sort-value="704">704</td>
             <td>KIPP Public Schools Northern California (KIPP NorCal)</td>
             <td class="num" data-sort-value="2015">2015</td>
@@ -530,6 +542,7 @@
           <tr data-href="/schools/charters/rocketship-redwood-city/">
             <td class="school-name" data-sort-value="rocketship redwood city prep"><a href="/schools/charters/rocketship-redwood-city/">Rocketship Redwood City Prep <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="-1">TK-5</td>
+            <td data-sort-value="909 roosevelt avenue"><span title="District-owned former Hawes Community School campus; the district also leases space on the site to Building Kidz preschool (907 Roosevelt Avenue entrance) and Touchstone Learning.">909 Roosevelt Avenue*</span></td>
             <td class="num" data-sort-value="273">273</td>
             <td>Rocketship Public Schools</td>
             <td class="num" data-sort-value="2015">2015</td>
@@ -541,41 +554,46 @@
 
   <section class="schools-section" id="properties">
     <h2>Other district properties</h2>
-    <p class="section-intro">Buildings and sites owned (or leased) by the district that do not currently host a district-operated school or an RCSD-authorized charter.</p>
+    <p class="section-intro">Buildings and sites owned (or leased) by the district that do not currently host a district-operated school — including the campuses that house the RCSD-authorized charters listed above. Leases and use agreements approved by the Board are linked where available.</p>
     <div class="schools-table-wrap">
       <table class="sortable">
         <thead>
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">Property</th>
             <th data-sort-type="text">Address</th>
-            <th data-sort-type="text">Current use</th>
-            <th data-sort-type="text">Former use</th>
+            <th>Details</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="school-name" data-sort-value="district office">District Office</td>
+            <td class="school-name prop-name" data-sort-value="district office">District Office</td>
             <td data-sort-value="750 bradford street, redwood city, ca 94063">750 Bradford Street, Redwood City, CA 94063</td>
-            <td data-sort-value="district administrative headquarters">District administrative headquarters</td>
-            <td data-sort-value="">&mdash;</td>
+            <td>District administrative headquarters</td>
           </tr>
           <tr>
-            <td class="school-name" data-sort-value="harper school (private)"><a href="https://www.harperschool.org" target="_blank" rel="noopener">Harper School (private) <span style="font-size:0.8em; color:var(--text-muted)">&#8599;</span></a></td>
+            <td class="school-name prop-name" data-sort-value="harper school (private)"><a href="https://www.harperschool.org" target="_blank" rel="noopener">Harper School (private) <span style="font-size:0.8em; color:var(--text-muted)">&#8599;</span></a><div class="prop-former" title="Former Adelante Selby Spanish Immersion campus">(former Adelante Selby)</div></td>
             <td data-sort-value="3150 granger way, redwood city, ca 94063">3150 Granger Way, Redwood City, CA 94063</td>
-            <td data-sort-value="leased to a private school tenant">Leased to a private school tenant</td>
-            <td data-sort-value="former adelante selby spanish immersion campus">Former Adelante Selby Spanish Immersion campus</td>
+            <td>Leased to a private school tenant<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CRU3570525E8/$file/15_1_FinalLeaseAgreement_0.pdf" target="_blank" rel="noopener">Lease + Resolution 21 (2021) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DCKMHY5B64DF/$file/Final%20for%20Execution%20-%202024%20A_R%20Lease%20Agreement%20-%20Wagner%20Schoolhouse%20at%20Adelante%20Site%20-%20signed%20by%20Wagner%20(signed).pdf" target="_blank" rel="noopener">Amended & restated lease (2025) &#8599;</a></div></td>
           </tr>
           <tr>
-            <td class="school-name" data-sort-value="creative learning center">Creative Learning Center</td>
+            <td class="school-name prop-name" data-sort-value="learn academy (private)"><a href="https://thelearnacademy.com/locations/redwood-city" target="_blank" rel="noopener">LEARN Academy (private) <span style="font-size:0.8em; color:var(--text-muted)">&#8599;</span></a><div class="prop-former" title="Former Orion Alternative School campus (Orion is now at 555 Avenue del Ora)">(former Orion campus)</div></td>
             <td data-sort-value="815 allerton street, redwood city, ca 94063">815 Allerton Street, Redwood City, CA 94063</td>
-            <td data-sort-value="district-operated program (not a full school)">District-operated program (not a full school)</td>
-            <td data-sort-value="former orion alternative school campus (orion is now at 555 avenue del ora)">Former Orion Alternative School campus (Orion is now at 555 Avenue del Ora)</td>
+            <td>State-certified non-public special-education school (ABA); not district-operated<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CBJUGK7C00C9/$file/LEARN%20-%20Consent%20(Redwood%20City%20School%20District%20-%20Redwood%20City%20CA)%20(Execut.._%20(002)_3816374_1(DMS).PDF" target="_blank" rel="noopener">Consent to LEARN change of ownership (2022) &#8599;</a></div></td>
           </tr>
           <tr>
-            <td class="school-name" data-sort-value="district storage warehouse">District storage warehouse</td>
+            <td class="school-name prop-name" data-sort-value="hawes community school site">Hawes Community School site</td>
+            <td data-sort-value="909 roosevelt avenue, redwood city, ca 94061">909 Roosevelt Avenue, Redwood City, CA 94061</td>
+            <td>Rocketship Redwood City Prep (charter) campus; space also leased to Building Kidz preschool and Touchstone Learning<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CQQ7XW1BCF72/$file/10_4_JointUseAgreementBetweenRCSDAndBuildingKidz_0.pdf" target="_blank" rel="noopener">Building Kidz Joint Use Agreement (2020) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CR42GE021A6E/$file/10_6_FirstAmendmentToJointUseAgreement_0.pdf" target="_blank" rel="noopener">Building Kidz amendment (2020) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D9AV6B7F307A/$file/Building%20Kidz%20Renewal%20Joint%20Use%20July%202025.pdf" target="_blank" rel="noopener">Building Kidz renewal (2024) &#8599;</a><a class="prop-doc-link" href="https://data.rcsd.info/board-packets/2025-06-25/Touchstone-Learning-Joint-Use-Agreement-Lease-Renewal.pdf" target="_blank" rel="noopener">Touchstone Learning renewal (2025) &#8599;</a></div></td>
+          </tr>
+          <tr>
+            <td class="school-name prop-name" data-sort-value="fair oaks elementary school site">Fair Oaks Elementary School site</td>
+            <td data-sort-value="2950 fair oaks avenue, redwood city, ca 94063">2950 Fair Oaks Avenue, Redwood City, CA 94063</td>
+            <td>Campus of RCSD-authorized charters KIPP Excelencia and Connect Community Charter<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/C7HHVD68307B/$file/Prop39%20Extension.pdf" target="_blank" rel="noopener">Connect facilities use amendment + Prop 39 extension (2021) &#8599;</a></div></td>
+          </tr>
+          <tr>
+            <td class="school-name prop-name" data-sort-value="district storage warehouse">District storage warehouse</td>
             <td data-sort-value="1757 east bayshore road, suites 4 & 6, redwood city, ca 94063">1757 East Bayshore Road, Suites 4 & 6, Redwood City, CA 94063</td>
-            <td data-sort-value="leased by the district (landlord: east bayshore investment group, managed by beals martin inc.)">Leased by the district (landlord: East Bayshore Investment Group, managed by Beals Martin Inc.)</td>
-            <td data-sort-value="">&mdash;</td>
+            <td>Leased by the district (landlord: East Bayshore Investment Group, managed by Beals Martin Inc.)<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CHDNEQ5E13AA/$file/Beals%20Martin%201757%20E%20Bayshore%204%20%26%206_Original%20Lease%202021.pdf" target="_blank" rel="noopener">Original lease (2021) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CHDSSK7417CA/$file/Beals%20Martin%201757%20E%20Bayshore%204%20%26%206_Renewal_22.23.pdf" target="_blank" rel="noopener">Renewal 2022-23 &#8599;</a></div></td>
           </tr>
         </tbody>
       </table>
@@ -584,7 +602,7 @@
 </div>
 
 <footer class="site-footer">
-  <p>Independently compiled from publicly available RCSD documents. Source documents at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>.</p>
+  <p>Independently compiled from publicly available RCSD documents. Source documents at <a href="https://www.rcsdk8.net">rcsdk8.net</a> and the <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">GAMUT board portal</a>. rcsd.info is an independent community project of Primatech Paper Co LLC. Info line: <a href="tel:+16504828912">(650) 482-8912</a> (English) · <a href="tel:+16503997203">(650) 399-7203</a> (español) — <a href="/terms/">terms</a>.</p>
   <div class="footer-nav">
     <a href="/">Home</a>
     <a href="/meetings/">Meetings</a>

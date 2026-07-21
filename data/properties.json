@@ -1,12 +1,12 @@
 {
   "_metadata": {
-    "description": "District-owned properties in the Redwood City School District that are not currently RCSD-operated schools or RCSD-authorized charter school sites. Includes administrative buildings, leased-out former school sites, and operational facilities. Charter sites and district school sites are tracked separately in charters.json and schools.json respectively.",
+    "description": "District-owned properties in the Redwood City School District that are not currently RCSD-operated schools. Includes administrative buildings, leased-out former school sites, charter-hosting former school campuses (Hawes, Fair Oaks), and operational facilities. District school sites are tracked in schools.json; charter schools in charters.json.",
     "sources": {
       "districtInventory": "TBD — seed data from Board President (2026-04-17); authoritative list pending",
       "cdeDirectory": "https://www.cde.ca.gov/SchoolDirectory/"
     },
     "generated": "2026-04-17",
-    "status": "Harper School tenant and warehouse lease both confirmed by Board President 2026-04-20. Warehouse renewal document post-2023-08-31 not yet indexed in the board-packet index but the lease is current."
+    "status": "Harper School tenant and warehouse lease both confirmed by Board President 2026-04-20. Fair Oaks campus district ownership confirmed by Board President 2026-07-21. 815 Allerton corrected 2026-07-21 per Board President: LEARN Academy (formerly Creative Learning Center, acquired by LEARN 2022) is a non-public school, not a district-operated program. Warehouse renewal document post-2023-08-31 not yet indexed in the board-packet index but the lease is current."
   },
   "properties": [
     {
@@ -34,24 +34,182 @@
         "url": "https://www.harperschool.org",
         "type": "private",
         "programs": "Toddler, preschool, pre-kindergarten, kindergarten, and elementary",
-        "networkNote": "Harper School also operates a Danville campus."
+        "networkNote": "Harper School also operates a Danville campus.",
+        "leaseCounterparty": "Wagner Schoolhouse LLC"
       },
       "formerUse": "Former Adelante Selby Spanish Immersion campus",
       "formerUseEs": "Antiguo campus de Adelante Selby Spanish Immersion",
-      "notes": null
+      "documents": [
+        {
+          "label": "Lease + Resolution 21 (2021)",
+          "labelEs": "Contrato de alquiler + Resolución 21 (2021)",
+          "date": "2021-05-19",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/CRU3570525E8/$file/15_1_FinalLeaseAgreement_0.pdf"
+        },
+        {
+          "label": "Amended & restated lease (2025)",
+          "labelEs": "Contrato enmendado y actualizado (2025)",
+          "date": "2025-01-08",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/DCKMHY5B64DF/$file/Final%20for%20Execution%20-%202024%20A_R%20Lease%20Agreement%20-%20Wagner%20Schoolhouse%20at%20Adelante%20Site%20-%20signed%20by%20Wagner%20(signed).pdf"
+        }
+      ],
+      "notes": "Lease counterparty is Wagner Schoolhouse LLC: original lease approved with Resolution 21 on 2021-05-19; amended & restated lease approved 2025-01-08.",
+      "formerUseShort": "former Adelante Selby",
+      "formerUseShortEs": "antes Adelante Selby"
     },
     {
       "slug": "former-orion-campus",
-      "name": "Creative Learning Center",
-      "nameEs": "Creative Learning Center",
+      "name": "LEARN Academy (private)",
+      "nameEs": "LEARN Academy (privada)",
       "address": "815 Allerton Street, Redwood City, CA 94063",
-      "use": "district-program",
-      "useLabel": "District-operated program (not a full school)",
-      "useLabelEs": "Programa operado por el distrito (no una escuela completa)",
-      "tenant": null,
+      "use": "leased-out",
+      "useLabel": "State-certified non-public special-education school (ABA); not district-operated",
+      "useLabelEs": "Escuela privada de educación especial (ABA) certificada por el estado; no operada por el distrito",
+      "tenant": {
+        "name": "LEARN Academy Redwood City",
+        "url": "https://thelearnacademy.com/locations/redwood-city",
+        "type": "non-public school",
+        "programs": "K-6 therapeutic day school and early-intervention preschool; applied behavior analysis (ABA) services",
+        "networkNote": "Formerly the Creative Learning Center (founded 1999); acquired by LEARN in 2022."
+      },
       "formerUse": "Former Orion Alternative School campus (Orion is now at 555 Avenue del Ora)",
       "formerUseEs": "Antiguo campus de Orion Alternative (Orion ahora está en 555 Avenue del Ora)",
-      "notes": null
+      "documents": [
+        {
+          "label": "Consent to LEARN change of ownership (2022)",
+          "labelEs": "Consentimiento al cambio de propietario a LEARN (2022)",
+          "date": "2022-02-16",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/CBJUGK7C00C9/$file/LEARN%20-%20Consent%20(Redwood%20City%20School%20District%20-%20Redwood%20City%20CA)%20(Execut.._%20(002)_3816374_1(DMS).PDF"
+        }
+      ],
+      "notes": "Corrected 2026-07-21 (was listed as a district-operated program): LEARN Academy is a state-certified non-public school (NPS) where the district places special-education students — Creative Learning Center appears 124 times as a payee in warrant registers. The board acknowledged the Creative Learning Centers, NPS, Inc. conversion and consented to the change of ownership when LEARN acquired it (2022-02-16). District tree-maintenance contracts cover the site (2025-11-12 item 10.21).",
+      "formerUseShort": "former Orion campus",
+      "formerUseShortEs": "antes campus de Orion"
+    },
+    {
+      "slug": "former-hawes-campus",
+      "name": "Hawes Community School site",
+      "nameEs": "Campus de Hawes Community School",
+      "address": "909 Roosevelt Avenue, Redwood City, CA 94061",
+      "addressNote": "Building Kidz uses the 907 Roosevelt Avenue address for its entrance on the same campus.",
+      "use": "charter-and-leased-out",
+      "useLabel": "Rocketship Redwood City Prep (charter) campus; space also leased to Building Kidz preschool and Touchstone Learning",
+      "useLabelEs": "Campus de la escuela chárter Rocketship Redwood City Prep; también alquila espacio a Building Kidz (preescolar) y Touchstone Learning",
+      "tenant": null,
+      "tenants": [
+        {
+          "name": "Rocketship Redwood City Prep",
+          "type": "charter",
+          "url": "https://www.rocketshipschools.org/en/schools/redwood-city-prep/",
+          "note": "RCSD-authorized charter (see charters.json); CDE lists it at the campus's formal 909 Roosevelt Avenue address."
+        },
+        {
+          "name": "Building Kidz School",
+          "type": "private-preschool",
+          "url": "https://www.buildingkidzschool.com/schools/redwood-city/",
+          "note": "Joint Use Agreement with Little Budz, Inc. dba Building Kidz approved 2020-07-15; first amendment 2020-10-21; renewal with Building Kidz Family LLC approved 2024-09-25, effective July 2025. Publicly lists 907 Roosevelt Avenue."
+        },
+        {
+          "name": "Touchstone Learning",
+          "type": "private",
+          "note": "Leases the Library Media Center (10.3% of building square footage) under a Joint Use Agreement first approved 2020-02-05; renewal approved 2025-06-25 for July 1, 2025 – June 30, 2030 at $3.50/sq ft/month through June 2026, then CPI escalation."
+        }
+      ],
+      "formerUse": "Former Hawes Community School campus",
+      "formerUseEs": "Antiguo campus de Hawes Community School",
+      "documents": [
+        {
+          "label": "Building Kidz Joint Use Agreement (2020)",
+          "labelEs": "Acuerdo de uso conjunto con Building Kidz (2020)",
+          "date": "2020-07-15",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/CQQ7XW1BCF72/$file/10_4_JointUseAgreementBetweenRCSDAndBuildingKidz_0.pdf"
+        },
+        {
+          "label": "Building Kidz amendment (2020)",
+          "labelEs": "Enmienda del acuerdo con Building Kidz (2020)",
+          "date": "2020-10-21",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/CR42GE021A6E/$file/10_6_FirstAmendmentToJointUseAgreement_0.pdf"
+        },
+        {
+          "label": "Building Kidz renewal (2024)",
+          "labelEs": "Renovación del acuerdo con Building Kidz (2024)",
+          "date": "2024-09-25",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/D9AV6B7F307A/$file/Building%20Kidz%20Renewal%20Joint%20Use%20July%202025.pdf"
+        },
+        {
+          "label": "Touchstone Learning renewal (2025)",
+          "labelEs": "Renovación del acuerdo con Touchstone Learning (2025)",
+          "date": "2025-06-25",
+          "url": "https://data.rcsd.info/board-packets/2025-06-25/Touchstone-Learning-Joint-Use-Agreement-Lease-Renewal.pdf"
+        }
+      ],
+      "notes": "District ownership confirmed by the 2025-06-25 board memo for the Touchstone renewal (“the District’s Hawes Elementary School campus located at 909 Roosevelt Avenue”). The district also spent bond funds on the site in 2023 (playground pour-in-place, intercom/buzzer work).",
+      "source": {
+        "boardMeetings": [
+          {
+            "date": "2020-07-15",
+            "item": "Approval of Joint Use Agreement with Little Budz, Inc. dba BuildingKidz School at Hawes School Site"
+          },
+          {
+            "date": "2020-10-21",
+            "item": "First Amendment to Joint Use Agreement with Little Budz, Inc., dba Building Kidz School"
+          },
+          {
+            "date": "2024-09-25",
+            "item": "Joint Use Renewal Agreement with Building Kidz Family LLC at the Hawes Community School Site",
+            "attachmentUrl": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/D9AV6B7F307A/$file/Building%20Kidz%20Renewal%20Joint%20Use%20July%202025.pdf"
+          },
+          {
+            "date": "2025-06-25",
+            "item": "Joint Use Agreement Lease Renewal between Touchstone Learning and RCSD"
+          }
+        ]
+      }
+    },
+    {
+      "slug": "former-fair-oaks-campus",
+      "name": "Fair Oaks Elementary School site",
+      "nameEs": "Campus de Fair Oaks Elementary",
+      "address": "2950 Fair Oaks Avenue, Redwood City, CA 94063",
+      "addressNote": "Connect Community Charter uses a 635 Oakside Avenue entrance on the same campus.",
+      "use": "charter-campus",
+      "useLabel": "Campus of RCSD-authorized charters KIPP Excelencia and Connect Community Charter",
+      "useLabelEs": "Campus de las escuelas chárter autorizadas por RCSD: KIPP Excelencia y Connect Community Charter",
+      "tenant": null,
+      "tenants": [
+        {
+          "name": "KIPP Excelencia Community Preparatory",
+          "type": "charter",
+          "url": "https://excelencia.kippnorcal.org",
+          "note": "RCSD-authorized charter (see charters.json); uses the campus's formal 2950 Fair Oaks Avenue address."
+        },
+        {
+          "name": "Connect Community Charter School",
+          "type": "charter",
+          "url": "https://www.connectrwc.org",
+          "note": "RCSD-authorized charter (see charters.json); occupies the site under a facilities use agreement — Amendment 1 in lieu of the Facilities Use Agreement (with Proposition 39 extension) approved 2021-10-06."
+        }
+      ],
+      "formerUse": "Former Fair Oaks Elementary campus",
+      "formerUseEs": "Antiguo campus de Fair Oaks Elementary",
+      "documents": [
+        {
+          "label": "Connect facilities use amendment + Prop 39 extension (2021)",
+          "labelEs": "Enmienda del acuerdo de uso de instalaciones con Connect + extensión Prop 39 (2021)",
+          "date": "2021-10-06",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/C7HHVD68307B/$file/Prop39%20Extension.pdf"
+        }
+      ],
+      "notes": "District ownership confirmed by Board President 2026-07-21. The district provides the site to its authorized charters; Connect's occupancy is documented in the 2021-10-06 facilities use amendment with Proposition 39 extension.",
+      "source": {
+        "ownershipConfirmation": "Board President, 2026-07-21",
+        "boardMeetings": [
+          {
+            "date": "2021-10-06",
+            "item": "Approval of Amendment 1 in Lieu of the Facilities Use Agreement between Redwood City School District and Connect Community Charter"
+          }
+        ]
+      }
     },
     {
       "slug": "district-warehouse",
@@ -69,6 +227,20 @@
       },
       "squareFeet": 2868,
       "formerUse": null,
+      "documents": [
+        {
+          "label": "Original lease (2021)",
+          "labelEs": "Contrato de alquiler original (2021)",
+          "date": "2022-08-24",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/CHDNEQ5E13AA/$file/Beals%20Martin%201757%20E%20Bayshore%204%20%26%206_Original%20Lease%202021.pdf"
+        },
+        {
+          "label": "Renewal 2022-23",
+          "labelEs": "Renovación 2022-23",
+          "date": "2022-08-24",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/CHDSSK7417CA/$file/Beals%20Martin%201757%20E%20Bayshore%204%20%26%206_Renewal_22.23.pdf"
+        }
+      ],
       "notes": "Commercial storage space (~2,868 sq ft). Lease use clause: \"STORAGE FOR SCHOOL DISTRICT.\" Last board-approved renewal surfaced in the board-packet index is 2022-08-24 (consent item 11.8) through 2023-08-31 at $6,020/mo. Lease is current per Board President confirmation 2026-04-20; subsequent renewal document not yet indexed.",
       "source": {
         "boardMeeting": "2022-08-24",

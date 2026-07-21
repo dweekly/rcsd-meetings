@@ -331,6 +331,15 @@
   .bar-coral { background: var(--coral); }
   .bar-muted { background: var(--rule); }
   .pending-mark { color: var(--text-muted); font-style: italic; cursor: help; }
+  .prop-doc-link {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    background: var(--green-wash); color: var(--green-mid); padding: 0.15rem 0.45rem;
+    border-radius: 3px; text-decoration: none; margin: 0.1rem 0.3rem 0.1rem 0;
+  }
+  .prop-doc-link:hover { background: var(--green-mid); color: #fff; }
+  .prop-docs { margin-top: 0.4rem; }
+  td.prop-name { white-space: normal; min-width: 11em; }
+  .prop-former { font-weight: 400; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
   a.growth-cell-link {
     color: var(--green-mid);
     text-decoration: underline;
@@ -507,6 +516,7 @@
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">Escuela</th>
             <th data-sort-type="num">Grados</th>
+            <th data-sort-type="text">Dirección</th>
             <th class="num" data-sort-type="num">Inscripción</th>
             <th data-sort-type="text">Red</th>
             <th class="num" data-sort-type="num">Inauguración</th>
@@ -516,6 +526,7 @@
           <tr data-href="/escuelas/charter/connect/">
             <td class="school-name" data-sort-value="escuela autónoma connect community"><a href="/escuelas/charter/connect/">Escuela Autónoma Connect Community <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="0">K-8</td>
+            <td data-sort-value="635 oakside avenue"><span title="Comparte el antiguo campus de Fair Oaks Elementary con KIPP Excelencia, que usa la dirección formal del campus, 2950 Fair Oaks Avenue.">635 Oakside Avenue*</span></td>
             <td class="num" data-sort-value="142">142</td>
             <td>Independiente</td>
             <td class="num" data-sort-value="2013">2013</td>
@@ -523,6 +534,7 @@
           <tr data-href="/escuelas/charter/kipp-excelencia/">
             <td class="school-name" data-sort-value="kipp excelencia community preparatory"><a href="/escuelas/charter/kipp-excelencia/">KIPP Excelencia Community Preparatory <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="-1">TK-8</td>
+            <td data-sort-value="2950 fair oaks avenue"><span title="Dirección formal (CDE) del antiguo campus de Fair Oaks Elementary; comparte el terreno con Connect Community Charter, que usa una entrada por 635 Oakside Avenue.">2950 Fair Oaks Avenue*</span></td>
             <td class="num" data-sort-value="704">704</td>
             <td>KIPP Public Schools Northern California (KIPP NorCal)</td>
             <td class="num" data-sort-value="2015">2015</td>
@@ -530,6 +542,7 @@
           <tr data-href="/escuelas/charter/rocketship-redwood-city/">
             <td class="school-name" data-sort-value="rocketship redwood city prep"><a href="/escuelas/charter/rocketship-redwood-city/">Rocketship Redwood City Prep <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="-1">TK-5</td>
+            <td data-sort-value="909 roosevelt avenue"><span title="Antiguo campus de Hawes Community School, propiedad del distrito; el distrito también alquila espacio en el sitio a Building Kidz (preescolar, entrada por 907 Roosevelt Avenue) y Touchstone Learning.">909 Roosevelt Avenue*</span></td>
             <td class="num" data-sort-value="273">273</td>
             <td>Rocketship Public Schools</td>
             <td class="num" data-sort-value="2015">2015</td>
@@ -541,41 +554,46 @@
 
   <section class="schools-section" id="properties">
     <h2>Otras propiedades del distrito</h2>
-    <p class="section-intro">Edificios y terrenos propiedad del distrito (o alquilados por el distrito) que actualmente no albergan una escuela operada por el distrito ni una escuela chárter autorizada por RCSD.</p>
+    <p class="section-intro">Edificios y terrenos propiedad del distrito (o alquilados por el distrito) que actualmente no albergan una escuela operada por el distrito — incluye los campus donde operan las escuelas chárter autorizadas por RCSD de la lista de arriba. Los contratos de alquiler y acuerdos de uso aprobados por la mesa directiva están enlazados cuando están disponibles.</p>
     <div class="schools-table-wrap">
       <table class="sortable">
         <thead>
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">Propiedad</th>
             <th data-sort-type="text">Dirección</th>
-            <th data-sort-type="text">Uso actual</th>
-            <th data-sort-type="text">Uso anterior</th>
+            <th>Detalles</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="school-name" data-sort-value="oficina del distrito">Oficina del Distrito</td>
+            <td class="school-name prop-name" data-sort-value="oficina del distrito">Oficina del Distrito</td>
             <td data-sort-value="750 bradford street, redwood city, ca 94063">750 Bradford Street, Redwood City, CA 94063</td>
-            <td data-sort-value="sede administrativa del distrito">Sede administrativa del distrito</td>
-            <td data-sort-value="">&mdash;</td>
+            <td>Sede administrativa del distrito</td>
           </tr>
           <tr>
-            <td class="school-name" data-sort-value="harper school (privada)"><a href="https://www.harperschool.org" target="_blank" rel="noopener">Harper School (privada) <span style="font-size:0.8em; color:var(--text-muted)">&#8599;</span></a></td>
+            <td class="school-name prop-name" data-sort-value="harper school (privada)"><a href="https://www.harperschool.org" target="_blank" rel="noopener">Harper School (privada) <span style="font-size:0.8em; color:var(--text-muted)">&#8599;</span></a><div class="prop-former" title="Antiguo campus de Adelante Selby Spanish Immersion">(antes Adelante Selby)</div></td>
             <td data-sort-value="3150 granger way, redwood city, ca 94063">3150 Granger Way, Redwood City, CA 94063</td>
-            <td data-sort-value="alquilado a una escuela privada como inquilino">Alquilado a una escuela privada como inquilino</td>
-            <td data-sort-value="antiguo campus de adelante selby spanish immersion">Antiguo campus de Adelante Selby Spanish Immersion</td>
+            <td>Alquilado a una escuela privada como inquilino<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CRU3570525E8/$file/15_1_FinalLeaseAgreement_0.pdf" target="_blank" rel="noopener">Contrato de alquiler + Resolución 21 (2021) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/DCKMHY5B64DF/$file/Final%20for%20Execution%20-%202024%20A_R%20Lease%20Agreement%20-%20Wagner%20Schoolhouse%20at%20Adelante%20Site%20-%20signed%20by%20Wagner%20(signed).pdf" target="_blank" rel="noopener">Contrato enmendado y actualizado (2025) &#8599;</a></div></td>
           </tr>
           <tr>
-            <td class="school-name" data-sort-value="creative learning center">Creative Learning Center</td>
+            <td class="school-name prop-name" data-sort-value="learn academy (privada)"><a href="https://thelearnacademy.com/locations/redwood-city" target="_blank" rel="noopener">LEARN Academy (privada) <span style="font-size:0.8em; color:var(--text-muted)">&#8599;</span></a><div class="prop-former" title="Antiguo campus de Orion Alternative (Orion ahora está en 555 Avenue del Ora)">(antes campus de Orion)</div></td>
             <td data-sort-value="815 allerton street, redwood city, ca 94063">815 Allerton Street, Redwood City, CA 94063</td>
-            <td data-sort-value="programa operado por el distrito (no una escuela completa)">Programa operado por el distrito (no una escuela completa)</td>
-            <td data-sort-value="antiguo campus de orion alternative (orion ahora está en 555 avenue del ora)">Antiguo campus de Orion Alternative (Orion ahora está en 555 Avenue del Ora)</td>
+            <td>Escuela privada de educación especial (ABA) certificada por el estado; no operada por el distrito<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CBJUGK7C00C9/$file/LEARN%20-%20Consent%20(Redwood%20City%20School%20District%20-%20Redwood%20City%20CA)%20(Execut.._%20(002)_3816374_1(DMS).PDF" target="_blank" rel="noopener">Consentimiento al cambio de propietario a LEARN (2022) &#8599;</a></div></td>
           </tr>
           <tr>
-            <td class="school-name" data-sort-value="almacén del distrito">Almacén del distrito</td>
+            <td class="school-name prop-name" data-sort-value="campus de hawes community school">Campus de Hawes Community School</td>
+            <td data-sort-value="909 roosevelt avenue, redwood city, ca 94061">909 Roosevelt Avenue, Redwood City, CA 94061</td>
+            <td>Campus de la escuela chárter Rocketship Redwood City Prep; también alquila espacio a Building Kidz (preescolar) y Touchstone Learning<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CQQ7XW1BCF72/$file/10_4_JointUseAgreementBetweenRCSDAndBuildingKidz_0.pdf" target="_blank" rel="noopener">Acuerdo de uso conjunto con Building Kidz (2020) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CR42GE021A6E/$file/10_6_FirstAmendmentToJointUseAgreement_0.pdf" target="_blank" rel="noopener">Enmienda del acuerdo con Building Kidz (2020) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/D9AV6B7F307A/$file/Building%20Kidz%20Renewal%20Joint%20Use%20July%202025.pdf" target="_blank" rel="noopener">Renovación del acuerdo con Building Kidz (2024) &#8599;</a><a class="prop-doc-link" href="https://data.rcsd.info/board-packets/2025-06-25/Touchstone-Learning-Joint-Use-Agreement-Lease-Renewal.pdf" target="_blank" rel="noopener">Renovación del acuerdo con Touchstone Learning (2025) &#8599;</a></div></td>
+          </tr>
+          <tr>
+            <td class="school-name prop-name" data-sort-value="campus de fair oaks elementary">Campus de Fair Oaks Elementary</td>
+            <td data-sort-value="2950 fair oaks avenue, redwood city, ca 94063">2950 Fair Oaks Avenue, Redwood City, CA 94063</td>
+            <td>Campus de las escuelas chárter autorizadas por RCSD: KIPP Excelencia y Connect Community Charter<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/C7HHVD68307B/$file/Prop39%20Extension.pdf" target="_blank" rel="noopener">Enmienda del acuerdo de uso de instalaciones con Connect + extensión Prop 39 (2021) &#8599;</a></div></td>
+          </tr>
+          <tr>
+            <td class="school-name prop-name" data-sort-value="almacén del distrito">Almacén del distrito</td>
             <td data-sort-value="1757 east bayshore road, suites 4 & 6, redwood city, ca 94063">1757 East Bayshore Road, Suites 4 & 6, Redwood City, CA 94063</td>
-            <td data-sort-value="alquilado por el distrito (propietario: east bayshore investment group, administrado por beals martin inc.)">Alquilado por el distrito (propietario: East Bayshore Investment Group, administrado por Beals Martin Inc.)</td>
-            <td data-sort-value="">&mdash;</td>
+            <td>Alquilado por el distrito (propietario: East Bayshore Investment Group, administrado por Beals Martin Inc.)<div class="prop-docs"><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CHDNEQ5E13AA/$file/Beals%20Martin%201757%20E%20Bayshore%204%20%26%206_Original%20Lease%202021.pdf" target="_blank" rel="noopener">Contrato de alquiler original (2021) &#8599;</a><a class="prop-doc-link" href="https://go.boarddocs.com/ca/redwood/Board.nsf/files/CHDSSK7417CA/$file/Beals%20Martin%201757%20E%20Bayshore%204%20%26%206_Renewal_22.23.pdf" target="_blank" rel="noopener">Renovación 2022-23 &#8599;</a></div></td>
           </tr>
         </tbody>
       </table>
@@ -584,7 +602,7 @@
 </div>
 
 <footer class="site-footer">
-  <p>Preparado con documentos públicos de RCSD. Los documentos originales están disponibles en <a href="https://www.rcsdk8.net">rcsdk8.net</a> y en el <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">portal de la mesa directiva GAMUT</a>.</p>
+  <p>Preparado con documentos públicos de RCSD. Los documentos originales están disponibles en <a href="https://www.rcsdk8.net">rcsdk8.net</a> y en el <a href="https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397">portal de la mesa directiva GAMUT</a>. rcsd.info es un proyecto comunitario independiente de Primatech Paper Co LLC. Línea de información: <a href="tel:+16503997203">(650) 399-7203</a> (español) · <a href="tel:+16504828912">(650) 482-8912</a> (inglés) — <a href="/terminos/">términos</a>.</p>
   <div class="footer-nav">
     <a href="/">Inicio</a>
     <a href="/reuniones/">Reuniones</a>

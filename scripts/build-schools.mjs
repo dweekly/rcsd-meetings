@@ -2722,13 +2722,13 @@ function buildSchoolsIndex(lang) {
     charterH2: 'Escuelas ch\u00e1rter autorizadas por RCSD',
     charterIntro: 'Tres escuelas ch\u00e1rter financiadas directamente. Sus presupuestos, informes interinos y auditor\u00edas se presentan regularmente a la mesa directiva como parte de la supervisi\u00f3n fiscal del distrito.',
     propertiesH2: 'Otras propiedades del distrito',
-    propertiesIntro: 'Edificios y terrenos propiedad del distrito (o alquilados por el distrito) que actualmente no albergan una escuela operada por el distrito ni una escuela ch\u00e1rter autorizada por RCSD.',
+    propertiesIntro: 'Edificios y terrenos propiedad del distrito (o alquilados por el distrito) que actualmente no albergan una escuela operada por el distrito \u2014 incluye los campus donde operan las escuelas ch\u00e1rter autorizadas por RCSD de la lista de arriba. Los contratos de alquiler y acuerdos de uso aprobados por la mesa directiva est\u00e1n enlazados cuando est\u00e1n disponibles.',
     thSchool: 'Escuela', thGrades: 'Grados', thEnroll: 'Inscripci\u00f3n', thHighNeed: '% alta necesidad',
     thGrowthEla: 'Crec. lectura', thGrowthMath: 'Crec. mat',
     growthPendingShort: 'En espera de la presentaci\u00f3n 2025-26',
     growthCellSourceTitle: (date, page) => `Ver fuente: presentaci\u00f3n de la Mesa ${date}, diapositiva ${page}`,
     thNetwork: 'Red', thOpened: 'Inauguraci\u00f3n',
-    thProperty: 'Propiedad', thAddress: 'Direcci\u00f3n', thUse: 'Uso actual', thFormer: 'Uso anterior',
+    thProperty: 'Propiedad', thAddress: 'Direcci\u00f3n', thDetails: 'Detalles',
     networkIndep: 'Independiente',
     growthExplainer: '<strong>% alta necesidad</strong> = porcentaje de estudiantes socioeconómicamente desfavorecidos o aprendices de inglés. <strong>Crecimiento</strong> = % de estudiantes que alcanzaron su meta anual de Crecimiento Esperado en i-Ready en la evaluación diagnóstica de medio año 2025-26. La meta del LCAP es aumentar este número 4 puntos cada año. Una escuela con baja competencia pero alto crecimiento está acelerando el aprendizaje.',
     pathPrefix: '/escuelas/',
@@ -2740,13 +2740,13 @@ function buildSchoolsIndex(lang) {
     charterH2: 'RCSD-authorized charter schools',
     charterIntro: 'Three directly-funded charter schools. Their budgets, interim reports, and audits are presented regularly to the Board as part of the district\u2019s fiscal oversight role.',
     propertiesH2: 'Other district properties',
-    propertiesIntro: 'Buildings and sites owned (or leased) by the district that do not currently host a district-operated school or an RCSD-authorized charter.',
+    propertiesIntro: 'Buildings and sites owned (or leased) by the district that do not currently host a district-operated school — including the campuses that house the RCSD-authorized charters listed above. Leases and use agreements approved by the Board are linked where available.',
     thSchool: 'School', thGrades: 'Grades', thEnroll: 'Enrollment', thHighNeed: '% high-need',
     thGrowthEla: 'Reading growth', thGrowthMath: 'Math growth',
     growthPendingShort: 'Awaiting 2025-26 presentation',
     growthCellSourceTitle: (date, page) => `View source: board presentation ${date}, slide ${page}`,
     thNetwork: 'Network', thOpened: 'Opened',
-    thProperty: 'Property', thAddress: 'Address', thUse: 'Current use', thFormer: 'Former use',
+    thProperty: 'Property', thAddress: 'Address', thDetails: 'Details',
     networkIndep: 'Independent',
     growthExplainer: '<strong>% high-need</strong> = share of students who are socioeconomically disadvantaged or English learners. <strong>Growth</strong> = % of students who met their annual i-Ready Expected Growth target on the 2025-26 mid-year diagnostic. The district\u2019s LCAP goal is to raise this by 4 percentage points each year. A school with low proficiency but high growth is accelerating learning. Bar colors compare each school to the district-wide mid-year result (Reading 60.7%, Math 56.4%). Schools without a bar have not yet presented 2025-26 data to the Board.',
     pathPrefix: '/schools/',
@@ -2818,9 +2818,16 @@ function buildSchoolsIndex(lang) {
     const name = isEs ? (c.nameEs || c.name) : c.name;
     const gv = gradesSortVal(c.grades);
     const openedYear = (c.dateOpened || '').slice(0, 4);
+    // Drop city/state/zip for the table — every charter is in Redwood City.
+    const streetAddress = (c.address || '').split(',')[0];
+    const addressNote = isEs ? (c.addressNoteEs || c.addressNote) : c.addressNote;
+    const addressCell = addressNote
+      ? `<span title="${addressNote.replace(/"/g, '&quot;')}">${streetAddress}*</span>`
+      : streetAddress;
     return `          <tr data-href="${href}">
             <td class="school-name" data-sort-value="${name.toLowerCase()}"><a href="${href}">${name} <span class="arrow">&rarr;</span></a></td>
             <td data-sort-value="${gv ?? ''}">${c.grades || ''}</td>
+            <td data-sort-value="${streetAddress.toLowerCase()}">${addressCell}</td>
             <td class="num" data-sort-value="${c.enrollment ?? ''}">${c.enrollment ? c.enrollment.toLocaleString() : ''}</td>
             <td>${c.network || L.networkIndep}</td>
             <td class="num" data-sort-value="${openedYear || ''}">${openedYear}</td>
@@ -2836,11 +2843,20 @@ function buildSchoolsIndex(lang) {
     const nameCell = tenantUrl
       ? `<a href="${tenantUrl}" target="_blank" rel="noopener">${name} <span style="font-size:0.8em; color:var(--text-muted)">&#8599;</span></a>`
       : name;
+    const docLinks = (p.documents || []).map(d => {
+      const label = isEs ? (d.labelEs || d.label) : d.label;
+      return `<a class="prop-doc-link" href="${d.url}" target="_blank" rel="noopener">${label} &#8599;</a>`;
+    }).join('');
+    // Short parenthetical under the name; long formerUse stays in the title attribute.
+    const formerShort = isEs ? (p.formerUseShortEs || p.formerUseShort) : p.formerUseShort;
+    const formerLine = formerShort
+      ? `<div class="prop-former"${formerUse ? ` title="${formerUse.replace(/"/g, '&quot;')}"` : ''}>(${formerShort})</div>`
+      : '';
+    const detailsCell = `${useLabel || ''}${docLinks ? `<div class="prop-docs">${docLinks}</div>` : ''}`;
     return `          <tr>
-            <td class="school-name" data-sort-value="${name.toLowerCase()}">${nameCell}</td>
+            <td class="school-name prop-name" data-sort-value="${name.toLowerCase()}">${nameCell}${formerLine}</td>
             <td data-sort-value="${(p.address || '').toLowerCase()}">${p.address || '<span style="color:var(--text-muted); font-style:italic">TBD</span>'}</td>
-            <td data-sort-value="${(useLabel || '').toLowerCase()}">${useLabel || ''}</td>
-            <td data-sort-value="${(formerUse || '').toLowerCase()}">${formerUse || '&mdash;'}</td>
+            <td>${detailsCell}</td>
           </tr>`;
   }).join('\n');
 
@@ -2909,6 +2925,15 @@ function buildSchoolsIndex(lang) {
   .bar-coral { background: var(--coral); }
   .bar-muted { background: var(--rule); }
   .pending-mark { color: var(--text-muted); font-style: italic; cursor: help; }
+  .prop-doc-link {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+    background: var(--green-wash); color: var(--green-mid); padding: 0.15rem 0.45rem;
+    border-radius: 3px; text-decoration: none; margin: 0.1rem 0.3rem 0.1rem 0;
+  }
+  .prop-doc-link:hover { background: var(--green-mid); color: #fff; }
+  .prop-docs { margin-top: 0.4rem; }
+  td.prop-name { white-space: normal; min-width: 11em; }
+  .prop-former { font-weight: 400; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
   a.growth-cell-link {
     color: var(--green-mid);
     text-decoration: underline;
@@ -2987,6 +3012,7 @@ ${rows}
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">${L.thSchool}</th>
             <th data-sort-type="num">${L.thGrades}</th>
+            <th data-sort-type="text">${L.thAddress}</th>
             <th class="num" data-sort-type="num">${L.thEnroll}</th>
             <th data-sort-type="text">${L.thNetwork}</th>
             <th class="num" data-sort-type="num">${L.thOpened}</th>
@@ -3008,8 +3034,7 @@ ${charterRows}
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">${L.thProperty}</th>
             <th data-sort-type="text">${L.thAddress}</th>
-            <th data-sort-type="text">${L.thUse}</th>
-            <th data-sort-type="text">${L.thFormer}</th>
+            <th>${L.thDetails}</th>
           </tr>
         </thead>
         <tbody>

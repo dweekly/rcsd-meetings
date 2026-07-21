@@ -45,7 +45,7 @@ Read these files from `data/` to answer questions. For field-by-field documentat
 |------|------|---------|
 | `schools.json` | 609 lines | School profiles, bell schedules, addresses, principals, PTO/PTA info, parent links, CDS codes |
 | `charters.json` | 3 charters | RCSD-authorized charter schools: addresses, authorizer, enrollment, leaders, CDS codes (separate from district schools) |
-| `properties.json` | 4 properties | District-owned/leased real estate that is **not** an operating school — admin buildings, leased-out former campuses, storage. Keyed by address; use to resolve a district site named only by street address. |
+| `properties.json` | 6 properties | District-owned/leased real estate that is **not** an operating school — admin buildings, leased-out former campuses (Hawes at 909 Roosevelt: Rocketship charter + Building Kidz + Touchstone; Fair Oaks at 2950 Fair Oaks Ave: KIPP + Connect), storage. Each entry links its board-approved leases/use agreements (`documents[]`). Keyed by address; use to resolve a district site named only by street address. |
 | `district-calendar-2025-26.json` | ~17 events | "Is there school?" queries for 2025-26 year |
 | `district-calendar-2026-27.json` | ~17 events | "Is there school?" queries for 2026-27 year |
 | `governance-calendar.json` | ~12 events | Board meeting schedule |
