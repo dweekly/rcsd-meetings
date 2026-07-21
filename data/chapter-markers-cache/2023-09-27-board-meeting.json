@@ -1,56 +1,76 @@
 {
   "date": "2023-09-27",
+  "slug": "2023-09-27-board-meeting",
   "itemCount": 40,
+  "transcriptHash": "2d6fc9ff37f37cb4",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "Janet Lawson",
-        "role": "Clerk / Acting President"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (acting as President this meeting)"
       },
       "B": {
-        "name": "Evelyn (staff)",
-        "role": "Board Secretary / Staff"
+        "name": "Evelyn",
+        "role": "Staff/Secretary (conducting roll call and administrative support)"
       },
       "C": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "D": {
-        "name": "John Baker",
-        "role": "Superintendent (Dr. Baker)"
-      },
-      "E": {
-        "name": "María Díaz-Slocum",
-        "role": "President (absent/remote)"
-      },
-      "F": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
-      "G": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (remote, non-voting)"
+      "D": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
       },
-      "H": {
-        "name": "Rick (Finance Director)",
+      "E": {
+        "name": "María Díaz-Slocum",
+        "role": "President (attending remotely, not voting)"
+      },
+      "F": {
+        "name": "Janet Lawson",
+        "role": "Clerk"
+      },
+      "G": {
+        "name": "Rick",
         "role": "Director of Finance/Business"
       },
+      "H": {
+        "name": "Mike Wells",
+        "role": "Trustee"
+      },
       "I": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (remote, non-voting audience member)"
+        "name": "Petrina",
+        "role": "Health and Wellness Department staff presenter"
       },
       "J": {
-        "name": "Petrina (Health & Wellness)",
-        "role": "Health and Wellness Department presenter"
+        "name": "John Baker",
+        "role": "Superintendent (Dr. Baker)"
+      },
+      "K": {
+        "name": "Mr. Robell",
+        "role": "Public speaker"
       }
     },
-    "agendaChanges": "Items 8.2 (Variable Term Waiver), 8.3 (Provisional Internship Permit), and 8.5 (Approval of Application for Exemption from Required Expenditures for Classroom Teachers' Salaries) were moved from Action Items to the Consent Calendar at the start of the meeting under Changes to the Agenda. Items proceeded in agenda order otherwise.",
+    "agendaChanges": "Items 8.2 (Variable Term Waiver), 8.3 (Provisional Internship Permit), and 8.5 (Approval of Application for Exemption from the Required Expenditures for Classroom Teachers' Salaries) were moved from Action Items to the Consent Calendar during Changes to the Agenda. These three items were then approved as part of the Consent Calendar bundle. A late public comment speaker card was received for item 8.5 after it had already been approved with the consent calendar; the board chair declined to reopen the item.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
-          "opened": 6,
+          "opened": 5,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
+        "phases": {
+          "opened": 16,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -64,7 +84,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 31,
+          "opened": 33,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -78,10 +98,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 61,
+          "opened": 60,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 63,
           "vote": null
         },
         "publicComments": [],
@@ -92,7 +112,7 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 105,
+          "opened": 104,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -110,9 +130,23 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 117,
+          "opened": 114,
           "presentation": null,
-          "publicComment": 117,
+          "publicComment": 114,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6",
+        "title": "School/Community Reports",
+        "phases": {
+          "opened": 114,
+          "presentation": null,
+          "publicComment": null,
           "discussion": null,
           "vote": null
         },
@@ -124,10 +158,10 @@
         "itemLabel": "6.1",
         "title": "2023-24 Health and Wellness Department Update",
         "phases": {
-          "opened": 117,
-          "presentation": 261,
+          "opened": 114,
+          "presentation": 259,
           "publicComment": null,
-          "discussion": 1697,
+          "discussion": 1695,
           "vote": null
         },
         "publicComments": [],
@@ -138,10 +172,10 @@
         "itemLabel": "6.2",
         "title": "Review of the Human Resources Department's Vision and Plans for 2023-2024",
         "phases": {
-          "opened": 2288,
-          "presentation": 2390,
+          "opened": 2290,
+          "presentation": 2385,
           "publicComment": null,
-          "discussion": 4775,
+          "discussion": 4772,
           "vote": null
         },
         "publicComments": [],
@@ -150,26 +184,188 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items (including 8.2, 8.3, 8.5 as moved)",
+        "title": "Approval of Consent Items (bundle including 7.1–7.9 plus moved items 8.2, 8.3, 8.5)",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
-          "publicComment": 5653,
+          "publicComment": 5643,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
             "result": "approved"
           }
         },
         "publicComments": [
           {
-            "name": "David Robel",
-            "startSeconds": 5677,
-            "endSeconds": 5814,
-            "summary": "Argued that board-appointed superintendent subcommittees are subject to the Brown Act and demanded public agendas, minutes, and open meetings for those committees, and questioned how Measure S bond expenditures had already been approved without public knowledge."
+            "name": "Mr. Robell",
+            "startSeconds": 5673,
+            "endSeconds": 5812,
+            "summary": "Argued that the superintendent subcommittees created by formal board action (e.g., Bond Construction Committee, Workforce Housing Committee) are subject to the Brown Act and should have public agendas, minutes, and report-outs."
           }
         ],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.1",
+        "title": "Approval of the September 13 Board Meeting Minutes",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.2",
+        "title": "Approval of Addendum to 2023-24 Measure U Application for Garfield Community School",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.3",
+        "title": "Approval of School Assignments and Committee Assignments for Board Members for the 2023-24 School Year",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.4",
+        "title": "Approval of the Agreement between the Redwood City School District and the Santa Clara County Office of Education",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.5",
+        "title": "Approval of the Agreement between the Redwood City School District and San Mateo County Counsel",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.6",
+        "title": "Approval of Amendment No. 1 between the Redwood City School District and Maxim Healthcare Services for the 2023-24 School Year",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.7",
+        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Counselor Trainee Candidates",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.8",
+        "title": "Approval of Additional Personnel Needed for 2023-24",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.9",
+        "title": "Approval of Personnel Report",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
         "consent": true,
         "pulled": false
       },
@@ -182,7 +378,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5968,
+            "seconds": 5965,
             "type": "voice",
             "result": "approved"
           }
@@ -195,14 +391,14 @@
         "itemLabel": "8.2",
         "title": "Approval of Variable Term Waiver",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
-            "result": "approved with consent calendar"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -213,14 +409,14 @@
         "itemLabel": "8.3",
         "title": "Approval of Provisional Internship Permit",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
-            "result": "approved with consent calendar"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -231,12 +427,12 @@
         "itemLabel": "8.4",
         "title": "Approval of 2022-23 Unaudited Actuals Financial Statement",
         "phases": {
-          "opened": 5974,
+          "opened": 5967,
           "presentation": 5985,
           "publicComment": null,
-          "discussion": 6657,
+          "discussion": null,
           "vote": {
-            "seconds": 6674,
+            "seconds": 6673,
             "type": "voice",
             "result": "approved"
           }
@@ -249,14 +445,14 @@
         "itemLabel": "8.5",
         "title": "Approval of Application for Exemption from the Required Expenditures for Classroom Teachers' Salaries",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
-            "result": "approved with consent calendar"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -267,10 +463,10 @@
         "itemLabel": "9",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 6724,
+          "opened": 6697,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6724,
+          "discussion": 6697,
           "vote": null
         },
         "publicComments": [],
@@ -281,7 +477,7 @@
         "itemLabel": "10",
         "title": "Correspondence",
         "phases": {
-          "opened": 7361,
+          "opened": 7359,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -295,18 +491,18 @@
         "itemLabel": "11",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7383,
+          "opened": 7385,
           "presentation": null,
           "publicComment": 7385,
-          "discussion": 7452,
+          "discussion": 7451,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "David Robel",
-            "startSeconds": 7412,
+            "name": "Mr. Robell",
+            "startSeconds": 7410,
             "endSeconds": 7451,
-            "summary": "Suggested that board meetings be scheduled to avoid conflicts with Sequoia Union High School District and community college district meetings so community members can attend both."
+            "summary": "Suggested that board meetings should be scheduled at different times than the Community College District and Sequoia district meetings so community members can attend or watch more than one."
           }
         ],
         "consent": false,
@@ -316,7 +512,7 @@
         "itemLabel": "12",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 7496,
+          "opened": 7492,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -330,7 +526,7 @@
         "itemLabel": "13",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 7503,
+          "opened": 7494,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -350,53 +546,71 @@
     "videoId": "Qeo3EbsqNcs",
     "speakers": {
       "A": {
-        "name": "Janet Lawson",
-        "role": "Clerk / Acting President"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (acting as President this meeting)"
       },
       "B": {
-        "name": "Evelyn (staff)",
-        "role": "Board Secretary / Staff"
+        "name": "Evelyn",
+        "role": "Staff/Secretary (conducting roll call and administrative support)"
       },
       "C": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "D": {
-        "name": "John Baker",
-        "role": "Superintendent (Dr. Baker)"
-      },
-      "E": {
-        "name": "María Díaz-Slocum",
-        "role": "President (absent/remote)"
-      },
-      "F": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
-      "G": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (remote, non-voting)"
+      "D": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
       },
-      "H": {
-        "name": "Rick (Finance Director)",
+      "E": {
+        "name": "María Díaz-Slocum",
+        "role": "President (attending remotely, not voting)"
+      },
+      "F": {
+        "name": "Janet Lawson",
+        "role": "Clerk"
+      },
+      "G": {
+        "name": "Rick",
         "role": "Director of Finance/Business"
       },
+      "H": {
+        "name": "Mike Wells",
+        "role": "Trustee"
+      },
       "I": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (remote, non-voting audience member)"
+        "name": "Petrina",
+        "role": "Health and Wellness Department staff presenter"
       },
       "J": {
-        "name": "Petrina (Health & Wellness)",
-        "role": "Health and Wellness Department presenter"
+        "name": "John Baker",
+        "role": "Superintendent (Dr. Baker)"
+      },
+      "K": {
+        "name": "Mr. Robell",
+        "role": "Public speaker"
       }
     },
-    "agendaChanges": "Items 8.2 (Variable Term Waiver), 8.3 (Provisional Internship Permit), and 8.5 (Approval of Application for Exemption from Required Expenditures for Classroom Teachers' Salaries) were moved from Action Items to the Consent Calendar at the start of the meeting under Changes to the Agenda. Items proceeded in agenda order otherwise.",
+    "agendaChanges": "Items 8.2 (Variable Term Waiver), 8.3 (Provisional Internship Permit), and 8.5 (Approval of Application for Exemption from the Required Expenditures for Classroom Teachers' Salaries) were moved from Action Items to the Consent Calendar during Changes to the Agenda. These three items were then approved as part of the Consent Calendar bundle. A late public comment speaker card was received for item 8.5 after it had already been approved with the consent calendar; the board chair declined to reopen the item.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
-          "opened": 6,
+          "opened": 5,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
+        "phases": {
+          "opened": 16,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -410,7 +624,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 31,
+          "opened": 33,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -424,10 +638,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 61,
+          "opened": 60,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 63,
           "vote": null
         },
         "publicComments": [],
@@ -438,7 +652,7 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 105,
+          "opened": 104,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -456,9 +670,23 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 117,
+          "opened": 114,
           "presentation": null,
-          "publicComment": 117,
+          "publicComment": 114,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6",
+        "title": "School/Community Reports",
+        "phases": {
+          "opened": 114,
+          "presentation": null,
+          "publicComment": null,
           "discussion": null,
           "vote": null
         },
@@ -470,10 +698,10 @@
         "itemLabel": "6.1",
         "title": "2023-24 Health and Wellness Department Update",
         "phases": {
-          "opened": 117,
-          "presentation": 261,
+          "opened": 114,
+          "presentation": 259,
           "publicComment": null,
-          "discussion": 1697,
+          "discussion": 1695,
           "vote": null
         },
         "publicComments": [],
@@ -484,10 +712,10 @@
         "itemLabel": "6.2",
         "title": "Review of the Human Resources Department's Vision and Plans for 2023-2024",
         "phases": {
-          "opened": 2288,
-          "presentation": 2390,
+          "opened": 2290,
+          "presentation": 2385,
           "publicComment": null,
-          "discussion": 4775,
+          "discussion": 4772,
           "vote": null
         },
         "publicComments": [],
@@ -496,26 +724,188 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items (including 8.2, 8.3, 8.5 as moved)",
+        "title": "Approval of Consent Items (bundle including 7.1–7.9 plus moved items 8.2, 8.3, 8.5)",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
-          "publicComment": 5653,
+          "publicComment": 5643,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
             "result": "approved"
           }
         },
         "publicComments": [
           {
-            "name": "David Robel",
-            "startSeconds": 5677,
-            "endSeconds": 5814,
-            "summary": "Argued that board-appointed superintendent subcommittees are subject to the Brown Act and demanded public agendas, minutes, and open meetings for those committees, and questioned how Measure S bond expenditures had already been approved without public knowledge."
+            "name": "Mr. Robell",
+            "startSeconds": 5673,
+            "endSeconds": 5812,
+            "summary": "Argued that the superintendent subcommittees created by formal board action (e.g., Bond Construction Committee, Workforce Housing Committee) are subject to the Brown Act and should have public agendas, minutes, and report-outs."
           }
         ],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.1",
+        "title": "Approval of the September 13 Board Meeting Minutes",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.2",
+        "title": "Approval of Addendum to 2023-24 Measure U Application for Garfield Community School",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.3",
+        "title": "Approval of School Assignments and Committee Assignments for Board Members for the 2023-24 School Year",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.4",
+        "title": "Approval of the Agreement between the Redwood City School District and the Santa Clara County Office of Education",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.5",
+        "title": "Approval of the Agreement between the Redwood City School District and San Mateo County Counsel",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.6",
+        "title": "Approval of Amendment No. 1 between the Redwood City School District and Maxim Healthcare Services for the 2023-24 School Year",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.7",
+        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Counselor Trainee Candidates",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.8",
+        "title": "Approval of Additional Personnel Needed for 2023-24",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.9",
+        "title": "Approval of Personnel Report",
+        "phases": {
+          "opened": 5643,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 5872,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
         "consent": true,
         "pulled": false
       },
@@ -528,7 +918,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5968,
+            "seconds": 5965,
             "type": "voice",
             "result": "approved"
           }
@@ -541,14 +931,14 @@
         "itemLabel": "8.2",
         "title": "Approval of Variable Term Waiver",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
-            "result": "approved with consent calendar"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -559,14 +949,14 @@
         "itemLabel": "8.3",
         "title": "Approval of Provisional Internship Permit",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
-            "result": "approved with consent calendar"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -577,12 +967,12 @@
         "itemLabel": "8.4",
         "title": "Approval of 2022-23 Unaudited Actuals Financial Statement",
         "phases": {
-          "opened": 5974,
+          "opened": 5967,
           "presentation": 5985,
           "publicComment": null,
-          "discussion": 6657,
+          "discussion": null,
           "vote": {
-            "seconds": 6674,
+            "seconds": 6673,
             "type": "voice",
             "result": "approved"
           }
@@ -595,14 +985,14 @@
         "itemLabel": "8.5",
         "title": "Approval of Application for Exemption from the Required Expenditures for Classroom Teachers' Salaries",
         "phases": {
-          "opened": 5653,
+          "opened": 5643,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5873,
+            "seconds": 5872,
             "type": "voice",
-            "result": "approved with consent calendar"
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -613,10 +1003,10 @@
         "itemLabel": "9",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 6724,
+          "opened": 6697,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6724,
+          "discussion": 6697,
           "vote": null
         },
         "publicComments": [],
@@ -627,7 +1017,7 @@
         "itemLabel": "10",
         "title": "Correspondence",
         "phases": {
-          "opened": 7361,
+          "opened": 7359,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -641,18 +1031,18 @@
         "itemLabel": "11",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7383,
+          "opened": 7385,
           "presentation": null,
           "publicComment": 7385,
-          "discussion": 7452,
+          "discussion": 7451,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "David Robel",
-            "startSeconds": 7412,
+            "name": "Mr. Robell",
+            "startSeconds": 7410,
             "endSeconds": 7451,
-            "summary": "Suggested that board meetings be scheduled to avoid conflicts with Sequoia Union High School District and community college district meetings so community members can attend both."
+            "summary": "Suggested that board meetings should be scheduled at different times than the Community College District and Sequoia district meetings so community members can attend or watch more than one."
           }
         ],
         "consent": false,
@@ -662,7 +1052,7 @@
         "itemLabel": "12",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 7496,
+          "opened": 7492,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -676,7 +1066,7 @@
         "itemLabel": "13",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 7503,
+          "opened": 7494,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -692,7 +1082,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:44:26.474Z",
-  "inputTokens": 28390,
-  "outputTokens": 2567
+  "cachedAt": "2026-07-21T03:36:35.274Z",
+  "inputTokens": 29565,
+  "outputTokens": 4033
 }

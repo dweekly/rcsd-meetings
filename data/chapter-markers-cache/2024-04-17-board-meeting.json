@@ -1,15 +1,17 @@
 {
   "date": "2024-04-17",
+  "slug": "2024-04-17-board-meeting",
   "itemCount": 42,
+  "transcriptHash": "d3cef63e7e971abb",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "Vice President (acting as presiding officer)"
       },
       "B": {
         "name": "Cecilia I. Márquez",
-        "role": "Trustee"
+        "role": "President"
       },
       "C": {
         "name": "Evelyn Sanchez",
@@ -20,41 +22,47 @@
         "role": "Trustee"
       },
       "E": {
-        "name": "John Baker",
-        "role": "Superintendent"
+        "name": "Mike Swire",
+        "role": "Public speaker"
       },
       "F": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "G": {
-        "name": "Mike Wells",
-        "role": "Vice President / Clerk"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "H": {
-        "name": "Rick Edson",
-        "role": "Chief Business Official"
+        "name": "Mike Wells",
+        "role": "Clerk"
+      },
+      "I": {
+        "name": "Rick (facilities/bond staff)",
+        "role": "District Facilities/Bond Program Staff"
+      },
+      "J": {
+        "name": "Eric Van Pelt",
+        "role": "Vice President, Van Pelt Construction Services (presenter)"
+      },
+      "K": {
+        "name": "Jude Noyes",
+        "role": "Associate Director of Special Education"
+      },
+      "L": {
+        "name": "Janet Lawson",
+        "role": "Vice President — NOTE: Speaker A is also Janet Lawson; L appears to be the same person in a different mic/context, or a board member. Based on context L speaks as a board member asking questions and giving reports, consistent with Janet Lawson or another trustee. Context suggests L is Janet Lawson in some segments but the roll call has A as the presiding officer calling roll and also responding 'Here' to 'President Lawson' at [19s] attributed to C/Evelyn — re-examining: at [18s] A says 'President Lawson' and [19s] C says 'Here', but C is Evelyn. This is an ASR labeling artifact. L appears in the special ed section making substantive trustee comments and later giving board reports consistent with Janet Lawson as a trustee/VP. Assigning L = Janet Lawson (same as A)."
+      },
+      "M": {
+        "name": "Maeve Mulholland",
+        "role": "Director of Special Education Services"
       }
     },
-    "agendaChanges": null,
+    "agendaChanges": "The agenda was followed largely in order. Section 2 (Welcome by Board President) does not appear as a discrete agenda item in the transcript — the meeting opens directly with roll call and a closed session report, then proceeds to agenda changes and approval. The closed session report was noted as not on the agenda but permitted under Ed Code 3549.1. Section 7 contained two sub-presentations (the external study report by Anjanette Pelletier, and the implementation response by Maeve Mulholland and Jude Noyes) treated as a single agenda item 7.1. Board members chose to hear both presentations before taking questions/discussion on item 7.1. Item 14 (Possible Other Business) included a public speaker (Mike Swire) who was called via speaker card.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
-        "phases": {
-          "opened": 4,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 4,
           "presentation": null,
@@ -70,7 +78,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 21,
+          "opened": 20,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -105,7 +113,7 @@
           "vote": {
             "seconds": 111,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -116,9 +124,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 114,
+          "opened": 112,
           "presentation": null,
-          "publicComment": 114,
+          "publicComment": 112,
           "discussion": null,
           "vote": null
         },
@@ -130,14 +138,14 @@
         "itemLabel": "6",
         "title": "Measure S Bond Program Update and Approval of Key Analytics Financial System for the Bond Program",
         "phases": {
-          "opened": 119,
-          "presentation": 158,
+          "opened": 118,
+          "presentation": 153,
           "publicComment": null,
-          "discussion": 860,
+          "discussion": 855,
           "vote": {
-            "seconds": 1622,
+            "seconds": 1634,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -148,10 +156,10 @@
         "itemLabel": "7",
         "title": "Special Education Study Report Presentation and Study Report Implementation Presentation",
         "phases": {
-          "opened": 1643,
-          "presentation": 1702,
+          "opened": 1639,
+          "presentation": 1701,
           "publicComment": null,
-          "discussion": 3566,
+          "discussion": 3565,
           "vote": null
         },
         "publicComments": [],
@@ -159,14 +167,18 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.1",
+        "itemLabel": "8",
         "title": "Board of Trustees Graduation/Promotions Assignments for the 2023-24 SY",
         "phases": {
-          "opened": 7416,
+          "opened": 7415,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7426,
-          "vote": null
+          "discussion": 7423,
+          "vote": {
+            "seconds": 7542,
+            "type": "voice",
+            "result": "approved"
+          }
         },
         "publicComments": [],
         "consent": false,
@@ -181,9 +193,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7543,
+            "seconds": 7542,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -191,17 +203,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "10.1",
+        "itemLabel": "10",
         "title": "Adoption of Resolution #10, Resolution to Approve Standards for Local Certification of Universal Transitional Kindergarten Teachers",
         "phases": {
-          "opened": 7546,
-          "presentation": 7556,
+          "opened": 7544,
+          "presentation": 7554,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 7671,
           "vote": {
-            "seconds": 7687,
+            "seconds": 7686,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -212,10 +224,10 @@
         "itemLabel": "11",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 7691,
+          "opened": 7690,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7700,
+          "discussion": 7695,
           "vote": null
         },
         "publicComments": [],
@@ -223,24 +235,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.1",
-        "title": "Contract Update Information and Credit Card Summary",
+        "itemLabel": "12",
+        "title": "Contract Update Information and Credit Card Summary / Quarterly Williams Report",
         "phases": {
-          "opened": 8017,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.2",
-        "title": "Quarterly Williams Report, 3rd Quarter, January 2024 through March 2024",
-        "phases": {
-          "opened": 8036,
+          "opened": 8015,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -254,10 +252,10 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 8039,
+          "opened": 8033,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8039,
+          "discussion": 8042,
           "vote": null
         },
         "publicComments": [],
@@ -278,8 +276,8 @@
           {
             "name": "Mike Swire",
             "startSeconds": 8118,
-            "endSeconds": 8302,
-            "summary": "Called on the board to immediately agendize the removal of Henry Ford's name from the district school, citing Ford's well-documented antisemitism and Nazi collaboration as incompatible with the district's stated mission of inclusivity and safety."
+            "endSeconds": 8300,
+            "summary": "Called on the board to immediately agendize removing the name Henry Ford from the district school bearing his name, citing Ford's well-documented antisemitism and Nazi collaboration, and criticizing the board's prior inaction on the issue."
           }
         ],
         "consent": false,
@@ -289,7 +287,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 8308,
+          "opened": 8300,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -303,14 +301,14 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 8318,
+          "opened": 8300,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8328,
+            "seconds": 8329,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -324,11 +322,11 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "Vice President (acting as presiding officer)"
       },
       "B": {
         "name": "Cecilia I. Márquez",
-        "role": "Trustee"
+        "role": "President"
       },
       "C": {
         "name": "Evelyn Sanchez",
@@ -339,41 +337,47 @@
         "role": "Trustee"
       },
       "E": {
-        "name": "John Baker",
-        "role": "Superintendent"
+        "name": "Mike Swire",
+        "role": "Public speaker"
       },
       "F": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "G": {
-        "name": "Mike Wells",
-        "role": "Vice President / Clerk"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "H": {
-        "name": "Rick Edson",
-        "role": "Chief Business Official"
+        "name": "Mike Wells",
+        "role": "Clerk"
+      },
+      "I": {
+        "name": "Rick (facilities/bond staff)",
+        "role": "District Facilities/Bond Program Staff"
+      },
+      "J": {
+        "name": "Eric Van Pelt",
+        "role": "Vice President, Van Pelt Construction Services (presenter)"
+      },
+      "K": {
+        "name": "Jude Noyes",
+        "role": "Associate Director of Special Education"
+      },
+      "L": {
+        "name": "Janet Lawson",
+        "role": "Vice President — NOTE: Speaker A is also Janet Lawson; L appears to be the same person in a different mic/context, or a board member. Based on context L speaks as a board member asking questions and giving reports, consistent with Janet Lawson or another trustee. Context suggests L is Janet Lawson in some segments but the roll call has A as the presiding officer calling roll and also responding 'Here' to 'President Lawson' at [19s] attributed to C/Evelyn — re-examining: at [18s] A says 'President Lawson' and [19s] C says 'Here', but C is Evelyn. This is an ASR labeling artifact. L appears in the special ed section making substantive trustee comments and later giving board reports consistent with Janet Lawson as a trustee/VP. Assigning L = Janet Lawson (same as A)."
+      },
+      "M": {
+        "name": "Maeve Mulholland",
+        "role": "Director of Special Education Services"
       }
     },
-    "agendaChanges": null,
+    "agendaChanges": "The agenda was followed largely in order. Section 2 (Welcome by Board President) does not appear as a discrete agenda item in the transcript — the meeting opens directly with roll call and a closed session report, then proceeds to agenda changes and approval. The closed session report was noted as not on the agenda but permitted under Ed Code 3549.1. Section 7 contained two sub-presentations (the external study report by Anjanette Pelletier, and the implementation response by Maeve Mulholland and Jude Noyes) treated as a single agenda item 7.1. Board members chose to hear both presentations before taking questions/discussion on item 7.1. Item 14 (Possible Other Business) included a public speaker (Mike Swire) who was called via speaker card.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
-        "phases": {
-          "opened": 4,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 4,
           "presentation": null,
@@ -389,7 +393,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 21,
+          "opened": 20,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -424,7 +428,7 @@
           "vote": {
             "seconds": 111,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -435,9 +439,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 114,
+          "opened": 112,
           "presentation": null,
-          "publicComment": 114,
+          "publicComment": 112,
           "discussion": null,
           "vote": null
         },
@@ -449,14 +453,14 @@
         "itemLabel": "6",
         "title": "Measure S Bond Program Update and Approval of Key Analytics Financial System for the Bond Program",
         "phases": {
-          "opened": 119,
-          "presentation": 158,
+          "opened": 118,
+          "presentation": 153,
           "publicComment": null,
-          "discussion": 860,
+          "discussion": 855,
           "vote": {
-            "seconds": 1622,
+            "seconds": 1634,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -467,10 +471,10 @@
         "itemLabel": "7",
         "title": "Special Education Study Report Presentation and Study Report Implementation Presentation",
         "phases": {
-          "opened": 1643,
-          "presentation": 1702,
+          "opened": 1639,
+          "presentation": 1701,
           "publicComment": null,
-          "discussion": 3566,
+          "discussion": 3565,
           "vote": null
         },
         "publicComments": [],
@@ -478,14 +482,18 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.1",
+        "itemLabel": "8",
         "title": "Board of Trustees Graduation/Promotions Assignments for the 2023-24 SY",
         "phases": {
-          "opened": 7416,
+          "opened": 7415,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7426,
-          "vote": null
+          "discussion": 7423,
+          "vote": {
+            "seconds": 7542,
+            "type": "voice",
+            "result": "approved"
+          }
         },
         "publicComments": [],
         "consent": false,
@@ -500,9 +508,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7543,
+            "seconds": 7542,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -510,17 +518,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "10.1",
+        "itemLabel": "10",
         "title": "Adoption of Resolution #10, Resolution to Approve Standards for Local Certification of Universal Transitional Kindergarten Teachers",
         "phases": {
-          "opened": 7546,
-          "presentation": 7556,
+          "opened": 7544,
+          "presentation": 7554,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 7671,
           "vote": {
-            "seconds": 7687,
+            "seconds": 7686,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -531,10 +539,10 @@
         "itemLabel": "11",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 7691,
+          "opened": 7690,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7700,
+          "discussion": 7695,
           "vote": null
         },
         "publicComments": [],
@@ -542,24 +550,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.1",
-        "title": "Contract Update Information and Credit Card Summary",
+        "itemLabel": "12",
+        "title": "Contract Update Information and Credit Card Summary / Quarterly Williams Report",
         "phases": {
-          "opened": 8017,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.2",
-        "title": "Quarterly Williams Report, 3rd Quarter, January 2024 through March 2024",
-        "phases": {
-          "opened": 8036,
+          "opened": 8015,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -573,10 +567,10 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 8039,
+          "opened": 8033,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8039,
+          "discussion": 8042,
           "vote": null
         },
         "publicComments": [],
@@ -597,8 +591,8 @@
           {
             "name": "Mike Swire",
             "startSeconds": 8118,
-            "endSeconds": 8302,
-            "summary": "Called on the board to immediately agendize the removal of Henry Ford's name from the district school, citing Ford's well-documented antisemitism and Nazi collaboration as incompatible with the district's stated mission of inclusivity and safety."
+            "endSeconds": 8300,
+            "summary": "Called on the board to immediately agendize removing the name Henry Ford from the district school bearing his name, citing Ford's well-documented antisemitism and Nazi collaboration, and criticizing the board's prior inaction on the issue."
           }
         ],
         "consent": false,
@@ -608,7 +602,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 8308,
+          "opened": 8300,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -622,14 +616,14 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 8318,
+          "opened": 8300,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8328,
+            "seconds": 8329,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -638,7 +632,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:34:44.628Z",
-  "inputTokens": 35427,
-  "outputTokens": 2229
+  "cachedAt": "2026-07-21T03:21:13.909Z",
+  "inputTokens": 34372,
+  "outputTokens": 2556
 }

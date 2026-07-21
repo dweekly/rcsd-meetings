@@ -1,11 +1,13 @@
 {
   "date": "2024-06-05",
+  "slug": "2024-06-05-board-meeting",
   "itemCount": 41,
+  "transcriptHash": "1db19d577b534686",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "President, School Board"
+        "role": "Board President"
       },
       "B": {
         "name": "Evelyn Sanchez",
@@ -21,50 +23,56 @@
       },
       "E": {
         "name": "Mike Wells",
-        "role": "Vice President, School Board"
+        "role": "Clerk"
       },
       "F": {
-        "name": "Cecilia I. Márquez",
-        "role": "Trustee (listed as President on agenda but Vice President in minutes context; Clerk per roster — here acting as Trustee/Clerk)"
+        "name": "Various / unidentified staff or presenter",
+        "role": "Multiple speakers including Connect staff (Dominique Burrito) and district staff"
       },
       "G": {
-        "name": "Unknown/Multiple",
-        "role": "Various unidentified utterances"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Vice President (listed as President on roster; acting as board member here)"
       },
       "H": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
+        "name": "Unidentified",
+        "role": "Unidentified speaker (various brief interjections)"
       },
       "I": {
-        "name": "John Baker",
-        "role": "Superintendent"
+        "name": "Wendy Kelly",
+        "role": "Director of Human Resources (inferred from context)"
       },
       "J": {
+        "name": "Unidentified",
+        "role": "Unidentified speaker (brief affirmations)"
+      },
+      "K": {
+        "name": "Unidentified international staff member (Zimbabwe)",
+        "role": "International staff speaker from Zimbabwe"
+      },
+      "L": {
+        "name": "John Baker",
+        "role": "Superintendent (Dr. Baker)"
+      },
+      "M": {
         "name": "Mike Wells",
-        "role": "Vice President, School Board"
+        "role": "Clerk / Board Member"
+      },
+      "N": {
+        "name": "Amanda Vaughn",
+        "role": "Connect Community Charter School art teacher / literacy specialist"
+      },
+      "O": {
+        "name": "Adam Center",
+        "role": "Connect Community Charter School 2-3 teacher"
       }
     },
-    "agendaChanges": "Per the minutes, no changes to the agenda were made. Speaker labels J and E both map to Mike Wells (Vice President); the transcript label assignments for E and J appear to overlap — E is used for Wells in roll call and later discussion, while J is used for Wells in later action items. Speaker F maps to Cecilia I. Márquez in roll call/vote contexts but also appears as Dominique Berritto (Connect presenter) during item 7.1 — context disambiguates. The formal agenda order was followed without resequencing.",
+    "agendaChanges": "No formal changes to the agenda were announced. The meeting proceeded in agenda order. Speaker labels suggest Mike Wells (E/M) may map to two labels due to ASR; roll call referenced 'Vice President Welch' which is a garbling of 'Wells'. The Connect presentation (Section 7) included online participants Dominique Burrito and Adam Center not separately listed. No items were pulled from consent.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 4,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 24,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -78,7 +86,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 36,
+          "opened": 34,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -92,7 +100,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 107,
+          "opened": 100,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -113,7 +121,7 @@
           "vote": {
             "seconds": 114,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -136,47 +144,12 @@
       },
       {
         "itemLabel": "6",
-        "title": "Community/Staff Recognition",
-        "phases": {
-          "opened": 122,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6.1",
         "title": "Recognition of International Staff",
         "phases": {
           "opened": 122,
-          "presentation": 130,
-          "publicComment": 803,
-          "discussion": 646,
-          "vote": null
-        },
-        "publicComments": [
-          {
-            "name": "Regis Mvenge",
-            "startSeconds": 811,
-            "endSeconds": 1023,
-            "summary": "As an international instructional assistant from Zimbabwe, he thanked the district — especially Ann and Wendy Kelly — for the warm welcome, expressed gratitude for the experience working with students with autism, and praised his colleagues for their professionalism and adaptability."
-          }
-        ],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 1079,
-          "presentation": null,
+          "presentation": 127,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 647,
           "vote": null
         },
         "publicComments": [],
@@ -187,24 +160,10 @@
         "itemLabel": "7.1",
         "title": "Connect Community Charter School Presentation for the 2023-2024 School Year",
         "phases": {
-          "opened": 1079,
-          "presentation": 1093,
+          "opened": 1059,
+          "presentation": 1094,
           "publicComment": null,
-          "discussion": 2855,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 3626,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 2853,
           "vote": null
         },
         "publicComments": [],
@@ -215,10 +174,10 @@
         "itemLabel": "8.1",
         "title": "Discussion of the Board Meeting Calendar for the 2024-25 School Year",
         "phases": {
-          "opened": 3626,
-          "presentation": null,
+          "opened": 3624,
+          "presentation": 3634,
           "publicComment": null,
-          "discussion": 3637,
+          "discussion": 3689,
           "vote": null
         },
         "publicComments": [],
@@ -227,156 +186,34 @@
       },
       {
         "itemLabel": "9",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (bundle)",
         "phases": {
-          "opened": 3960,
+          "opened": 3959,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3966,
+            "seconds": 3967,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
         "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.1",
-        "title": "Approval of Consent Items",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.2",
-        "title": "Approval of the May 22 Board Meeting Minutes",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.3",
-        "title": "Approval of the Agreement between the Redwood City School District and San Mateo Community College District for the 2024-26 School Years",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.4",
-        "title": "Approval of the Agreement between the Redwood City School District and Catalyst Family Inc. for the 2024 Summer Session",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.5",
-        "title": "Approval of the Agreement between the Redwood City School District and Air Education Inc. for the 2024 Summer Session",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.6",
-        "title": "Approval of Title I School-Wide Program for Clifford School",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10",
-        "title": "Action Items",
-        "phases": {
-          "opened": 3967,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
         "pulled": false
       },
       {
         "itemLabel": "10.1",
         "title": "Adoption of Resolution No. 11, Year-End Budget Transfers",
         "phases": {
-          "opened": 3967,
+          "opened": 3971,
           "presentation": 3976,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3989,
           "vote": {
-            "seconds": 3996,
-            "type": "roll-call",
-            "result": "5-0"
+            "seconds": 3997,
+            "type": "voice",
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -387,14 +224,14 @@
         "itemLabel": "10.2",
         "title": "Approval of the Prop 28 Expenditure Plan for the 2024-25 School Year",
         "phases": {
-          "opened": 4001,
-          "presentation": 4009,
+          "opened": 3999,
+          "presentation": 4006,
           "publicComment": null,
-          "discussion": 4027,
+          "discussion": 4023,
           "vote": {
-            "seconds": 4173,
-            "type": "roll-call",
-            "result": "5-0"
+            "seconds": 4172,
+            "type": "voice",
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -406,13 +243,13 @@
         "title": "Approval of the Updated RCTA Contract Language and RCTA/RCSD Tentative Agreement",
         "phases": {
           "opened": 4176,
-          "presentation": 4182,
+          "presentation": 4180,
           "publicComment": null,
-          "discussion": 4223,
+          "discussion": 4218,
           "vote": {
             "seconds": 4286,
-            "type": "roll-call",
-            "result": "5-0"
+            "type": "voice",
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -423,10 +260,10 @@
         "itemLabel": "10.4",
         "title": "Approval of the School Plans for Student Achievement",
         "phases": {
-          "opened": 4288,
+          "opened": 4290,
           "presentation": 4296,
           "publicComment": null,
-          "discussion": 4343,
+          "discussion": 4342,
           "vote": null
         },
         "publicComments": [],
@@ -538,7 +375,7 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "President, School Board"
+        "role": "Board President"
       },
       "B": {
         "name": "Evelyn Sanchez",
@@ -554,50 +391,56 @@
       },
       "E": {
         "name": "Mike Wells",
-        "role": "Vice President, School Board"
+        "role": "Clerk"
       },
       "F": {
-        "name": "Cecilia I. Márquez",
-        "role": "Trustee (listed as President on agenda but Vice President in minutes context; Clerk per roster — here acting as Trustee/Clerk)"
+        "name": "Various / unidentified staff or presenter",
+        "role": "Multiple speakers including Connect staff (Dominique Burrito) and district staff"
       },
       "G": {
-        "name": "Unknown/Multiple",
-        "role": "Various unidentified utterances"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Vice President (listed as President on roster; acting as board member here)"
       },
       "H": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
+        "name": "Unidentified",
+        "role": "Unidentified speaker (various brief interjections)"
       },
       "I": {
-        "name": "John Baker",
-        "role": "Superintendent"
+        "name": "Wendy Kelly",
+        "role": "Director of Human Resources (inferred from context)"
       },
       "J": {
+        "name": "Unidentified",
+        "role": "Unidentified speaker (brief affirmations)"
+      },
+      "K": {
+        "name": "Unidentified international staff member (Zimbabwe)",
+        "role": "International staff speaker from Zimbabwe"
+      },
+      "L": {
+        "name": "John Baker",
+        "role": "Superintendent (Dr. Baker)"
+      },
+      "M": {
         "name": "Mike Wells",
-        "role": "Vice President, School Board"
+        "role": "Clerk / Board Member"
+      },
+      "N": {
+        "name": "Amanda Vaughn",
+        "role": "Connect Community Charter School art teacher / literacy specialist"
+      },
+      "O": {
+        "name": "Adam Center",
+        "role": "Connect Community Charter School 2-3 teacher"
       }
     },
-    "agendaChanges": "Per the minutes, no changes to the agenda were made. Speaker labels J and E both map to Mike Wells (Vice President); the transcript label assignments for E and J appear to overlap — E is used for Wells in roll call and later discussion, while J is used for Wells in later action items. Speaker F maps to Cecilia I. Márquez in roll call/vote contexts but also appears as Dominique Berritto (Connect presenter) during item 7.1 — context disambiguates. The formal agenda order was followed without resequencing.",
+    "agendaChanges": "No formal changes to the agenda were announced. The meeting proceeded in agenda order. Speaker labels suggest Mike Wells (E/M) may map to two labels due to ASR; roll call referenced 'Vice President Welch' which is a garbling of 'Wells'. The Connect presentation (Section 7) included online participants Dominique Burrito and Adam Center not separately listed. No items were pulled from consent.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 4,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "1.1",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 24,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -611,7 +454,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 36,
+          "opened": 34,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -625,7 +468,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 107,
+          "opened": 100,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -646,7 +489,7 @@
           "vote": {
             "seconds": 114,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -669,47 +512,12 @@
       },
       {
         "itemLabel": "6",
-        "title": "Community/Staff Recognition",
-        "phases": {
-          "opened": 122,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6.1",
         "title": "Recognition of International Staff",
         "phases": {
           "opened": 122,
-          "presentation": 130,
-          "publicComment": 803,
-          "discussion": 646,
-          "vote": null
-        },
-        "publicComments": [
-          {
-            "name": "Regis Mvenge",
-            "startSeconds": 811,
-            "endSeconds": 1023,
-            "summary": "As an international instructional assistant from Zimbabwe, he thanked the district — especially Ann and Wendy Kelly — for the warm welcome, expressed gratitude for the experience working with students with autism, and praised his colleagues for their professionalism and adaptability."
-          }
-        ],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 1079,
-          "presentation": null,
+          "presentation": 127,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 647,
           "vote": null
         },
         "publicComments": [],
@@ -720,24 +528,10 @@
         "itemLabel": "7.1",
         "title": "Connect Community Charter School Presentation for the 2023-2024 School Year",
         "phases": {
-          "opened": 1079,
-          "presentation": 1093,
+          "opened": 1059,
+          "presentation": 1094,
           "publicComment": null,
-          "discussion": 2855,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 3626,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 2853,
           "vote": null
         },
         "publicComments": [],
@@ -748,10 +542,10 @@
         "itemLabel": "8.1",
         "title": "Discussion of the Board Meeting Calendar for the 2024-25 School Year",
         "phases": {
-          "opened": 3626,
-          "presentation": null,
+          "opened": 3624,
+          "presentation": 3634,
           "publicComment": null,
-          "discussion": 3637,
+          "discussion": 3689,
           "vote": null
         },
         "publicComments": [],
@@ -760,156 +554,34 @@
       },
       {
         "itemLabel": "9",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (bundle)",
         "phases": {
-          "opened": 3960,
+          "opened": 3959,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3966,
+            "seconds": 3967,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
         "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.1",
-        "title": "Approval of Consent Items",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.2",
-        "title": "Approval of the May 22 Board Meeting Minutes",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.3",
-        "title": "Approval of the Agreement between the Redwood City School District and San Mateo Community College District for the 2024-26 School Years",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.4",
-        "title": "Approval of the Agreement between the Redwood City School District and Catalyst Family Inc. for the 2024 Summer Session",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.5",
-        "title": "Approval of the Agreement between the Redwood City School District and Air Education Inc. for the 2024 Summer Session",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.6",
-        "title": "Approval of Title I School-Wide Program for Clifford School",
-        "phases": {
-          "opened": 3960,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 3966,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10",
-        "title": "Action Items",
-        "phases": {
-          "opened": 3967,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
         "pulled": false
       },
       {
         "itemLabel": "10.1",
         "title": "Adoption of Resolution No. 11, Year-End Budget Transfers",
         "phases": {
-          "opened": 3967,
+          "opened": 3971,
           "presentation": 3976,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3989,
           "vote": {
-            "seconds": 3996,
-            "type": "roll-call",
-            "result": "5-0"
+            "seconds": 3997,
+            "type": "voice",
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -920,14 +592,14 @@
         "itemLabel": "10.2",
         "title": "Approval of the Prop 28 Expenditure Plan for the 2024-25 School Year",
         "phases": {
-          "opened": 4001,
-          "presentation": 4009,
+          "opened": 3999,
+          "presentation": 4006,
           "publicComment": null,
-          "discussion": 4027,
+          "discussion": 4023,
           "vote": {
-            "seconds": 4173,
-            "type": "roll-call",
-            "result": "5-0"
+            "seconds": 4172,
+            "type": "voice",
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -939,13 +611,13 @@
         "title": "Approval of the Updated RCTA Contract Language and RCTA/RCSD Tentative Agreement",
         "phases": {
           "opened": 4176,
-          "presentation": 4182,
+          "presentation": 4180,
           "publicComment": null,
-          "discussion": 4223,
+          "discussion": 4218,
           "vote": {
             "seconds": 4286,
-            "type": "roll-call",
-            "result": "5-0"
+            "type": "voice",
+            "result": "approved unanimously"
           }
         },
         "publicComments": [],
@@ -956,10 +628,10 @@
         "itemLabel": "10.4",
         "title": "Approval of the School Plans for Student Achievement",
         "phases": {
-          "opened": 4288,
+          "opened": 4290,
           "presentation": 4296,
           "publicComment": null,
-          "discussion": 4343,
+          "discussion": 4342,
           "vote": null
         },
         "publicComments": [],
@@ -1066,7 +738,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:33:28.129Z",
-  "inputTokens": 25537,
-  "outputTokens": 3896
+  "cachedAt": "2026-07-21T03:19:13.111Z",
+  "inputTokens": 24140,
+  "outputTokens": 2712
 }

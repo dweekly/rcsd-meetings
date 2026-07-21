@@ -1,5 +1,6 @@
 {
   "date": "2024-01-10",
+  "transcriptHash": "ed917971af75ba80",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -39,8 +40,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced. President Lawson asked 'do we have any changes to the agenda hearing? None.' and the agenda was approved as posted.",
-    "consent_vote_words": "all those in favor",
+    "agenda_changes": "No changes to agenda announced. Board President stated 'Hearing none, do we have a motion to approve?' when asking about changes to the agenda.",
+    "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -54,47 +55,62 @@
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone. Happy New Year.",
+        "intro_words": "Welcome, everyone. Happy New Year to our first board",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome, everyone. Happy New Year. To our first board meeting",
+        "intro_words": "Welcome, everyone. Happy New Year to our first board",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "do we have any changes to the agenda hearing? None.",
+        "intro_words": "That said, do we have any changes to the agenda?",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Do we have a motion to approve? I'll make a motion.",
+        "intro_words": "That said, do we have any changes to the agenda?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Item five, oral communication. Do we have any speakers cards?",
+        "intro_words": "Hearing none, do we have a motion to approve?",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Hearing none, do we have a motion to approve?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "So we're on to 6.1 Orion and Taft School presentations.",
+        "intro_words": "Item 5, Oral Communication. Do we have any speakers' cards?",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Item 5, Oral Communication. Do we have any speakers' cards?",
+        "status": "found"
+      },
+      {
+        "item": 11,
+        "intro_words": "So we're on to 6.1, Orion and Taft School Presentations.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So we're on to 6.1 Orion and Taft School presentations. All right,",
+        "intro_words": "All right, so tonight we're gonna start with Orion, with Miss Winnie Wong",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "So we are on 6.2 report on local indicator measurement for the California dashboard.",
+        "intro_words": "So we are moving on to 6.2, Report on Local Indicator Measurement for",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Good evening members of the board. Today I will have two presentations",
+        "intro_words": "So we are moving on to 6.2, Report on Local Indicator Measurement for",
         "status": "found"
       },
       {
@@ -138,8 +154,13 @@
         "status": "consent_bundle"
       },
       {
+        "item": 23,
+        "intro_words": "So I actually have to do an approval. Oh yeah, yeah,",
+        "status": "found"
+      },
+      {
         "item": 24,
-        "intro_words": "Good evening again, everyone. Tonight we're bringing the first interim report",
+        "intro_words": "I'll make a motion to approve the budget. Second. The first interim.",
         "status": "found"
       },
       {
@@ -148,18 +169,38 @@
         "status": "found"
       },
       {
+        "item": 26,
+        "intro_words": "Board reports. I'll start. I have nothing since our last meeting.",
+        "status": "found"
+      },
+      {
         "item": 27,
-        "intro_words": "Information on San Mateo county investment fund. Any questions,",
+        "intro_words": "Information on San Mateo County Investment Fund. Any questions?",
+        "status": "found"
+      },
+      {
+        "item": 28,
+        "intro_words": "Information on San Mateo County Investment Fund. Any questions?",
         "status": "found"
       },
       {
         "item": 29,
-        "intro_words": "see correspondence.",
+        "intro_words": "Correspondence. We're not gonna make it to 10:30.",
+        "status": "found"
+      },
+      {
+        "item": 30,
+        "intro_words": "Correspondence. We're not gonna make it to 10:30.",
         "status": "found"
       },
       {
         "item": 31,
-        "intro_words": "Possible. Other business suggested items for future agenda.",
+        "intro_words": "Possible other business, suggested items for future agenda.",
+        "status": "found"
+      },
+      {
+        "item": 32,
+        "intro_words": "Possible other business, suggested items for future agenda.",
         "status": "found"
       },
       {
@@ -168,8 +209,18 @@
         "status": "found"
       },
       {
+        "item": 34,
+        "intro_words": "Are there changes to the board meeting calendar?",
+        "status": "found"
+      },
+      {
         "item": 35,
-        "intro_words": "If there's a motion to adjourn, I move we adjourn.",
+        "intro_words": "All right, and then let everyone know. Okay. Yeah, that",
+        "status": "found"
+      },
+      {
+        "item": 36,
+        "intro_words": "If there's a motion to adjourn. I move we adjourn.",
         "status": "found"
       }
     ]
@@ -186,119 +237,152 @@
         "timestampSeconds": 4
       },
       {
-        "timestamp": "00:00:10",
-        "timestampSeconds": 10
+        "timestamp": "00:00:11",
+        "timestampSeconds": 11
       },
       {
-        "timestamp": "00:00:10",
-        "timestampSeconds": 10
+        "timestamp": "00:00:11",
+        "timestampSeconds": 11
       },
       {
-        "timestamp": "00:01:20",
-        "timestampSeconds": 80
+        "timestamp": "00:01:33",
+        "timestampSeconds": 93
       },
       {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
+        "timestamp": "00:01:33",
+        "timestampSeconds": 93
       },
       {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
-      },
-      null,
-      {
-        "timestamp": "00:01:45",
-        "timestampSeconds": 105
-      },
-      null,
-      null,
-      {
-        "timestamp": "00:01:45",
-        "timestampSeconds": 105
+        "timestamp": "00:01:39",
+        "timestampSeconds": 99
       },
       {
-        "timestamp": "01:36:22",
-        "timestampSeconds": 5782
+        "timestamp": "00:01:39",
+        "timestampSeconds": 99
       },
       {
-        "timestamp": "01:38:22",
-        "timestampSeconds": 5902
+        "timestamp": "00:01:39",
+        "timestampSeconds": 99
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "00:01:39",
+        "timestampSeconds": 99
+      },
+      {
+        "timestamp": "00:01:54",
+        "timestampSeconds": 114
+      },
+      {
+        "timestamp": "00:01:49",
+        "timestampSeconds": 109
+      },
+      {
+        "timestamp": "02:28:01",
+        "timestampSeconds": 8881
+      },
+      {
+        "timestamp": "02:28:01",
+        "timestampSeconds": 8881
+      },
+      {
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
       {
-        "timestamp": "01:55:48",
-        "timestampSeconds": 6948,
+        "timestamp": "02:28:21",
+        "timestampSeconds": 8901,
         "consent": true
       },
-      null,
       {
-        "timestamp": "02:28:41",
-        "timestampSeconds": 8921
+        "timestamp": "02:57:41",
+        "timestampSeconds": 10661
       },
       {
-        "timestamp": "02:58:32",
-        "timestampSeconds": 10712
+        "timestamp": "02:57:51",
+        "timestampSeconds": 10671
       },
-      null,
+      {
+        "timestamp": "02:58:37",
+        "timestampSeconds": 10717
+      },
+      {
+        "timestamp": "02:58:37",
+        "timestampSeconds": 10717
+      },
       {
         "timestamp": "02:58:42",
         "timestampSeconds": 10722
       },
-      null,
-      null,
-      null,
+      {
+        "timestamp": "02:58:42",
+        "timestampSeconds": 10722
+      },
+      {
+        "timestamp": "02:58:52",
+        "timestampSeconds": 10732
+      },
+      {
+        "timestamp": "02:58:52",
+        "timestampSeconds": 10732
+      },
       {
         "timestamp": "02:58:57",
         "timestampSeconds": 10737
       },
-      null,
+      {
+        "timestamp": "02:58:57",
+        "timestampSeconds": 10737
+      },
       {
         "timestamp": "02:58:42",
         "timestampSeconds": 10722
       },
-      null,
+      {
+        "timestamp": "02:58:42",
+        "timestampSeconds": 10722
+      },
+      {
+        "timestamp": "02:59:46",
+        "timestampSeconds": 10786
+      },
       {
         "timestamp": "02:59:41",
         "timestampSeconds": 10781
-      },
-      null
+      }
     ]
   },
-  "cachedAt": "2026-03-26T22:34:20.034Z",
-  "inputTokens": 36932,
-  "outputTokens": 1154
+  "cachedAt": "2026-07-21T03:41:55.317Z",
+  "inputTokens": 39226,
+  "outputTokens": 1616
 }

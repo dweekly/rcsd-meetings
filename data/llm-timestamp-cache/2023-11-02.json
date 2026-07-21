@@ -1,5 +1,6 @@
 {
   "date": "2023-11-02",
+  "transcriptHash": "c8bc53319470d7d8",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -17,47 +18,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced. The moderator asked 'are there any additions or changes to the agenda?' and proceeded directly to approval without announcing any modifications.",
+    "agenda_changes": "No changes to the agenda were announced at the start of the meeting. The moderator Rafael Avendaño asked 'are there any petitions or changes to the agenda?' and then immediately moved to approve the agenda.",
     "consent_vote_words": null,
     "items": [
       {
         "item": 1,
-        "intro_words": "Good evening everyone. Again, can you please be welcome.",
-        "status": "found"
-      },
-      {
-        "item": 2,
-        "intro_words": "Again, welcome everyone to, um, this Study Session, um, Thursday, November 2nd",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "If you wish to to report on a subject listed on the agenda",
-        "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "And with that, are there any additions or changes to the agenda?",
-        "status": "found"
-      },
-      {
-        "item": 5,
-        "intro_words": "With that, can I please get a motion to approve?",
+        "intro_words": "Good evening, everyone. Again, can you please be welcome?",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Okay, and so today, um, we're speaking on item 5.1, Update on Workforce Housing",
+        "intro_words": "today, um, we're speaking on item 5.1, Update on Workforce Housing, and I am going to go",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "And that goes straight into what, you know, we're going to get into our Q&A",
+        "intro_words": "Thanks for, for that. Moving forward, hopefully moving forward with it. Thank you so much, Evelyn",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "I'm going to make a motion to adjourn the meeting. All those in favor.",
+        "intro_words": "would somebody kindly make a motion to adjourn the meeting? All those in favor?",
         "status": "found"
       }
     ]
@@ -69,43 +50,31 @@
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:52",
-        "timestampSeconds": 52
-      },
-      {
-        "timestamp": "00:01:12",
-        "timestampSeconds": 72
-      },
+      null,
+      null,
+      null,
+      null,
       null,
       null,
       null,
       null,
       {
-        "timestamp": "00:01:12",
-        "timestampSeconds": 72
+        "timestamp": "00:01:18",
+        "timestampSeconds": 78
       },
       {
-        "timestamp": "01:02:09",
-        "timestampSeconds": 3729
+        "timestamp": "01:52:46",
+        "timestampSeconds": 6766
       },
       null,
       {
-        "timestamp": "01:57:44",
-        "timestampSeconds": 7064
+        "timestamp": "01:57:46",
+        "timestampSeconds": 7066
       },
       null
     ]
   },
-  "cachedAt": "2026-03-26T22:35:05.901Z",
-  "inputTokens": 25770,
-  "outputTokens": 452
+  "cachedAt": "2026-07-21T03:42:36.395Z",
+  "inputTokens": 24870,
+  "outputTokens": 289
 }

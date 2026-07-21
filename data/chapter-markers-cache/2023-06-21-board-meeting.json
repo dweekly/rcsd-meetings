@@ -1,46 +1,48 @@
 {
   "date": "2023-06-21",
+  "slug": "2023-06-21-board-meeting",
   "itemCount": 40,
+  "transcriptHash": "6abad3041803adbb",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board President (acting as President this meeting; agenda lists her as Vice President but she presides)"
+        "name": "María Díaz-Slocum",
+        "role": "Board President"
       },
       "B": {
-        "name": "Evelyn",
-        "role": "District Staff / Board Secretary"
-      },
-      "C": {
         "name": "Janet Lawson",
         "role": "Clerk / Trustee"
+      },
+      "C": {
+        "name": "Mike Wells",
+        "role": "Trustee"
       },
       "D": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "E": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
       },
       "F": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (listed as President on agenda)"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (secondary label)"
       },
       "G": {
-        "name": "David (Trustee Weekly per ASR)",
-        "role": "Trustee"
+        "name": "Mike Wells",
+        "role": "Trustee (secondary label)"
       },
       "H": {
-        "name": "Trustee / Board Member",
-        "role": "Trustee (likely second unnamed trustee)"
+        "name": "Rick (CFO/Budget Officer)",
+        "role": "Chief Financial Officer / Budget Presenter"
       },
       "I": {
         "name": "Dr. Baker",
         "role": "Superintendent"
       }
     },
-    "agendaChanges": "Section 7 (Bond Program Action Items) and Section 11 (Action Items) were not taken up (no items listed under them). Section 8 (Discussion Items) was heard before Section 9 (Consent Items), which matches the agenda order. Section 2 (Welcome) was delivered by the presiding officer at the opening rather than as a separate item. The meeting otherwise followed agenda order. No items were pulled from consent.",
+    "agendaChanges": "Sections 2 (Welcome), 3 (Changes to Agenda), and 4 (Approval of Agenda) were collapsed into the opening remarks by President Díaz-Slocum without distinct separation. Section 7 (Bond Program Action Items) and Section 11 (Action Items) had no items taken up. Section 10 items were handled as sub-items 10.1, 10.2, and 10.3 in sequence. Jenny Tran (Data/Assessment Coordinator) presented remotely for Item 8. Will (staff) commented on Item 6. The meeting proceeded in agenda order with no resequencing or pulled consent items.",
     "items": [
       {
         "itemLabel": "1",
@@ -74,7 +76,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 93,
+          "opened": 88,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -88,14 +90,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 93,
+          "opened": 88,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 93,
+            "seconds": 99,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -106,9 +108,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 99,
+          "opened": 102,
           "presentation": null,
-          "publicComment": 99,
+          "publicComment": 102,
           "discussion": null,
           "vote": null
         },
@@ -118,16 +120,16 @@
       },
       {
         "itemLabel": "6",
-        "title": "Approval of Bond Program Consent Items — Roosevelt School Play Structures",
+        "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 109,
+          "opened": 107,
           "presentation": null,
           "publicComment": null,
-          "discussion": 117,
+          "discussion": 115,
           "vote": {
             "seconds": 173,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -135,13 +137,27 @@
         "pulled": false
       },
       {
+        "itemLabel": "7",
+        "title": "Bond Program Action Items",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "8",
         "title": "Year End Assessment Results Discussion",
         "phases": {
-          "opened": 177,
+          "opened": 175,
           "presentation": 197,
           "publicComment": null,
-          "discussion": 2342,
+          "discussion": 2330,
           "vote": null
         },
         "publicComments": [],
@@ -157,9 +173,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3521,
+            "seconds": 3522,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -168,7 +184,7 @@
       },
       {
         "itemLabel": "10",
-        "title": "Public Hearing — LCAP and Budget",
+        "title": "Public Hearing - LCAP and Budget",
         "phases": {
           "opened": 3548,
           "presentation": null,
@@ -185,8 +201,8 @@
         "title": "Public Hearing and Discussion of the Local Control Accountability Plan (LCAP) for 2023-24",
         "phases": {
           "opened": 3548,
-          "presentation": 3559,
-          "publicComment": 5222,
+          "presentation": 3557,
+          "publicComment": 5237,
           "discussion": 4457,
           "vote": null
         },
@@ -198,10 +214,10 @@
         "itemLabel": "10.2",
         "title": "Public Hearing for the RCSD 2023-24 Proposed Budget",
         "phases": {
-          "opened": 5236,
-          "presentation": 5291,
-          "publicComment": 7381,
-          "discussion": 6113,
+          "opened": 5237,
+          "presentation": 5294,
+          "publicComment": 7377,
+          "discussion": 6112,
           "vote": null
         },
         "publicComments": [],
@@ -212,10 +228,24 @@
         "itemLabel": "10.3",
         "title": "2023-24 Statement of Reasons for Reserves in Excess of the Minimum State-Recommended Level",
         "phases": {
-          "opened": 7384,
-          "presentation": 7427,
-          "publicComment": 7483,
+          "opened": 7377,
+          "presentation": null,
+          "publicComment": 7482,
           "discussion": 7476,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "11",
+        "title": "Action Items",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -226,10 +256,10 @@
         "itemLabel": "12",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 7483,
+          "opened": 7482,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7503,
+          "discussion": 7500,
           "vote": null
         },
         "publicComments": [],
@@ -240,7 +270,7 @@
         "itemLabel": "13",
         "title": "Information on San Mateo County Investment Fund - April 2023",
         "phases": {
-          "opened": 7894,
+          "opened": 7881,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -254,10 +284,10 @@
         "itemLabel": "14",
         "title": "Correspondence",
         "phases": {
-          "opened": 7913,
+          "opened": 7881,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7916,
+          "discussion": 7915,
           "vote": null
         },
         "publicComments": [],
@@ -268,10 +298,10 @@
         "itemLabel": "15",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7941,
+          "opened": 7942,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7949,
+          "discussion": 7948,
           "vote": null
         },
         "publicComments": [],
@@ -283,9 +313,9 @@
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
           "opened": 8067,
-          "presentation": 8075,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8072,
           "vote": null
         },
         "publicComments": [],
@@ -294,16 +324,16 @@
       },
       {
         "itemLabel": "17",
-        "title": "Adjournment",
+        "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 8108,
+          "opened": 8107,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 8120,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -316,43 +346,43 @@
     "videoId": "hga3_wvkzC8",
     "speakers": {
       "A": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board President (acting as President this meeting; agenda lists her as Vice President but she presides)"
+        "name": "María Díaz-Slocum",
+        "role": "Board President"
       },
       "B": {
-        "name": "Evelyn",
-        "role": "District Staff / Board Secretary"
-      },
-      "C": {
         "name": "Janet Lawson",
         "role": "Clerk / Trustee"
+      },
+      "C": {
+        "name": "Mike Wells",
+        "role": "Trustee"
       },
       "D": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "E": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
       },
       "F": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (listed as President on agenda)"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (secondary label)"
       },
       "G": {
-        "name": "David (Trustee Weekly per ASR)",
-        "role": "Trustee"
+        "name": "Mike Wells",
+        "role": "Trustee (secondary label)"
       },
       "H": {
-        "name": "Trustee / Board Member",
-        "role": "Trustee (likely second unnamed trustee)"
+        "name": "Rick (CFO/Budget Officer)",
+        "role": "Chief Financial Officer / Budget Presenter"
       },
       "I": {
         "name": "Dr. Baker",
         "role": "Superintendent"
       }
     },
-    "agendaChanges": "Section 7 (Bond Program Action Items) and Section 11 (Action Items) were not taken up (no items listed under them). Section 8 (Discussion Items) was heard before Section 9 (Consent Items), which matches the agenda order. Section 2 (Welcome) was delivered by the presiding officer at the opening rather than as a separate item. The meeting otherwise followed agenda order. No items were pulled from consent.",
+    "agendaChanges": "Sections 2 (Welcome), 3 (Changes to Agenda), and 4 (Approval of Agenda) were collapsed into the opening remarks by President Díaz-Slocum without distinct separation. Section 7 (Bond Program Action Items) and Section 11 (Action Items) had no items taken up. Section 10 items were handled as sub-items 10.1, 10.2, and 10.3 in sequence. Jenny Tran (Data/Assessment Coordinator) presented remotely for Item 8. Will (staff) commented on Item 6. The meeting proceeded in agenda order with no resequencing or pulled consent items.",
     "items": [
       {
         "itemLabel": "1",
@@ -386,7 +416,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 93,
+          "opened": 88,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -400,14 +430,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 93,
+          "opened": 88,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 93,
+            "seconds": 99,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -418,9 +448,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 99,
+          "opened": 102,
           "presentation": null,
-          "publicComment": 99,
+          "publicComment": 102,
           "discussion": null,
           "vote": null
         },
@@ -430,16 +460,16 @@
       },
       {
         "itemLabel": "6",
-        "title": "Approval of Bond Program Consent Items — Roosevelt School Play Structures",
+        "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 109,
+          "opened": 107,
           "presentation": null,
           "publicComment": null,
-          "discussion": 117,
+          "discussion": 115,
           "vote": {
             "seconds": 173,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -447,13 +477,27 @@
         "pulled": false
       },
       {
+        "itemLabel": "7",
+        "title": "Bond Program Action Items",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "8",
         "title": "Year End Assessment Results Discussion",
         "phases": {
-          "opened": 177,
+          "opened": 175,
           "presentation": 197,
           "publicComment": null,
-          "discussion": 2342,
+          "discussion": 2330,
           "vote": null
         },
         "publicComments": [],
@@ -469,9 +513,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3521,
+            "seconds": 3522,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -480,7 +524,7 @@
       },
       {
         "itemLabel": "10",
-        "title": "Public Hearing — LCAP and Budget",
+        "title": "Public Hearing - LCAP and Budget",
         "phases": {
           "opened": 3548,
           "presentation": null,
@@ -497,8 +541,8 @@
         "title": "Public Hearing and Discussion of the Local Control Accountability Plan (LCAP) for 2023-24",
         "phases": {
           "opened": 3548,
-          "presentation": 3559,
-          "publicComment": 5222,
+          "presentation": 3557,
+          "publicComment": 5237,
           "discussion": 4457,
           "vote": null
         },
@@ -510,10 +554,10 @@
         "itemLabel": "10.2",
         "title": "Public Hearing for the RCSD 2023-24 Proposed Budget",
         "phases": {
-          "opened": 5236,
-          "presentation": 5291,
-          "publicComment": 7381,
-          "discussion": 6113,
+          "opened": 5237,
+          "presentation": 5294,
+          "publicComment": 7377,
+          "discussion": 6112,
           "vote": null
         },
         "publicComments": [],
@@ -524,10 +568,24 @@
         "itemLabel": "10.3",
         "title": "2023-24 Statement of Reasons for Reserves in Excess of the Minimum State-Recommended Level",
         "phases": {
-          "opened": 7384,
-          "presentation": 7427,
-          "publicComment": 7483,
+          "opened": 7377,
+          "presentation": null,
+          "publicComment": 7482,
           "discussion": 7476,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "11",
+        "title": "Action Items",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -538,10 +596,10 @@
         "itemLabel": "12",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 7483,
+          "opened": 7482,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7503,
+          "discussion": 7500,
           "vote": null
         },
         "publicComments": [],
@@ -552,7 +610,7 @@
         "itemLabel": "13",
         "title": "Information on San Mateo County Investment Fund - April 2023",
         "phases": {
-          "opened": 7894,
+          "opened": 7881,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -566,10 +624,10 @@
         "itemLabel": "14",
         "title": "Correspondence",
         "phases": {
-          "opened": 7913,
+          "opened": 7881,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7916,
+          "discussion": 7915,
           "vote": null
         },
         "publicComments": [],
@@ -580,10 +638,10 @@
         "itemLabel": "15",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7941,
+          "opened": 7942,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7949,
+          "discussion": 7948,
           "vote": null
         },
         "publicComments": [],
@@ -595,9 +653,9 @@
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
           "opened": 8067,
-          "presentation": 8075,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8072,
           "vote": null
         },
         "publicComments": [],
@@ -606,16 +664,16 @@
       },
       {
         "itemLabel": "17",
-        "title": "Adjournment",
+        "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 8108,
+          "opened": 8107,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 8120,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -624,7 +682,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:47:50.938Z",
-  "inputTokens": 29344,
-  "outputTokens": 2281
+  "cachedAt": "2026-07-21T03:39:52.957Z",
+  "inputTokens": 30687,
+  "outputTokens": 2472
 }

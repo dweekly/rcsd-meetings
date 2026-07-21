@@ -1,50 +1,56 @@
 {
   "date": "2024-05-08",
+  "slug": "2024-05-08-board-meeting",
   "itemCount": 39,
+  "transcriptHash": "0a057daf85ac6a34",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "Vice President (acting as President/presiding officer)"
       },
       "B": {
         "name": "Evelyn Sanchez",
         "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Rick Edson / Eric Van Pelt",
-        "role": "Chief Business Official / Bond Program Manager (shares label; Rick Edson introduces, Eric Van Pelt presents bond items; also Angela Lee presenter shares C in audit section)"
+        "name": "Cecilia I. Márquez",
+        "role": "President (Trustee)"
       },
       "D": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "E": {
-        "name": "Maria Stockton",
-        "role": "Public speaker / CSEA member"
-      },
-      "F": {
-        "name": "Anna Herrera / Wendy Kelly",
-        "role": "Assistant Superintendent / Deputy Superintendent (shares label in discussion segments)"
-      },
-      "G": {
-        "name": "Mike Wells",
-        "role": "Vice President"
-      },
-      "H": {
-        "name": "Mike Swire",
-        "role": "Public speaker"
-      },
-      "I": {
         "name": "David Weekly",
         "role": "Trustee"
       },
+      "E": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "F": {
+        "name": "Mike Wells",
+        "role": "Clerk"
+      },
+      "G": {
+        "name": "David Weekly",
+        "role": "Trustee (note: D and G both appear to be David Weekly based on context; G may be Weekly when D is the presenter Eric Van Pelt)"
+      },
+      "H": {
+        "name": "Maria Stockton",
+        "role": "Public speaker / CSEA Chapter 5 chief union steward"
+      },
+      "I": {
+        "name": "John Baker",
+        "role": "Superintendent"
+      },
       "J": {
-        "name": "Angela Lee",
-        "role": "Audit Manager, Eide Bailly"
+        "name": "Mike Swire",
+        "role": "Public speaker (online)"
+      },
+      "K": {
+        "name": "Sue Jorgensen",
+        "role": "Public speaker"
       }
     },
-    "agendaChanges": "Consent Item 8.3 (Approval of Addendum No. 2 to Orion's 2023-24 Measure U Application) was pulled from the Consent Calendar and moved to Action Items, heard after the remaining Consent Items. This was announced by President Lawson at the Changes to the Agenda portion.",
+    "agendaChanges": "Item 8.3 (Approval of Addendum No. 2 to Orion's 2023-24 Measure U Application) was pulled from the Consent Calendar and placed on the Action Items agenda due to a speaker card. Section 9 (Action Items) had no standalone items other than the pulled 8.3. Items were otherwise heard in agenda order. No items from Section 9 (original action items) were listed beyond the pulled 8.3.",
     "items": [
       {
         "itemLabel": "1",
@@ -61,7 +67,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
+        "itemLabel": "1",
         "title": "Roll Call",
         "phases": {
           "opened": 11,
@@ -78,7 +84,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 33,
+          "opened": 31,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -92,7 +98,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 33,
+          "opened": 31,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -106,14 +112,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 118,
+          "opened": 115,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 118,
+            "seconds": 120,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -124,30 +130,30 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 120,
+          "opened": 124,
           "presentation": null,
-          "publicComment": 120,
+          "publicComment": 124,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Ana Solorio",
-            "startSeconds": 152,
-            "endSeconds": 277,
-            "summary": "As CSEA classified member president, urged the board to reconsider and increase the amount approved for classified staff salary negotiations, arguing that the current offer does not reflect the value of the nearly 400 classified employees."
+            "startSeconds": 151,
+            "endSeconds": 270,
+            "summary": "As classified member president, urged the board to reconsider the amount approved for classified staff contract negotiations, arguing that the current offer does not reflect the value of classified employees."
           },
           {
             "name": "Maria Stockton",
-            "startSeconds": 286,
-            "endSeconds": 428,
-            "summary": "As CSEA chief union steward, raised concerns about classified employees being improperly denied leaves of absence and questioned whether the board or district personnel were making those decisions, urging more compassion for dedicated staff."
+            "startSeconds": 281,
+            "endSeconds": 419,
+            "summary": "As CSEA chief union steward, raised concerns that classified employees are being improperly denied leaves of absence despite contract provisions, and asked for clarification on whether leave decisions are made by the board or district administration."
           },
           {
             "name": "Mike Swire",
             "startSeconds": 494,
             "endSeconds": 663,
-            "summary": "Renewed his request from nearly a year ago for the board to remove Henry Ford's name from a district school due to Ford's well-documented anti-Semitism, thanked Trustee Weekly for responding to his email, and expressed disappointment that no other board members or the superintendent had responded."
+            "summary": "Urged the board to take action to remove Henry Ford's name from a district school, expressing disappointment that only Trustee Weekly responded to his prior communications on the matter."
           }
         ],
         "consent": false,
@@ -155,45 +161,17 @@
       },
       {
         "itemLabel": "6",
-        "title": "Bond Program Action Item(s)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6.1",
         "title": "Approval of Measure S Architectural Pool",
         "phases": {
-          "opened": 668,
-          "presentation": 682,
+          "opened": 665,
+          "presentation": 678,
           "publicComment": null,
-          "discussion": 901,
+          "discussion": 899,
           "vote": {
             "seconds": 1319,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
         },
         "publicComments": [],
         "consent": false,
@@ -203,10 +181,10 @@
         "itemLabel": "7.1",
         "title": "Information on 2022-23 Financial and Performance Audits Building Fund (Measure T & S) for RCSD",
         "phases": {
-          "opened": 1321,
-          "presentation": 1354,
+          "opened": 1320,
+          "presentation": 1352,
           "publicComment": null,
-          "discussion": 1665,
+          "discussion": 1662,
           "vote": null
         },
         "publicComments": [],
@@ -215,7 +193,7 @@
       },
       {
         "itemLabel": "8",
-        "title": "Consent Items (bundle, excluding 8.3)",
+        "title": "Approval of Consent Items (bundle: 8.1, 8.2, 8.4, 8.5, 8.6, 8.7, 8.8)",
         "phases": {
           "opened": 1738,
           "presentation": null,
@@ -224,7 +202,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -233,24 +211,6 @@
       },
       {
         "itemLabel": "8.1",
-        "title": "Approval of Consent Items",
-        "phases": {
-          "opened": 1738,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1755,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.2",
         "title": "Approval of the April 17 Board Meeting Minutes",
         "phases": {
           "opened": 1738,
@@ -260,7 +220,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -268,32 +228,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.3",
-        "title": "Approval of the Addendum No. 2 to Orion's 2023-24 Measure U Application",
-        "phases": {
-          "opened": 1758,
-          "presentation": null,
-          "publicComment": 1758,
-          "discussion": 1841,
-          "vote": {
-            "seconds": 2068,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [
-          {
-            "name": "Sue Jorgensen",
-            "startSeconds": 1776,
-            "endSeconds": 1840,
-            "summary": "Raised concern that the Orion Measure U addendum allows teachers to receive stipends for leading or participating in school site council, which she viewed as a conflict of interest since site council members vote on how those funds are allocated."
-          }
-        ],
-        "consent": false,
-        "pulled": true
-      },
-      {
-        "itemLabel": "8.4",
+        "itemLabel": "8.2",
         "title": "Approval of the Addendum to North Star Academy's 2023-24 Measure U Application",
         "phases": {
           "opened": 1738,
@@ -303,7 +238,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -311,7 +246,32 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.5",
+        "itemLabel": "8.3",
+        "title": "Approval of Addendum No. 2 to Orion's 2023-24 Measure U Application",
+        "phases": {
+          "opened": 1757,
+          "presentation": null,
+          "publicComment": 1757,
+          "discussion": 1840,
+          "vote": {
+            "seconds": 2078,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [
+          {
+            "name": "Sue Jorgensen",
+            "startSeconds": 1776,
+            "endSeconds": 1840,
+            "summary": "Raised a concern that using Measure U funds to provide stipends to school site council members who vote on how those funds are spent may constitute a conflict of interest."
+          }
+        ],
+        "consent": false,
+        "pulled": true
+      },
+      {
+        "itemLabel": "8.4",
         "title": "Approval of the Second Amendment between the Redwood City School District and Hatchuel Tabernik & Associates for the 2023-2024 School Year",
         "phases": {
           "opened": 1738,
@@ -321,7 +281,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -329,7 +289,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.6",
+        "itemLabel": "8.5",
         "title": "Approval of Amendment No. 1 to the agreement between Redwood City School District and Amergis Educational Staffing Services for 2023-2024",
         "phases": {
           "opened": 1738,
@@ -339,7 +299,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -347,7 +307,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.7",
+        "itemLabel": "8.6",
         "title": "Approval of Additional Personnel Needed for 2024-2025",
         "phases": {
           "opened": 1738,
@@ -357,7 +317,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -365,7 +325,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.8",
+        "itemLabel": "8.7",
         "title": "Ratification of Warrant Registers, April 1, 2024 - April 30, 2024",
         "phases": {
           "opened": 1738,
@@ -375,7 +335,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -383,41 +343,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "9",
-        "title": "Action Items",
-        "phases": {
-          "opened": 1758,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "10",
-        "title": "Board and Superintendent Reports",
+        "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 2079,
+          "opened": 2086,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "11",
-        "title": "Information",
-        "phases": {
-          "opened": 2527,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 2086,
           "vote": null
         },
         "publicComments": [],
@@ -428,7 +360,7 @@
         "itemLabel": "11.1",
         "title": "Information on San Mateo County Investment Fund - March 2024",
         "phases": {
-          "opened": 2527,
+          "opened": 2521,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -442,7 +374,7 @@
         "itemLabel": "11.2",
         "title": "Redwood City School District Review of KIPP's Second Interim Financial Report for Fiscal Year 2023-24",
         "phases": {
-          "opened": 2547,
+          "opened": 2537,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -456,7 +388,7 @@
         "itemLabel": "11.3",
         "title": "Redwood City School District Review of Connect's Second Interim Financial Report for Fiscal Year 2023-24",
         "phases": {
-          "opened": 2547,
+          "opened": 2537,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -470,7 +402,7 @@
         "itemLabel": "11.4",
         "title": "Redwood City School District Review of Rocketship's Second Interim Financial Report for Fiscal Year 2023-24",
         "phases": {
-          "opened": 2547,
+          "opened": 2537,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -498,7 +430,7 @@
         "itemLabel": "13",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 2569,
+          "opened": 2560,
           "presentation": null,
           "publicComment": null,
           "discussion": 2574,
@@ -512,10 +444,10 @@
         "itemLabel": "14",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 2645,
+          "opened": 2629,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2645,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -526,14 +458,14 @@
         "itemLabel": "15",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 2656,
+          "opened": 2659,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 2673,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -547,46 +479,50 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "Vice President (acting as President/presiding officer)"
       },
       "B": {
         "name": "Evelyn Sanchez",
         "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Rick Edson / Eric Van Pelt",
-        "role": "Chief Business Official / Bond Program Manager (shares label; Rick Edson introduces, Eric Van Pelt presents bond items; also Angela Lee presenter shares C in audit section)"
+        "name": "Cecilia I. Márquez",
+        "role": "President (Trustee)"
       },
       "D": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "E": {
-        "name": "Maria Stockton",
-        "role": "Public speaker / CSEA member"
-      },
-      "F": {
-        "name": "Anna Herrera / Wendy Kelly",
-        "role": "Assistant Superintendent / Deputy Superintendent (shares label in discussion segments)"
-      },
-      "G": {
-        "name": "Mike Wells",
-        "role": "Vice President"
-      },
-      "H": {
-        "name": "Mike Swire",
-        "role": "Public speaker"
-      },
-      "I": {
         "name": "David Weekly",
         "role": "Trustee"
       },
+      "E": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "F": {
+        "name": "Mike Wells",
+        "role": "Clerk"
+      },
+      "G": {
+        "name": "David Weekly",
+        "role": "Trustee (note: D and G both appear to be David Weekly based on context; G may be Weekly when D is the presenter Eric Van Pelt)"
+      },
+      "H": {
+        "name": "Maria Stockton",
+        "role": "Public speaker / CSEA Chapter 5 chief union steward"
+      },
+      "I": {
+        "name": "John Baker",
+        "role": "Superintendent"
+      },
       "J": {
-        "name": "Angela Lee",
-        "role": "Audit Manager, Eide Bailly"
+        "name": "Mike Swire",
+        "role": "Public speaker (online)"
+      },
+      "K": {
+        "name": "Sue Jorgensen",
+        "role": "Public speaker"
       }
     },
-    "agendaChanges": "Consent Item 8.3 (Approval of Addendum No. 2 to Orion's 2023-24 Measure U Application) was pulled from the Consent Calendar and moved to Action Items, heard after the remaining Consent Items. This was announced by President Lawson at the Changes to the Agenda portion.",
+    "agendaChanges": "Item 8.3 (Approval of Addendum No. 2 to Orion's 2023-24 Measure U Application) was pulled from the Consent Calendar and placed on the Action Items agenda due to a speaker card. Section 9 (Action Items) had no standalone items other than the pulled 8.3. Items were otherwise heard in agenda order. No items from Section 9 (original action items) were listed beyond the pulled 8.3.",
     "items": [
       {
         "itemLabel": "1",
@@ -603,7 +539,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "1.1",
+        "itemLabel": "1",
         "title": "Roll Call",
         "phases": {
           "opened": 11,
@@ -620,7 +556,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 33,
+          "opened": 31,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -634,7 +570,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 33,
+          "opened": 31,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -648,14 +584,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 118,
+          "opened": 115,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 118,
+            "seconds": 120,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -666,30 +602,30 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 120,
+          "opened": 124,
           "presentation": null,
-          "publicComment": 120,
+          "publicComment": 124,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Ana Solorio",
-            "startSeconds": 152,
-            "endSeconds": 277,
-            "summary": "As CSEA classified member president, urged the board to reconsider and increase the amount approved for classified staff salary negotiations, arguing that the current offer does not reflect the value of the nearly 400 classified employees."
+            "startSeconds": 151,
+            "endSeconds": 270,
+            "summary": "As classified member president, urged the board to reconsider the amount approved for classified staff contract negotiations, arguing that the current offer does not reflect the value of classified employees."
           },
           {
             "name": "Maria Stockton",
-            "startSeconds": 286,
-            "endSeconds": 428,
-            "summary": "As CSEA chief union steward, raised concerns about classified employees being improperly denied leaves of absence and questioned whether the board or district personnel were making those decisions, urging more compassion for dedicated staff."
+            "startSeconds": 281,
+            "endSeconds": 419,
+            "summary": "As CSEA chief union steward, raised concerns that classified employees are being improperly denied leaves of absence despite contract provisions, and asked for clarification on whether leave decisions are made by the board or district administration."
           },
           {
             "name": "Mike Swire",
             "startSeconds": 494,
             "endSeconds": 663,
-            "summary": "Renewed his request from nearly a year ago for the board to remove Henry Ford's name from a district school due to Ford's well-documented anti-Semitism, thanked Trustee Weekly for responding to his email, and expressed disappointment that no other board members or the superintendent had responded."
+            "summary": "Urged the board to take action to remove Henry Ford's name from a district school, expressing disappointment that only Trustee Weekly responded to his prior communications on the matter."
           }
         ],
         "consent": false,
@@ -697,45 +633,17 @@
       },
       {
         "itemLabel": "6",
-        "title": "Bond Program Action Item(s)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6.1",
         "title": "Approval of Measure S Architectural Pool",
         "phases": {
-          "opened": 668,
-          "presentation": 682,
+          "opened": 665,
+          "presentation": 678,
           "publicComment": null,
-          "discussion": 901,
+          "discussion": 899,
           "vote": {
             "seconds": 1319,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
         },
         "publicComments": [],
         "consent": false,
@@ -745,10 +653,10 @@
         "itemLabel": "7.1",
         "title": "Information on 2022-23 Financial and Performance Audits Building Fund (Measure T & S) for RCSD",
         "phases": {
-          "opened": 1321,
-          "presentation": 1354,
+          "opened": 1320,
+          "presentation": 1352,
           "publicComment": null,
-          "discussion": 1665,
+          "discussion": 1662,
           "vote": null
         },
         "publicComments": [],
@@ -757,7 +665,7 @@
       },
       {
         "itemLabel": "8",
-        "title": "Consent Items (bundle, excluding 8.3)",
+        "title": "Approval of Consent Items (bundle: 8.1, 8.2, 8.4, 8.5, 8.6, 8.7, 8.8)",
         "phases": {
           "opened": 1738,
           "presentation": null,
@@ -766,7 +674,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -775,24 +683,6 @@
       },
       {
         "itemLabel": "8.1",
-        "title": "Approval of Consent Items",
-        "phases": {
-          "opened": 1738,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1755,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.2",
         "title": "Approval of the April 17 Board Meeting Minutes",
         "phases": {
           "opened": 1738,
@@ -802,7 +692,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -810,32 +700,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.3",
-        "title": "Approval of the Addendum No. 2 to Orion's 2023-24 Measure U Application",
-        "phases": {
-          "opened": 1758,
-          "presentation": null,
-          "publicComment": 1758,
-          "discussion": 1841,
-          "vote": {
-            "seconds": 2068,
-            "type": "voice",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [
-          {
-            "name": "Sue Jorgensen",
-            "startSeconds": 1776,
-            "endSeconds": 1840,
-            "summary": "Raised concern that the Orion Measure U addendum allows teachers to receive stipends for leading or participating in school site council, which she viewed as a conflict of interest since site council members vote on how those funds are allocated."
-          }
-        ],
-        "consent": false,
-        "pulled": true
-      },
-      {
-        "itemLabel": "8.4",
+        "itemLabel": "8.2",
         "title": "Approval of the Addendum to North Star Academy's 2023-24 Measure U Application",
         "phases": {
           "opened": 1738,
@@ -845,7 +710,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -853,7 +718,32 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.5",
+        "itemLabel": "8.3",
+        "title": "Approval of Addendum No. 2 to Orion's 2023-24 Measure U Application",
+        "phases": {
+          "opened": 1757,
+          "presentation": null,
+          "publicComment": 1757,
+          "discussion": 1840,
+          "vote": {
+            "seconds": 2078,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [
+          {
+            "name": "Sue Jorgensen",
+            "startSeconds": 1776,
+            "endSeconds": 1840,
+            "summary": "Raised a concern that using Measure U funds to provide stipends to school site council members who vote on how those funds are spent may constitute a conflict of interest."
+          }
+        ],
+        "consent": false,
+        "pulled": true
+      },
+      {
+        "itemLabel": "8.4",
         "title": "Approval of the Second Amendment between the Redwood City School District and Hatchuel Tabernik & Associates for the 2023-2024 School Year",
         "phases": {
           "opened": 1738,
@@ -863,7 +753,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -871,7 +761,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.6",
+        "itemLabel": "8.5",
         "title": "Approval of Amendment No. 1 to the agreement between Redwood City School District and Amergis Educational Staffing Services for 2023-2024",
         "phases": {
           "opened": 1738,
@@ -881,7 +771,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -889,7 +779,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.7",
+        "itemLabel": "8.6",
         "title": "Approval of Additional Personnel Needed for 2024-2025",
         "phases": {
           "opened": 1738,
@@ -899,7 +789,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -907,7 +797,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.8",
+        "itemLabel": "8.7",
         "title": "Ratification of Warrant Registers, April 1, 2024 - April 30, 2024",
         "phases": {
           "opened": 1738,
@@ -917,7 +807,7 @@
           "vote": {
             "seconds": 1755,
             "type": "voice",
-            "result": "5-0"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -925,41 +815,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "9",
-        "title": "Action Items",
-        "phases": {
-          "opened": 1758,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "10",
-        "title": "Board and Superintendent Reports",
+        "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 2079,
+          "opened": 2086,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "11",
-        "title": "Information",
-        "phases": {
-          "opened": 2527,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 2086,
           "vote": null
         },
         "publicComments": [],
@@ -970,7 +832,7 @@
         "itemLabel": "11.1",
         "title": "Information on San Mateo County Investment Fund - March 2024",
         "phases": {
-          "opened": 2527,
+          "opened": 2521,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -984,7 +846,7 @@
         "itemLabel": "11.2",
         "title": "Redwood City School District Review of KIPP's Second Interim Financial Report for Fiscal Year 2023-24",
         "phases": {
-          "opened": 2547,
+          "opened": 2537,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -998,7 +860,7 @@
         "itemLabel": "11.3",
         "title": "Redwood City School District Review of Connect's Second Interim Financial Report for Fiscal Year 2023-24",
         "phases": {
-          "opened": 2547,
+          "opened": 2537,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1012,7 +874,7 @@
         "itemLabel": "11.4",
         "title": "Redwood City School District Review of Rocketship's Second Interim Financial Report for Fiscal Year 2023-24",
         "phases": {
-          "opened": 2547,
+          "opened": 2537,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1040,7 +902,7 @@
         "itemLabel": "13",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 2569,
+          "opened": 2560,
           "presentation": null,
           "publicComment": null,
           "discussion": 2574,
@@ -1054,10 +916,10 @@
         "itemLabel": "14",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 2645,
+          "opened": 2629,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2645,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1068,14 +930,14 @@
         "itemLabel": "15",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 2656,
+          "opened": 2659,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 2673,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -1084,7 +946,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:34:17.042Z",
-  "inputTokens": 14205,
-  "outputTokens": 4137
+  "cachedAt": "2026-07-21T03:20:36.475Z",
+  "inputTokens": 12590,
+  "outputTokens": 3658
 }
