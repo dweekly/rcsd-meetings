@@ -7,7 +7,7 @@ description: Playbook for registering US A2P 10DLC SMS campaigns (Twilio/TCR) an
 
 Lessons from getting the rcsd.info info-line campaign approved (two rejections,
 then approval) and its WhatsApp senders unblocked. Follow this and a new
-campaign should pass on the first submission. Fresh as of 2026-07-21.
+campaign should pass on the first submission. Fresh as of 2026-07-21 (WhatsApp flow verified end-to-end).
 
 ## Structure (who registers what)
 
@@ -100,12 +100,33 @@ is published at /img/sms-cta.png.
   was ever connected (even a dead experiment), the wizard forces it. Deleting
   the old sender does NOT release the binding — a Twilio support ticket
   ("please disconnect WABA <id> from account <SID>") does, ~1-day turnaround.
-- In the Meta popup, select the **legal-entity business portfolio** — one
-  verified portfolio serves all brands; per-number display names carry the
-  user-facing brand.
-- Meta **business verification** on the portfolio (EIN letter upload in
-  Security Center) is the long pole (days–2 weeks); start it first. Senders
-  operate in a limited state until it completes.
+  After the first new sender registers, the account binds to that WABA and
+  every later sender must join it (which is what you want).
+
+The registration flow, per number (verified end to end 2026-07-21):
+
+1. Wizard: New Sender → pick the Twilio number → Continue → step 2 stages the
+   number and shows "Continue with Facebook". Keep the Twilio window open the
+   whole time — the SMS verification code auto-fills back into it.
+2. Meta popup, "Enter business information for new assets" screen:
+   **Name = the LEGAL entity** (must match what business verification will
+   approve, e.g. "Primatech Paper Co") — NOT the brand. **Website = the
+   BRAND's site** (e.g. the project domain): Meta's display-name review
+   uses it to justify a brand display name that differs from the legal name,
+   via the site's footer attribution. Category: pick honestly
+   ("Media/News Company" for an info service). Timezone: local.
+3. Select/create the WABA under the **legal-entity business portfolio**. For
+   the FIRST number let it create a new WABA; for every subsequent number
+   select the SAME WABA (one WABA holds many numbers).
+4. **Display name is per-number** and set on a later screen — this is where
+   the brand goes (e.g. "RCSD Info", "RCSD Info Español" for the Spanish
+   line). Verify via SMS; the code auto-fills in Twilio.
+5. Sender shows **Online immediately** in limited mode. Full messaging limits
+   and final display-name approval land after Meta **business verification**
+   on the portfolio (EIN letter upload in Security Center — the long pole,
+   days–2 weeks; start it first).
+6. Platform hookup last: in Synthflow, each chat agent's Deploy panel has a
+   per-agent WhatsApp toggle that appears once the sender exists.
 
 ## Post-approval checklist
 
