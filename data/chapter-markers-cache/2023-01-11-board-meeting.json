@@ -1,52 +1,68 @@
 {
   "date": "2023-01-11",
+  "slug": "2023-01-11-board-meeting",
   "itemCount": 45,
+  "transcriptHash": "49545ef806c0bed8",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President"
-      },
-      "B": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (presiding as President for portions)"
-      },
-      "C": {
-        "name": "Janet Lawson",
-        "role": "Clerk"
-      },
-      "D": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (also roll call caller)"
-      },
-      "E": {
-        "name": "Liz Wolf",
-        "role": "Assistant Superintendent of Educational Services"
-      },
-      "F": {
-        "name": "Mike Wells",
-        "role": "Trustee"
-      },
-      "G": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
+      "B": {
+        "name": "María Díaz-Slocum",
+        "role": "President"
+      },
+      "C": {
+        "name": "Mike Wells",
+        "role": "Trustee"
+      },
+      "D": {
+        "name": "Janet Lawson",
+        "role": "Clerk"
+      },
+      "E": {
+        "name": "Liz Wolfe",
+        "role": "Assistant Superintendent of Educational Services (presenter)"
+      },
+      "F": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
+      },
+      "G": {
+        "name": "Superintendent (John Baker or acting)",
+        "role": "Superintendent"
+      },
       "H": {
-        "name": "David (Trustee)",
-        "role": "Trustee (likely Wells or unnamed trustee based on context)"
+        "name": "Wendy (staff presenter)",
+        "role": "Staff presenter (HR/Administrative Services)"
       },
       "I": {
-        "name": "Wendy (staff)",
-        "role": "Staff presenter (HR/Personnel)"
+        "name": "David (Trustee Weekly / Mike Wells alternate label)",
+        "role": "Trustee"
       }
     },
-    "agendaChanges": "Item 9.1 (Approval of Addendum to 2022-23 Measure U Application for Adelante Selby Spanish Immersion) was moved from Action Items to the Consent calendar bundle. The consent bundle at item 8 therefore included 9.1 as well.",
+    "agendaChanges": "Item 9.1 (Approval of Addendum to 2022-23 Measure U Application for Adelante Selby Spanish Immersion) was moved from Action Items to Consent Items at the start of the meeting. It was approved as part of the consent bundle under item 8.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": 5,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
+        "phases": {
+          "opened": 13,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -60,7 +76,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 35,
+          "opened": 34,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -77,7 +93,7 @@
           "opened": 97,
           "presentation": null,
           "publicComment": null,
-          "discussion": 101,
+          "discussion": 99,
           "vote": null
         },
         "publicComments": [],
@@ -88,12 +104,12 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 118,
+          "opened": 117,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 125,
+            "seconds": 124,
             "type": "voice",
             "result": "approved"
           }
@@ -106,9 +122,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 129,
+          "opened": 126,
           "presentation": null,
-          "publicComment": 129,
+          "publicComment": 126,
           "discussion": null,
           "vote": null
         },
@@ -125,7 +141,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 148,
+            "seconds": 147,
             "type": "voice",
             "result": "approved"
           }
@@ -139,9 +155,9 @@
         "title": "Data Update",
         "phases": {
           "opened": 157,
-          "presentation": 162,
+          "presentation": 194,
           "publicComment": null,
-          "discussion": 2332,
+          "discussion": 1516,
           "vote": null
         },
         "publicComments": [],
@@ -152,10 +168,10 @@
         "itemLabel": "7.2",
         "title": "First Reading and Discussion of Board Policy 6158 - Independent Study",
         "phases": {
-          "opened": 8051,
-          "presentation": 8067,
+          "opened": 8050,
+          "presentation": 8065,
           "publicComment": null,
-          "discussion": 8232,
+          "discussion": 8229,
           "vote": null
         },
         "publicComments": [],
@@ -164,14 +180,14 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of Consent Items (including moved 9.1)",
+        "title": "Approval of Consent Items (including pulled 9.1)",
         "phases": {
           "opened": 8274,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8287,
+            "seconds": 8285,
             "type": "voice",
             "result": "approved"
           }
@@ -189,9 +205,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8287,
+            "seconds": 8285,
             "type": "voice",
-            "result": "approved (as part of consent bundle)"
+            "result": "approved as part of consent"
           }
         },
         "publicComments": [],
@@ -207,7 +223,7 @@
           "publicComment": null,
           "discussion": 8369,
           "vote": {
-            "seconds": 8391,
+            "seconds": 8393,
             "type": "voice",
             "result": "approved"
           }
@@ -220,12 +236,12 @@
         "itemLabel": "9.3",
         "title": "Third Reading and Final Approval of Board Bylaw 9100 - Organization",
         "phases": {
-          "opened": 8397,
-          "presentation": 8406,
+          "opened": 8393,
+          "presentation": 8404,
           "publicComment": null,
-          "discussion": 8444,
+          "discussion": 8445,
           "vote": {
-            "seconds": 8455,
+            "seconds": 8463,
             "type": "voice",
             "result": "approved"
           }
@@ -238,10 +254,10 @@
         "itemLabel": "9.4",
         "title": "Acceptance of California School Employees Association Chapter V Sunshine Proposal for 2022-2023",
         "phases": {
-          "opened": 8467,
-          "presentation": 8475,
+          "opened": 8466,
+          "presentation": 8476,
           "publicComment": null,
-          "discussion": 8512,
+          "discussion": 8509,
           "vote": {
             "seconds": 8515,
             "type": "voice",
@@ -256,12 +272,12 @@
         "itemLabel": "9.5",
         "title": "Approval of Retirement Notification Incentive",
         "phases": {
-          "opened": 8529,
-          "presentation": 8534,
+          "opened": 8525,
+          "presentation": 8533,
           "publicComment": null,
           "discussion": 8594,
           "vote": {
-            "seconds": 8767,
+            "seconds": 8773,
             "type": "voice",
             "result": "approved"
           }
@@ -274,12 +290,12 @@
         "itemLabel": "9.6",
         "title": "Approval of Personnel Changes for 2022-2023",
         "phases": {
-          "opened": 8780,
+          "opened": 8779,
           "presentation": 8787,
           "publicComment": null,
           "discussion": 8875,
           "vote": {
-            "seconds": 8875,
+            "seconds": 8884,
             "type": "voice",
             "result": "approved"
           }
@@ -292,12 +308,12 @@
         "itemLabel": "9.7",
         "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Credential Candidates",
         "phases": {
-          "opened": 8886,
-          "presentation": 8903,
+          "opened": 8887,
+          "presentation": 8902,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8939,
+            "seconds": 8943,
             "type": "voice",
             "result": "approved"
           }
@@ -310,12 +326,12 @@
         "itemLabel": "9.8",
         "title": "Approval of Update on Planned Expenditures for the Effective Educator Grant",
         "phases": {
-          "opened": 8944,
-          "presentation": 8958,
+          "opened": 8950,
+          "presentation": 8956,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8992,
+            "seconds": 8995,
             "type": "voice",
             "result": "approved"
           }
@@ -328,7 +344,7 @@
         "itemLabel": "10",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 8999,
+          "opened": 8996,
           "presentation": null,
           "publicComment": null,
           "discussion": 9004,
@@ -342,10 +358,10 @@
         "itemLabel": "11",
         "title": "Correspondence",
         "phases": {
-          "opened": 9519,
+          "opened": 9516,
           "presentation": null,
           "publicComment": null,
-          "discussion": 9525,
+          "discussion": 9522,
           "vote": null
         },
         "publicComments": [],
@@ -359,7 +375,7 @@
           "opened": 9559,
           "presentation": null,
           "publicComment": null,
-          "discussion": 9563,
+          "discussion": 9562,
           "vote": null
         },
         "publicComments": [],
@@ -370,10 +386,10 @@
         "itemLabel": "13",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 9571,
+          "opened": 9574,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 9575,
           "vote": null
         },
         "publicComments": [],
@@ -384,12 +400,12 @@
         "itemLabel": "14",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 9656,
+          "opened": 9651,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9699,
+            "seconds": 9702,
             "type": "voice",
             "result": "approved"
           }
@@ -404,49 +420,63 @@
     "videoId": "1O2eUw21SqE",
     "speakers": {
       "A": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President"
-      },
-      "B": {
-        "name": "Cecilia I. Márquez",
-        "role": "Vice President (presiding as President for portions)"
-      },
-      "C": {
-        "name": "Janet Lawson",
-        "role": "Clerk"
-      },
-      "D": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (also roll call caller)"
-      },
-      "E": {
-        "name": "Liz Wolf",
-        "role": "Assistant Superintendent of Educational Services"
-      },
-      "F": {
-        "name": "Mike Wells",
-        "role": "Trustee"
-      },
-      "G": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
+      "B": {
+        "name": "María Díaz-Slocum",
+        "role": "President"
+      },
+      "C": {
+        "name": "Mike Wells",
+        "role": "Trustee"
+      },
+      "D": {
+        "name": "Janet Lawson",
+        "role": "Clerk"
+      },
+      "E": {
+        "name": "Liz Wolfe",
+        "role": "Assistant Superintendent of Educational Services (presenter)"
+      },
+      "F": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
+      },
+      "G": {
+        "name": "Superintendent (John Baker or acting)",
+        "role": "Superintendent"
+      },
       "H": {
-        "name": "David (Trustee)",
-        "role": "Trustee (likely Wells or unnamed trustee based on context)"
+        "name": "Wendy (staff presenter)",
+        "role": "Staff presenter (HR/Administrative Services)"
       },
       "I": {
-        "name": "Wendy (staff)",
-        "role": "Staff presenter (HR/Personnel)"
+        "name": "David (Trustee Weekly / Mike Wells alternate label)",
+        "role": "Trustee"
       }
     },
-    "agendaChanges": "Item 9.1 (Approval of Addendum to 2022-23 Measure U Application for Adelante Selby Spanish Immersion) was moved from Action Items to the Consent calendar bundle. The consent bundle at item 8 therefore included 9.1 as well.",
+    "agendaChanges": "Item 9.1 (Approval of Addendum to 2022-23 Measure U Application for Adelante Selby Spanish Immersion) was moved from Action Items to Consent Items at the start of the meeting. It was approved as part of the consent bundle under item 8.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": 5,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
+        "phases": {
+          "opened": 13,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -460,7 +490,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 35,
+          "opened": 34,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -477,7 +507,7 @@
           "opened": 97,
           "presentation": null,
           "publicComment": null,
-          "discussion": 101,
+          "discussion": 99,
           "vote": null
         },
         "publicComments": [],
@@ -488,12 +518,12 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 118,
+          "opened": 117,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 125,
+            "seconds": 124,
             "type": "voice",
             "result": "approved"
           }
@@ -506,9 +536,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 129,
+          "opened": 126,
           "presentation": null,
-          "publicComment": 129,
+          "publicComment": 126,
           "discussion": null,
           "vote": null
         },
@@ -525,7 +555,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 148,
+            "seconds": 147,
             "type": "voice",
             "result": "approved"
           }
@@ -539,9 +569,9 @@
         "title": "Data Update",
         "phases": {
           "opened": 157,
-          "presentation": 162,
+          "presentation": 194,
           "publicComment": null,
-          "discussion": 2332,
+          "discussion": 1516,
           "vote": null
         },
         "publicComments": [],
@@ -552,10 +582,10 @@
         "itemLabel": "7.2",
         "title": "First Reading and Discussion of Board Policy 6158 - Independent Study",
         "phases": {
-          "opened": 8051,
-          "presentation": 8067,
+          "opened": 8050,
+          "presentation": 8065,
           "publicComment": null,
-          "discussion": 8232,
+          "discussion": 8229,
           "vote": null
         },
         "publicComments": [],
@@ -564,14 +594,14 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of Consent Items (including moved 9.1)",
+        "title": "Approval of Consent Items (including pulled 9.1)",
         "phases": {
           "opened": 8274,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8287,
+            "seconds": 8285,
             "type": "voice",
             "result": "approved"
           }
@@ -589,9 +619,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8287,
+            "seconds": 8285,
             "type": "voice",
-            "result": "approved (as part of consent bundle)"
+            "result": "approved as part of consent"
           }
         },
         "publicComments": [],
@@ -607,7 +637,7 @@
           "publicComment": null,
           "discussion": 8369,
           "vote": {
-            "seconds": 8391,
+            "seconds": 8393,
             "type": "voice",
             "result": "approved"
           }
@@ -620,12 +650,12 @@
         "itemLabel": "9.3",
         "title": "Third Reading and Final Approval of Board Bylaw 9100 - Organization",
         "phases": {
-          "opened": 8397,
-          "presentation": 8406,
+          "opened": 8393,
+          "presentation": 8404,
           "publicComment": null,
-          "discussion": 8444,
+          "discussion": 8445,
           "vote": {
-            "seconds": 8455,
+            "seconds": 8463,
             "type": "voice",
             "result": "approved"
           }
@@ -638,10 +668,10 @@
         "itemLabel": "9.4",
         "title": "Acceptance of California School Employees Association Chapter V Sunshine Proposal for 2022-2023",
         "phases": {
-          "opened": 8467,
-          "presentation": 8475,
+          "opened": 8466,
+          "presentation": 8476,
           "publicComment": null,
-          "discussion": 8512,
+          "discussion": 8509,
           "vote": {
             "seconds": 8515,
             "type": "voice",
@@ -656,12 +686,12 @@
         "itemLabel": "9.5",
         "title": "Approval of Retirement Notification Incentive",
         "phases": {
-          "opened": 8529,
-          "presentation": 8534,
+          "opened": 8525,
+          "presentation": 8533,
           "publicComment": null,
           "discussion": 8594,
           "vote": {
-            "seconds": 8767,
+            "seconds": 8773,
             "type": "voice",
             "result": "approved"
           }
@@ -674,12 +704,12 @@
         "itemLabel": "9.6",
         "title": "Approval of Personnel Changes for 2022-2023",
         "phases": {
-          "opened": 8780,
+          "opened": 8779,
           "presentation": 8787,
           "publicComment": null,
           "discussion": 8875,
           "vote": {
-            "seconds": 8875,
+            "seconds": 8884,
             "type": "voice",
             "result": "approved"
           }
@@ -692,12 +722,12 @@
         "itemLabel": "9.7",
         "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Credential Candidates",
         "phases": {
-          "opened": 8886,
-          "presentation": 8903,
+          "opened": 8887,
+          "presentation": 8902,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8939,
+            "seconds": 8943,
             "type": "voice",
             "result": "approved"
           }
@@ -710,12 +740,12 @@
         "itemLabel": "9.8",
         "title": "Approval of Update on Planned Expenditures for the Effective Educator Grant",
         "phases": {
-          "opened": 8944,
-          "presentation": 8958,
+          "opened": 8950,
+          "presentation": 8956,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8992,
+            "seconds": 8995,
             "type": "voice",
             "result": "approved"
           }
@@ -728,7 +758,7 @@
         "itemLabel": "10",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 8999,
+          "opened": 8996,
           "presentation": null,
           "publicComment": null,
           "discussion": 9004,
@@ -742,10 +772,10 @@
         "itemLabel": "11",
         "title": "Correspondence",
         "phases": {
-          "opened": 9519,
+          "opened": 9516,
           "presentation": null,
           "publicComment": null,
-          "discussion": 9525,
+          "discussion": 9522,
           "vote": null
         },
         "publicComments": [],
@@ -759,7 +789,7 @@
           "opened": 9559,
           "presentation": null,
           "publicComment": null,
-          "discussion": 9563,
+          "discussion": 9562,
           "vote": null
         },
         "publicComments": [],
@@ -770,10 +800,10 @@
         "itemLabel": "13",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 9571,
+          "opened": 9574,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 9575,
           "vote": null
         },
         "publicComments": [],
@@ -784,12 +814,12 @@
         "itemLabel": "14",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 9656,
+          "opened": 9651,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 9699,
+            "seconds": 9702,
             "type": "voice",
             "result": "approved"
           }
@@ -800,7 +830,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:58:21.859Z",
-  "inputTokens": 37822,
-  "outputTokens": 2870
+  "cachedAt": "2026-07-21T09:49:40.541Z",
+  "inputTokens": 38507,
+  "outputTokens": 2944
 }

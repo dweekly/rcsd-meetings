@@ -1,34 +1,36 @@
 {
   "date": "2022-10-12",
+  "slug": "2022-10-12-board-meeting",
   "itemCount": 47,
+  "transcriptHash": "88c2dd6babbf889e",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "Alisa MacAvoy",
+        "name": "María Díaz-Slocum",
         "role": "Board President"
       },
       "B": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Alisa MacAvoy",
+        "role": "Board Trustee (also identified as President in roll call — ASR confusion; MacAvoy is Trustee/President-Elect)"
       },
       "C": {
         "name": "Cecilia I. Márquez",
-        "role": "Clerk"
+        "role": "Board Clerk / Vice President area — likely member responding"
       },
       "D": {
-        "name": "John Baker",
+        "name": "John (Superintendent)",
         "role": "Superintendent"
       },
       "E": {
         "name": "Janet Lawson",
-        "role": "Trustee"
+        "role": "Board Trustee"
       },
       "F": {
-        "name": "Will",
-        "role": "District Staff (Bond Program)"
+        "name": "Will (Bond Program/Facilities staff)",
+        "role": "District Facilities/Bond Program Staff"
       }
     },
-    "agendaChanges": "Items 8.3 (Local Interagency Agreement) and 8.4 (Personnel Changes) were moved to the consent agenda. Item 11.1 (Correspondence) was moved to immediately after Oral Communication (Section 5). The resequenced order was: 1, Roll Call, 2, 3, 4, 5 (Oral Communication), 11.1 (Correspondence), 6, 7, 8.1, 8.2, 9, 10.1, 10.2, 12, 13.",
+    "agendaChanges": "Board approved agenda modifications: (1) Items 8.3 (Local Interagency Agreement) and 8.4 (Approval of Personnel Changes) were moved from Action Items to the Consent calendar; (2) Item 11.1 (Correspondence) was moved to immediately follow Oral Communication (Section 5), so it was heard before Section 6. Items otherwise proceeded in order after those changes.",
     "items": [
       {
         "itemLabel": "1",
@@ -62,7 +64,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 128,
+          "opened": 133,
           "presentation": null,
           "publicComment": null,
           "discussion": 139,
@@ -76,14 +78,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 161,
+          "opened": 175,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 214,
+            "seconds": 208,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -94,18 +96,18 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 214,
+          "opened": 213,
           "presentation": null,
-          "publicComment": 258,
+          "publicComment": 257,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Unidentified speaker",
-            "startSeconds": 258,
-            "endSeconds": 463,
-            "summary": "Demanded the board remove bond measure information from the district website and newsletter for alleged violations of Education Code sections 7054 and 7058, and also demanded compliance with the Public Records Act, stating he would appear at 2pm the following day to inspect records."
+            "startSeconds": 257,
+            "endSeconds": 459,
+            "summary": "Speaker demanded the board direct the superintendent to remove bond-related information from the district website and newsletter citing Education Code Section 7054 violations, and requested compliance with the Public Records Act including an in-person records inspection the following day at 2 p.m."
           }
         ],
         "consent": false,
@@ -129,14 +131,158 @@
         "itemLabel": "6",
         "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 922,
-          "presentation": 922,
+          "opened": 908,
+          "presentation": 923,
           "publicComment": null,
-          "discussion": 969,
+          "discussion": 964,
           "vote": {
-            "seconds": 969,
+            "seconds": 980,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.1",
+        "title": "Approval of Measure T Bond Program Tracking List of Items Under $20k",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.2",
+        "title": "Approval of Agreement with Beals Martin, Inc. for Theater Projection Screen at McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": 923,
+          "publicComment": null,
+          "discussion": 923,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.3",
+        "title": "Approval of Agreement with Atlas/Pellizzari Electric, Inc. for Electrical Services on Theater Projection Screen at McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.4",
+        "title": "Approval of Proposal for Concrete Pads for Manual Transfer Switches with Atlas/Pellizzari Electric, Inc.",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.5",
+        "title": "Approval of Proposal for Theater Curtain Replacement with Musson Theatrical at McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.6",
+        "title": "Approval of Proposal for Fencing with Dryco at Roosevelt School's Child Development Center",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.7",
+        "title": "Approval of Proposal for Gate Buzzer and Intercom with Siemens Industry, Inc. at Clifford School and McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.8",
+        "title": "Approval of Proposal for 48 Port Switches and Supporting Equipment with CDW-G at Garfield Community School and Orion Alternative School",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
           }
         },
         "publicComments": [],
@@ -145,16 +291,214 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items (including 8.3 and 8.4 as moved)",
+        "title": "Approval of Consent Items",
         "phases": {
-          "opened": 987,
+          "opened": 984,
           "presentation": null,
           "publicComment": null,
           "discussion": 996,
           "vote": {
-            "seconds": 1124,
+            "seconds": 1123,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.1",
+        "title": "Approval of September 14th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.2",
+        "title": "Approval of September 21st Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.3",
+        "title": "Approval of Amendment to the June 15th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.4",
+        "title": "Approval of Amendment to the August 10th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.5",
+        "title": "Approval of Amendment to the August 24th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.6",
+        "title": "Approval of Non-Public School (NPS)/Non-Public Agency (NPA) Master Contracts",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.7",
+        "title": "Approval of Agreement between Redwood City School District and YMCA of Silicon Valley for Fiscal Year 2022-2023",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.8",
+        "title": "Ratification of Warrant Register, September 1, 2022 - September 30, 2022",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.9",
+        "title": "Approval of Changes to the Board Agenda Schedule of Items",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 996,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "8.3",
+        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Teacher Interns and Student Teachers (moved to consent)",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "8.4",
+        "title": "Approval of Personnel Changes for 2022-2023 (moved to consent)",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -165,14 +509,14 @@
         "itemLabel": "8.1",
         "title": "Adoption of Resolution 15, Authorizing Electronic Meetings of the Board of Trustees During a State of Emergency",
         "phases": {
-          "opened": 1127,
-          "presentation": 1145,
+          "opened": 1126,
+          "presentation": 1142,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1200,
+            "seconds": 1194,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -183,14 +527,14 @@
         "itemLabel": "8.2",
         "title": "Adoption of Resolution 16, Approval of Education Code Options for Teaching Assignments",
         "phases": {
-          "opened": 1200,
+          "opened": 1197,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1234,
+            "seconds": 1231,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -198,39 +542,11 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.3",
-        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Teacher Interns and Student Teachers (moved to consent)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.4",
-        "title": "Approval of Personnel Changes for 2022-2023 (moved to consent)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
         "itemLabel": "9",
-        "title": "Report from Board Members and Superintendent",
+        "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 1234,
-          "presentation": 1247,
+          "opened": 1237,
+          "presentation": 1246,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -243,7 +559,35 @@
         "itemLabel": "10",
         "title": "Information Items",
         "phases": {
-          "opened": 2127,
+          "opened": 2123,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.1",
+        "title": "Quarterly Williams Report, 1st Quarter, July 2022 through September 2022",
+        "phases": {
+          "opened": 2123,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.2",
+        "title": "Information on San Mateo County Investment Fund - August 2022",
+        "phases": {
+          "opened": 2128,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -255,12 +599,12 @@
       },
       {
         "itemLabel": "12",
-        "title": "Possible Other Business/Suggested Items for Future Agenda",
+        "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 2197,
+          "opened": 2133,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2197,
+          "discussion": 2133,
           "vote": null
         },
         "publicComments": [],
@@ -269,16 +613,16 @@
       },
       {
         "itemLabel": "13",
-        "title": "Adjourn the Meeting",
+        "title": "Adjournment",
         "phases": {
-          "opened": 2232,
+          "opened": 2245,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2285,
+            "seconds": 2283,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -291,31 +635,31 @@
     "videoId": "68biYKZX78M",
     "speakers": {
       "A": {
-        "name": "Alisa MacAvoy",
+        "name": "María Díaz-Slocum",
         "role": "Board President"
       },
       "B": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Alisa MacAvoy",
+        "role": "Board Trustee (also identified as President in roll call — ASR confusion; MacAvoy is Trustee/President-Elect)"
       },
       "C": {
         "name": "Cecilia I. Márquez",
-        "role": "Clerk"
+        "role": "Board Clerk / Vice President area — likely member responding"
       },
       "D": {
-        "name": "John Baker",
+        "name": "John (Superintendent)",
         "role": "Superintendent"
       },
       "E": {
         "name": "Janet Lawson",
-        "role": "Trustee"
+        "role": "Board Trustee"
       },
       "F": {
-        "name": "Will",
-        "role": "District Staff (Bond Program)"
+        "name": "Will (Bond Program/Facilities staff)",
+        "role": "District Facilities/Bond Program Staff"
       }
     },
-    "agendaChanges": "Items 8.3 (Local Interagency Agreement) and 8.4 (Personnel Changes) were moved to the consent agenda. Item 11.1 (Correspondence) was moved to immediately after Oral Communication (Section 5). The resequenced order was: 1, Roll Call, 2, 3, 4, 5 (Oral Communication), 11.1 (Correspondence), 6, 7, 8.1, 8.2, 9, 10.1, 10.2, 12, 13.",
+    "agendaChanges": "Board approved agenda modifications: (1) Items 8.3 (Local Interagency Agreement) and 8.4 (Approval of Personnel Changes) were moved from Action Items to the Consent calendar; (2) Item 11.1 (Correspondence) was moved to immediately follow Oral Communication (Section 5), so it was heard before Section 6. Items otherwise proceeded in order after those changes.",
     "items": [
       {
         "itemLabel": "1",
@@ -349,7 +693,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 128,
+          "opened": 133,
           "presentation": null,
           "publicComment": null,
           "discussion": 139,
@@ -363,14 +707,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 161,
+          "opened": 175,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 214,
+            "seconds": 208,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -381,18 +725,18 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 214,
+          "opened": 213,
           "presentation": null,
-          "publicComment": 258,
+          "publicComment": 257,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Unidentified speaker",
-            "startSeconds": 258,
-            "endSeconds": 463,
-            "summary": "Demanded the board remove bond measure information from the district website and newsletter for alleged violations of Education Code sections 7054 and 7058, and also demanded compliance with the Public Records Act, stating he would appear at 2pm the following day to inspect records."
+            "startSeconds": 257,
+            "endSeconds": 459,
+            "summary": "Speaker demanded the board direct the superintendent to remove bond-related information from the district website and newsletter citing Education Code Section 7054 violations, and requested compliance with the Public Records Act including an in-person records inspection the following day at 2 p.m."
           }
         ],
         "consent": false,
@@ -416,14 +760,158 @@
         "itemLabel": "6",
         "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 922,
-          "presentation": 922,
+          "opened": 908,
+          "presentation": 923,
           "publicComment": null,
-          "discussion": 969,
+          "discussion": 964,
           "vote": {
-            "seconds": 969,
+            "seconds": 980,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.1",
+        "title": "Approval of Measure T Bond Program Tracking List of Items Under $20k",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.2",
+        "title": "Approval of Agreement with Beals Martin, Inc. for Theater Projection Screen at McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": 923,
+          "publicComment": null,
+          "discussion": 923,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.3",
+        "title": "Approval of Agreement with Atlas/Pellizzari Electric, Inc. for Electrical Services on Theater Projection Screen at McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.4",
+        "title": "Approval of Proposal for Concrete Pads for Manual Transfer Switches with Atlas/Pellizzari Electric, Inc.",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.5",
+        "title": "Approval of Proposal for Theater Curtain Replacement with Musson Theatrical at McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.6",
+        "title": "Approval of Proposal for Fencing with Dryco at Roosevelt School's Child Development Center",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.7",
+        "title": "Approval of Proposal for Gate Buzzer and Intercom with Siemens Industry, Inc. at Clifford School and McKinley Institute of Technology",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "6.8",
+        "title": "Approval of Proposal for 48 Port Switches and Supporting Equipment with CDW-G at Garfield Community School and Orion Alternative School",
+        "phases": {
+          "opened": 908,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 980,
+            "type": "voice",
+            "result": "approved as part of bundle"
           }
         },
         "publicComments": [],
@@ -432,16 +920,214 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items (including 8.3 and 8.4 as moved)",
+        "title": "Approval of Consent Items",
         "phases": {
-          "opened": 987,
+          "opened": 984,
           "presentation": null,
           "publicComment": null,
           "discussion": 996,
           "vote": {
-            "seconds": 1124,
+            "seconds": 1123,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.1",
+        "title": "Approval of September 14th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.2",
+        "title": "Approval of September 21st Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.3",
+        "title": "Approval of Amendment to the June 15th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.4",
+        "title": "Approval of Amendment to the August 10th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.5",
+        "title": "Approval of Amendment to the August 24th Board Minutes",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.6",
+        "title": "Approval of Non-Public School (NPS)/Non-Public Agency (NPA) Master Contracts",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.7",
+        "title": "Approval of Agreement between Redwood City School District and YMCA of Silicon Valley for Fiscal Year 2022-2023",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.8",
+        "title": "Ratification of Warrant Register, September 1, 2022 - September 30, 2022",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.9",
+        "title": "Approval of Changes to the Board Agenda Schedule of Items",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 996,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "8.3",
+        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Teacher Interns and Student Teachers (moved to consent)",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "8.4",
+        "title": "Approval of Personnel Changes for 2022-2023 (moved to consent)",
+        "phases": {
+          "opened": 984,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1123,
+            "type": "voice",
+            "result": "approved as part of consent bundle"
           }
         },
         "publicComments": [],
@@ -452,14 +1138,14 @@
         "itemLabel": "8.1",
         "title": "Adoption of Resolution 15, Authorizing Electronic Meetings of the Board of Trustees During a State of Emergency",
         "phases": {
-          "opened": 1127,
-          "presentation": 1145,
+          "opened": 1126,
+          "presentation": 1142,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1200,
+            "seconds": 1194,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -470,14 +1156,14 @@
         "itemLabel": "8.2",
         "title": "Adoption of Resolution 16, Approval of Education Code Options for Teaching Assignments",
         "phases": {
-          "opened": 1200,
+          "opened": 1197,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1234,
+            "seconds": 1231,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -485,39 +1171,11 @@
         "pulled": false
       },
       {
-        "itemLabel": "8.3",
-        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Teacher Interns and Student Teachers (moved to consent)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8.4",
-        "title": "Approval of Personnel Changes for 2022-2023 (moved to consent)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
         "itemLabel": "9",
-        "title": "Report from Board Members and Superintendent",
+        "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 1234,
-          "presentation": 1247,
+          "opened": 1237,
+          "presentation": 1246,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -530,7 +1188,35 @@
         "itemLabel": "10",
         "title": "Information Items",
         "phases": {
-          "opened": 2127,
+          "opened": 2123,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.1",
+        "title": "Quarterly Williams Report, 1st Quarter, July 2022 through September 2022",
+        "phases": {
+          "opened": 2123,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.2",
+        "title": "Information on San Mateo County Investment Fund - August 2022",
+        "phases": {
+          "opened": 2128,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -542,12 +1228,12 @@
       },
       {
         "itemLabel": "12",
-        "title": "Possible Other Business/Suggested Items for Future Agenda",
+        "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 2197,
+          "opened": 2133,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2197,
+          "discussion": 2133,
           "vote": null
         },
         "publicComments": [],
@@ -556,16 +1242,16 @@
       },
       {
         "itemLabel": "13",
-        "title": "Adjourn the Meeting",
+        "title": "Adjournment",
         "phases": {
-          "opened": 2232,
+          "opened": 2245,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2285,
+            "seconds": 2283,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -574,7 +1260,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:02:25.550Z",
-  "inputTokens": 9868,
-  "outputTokens": 2134
+  "cachedAt": "2026-07-21T09:54:37.789Z",
+  "inputTokens": 10350,
+  "outputTokens": 4682
 }

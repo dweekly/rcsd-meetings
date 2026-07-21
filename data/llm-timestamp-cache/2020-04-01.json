@@ -37,37 +37,37 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Staff Recognition item added after Oral Communication (Item 5). Item pulled from original posted agenda and inserted between Item 5 and Bond Program Consent Items.",
-    "consent_vote_words": "Okay, Cecilia will second, and a roll call vote, please.",
+    "agenda_changes": "Item added: Staff recognition was added after item 5 (Oral Communication). No other changes announced.",
+    "consent_vote_words": "Trustee McBride? Aye. Trustee Márquez? Aye. Trustee Díaz-Slocum? Aye. Trustee MacAvoy? Aye. Trustee Lawson? Aye.",
     "items": [
       {
         "item": 1,
         "intro_words": "Call to Order",
-        "status": "not_found"
+        "status": "not found in transcript opening"
       },
       {
         "item": 2,
-        "intro_words": "Roll Call",
-        "status": "not_found"
+        "intro_words": "Trustee McBride? Here. Trustee Márquez?",
+        "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome",
-        "status": "not_found"
+        "intro_words": "Welcome everybody. It's, it's good to see",
+        "status": "found"
       },
       {
         "item": 4,
         "intro_words": "Welcome by the School Board President",
-        "status": "not_found"
+        "status": "not found as separate item"
       },
       {
         "item": 5,
-        "intro_words": "My name is Jude. I am in the 2nd grade at Henry Ford School.",
+        "intro_words": "My name is Jude. I am in the 2nd grade",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "With that, moving on, are there any changes to the agenda?",
+        "intro_words": "With that, moving on, are there any changes",
         "status": "found"
       },
       {
@@ -76,268 +76,43 @@
         "status": "found"
       },
       {
-        "item": 8,
-        "intro_words": "At this point, I believe we only have one speaker's card",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "So we will move on to the staff recognition. Thank you.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "So we are on to item 6, the bond program consent items.",
+        "item": "staff_recognition",
+        "intro_words": "So we will move on to the staff recognition.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "So moved. Second, Cecilia. Okay, Cecilia will second, and",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 12,
-        "intro_words": "All right, moving on to 7.1, which is a bond action item.",
-        "status": "found"
-      },
-      {
-        "item": 13,
-        "intro_words": "Does anyone have any questions about the Taft construction agreement item?",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "Do we have a motion to approve? So moved.",
-        "status": "found"
-      },
-      {
-        "item": 15,
-        "intro_words": "Okay, item 8.1, which I think everybody's here for.",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "So, John, did you want to go ahead and start?",
-        "status": "found"
-      },
-      {
-        "item": 17,
-        "intro_words": "So good evening. So before I start and before I have",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "Thank you, John. And you're welcome. Always a pleasure.",
+        "intro_words": "So we are on to item 6, the bond program consent items.",
         "status": "found"
       },
       {
         "item": 19,
-        "intro_words": "Are there any questions for Linda? Then if there are no",
-        "status": "found"
-      },
-      {
-        "item": 20,
-        "intro_words": "Wendy Kelly, Assistant Superintendent for HR and 6th through 8th grade.",
+        "intro_words": "So Janet, I have a question. Okay. And can you guys",
         "status": "found"
       },
       {
         "item": 21,
-        "intro_words": "I have Wendy on the phone, so she's able to share now.",
-        "status": "found"
-      },
-      {
-        "item": 22,
-        "intro_words": "So, so we worked really hard in technology services to make sure",
-        "status": "found"
-      },
-      {
-        "item": 23,
-        "intro_words": "Are there any questions for Kyle? Kyle, is it up?",
-        "status": "found"
-      },
-      {
-        "item": 24,
-        "intro_words": "Thank you. Okay, thanks. Go ahead, Dennis. First, thank you,",
+        "intro_words": "Okay, item 8.1, which I think everybody's here for.",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "Dr. Baker, did you have more staff that you wanted to have speak?",
+        "intro_words": "We are on 11.1, action item. This is the resolution",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "Unmute yourself. Okay, now, good evening everyone, and thank you for everything.",
-        "status": "found"
-      },
-      {
-        "item": 27,
-        "intro_words": "Any questions for Patricia? It's a lot of work. Okay,",
-        "status": "found"
-      },
-      {
-        "item": 28,
-        "intro_words": "Señor Pérez, unmute. Thank you. Can you hear me?",
-        "status": "found"
-      },
-      {
-        "item": 29,
-        "intro_words": "Thank you, Antonio. Patty Ortiz. Hi, everyone. Good evening in",
+        "intro_words": "Let's see, we are on 11.1, Report from Board Members",
         "status": "found"
       },
       {
         "item": 30,
-        "intro_words": "All right, thank you, Patty. Any questions for Patty?",
-        "status": "found"
-      },
-      {
-        "item": 31,
-        "intro_words": "Okay, good evening everyone. So on the business and finance side,",
-        "status": "found"
-      },
-      {
-        "item": 32,
-        "intro_words": "Do you have any questions? Thank you, Priscilla. Thank you. I'm sorry,",
+        "intro_words": "Okay, all right then. Other business, suggested items for future agenda?",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "Sure, can you hear me? Yep. Okay, great. So hi everyone.",
-        "status": "found"
-      },
-      {
-        "item": 34,
-        "intro_words": "So, Dennis, you had a, you had a question? Yes, thank you.",
-        "status": "found"
-      },
-      {
-        "item": 35,
-        "intro_words": "Should we take our speakers cards now? Yes, that would be fine.",
-        "status": "found"
-      },
-      {
-        "item": 36,
-        "intro_words": "Okay, you're unmuted, Pablo. Hi, can you hear me?",
-        "status": "found"
-      },
-      {
-        "item": 37,
-        "intro_words": "Our next speaker is Emily Younts. Janet, she actually on her",
-        "status": "found"
-      },
-      {
-        "item": 38,
-        "intro_words": "Sure. It says, I don't need to speak but would love",
-        "status": "found"
-      },
-      {
-        "item": 39,
-        "intro_words": "Michelle Beutler. Sorry, can you hear me now? Yes.",
-        "status": "found"
-      },
-      {
-        "item": 40,
-        "intro_words": "Go ahead, parent. Hi. Hi. Yes, thank you so much.",
-        "status": "found"
-      },
-      {
-        "item": 41,
-        "intro_words": "Okay, so we're gonna move on, and that was our last speaker's card",
-        "status": "found"
-      },
-      {
-        "item": 42,
-        "intro_words": "Moving on to item 10.1, action item. This is the resolution",
-        "status": "found"
-      },
-      {
-        "item": 43,
-        "intro_words": "Are there any questions about that? No. Okay, okay, then",
-        "status": "found"
-      },
-      {
-        "item": 44,
-        "intro_words": "Let's see, we are on 11.1, Report from Board Members and Superintendent.",
-        "status": "found"
-      },
-      {
-        "item": 45,
-        "intro_words": "Dennis? I'm sorry, Janet, to interrupt. I'm so sorry.",
-        "status": "found"
-      },
-      {
-        "item": 46,
-        "intro_words": "I had 2 things, but before, this is what I want hold it up higher",
-        "status": "found"
-      },
-      {
-        "item": 47,
-        "intro_words": "So I had called today and I'll call Jerry again tomorrow",
-        "status": "found"
-      },
-      {
-        "item": 48,
-        "intro_words": "I had a CSEA board meeting on Saturday. Normally we would",
-        "status": "found"
-      },
-      {
-        "item": 49,
-        "intro_words": "Maria or Cecilia, would you— do you have any reports or anything to share?",
-        "status": "found"
-      },
-      {
-        "item": 50,
-        "intro_words": "I've just been helping parents with different questions that they have",
-        "status": "found"
-      },
-      {
-        "item": 51,
-        "intro_words": "There we go, I'm back. Okay. So I didn't have anything.",
-        "status": "found"
-      },
-      {
-        "item": 52,
-        "intro_words": "Yeah, I will just say I've been on, I think, every single",
-        "status": "found"
-      },
-      {
-        "item": 53,
-        "intro_words": "Did you have anything else to report on, John?",
-        "status": "found"
-      },
-      {
-        "item": 54,
-        "intro_words": "Oh no, just the superintendent's meetings, and they drive me nuts",
-        "status": "found"
-      },
-      {
-        "item": 55,
-        "intro_words": "Okay, we have no information items. Correspondence to share?",
-        "status": "found"
-      },
-      {
-        "item": 56,
-        "intro_words": "Other business, suggested items for future agenda? Anybody have anything else?",
-        "status": "found"
-      },
-      {
-        "item": 57,
-        "intro_words": "Yeah, I just thought it was helpful to have an opportunity",
-        "status": "found"
-      },
-      {
-        "item": 58,
-        "intro_words": "And then changes to the agenda, the board agenda schedule?",
-        "status": "found"
-      },
-      {
-        "item": 59,
-        "intro_words": "Okay. Then that's it. I think I was watching the participants",
-        "status": "found"
-      },
-      {
-        "item": 60,
-        "intro_words": "Is there a motion to adjourn? So moved. I think that was",
+        "intro_words": "Is there a motion to adjourn? So moved.",
         "status": "found"
       }
     ]
@@ -349,123 +124,59 @@
         "timestamp": "00:00:28",
         "timestampSeconds": 28
       },
-      null,
-      null,
-      null,
-      {
-        "timestamp": "00:03:01",
-        "timestampSeconds": 181
-      },
-      {
-        "timestamp": "00:03:23",
-        "timestampSeconds": 203
-      },
-      {
-        "timestamp": "00:03:59",
-        "timestampSeconds": 239
-      },
-      {
-        "timestamp": "00:04:41",
-        "timestampSeconds": 281
-      },
-      {
-        "timestamp": "00:03:33",
-        "timestampSeconds": 213
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313
-      },
       {
         "timestamp": "00:04:19",
-        "timestampSeconds": 259,
-        "consent": true
+        "timestampSeconds": 259
       },
       {
-        "timestamp": "00:05:54",
-        "timestampSeconds": 354
-      },
-      {
-        "timestamp": "00:06:22",
-        "timestampSeconds": 382
-      },
-      {
-        "timestamp": "00:04:25",
-        "timestampSeconds": 265
-      },
-      {
-        "timestamp": "00:08:29",
-        "timestampSeconds": 509
-      },
-      {
-        "timestamp": "00:08:29",
-        "timestampSeconds": 509
-      },
-      {
-        "timestamp": "00:08:29",
-        "timestampSeconds": 509
-      },
-      {
-        "timestamp": "00:13:16",
-        "timestampSeconds": 796
-      },
-      {
-        "timestamp": "00:21:29",
-        "timestampSeconds": 1289
+        "timestamp": "01:53:06",
+        "timestampSeconds": 6786
       },
       null,
-      {
-        "timestamp": "00:28:22",
-        "timestampSeconds": 1702
-      },
-      {
-        "timestamp": "00:36:58",
-        "timestampSeconds": 2218
-      },
-      {
-        "timestamp": "00:39:27",
-        "timestampSeconds": 2367
-      },
+      null,
       null,
       {
-        "timestamp": "00:51:36",
-        "timestampSeconds": 3096
+        "timestamp": "01:59:53",
+        "timestampSeconds": 7193
       },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       {
-        "timestamp": "00:52:07",
-        "timestampSeconds": 3127
+        "timestamp": "02:01:45",
+        "timestampSeconds": 7305
       },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       {
-        "timestamp": "00:58:37",
-        "timestampSeconds": 3517
+        "timestamp": "01:59:48",
+        "timestampSeconds": 7188
       },
+      null,
+      null,
       {
-        "timestamp": "00:58:52",
-        "timestampSeconds": 3532
-      },
-      {
-        "timestamp": "01:02:25",
-        "timestampSeconds": 3745
-      },
-      {
-        "timestamp": "01:05:35",
-        "timestampSeconds": 3935
-      },
-      {
-        "timestamp": "01:09:19",
-        "timestampSeconds": 4159
-      },
-      {
-        "timestamp": "01:16:28",
-        "timestampSeconds": 4588
-      },
-      {
-        "timestamp": "01:21:45",
-        "timestampSeconds": 4905
+        "timestamp": "02:04:18",
+        "timestampSeconds": 7458
       }
     ]
   },
-  "cachedAt": "2026-07-21T03:47:32.064Z",
+  "cachedAt": "2026-07-21T10:03:27.581Z",
   "inputTokens": 25666,
-  "outputTokens": 2824
+  "outputTokens": 777
 }

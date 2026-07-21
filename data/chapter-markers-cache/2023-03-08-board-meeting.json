@@ -1,6 +1,8 @@
 {
   "date": "2023-03-08",
+  "slug": "2023-03-08-board-meeting",
   "itemCount": 67,
+  "transcriptHash": "e9e847076ad08952",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,15 +10,71 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Unknown staff/presenter",
-        "role": "Various presenters and staff"
+        "name": "Mike Wells",
+        "role": "Trustee"
+      },
+      "C": {
+        "name": "Janet Lawson",
+        "role": "Clerk"
+      },
+      "D": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (Roll Call reader / secondary voice)"
+      },
+      "E": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "F": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee (alternate label in later portions)"
+      },
+      "G": {
+        "name": "Mike Wells",
+        "role": "Trustee (alternate label in later portions)"
+      },
+      "H": {
+        "name": "Wendy Kelly / Staff presenter",
+        "role": "Staff / HR (context-dependent)"
+      },
+      "I": {
+        "name": "Chris Roble",
+        "role": "Public commenter / community member"
+      },
+      "J": {
+        "name": "Dr. Baker",
+        "role": "Superintendent"
+      },
+      "K": {
+        "name": "Chandra Leonardo",
+        "role": "Assistant Principal, Kennedy Middle School"
+      },
+      "L": {
+        "name": "Erin (HR/Legal staff)",
+        "role": "District staff presenter"
+      },
+      "M": {
+        "name": "Nick Farris",
+        "role": "Principal, Kennedy Middle School"
+      },
+      "N": {
+        "name": "David Camarena",
+        "role": "Assistant Principal, Kennedy Middle School"
+      },
+      "O": {
+        "name": "Cynthia Cardona / Liz Calderon Garcia",
+        "role": "Community School Coordinator (context-dependent)"
+      },
+      "P": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (board discussion portions)"
       }
     },
-    "agendaChanges": "Section 5 (Welcome) was effectively combined with Section 4 (Reconvene/Roll Call) and delivered by President Díaz-Slocum. Section 10 (Bond Program Action Items) had no items taken up. The meeting proceeded largely in agenda order, but Section 14.6 (Prop 28) was initially skipped and then taken up after 14.5 was addressed. Sections 16 (Information), 17 (Correspondence) were skipped or briefly noted. Section 19 (Board Meetings Calendar) was addressed within Section 18/Other Business discussion.",
+    "agendaChanges": "Section 5 (Welcome by Board President) was not delivered as a standalone item; the president's welcome remarks were folded into the Reconvene/Roll Call segment. Section 10 (Bond Program Action Items) had no items and was skipped. The meeting proceeded largely in agenda order. Item 14.4 was referenced on the floor as '14.2' in error by the president but corresponds to agenda item 14.4 (Resolution No. 29). No items were formally pulled from consent.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -30,11 +88,25 @@
       },
       {
         "itemLabel": "2",
-        "title": "Oral Communication on Closed Session Items Only",
+        "title": "Roll Call (Opening / Closed Session)",
         "phases": {
-          "opened": null,
+          "opened": 12,
           "presentation": null,
           "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "2",
+        "title": "Oral Communication on Closed Session Items Only",
+        "phases": {
+          "opened": 12,
+          "presentation": null,
+          "publicComment": 12,
           "discussion": null,
           "vote": null
         },
@@ -46,7 +118,7 @@
         "itemLabel": "3",
         "title": "Closed Session",
         "phases": {
-          "opened": null,
+          "opened": 12,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -60,7 +132,7 @@
         "itemLabel": "4",
         "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 5,
+          "opened": 12,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -74,7 +146,7 @@
         "itemLabel": "5",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 42,
+          "opened": 29,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -88,7 +160,7 @@
         "itemLabel": "6",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 100,
+          "opened": 137,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -102,14 +174,14 @@
         "itemLabel": "7",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 103,
+          "opened": 137,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 108,
+            "seconds": 152,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -120,18 +192,18 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 112,
+          "opened": 159,
           "presentation": null,
-          "publicComment": 112,
+          "publicComment": 159,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Chris Robel",
-            "startSeconds": 118,
-            "endSeconds": 290,
-            "summary": "Raised concerns about chronic absenteeism and poor academic performance at Taft and Garfield schools, criticized the board for not taking immediate action to address student needs, and questioned bond oversight meeting practices."
+            "name": "Chris Roble",
+            "startSeconds": 177,
+            "endSeconds": 358,
+            "summary": "Expressed concern about chronic absenteeism and low academic performance at Taft and Garfield schools, criticized trustees for not acting on the Taft principal's stated needs, and urged the board to address equity in resource allocation and to ensure bond oversight meetings are open to the public."
           }
         ],
         "consent": false,
@@ -141,14 +213,14 @@
         "itemLabel": "9",
         "title": "Bond Program Consent Items",
         "phases": {
-          "opened": 296,
+          "opened": 367,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 302,
+            "seconds": 377,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -171,12 +243,12 @@
       },
       {
         "itemLabel": "11",
-        "title": "School/Community Reports: McKinley Institute of Technology (MIT) and Kennedy Middle School",
+        "title": "School/Community Reports – McKinley Institute of Technology (MIT) and Kennedy Middle School",
         "phases": {
-          "opened": 308,
-          "presentation": 340,
+          "opened": 384,
+          "presentation": 427,
           "publicComment": null,
-          "discussion": 2280,
+          "discussion": 2293,
           "vote": null
         },
         "publicComments": [],
@@ -185,12 +257,12 @@
       },
       {
         "itemLabel": "12",
-        "title": "Discussion on Recommendation for Mathematics Curriculum Adoption, Grades K-5, 2023-24",
+        "title": "Discussion on Recommendation for Mathematics Curriculum Adoption, Grades K-5, 2023-24 school year",
         "phases": {
-          "opened": 5340,
-          "presentation": 5355,
+          "opened": 6808,
+          "presentation": 6830,
           "publicComment": null,
-          "discussion": 5490,
+          "discussion": 7052,
           "vote": null
         },
         "publicComments": [],
@@ -199,16 +271,16 @@
       },
       {
         "itemLabel": "13",
-        "title": "Consent Items",
+        "title": "Approval of Consent Items",
         "phases": {
-          "opened": 5700,
+          "opened": 7368,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5720,
+            "seconds": 7375,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -217,30 +289,16 @@
       },
       {
         "itemLabel": "14",
-        "title": "Action Items",
+        "title": "Action Items – Adoption of Resolution No. 26 (CFA 2023-24 for Child Development Centers)",
         "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.1",
-        "title": "Adoption of Resolution No. 26 – CFA 2023-24 for Child Development Centers",
-        "phases": {
-          "opened": 5730,
-          "presentation": null,
+          "opened": 7375,
+          "presentation": 7394,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5760,
+            "seconds": 7417,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -248,17 +306,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.2",
+        "itemLabel": "14",
         "title": "Second Reading and Approval of Board Policy 5113 – Absences and Excuses and Adoption of Resolution No. 27",
         "phases": {
-          "opened": 5768,
-          "presentation": null,
+          "opened": 7417,
+          "presentation": 7433,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5800,
+            "seconds": 7454,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -266,17 +324,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.3",
-        "title": "Adoption of Resolution No. 28 – Reduction or Elimination of Certificated Services FY 2022-23",
+        "itemLabel": "14",
+        "title": "Adoption of Resolution No. 28 – Reduction or Elimination of Certificated Services for Fiscal Year 2022-2023",
         "phases": {
-          "opened": 5810,
-          "presentation": 5820,
+          "opened": 7454,
+          "presentation": 7468,
           "publicComment": null,
-          "discussion": 5870,
+          "discussion": 7518,
           "vote": {
-            "seconds": 5920,
+            "seconds": 7558,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -284,17 +342,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.4",
-        "title": "Adoption of Resolution No. 29 – Reduction of Certain Classified Services FY 2022-23",
+        "itemLabel": "14",
+        "title": "Adoption of Resolution No. 29 – Reduction of Certain Classified Services for Fiscal Year 2022-2023",
         "phases": {
-          "opened": 5935,
-          "presentation": 5945,
+          "opened": 7558,
+          "presentation": 7572,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5990,
+            "seconds": 7608,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -302,17 +360,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.5",
+        "itemLabel": "14",
         "title": "Adoption of Resolution No. 30 – Appointing Measure T Citizens' Oversight Committee to Oversee Measure S",
         "phases": {
-          "opened": 6000,
-          "presentation": 6010,
+          "opened": 7608,
+          "presentation": 7632,
           "publicComment": null,
-          "discussion": 6065,
+          "discussion": 7691,
           "vote": {
-            "seconds": 6140,
+            "seconds": 7766,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -320,17 +378,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.6",
+        "itemLabel": "14",
         "title": "Discussion and Approval of Prop 28 Funds for the 2023-24 School Year",
         "phases": {
-          "opened": 6155,
-          "presentation": 6165,
+          "opened": 7779,
+          "presentation": 7797,
           "publicComment": null,
-          "discussion": 6350,
+          "discussion": 8009,
           "vote": {
-            "seconds": 6520,
+            "seconds": 8138,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -341,8 +399,8 @@
         "itemLabel": "15",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 6535,
-          "presentation": 6540,
+          "opened": 8140,
+          "presentation": 8145,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -369,10 +427,10 @@
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 6960,
+          "opened": 8754,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8759,
           "vote": null
         },
         "publicComments": [],
@@ -383,10 +441,10 @@
         "itemLabel": "18",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6975,
+          "opened": 8781,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6975,
+          "discussion": 8781,
           "vote": null
         },
         "publicComments": [],
@@ -397,10 +455,10 @@
         "itemLabel": "19",
         "title": "Board Meetings Calendar",
         "phases": {
-          "opened": 7160,
+          "opened": 9042,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7165,
+          "discussion": 9047,
           "vote": null
         },
         "publicComments": [],
@@ -411,14 +469,14 @@
         "itemLabel": "20",
         "title": "Adjournment",
         "phases": {
-          "opened": 7220,
+          "opened": 9084,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7225,
+            "seconds": 9092,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -435,15 +493,71 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Unknown staff/presenter",
-        "role": "Various presenters and staff"
+        "name": "Mike Wells",
+        "role": "Trustee"
+      },
+      "C": {
+        "name": "Janet Lawson",
+        "role": "Clerk"
+      },
+      "D": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (Roll Call reader / secondary voice)"
+      },
+      "E": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "F": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee (alternate label in later portions)"
+      },
+      "G": {
+        "name": "Mike Wells",
+        "role": "Trustee (alternate label in later portions)"
+      },
+      "H": {
+        "name": "Wendy Kelly / Staff presenter",
+        "role": "Staff / HR (context-dependent)"
+      },
+      "I": {
+        "name": "Chris Roble",
+        "role": "Public commenter / community member"
+      },
+      "J": {
+        "name": "Dr. Baker",
+        "role": "Superintendent"
+      },
+      "K": {
+        "name": "Chandra Leonardo",
+        "role": "Assistant Principal, Kennedy Middle School"
+      },
+      "L": {
+        "name": "Erin (HR/Legal staff)",
+        "role": "District staff presenter"
+      },
+      "M": {
+        "name": "Nick Farris",
+        "role": "Principal, Kennedy Middle School"
+      },
+      "N": {
+        "name": "David Camarena",
+        "role": "Assistant Principal, Kennedy Middle School"
+      },
+      "O": {
+        "name": "Cynthia Cardona / Liz Calderon Garcia",
+        "role": "Community School Coordinator (context-dependent)"
+      },
+      "P": {
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President (board discussion portions)"
       }
     },
-    "agendaChanges": "Section 5 (Welcome) was effectively combined with Section 4 (Reconvene/Roll Call) and delivered by President Díaz-Slocum. Section 10 (Bond Program Action Items) had no items taken up. The meeting proceeded largely in agenda order, but Section 14.6 (Prop 28) was initially skipped and then taken up after 14.5 was addressed. Sections 16 (Information), 17 (Correspondence) were skipped or briefly noted. Section 19 (Board Meetings Calendar) was addressed within Section 18/Other Business discussion.",
+    "agendaChanges": "Section 5 (Welcome by Board President) was not delivered as a standalone item; the president's welcome remarks were folded into the Reconvene/Roll Call segment. Section 10 (Bond Program Action Items) had no items and was skipped. The meeting proceeded largely in agenda order. Item 14.4 was referenced on the floor as '14.2' in error by the president but corresponds to agenda item 14.4 (Resolution No. 29). No items were formally pulled from consent.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -457,11 +571,25 @@
       },
       {
         "itemLabel": "2",
-        "title": "Oral Communication on Closed Session Items Only",
+        "title": "Roll Call (Opening / Closed Session)",
         "phases": {
-          "opened": null,
+          "opened": 12,
           "presentation": null,
           "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "2",
+        "title": "Oral Communication on Closed Session Items Only",
+        "phases": {
+          "opened": 12,
+          "presentation": null,
+          "publicComment": 12,
           "discussion": null,
           "vote": null
         },
@@ -473,7 +601,7 @@
         "itemLabel": "3",
         "title": "Closed Session",
         "phases": {
-          "opened": null,
+          "opened": 12,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -487,7 +615,7 @@
         "itemLabel": "4",
         "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 5,
+          "opened": 12,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -501,7 +629,7 @@
         "itemLabel": "5",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 42,
+          "opened": 29,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -515,7 +643,7 @@
         "itemLabel": "6",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 100,
+          "opened": 137,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -529,14 +657,14 @@
         "itemLabel": "7",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 103,
+          "opened": 137,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 108,
+            "seconds": 152,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -547,18 +675,18 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 112,
+          "opened": 159,
           "presentation": null,
-          "publicComment": 112,
+          "publicComment": 159,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Chris Robel",
-            "startSeconds": 118,
-            "endSeconds": 290,
-            "summary": "Raised concerns about chronic absenteeism and poor academic performance at Taft and Garfield schools, criticized the board for not taking immediate action to address student needs, and questioned bond oversight meeting practices."
+            "name": "Chris Roble",
+            "startSeconds": 177,
+            "endSeconds": 358,
+            "summary": "Expressed concern about chronic absenteeism and low academic performance at Taft and Garfield schools, criticized trustees for not acting on the Taft principal's stated needs, and urged the board to address equity in resource allocation and to ensure bond oversight meetings are open to the public."
           }
         ],
         "consent": false,
@@ -568,14 +696,14 @@
         "itemLabel": "9",
         "title": "Bond Program Consent Items",
         "phases": {
-          "opened": 296,
+          "opened": 367,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 302,
+            "seconds": 377,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -598,12 +726,12 @@
       },
       {
         "itemLabel": "11",
-        "title": "School/Community Reports: McKinley Institute of Technology (MIT) and Kennedy Middle School",
+        "title": "School/Community Reports – McKinley Institute of Technology (MIT) and Kennedy Middle School",
         "phases": {
-          "opened": 308,
-          "presentation": 340,
+          "opened": 384,
+          "presentation": 427,
           "publicComment": null,
-          "discussion": 2280,
+          "discussion": 2293,
           "vote": null
         },
         "publicComments": [],
@@ -612,12 +740,12 @@
       },
       {
         "itemLabel": "12",
-        "title": "Discussion on Recommendation for Mathematics Curriculum Adoption, Grades K-5, 2023-24",
+        "title": "Discussion on Recommendation for Mathematics Curriculum Adoption, Grades K-5, 2023-24 school year",
         "phases": {
-          "opened": 5340,
-          "presentation": 5355,
+          "opened": 6808,
+          "presentation": 6830,
           "publicComment": null,
-          "discussion": 5490,
+          "discussion": 7052,
           "vote": null
         },
         "publicComments": [],
@@ -626,16 +754,16 @@
       },
       {
         "itemLabel": "13",
-        "title": "Consent Items",
+        "title": "Approval of Consent Items",
         "phases": {
-          "opened": 5700,
+          "opened": 7368,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5720,
+            "seconds": 7375,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -644,30 +772,16 @@
       },
       {
         "itemLabel": "14",
-        "title": "Action Items",
+        "title": "Action Items – Adoption of Resolution No. 26 (CFA 2023-24 for Child Development Centers)",
         "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.1",
-        "title": "Adoption of Resolution No. 26 – CFA 2023-24 for Child Development Centers",
-        "phases": {
-          "opened": 5730,
-          "presentation": null,
+          "opened": 7375,
+          "presentation": 7394,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5760,
+            "seconds": 7417,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -675,17 +789,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.2",
+        "itemLabel": "14",
         "title": "Second Reading and Approval of Board Policy 5113 – Absences and Excuses and Adoption of Resolution No. 27",
         "phases": {
-          "opened": 5768,
-          "presentation": null,
+          "opened": 7417,
+          "presentation": 7433,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5800,
+            "seconds": 7454,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -693,17 +807,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.3",
-        "title": "Adoption of Resolution No. 28 – Reduction or Elimination of Certificated Services FY 2022-23",
+        "itemLabel": "14",
+        "title": "Adoption of Resolution No. 28 – Reduction or Elimination of Certificated Services for Fiscal Year 2022-2023",
         "phases": {
-          "opened": 5810,
-          "presentation": 5820,
+          "opened": 7454,
+          "presentation": 7468,
           "publicComment": null,
-          "discussion": 5870,
+          "discussion": 7518,
           "vote": {
-            "seconds": 5920,
+            "seconds": 7558,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -711,17 +825,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.4",
-        "title": "Adoption of Resolution No. 29 – Reduction of Certain Classified Services FY 2022-23",
+        "itemLabel": "14",
+        "title": "Adoption of Resolution No. 29 – Reduction of Certain Classified Services for Fiscal Year 2022-2023",
         "phases": {
-          "opened": 5935,
-          "presentation": 5945,
+          "opened": 7558,
+          "presentation": 7572,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5990,
+            "seconds": 7608,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -729,17 +843,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.5",
+        "itemLabel": "14",
         "title": "Adoption of Resolution No. 30 – Appointing Measure T Citizens' Oversight Committee to Oversee Measure S",
         "phases": {
-          "opened": 6000,
-          "presentation": 6010,
+          "opened": 7608,
+          "presentation": 7632,
           "publicComment": null,
-          "discussion": 6065,
+          "discussion": 7691,
           "vote": {
-            "seconds": 6140,
+            "seconds": 7766,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -747,17 +861,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "14.6",
+        "itemLabel": "14",
         "title": "Discussion and Approval of Prop 28 Funds for the 2023-24 School Year",
         "phases": {
-          "opened": 6155,
-          "presentation": 6165,
+          "opened": 7779,
+          "presentation": 7797,
           "publicComment": null,
-          "discussion": 6350,
+          "discussion": 8009,
           "vote": {
-            "seconds": 6520,
+            "seconds": 8138,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -768,8 +882,8 @@
         "itemLabel": "15",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 6535,
-          "presentation": 6540,
+          "opened": 8140,
+          "presentation": 8145,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -796,10 +910,10 @@
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 6960,
+          "opened": 8754,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8759,
           "vote": null
         },
         "publicComments": [],
@@ -810,10 +924,10 @@
         "itemLabel": "18",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6975,
+          "opened": 8781,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6975,
+          "discussion": 8781,
           "vote": null
         },
         "publicComments": [],
@@ -824,10 +938,10 @@
         "itemLabel": "19",
         "title": "Board Meetings Calendar",
         "phases": {
-          "opened": 7160,
+          "opened": 9042,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7165,
+          "discussion": 9047,
           "vote": null
         },
         "publicComments": [],
@@ -838,14 +952,14 @@
         "itemLabel": "20",
         "title": "Adjournment",
         "phases": {
-          "opened": 7220,
+          "opened": 9084,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7225,
+            "seconds": 9092,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -854,7 +968,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:54:12.341Z",
-  "inputTokens": 36983,
-  "outputTokens": 3215
+  "cachedAt": "2026-07-21T09:46:13.349Z",
+  "inputTokens": 41439,
+  "outputTokens": 3643
 }

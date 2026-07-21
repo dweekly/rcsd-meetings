@@ -1,5 +1,6 @@
 {
   "date": "2022-06-15",
+  "transcriptHash": "ecda8c0166432793",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -59,117 +60,77 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple agenda items were moved/reordered during the meeting. Items 10, 11, 12, and 13.1-13.6 were moved to after item 7.1 (after agenda approval) as consent items. Specifically: Bond Program Consent Items (10, 11, 12) and Action Items 13.1-13.6 (second readings on board policies) were consolidated and voted as consent bundles before proceeding to regular discussion items.",
-    "consent_vote_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as 13 point action items 13.1 through 13.6?",
+    "agenda_changes": "Multiple items reordered and moved to consent during 'Changes to the Agenda': Items 13.1-13.6 (second readings/action items) moved to consent; Items 10, 11, 12 (bond program items) moved to immediately after item 7 as consent items; all moved before discussion items.",
+    "consent_vote_words": "I'll make a motion to approve the bond program consent items, number 10. I'll second that. Roll call, please.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay. Good evening, everyone. Welcome to another Redwood City School District",
+        "intro_words": "Okay, good evening, everyone. Welcome to another Redwood City School",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee mcavoy. Present. Trustee wells. Here. Trustee lawson.",
+        "intro_words": "Trustee MacAvoy. Present. Trustee Wells. Here. Trustee Lawson.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "4.2 report on closed session. We received information from our consultants",
+        "intro_words": "4.2, Report on Closed Session. We received information from our consultants,",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Are there any changes to the agenda? This hybrid stuff we're still learning",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "So make a motion to approve the agenda as amended. I'll second roll",
+        "intro_words": "Are there any changes to the agenda? Yes, there are. This hybrid",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "I'll make a motion to approve the bond program. Consent items number 10.",
+        "intro_words": "I'll make a motion to approve the bond program consent items, number 10.",
         "status": "consent_bundle"
       },
       {
         "item": 11,
-        "intro_words": "I'll make a motion to approve the bond program. Consent items number 10.",
+        "intro_words": "I'll make a motion to approve the bond program consent items, number 10.",
         "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "I'll make a motion to approve the bond program. Consent items number 10.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 28,
-        "intro_words": "Now we're on to. So can I get a motion to approve the recommendation",
-        "status": "found"
-      },
-      {
-        "item": 31,
-        "intro_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 32,
-        "intro_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 33,
-        "intro_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 34,
-        "intro_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 35,
-        "intro_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 36,
-        "intro_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 38,
-        "intro_words": "Can I get a motion to approve the consent items 12.1 through 12.7, as well as",
+        "intro_words": "I'll make a motion to approve the bond program consent items, number 10.",
         "status": "consent_bundle"
       },
       {
         "item": 19,
-        "intro_words": "So on to item 9.1, presentation and discussion on the general obligation bond",
+        "intro_words": "So on to item 9.1, presentation and discussion. Presentation and Discussion on",
         "status": "found"
       },
       {
         "item": 20,
-        "intro_words": "So on with item 9.2, recommended options to the school board regarding North Star",
+        "intro_words": "Okay, so on with Item 9.2, Recommended Options to the School Board",
         "status": "found"
       },
       {
-        "item": 44,
-        "intro_words": "Make a motion to approve second roll call, please. Trustee mcavoy? Aye.",
+        "item": 43,
+        "intro_words": "Item 13.7, recommendation adoption of Resolution 38, approval of Education Code",
         "status": "found"
       },
       {
-        "item": 46,
-        "intro_words": "Item 14.1, Report from board members and superintendent. I can start.",
+        "item": 45,
+        "intro_words": "Item 14.1, report from board members and superintendent. I can start.",
         "status": "found"
       },
       {
         "item": 48,
-        "intro_words": "Item 15.1. San Mateo County Office of Education review of RCSD. Second interim",
+        "intro_words": "Okay, item 15.1, San Mateo County Office of Education review of RCSD",
         "status": "found"
       },
       {
         "item": 51,
-        "intro_words": "17.1 possible other business suggested items for future agendas. 18.1 changes to",
+        "intro_words": "Okay, 17.1 possible other business. Suggested items for future agendas.",
+        "status": "found"
+      },
+      {
+        "item": 54,
+        "intro_words": "What time is next week's— is Wednesday's meeting? Is that—",
         "status": "found"
       },
       {
@@ -187,8 +148,8 @@
         "timestampSeconds": 6
       },
       {
-        "timestamp": "00:01:04",
-        "timestampSeconds": 64
+        "timestamp": "00:01:05",
+        "timestampSeconds": 65
       },
       null,
       null,
@@ -197,28 +158,25 @@
       null,
       null,
       {
-        "timestamp": "00:01:09",
-        "timestampSeconds": 69
+        "timestamp": "00:01:10",
+        "timestampSeconds": 70
       },
       {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
+        "timestamp": "00:03:49",
+        "timestampSeconds": 229,
         "consent": true
       },
       {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
+        "timestamp": "00:03:49",
+        "timestampSeconds": 229,
         "consent": true
       },
       {
-        "timestamp": "00:01:39",
-        "timestampSeconds": 99
+        "timestamp": "00:02:07",
+        "timestampSeconds": 127
       },
       null,
-      {
-        "timestamp": "00:04:15",
-        "timestampSeconds": 255
-      },
+      null,
       null,
       null,
       null,
@@ -228,8 +186,8 @@
         "timestampSeconds": 437
       },
       {
-        "timestamp": "01:05:40",
-        "timestampSeconds": 3940
+        "timestamp": "01:05:32",
+        "timestampSeconds": 3932
       },
       null,
       null,
@@ -238,56 +196,24 @@
       null,
       null,
       null,
-      {
-        "timestamp": "01:04:09",
-        "timestampSeconds": 3849
-      },
       null,
       null,
-      {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
-        "consent": true
-      },
-      {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
-        "consent": true
-      },
-      {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
-        "consent": true
-      },
-      {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
-        "consent": true
-      },
-      {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
-        "consent": true
-      },
-      {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
-        "consent": true
-      },
       null,
-      {
-        "timestamp": "00:06:00",
-        "timestampSeconds": 360,
-        "consent": true
-      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null,
       null,
       null,
       null,
       null,
       {
-        "timestamp": "03:20:27",
-        "timestampSeconds": 12027
+        "timestamp": "03:19:12",
+        "timestampSeconds": 11952
       },
       null,
       {
@@ -295,27 +221,31 @@
         "timestampSeconds": 12042
       },
       null,
+      null,
       {
-        "timestamp": "03:26:46",
-        "timestampSeconds": 12406
+        "timestamp": "03:26:47",
+        "timestampSeconds": 12407
       },
       null,
       null,
       {
-        "timestamp": "03:28:17",
-        "timestampSeconds": 12497
+        "timestamp": "03:28:11",
+        "timestampSeconds": 12491
       },
       null,
       null,
-      null,
+      {
+        "timestamp": "03:28:34",
+        "timestampSeconds": 12514
+      },
       null,
       {
-        "timestamp": "03:28:55",
-        "timestampSeconds": 12535
+        "timestamp": "03:28:47",
+        "timestampSeconds": 12527
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:41:16.845Z",
-  "inputTokens": 38315,
-  "outputTokens": 1369
+  "cachedAt": "2026-07-21T10:01:19.730Z",
+  "inputTokens": 39646,
+  "outputTokens": 871
 }

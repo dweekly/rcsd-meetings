@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - will discuss at future meeting. Item 9.3 moved from consent to action item. Item 10.2 retained for discussion.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Item 10.1 pulled until further information available. Item 9.3 moved from consent to action. Item 10.2 clarified for action.",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -32,63 +32,43 @@
         "status": "found"
       },
       {
-        "item": 3,
-        "intro_words": "Good evening, everyone. Welcome to another Redwood City School",
-        "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "For those that need Spanish interpretation, para cualquiera que",
-        "status": "found"
-      },
-      {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes. It",
-        "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "Are there any changes to the agenda? Yes. It",
+        "intro_words": "And are there any changes to the agenda? Yes. It is going to",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Does somebody want to make a motion to approve?",
-        "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "Does somebody want to make a motion to approve?",
+        "intro_words": "And with that, does somebody want to make a motion to approve?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "And with that, moving on to our study session",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "And with that, moving on to our study session",
+        "intro_words": "Thank you. And with that, moving on to our study session discussion",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Good evening, everyone, and before we get this— begin",
+        "intro_words": "So again, moving to 11, 11.1 being Hoover and Henry Ford School",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Knowing that there should be screeners available for us",
+        "intro_words": "Good evening. Well, we are here tonight with a variety of board",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Adjournment",
-        "status": "found"
+        "intro_words": "Okay, great. Thank you. Yeah. And so moving on to item 13,",
+        "status": "consent_bundle"
       },
       {
         "item": 14,
-        "intro_words": "Adjournment",
+        "intro_words": "Thank you. And moving on to action items. 14.1 is adoption of",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "Okay. If needed, we can move on to the agenda itself for",
         "status": "found"
       }
     ]
@@ -104,45 +84,40 @@
         "timestamp": "00:00:07",
         "timestampSeconds": 7
       },
+      null,
+      null,
       {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
+        "timestamp": "01:09:57",
+        "timestampSeconds": 4197
       },
+      null,
       {
-        "timestamp": "00:00:12",
-        "timestampSeconds": 12
+        "timestamp": "01:10:41",
+        "timestampSeconds": 4241
       },
+      null,
       {
-        "timestamp": "01:10:07",
-        "timestampSeconds": 4207
-      },
-      {
-        "timestamp": "01:10:07",
-        "timestampSeconds": 4207
-      },
-      {
-        "timestamp": "01:10:55",
-        "timestampSeconds": 4255
-      },
-      {
-        "timestamp": "01:10:55",
-        "timestampSeconds": 4255
-      },
-      {
-        "timestamp": "01:57:22",
-        "timestampSeconds": 7042
-      },
-      {
-        "timestamp": "01:57:22",
-        "timestampSeconds": 7042
+        "timestamp": "01:57:27",
+        "timestampSeconds": 7047
       },
       null,
       null,
-      null,
-      null
+      {
+        "timestamp": "02:38:38",
+        "timestampSeconds": 9518
+      },
+      {
+        "timestamp": "03:03:42",
+        "timestampSeconds": 11022,
+        "consent": true
+      },
+      {
+        "timestamp": "03:02:57",
+        "timestampSeconds": 10977
+      }
     ]
   },
-  "cachedAt": "2026-07-21T03:42:32.920Z",
+  "cachedAt": "2026-07-21T09:56:21.579Z",
   "inputTokens": 39183,
-  "outputTokens": 693
+  "outputTokens": 578
 }
