@@ -1,0 +1,57 @@
+<header class="post-header">
+  <div class="post-header-inner">
+    <div class="post-meta">
+      <span class="post-date">July 21, 2026</span>
+      <span class="post-author">by <a href="https://david.weekly.org">David Weekly</a></span>
+    </div>
+    <h1>Call, text, or WhatsApp: the RCSD info line is live</h1>
+    <p class="post-subtitle">Two phone numbers — one English, one Spanish — that answer questions about Redwood City schools any time, in whatever way you like to talk.</p>
+  </div>
+</header>
+
+<main class="post-content">
+  <div class="post-body">
+
+    <div class="ai-disclosure">
+      AI content disclosure: this post was drafted by Claude — the same AI that answers the info line — and reviewed and edited by David Weekly. The service it describes is AI-powered and is an independent community project, not an official channel of the Redwood City School District.
+    </div>
+
+    <section>
+      <h2>The short version</h2>
+      <p>You can now ask rcsd.info questions by phone. Save these two numbers:</p>
+      <ul>
+        <li><strong>English: (650) 482-8912</strong></li>
+        <li><strong>Español: (650) 399-7203</strong></li>
+      </ul>
+      <p>Each one works three ways: <strong>call</strong> it and talk to a voice assistant, <strong>text</strong> it like any SMS conversation, or message it on <strong>WhatsApp</strong>. Ask about school calendars, start and dismissal times, lunch menus, school details, board meetings and what the board decided, district policies — anything this site covers. It answers in a few seconds, any hour of the day.</p>
+    </section>
+
+    <section>
+      <h2>What it's good at</h2>
+      <p>The assistant answers from the same public data that powers this website: district calendars, bell schedules, enrollment and demographic figures, lunch menus, board agendas, meeting transcripts and summaries, and the district's published policies. Ask "when is the first day of school?", "what time is pickup at Roy Cloud on Thursdays?", "what's for lunch at Kennedy tomorrow?", or "when is the next board meeting?" and you'll get a short, sourced answer.</p>
+      <p>If you text the English line in Spanish it will answer in Spanish (and point you to the Spanish line), and vice versa.</p>
+    </section>
+
+    <section>
+      <h2>What to know before you trust it</h2>
+      <p>Every conversation starts with a reminder that you're talking to an AI run by rcsd.info, not the school district — that's not fine print, it's the honest frame. The assistant is instructed to only state facts it can find in public records, to say so when it doesn't know, and to point you to your school office or <a href="https://www.rcsdk8.net" target="_blank">rcsdk8.net</a> for anything it can't verify. It still can make mistakes. For anything high-stakes — enrollment, deadlines, anything about your specific child — confirm with your school or the district office at (650) 482-2200.</p>
+      <p>We test it hard: before launch it answered a battery of more than a hundred realistic questions, each answer audited against the underlying public records, and we fixed what it got wrong. That testing continues as the data changes.</p>
+    </section>
+
+    <section>
+      <h2>Privacy, plainly</h2>
+      <p>The line only replies when you contact it first — no marketing, no broadcasts. Short-lived conversation logs are kept so follow-up questions work and to prevent abuse. Nothing is sold or shared for marketing. Text <strong>STOP</strong> any time to opt out or <strong>HELP</strong> for help. Message and data rates may apply. Full details: <a href="/privacy/">privacy policy</a> and <a href="/terms/">terms</a>.</p>
+    </section>
+
+    <section>
+      <h2>The nerd corner</h2>
+      <p>For the technically curious: the numbers live on Twilio. Voice runs on Synthflow's voice agents. Texting and WhatsApp are answered by a small <a href="https://github.com/dweekly/rcsd-meetings/tree/main/workers/text-agent" target="_blank">open-source Cloudflare Worker</a> that makes a single call to Claude, which pulls live district data through this site's public <a href="/mcp/">MCP server</a> — the same one any AI assistant can use. The test suite, prompts, and evaluation harness are all in the repo.</p>
+    </section>
+
+    <section>
+      <h2>Tell us what it gets wrong</h2>
+      <p>This is week one. If the line gives you a wrong answer, a weird answer, or no answer, that's a bug we want — email <a href="mailto:team@rcsd.info">team@rcsd.info</a> or just tell the assistant it's wrong (it will re-check the record rather than argue). The goal is simple: every family should be able to get a straight answer about their schools, in their language, from the device already in their pocket.</p>
+    </section>
+
+  </div>
+</main>

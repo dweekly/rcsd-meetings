@@ -19,7 +19,6 @@ All data is available as JSON at [data.rcsd.info/json/](https://data.rcsd.info/j
 - [district-calendar-2026-27.json](https://data.rcsd.info/json/district-calendar-2026-27.json): 2026-27 school year calendar
 - [document-index.json](https://data.rcsd.info/json/document-index.json): Index of board documents — titles mapped to direct file URLs
 - [governance-calendar.json](https://data.rcsd.info/json/governance-calendar.json): Provisional topics planned for upcoming board meetings
-- [gsc-data.json](https://data.rcsd.info/json/gsc-data.json): Data file (no description yet — see the GitHub repo)
 - [linked-documents.json](https://data.rcsd.info/json/linked-documents.json): Curated district documents referenced in agenda memos but hosted off the board portal
 - [meeting-summaries-es.json](https://data.rcsd.info/json/meeting-summaries-es.json): Spanish translations of meeting summaries
 - [meeting-summaries.json](https://data.rcsd.info/json/meeting-summaries.json): Curated English summaries of each board meeting
@@ -99,9 +98,9 @@ Connect it to Claude Desktop, claude.ai, VS Code, Cursor, or any MCP-compatible 
 
 - `list-schools`: List all 12 RCSD schools with key info (name, grades, type, enrollment)
 - `query-school`: Get detailed information about a specific RCSD school by name or slug
-- `check-calendar`: Check if there is school on a given date, or what event falls on that date
+- `check-calendar`: Check what falls on a given date (school day, holiday, break), or — called WITHOUT a date — list the school year's key dates (first/last day of school, breaks, holidays, board meetings). To find WHEN an event happens (e.g. 'when is the first day of school?'), call with no date and read the list; never guess-and-check specific dates.
 - `get-lunch-menu`: Get the lunch menu for a school on a specific date (fetches live from HealthePro)
-- `get-trustees`: Get the RCSD Board of Trustees (name, trustee area, officer role, term years, email, school assignments) plus the superintendent and cabinet
+- `get-trustees`: Get the RCSD Board of Trustees (name, trustee area, officer role, term years, email, school assignments) plus the superintendent, cabinet, and district office contact info (address, phone)
 - `list-meetings`: List board meetings newest-first (date, type, slug, video/transcript availability, topic line) with optional year/type filters and offset/limit paging
 - `get-meeting-summary`: Get AI-generated board meeting summaries (English or Spanish). Returns the most recent meetings or a specific date.
 - `get-meeting-details`: Get comprehensive details about a specific board meeting: agenda items, timestamps, chapter markers, transcript link, topics, and threads
