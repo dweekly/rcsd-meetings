@@ -164,7 +164,7 @@ Top-level: `{ _metadata, properties[] }` — district-owned or district-leased r
 
 ### Key Field Notes
 
-- **Current coverage (6 properties):** District Office (750 Bradford St), former Adelante Selby campus leased to Harper School via Wagner Schoolhouse LLC (3150 Granger Way), former Orion campus now the Creative Learning Center (815 Allerton St), former Hawes Community School campus (909 Roosevelt Ave — Rocketship charter plus Building Kidz preschool at the 907 Roosevelt entrance and Touchstone Learning, both under board-approved Joint Use Agreements), former Fair Oaks Elementary campus (2950 Fair Oaks Ave — KIPP Excelencia + Connect Community Charter; ownership confirmed by Board President 2026-07-21), and the district storage warehouse (1757 E Bayshore Rd).
+- **Current coverage (6 properties):** District Office (750 Bradford St), former Adelante Selby campus leased to Harper School via Wagner Schoolhouse LLC (3150 Granger Way), former Orion campus hosting LEARN Academy — a non-public special-education school, formerly the Creative Learning Center, acquired by LEARN 2022, NOT district-operated (815 Allerton St), former Hawes Community School campus (909 Roosevelt Ave — Rocketship charter plus Building Kidz preschool at the 907 Roosevelt entrance and Touchstone Learning, both under board-approved Joint Use Agreements), former Fair Oaks Elementary campus (2950 Fair Oaks Ave — KIPP Excelencia + Connect Community Charter; ownership confirmed by Board President 2026-07-21), and the district storage warehouse (1757 E Bayshore Rd).
 - Per `_metadata.status`, the authoritative full district inventory is still pending — this is seed data confirmed by the Board President, not an exhaustive list.
 
 ---

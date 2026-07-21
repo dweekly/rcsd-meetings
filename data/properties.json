@@ -6,7 +6,7 @@
       "cdeDirectory": "https://www.cde.ca.gov/SchoolDirectory/"
     },
     "generated": "2026-04-17",
-    "status": "Harper School tenant and warehouse lease both confirmed by Board President 2026-04-20. Fair Oaks campus district ownership confirmed by Board President 2026-07-21. Warehouse renewal document post-2023-08-31 not yet indexed in the board-packet index but the lease is current."
+    "status": "Harper School tenant and warehouse lease both confirmed by Board President 2026-04-20. Fair Oaks campus district ownership confirmed by Board President 2026-07-21. 815 Allerton corrected 2026-07-21 per Board President: LEARN Academy (formerly Creative Learning Center, acquired by LEARN 2022) is a non-public school, not a district-operated program. Warehouse renewal document post-2023-08-31 not yet indexed in the board-packet index but the lease is current."
   },
   "properties": [
     {
@@ -59,16 +59,30 @@
     },
     {
       "slug": "former-orion-campus",
-      "name": "Creative Learning Center",
-      "nameEs": "Creative Learning Center",
+      "name": "LEARN Academy (private)",
+      "nameEs": "LEARN Academy (privada)",
       "address": "815 Allerton Street, Redwood City, CA 94063",
-      "use": "district-program",
-      "useLabel": "District-operated program (not a full school)",
-      "useLabelEs": "Programa operado por el distrito (no una escuela completa)",
-      "tenant": null,
+      "use": "leased-out",
+      "useLabel": "State-certified non-public special-education school (ABA); not district-operated",
+      "useLabelEs": "Escuela privada de educación especial (ABA) certificada por el estado; no operada por el distrito",
+      "tenant": {
+        "name": "LEARN Academy Redwood City",
+        "url": "https://thelearnacademy.com/locations/redwood-city",
+        "type": "non-public school",
+        "programs": "K-6 therapeutic day school and early-intervention preschool; applied behavior analysis (ABA) services",
+        "networkNote": "Formerly the Creative Learning Center (founded 1999); acquired by LEARN in 2022."
+      },
       "formerUse": "Former Orion Alternative School campus (Orion is now at 555 Avenue del Ora)",
       "formerUseEs": "Antiguo campus de Orion Alternative (Orion ahora está en 555 Avenue del Ora)",
-      "notes": null,
+      "documents": [
+        {
+          "label": "Consent to LEARN change of ownership (2022)",
+          "labelEs": "Consentimiento al cambio de propietario a LEARN (2022)",
+          "date": "2022-02-16",
+          "url": "https://go.boarddocs.com/ca/redwood/Board.nsf/files/CBJUGK7C00C9/$file/LEARN%20-%20Consent%20(Redwood%20City%20School%20District%20-%20Redwood%20City%20CA)%20(Execut.._%20(002)_3816374_1(DMS).PDF"
+        }
+      ],
+      "notes": "Corrected 2026-07-21 (was listed as a district-operated program): LEARN Academy is a state-certified non-public school (NPS) where the district places special-education students — Creative Learning Center appears 124 times as a payee in warrant registers. The board acknowledged the Creative Learning Centers, NPS, Inc. conversion and consented to the change of ownership when LEARN acquired it (2022-02-16). District tree-maintenance contracts cover the site (2025-11-12 item 10.21).",
       "formerUseShort": "former Orion campus",
       "formerUseShortEs": "antes campus de Orion"
     },
