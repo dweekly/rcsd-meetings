@@ -1,0 +1,28 @@
+# rcsd-text-agent — SMS/WhatsApp answering worker (see README.md)
+#
+# Secrets (wrangler secret put, not stored here):
+#   ANTHROPIC_API_KEY   — Messages API
+#   TWILIO_ACCOUNT_SID  — for sending replies + webhook signature validation
+#   TWILIO_AUTH_TOKEN
+#
+# Local dev: .dev.vars (gitignored) — see .dev.vars.example
+
+name = "rcsd-text-agent"
+main = "src/index.ts"
+compatibility_date = "2026-07-01"
+
+routes = [
+  { pattern = "text.rcsd.info", custom_domain = true }
+]
+
+[[kv_namespaces]]
+binding = "TEXT_AGENT_KV"
+# Created 2026-07-21: wrangler kv namespace create TEXT_AGENT_KV
+id = "PLACEHOLDER_FILLED_AT_DEPLOY"
+
+[observability]
+enabled = true
+
+[vars]
+# Must match the URL Twilio is configured to call (see src/index.ts Env docs).
+PUBLIC_BASE_URL = "https://text.rcsd.info"

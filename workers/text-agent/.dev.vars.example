@@ -1,0 +1,9 @@
+# Copy to .dev.vars (gitignored) for `wrangler dev` / `npm test`.
+# The test suite uses DRY_RUN so no live credentials are required locally.
+ANTHROPIC_API_KEY=dummy
+TWILIO_ACCOUNT_SID=ACdummy
+TWILIO_AUTH_TOKEN=dummy-auth-token
+DRY_RUN=1
+
+# Local tests validate signatures against this base
+PUBLIC_BASE_URL=http://localhost:8787
