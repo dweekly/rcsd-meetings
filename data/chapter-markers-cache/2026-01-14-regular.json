@@ -2,7 +2,7 @@
   "date": "2026-01-14",
   "slug": "2026-01-14-regular",
   "itemCount": 55,
-  "transcriptHash": "fdc673e40034f08a",
+  "transcriptHash": "aeeddd9bb55dc6fb",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -10,12 +10,12 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "C": {
         "name": "Mike Wells",
         "role": "Trustee"
+      },
+      "C": {
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "D": {
         "name": "David Li",
@@ -26,55 +26,19 @@
         "role": "Clerk"
       },
       "F": {
-        "name": "Laura Pulido-Lopez",
-        "role": "Staff Developer / Instructional Coach (CRLP presenter)"
+        "name": "Unknown / Unidentified",
+        "role": "Various unidentified speakers"
       },
       "G": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Clerk"
+        "name": "Mike Wells",
+        "role": "Trustee (second identification based on context)"
       },
       "H": {
-        "name": "Mike Wells",
-        "role": "Trustee"
-      },
-      "I": {
         "name": "Patrinia Redd",
         "role": "Director of Health and Wellness"
-      },
-      "J": {
-        "name": "Megan O'Reilly Green",
-        "role": "Public speaker / Parent"
-      },
-      "K": {
-        "name": "Brenna Gear",
-        "role": "RCTA President / Public speaker"
-      },
-      "L": {
-        "name": "David Li",
-        "role": "Trustee"
-      },
-      "M": {
-        "name": "Maria Stockton",
-        "role": "CSEA President / Public speaker"
-      },
-      "N": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
-      },
-      "O": {
-        "name": "Lisa Cox",
-        "role": "Lead District Nurse"
-      },
-      "P": {
-        "name": "Anne Lucero",
-        "role": "TOSA / Health educator"
-      },
-      "Q": {
-        "name": "John Baker",
-        "role": "Superintendent"
       }
     },
-    "agendaChanges": "The transcript reflects the open session only (closed session is not recorded). Speaker F appears to be Cecilia I. Márquez for board discussion segments and Laura Pulido-Lopez for the CRLP presentation segment. The formal agenda Section 2 (if any) is absent; Section 3/4/5 closed session items are not in the transcript. Open session begins at [5s] with roll call (Section 5 Reconvene). The agenda proceeded in order with no pulls or resequencing noted. Section 2 does not appear on the posted agenda. Public Comment (Section 9) and Labor Association Comments are treated as sub-items of Section 9.",
+    "agendaChanges": "The meeting opened directly into the Reconvened Open Session (Section 5) without a separately recorded closed session segment in the transcript. Sections 1-4 (Call to Order through Closed Session) appear to have occurred before the recording begins at 5s. The Welcome (Section 6) and Pledge of Allegiance were delivered by President Weekly as part of his opening remarks. The agenda proceeded in order thereafter with no pulls from the consent calendar and no resequencing noted.",
     "items": [
       {
         "itemLabel": "1",
@@ -91,10 +55,38 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call (Open Session)",
-        "title": "Roll Call (Reconvene to Open Session)",
+        "itemLabel": "1",
+        "title": "Roll Call (Open Session)",
         "phases": {
-          "opened": 5,
+          "opened": 7,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "3",
+        "title": "Announcement of Closed Session Purpose",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "4",
+        "title": "Closed Session - 6:30 PM (Conference with Labor Negotiators)",
+        "phases": {
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -106,7 +98,7 @@
       },
       {
         "itemLabel": "5",
-        "title": "Reconvene to Open Session / Report Out on Closed Session",
+        "title": "Reconvene to Open Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -122,7 +114,7 @@
         "itemLabel": "6",
         "title": "Welcome / Pledge of Allegiance",
         "phases": {
-          "opened": 65,
+          "opened": 17,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -148,16 +140,16 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of the Agenda",
+        "title": "Approval of the Agenda (Action Required)",
         "phases": {
           "opened": 290,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 306,
+            "seconds": 307,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -166,7 +158,7 @@
       },
       {
         "itemLabel": "9",
-        "title": "Public Comment",
+        "title": "Public Comment / Labor Association Comments",
         "phases": {
           "opened": 310,
           "presentation": null,
@@ -177,49 +169,34 @@
         "publicComments": [
           {
             "name": "Megan O'Reilly Green",
-            "startSeconds": 388,
-            "endSeconds": 570,
-            "summary": "A parent of four Mandarin Immersion students at Orion raised concerns about the district potentially ending funding for curriculum consultant Pearl, provided cost documents for context, and requested the board invite Pearl and Winnie to present the justification for the Mandarin curriculum support."
-          }
-        ],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9-Labor",
-        "title": "Labor Association Comments",
-        "phases": {
-          "opened": 571,
-          "presentation": null,
-          "publicComment": 571,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [
+            "startSeconds": 360,
+            "endSeconds": 571,
+            "summary": "A parent of Mandarin immersion students at Orion requested that the board invite curriculum consultant Pearl to present her work, expressed concern about district plans to discontinue funding Pearl's Mandarin curriculum contract, and asked board members to review materials she would send before making a decision."
+          },
           {
             "name": "Brenna Gear",
-            "startSeconds": 586,
+            "startSeconds": 595,
             "endSeconds": 776,
-            "summary": "RCTA President expressed concern about the proposal to leave 17 teaching positions unfilled and increase class sizes, arguing that teachers are the foundational resource for student outcomes and that larger class sizes reduce individualized student support."
+            "summary": "RCTA president spoke against proposed cuts to teaching positions, arguing that reducing teachers and increasing class sizes harms student outcomes and stretched teachers' ability to provide individualized support."
           },
           {
             "name": "Maria Stockton",
-            "startSeconds": 780,
-            "endSeconds": 976,
-            "summary": "CSEA President advocated for including paraeducators in teacher curriculum training, raised concerns about strict illness exclusion guidelines creating friction between office staff and teachers, and announced her upcoming retirement."
+            "startSeconds": 783,
+            "endSeconds": 959,
+            "summary": "CSEA president advocated for including paraeducators in curriculum training alongside teachers, raised concerns about strict illness protocols sending sick students back to class, and announced her upcoming retirement."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "10.1",
-        "title": "Health and Wellness Program Report",
+        "itemLabel": "10",
+        "title": "School/Community Reports - Health and Wellness Program Report",
         "phases": {
           "opened": 982,
           "presentation": 1001,
           "publicComment": null,
-          "discussion": 1806,
+          "discussion": 1809,
           "vote": null
         },
         "publicComments": [],
@@ -227,11 +204,11 @@
         "pulled": false
       },
       {
-        "itemLabel": "10.2",
-        "title": "Presentation on California Reading Literacy Project (CRLP)",
+        "itemLabel": "10",
+        "title": "School/Community Reports - Presentation on California Reading Literacy Project (CRLP)",
         "phases": {
-          "opened": 3290,
-          "presentation": 3321,
+          "opened": 3292,
+          "presentation": 3324,
           "publicComment": null,
           "discussion": 4279,
           "vote": null
@@ -242,16 +219,16 @@
       },
       {
         "itemLabel": "11",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (Action Required)",
         "phases": {
-          "opened": 6834,
+          "opened": 6833,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6918,
+            "seconds": 6919,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -259,17 +236,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.1",
-        "title": "Adoption of Resolution No. 15, Approval of Education Code Option for Teaching Assignment",
+        "itemLabel": "12",
+        "title": "Action Items - Adoption of Resolution No. 15, Approval of Education Code Option for Teaching Assignment",
         "phases": {
-          "opened": 6921,
+          "opened": 6929,
           "presentation": 6933,
           "publicComment": null,
-          "discussion": 6952,
+          "discussion": 6954,
           "vote": {
             "seconds": 6973,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -277,17 +254,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.2",
-        "title": "Approval of Declaration of Need for the 2026-2027 School Year",
+        "itemLabel": "12",
+        "title": "Action Items - Approval of Declaration of Need for the 2026-2027 School Year",
         "phases": {
-          "opened": 6978,
+          "opened": 6980,
           "presentation": 6980,
           "publicComment": null,
-          "discussion": 7181,
+          "discussion": 7189,
           "vote": {
-            "seconds": 7257,
+            "seconds": 7253,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -298,10 +275,10 @@
         "itemLabel": "13",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 7260,
+          "opened": 7265,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7265,
+          "discussion": 7266,
           "vote": null
         },
         "publicComments": [],
@@ -310,9 +287,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Information – Quarterly Williams Report, 2nd Quarter",
+        "title": "Information - Quarterly Williams Report, 2nd Quarter",
         "phases": {
-          "opened": 7849,
+          "opened": 7855,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -326,10 +303,10 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 7887,
+          "opened": 7892,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 7892,
           "vote": null
         },
         "publicComments": [],
@@ -354,10 +331,10 @@
         "itemLabel": "17",
         "title": "Board of Trustees Meeting Reflection",
         "phases": {
-          "opened": 8119,
+          "opened": 8106,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8122,
+          "discussion": 8132,
           "vote": null
         },
         "publicComments": [],
@@ -371,7 +348,7 @@
           "opened": 8232,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8232,
           "vote": null
         },
         "publicComments": [],
@@ -389,7 +366,7 @@
           "vote": {
             "seconds": 8266,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -406,12 +383,12 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "C": {
         "name": "Mike Wells",
         "role": "Trustee"
+      },
+      "C": {
+        "name": "Evelyn Sanchez",
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "D": {
         "name": "David Li",
@@ -422,55 +399,19 @@
         "role": "Clerk"
       },
       "F": {
-        "name": "Laura Pulido-Lopez",
-        "role": "Staff Developer / Instructional Coach (CRLP presenter)"
+        "name": "Unknown / Unidentified",
+        "role": "Various unidentified speakers"
       },
       "G": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Clerk"
+        "name": "Mike Wells",
+        "role": "Trustee (second identification based on context)"
       },
       "H": {
-        "name": "Mike Wells",
-        "role": "Trustee"
-      },
-      "I": {
         "name": "Patrinia Redd",
         "role": "Director of Health and Wellness"
-      },
-      "J": {
-        "name": "Megan O'Reilly Green",
-        "role": "Public speaker / Parent"
-      },
-      "K": {
-        "name": "Brenna Gear",
-        "role": "RCTA President / Public speaker"
-      },
-      "L": {
-        "name": "David Li",
-        "role": "Trustee"
-      },
-      "M": {
-        "name": "Maria Stockton",
-        "role": "CSEA President / Public speaker"
-      },
-      "N": {
-        "name": "Wendy Kelly",
-        "role": "Deputy Superintendent"
-      },
-      "O": {
-        "name": "Lisa Cox",
-        "role": "Lead District Nurse"
-      },
-      "P": {
-        "name": "Anne Lucero",
-        "role": "TOSA / Health educator"
-      },
-      "Q": {
-        "name": "John Baker",
-        "role": "Superintendent"
       }
     },
-    "agendaChanges": "The transcript reflects the open session only (closed session is not recorded). Speaker F appears to be Cecilia I. Márquez for board discussion segments and Laura Pulido-Lopez for the CRLP presentation segment. The formal agenda Section 2 (if any) is absent; Section 3/4/5 closed session items are not in the transcript. Open session begins at [5s] with roll call (Section 5 Reconvene). The agenda proceeded in order with no pulls or resequencing noted. Section 2 does not appear on the posted agenda. Public Comment (Section 9) and Labor Association Comments are treated as sub-items of Section 9.",
+    "agendaChanges": "The meeting opened directly into the Reconvened Open Session (Section 5) without a separately recorded closed session segment in the transcript. Sections 1-4 (Call to Order through Closed Session) appear to have occurred before the recording begins at 5s. The Welcome (Section 6) and Pledge of Allegiance were delivered by President Weekly as part of his opening remarks. The agenda proceeded in order thereafter with no pulls from the consent calendar and no resequencing noted.",
     "items": [
       {
         "itemLabel": "1",
@@ -487,10 +428,38 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call (Open Session)",
-        "title": "Roll Call (Reconvene to Open Session)",
+        "itemLabel": "1",
+        "title": "Roll Call (Open Session)",
         "phases": {
-          "opened": 5,
+          "opened": 7,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "3",
+        "title": "Announcement of Closed Session Purpose",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "4",
+        "title": "Closed Session - 6:30 PM (Conference with Labor Negotiators)",
+        "phases": {
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -502,7 +471,7 @@
       },
       {
         "itemLabel": "5",
-        "title": "Reconvene to Open Session / Report Out on Closed Session",
+        "title": "Reconvene to Open Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -518,7 +487,7 @@
         "itemLabel": "6",
         "title": "Welcome / Pledge of Allegiance",
         "phases": {
-          "opened": 65,
+          "opened": 17,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -544,16 +513,16 @@
       },
       {
         "itemLabel": "8",
-        "title": "Approval of the Agenda",
+        "title": "Approval of the Agenda (Action Required)",
         "phases": {
           "opened": 290,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 306,
+            "seconds": 307,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -562,7 +531,7 @@
       },
       {
         "itemLabel": "9",
-        "title": "Public Comment",
+        "title": "Public Comment / Labor Association Comments",
         "phases": {
           "opened": 310,
           "presentation": null,
@@ -573,49 +542,34 @@
         "publicComments": [
           {
             "name": "Megan O'Reilly Green",
-            "startSeconds": 388,
-            "endSeconds": 570,
-            "summary": "A parent of four Mandarin Immersion students at Orion raised concerns about the district potentially ending funding for curriculum consultant Pearl, provided cost documents for context, and requested the board invite Pearl and Winnie to present the justification for the Mandarin curriculum support."
-          }
-        ],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9-Labor",
-        "title": "Labor Association Comments",
-        "phases": {
-          "opened": 571,
-          "presentation": null,
-          "publicComment": 571,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [
+            "startSeconds": 360,
+            "endSeconds": 571,
+            "summary": "A parent of Mandarin immersion students at Orion requested that the board invite curriculum consultant Pearl to present her work, expressed concern about district plans to discontinue funding Pearl's Mandarin curriculum contract, and asked board members to review materials she would send before making a decision."
+          },
           {
             "name": "Brenna Gear",
-            "startSeconds": 586,
+            "startSeconds": 595,
             "endSeconds": 776,
-            "summary": "RCTA President expressed concern about the proposal to leave 17 teaching positions unfilled and increase class sizes, arguing that teachers are the foundational resource for student outcomes and that larger class sizes reduce individualized student support."
+            "summary": "RCTA president spoke against proposed cuts to teaching positions, arguing that reducing teachers and increasing class sizes harms student outcomes and stretched teachers' ability to provide individualized support."
           },
           {
             "name": "Maria Stockton",
-            "startSeconds": 780,
-            "endSeconds": 976,
-            "summary": "CSEA President advocated for including paraeducators in teacher curriculum training, raised concerns about strict illness exclusion guidelines creating friction between office staff and teachers, and announced her upcoming retirement."
+            "startSeconds": 783,
+            "endSeconds": 959,
+            "summary": "CSEA president advocated for including paraeducators in curriculum training alongside teachers, raised concerns about strict illness protocols sending sick students back to class, and announced her upcoming retirement."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "10.1",
-        "title": "Health and Wellness Program Report",
+        "itemLabel": "10",
+        "title": "School/Community Reports - Health and Wellness Program Report",
         "phases": {
           "opened": 982,
           "presentation": 1001,
           "publicComment": null,
-          "discussion": 1806,
+          "discussion": 1809,
           "vote": null
         },
         "publicComments": [],
@@ -623,11 +577,11 @@
         "pulled": false
       },
       {
-        "itemLabel": "10.2",
-        "title": "Presentation on California Reading Literacy Project (CRLP)",
+        "itemLabel": "10",
+        "title": "School/Community Reports - Presentation on California Reading Literacy Project (CRLP)",
         "phases": {
-          "opened": 3290,
-          "presentation": 3321,
+          "opened": 3292,
+          "presentation": 3324,
           "publicComment": null,
           "discussion": 4279,
           "vote": null
@@ -638,16 +592,16 @@
       },
       {
         "itemLabel": "11",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (Action Required)",
         "phases": {
-          "opened": 6834,
+          "opened": 6833,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6918,
+            "seconds": 6919,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -655,17 +609,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.1",
-        "title": "Adoption of Resolution No. 15, Approval of Education Code Option for Teaching Assignment",
+        "itemLabel": "12",
+        "title": "Action Items - Adoption of Resolution No. 15, Approval of Education Code Option for Teaching Assignment",
         "phases": {
-          "opened": 6921,
+          "opened": 6929,
           "presentation": 6933,
           "publicComment": null,
-          "discussion": 6952,
+          "discussion": 6954,
           "vote": {
             "seconds": 6973,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -673,17 +627,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.2",
-        "title": "Approval of Declaration of Need for the 2026-2027 School Year",
+        "itemLabel": "12",
+        "title": "Action Items - Approval of Declaration of Need for the 2026-2027 School Year",
         "phases": {
-          "opened": 6978,
+          "opened": 6980,
           "presentation": 6980,
           "publicComment": null,
-          "discussion": 7181,
+          "discussion": 7189,
           "vote": {
-            "seconds": 7257,
+            "seconds": 7253,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -694,10 +648,10 @@
         "itemLabel": "13",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 7260,
+          "opened": 7265,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7265,
+          "discussion": 7266,
           "vote": null
         },
         "publicComments": [],
@@ -706,9 +660,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Information – Quarterly Williams Report, 2nd Quarter",
+        "title": "Information - Quarterly Williams Report, 2nd Quarter",
         "phases": {
-          "opened": 7849,
+          "opened": 7855,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -722,10 +676,10 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 7887,
+          "opened": 7892,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 7892,
           "vote": null
         },
         "publicComments": [],
@@ -750,10 +704,10 @@
         "itemLabel": "17",
         "title": "Board of Trustees Meeting Reflection",
         "phases": {
-          "opened": 8119,
+          "opened": 8106,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8122,
+          "discussion": 8132,
           "vote": null
         },
         "publicComments": [],
@@ -767,7 +721,7 @@
           "opened": 8232,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8232,
           "vote": null
         },
         "publicComments": [],
@@ -785,7 +739,7 @@
           "vote": {
             "seconds": 8266,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous aye"
           }
         },
         "publicComments": [],
@@ -794,7 +748,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-20T10:19:08.717Z",
-  "inputTokens": 36919,
-  "outputTokens": 3019
+  "cachedAt": "2026-07-21T20:42:47.529Z",
+  "inputTokens": 34809,
+  "outputTokens": 2845
 }

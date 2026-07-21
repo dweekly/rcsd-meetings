@@ -2,61 +2,57 @@
   "date": "2026-06-10",
   "slug": "2026-06-10-regular",
   "itemCount": 78,
-  "transcriptHash": "28ef6f30d47d4238",
+  "transcriptHash": "35c83b4ba7a84c6c",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "B": {
         "name": "David Weekly",
         "role": "Board President"
       },
-      "C": {
+      "B": {
         "name": "Evelyn Sanchez",
-        "role": "Executive Assistant / Board Secretary"
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
-      "D": {
+      "C": {
         "name": "Cecilia I. Márquez",
         "role": "Vice President"
       },
-      "E": {
+      "D": {
         "name": "David Li",
         "role": "Trustee"
       },
-      "F": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Clerk (absent from roll call, present later)"
-      },
-      "G": {
+      "E": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
+      "F": {
+        "name": "Rick Edson",
+        "role": "Chief Business Official"
+      },
+      "G": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk / Trustee (absent per roll call, but appears to speak later)"
+      },
       "H": {
-        "name": "Nathan Edelman",
-        "role": "External Auditor, Eide Bailly"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
       },
       "I": {
-        "name": "Katherine (presenter on behalf of Anna Herrera / Henry Ford)",
-        "role": "District Staff Presenter, Ed. Services"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "J": {
-        "name": "Mike Wells",
-        "role": "Trustee (second identification — see note)"
-      },
-      "K": {
-        "name": "Blake Boehm",
+        "name": "Blake Bohm",
         "role": "Municipal Advisor, KNN"
       }
     },
-    "agendaChanges": "Section 14 (Discussion Items) had no items listed and was skipped. Sections 16 through 22 proceeded in order after consent. The agenda noted Jennifer Ng Kwing King as absent at roll call but she appears to speak later in the meeting. Speaker label 'J' appears to be Mike Wells based on context (trustee comments on Henry Ford and graduations matching Wells). No items were pulled from consent. No formal resequencing was announced.",
+    "agendaChanges": "The meeting recording begins at the Reconvene to Open Session (Section 5); Sections 1-4 (Call to Order through Closed Session) occurred prior to recording. Section 11 (Bond Program Action Items) had no items listed and was skipped. Section 14 (Discussion Items) had no items listed and was skipped. The June 17th special meeting noted in the calendar was canceled and moved to June 24th. Speaker G appears to be Jennifer Ng Kwing King who was listed as absent at roll call but participated in discussion; speaker label mapping reflects best available evidence.",
     "items": [
       {
         "itemLabel": "1",
         "title": "Call to Order",
         "phases": {
-          "opened": 8,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -67,10 +63,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call (Closed Session)",
-        "title": "Roll Call (prior to Closed Session)",
+        "itemLabel": "Roll Call",
+        "title": "Roll Call (Pre-Closed Session)",
         "phases": {
-          "opened": 23,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -124,23 +120,9 @@
       },
       {
         "itemLabel": "5",
-        "title": "Reconvene to Open Session / Roll Call",
+        "title": "Reconvene to Open Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 10,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "5.ReportOut",
-        "title": "Report Out on Closed Session from June 10, 2026",
-        "phases": {
-          "opened": 30,
+          "opened": 8,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -154,7 +136,7 @@
         "itemLabel": "6",
         "title": "Welcome / Pledge of Allegiance",
         "phases": {
-          "opened": 97,
+          "opened": 119,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -168,7 +150,7 @@
         "itemLabel": "7",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 193,
+          "opened": 180,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -182,14 +164,14 @@
         "itemLabel": "8",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 194,
+          "opened": 183,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 201,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -212,16 +194,16 @@
       },
       {
         "itemLabel": "10",
-        "title": "Approval of the Bond Program Consent Items — Measure T and Measure S Bond Program Legal Services Agreement with Dannis Woliver Kelley (DWK)",
+        "title": "Approval of the Bond Program Consent Items — Approval of Measure T and Measure S Bond Program Legal Services Agreement with Dannis Woliver Kelley (DWK)",
         "phases": {
-          "opened": 225,
+          "opened": 224,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 244,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -229,13 +211,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.1",
-        "title": "Information on 2024-25 Financial and Performance Audits Building Fund (Measure T & S) for RCSD",
+        "itemLabel": "12",
+        "title": "School/Community Reports — Information on 2024-25 Financial and Performance Audits Building Fund (Measure T & S)",
         "phases": {
-          "opened": 246,
-          "presentation": 269,
+          "opened": 244,
+          "presentation": 270,
           "publicComment": null,
-          "discussion": 593,
+          "discussion": 594,
           "vote": null
         },
         "publicComments": [],
@@ -243,13 +225,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.2",
-        "title": "Redwood City Education Foundation (RCEF) Overview and Update",
+        "itemLabel": "12",
+        "title": "School/Community Reports — Redwood City Education Foundation (RCEF) Overview and Update",
         "phases": {
-          "opened": 656,
+          "opened": 640,
           "presentation": 695,
           "publicComment": null,
-          "discussion": 1703,
+          "discussion": 1704,
           "vote": null
         },
         "publicComments": [],
@@ -257,17 +239,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.1",
-        "title": "Henry Ford School Presentation and School Plan for Student Achievement (SPSA) Approval",
+        "itemLabel": "13",
+        "title": "Action Items — Henry Ford School Presentation and School Plan for Student Achievement (SPSA) Approval",
         "phases": {
           "opened": 3402,
-          "presentation": 3411,
+          "presentation": 3418,
           "publicComment": null,
-          "discussion": 4467,
+          "discussion": 4469,
           "vote": {
-            "seconds": 4950,
+            "seconds": 4941,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -275,17 +257,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.2",
-        "title": "Adoption of Resolution No. 27 — Calling for an Election for Two Members of the Governing Board (Trustee Areas 2 and 5)",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 27, Calling for an Election on November 3, 2026 for Two Members of the Governing Board (Trustee Areas 2 and 5)",
         "phases": {
-          "opened": 4952,
+          "opened": 4944,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4983,
+            "seconds": 4985,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -293,17 +275,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.3",
-        "title": "Adoption of Resolution No. 28 — Requesting the Board of Supervisors of the County of San Mateo to Establish a Tax Rate for Bonds",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 28, Requesting the Board of Supervisors of the County of San Mateo to Establish a Tax Rate for Bonds",
         "phases": {
-          "opened": 4986,
-          "presentation": 4990,
+          "opened": 4988,
+          "presentation": 4991,
           "publicComment": null,
-          "discussion": 5194,
+          "discussion": 5193,
           "vote": {
             "seconds": 5212,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -311,17 +293,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.4",
-        "title": "Adoption of Resolution No. 29 — Year-End Budget Transfers",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 29, Year-End Budget Transfers",
         "phases": {
-          "opened": 5215,
-          "presentation": 5220,
+          "opened": 5221,
+          "presentation": 5221,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5271,
+            "seconds": 5270,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -329,17 +311,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.5",
-        "title": "Adoption of Resolution No. 30 — Temporary Interfund Borrowing",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 30, Temporary Interfund Borrowing",
         "phases": {
-          "opened": 5274,
-          "presentation": 5279,
+          "opened": 5277,
+          "presentation": 5277,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 5320,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -350,14 +332,14 @@
         "itemLabel": "15",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 5322,
+          "opened": 5324,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5396,
+            "seconds": 5401,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -368,8 +350,8 @@
         "itemLabel": "16",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 5396,
-          "presentation": 5401,
+          "opened": 5404,
+          "presentation": 5404,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -382,7 +364,7 @@
         "itemLabel": "17",
         "title": "Information — San Mateo County Investment Fund, April 2026",
         "phases": {
-          "opened": 5716,
+          "opened": 5719,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -396,7 +378,7 @@
         "itemLabel": "18",
         "title": "Correspondence",
         "phases": {
-          "opened": 5734,
+          "opened": 5726,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -410,7 +392,7 @@
         "itemLabel": "19",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5738,
+          "opened": 5731,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -427,7 +409,7 @@
           "opened": 5751,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 5758,
           "vote": null
         },
         "publicComments": [],
@@ -438,10 +420,10 @@
         "itemLabel": "21",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 5772,
+          "opened": 5765,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 5765,
           "vote": null
         },
         "publicComments": [],
@@ -457,9 +439,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5820,
+            "seconds": 5811,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -472,57 +454,53 @@
     "videoId": "Os_dph0g_PQ",
     "speakers": {
       "A": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "B": {
         "name": "David Weekly",
         "role": "Board President"
       },
-      "C": {
+      "B": {
         "name": "Evelyn Sanchez",
-        "role": "Executive Assistant / Board Secretary"
+        "role": "Executive Assistant to Superintendent / Board Secretary"
       },
-      "D": {
+      "C": {
         "name": "Cecilia I. Márquez",
         "role": "Vice President"
       },
-      "E": {
+      "D": {
         "name": "David Li",
         "role": "Trustee"
       },
-      "F": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Clerk (absent from roll call, present later)"
-      },
-      "G": {
+      "E": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
+      "F": {
+        "name": "Rick Edson",
+        "role": "Chief Business Official"
+      },
+      "G": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Clerk / Trustee (absent per roll call, but appears to speak later)"
+      },
       "H": {
-        "name": "Nathan Edelman",
-        "role": "External Auditor, Eide Bailly"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
       },
       "I": {
-        "name": "Katherine (presenter on behalf of Anna Herrera / Henry Ford)",
-        "role": "District Staff Presenter, Ed. Services"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "J": {
-        "name": "Mike Wells",
-        "role": "Trustee (second identification — see note)"
-      },
-      "K": {
-        "name": "Blake Boehm",
+        "name": "Blake Bohm",
         "role": "Municipal Advisor, KNN"
       }
     },
-    "agendaChanges": "Section 14 (Discussion Items) had no items listed and was skipped. Sections 16 through 22 proceeded in order after consent. The agenda noted Jennifer Ng Kwing King as absent at roll call but she appears to speak later in the meeting. Speaker label 'J' appears to be Mike Wells based on context (trustee comments on Henry Ford and graduations matching Wells). No items were pulled from consent. No formal resequencing was announced.",
+    "agendaChanges": "The meeting recording begins at the Reconvene to Open Session (Section 5); Sections 1-4 (Call to Order through Closed Session) occurred prior to recording. Section 11 (Bond Program Action Items) had no items listed and was skipped. Section 14 (Discussion Items) had no items listed and was skipped. The June 17th special meeting noted in the calendar was canceled and moved to June 24th. Speaker G appears to be Jennifer Ng Kwing King who was listed as absent at roll call but participated in discussion; speaker label mapping reflects best available evidence.",
     "items": [
       {
         "itemLabel": "1",
         "title": "Call to Order",
         "phases": {
-          "opened": 8,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -533,10 +511,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call (Closed Session)",
-        "title": "Roll Call (prior to Closed Session)",
+        "itemLabel": "Roll Call",
+        "title": "Roll Call (Pre-Closed Session)",
         "phases": {
-          "opened": 23,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -590,23 +568,9 @@
       },
       {
         "itemLabel": "5",
-        "title": "Reconvene to Open Session / Roll Call",
+        "title": "Reconvene to Open Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 10,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "5.ReportOut",
-        "title": "Report Out on Closed Session from June 10, 2026",
-        "phases": {
-          "opened": 30,
+          "opened": 8,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -620,7 +584,7 @@
         "itemLabel": "6",
         "title": "Welcome / Pledge of Allegiance",
         "phases": {
-          "opened": 97,
+          "opened": 119,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -634,7 +598,7 @@
         "itemLabel": "7",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 193,
+          "opened": 180,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -648,14 +612,14 @@
         "itemLabel": "8",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 194,
+          "opened": 183,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 201,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -678,16 +642,16 @@
       },
       {
         "itemLabel": "10",
-        "title": "Approval of the Bond Program Consent Items — Measure T and Measure S Bond Program Legal Services Agreement with Dannis Woliver Kelley (DWK)",
+        "title": "Approval of the Bond Program Consent Items — Approval of Measure T and Measure S Bond Program Legal Services Agreement with Dannis Woliver Kelley (DWK)",
         "phases": {
-          "opened": 225,
+          "opened": 224,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 244,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -695,13 +659,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.1",
-        "title": "Information on 2024-25 Financial and Performance Audits Building Fund (Measure T & S) for RCSD",
+        "itemLabel": "12",
+        "title": "School/Community Reports — Information on 2024-25 Financial and Performance Audits Building Fund (Measure T & S)",
         "phases": {
-          "opened": 246,
-          "presentation": 269,
+          "opened": 244,
+          "presentation": 270,
           "publicComment": null,
-          "discussion": 593,
+          "discussion": 594,
           "vote": null
         },
         "publicComments": [],
@@ -709,13 +673,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.2",
-        "title": "Redwood City Education Foundation (RCEF) Overview and Update",
+        "itemLabel": "12",
+        "title": "School/Community Reports — Redwood City Education Foundation (RCEF) Overview and Update",
         "phases": {
-          "opened": 656,
+          "opened": 640,
           "presentation": 695,
           "publicComment": null,
-          "discussion": 1703,
+          "discussion": 1704,
           "vote": null
         },
         "publicComments": [],
@@ -723,17 +687,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.1",
-        "title": "Henry Ford School Presentation and School Plan for Student Achievement (SPSA) Approval",
+        "itemLabel": "13",
+        "title": "Action Items — Henry Ford School Presentation and School Plan for Student Achievement (SPSA) Approval",
         "phases": {
           "opened": 3402,
-          "presentation": 3411,
+          "presentation": 3418,
           "publicComment": null,
-          "discussion": 4467,
+          "discussion": 4469,
           "vote": {
-            "seconds": 4950,
+            "seconds": 4941,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -741,17 +705,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.2",
-        "title": "Adoption of Resolution No. 27 — Calling for an Election for Two Members of the Governing Board (Trustee Areas 2 and 5)",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 27, Calling for an Election on November 3, 2026 for Two Members of the Governing Board (Trustee Areas 2 and 5)",
         "phases": {
-          "opened": 4952,
+          "opened": 4944,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4983,
+            "seconds": 4985,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -759,17 +723,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.3",
-        "title": "Adoption of Resolution No. 28 — Requesting the Board of Supervisors of the County of San Mateo to Establish a Tax Rate for Bonds",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 28, Requesting the Board of Supervisors of the County of San Mateo to Establish a Tax Rate for Bonds",
         "phases": {
-          "opened": 4986,
-          "presentation": 4990,
+          "opened": 4988,
+          "presentation": 4991,
           "publicComment": null,
-          "discussion": 5194,
+          "discussion": 5193,
           "vote": {
             "seconds": 5212,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -777,17 +741,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.4",
-        "title": "Adoption of Resolution No. 29 — Year-End Budget Transfers",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 29, Year-End Budget Transfers",
         "phases": {
-          "opened": 5215,
-          "presentation": 5220,
+          "opened": 5221,
+          "presentation": 5221,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5271,
+            "seconds": 5270,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -795,17 +759,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.5",
-        "title": "Adoption of Resolution No. 30 — Temporary Interfund Borrowing",
+        "itemLabel": "13",
+        "title": "Action Items — Adoption of Resolution No. 30, Temporary Interfund Borrowing",
         "phases": {
-          "opened": 5274,
-          "presentation": 5279,
+          "opened": 5277,
+          "presentation": 5277,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 5320,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -816,14 +780,14 @@
         "itemLabel": "15",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 5322,
+          "opened": 5324,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5396,
+            "seconds": 5401,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -834,8 +798,8 @@
         "itemLabel": "16",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 5396,
-          "presentation": 5401,
+          "opened": 5404,
+          "presentation": 5404,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -848,7 +812,7 @@
         "itemLabel": "17",
         "title": "Information — San Mateo County Investment Fund, April 2026",
         "phases": {
-          "opened": 5716,
+          "opened": 5719,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -862,7 +826,7 @@
         "itemLabel": "18",
         "title": "Correspondence",
         "phases": {
-          "opened": 5734,
+          "opened": 5726,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -876,7 +840,7 @@
         "itemLabel": "19",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5738,
+          "opened": 5731,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -893,7 +857,7 @@
           "opened": 5751,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 5758,
           "vote": null
         },
         "publicComments": [],
@@ -904,10 +868,10 @@
         "itemLabel": "21",
         "title": "Board of Trustees Meeting Calendar",
         "phases": {
-          "opened": 5772,
+          "opened": 5765,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 5765,
           "vote": null
         },
         "publicComments": [],
@@ -923,9 +887,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5820,
+            "seconds": 5811,
             "type": "voice",
-            "result": "approved"
+            "result": "passed"
           }
         },
         "publicComments": [],
@@ -934,7 +898,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-20T10:08:56.465Z",
-  "inputTokens": 30017,
-  "outputTokens": 3383
+  "cachedAt": "2026-07-21T20:32:19.886Z",
+  "inputTokens": 29492,
+  "outputTokens": 3288
 }
