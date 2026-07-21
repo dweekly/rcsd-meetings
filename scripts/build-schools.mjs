@@ -2728,7 +2728,7 @@ function buildSchoolsIndex(lang) {
     growthPendingShort: 'En espera de la presentaci\u00f3n 2025-26',
     growthCellSourceTitle: (date, page) => `Ver fuente: presentaci\u00f3n de la Mesa ${date}, diapositiva ${page}`,
     thNetwork: 'Red', thOpened: 'Inauguraci\u00f3n',
-    thProperty: 'Propiedad', thAddress: 'Direcci\u00f3n', thUse: 'Uso actual', thFormer: 'Uso anterior', thDocs: 'Documentos',
+    thProperty: 'Propiedad', thAddress: 'Direcci\u00f3n', thDetails: 'Detalles',
     networkIndep: 'Independiente',
     growthExplainer: '<strong>% alta necesidad</strong> = porcentaje de estudiantes socioeconómicamente desfavorecidos o aprendices de inglés. <strong>Crecimiento</strong> = % de estudiantes que alcanzaron su meta anual de Crecimiento Esperado en i-Ready en la evaluación diagnóstica de medio año 2025-26. La meta del LCAP es aumentar este número 4 puntos cada año. Una escuela con baja competencia pero alto crecimiento está acelerando el aprendizaje.',
     pathPrefix: '/escuelas/',
@@ -2746,7 +2746,7 @@ function buildSchoolsIndex(lang) {
     growthPendingShort: 'Awaiting 2025-26 presentation',
     growthCellSourceTitle: (date, page) => `View source: board presentation ${date}, slide ${page}`,
     thNetwork: 'Network', thOpened: 'Opened',
-    thProperty: 'Property', thAddress: 'Address', thUse: 'Current use', thFormer: 'Former use', thDocs: 'Documents',
+    thProperty: 'Property', thAddress: 'Address', thDetails: 'Details',
     networkIndep: 'Independent',
     growthExplainer: '<strong>% high-need</strong> = share of students who are socioeconomically disadvantaged or English learners. <strong>Growth</strong> = % of students who met their annual i-Ready Expected Growth target on the 2025-26 mid-year diagnostic. The district\u2019s LCAP goal is to raise this by 4 percentage points each year. A school with low proficiency but high growth is accelerating learning. Bar colors compare each school to the district-wide mid-year result (Reading 60.7%, Math 56.4%). Schools without a bar have not yet presented 2025-26 data to the Board.',
     pathPrefix: '/schools/',
@@ -2847,12 +2847,16 @@ function buildSchoolsIndex(lang) {
       const label = isEs ? (d.labelEs || d.label) : d.label;
       return `<a class="prop-doc-link" href="${d.url}" target="_blank" rel="noopener">${label} &#8599;</a>`;
     }).join('');
+    // Short parenthetical under the name; long formerUse stays in the title attribute.
+    const formerShort = isEs ? (p.formerUseShortEs || p.formerUseShort) : p.formerUseShort;
+    const formerLine = formerShort
+      ? `<div class="prop-former"${formerUse ? ` title="${formerUse.replace(/"/g, '&quot;')}"` : ''}>(${formerShort})</div>`
+      : '';
+    const detailsCell = `${useLabel || ''}${docLinks ? `<div class="prop-docs">${docLinks}</div>` : ''}`;
     return `          <tr>
-            <td class="school-name" data-sort-value="${name.toLowerCase()}">${nameCell}</td>
+            <td class="school-name prop-name" data-sort-value="${name.toLowerCase()}">${nameCell}${formerLine}</td>
             <td data-sort-value="${(p.address || '').toLowerCase()}">${p.address || '<span style="color:var(--text-muted); font-style:italic">TBD</span>'}</td>
-            <td data-sort-value="${(useLabel || '').toLowerCase()}">${useLabel || ''}</td>
-            <td data-sort-value="${(formerUse || '').toLowerCase()}">${formerUse || '&mdash;'}</td>
-            <td>${docLinks || '&mdash;'}</td>
+            <td>${detailsCell}</td>
           </tr>`;
   }).join('\n');
 
@@ -2927,6 +2931,9 @@ function buildSchoolsIndex(lang) {
     border-radius: 3px; text-decoration: none; margin: 0.1rem 0.3rem 0.1rem 0;
   }
   .prop-doc-link:hover { background: var(--green-mid); color: #fff; }
+  .prop-docs { margin-top: 0.4rem; }
+  td.prop-name { white-space: normal; min-width: 11em; }
+  .prop-former { font-weight: 400; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.15rem; }
   a.growth-cell-link {
     color: var(--green-mid);
     text-decoration: underline;
@@ -3027,9 +3034,7 @@ ${charterRows}
           <tr>
             <th data-sort-type="text" data-sort-initial="asc" aria-sort="ascending">${L.thProperty}</th>
             <th data-sort-type="text">${L.thAddress}</th>
-            <th data-sort-type="text">${L.thUse}</th>
-            <th data-sort-type="text">${L.thFormer}</th>
-            <th>${L.thDocs}</th>
+            <th>${L.thDetails}</th>
           </tr>
         </thead>
         <tbody>
