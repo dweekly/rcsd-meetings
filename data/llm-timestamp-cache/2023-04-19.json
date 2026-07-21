@@ -1,5 +1,6 @@
 {
   "date": "2023-04-19",
+  "transcriptHash": "1f2b7a643754e502",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -62,77 +63,92 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 9 (School and Community Reports) moved to occur after Item 7 (Reconvene to Regular Session). Item 10.19 (Student Instructional Calendars) pulled from Consent Items and moved to Action Items under Section 11.",
-    "consent_vote_words": "All those in favor? Aye.",
+    "agenda_changes": "Item 9 (School and Community Reports) moved up to occur after item 7 (Reconvene to Regular Session). Item 10.19 (Student Instructional Calendars) pulled from consent agenda and moved to action items under item 11.",
+    "consent_vote_words": "can I get a motion to approve? So moved. Second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Thank you for joining another school",
+        "intro_words": "Call to Order",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call. Trustee Weekley. Present. Trustee McAvoy.",
+        "intro_words": "Evelyn, roll call, please. Trustee Weekly. Present.",
+        "status": "found"
+      },
+      {
+        "item": 3,
+        "intro_words": "Oral Communication on Closed Session Items Only",
+        "status": "found"
+      },
+      {
+        "item": 5,
+        "intro_words": "Closed Session - 5:45 PM (Closed to the Public)",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "reconvening from regular— I'm sorry, from closed session",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Evelyn, roll call, please. Trustee Weekly. Present.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Item 9 is School and Community Reports 9.1. It's information",
+        "intro_words": "I did neglect to report out on closed session",
         "status": "found"
       },
       {
-        "item": 9,
-        "intro_words": "Good afternoon. Good evening, everybody. My name is Nisha",
-        "status": "found"
-      },
-      {
-        "item": 9.2,
-        "intro_words": "9.2 Report on school plans for student achievement for Roseville",
+        "item": 9.1,
+        "intro_words": "Item 9 is school and community reports. 9.1, it's information on financial audit report",
         "status": "found"
       },
       {
         "item": 9.2,
-        "intro_words": "Good evening, Superintendent Dr. Baker, President Marquez, board members",
+        "intro_words": "So moving right along, 9.2, Report on School Plans for Student Achievement",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "moving along to item 10, consent items, and with the exception",
+        "intro_words": "Moving along to item 10, consent items, and with the exception",
         "status": "found"
       },
       {
-        "item": 10.19,
-        "intro_words": "moving along to item 11, action items, because we are moving",
+        "item": 11,
+        "intro_words": "And then moving along to item 11, action items, because we are moving 10.19",
         "status": "found"
       },
       {
         "item": 11.1,
-        "intro_words": "11.1. Approval of Declaration of Need for 2023, 2024. So this",
+        "intro_words": "11.1, approval of declaration of need for 2023-2024",
         "status": "found"
       },
       {
         "item": 11.2,
-        "intro_words": "11.2. Recommendation for adoption of mathematics curriculum materials, grades K",
+        "intro_words": "11.2, recommendation for adoption of mathematics curriculum materials, grades K through 8",
         "status": "found"
       },
       {
         "item": 11.3,
-        "intro_words": "1113 approval of the Redwood City School District transportation service plan",
+        "intro_words": "11:13, approval of the Redwood City School District Transportation Service Plan",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So item 12, board and superintendents report. Who would like",
+        "intro_words": "So item 12, Board and Superintendent's Report. Who would like to go first?",
         "status": "found"
       },
       {
-        "item": 14,
-        "intro_words": "And then moving along. So item 16, board meeting calendar. Are",
+        "item": 16,
+        "intro_words": "So item 16, board meeting calendar. Are there any changes?",
         "status": "found"
       },
       {
-        "item": 15,
-        "intro_words": "Well, it's 10:26. Does somebody want to make a motion to adj.",
+        "item": 17,
+        "intro_words": "Well, it's 10:26. Does somebody want to make a motion to adjourn?",
         "status": "found"
       }
     ]
@@ -140,33 +156,41 @@
   "result": {
     "videoId": "-kyZ0HP3eKE",
     "items": [
+      null,
       {
         "timestamp": "00:00:05",
         "timestampSeconds": 5
+      },
+      null,
+      null,
+      null,
+      null,
+      {
+        "timestamp": "00:00:39",
+        "timestampSeconds": 39
       },
       {
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:04:28",
-        "timestampSeconds": 268
+        "timestamp": "00:04:16",
+        "timestampSeconds": 256
       },
       {
         "timestamp": "00:03:54",
         "timestampSeconds": 234
       },
-      null,
       {
-        "timestamp": "03:11:53",
-        "timestampSeconds": 11513
+        "timestamp": "02:38:03",
+        "timestampSeconds": 9483
       },
+      {
+        "timestamp": "03:11:48",
+        "timestampSeconds": 11508
+      },
+      null,
+      null,
       null,
       {
         "timestamp": "03:22:11",
@@ -217,12 +241,10 @@
       null,
       null,
       null,
-      null,
-      null,
       null
     ]
   },
-  "cachedAt": "2026-03-26T22:37:29.298Z",
-  "inputTokens": 42603,
-  "outputTokens": 770
+  "cachedAt": "2026-07-21T09:57:24.257Z",
+  "inputTokens": 44025,
+  "outputTokens": 910
 }

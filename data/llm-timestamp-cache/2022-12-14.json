@@ -1,5 +1,6 @@
 {
   "date": "2022-12-14",
+  "transcriptHash": "832259295a87f505",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -58,87 +59,112 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Yes. The agenda was reordered at the start of the meeting. John (Dr. Baker) requested that the Oath of Office be moved up and taken before the Reception, and that the Recognition of María Díaz-Slocum be done after the Oath of Office but before the Board Officer's Rotation. The board agreed to these changes.",
-    "consent_vote_words": "can I please get a motion to approve the consent items? So moved. I'll second roll call, please.",
+    "agenda_changes": "John requested reordering: Oath of Office, then Recognition of María Díaz-Slocum, then Board Officer's Rotation (instead of the posted sequence). This was announced at the beginning of the meeting.",
+    "consent_vote_words": "If not, can I please get a motion to approve the consent items? So moved. I'll second.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Good evening, everyone. We're going to get started. Evelyn. Roll call, please.",
+        "intro_words": "Good evening, everyone. We're gonna get started. Evelyn, roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee McAvoy. Present. Trustee Wells. Here. Trustee Lawson.",
+        "intro_words": "Evelyn, roll call, please. Trustee MacAvoy.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone, this evening to our board meeting. You like to speak",
-        "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "We're going to. John, you wanted to change something? Yes, please.",
+        "intro_words": "Welcome everyone this evening to our board meeting.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "We'll move right along then to the oath of office. Dr. Baker.",
-        "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "And now our Next trustee is Mr. David Weekley. And I believe",
+        "intro_words": "Hearing none, we'll move right along then to the oath of office.",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "And now we'll come down to the recognition. To your recognition. Okay",
+        "intro_words": "And now our next trustee is Mr. David Weekly, and I believe",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "And now we'll come down to the recognition, to your recognition.",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "Okay. So why don't we break at this point in time for",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "when we come back. Cecilia Márquez becomes president.",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "And now we have our clerk, who is Janet Lawson, becomes",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "And we now have our Secretary, who is Mr. Wells?",
+        "status": "found"
+      },
+      {
+        "item": 11,
+        "intro_words": "And now Miss MacAvoy comes up to the next position, which",
+        "status": "found"
+      },
+      {
+        "item": 12,
+        "intro_words": "and the next position is for our new trustee, David Weekly.",
         "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "Are there any other changes to that agenda then? Hearing? None.",
+        "intro_words": "So now I'm turning it over to President Márquez.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "Approval of Agenda. Can I take a motion to approve the agenda?",
+        "intro_words": "Okay, hearing none. Moving on to item 7, approval of the agenda.",
         "status": "found"
       },
       {
         "item": 20,
-        "intro_words": "And is there any oral communication? No oral communication. Thank you.",
+        "intro_words": "And is there any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "Item 9. School Community Reports 9.1. Citizens Measure you Oversight Committee",
+        "intro_words": "Item 9, School Community Reports. 9.1, Citizens Measure U",
         "status": "found"
       },
       {
         "item": 24,
-        "intro_words": "Item 10, bond program consent items. Are there any questions? If",
+        "intro_words": "Item 10, Bond Program Consent Items. Are there any questions?",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "If not, can I please get a motion to approve the consent",
+        "intro_words": "If not, can I please get a motion to approve the consent items?",
         "status": "consent_bundle"
       },
       {
         "item": 32,
-        "intro_words": "Item 11, Bond Program Action Items 11.1, Recommendation Regarding Adoption of",
+        "intro_words": "Item 11. Bond Program Action Items. 11.1, recommendation regarding adoption",
         "status": "found"
       },
       {
         "item": 34,
-        "intro_words": "Item 12, discussion items 12.1, discussion of the 202223 school board",
+        "intro_words": "Item 12, Discussion Items. 12.1, Discussion of the 2022-23 School",
         "status": "found"
       },
       {
         "item": 36,
-        "intro_words": "Item 13, consent items. If there's no questions, can I please",
+        "intro_words": "Moving along, item 13. Consent items. If there's no questions,",
         "status": "found"
       },
       {
@@ -148,52 +174,47 @@
       },
       {
         "item": 40,
-        "intro_words": "Item 14, action items 14.1, recommendation regarding approval of the 202223",
+        "intro_words": "Item 14, action items. 14.1. Recommendation regarding approval of the",
         "status": "found"
       },
       {
         "item": 41,
-        "intro_words": "So can I please get a motion to approve 14.1? I'll move",
-        "status": "found"
-      },
-      {
-        "item": 42,
-        "intro_words": "14.2 recommendation regarding approval of personnel changes for 2022. 2023.",
+        "intro_words": "14.2, recommendation regarding approval of personnel changes for 2022-2023.",
         "status": "found"
       },
       {
         "item": 43,
-        "intro_words": "14.3 Recommendation regarding approval of Resolution 21 for extended date kindergarten.",
+        "intro_words": "14.3, recommendation regarding approval of Resolution 21 for extended-day kindergarten.",
         "status": "found"
       },
       {
         "item": 44,
-        "intro_words": "Item 15, board and superintendent report. 15.1, report from board members",
+        "intro_words": "Item 15, Board and Superintendent Report. 15.1, Report from Board",
         "status": "found"
       },
       {
         "item": 46,
-        "intro_words": "Item 16, Information 16.1. 16.1 Information on San Mateo County Investment",
+        "intro_words": "Moving along, item 16, information. 16.1, information on San Mateo",
         "status": "found"
       },
       {
         "item": 48,
-        "intro_words": "Seventeen correspondence. I did get an email from a couple of",
+        "intro_words": "17, correspondence. I did get an email from a couple",
         "status": "found"
       },
       {
         "item": 50,
-        "intro_words": "Item 18. Other business or suggested items for future agenda. No.",
+        "intro_words": "Item 18, other business or suggested items for future agendas.",
         "status": "found"
       },
       {
         "item": 52,
-        "intro_words": "Item 19. Board meetings calendar. Are there any changes to the",
+        "intro_words": "And 19, board meetings calendar. Are there any changes to",
         "status": "found"
       },
       {
         "item": 54,
-        "intro_words": "And with that, can I please get a motion to adjourn the",
+        "intro_words": "can I please get a motion to adjourn the meeting?",
         "status": "found"
       }
     ]
@@ -202,56 +223,68 @@
     "videoId": "wT_bmU3AGc8",
     "items": [
       {
-        "timestamp": "00:03:38",
-        "timestampSeconds": 218
+        "timestamp": "00:03:27",
+        "timestampSeconds": 207
       },
       {
-        "timestamp": "00:03:38",
-        "timestampSeconds": 218
+        "timestamp": "00:03:27",
+        "timestampSeconds": 207
       },
       {
         "timestamp": "00:03:44",
         "timestampSeconds": 224
       },
-      {
-        "timestamp": "00:03:49",
-        "timestampSeconds": 229
-      },
+      null,
       {
         "timestamp": "00:05:20",
         "timestampSeconds": 320
       },
+      null,
       {
-        "timestamp": "00:09:44",
-        "timestampSeconds": 584
+        "timestamp": "00:56:40",
+        "timestampSeconds": 3400
+      },
+      {
+        "timestamp": "00:56:40",
+        "timestampSeconds": 3400
+      },
+      {
+        "timestamp": "00:56:50",
+        "timestampSeconds": 3410
+      },
+      {
+        "timestamp": "00:56:50",
+        "timestampSeconds": 3410
+      },
+      {
+        "timestamp": "01:14:46",
+        "timestampSeconds": 4486
+      },
+      {
+        "timestamp": "01:15:01",
+        "timestampSeconds": 4501
       },
       null,
       null,
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:12:23",
-        "timestampSeconds": 743
-      },
-      null,
-      null,
-      {
-        "timestamp": "01:16:34",
-        "timestampSeconds": 4594
+        "timestamp": "01:15:31",
+        "timestampSeconds": 4531
       },
       null,
       {
-        "timestamp": "01:17:23",
-        "timestampSeconds": 4643
+        "timestamp": "01:16:44",
+        "timestampSeconds": 4604
       },
       null,
       {
-        "timestamp": "01:17:33",
-        "timestampSeconds": 4653
+        "timestamp": "01:17:24",
+        "timestampSeconds": 4644
+      },
+      null,
+      {
+        "timestamp": "01:17:29",
+        "timestampSeconds": 4649
       },
       null,
       {
@@ -275,13 +308,13 @@
       },
       null,
       {
-        "timestamp": "01:26:44",
-        "timestampSeconds": 5204
+        "timestamp": "01:26:45",
+        "timestampSeconds": 5205
       },
       null,
       {
-        "timestamp": "01:41:52",
-        "timestampSeconds": 6112
+        "timestamp": "01:41:54",
+        "timestampSeconds": 6114
       },
       {
         "timestamp": "01:25:03",
@@ -295,25 +328,22 @@
         "timestampSeconds": 6139
       },
       {
-        "timestamp": "01:41:44",
-        "timestampSeconds": 6104
-      },
-      {
-        "timestamp": "02:06:00",
-        "timestampSeconds": 7560
-      },
-      {
-        "timestamp": "02:07:32",
-        "timestampSeconds": 7652
-      },
-      {
-        "timestamp": "02:09:33",
-        "timestampSeconds": 7773
+        "timestamp": "02:06:02",
+        "timestampSeconds": 7562
       },
       null,
       {
-        "timestamp": "02:16:14",
-        "timestampSeconds": 8174
+        "timestamp": "02:07:28",
+        "timestampSeconds": 7648
+      },
+      {
+        "timestamp": "02:09:26",
+        "timestampSeconds": 7766
+      },
+      null,
+      {
+        "timestamp": "02:16:15",
+        "timestampSeconds": 8175
       },
       null,
       {
@@ -322,23 +352,23 @@
       },
       null,
       {
-        "timestamp": "02:18:39",
-        "timestampSeconds": 8319
+        "timestamp": "02:18:41",
+        "timestampSeconds": 8321
       },
       null,
       {
-        "timestamp": "02:18:39",
-        "timestampSeconds": 8319
+        "timestamp": "02:18:31",
+        "timestampSeconds": 8311
       },
       null,
       {
-        "timestamp": "02:20:25",
-        "timestampSeconds": 8425
+        "timestamp": "02:20:33",
+        "timestampSeconds": 8433
       },
       null
     ]
   },
-  "cachedAt": "2026-03-26T22:38:53.508Z",
-  "inputTokens": 21436,
-  "outputTokens": 1427
+  "cachedAt": "2026-07-21T09:58:53.522Z",
+  "inputTokens": 23134,
+  "outputTokens": 1539
 }

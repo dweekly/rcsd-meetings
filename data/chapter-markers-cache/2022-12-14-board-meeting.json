@@ -1,56 +1,82 @@
 {
   "date": "2022-12-14",
+  "slug": "2022-12-14-board-meeting",
   "itemCount": 55,
+  "transcriptHash": "832259295a87f505",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (outgoing); also administers oaths"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "B": {
-        "name": "Evelyn (staff)",
-        "role": "Board Secretary/Clerk support staff; also Cecilia Márquez during oath and later as incoming President"
+        "name": "María Díaz-Slocum",
+        "role": "Board President (outgoing)"
       },
       "C": {
+        "name": "Evelyn (staff)",
+        "role": "District Staff / Roll Call"
+      },
+      "D": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "E": {
         "name": "Cecilia I. Márquez",
         "role": "Vice President (incoming President)"
       },
-      "D": {
-        "name": "Dr. John Baker",
-        "role": "Superintendent; also Mike Wells (Trustee) in some vote segments"
-      },
-      "E": {
-        "name": "David Weekley",
-        "role": "Newly sworn Trustee"
-      },
       "F": {
-        "name": "Rick Edson",
-        "role": "Business Services staff presenter; also Dennis McBride in recognition segment"
+        "name": "Rick (Edson)",
+        "role": "District Staff / Business Services"
       },
       "G": {
         "name": "Dennis McBride",
-        "role": "Former board member/community member speaker"
+        "role": "Community speaker / former staff"
       },
       "H": {
-        "name": "Michelle Torres (interpreter)",
-        "role": "Interpreter/community speaker"
-      },
-      "I": {
         "name": "Janet Lawson",
         "role": "Clerk (incoming Vice President)"
+      },
+      "I": {
+        "name": "David Weekly",
+        "role": "Incoming Trustee"
       },
       "J": {
         "name": "Mike Wells",
         "role": "Trustee"
+      },
+      "K": {
+        "name": "Community speaker (former mayor)",
+        "role": "Community member"
+      },
+      "L": {
+        "name": "Ninfa/Secundino (Familias Unidas)",
+        "role": "Community speaker"
+      },
+      "M": {
+        "name": "Michelle Torres / Laura Ramírez",
+        "role": "Community speaker"
+      },
+      "N": {
+        "name": "Elsie (interpreter)",
+        "role": "Interpreter"
+      },
+      "O": {
+        "name": "Beatriz Fernanda Senda / Laura Ramírez",
+        "role": "Community speaker"
+      },
+      "P": {
+        "name": "Kelly (HR staff)",
+        "role": "District HR Staff"
       }
     },
-    "agendaChanges": "The agenda was resequenced at the start of the meeting: Item 3 (Oath of Office) was taken first, then Item 5 (Recognition of María Díaz-Slocum / Reception) was moved to immediately follow the Oath, and Item 4 (Board Officer Rotation) was moved to after the reception break. Items 6 and 7 (Changes to Agenda and Approval of Agenda) followed the Board Officer Rotation. All other items proceeded in their original order.",
+    "agendaChanges": "The agenda was resequenced at the start of the meeting. Per a request at ~302s, the order was changed so that Section 3 (Oath of Office) was taken up first, then Section 5 (Recognition of María Díaz-Slocum), then Section 4 (Board Officer's Rotation), followed by Sections 6 and 7 and the remainder of the agenda in order. Section 5 (Reception) was taken as a break between the recognition and the board rotation.",
     "items": [
       {
         "itemLabel": "1",
         "title": "Call to Order / Roll Call",
         "phases": {
-          "opened": 219,
+          "opened": 207,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -75,6 +101,20 @@
         "pulled": false
       },
       {
+        "itemLabel": "6",
+        "title": "Changes to the Agenda",
+        "phases": {
+          "opened": 302,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 302,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "3",
         "title": "Oath of Office / Reception",
         "phases": {
@@ -92,8 +132,8 @@
         "itemLabel": "5",
         "title": "Recognition of María Díaz-Slocum",
         "phases": {
-          "opened": 794,
-          "presentation": 794,
+          "opened": 778,
+          "presentation": 919,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -101,45 +141,39 @@
         "publicComments": [
           {
             "name": "Dennis McBride",
-            "startSeconds": 1852,
+            "startSeconds": 1862,
             "endSeconds": 2033,
-            "summary": "Paid tribute to María Díaz-Slocum's 21 years of service, highlighting her dedication to students, community presence on the Bayside, and personal qualities as a colleague."
+            "summary": "Offered a warm tribute to María Díaz-Slocum, highlighting her 21 years of dedication, her calm leadership, her advocacy for students particularly on the Bay Side, and his personal fond memories of working alongside her."
           },
           {
-            "name": "Ninfa and Secondino (Familia Unidas community)",
-            "startSeconds": 2042,
-            "endSeconds": 2170,
-            "summary": "On behalf of Familia Unidas parents and students, thanked María for her incredible support over the years and her contributions to literacy and learning in the community."
+            "name": "Ninfa / Secundino (Familias Unidas)",
+            "startSeconds": 2067,
+            "endSeconds": 2154,
+            "summary": "On behalf of Familias Unidas parents and students, expressed gratitude to María for her years of unconditional support and contributions to hundreds of families through literacy and learning."
           },
           {
-            "name": "Giselle Hill",
+            "name": "Community speaker (former mayor)",
             "startSeconds": 2170,
             "endSeconds": 2264,
-            "summary": "As a recently retired city official, praised María as a giant in Redwood City whose equity work predated broad discussion of equity, and welcomed David Weekley and congratulated Cecilia Márquez on continuing to serve."
+            "summary": "As a freshly retired city official, praised María as a giant in Redwood City whose equity work predated the broad discussion of equity, and congratulated Cecilia Márquez and welcomed David Weekly."
           },
           {
             "name": "Michelle Torres",
-            "startSeconds": 2420,
-            "endSeconds": 2523,
-            "summary": "Thanked María for supporting Familia Unidas and described how the program helped her feel welcomed, supported her family's educational goals, and improved her son's academic performance."
+            "startSeconds": 2290,
+            "endSeconds": 2404,
+            "summary": "Thanked María for her support of Familias Unidas, shared how the program helped her integrate into the community and how her son's grades improved from failing to excellent thanks to strategies learned there."
           },
           {
-            "name": "Beatrice Fernanda Senda",
-            "startSeconds": 2600,
-            "endSeconds": 2724,
-            "summary": "An 11-year-old Familia Unidas participant thanked María and described how the program taught her reading, math, technology, health, and science skills since preschool."
+            "name": "Beatriz Fernanda Senda",
+            "startSeconds": 2569,
+            "endSeconds": 2700,
+            "summary": "An 11-year-old Familias Unidas participant since preschool, described her love of books and learning fostered by the program and expressed hope it would continue for future students including her younger brother."
           },
           {
-            "name": "Laura Ramirez",
+            "name": "Laura Ramírez",
             "startSeconds": 2729,
-            "endSeconds": 2839,
-            "summary": "Thanked María for supporting Familia Unidas and shared how the program helped her family navigate the educational system, adopt healthy habits, and start school successfully."
-          },
-          {
-            "name": "María Díaz-Slocum",
-            "startSeconds": 2839,
-            "endSeconds": 3426,
-            "summary": "Gave her farewell remarks, thanking her family, students, staff, community partners, Dr. Baker, and board colleagues for their support during her over two decades of service dedicated to ensuring all children receive the best education possible."
+            "endSeconds": 2841,
+            "summary": "Thanked María for supporting Familias Unidas and described how the program helped her navigate the U.S. educational system and start her son's schooling with good reading and healthy daily habits."
           }
         ],
         "consent": false,
@@ -147,26 +181,12 @@
       },
       {
         "itemLabel": "4",
-        "title": "Board Officer Rotation",
+        "title": "Board Officer's Rotation",
         "phases": {
-          "opened": 4439,
-          "presentation": 4439,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6",
-        "title": "Changes to the Agenda",
-        "phases": {
-          "opened": 299,
+          "opened": 4437,
           "presentation": null,
           "publicComment": null,
-          "discussion": 302,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -177,12 +197,12 @@
         "itemLabel": "7",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 4561,
+          "opened": 4621,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4635,
+            "seconds": 4644,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -195,9 +215,9 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 4662,
+          "opened": 4667,
           "presentation": null,
-          "publicComment": 4662,
+          "publicComment": 4667,
           "discussion": null,
           "vote": null
         },
@@ -209,8 +229,8 @@
         "itemLabel": "9",
         "title": "Citizens' Measure U Oversight Committee Year Five Report for 2021-2022",
         "phases": {
-          "opened": 4667,
-          "presentation": 4694,
+          "opened": 4672,
+          "presentation": 4695,
           "publicComment": null,
           "discussion": 4857,
           "vote": null
@@ -221,14 +241,14 @@
       },
       {
         "itemLabel": "10",
-        "title": "Approval of Bond Program Consent Items",
+        "title": "Bond Program Consent Items",
         "phases": {
           "opened": 5093,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5145,
+            "seconds": 5149,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -241,12 +261,12 @@
         "itemLabel": "11",
         "title": "Adoption of Futility Resolution 20 / Change Order #13 with Rodan Builders for Garfield Community School",
         "phases": {
-          "opened": 5157,
+          "opened": 5163,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5198,
+            "seconds": 5205,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -262,7 +282,7 @@
           "opened": 5219,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5233,
+          "discussion": 5231,
           "vote": null
         },
         "publicComments": [],
@@ -278,7 +298,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6145,
+            "seconds": 6148,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -289,28 +309,14 @@
       },
       {
         "itemLabel": "14",
-        "title": "Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.1",
         "title": "Approval of the 2022-23 First Interim Budget Report for RCSD",
         "phases": {
-          "opened": 6156,
+          "opened": 6162,
           "presentation": 6176,
           "publicComment": null,
-          "discussion": 7132,
+          "discussion": 7134,
           "vote": {
-            "seconds": 7580,
+            "seconds": 7576,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -323,12 +329,12 @@
         "itemLabel": "14.2",
         "title": "Approval of Personnel Changes for 2022-2023",
         "phases": {
-          "opened": 7597,
-          "presentation": 7600,
+          "opened": 7595,
+          "presentation": 7605,
           "publicComment": null,
-          "discussion": 7634,
+          "discussion": 7631,
           "vote": {
-            "seconds": 7655,
+            "seconds": 7657,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -341,12 +347,12 @@
         "itemLabel": "14.3",
         "title": "Approval of Resolution 21 for Extended Day Kindergarten",
         "phases": {
-          "opened": 7670,
-          "presentation": 7670,
+          "opened": 7671,
+          "presentation": 7677,
           "publicComment": null,
-          "discussion": 7753,
+          "discussion": 7752,
           "vote": {
-            "seconds": 7771,
+            "seconds": 7774,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -360,9 +366,9 @@
         "title": "Report from Board Members and Superintendent",
         "phases": {
           "opened": 7787,
-          "presentation": 7800,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 7794,
           "vote": null
         },
         "publicComments": [],
@@ -373,7 +379,7 @@
         "itemLabel": "16",
         "title": "Information on San Mateo County Investment Fund - October, 2022",
         "phases": {
-          "opened": 8187,
+          "opened": 8186,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -387,10 +393,10 @@
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 8200,
+          "opened": 8197,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8215,
+          "discussion": 8210,
           "vote": null
         },
         "publicComments": [],
@@ -399,9 +405,9 @@
       },
       {
         "itemLabel": "18",
-        "title": "Possible Other Business/Suggested Items for Future Agenda",
+        "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 8330,
+          "opened": 8331,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -415,10 +421,10 @@
         "itemLabel": "19",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 8340,
+          "opened": 8331,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8346,
+          "discussion": 8343,
           "vote": null
         },
         "publicComments": [],
@@ -429,14 +435,14 @@
         "itemLabel": "20",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 8443,
+          "opened": 8440,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8455,
+            "seconds": 8457,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous — adjourned in honor of María Díaz-Slocum"
           }
         },
         "publicComments": [],
@@ -449,53 +455,77 @@
     "videoId": "wT_bmU3AGc8",
     "speakers": {
       "A": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (outgoing); also administers oaths"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "B": {
-        "name": "Evelyn (staff)",
-        "role": "Board Secretary/Clerk support staff; also Cecilia Márquez during oath and later as incoming President"
+        "name": "María Díaz-Slocum",
+        "role": "Board President (outgoing)"
       },
       "C": {
+        "name": "Evelyn (staff)",
+        "role": "District Staff / Roll Call"
+      },
+      "D": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "E": {
         "name": "Cecilia I. Márquez",
         "role": "Vice President (incoming President)"
       },
-      "D": {
-        "name": "Dr. John Baker",
-        "role": "Superintendent; also Mike Wells (Trustee) in some vote segments"
-      },
-      "E": {
-        "name": "David Weekley",
-        "role": "Newly sworn Trustee"
-      },
       "F": {
-        "name": "Rick Edson",
-        "role": "Business Services staff presenter; also Dennis McBride in recognition segment"
+        "name": "Rick (Edson)",
+        "role": "District Staff / Business Services"
       },
       "G": {
         "name": "Dennis McBride",
-        "role": "Former board member/community member speaker"
+        "role": "Community speaker / former staff"
       },
       "H": {
-        "name": "Michelle Torres (interpreter)",
-        "role": "Interpreter/community speaker"
-      },
-      "I": {
         "name": "Janet Lawson",
         "role": "Clerk (incoming Vice President)"
+      },
+      "I": {
+        "name": "David Weekly",
+        "role": "Incoming Trustee"
       },
       "J": {
         "name": "Mike Wells",
         "role": "Trustee"
+      },
+      "K": {
+        "name": "Community speaker (former mayor)",
+        "role": "Community member"
+      },
+      "L": {
+        "name": "Ninfa/Secundino (Familias Unidas)",
+        "role": "Community speaker"
+      },
+      "M": {
+        "name": "Michelle Torres / Laura Ramírez",
+        "role": "Community speaker"
+      },
+      "N": {
+        "name": "Elsie (interpreter)",
+        "role": "Interpreter"
+      },
+      "O": {
+        "name": "Beatriz Fernanda Senda / Laura Ramírez",
+        "role": "Community speaker"
+      },
+      "P": {
+        "name": "Kelly (HR staff)",
+        "role": "District HR Staff"
       }
     },
-    "agendaChanges": "The agenda was resequenced at the start of the meeting: Item 3 (Oath of Office) was taken first, then Item 5 (Recognition of María Díaz-Slocum / Reception) was moved to immediately follow the Oath, and Item 4 (Board Officer Rotation) was moved to after the reception break. Items 6 and 7 (Changes to Agenda and Approval of Agenda) followed the Board Officer Rotation. All other items proceeded in their original order.",
+    "agendaChanges": "The agenda was resequenced at the start of the meeting. Per a request at ~302s, the order was changed so that Section 3 (Oath of Office) was taken up first, then Section 5 (Recognition of María Díaz-Slocum), then Section 4 (Board Officer's Rotation), followed by Sections 6 and 7 and the remainder of the agenda in order. Section 5 (Reception) was taken as a break between the recognition and the board rotation.",
     "items": [
       {
         "itemLabel": "1",
         "title": "Call to Order / Roll Call",
         "phases": {
-          "opened": 219,
+          "opened": 207,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -520,6 +550,20 @@
         "pulled": false
       },
       {
+        "itemLabel": "6",
+        "title": "Changes to the Agenda",
+        "phases": {
+          "opened": 302,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 302,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "3",
         "title": "Oath of Office / Reception",
         "phases": {
@@ -537,8 +581,8 @@
         "itemLabel": "5",
         "title": "Recognition of María Díaz-Slocum",
         "phases": {
-          "opened": 794,
-          "presentation": 794,
+          "opened": 778,
+          "presentation": 919,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -546,45 +590,39 @@
         "publicComments": [
           {
             "name": "Dennis McBride",
-            "startSeconds": 1852,
+            "startSeconds": 1862,
             "endSeconds": 2033,
-            "summary": "Paid tribute to María Díaz-Slocum's 21 years of service, highlighting her dedication to students, community presence on the Bayside, and personal qualities as a colleague."
+            "summary": "Offered a warm tribute to María Díaz-Slocum, highlighting her 21 years of dedication, her calm leadership, her advocacy for students particularly on the Bay Side, and his personal fond memories of working alongside her."
           },
           {
-            "name": "Ninfa and Secondino (Familia Unidas community)",
-            "startSeconds": 2042,
-            "endSeconds": 2170,
-            "summary": "On behalf of Familia Unidas parents and students, thanked María for her incredible support over the years and her contributions to literacy and learning in the community."
+            "name": "Ninfa / Secundino (Familias Unidas)",
+            "startSeconds": 2067,
+            "endSeconds": 2154,
+            "summary": "On behalf of Familias Unidas parents and students, expressed gratitude to María for her years of unconditional support and contributions to hundreds of families through literacy and learning."
           },
           {
-            "name": "Giselle Hill",
+            "name": "Community speaker (former mayor)",
             "startSeconds": 2170,
             "endSeconds": 2264,
-            "summary": "As a recently retired city official, praised María as a giant in Redwood City whose equity work predated broad discussion of equity, and welcomed David Weekley and congratulated Cecilia Márquez on continuing to serve."
+            "summary": "As a freshly retired city official, praised María as a giant in Redwood City whose equity work predated the broad discussion of equity, and congratulated Cecilia Márquez and welcomed David Weekly."
           },
           {
             "name": "Michelle Torres",
-            "startSeconds": 2420,
-            "endSeconds": 2523,
-            "summary": "Thanked María for supporting Familia Unidas and described how the program helped her feel welcomed, supported her family's educational goals, and improved her son's academic performance."
+            "startSeconds": 2290,
+            "endSeconds": 2404,
+            "summary": "Thanked María for her support of Familias Unidas, shared how the program helped her integrate into the community and how her son's grades improved from failing to excellent thanks to strategies learned there."
           },
           {
-            "name": "Beatrice Fernanda Senda",
-            "startSeconds": 2600,
-            "endSeconds": 2724,
-            "summary": "An 11-year-old Familia Unidas participant thanked María and described how the program taught her reading, math, technology, health, and science skills since preschool."
+            "name": "Beatriz Fernanda Senda",
+            "startSeconds": 2569,
+            "endSeconds": 2700,
+            "summary": "An 11-year-old Familias Unidas participant since preschool, described her love of books and learning fostered by the program and expressed hope it would continue for future students including her younger brother."
           },
           {
-            "name": "Laura Ramirez",
+            "name": "Laura Ramírez",
             "startSeconds": 2729,
-            "endSeconds": 2839,
-            "summary": "Thanked María for supporting Familia Unidas and shared how the program helped her family navigate the educational system, adopt healthy habits, and start school successfully."
-          },
-          {
-            "name": "María Díaz-Slocum",
-            "startSeconds": 2839,
-            "endSeconds": 3426,
-            "summary": "Gave her farewell remarks, thanking her family, students, staff, community partners, Dr. Baker, and board colleagues for their support during her over two decades of service dedicated to ensuring all children receive the best education possible."
+            "endSeconds": 2841,
+            "summary": "Thanked María for supporting Familias Unidas and described how the program helped her navigate the U.S. educational system and start her son's schooling with good reading and healthy daily habits."
           }
         ],
         "consent": false,
@@ -592,26 +630,12 @@
       },
       {
         "itemLabel": "4",
-        "title": "Board Officer Rotation",
+        "title": "Board Officer's Rotation",
         "phases": {
-          "opened": 4439,
-          "presentation": 4439,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "6",
-        "title": "Changes to the Agenda",
-        "phases": {
-          "opened": 299,
+          "opened": 4437,
           "presentation": null,
           "publicComment": null,
-          "discussion": 302,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -622,12 +646,12 @@
         "itemLabel": "7",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 4561,
+          "opened": 4621,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4635,
+            "seconds": 4644,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -640,9 +664,9 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 4662,
+          "opened": 4667,
           "presentation": null,
-          "publicComment": 4662,
+          "publicComment": 4667,
           "discussion": null,
           "vote": null
         },
@@ -654,8 +678,8 @@
         "itemLabel": "9",
         "title": "Citizens' Measure U Oversight Committee Year Five Report for 2021-2022",
         "phases": {
-          "opened": 4667,
-          "presentation": 4694,
+          "opened": 4672,
+          "presentation": 4695,
           "publicComment": null,
           "discussion": 4857,
           "vote": null
@@ -666,14 +690,14 @@
       },
       {
         "itemLabel": "10",
-        "title": "Approval of Bond Program Consent Items",
+        "title": "Bond Program Consent Items",
         "phases": {
           "opened": 5093,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5145,
+            "seconds": 5149,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -686,12 +710,12 @@
         "itemLabel": "11",
         "title": "Adoption of Futility Resolution 20 / Change Order #13 with Rodan Builders for Garfield Community School",
         "phases": {
-          "opened": 5157,
+          "opened": 5163,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5198,
+            "seconds": 5205,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -707,7 +731,7 @@
           "opened": 5219,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5233,
+          "discussion": 5231,
           "vote": null
         },
         "publicComments": [],
@@ -723,7 +747,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6145,
+            "seconds": 6148,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -734,28 +758,14 @@
       },
       {
         "itemLabel": "14",
-        "title": "Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14.1",
         "title": "Approval of the 2022-23 First Interim Budget Report for RCSD",
         "phases": {
-          "opened": 6156,
+          "opened": 6162,
           "presentation": 6176,
           "publicComment": null,
-          "discussion": 7132,
+          "discussion": 7134,
           "vote": {
-            "seconds": 7580,
+            "seconds": 7576,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -768,12 +778,12 @@
         "itemLabel": "14.2",
         "title": "Approval of Personnel Changes for 2022-2023",
         "phases": {
-          "opened": 7597,
-          "presentation": 7600,
+          "opened": 7595,
+          "presentation": 7605,
           "publicComment": null,
-          "discussion": 7634,
+          "discussion": 7631,
           "vote": {
-            "seconds": 7655,
+            "seconds": 7657,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -786,12 +796,12 @@
         "itemLabel": "14.3",
         "title": "Approval of Resolution 21 for Extended Day Kindergarten",
         "phases": {
-          "opened": 7670,
-          "presentation": 7670,
+          "opened": 7671,
+          "presentation": 7677,
           "publicComment": null,
-          "discussion": 7753,
+          "discussion": 7752,
           "vote": {
-            "seconds": 7771,
+            "seconds": 7774,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -805,9 +815,9 @@
         "title": "Report from Board Members and Superintendent",
         "phases": {
           "opened": 7787,
-          "presentation": 7800,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 7794,
           "vote": null
         },
         "publicComments": [],
@@ -818,7 +828,7 @@
         "itemLabel": "16",
         "title": "Information on San Mateo County Investment Fund - October, 2022",
         "phases": {
-          "opened": 8187,
+          "opened": 8186,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -832,10 +842,10 @@
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 8200,
+          "opened": 8197,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8215,
+          "discussion": 8210,
           "vote": null
         },
         "publicComments": [],
@@ -844,9 +854,9 @@
       },
       {
         "itemLabel": "18",
-        "title": "Possible Other Business/Suggested Items for Future Agenda",
+        "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 8330,
+          "opened": 8331,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -860,10 +870,10 @@
         "itemLabel": "19",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 8340,
+          "opened": 8331,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8346,
+          "discussion": 8343,
           "vote": null
         },
         "publicComments": [],
@@ -874,14 +884,14 @@
         "itemLabel": "20",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 8443,
+          "opened": 8440,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8455,
+            "seconds": 8457,
             "type": "voice",
-            "result": "unanimous"
+            "result": "unanimous — adjourned in honor of María Díaz-Slocum"
           }
         },
         "publicComments": [],
@@ -890,7 +900,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:59:08.552Z",
-  "inputTokens": 26516,
-  "outputTokens": 3485
+  "cachedAt": "2026-07-21T09:50:29.489Z",
+  "inputTokens": 27644,
+  "outputTokens": 3588
 }

@@ -1,5 +1,6 @@
 {
   "date": "2023-01-24",
+  "transcriptHash": "e92ca4c8551b07c3",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -22,22 +23,22 @@
     "items": [
       {
         "item": 1,
-        "intro_words": "Good morning, everyone. Everlinda. Roll call, please.",
+        "intro_words": "Good morning, everyone. Evelyn, roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Good morning, everyone. Everlinda. Roll call, please.",
+        "intro_words": "Good morning, everyone. Evelyn, roll call, please.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "not present in transcript",
+        "intro_words": "not found in transcript",
         "status": "not_found"
       },
       {
         "item": 4,
-        "intro_words": "not present in transcript",
+        "intro_words": "not found in transcript",
         "status": "not_found"
       },
       {
@@ -46,8 +47,13 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda?",
+        "status": "found"
+      },
+      {
         "item": 7,
-        "intro_words": "I'll move to approve. Second roll call, please.",
+        "intro_words": "I'll move to approve. Second. Roll call, please.",
         "status": "found"
       },
       {
@@ -56,13 +62,18 @@
         "status": "found"
       },
       {
+        "item": 11,
+        "intro_words": "So action item 6.1, recommendation regarding adoption of",
+        "status": "found"
+      },
+      {
         "item": 12,
-        "intro_words": "Action Item 6.1, Recommendation Regarding Adoption of Resolution 23,",
+        "intro_words": "So action item 6.1, recommendation regarding adoption of",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Can I please get a more motion to adjourn the meeting?",
+        "intro_words": "Can I please get a motion to adjourn",
         "status": "found"
       }
     ]
@@ -84,7 +95,10 @@
         "timestamp": "00:00:04",
         "timestampSeconds": 4
       },
-      null,
+      {
+        "timestamp": "00:00:04",
+        "timestampSeconds": 4
+      },
       {
         "timestamp": "00:00:04",
         "timestampSeconds": 4
@@ -94,20 +108,23 @@
         "timestamp": "00:00:04",
         "timestampSeconds": 4
       },
-      null,
       null,
       {
         "timestamp": "00:00:19",
         "timestampSeconds": 19
       },
       {
-        "timestamp": "00:01:29",
-        "timestampSeconds": 89
+        "timestamp": "00:00:19",
+        "timestampSeconds": 19
+      },
+      {
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
       },
       null
     ]
   },
-  "cachedAt": "2026-03-26T22:38:21.319Z",
-  "inputTokens": 886,
-  "outputTokens": 418
+  "cachedAt": "2026-07-21T09:58:18.802Z",
+  "inputTokens": 892,
+  "outputTokens": 489
 }

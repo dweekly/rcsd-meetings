@@ -1,46 +1,72 @@
 {
   "date": "2023-01-18",
+  "slug": "2023-01-18-board-meeting",
   "itemCount": 50,
+  "transcriptHash": "4188633b72ad8e55",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "Lupe Guzman (and unidentified board/staff early)",
-        "role": "Principal, Hoover Community School (presenter); unidentified board/staff member in opening seconds"
-      },
-      "B": {
         "name": "María Díaz-Slocum",
         "role": "Board President"
       },
+      "B": {
+        "name": "Unknown/Multiple",
+        "role": "Various speakers (ASR conflation)"
+      },
       "C": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board Vice President"
+        "name": "Liz (district staff)",
+        "role": "District Administrator/Presenter"
       },
       "D": {
-        "name": "Janet Lawson",
-        "role": "Board Clerk"
+        "name": "Lupe Guzman",
+        "role": "Principal, Hoover Community School"
       },
       "E": {
-        "name": "Multiple speakers (John Michael Gomez / Alisa MacAvoy / staff presenter)",
-        "role": "Hoover VP (presenter); Board Trustee; staff presenter"
+        "name": "Michelle (Ishelle Baltazar)",
+        "role": "Community School Coordinator, Hoover"
       },
       "F": {
         "name": "Dr. Baker",
         "role": "Superintendent"
       },
       "G": {
-        "name": "Josh Griffith",
-        "role": "Interim VP, Hoover Community School (presenter)"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
       },
       "H": {
-        "name": "Ixchel",
-        "role": "Community School Coordinator, Hoover (presenter)"
+        "name": "Janet Lawson",
+        "role": "Clerk"
       },
       "I": {
+        "name": "John Michael Gomez",
+        "role": "Assistant Principal, Hoover Community School"
+      },
+      "J": {
+        "name": "Unknown Staff",
+        "role": "District Staff (presenter on Resolution 22)"
+      },
+      "K": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "L": {
+        "name": "Josh Griffith",
+        "role": "Interim VP, Hoover Community School"
+      },
+      "M": {
+        "name": "Unknown",
+        "role": "Unidentified speaker"
+      },
+      "N": {
+        "name": "Kevin Sugar",
+        "role": "Hoover teacher (public commenter)"
+      },
+      "O": {
         "name": "Mike Wells",
-        "role": "Board Trustee"
+        "role": "Trustee"
       }
     },
-    "agendaChanges": "The recording begins mid-meeting during the Regular Session; Sections 1–8 (Call to Order through Oral Communication) are not captured in the transcript. Section 5 (Welcome by Board President) is referenced in the agenda as 'Welcome by the School Board President, Cecilia Márquez' but no distinct welcome segment is identifiable in the transcript before agenda item 9. Item 12.2 through 12.26 are referenced by the president at [5442s] as being bundled into the Section 11 consent vote, suggesting some action sub-items were handled as consent. The three charter school preliminary space proposals and other action items under Section 12 do not appear to have been individually called out in the transcript beyond the Resolution 22 item.",
+    "agendaChanges": "The transcript begins mid-meeting, after Sections 1-8 (Call to Order through Oral Communication) have already occurred off-recording. Section 11 Consent Items were approved as a bundle that also included items 12.2 through 12.5 (per [5441s]: 'this is including 12.2 through 12.5'), meaning those Action Items were pulled into the consent bundle. Item 12.1 (Resolution 22) was handled separately as an action item. Sections 1-8 are not captured in the transcript.",
     "items": [
       {
         "itemLabel": "1",
@@ -88,7 +114,7 @@
         "itemLabel": "4",
         "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 3,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -150,7 +176,14 @@
           "discussion": null,
           "vote": null
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Unidentified speaker",
+            "startSeconds": 139,
+            "endSeconds": 143,
+            "summary": "Indicated there was a public comment but it was for the board discussion item, not a closed session item."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -158,12 +191,12 @@
         "itemLabel": "9",
         "title": "Bond Program Consent Items",
         "phases": {
-          "opened": 144,
+          "opened": 145,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 159,
+            "seconds": 156,
             "type": "voice",
             "result": "approved"
           }
@@ -179,21 +212,21 @@
           "opened": 169,
           "presentation": 251,
           "publicComment": 3827,
-          "discussion": 4049,
+          "discussion": 4040,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Kevin Sugar",
             "startSeconds": 3843,
-            "endSeconds": 3939,
-            "summary": "A teacher at Hoover since 2008, he expressed deep appreciation for the current administration's inclusive and positive leadership, calling the year outstanding and a joy to come to work."
+            "endSeconds": 3935,
+            "summary": "A longtime Hoover teacher praised the current administration for creating an outstanding, inclusive atmosphere and expressed gratitude for the positive changes made this year."
           },
           {
-            "name": "Christy",
-            "startSeconds": 3960,
-            "endSeconds": 4036,
-            "summary": "A 21-year Hoover teacher, she echoed Kevin's sentiments, praising principal Lupe and John Michael for bringing the staff and community together and restoring the school's positive atmosphere."
+            "name": "Unidentified speaker (Kristy)",
+            "startSeconds": 3959,
+            "endSeconds": 4027,
+            "summary": "A 21-year Hoover teacher echoed Kevin Sugar's comments, saying the school feels joyful again under the current administration and she is committed to staying until retirement."
           }
         ],
         "consent": false,
@@ -201,14 +234,14 @@
       },
       {
         "itemLabel": "11",
-        "title": "Consent Items",
+        "title": "Consent Items (including Action Items 12.2–12.5)",
         "phases": {
-          "opened": 5442,
+          "opened": 5441,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5454,
+            "seconds": 5457,
             "type": "voice",
             "result": "approved"
           }
@@ -221,12 +254,12 @@
         "itemLabel": "12",
         "title": "Action Items – Adoption of Resolution 22 (Measure S Election Certification)",
         "phases": {
-          "opened": 5456,
-          "presentation": 5484,
+          "opened": 5466,
+          "presentation": 5482,
           "publicComment": null,
-          "discussion": 5533,
+          "discussion": 5534,
           "vote": {
-            "seconds": 5613,
+            "seconds": 5612,
             "type": "voice",
             "result": "approved"
           }
@@ -242,7 +275,7 @@
           "opened": 5618,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5618,
+          "discussion": 5622,
           "vote": null
         },
         "publicComments": [],
@@ -251,9 +284,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Information – Quarterly Williams Report / Contract Update / San Mateo County Investment Fund",
+        "title": "Information",
         "phases": {
-          "opened": 5820,
+          "opened": 5818,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -267,10 +300,10 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 5855,
+          "opened": 5852,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5872,
+          "discussion": 5867,
           "vote": null
         },
         "publicComments": [],
@@ -281,7 +314,7 @@
         "itemLabel": "16",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5855,
+          "opened": 5867,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -298,7 +331,7 @@
           "opened": 5899,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5905,
+          "discussion": 5903,
           "vote": null
         },
         "publicComments": [],
@@ -314,7 +347,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5928,
+            "seconds": 5927,
             "type": "voice",
             "result": "approved"
           }
@@ -329,43 +362,67 @@
     "videoId": "tqvsE4VeAzE",
     "speakers": {
       "A": {
-        "name": "Lupe Guzman (and unidentified board/staff early)",
-        "role": "Principal, Hoover Community School (presenter); unidentified board/staff member in opening seconds"
-      },
-      "B": {
         "name": "María Díaz-Slocum",
         "role": "Board President"
       },
+      "B": {
+        "name": "Unknown/Multiple",
+        "role": "Various speakers (ASR conflation)"
+      },
       "C": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board Vice President"
+        "name": "Liz (district staff)",
+        "role": "District Administrator/Presenter"
       },
       "D": {
-        "name": "Janet Lawson",
-        "role": "Board Clerk"
+        "name": "Lupe Guzman",
+        "role": "Principal, Hoover Community School"
       },
       "E": {
-        "name": "Multiple speakers (John Michael Gomez / Alisa MacAvoy / staff presenter)",
-        "role": "Hoover VP (presenter); Board Trustee; staff presenter"
+        "name": "Michelle (Ishelle Baltazar)",
+        "role": "Community School Coordinator, Hoover"
       },
       "F": {
         "name": "Dr. Baker",
         "role": "Superintendent"
       },
       "G": {
-        "name": "Josh Griffith",
-        "role": "Interim VP, Hoover Community School (presenter)"
+        "name": "Cecilia I. Márquez",
+        "role": "Vice President"
       },
       "H": {
-        "name": "Ixchel",
-        "role": "Community School Coordinator, Hoover (presenter)"
+        "name": "Janet Lawson",
+        "role": "Clerk"
       },
       "I": {
+        "name": "John Michael Gomez",
+        "role": "Assistant Principal, Hoover Community School"
+      },
+      "J": {
+        "name": "Unknown Staff",
+        "role": "District Staff (presenter on Resolution 22)"
+      },
+      "K": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "L": {
+        "name": "Josh Griffith",
+        "role": "Interim VP, Hoover Community School"
+      },
+      "M": {
+        "name": "Unknown",
+        "role": "Unidentified speaker"
+      },
+      "N": {
+        "name": "Kevin Sugar",
+        "role": "Hoover teacher (public commenter)"
+      },
+      "O": {
         "name": "Mike Wells",
-        "role": "Board Trustee"
+        "role": "Trustee"
       }
     },
-    "agendaChanges": "The recording begins mid-meeting during the Regular Session; Sections 1–8 (Call to Order through Oral Communication) are not captured in the transcript. Section 5 (Welcome by Board President) is referenced in the agenda as 'Welcome by the School Board President, Cecilia Márquez' but no distinct welcome segment is identifiable in the transcript before agenda item 9. Item 12.2 through 12.26 are referenced by the president at [5442s] as being bundled into the Section 11 consent vote, suggesting some action sub-items were handled as consent. The three charter school preliminary space proposals and other action items under Section 12 do not appear to have been individually called out in the transcript beyond the Resolution 22 item.",
+    "agendaChanges": "The transcript begins mid-meeting, after Sections 1-8 (Call to Order through Oral Communication) have already occurred off-recording. Section 11 Consent Items were approved as a bundle that also included items 12.2 through 12.5 (per [5441s]: 'this is including 12.2 through 12.5'), meaning those Action Items were pulled into the consent bundle. Item 12.1 (Resolution 22) was handled separately as an action item. Sections 1-8 are not captured in the transcript.",
     "items": [
       {
         "itemLabel": "1",
@@ -413,7 +470,7 @@
         "itemLabel": "4",
         "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 3,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -475,7 +532,14 @@
           "discussion": null,
           "vote": null
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Unidentified speaker",
+            "startSeconds": 139,
+            "endSeconds": 143,
+            "summary": "Indicated there was a public comment but it was for the board discussion item, not a closed session item."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -483,12 +547,12 @@
         "itemLabel": "9",
         "title": "Bond Program Consent Items",
         "phases": {
-          "opened": 144,
+          "opened": 145,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 159,
+            "seconds": 156,
             "type": "voice",
             "result": "approved"
           }
@@ -504,21 +568,21 @@
           "opened": 169,
           "presentation": 251,
           "publicComment": 3827,
-          "discussion": 4049,
+          "discussion": 4040,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Kevin Sugar",
             "startSeconds": 3843,
-            "endSeconds": 3939,
-            "summary": "A teacher at Hoover since 2008, he expressed deep appreciation for the current administration's inclusive and positive leadership, calling the year outstanding and a joy to come to work."
+            "endSeconds": 3935,
+            "summary": "A longtime Hoover teacher praised the current administration for creating an outstanding, inclusive atmosphere and expressed gratitude for the positive changes made this year."
           },
           {
-            "name": "Christy",
-            "startSeconds": 3960,
-            "endSeconds": 4036,
-            "summary": "A 21-year Hoover teacher, she echoed Kevin's sentiments, praising principal Lupe and John Michael for bringing the staff and community together and restoring the school's positive atmosphere."
+            "name": "Unidentified speaker (Kristy)",
+            "startSeconds": 3959,
+            "endSeconds": 4027,
+            "summary": "A 21-year Hoover teacher echoed Kevin Sugar's comments, saying the school feels joyful again under the current administration and she is committed to staying until retirement."
           }
         ],
         "consent": false,
@@ -526,14 +590,14 @@
       },
       {
         "itemLabel": "11",
-        "title": "Consent Items",
+        "title": "Consent Items (including Action Items 12.2–12.5)",
         "phases": {
-          "opened": 5442,
+          "opened": 5441,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5454,
+            "seconds": 5457,
             "type": "voice",
             "result": "approved"
           }
@@ -546,12 +610,12 @@
         "itemLabel": "12",
         "title": "Action Items – Adoption of Resolution 22 (Measure S Election Certification)",
         "phases": {
-          "opened": 5456,
-          "presentation": 5484,
+          "opened": 5466,
+          "presentation": 5482,
           "publicComment": null,
-          "discussion": 5533,
+          "discussion": 5534,
           "vote": {
-            "seconds": 5613,
+            "seconds": 5612,
             "type": "voice",
             "result": "approved"
           }
@@ -567,7 +631,7 @@
           "opened": 5618,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5618,
+          "discussion": 5622,
           "vote": null
         },
         "publicComments": [],
@@ -576,9 +640,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Information – Quarterly Williams Report / Contract Update / San Mateo County Investment Fund",
+        "title": "Information",
         "phases": {
-          "opened": 5820,
+          "opened": 5818,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -592,10 +656,10 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 5855,
+          "opened": 5852,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5872,
+          "discussion": 5867,
           "vote": null
         },
         "publicComments": [],
@@ -606,7 +670,7 @@
         "itemLabel": "16",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5855,
+          "opened": 5867,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -623,7 +687,7 @@
           "opened": 5899,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5905,
+          "discussion": 5903,
           "vote": null
         },
         "publicComments": [],
@@ -639,7 +703,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5928,
+            "seconds": 5927,
             "type": "voice",
             "result": "approved"
           }
@@ -650,7 +714,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T17:57:46.212Z",
-  "inputTokens": 23090,
-  "outputTokens": 4337
+  "cachedAt": "2026-07-21T09:49:04.080Z",
+  "inputTokens": 24016,
+  "outputTokens": 2615
 }
