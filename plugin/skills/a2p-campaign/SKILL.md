@@ -126,7 +126,37 @@ The registration flow, per number (verified end to end 2026-07-21):
    on the portfolio (EIN letter upload in Security Center — the long pole,
    days–2 weeks; start it first).
 6. Platform hookup last: in Synthflow, each chat agent's Deploy panel has a
-   per-agent WhatsApp toggle that appears once the sender exists.
+   per-agent WhatsApp toggle that appears once the sender exists. Then wire
+   the Twilio-side webhooks (next section) — the toggle alone is not enough.
+
+## Inbound message routing (the platform does NOT wire this)
+
+Synthflow provisions Twilio VOICE automatically (elastic SIP trunk) when a
+number is attached in its UI, but never touches Twilio's *messaging* webhooks.
+Until you set them by hand, inbound texts get Twilio's default "Configure your
+number's SMS URL" auto-reply — even though the campaign is approved and the
+chat agent shows deployed. Verified 2026-07-21:
+
+- **SMS** — configure once at the **Messaging Service** level (Console →
+  Messaging → Services → *the A2P campaign's service* → Integration): set
+  Incoming Messages = "Send a webhook", Request URL =
+  `https://chat.synthflow.ai/webhooks/twilio/inbound` (HTTP POST), Delivery
+  Status Callback = `https://chat.synthflow.ai/webhooks/twilio/status`.
+  Service-level webhooks override number-level config and cover every number
+  on the service.
+- **WhatsApp** — configure **per sender** (WhatsApp senders → sender detail →
+  Messaging Endpoint Configuration): the same two URLs go in "Webhook URL for
+  incoming messages" and "Status callback URL". Leave the "Messaging service"
+  selector empty — attaching a Service makes its webhooks take priority over
+  the sender's.
+  - Gotcha: the sender form won't save without **"Profile about"** (the
+    139-char WhatsApp profile tagline) — it's the one required field on the
+    page; Update just flags it red and does nothing. Localize it per line
+    (Spanish tagline on the Spanish number).
+- Synthflow's URLs above are the Global cluster; regional clusters use
+  different hosts (see their "Launch Chat Agents" doc).
+- Test every channel end-to-end after wiring — a working voice line proves
+  nothing about SMS, and working SMS proves nothing about WhatsApp.
 
 ## Post-approval checklist
 
