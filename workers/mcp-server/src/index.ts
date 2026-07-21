@@ -222,6 +222,34 @@ function createServer(): McpServer {
         (s: any) =>
           `${s.slug.padEnd(16)} ${s.nameShort.padEnd(20)} ${s.grades.padEnd(6)} ${s.type.padEnd(14)} ${s.enrollment} students`
       );
+      // Pre-computed aggregates: models miscount when asked to tally grade spans
+      // themselves (observed 2026-07-21: "how many middle schools" answers ranged
+      // 3-5 until these lines existed), so state the answers deterministically.
+      // Grade-span floor: TK/K/PK count as 0.
+      const spanOf = (g: string): [number, number] => {
+        const [lo, hi] = g.split("-");
+        const num = (x: string) => (/^\d+$/.test(x) ? parseInt(x, 10) : 0);
+        return [num(lo), num(hi ?? lo)];
+      };
+      const serves = (s: any, lo: number, hi: number) => {
+        const [a, b] = spanOf(s.grades);
+        return a <= hi && b >= lo;
+      };
+      const names = (list: any[]) => list.map((s: any) => s.nameShort).join(", ");
+      const elem = data.schools.filter((s: any) => serves(s, 0, 5));
+      const mid = data.schools.filter((s: any) => serves(s, 6, 8));
+      const midDedicated = mid.filter((s: any) => spanOf(s.grades)[0] >= 6);
+      const midWider = mid.filter((s: any) => spanOf(s.grades)[0] < 6);
+      const totalEnrollment = data.schools.reduce(
+        (sum: number, s: any) => sum + (s.enrollment ?? 0), 0,
+      );
+      lines.push(
+        "",
+        `Totals (pre-computed - use these rather than counting yourself):`,
+        `  Schools: ${data.schools.length} | Total enrollment: ${totalEnrollment} students`,
+        `  Serving elementary grades (TK-5): ${elem.length} schools (${names(elem)})`,
+        `  Serving middle grades (6-8): ${mid.length} schools - ${midDedicated.length} dedicated (${names(midDedicated)}) + ${midWider.length} wider-span (${names(midWider)})`,
+      );
       lines.push("", sourceLine("schools.json", data.lastUpdated));
       return {
         content: [{ type: "text", text: lines.join("\n") }],
@@ -584,7 +612,7 @@ function createServer(): McpServer {
   // ---- get-trustees ----
   server.tool(
     "get-trustees",
-    "Get the RCSD Board of Trustees (name, trustee area, officer role, term years, email, school assignments) plus the superintendent and cabinet",
+    "Get the RCSD Board of Trustees (name, trustee area, officer role, term years, email, school assignments) plus the superintendent, cabinet, and district office contact info (address, phone)",
     {
       lang: z
         .enum(["en", "es"])
@@ -639,6 +667,18 @@ function createServer(): McpServer {
           lines.push(`${c.name} — ${es ? c.titleEs : c.titleEn}`);
         }
       }
+
+      // Verified district office contact (rcsdk8.net site footer, checked
+      // 2026-07-21). Kept here so agents cite a real number instead of
+      // improvising one — 650-423-22xx numbers seen in old board docs are
+      // department extensions, not the main line.
+      lines.push(
+        "",
+        es ? "=== Oficina del Distrito ===" : "=== District Office ===",
+        "750 Bradford St., Redwood City, CA 94063",
+        `${es ? "Teléfono" : "Phone"}: (650) 482-2200`,
+        `${es ? "Sitio oficial" : "Official site"}: https://www.rcsdk8.net`,
+      );
 
       lines.push("", sourceLine("trustees.json", data._metadata?.retrieved));
       return {
