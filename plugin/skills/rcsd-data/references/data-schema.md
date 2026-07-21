@@ -114,7 +114,7 @@ Top-level: `{ _metadata, charters[] }` — 3 RCSD-authorized charter schools, tr
 | `name`, `nameShort`, `nameEs` | School names (EN / ES) |
 | `cdsCode`, `charterNumber`, `charterFundingType` | State identifiers and funding model |
 | `dateOpened`, `authorizer` | Charter history |
-| `address`, `addressNote`, `addressNoteEs`, `phone` | Location; Connect + KIPP share the former Fair Oaks Elementary campus, and Rocketship is on the district-owned former Hawes campus (see `properties.json`) |
+| `address`, `addressNote`, `addressNoteEs`, `phone` | Location; all three charters sit on district-owned former-school campuses — Connect + KIPP share Fair Oaks, Rocketship is on Hawes (see `properties.json`) |
 | `grades`, `gradesNote`, `enrollment`, `enrollmentYear`, `enrollmentSource` | Size |
 | `schoolLeaders`, `network`, `networkNote` | Leadership / charter-management org |
 | `titlePatterns` | Title regexes used by `build-charters.mjs` to filter `document-index.json` for per-charter board items |
@@ -124,7 +124,7 @@ Top-level: `{ _metadata, charters[] }` — 3 RCSD-authorized charter schools, tr
 
 ## data/properties.json
 
-Top-level: `{ _metadata, properties[] }` — district-owned or district-leased real estate that is **not** an operating RCSD school. Use this to resolve a district address that isn't a school — e.g. a board-packet item that references a site only by street address. Operating schools are in `schools.json`; charters in `charters.json`. A former-school campus that hosts a charter is included here when the district also leases parts of it to other tenants (the Hawes campus).
+Top-level: `{ _metadata, properties[] }` — district-owned or district-leased real estate that is **not** an operating RCSD school, including the charter-hosting former school campuses (Hawes, Fair Oaks). Use this to resolve a district address that isn't a school — e.g. a board-packet item that references a site only by street address. Operating schools are in `schools.json`; charters in `charters.json`.
 
 ### Sample Record
 
@@ -152,10 +152,11 @@ Top-level: `{ _metadata, properties[] }` — district-owned or district-leased r
 | `name`, `nameEs` | Property name (EN / ES) |
 | `address` | Street address — primary lookup key when an agenda item names a site by address only |
 | `addressNote` | Clarifies alternate addresses on the same campus (e.g. Building Kidz's 907 Roosevelt entrance on the 909 Roosevelt Hawes campus) |
-| `use` | One of `admin`, `leased-out`, `district-program`, `leased-in`, `charter-and-leased-out` |
+| `use` | One of `admin`, `leased-out`, `district-program`, `leased-in`, `charter-and-leased-out`, `charter-campus` |
 | `useLabel`, `useLabelEs` | Human-readable use (EN / ES) |
 | `tenant` | If `leased-out`: `{ name, url, type, programs, networkNote }`; otherwise `null` |
-| `tenants` | For multi-tenant sites (Hawes): array of `{ name, type, url, note }` covering the charter and private lessees, with joint-use-agreement history in `note` |
+| `tenants` | For multi-tenant sites (Hawes, Fair Oaks): array of `{ name, type, url, note }` covering the charter and private lessees, with use-agreement history in `note` |
+| `documents` | Board-approved leases / joint-use agreements: `{ label, labelEs, date, url }`. Rendered as link chips in the /schools/ properties table. BoardDocs-hosted URLs 403 to curl but serve fine to browsers |
 | `landlord` | If `leased-in`: `{ name, propertyManager, note }` |
 | `formerUse`, `formerUseEs` | Prior RCSD use, if any |
 | `squareFeet` | Floor area, where known |
@@ -163,7 +164,7 @@ Top-level: `{ _metadata, properties[] }` — district-owned or district-leased r
 
 ### Key Field Notes
 
-- **Current coverage (5 properties):** District Office (750 Bradford St), former Adelante Selby campus now leased to Harper School (3150 Granger Way), former Orion campus now the Creative Learning Center (815 Allerton St), former Hawes Community School campus (909 Roosevelt Ave — Rocketship charter plus Building Kidz preschool at the 907 Roosevelt entrance and Touchstone Learning, both under board-approved Joint Use Agreements), and the district storage warehouse (1757 E Bayshore Rd).
+- **Current coverage (6 properties):** District Office (750 Bradford St), former Adelante Selby campus leased to Harper School via Wagner Schoolhouse LLC (3150 Granger Way), former Orion campus now the Creative Learning Center (815 Allerton St), former Hawes Community School campus (909 Roosevelt Ave — Rocketship charter plus Building Kidz preschool at the 907 Roosevelt entrance and Touchstone Learning, both under board-approved Joint Use Agreements), former Fair Oaks Elementary campus (2950 Fair Oaks Ave — KIPP Excelencia + Connect Community Charter; ownership confirmed by Board President 2026-07-21), and the district storage warehouse (1757 E Bayshore Rd).
 - Per `_metadata.status`, the authoritative full district inventory is still pending — this is seed data confirmed by the Board President, not an exhaustive list.
 
 ---
