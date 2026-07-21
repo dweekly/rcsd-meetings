@@ -123,6 +123,18 @@ const blogCSS = `
     color: var(--green-deep);
     text-decoration-color: var(--green-mid);
   }
+  /* AI content disclosure callout — use on posts drafted by AI */
+  .ai-disclosure {
+    background: var(--cream-dark);
+    border-left: 3px solid var(--green-mid);
+    border-radius: 4px;
+    padding: 0.85rem 1.1rem;
+    margin: 0 0 2rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--ink-soft, #444);
+  }
 
   /* ---- BLOG INDEX ---- */
   .blog-header {
