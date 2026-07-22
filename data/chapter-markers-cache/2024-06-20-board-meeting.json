@@ -2,55 +2,51 @@
   "date": "2024-06-20",
   "slug": "2024-06-20-board-meeting",
   "itemCount": 34,
-  "transcriptHash": "abcd49b6af4558fe",
+  "transcriptHash": "ec402f79e593d17a",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "Vice President (acting as President per agenda; Board President per agenda Section 2)"
       },
       "B": {
         "name": "Evelyn Sanchez",
         "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "D": {
         "name": "David Weekly",
         "role": "Trustee"
       },
-      "E": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "F": {
+      "D": {
         "name": "Mike Wells",
-        "role": "Clerk / Vice President"
+        "role": "Clerk"
       },
-      "G": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board Member (listed as President on agenda but serving as member here)"
-      },
-      "H": {
+      "E": {
         "name": "John Baker",
         "role": "Superintendent"
       },
+      "F": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "G": {
+        "name": "Catherine Stewart",
+        "role": "Community member / public speaker"
+      },
+      "H": {
+        "name": "Cecilia I. Márquez",
+        "role": "President"
+      },
       "I": {
-        "name": "Karen Linford",
-        "role": "Public speaker / Hoover teacher"
+        "name": "Janet Lawson",
+        "role": "Vice President"
       },
       "J": {
-        "name": "Janet Lawson",
-        "role": "Board President"
-      },
-      "K": {
         "name": "Unidentified speaker",
-        "role": "Public speaker / DELAC representative / parent"
+        "role": "Community member / public speaker (parent)"
       }
     },
-    "agendaChanges": "Measure U Funds Disbursement (originally consent item 7.4) was pulled and moved to Action Items as item 7.4. Within item 7.4, Hoover and Taft allocations were further pulled by the Superintendent for return at a future meeting, so the vote approved all schools except Hoover and Taft. The formal agenda lists no Section 8 action items, but 7.4 effectively became one. Sections 2 (Welcome by Janet Lawson) and the roll call under Section 1 proceeded in order; Section 2 welcome was not separately conducted beyond the president opening the meeting.",
+    "agendaChanges": "Measure U Disbursement (originally consent item 7.4) was moved to Action Items as item 7.4 before agenda approval. Within item 7.4, Hoover and Taft applications were pulled for return at the next meeting, so approval excluded those two schools. Section 2 Welcome was not separately conducted as a distinct agenda item. Section 8 Action Items had no items other than the pulled 7.4.",
     "items": [
       {
         "itemLabel": "1",
@@ -84,10 +80,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 72,
+          "opened": 70,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 70,
           "vote": null
         },
         "publicComments": [],
@@ -98,12 +94,12 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 86,
+          "opened": 90,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 96,
+            "seconds": 90,
             "type": "voice",
             "result": "approved"
           }
@@ -116,9 +112,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 100,
+          "opened": 96,
           "presentation": null,
-          "publicComment": 100,
+          "publicComment": 96,
           "discussion": null,
           "vote": null
         },
@@ -127,42 +123,42 @@
         "pulled": false
       },
       {
-        "itemLabel": "6",
-        "title": "Public Hearing – LCAP 2024-2025 and Annual Update for 2023-2024",
+        "itemLabel": "6.1",
+        "title": "Public Hearing and Discussion of the Local Control Accountability Plan (LCAP) for 2024-2025 and the Annual Update for the 2023-2024 LCAP",
         "phases": {
-          "opened": 114,
-          "presentation": 168,
-          "publicComment": 1784,
-          "discussion": 2620,
+          "opened": 115,
+          "presentation": 162,
+          "publicComment": 1783,
+          "discussion": 2626,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Unidentified speaker",
             "startSeconds": 1792,
-            "endSeconds": 2121,
-            "summary": "A DELAC representative and parent described his daughter's struggles as a 7th-grade English learner at Kennedy, asked how the district plans to improve outcomes for African American and Hispanic students, and reported being left waiting in the library for a canceled ELPAC family meeting with no notification."
+            "endSeconds": 1862,
+            "summary": "A parent of a seventh-grade English learner at Kennedy asked how to get help for his daughter and how the district would improve outcomes for African American and Hispanic students."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "6",
-        "title": "Public Hearing – RCSD 2024-25 Proposed Budget",
+        "itemLabel": "6.2",
+        "title": "Public Hearing for the RCSD 2024-25 Proposed Budget",
         "phases": {
-          "opened": 3953,
-          "presentation": 4013,
+          "opened": 3955,
+          "presentation": 4019,
           "publicComment": 5338,
-          "discussion": 5767,
+          "discussion": 5768,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Catherine Stewart",
-            "startSeconds": 5357,
+            "startSeconds": 5358,
             "endSeconds": 5573,
-            "summary": "Asked how much budget is allocated for after-school math tutoring (noting her son's success with a teacher tutor) and for yard supervision, and suggested evening parent meetings with childcare and pizza to boost engagement among working families."
+            "summary": "Asked how much budget is set aside for after-school math tutoring until 6pm and for yard supervision during recess and lunch, and suggested providing childcare and pizza at parent meetings to improve attendance."
           }
         ],
         "consent": false,
@@ -170,68 +166,14 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items (bundle, excluding 7.4)",
+        "title": "Approval of Consent Items (excluding 7.4)",
         "phases": {
-          "opened": 6384,
+          "opened": 6392,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.1",
-        "title": "Approval of the June 5 Board Meeting Minutes",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.2",
-        "title": "Approval of the Board Meeting Dates Calendar for the 2024-2025 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.3",
-        "title": "Approval of the Agreement between the Redwood City School District and Casa Circulo Cultural for the 2024-2025 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
+            "seconds": 6405,
             "type": "voice",
             "result": "approved"
           }
@@ -242,14 +184,14 @@
       },
       {
         "itemLabel": "7.4",
-        "title": "Approval of Disbursement of Measure U Funds for the 2024-2025 School Year",
+        "title": "Approval of Disbursement of Measure U Funds for the 2024-2025 School Year (excluding Hoover and Taft)",
         "phases": {
-          "opened": 6407,
+          "opened": 6408,
           "presentation": null,
-          "publicComment": 6436,
+          "publicComment": 6446,
           "discussion": null,
           "vote": {
-            "seconds": 6611,
+            "seconds": 6606,
             "type": "voice",
             "result": "approved (excluding Hoover and Taft)"
           }
@@ -257,94 +199,22 @@
         "publicComments": [
           {
             "name": "Karen Linford",
-            "startSeconds": 6459,
-            "endSeconds": 6586,
-            "summary": "A Hoover teacher introduced herself, praised the district's work, and advocated for music and arts electives as an equity issue, noting the positive impact on social-emotional learning and brain development for students who cannot afford outside lessons."
+            "startSeconds": 6460,
+            "endSeconds": 6588,
+            "summary": "A Hoover teacher introduced herself, expressed gratitude for the board's work, and advocated for more music and arts electives as an equity issue and social-emotional learning tool for students."
           }
         ],
         "consent": false,
         "pulled": true
       },
       {
-        "itemLabel": "7.5",
-        "title": "Approval of the Agreement between Redwood City School District and Effective School Solutions, LLC (ESS) for Mental Health Services for the 2024-25 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.6",
-        "title": "Approval of the MOU between Sequoia Healthcare District and Redwood City School District for the 2024-25 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.7",
-        "title": "Approval of Agreement for Service Between Effective School Solutions, LLC and The Redwood City School District for the 2024-2025 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.8",
-        "title": "Ratification of Warrant Registers, May 1, 2024 - May 31, 2024",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
         "itemLabel": "9",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 6611,
+          "opened": 6615,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6619,
+          "discussion": 6615,
           "vote": null
         },
         "publicComments": [],
@@ -355,7 +225,7 @@
         "itemLabel": "10",
         "title": "Correspondence",
         "phases": {
-          "opened": 7103,
+          "opened": 7101,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -369,7 +239,7 @@
         "itemLabel": "11",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7108,
+          "opened": 7111,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -383,7 +253,7 @@
         "itemLabel": "12",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 7110,
+          "opened": 7122,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -397,12 +267,12 @@
         "itemLabel": "13",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 7119,
+          "opened": 7128,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7137,
+            "seconds": 7138,
             "type": "voice",
             "result": "approved"
           }
@@ -418,50 +288,46 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "Vice President (acting as President per agenda; Board President per agenda Section 2)"
       },
       "B": {
         "name": "Evelyn Sanchez",
         "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "C": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "D": {
         "name": "David Weekly",
         "role": "Trustee"
       },
-      "E": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "F": {
+      "D": {
         "name": "Mike Wells",
-        "role": "Clerk / Vice President"
+        "role": "Clerk"
       },
-      "G": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board Member (listed as President on agenda but serving as member here)"
-      },
-      "H": {
+      "E": {
         "name": "John Baker",
         "role": "Superintendent"
       },
+      "F": {
+        "name": "Alisa MacAvoy",
+        "role": "Trustee"
+      },
+      "G": {
+        "name": "Catherine Stewart",
+        "role": "Community member / public speaker"
+      },
+      "H": {
+        "name": "Cecilia I. Márquez",
+        "role": "President"
+      },
       "I": {
-        "name": "Karen Linford",
-        "role": "Public speaker / Hoover teacher"
+        "name": "Janet Lawson",
+        "role": "Vice President"
       },
       "J": {
-        "name": "Janet Lawson",
-        "role": "Board President"
-      },
-      "K": {
         "name": "Unidentified speaker",
-        "role": "Public speaker / DELAC representative / parent"
+        "role": "Community member / public speaker (parent)"
       }
     },
-    "agendaChanges": "Measure U Funds Disbursement (originally consent item 7.4) was pulled and moved to Action Items as item 7.4. Within item 7.4, Hoover and Taft allocations were further pulled by the Superintendent for return at a future meeting, so the vote approved all schools except Hoover and Taft. The formal agenda lists no Section 8 action items, but 7.4 effectively became one. Sections 2 (Welcome by Janet Lawson) and the roll call under Section 1 proceeded in order; Section 2 welcome was not separately conducted beyond the president opening the meeting.",
+    "agendaChanges": "Measure U Disbursement (originally consent item 7.4) was moved to Action Items as item 7.4 before agenda approval. Within item 7.4, Hoover and Taft applications were pulled for return at the next meeting, so approval excluded those two schools. Section 2 Welcome was not separately conducted as a distinct agenda item. Section 8 Action Items had no items other than the pulled 7.4.",
     "items": [
       {
         "itemLabel": "1",
@@ -495,10 +361,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 72,
+          "opened": 70,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 70,
           "vote": null
         },
         "publicComments": [],
@@ -509,12 +375,12 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 86,
+          "opened": 90,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 96,
+            "seconds": 90,
             "type": "voice",
             "result": "approved"
           }
@@ -527,9 +393,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 100,
+          "opened": 96,
           "presentation": null,
-          "publicComment": 100,
+          "publicComment": 96,
           "discussion": null,
           "vote": null
         },
@@ -538,42 +404,42 @@
         "pulled": false
       },
       {
-        "itemLabel": "6",
-        "title": "Public Hearing – LCAP 2024-2025 and Annual Update for 2023-2024",
+        "itemLabel": "6.1",
+        "title": "Public Hearing and Discussion of the Local Control Accountability Plan (LCAP) for 2024-2025 and the Annual Update for the 2023-2024 LCAP",
         "phases": {
-          "opened": 114,
-          "presentation": 168,
-          "publicComment": 1784,
-          "discussion": 2620,
+          "opened": 115,
+          "presentation": 162,
+          "publicComment": 1783,
+          "discussion": 2626,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Unidentified speaker",
             "startSeconds": 1792,
-            "endSeconds": 2121,
-            "summary": "A DELAC representative and parent described his daughter's struggles as a 7th-grade English learner at Kennedy, asked how the district plans to improve outcomes for African American and Hispanic students, and reported being left waiting in the library for a canceled ELPAC family meeting with no notification."
+            "endSeconds": 1862,
+            "summary": "A parent of a seventh-grade English learner at Kennedy asked how to get help for his daughter and how the district would improve outcomes for African American and Hispanic students."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "6",
-        "title": "Public Hearing – RCSD 2024-25 Proposed Budget",
+        "itemLabel": "6.2",
+        "title": "Public Hearing for the RCSD 2024-25 Proposed Budget",
         "phases": {
-          "opened": 3953,
-          "presentation": 4013,
+          "opened": 3955,
+          "presentation": 4019,
           "publicComment": 5338,
-          "discussion": 5767,
+          "discussion": 5768,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Catherine Stewart",
-            "startSeconds": 5357,
+            "startSeconds": 5358,
             "endSeconds": 5573,
-            "summary": "Asked how much budget is allocated for after-school math tutoring (noting her son's success with a teacher tutor) and for yard supervision, and suggested evening parent meetings with childcare and pizza to boost engagement among working families."
+            "summary": "Asked how much budget is set aside for after-school math tutoring until 6pm and for yard supervision during recess and lunch, and suggested providing childcare and pizza at parent meetings to improve attendance."
           }
         ],
         "consent": false,
@@ -581,68 +447,14 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items (bundle, excluding 7.4)",
+        "title": "Approval of Consent Items (excluding 7.4)",
         "phases": {
-          "opened": 6384,
+          "opened": 6392,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.1",
-        "title": "Approval of the June 5 Board Meeting Minutes",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.2",
-        "title": "Approval of the Board Meeting Dates Calendar for the 2024-2025 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.3",
-        "title": "Approval of the Agreement between the Redwood City School District and Casa Circulo Cultural for the 2024-2025 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
+            "seconds": 6405,
             "type": "voice",
             "result": "approved"
           }
@@ -653,14 +465,14 @@
       },
       {
         "itemLabel": "7.4",
-        "title": "Approval of Disbursement of Measure U Funds for the 2024-2025 School Year",
+        "title": "Approval of Disbursement of Measure U Funds for the 2024-2025 School Year (excluding Hoover and Taft)",
         "phases": {
-          "opened": 6407,
+          "opened": 6408,
           "presentation": null,
-          "publicComment": 6436,
+          "publicComment": 6446,
           "discussion": null,
           "vote": {
-            "seconds": 6611,
+            "seconds": 6606,
             "type": "voice",
             "result": "approved (excluding Hoover and Taft)"
           }
@@ -668,94 +480,22 @@
         "publicComments": [
           {
             "name": "Karen Linford",
-            "startSeconds": 6459,
-            "endSeconds": 6586,
-            "summary": "A Hoover teacher introduced herself, praised the district's work, and advocated for music and arts electives as an equity issue, noting the positive impact on social-emotional learning and brain development for students who cannot afford outside lessons."
+            "startSeconds": 6460,
+            "endSeconds": 6588,
+            "summary": "A Hoover teacher introduced herself, expressed gratitude for the board's work, and advocated for more music and arts electives as an equity issue and social-emotional learning tool for students."
           }
         ],
         "consent": false,
         "pulled": true
       },
       {
-        "itemLabel": "7.5",
-        "title": "Approval of the Agreement between Redwood City School District and Effective School Solutions, LLC (ESS) for Mental Health Services for the 2024-25 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.6",
-        "title": "Approval of the MOU between Sequoia Healthcare District and Redwood City School District for the 2024-25 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.7",
-        "title": "Approval of Agreement for Service Between Effective School Solutions, LLC and The Redwood City School District for the 2024-2025 School Year",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "7.8",
-        "title": "Ratification of Warrant Registers, May 1, 2024 - May 31, 2024",
-        "phases": {
-          "opened": 6384,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 6406,
-            "type": "voice",
-            "result": "approved"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
         "itemLabel": "9",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 6611,
+          "opened": 6615,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6619,
+          "discussion": 6615,
           "vote": null
         },
         "publicComments": [],
@@ -766,7 +506,7 @@
         "itemLabel": "10",
         "title": "Correspondence",
         "phases": {
-          "opened": 7103,
+          "opened": 7101,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -780,7 +520,7 @@
         "itemLabel": "11",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7108,
+          "opened": 7111,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -794,7 +534,7 @@
         "itemLabel": "12",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 7110,
+          "opened": 7122,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -808,12 +548,12 @@
         "itemLabel": "13",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 7119,
+          "opened": 7128,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7137,
+            "seconds": 7138,
             "type": "voice",
             "result": "approved"
           }
@@ -824,7 +564,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-21T03:18:38.402Z",
-  "inputTokens": 30689,
-  "outputTokens": 3214
+  "cachedAt": "2026-07-22T20:26:36.576Z",
+  "inputTokens": 28875,
+  "outputTokens": 2155
 }

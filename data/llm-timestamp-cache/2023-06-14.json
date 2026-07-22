@@ -1,6 +1,6 @@
 {
   "date": "2023-06-14",
-  "transcriptHash": "c0354be926beec8e",
+  "transcriptHash": "d0b84b9e7b2e4642",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -58,22 +58,22 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two changes announced: (1) Item 13.2 (Approval of Personnel Report) moved from Consent to Consent; (2) Item 12.13 (Approval of PowerSchool 5-year Agreement) moved from Consent to Action",
-    "consent_vote_words": "Can I get a motion to approve? And then that would be from 12.1 to 12.12, and then we move 13.2 to consent.",
+    "agenda_changes": "Item 13.2 (Approval of Personnel Report) moved from Consent to Consent Items bundle. Item 12.13 (Approval of PowerSchool 5-year Agreement) moved from Consent to Action Items.",
+    "consent_vote_words": "Can I get a motion to approved. And then that would be from 12.1 to 12.12.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Welcome everyone to another Redwood City School District board meeting.",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Moving on to item 9, bond program consent items.",
+        "intro_words": "Moving on to item nine, bond program consent items.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Item 10, bond program action items. 10.1, approval of final plan review invoice",
+        "intro_words": "Item 10, bond program action items. 10.1, approval of final plan review.",
         "status": "found"
       },
       {
@@ -83,52 +83,57 @@
       },
       {
         "item": 11.2,
-        "intro_words": "So moving on to item 11.2, Reading Instruction. All right, this is Ms. Wolf",
+        "intro_words": "So moving to item 11.2, reading instruction. All right, this is Wolf",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "And now moving on to item 12. The consent items. Can I get a motion",
+        "intro_words": "And so now moving on to item 12, the consent items.",
         "status": "found"
       },
       {
+        "item": "12.1-12.12",
+        "intro_words": "Can I get a motion to approved. And then that would be from 12.1 to 12.12.",
+        "status": "consent_bundle"
+      },
+      {
         "item": 12.13,
-        "intro_words": "So moving on to action items. 12.13 was moved from consent to action",
+        "intro_words": "And so do you want to go ahead and speak on that?",
         "status": "found"
       },
       {
         "item": 13.1,
-        "intro_words": "And moving on to 13.3, approval of disbursement of Measure U funds for the",
+        "intro_words": "Adoption of resolution 37, approval of education code options for teaching assignments.",
         "status": "found"
       },
       {
         "item": 13.3,
-        "intro_words": "So now 13.3, approval of disbursement of Measure U funds for the 2023-2024",
+        "intro_words": "And so now 13.3. Approval of disbursement of Measure U funds for the",
         "status": "found"
       },
       {
         "item": 45,
-        "intro_words": "And moving on to board and superintendent report. I could start.",
+        "intro_words": "And moving on to board and superintendent report. Who would like to cite.",
         "status": "found"
       },
       {
         "item": 47,
-        "intro_words": "So then moving on to item 15, correspondence. I got one email",
+        "intro_words": "So then moving to item 15, correspondence. I got one email from a parent",
         "status": "found"
       },
       {
         "item": 49,
-        "intro_words": "Okay, so then moving on to other possible business suggested items for future",
+        "intro_words": "So then moving on to other possible business suggested items for future agendas.",
         "status": "found"
       },
       {
         "item": 51,
-        "intro_words": "moving on to Board meeting calendar, and I'm sure there is no changes",
+        "intro_words": "Moving on to board meeting calendar. And I'm sure there is no changes.",
         "status": "found"
       },
       {
-        "item": 53,
-        "intro_words": "With that, does somebody want to make a motion to adjourn this meeting?",
+        "item": 54,
+        "intro_words": "Which meetings do we have? This PDF says 21st, 23rd and 20th.",
         "status": "found"
       }
     ]
@@ -152,16 +157,16 @@
         "timestampSeconds": 135
       },
       {
-        "timestamp": "00:02:26",
-        "timestampSeconds": 146
+        "timestamp": "00:02:25",
+        "timestampSeconds": 145
       },
       {
         "timestamp": "00:03:06",
         "timestampSeconds": 186
       },
       {
-        "timestamp": "00:57:59",
-        "timestampSeconds": 3479
+        "timestamp": "00:57:54",
+        "timestampSeconds": 3474
       },
       null,
       null,
@@ -206,23 +211,23 @@
       },
       null,
       {
-        "timestamp": "01:17:46",
-        "timestampSeconds": 4666
+        "timestamp": "01:17:22",
+        "timestampSeconds": 4642
       },
       null,
       {
-        "timestamp": "01:17:46",
-        "timestampSeconds": 4666
+        "timestamp": "01:17:22",
+        "timestampSeconds": 4642
       },
       null,
+      null,
       {
-        "timestamp": "01:18:44",
-        "timestampSeconds": 4724
-      },
-      null
+        "timestamp": "01:18:37",
+        "timestampSeconds": 4717
+      }
     ]
   },
-  "cachedAt": "2026-07-21T03:44:01.010Z",
-  "inputTokens": 18681,
-  "outputTokens": 814
+  "cachedAt": "2026-07-22T20:46:15.191Z",
+  "inputTokens": 18153,
+  "outputTokens": 842
 }
