@@ -2,7 +2,7 @@
   "date": "2025-05-14",
   "slug": "2025-05-14-board-meeting",
   "itemCount": 55,
-  "transcriptHash": "882365ed1cb7c761",
+  "transcriptHash": "436419e047a52407",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -10,61 +10,41 @@
         "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "B": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Trustee"
-      },
-      "C": {
-        "name": "Cecilia I. Márquez",
-        "role": "Clerk"
-      },
-      "D": {
         "name": "David Li",
         "role": "Trustee"
       },
-      "E": {
+      "C": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Trustee"
+      },
+      "D": {
         "name": "David Weekly",
         "role": "Vice President"
       },
-      "F": {
+      "E": {
         "name": "Mike Wells",
-        "role": "President"
+        "role": "Board President"
+      },
+      "F": {
+        "name": "Nick Olson",
+        "role": "Bond Program Manager, VPCS"
       },
       "G": {
-        "name": "Mike Wells",
-        "role": "President (speaking/facilitating)"
+        "name": "Cecilia I. Márquez",
+        "role": "Clerk"
       },
       "H": {
         "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "I": {
-        "name": "David Weekly",
-        "role": "Vice President (making motions)"
-      },
-      "J": {
-        "name": "Amica Guillaume",
-        "role": "Public speaker / COO Peninsula Bridge"
-      },
-      "K": {
-        "name": "Megan",
-        "role": "Public speaker"
-      },
-      "L": {
-        "name": "John Baker",
-        "role": "Superintendent (presenting)"
-      },
-      "M": {
-        "name": "Nick Olson",
-        "role": "Bond Program Manager, VPCS"
+        "role": "Superintendent (Dr. Baker)"
       }
     },
-    "agendaChanges": "Sections 1–3 (Call to Order, Roll Call, Oral Communication on Closed Session, and Closed Session) are not captured in the transcript recording. The recording begins mid-meeting at Section 4 (Reconvene / Roll Call). Section 5 (Welcome) and Section 6 (Changes to the Agenda) and Section 7 (Approval of Agenda) are handled together in President Wells's opening remarks starting at ~14s. Oral Communication (Section 8) is taken up before Bond Program items (Sections 9–10), consistent with the agenda order. No items were pulled from consent. No other resequencing noted.",
+    "agendaChanges": "Section 2 (Oral Communication on Closed Session Items Only) and Section 3 (Closed Session) and Section 4 (Reconvene/Roll Call/Report Out) appear to have occurred before the recording begins or at the very opening. The recording opens mid-roll-call, then immediately the president delivers the Report Out on Closed Session and the Welcome simultaneously. Sections 2, 3, and the roll call for Section 4 are not captured as discrete segments. Section 5 (Welcome) and Section 4 (Report Out) are delivered together by the president starting at ~16s. Sections 6 and 7 (Changes to Agenda and Approval of Agenda) are handled very briefly at ~140s-148s. Section 8 (Oral Communication) occurs at ~148s after agenda approval. The meeting otherwise follows the posted agenda order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
-          "opened": null,
+          "opened": 5,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -76,20 +56,6 @@
       },
       {
         "itemLabel": "2",
-        "title": "Roll Call (Opening)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "3",
         "title": "Oral Communication on Closed Session Items Only",
         "phases": {
           "opened": null,
@@ -103,7 +69,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "4a",
+        "itemLabel": "3",
         "title": "Closed Session – Public Employee Performance Evaluation: Superintendent",
         "phases": {
           "opened": null,
@@ -117,24 +83,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "4b",
-        "title": "Reconvene to Regular Session – Roll Call",
+        "itemLabel": "4",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 5,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "4c",
-        "title": "Report Out on Closed Session from May 14, 2025",
-        "phases": {
-          "opened": 14,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -148,7 +100,7 @@
         "itemLabel": "5",
         "title": "Welcome by the School Board President, Mike Wells",
         "phases": {
-          "opened": 14,
+          "opened": 16,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -162,7 +114,7 @@
         "itemLabel": "6",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 139,
+          "opened": 140,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -176,14 +128,14 @@
         "itemLabel": "7",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 140,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 146,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -194,48 +146,48 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 146,
+          "opened": 148,
           "presentation": null,
-          "publicComment": 146,
+          "publicComment": 148,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Amica Guillaume",
+            "name": "Amika Guillaume",
             "startSeconds": 180,
-            "endSeconds": 358,
-            "summary": "As COO of Peninsula Bridge, she updated the board on the program's expansion to a 13-year model, highlighting that 20 Redwood City students were selected from 87 nominated, and sharing outcomes including near-zero college debt and 92% full employment for program graduates."
+            "endSeconds": 360,
+            "summary": "As COO of Peninsula Bridge, she updated the board on the program's 35-year history, its expansion to a 13-year pipeline, and the strong college enrollment and employment outcomes for Redwood City students in the program."
           },
           {
-            "name": "Maya Rosales Rosiles",
-            "startSeconds": 384,
-            "endSeconds": 406,
-            "summary": "Expressed gratitude to the board for allowing Advanced English classes at Kennedy Middle School."
+            "name": "Maya",
+            "startSeconds": 393,
+            "endSeconds": 436,
+            "summary": "Expressed gratitude to the board for approving advanced English classes at Kennedy Middle School."
           },
           {
             "name": "Saoirse Rafferty",
-            "startSeconds": 406,
-            "endSeconds": 440,
-            "summary": "On behalf of the Orion Mandarin Immersion class of 2025, deeply thanked the board for implementing advanced ELA classes at Kennedy, saying it will help students fulfill their dreams."
+            "startSeconds": 397,
+            "endSeconds": 448,
+            "summary": "Thanked the board for its work for the Redwood City School District students and expressed excitement about the advanced ELA program at Kennedy."
           },
           {
             "name": "Nia",
-            "startSeconds": 455,
-            "endSeconds": 470,
-            "summary": "Thanked the board for the advanced ELA program and expressed excitement about learning more advanced vocabulary to help achieve her dreams."
+            "startSeconds": 410,
+            "endSeconds": 471,
+            "summary": "Expressed deep appreciation for the board's efforts and enthusiasm about the advanced ELA classes helping her achieve her future goals."
           },
           {
             "name": "Finbar",
-            "startSeconds": 492,
-            "endSeconds": 497,
-            "summary": "Briefly thanked the board for the advanced ELA program."
+            "startSeconds": 493,
+            "endSeconds": 499,
+            "summary": "Briefly thanked the board for the advanced ELA program at Kennedy."
           },
           {
             "name": "Megan",
             "startSeconds": 512,
-            "endSeconds": 554,
-            "summary": "Seconded the students' comments, thanked the board for carefully considering the advanced ELA issue, and brought small gifts of salad dressing to show appreciation for the board's effort."
+            "endSeconds": 556,
+            "summary": "Seconded the students' comments, thanked the board for carefully considering and approving the advanced ELA decision, and brought small gifts as a token of appreciation."
           }
         ],
         "consent": false,
@@ -245,14 +197,14 @@
         "itemLabel": "9",
         "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 556,
+          "opened": 557,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 576,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -260,17 +212,31 @@
         "pulled": false
       },
       {
-        "itemLabel": "10.1",
-        "title": "Adoption of Resolution No. 24, Lease-Leaseback Agreement with Blach Construction for HVAC Projects at Adelante Selby School, Hoover School, Roosevelt School, and Taft School",
+        "itemLabel": "10",
+        "title": "Bond Program Action Items",
         "phases": {
-          "opened": 577,
-          "presentation": 616,
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.1",
+        "title": "Adoption of Resolution No. 24, Lease-Leaseback Agreement with Blach Construction for HVAC Projects at Adelante Selby, Hoover, Roosevelt, and Taft Schools",
+        "phases": {
+          "opened": 578,
+          "presentation": 618,
           "publicComment": null,
           "discussion": 820,
           "vote": {
             "seconds": 934,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -281,14 +247,14 @@
         "itemLabel": "10.2",
         "title": "Approval of Agreement for Purchase of Mobile Air Conditioning Units for Charter School Sites",
         "phases": {
-          "opened": 934,
-          "presentation": 947,
+          "opened": 937,
+          "presentation": 948,
           "publicComment": null,
-          "discussion": 975,
+          "discussion": 980,
           "vote": {
             "seconds": 1050,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -306,7 +272,7 @@
           "vote": {
             "seconds": 1065,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -317,14 +283,14 @@
         "itemLabel": "12.1",
         "title": "Approval of Pilot of Benchmark 2022 English/Spanish Language Arts Curriculum at Taft and Garfield Elementary Schools for the 2025-2026 School Year",
         "phases": {
-          "opened": 1070,
-          "presentation": 1083,
+          "opened": 1071,
+          "presentation": 1084,
           "publicComment": null,
-          "discussion": 1244,
+          "discussion": 1245,
           "vote": {
-            "seconds": 1527,
+            "seconds": 1535,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -335,14 +301,14 @@
         "itemLabel": "12.2",
         "title": "Approval of the School Plans for Student Achievement (SPSAs) for Adelante Selby, Roosevelt, and Clifford",
         "phases": {
-          "opened": 1535,
-          "presentation": 1546,
+          "opened": 1539,
+          "presentation": 1548,
           "publicComment": null,
-          "discussion": 1573,
+          "discussion": 1566,
           "vote": {
-            "seconds": 1610,
+            "seconds": 1617,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -353,14 +319,14 @@
         "itemLabel": "12.3",
         "title": "Approval of Orion Growth Plan: A Sustainable Roadmap for Unity and Excellence",
         "phases": {
-          "opened": 1620,
-          "presentation": 1652,
+          "opened": 1625,
+          "presentation": 1656,
           "publicComment": null,
-          "discussion": 3231,
+          "discussion": 3234,
           "vote": {
-            "seconds": 3866,
+            "seconds": 3869,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -371,7 +337,21 @@
         "itemLabel": "13",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 3875,
+          "opened": 3876,
+          "presentation": 3883,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "14",
+        "title": "Information",
+        "phases": {
+          "opened": 4448,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -385,7 +365,7 @@
         "itemLabel": "14.1",
         "title": "Contract Update Information and Credit Card Summary",
         "phases": {
-          "opened": 4441,
+          "opened": 4448,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -413,7 +393,7 @@
         "itemLabel": "14.3",
         "title": "RCSD Review of Connect Community Charter Second Interim Financial Report for FY 2024-25",
         "phases": {
-          "opened": 4448,
+          "opened": 4470,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -427,7 +407,7 @@
         "itemLabel": "14.4",
         "title": "RCSD Review of KIPP Excelencia Community Prep Charter Second Interim Financial Report for FY 2024-25",
         "phases": {
-          "opened": 4448,
+          "opened": 4470,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -441,7 +421,7 @@
         "itemLabel": "14.5",
         "title": "RCSD Review of Rocketship Redwood City Prep Charter Second Interim Financial Report for FY 2024-25",
         "phases": {
-          "opened": 4448,
+          "opened": 4470,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -455,10 +435,10 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 4533,
+          "opened": 4531,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 4539,
           "vote": null
         },
         "publicComments": [],
@@ -469,7 +449,7 @@
         "itemLabel": "16",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 4582,
+          "opened": 4584,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -481,12 +461,12 @@
       },
       {
         "itemLabel": "17",
-        "title": "Changes to the Board Meetings Calendar",
+        "title": "Board Meetings Calendar",
         "phases": {
-          "opened": 4593,
+          "opened": 4591,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 4597,
           "vote": null
         },
         "publicComments": [],
@@ -504,7 +484,7 @@
           "vote": {
             "seconds": 4639,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -521,61 +501,41 @@
         "role": "Executive Assistant to Superintendent / Board Secretary"
       },
       "B": {
-        "name": "Jennifer Ng Kwing King",
-        "role": "Trustee"
-      },
-      "C": {
-        "name": "Cecilia I. Márquez",
-        "role": "Clerk"
-      },
-      "D": {
         "name": "David Li",
         "role": "Trustee"
       },
-      "E": {
+      "C": {
+        "name": "Jennifer Ng Kwing King",
+        "role": "Trustee"
+      },
+      "D": {
         "name": "David Weekly",
         "role": "Vice President"
       },
-      "F": {
+      "E": {
         "name": "Mike Wells",
-        "role": "President"
+        "role": "Board President"
+      },
+      "F": {
+        "name": "Nick Olson",
+        "role": "Bond Program Manager, VPCS"
       },
       "G": {
-        "name": "Mike Wells",
-        "role": "President (speaking/facilitating)"
+        "name": "Cecilia I. Márquez",
+        "role": "Clerk"
       },
       "H": {
         "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "I": {
-        "name": "David Weekly",
-        "role": "Vice President (making motions)"
-      },
-      "J": {
-        "name": "Amica Guillaume",
-        "role": "Public speaker / COO Peninsula Bridge"
-      },
-      "K": {
-        "name": "Megan",
-        "role": "Public speaker"
-      },
-      "L": {
-        "name": "John Baker",
-        "role": "Superintendent (presenting)"
-      },
-      "M": {
-        "name": "Nick Olson",
-        "role": "Bond Program Manager, VPCS"
+        "role": "Superintendent (Dr. Baker)"
       }
     },
-    "agendaChanges": "Sections 1–3 (Call to Order, Roll Call, Oral Communication on Closed Session, and Closed Session) are not captured in the transcript recording. The recording begins mid-meeting at Section 4 (Reconvene / Roll Call). Section 5 (Welcome) and Section 6 (Changes to the Agenda) and Section 7 (Approval of Agenda) are handled together in President Wells's opening remarks starting at ~14s. Oral Communication (Section 8) is taken up before Bond Program items (Sections 9–10), consistent with the agenda order. No items were pulled from consent. No other resequencing noted.",
+    "agendaChanges": "Section 2 (Oral Communication on Closed Session Items Only) and Section 3 (Closed Session) and Section 4 (Reconvene/Roll Call/Report Out) appear to have occurred before the recording begins or at the very opening. The recording opens mid-roll-call, then immediately the president delivers the Report Out on Closed Session and the Welcome simultaneously. Sections 2, 3, and the roll call for Section 4 are not captured as discrete segments. Section 5 (Welcome) and Section 4 (Report Out) are delivered together by the president starting at ~16s. Sections 6 and 7 (Changes to Agenda and Approval of Agenda) are handled very briefly at ~140s-148s. Section 8 (Oral Communication) occurs at ~148s after agenda approval. The meeting otherwise follows the posted agenda order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
-          "opened": null,
+          "opened": 5,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -587,20 +547,6 @@
       },
       {
         "itemLabel": "2",
-        "title": "Roll Call (Opening)",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "3",
         "title": "Oral Communication on Closed Session Items Only",
         "phases": {
           "opened": null,
@@ -614,7 +560,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "4a",
+        "itemLabel": "3",
         "title": "Closed Session – Public Employee Performance Evaluation: Superintendent",
         "phases": {
           "opened": null,
@@ -628,24 +574,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "4b",
-        "title": "Reconvene to Regular Session – Roll Call",
+        "itemLabel": "4",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 5,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "4c",
-        "title": "Report Out on Closed Session from May 14, 2025",
-        "phases": {
-          "opened": 14,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -659,7 +591,7 @@
         "itemLabel": "5",
         "title": "Welcome by the School Board President, Mike Wells",
         "phases": {
-          "opened": 14,
+          "opened": 16,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -673,7 +605,7 @@
         "itemLabel": "6",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 139,
+          "opened": 140,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -687,14 +619,14 @@
         "itemLabel": "7",
         "title": "Approval of the Agenda",
         "phases": {
-          "opened": 140,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 146,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -705,48 +637,48 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 146,
+          "opened": 148,
           "presentation": null,
-          "publicComment": 146,
+          "publicComment": 148,
           "discussion": null,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Amica Guillaume",
+            "name": "Amika Guillaume",
             "startSeconds": 180,
-            "endSeconds": 358,
-            "summary": "As COO of Peninsula Bridge, she updated the board on the program's expansion to a 13-year model, highlighting that 20 Redwood City students were selected from 87 nominated, and sharing outcomes including near-zero college debt and 92% full employment for program graduates."
+            "endSeconds": 360,
+            "summary": "As COO of Peninsula Bridge, she updated the board on the program's 35-year history, its expansion to a 13-year pipeline, and the strong college enrollment and employment outcomes for Redwood City students in the program."
           },
           {
-            "name": "Maya Rosales Rosiles",
-            "startSeconds": 384,
-            "endSeconds": 406,
-            "summary": "Expressed gratitude to the board for allowing Advanced English classes at Kennedy Middle School."
+            "name": "Maya",
+            "startSeconds": 393,
+            "endSeconds": 436,
+            "summary": "Expressed gratitude to the board for approving advanced English classes at Kennedy Middle School."
           },
           {
             "name": "Saoirse Rafferty",
-            "startSeconds": 406,
-            "endSeconds": 440,
-            "summary": "On behalf of the Orion Mandarin Immersion class of 2025, deeply thanked the board for implementing advanced ELA classes at Kennedy, saying it will help students fulfill their dreams."
+            "startSeconds": 397,
+            "endSeconds": 448,
+            "summary": "Thanked the board for its work for the Redwood City School District students and expressed excitement about the advanced ELA program at Kennedy."
           },
           {
             "name": "Nia",
-            "startSeconds": 455,
-            "endSeconds": 470,
-            "summary": "Thanked the board for the advanced ELA program and expressed excitement about learning more advanced vocabulary to help achieve her dreams."
+            "startSeconds": 410,
+            "endSeconds": 471,
+            "summary": "Expressed deep appreciation for the board's efforts and enthusiasm about the advanced ELA classes helping her achieve her future goals."
           },
           {
             "name": "Finbar",
-            "startSeconds": 492,
-            "endSeconds": 497,
-            "summary": "Briefly thanked the board for the advanced ELA program."
+            "startSeconds": 493,
+            "endSeconds": 499,
+            "summary": "Briefly thanked the board for the advanced ELA program at Kennedy."
           },
           {
             "name": "Megan",
             "startSeconds": 512,
-            "endSeconds": 554,
-            "summary": "Seconded the students' comments, thanked the board for carefully considering the advanced ELA issue, and brought small gifts of salad dressing to show appreciation for the board's effort."
+            "endSeconds": 556,
+            "summary": "Seconded the students' comments, thanked the board for carefully considering and approving the advanced ELA decision, and brought small gifts as a token of appreciation."
           }
         ],
         "consent": false,
@@ -756,14 +688,14 @@
         "itemLabel": "9",
         "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 556,
+          "opened": 557,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 576,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -771,17 +703,31 @@
         "pulled": false
       },
       {
-        "itemLabel": "10.1",
-        "title": "Adoption of Resolution No. 24, Lease-Leaseback Agreement with Blach Construction for HVAC Projects at Adelante Selby School, Hoover School, Roosevelt School, and Taft School",
+        "itemLabel": "10",
+        "title": "Bond Program Action Items",
         "phases": {
-          "opened": 577,
-          "presentation": 616,
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.1",
+        "title": "Adoption of Resolution No. 24, Lease-Leaseback Agreement with Blach Construction for HVAC Projects at Adelante Selby, Hoover, Roosevelt, and Taft Schools",
+        "phases": {
+          "opened": 578,
+          "presentation": 618,
           "publicComment": null,
           "discussion": 820,
           "vote": {
             "seconds": 934,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -792,14 +738,14 @@
         "itemLabel": "10.2",
         "title": "Approval of Agreement for Purchase of Mobile Air Conditioning Units for Charter School Sites",
         "phases": {
-          "opened": 934,
-          "presentation": 947,
+          "opened": 937,
+          "presentation": 948,
           "publicComment": null,
-          "discussion": 975,
+          "discussion": 980,
           "vote": {
             "seconds": 1050,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -817,7 +763,7 @@
           "vote": {
             "seconds": 1065,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -828,14 +774,14 @@
         "itemLabel": "12.1",
         "title": "Approval of Pilot of Benchmark 2022 English/Spanish Language Arts Curriculum at Taft and Garfield Elementary Schools for the 2025-2026 School Year",
         "phases": {
-          "opened": 1070,
-          "presentation": 1083,
+          "opened": 1071,
+          "presentation": 1084,
           "publicComment": null,
-          "discussion": 1244,
+          "discussion": 1245,
           "vote": {
-            "seconds": 1527,
+            "seconds": 1535,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -846,14 +792,14 @@
         "itemLabel": "12.2",
         "title": "Approval of the School Plans for Student Achievement (SPSAs) for Adelante Selby, Roosevelt, and Clifford",
         "phases": {
-          "opened": 1535,
-          "presentation": 1546,
+          "opened": 1539,
+          "presentation": 1548,
           "publicComment": null,
-          "discussion": 1573,
+          "discussion": 1566,
           "vote": {
-            "seconds": 1610,
+            "seconds": 1617,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -864,14 +810,14 @@
         "itemLabel": "12.3",
         "title": "Approval of Orion Growth Plan: A Sustainable Roadmap for Unity and Excellence",
         "phases": {
-          "opened": 1620,
-          "presentation": 1652,
+          "opened": 1625,
+          "presentation": 1656,
           "publicComment": null,
-          "discussion": 3231,
+          "discussion": 3234,
           "vote": {
-            "seconds": 3866,
+            "seconds": 3869,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -882,7 +828,21 @@
         "itemLabel": "13",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 3875,
+          "opened": 3876,
+          "presentation": 3883,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "14",
+        "title": "Information",
+        "phases": {
+          "opened": 4448,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -896,7 +856,7 @@
         "itemLabel": "14.1",
         "title": "Contract Update Information and Credit Card Summary",
         "phases": {
-          "opened": 4441,
+          "opened": 4448,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -924,7 +884,7 @@
         "itemLabel": "14.3",
         "title": "RCSD Review of Connect Community Charter Second Interim Financial Report for FY 2024-25",
         "phases": {
-          "opened": 4448,
+          "opened": 4470,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -938,7 +898,7 @@
         "itemLabel": "14.4",
         "title": "RCSD Review of KIPP Excelencia Community Prep Charter Second Interim Financial Report for FY 2024-25",
         "phases": {
-          "opened": 4448,
+          "opened": 4470,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -952,7 +912,7 @@
         "itemLabel": "14.5",
         "title": "RCSD Review of Rocketship Redwood City Prep Charter Second Interim Financial Report for FY 2024-25",
         "phases": {
-          "opened": 4448,
+          "opened": 4470,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -966,10 +926,10 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 4533,
+          "opened": 4531,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 4539,
           "vote": null
         },
         "publicComments": [],
@@ -980,7 +940,7 @@
         "itemLabel": "16",
         "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 4582,
+          "opened": 4584,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -992,12 +952,12 @@
       },
       {
         "itemLabel": "17",
-        "title": "Changes to the Board Meetings Calendar",
+        "title": "Board Meetings Calendar",
         "phases": {
-          "opened": 4593,
+          "opened": 4591,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 4597,
           "vote": null
         },
         "publicComments": [],
@@ -1015,7 +975,7 @@
           "vote": {
             "seconds": 4639,
             "type": "voice",
-            "result": "unanimous aye"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -1024,7 +984,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-20T19:25:33.158Z",
-  "inputTokens": 21999,
-  "outputTokens": 4015
+  "cachedAt": "2026-07-22T09:41:16.909Z",
+  "inputTokens": 21420,
+  "outputTokens": 3818
 }

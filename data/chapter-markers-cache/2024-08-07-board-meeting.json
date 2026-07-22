@@ -2,7 +2,7 @@
   "date": "2024-08-07",
   "slug": "2024-08-07-board-meeting",
   "itemCount": 62,
-  "transcriptHash": "d82c35c225971031",
+  "transcriptHash": "99d3dfd874350056",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -14,47 +14,49 @@
         "role": "Trustee"
       },
       "C": {
-        "name": "Wendy (staff presenter)",
-        "role": "HR/staff presenter (likely Wendy, Director of Human Resources)"
+        "name": "Mike Wells",
+        "role": "Clerk"
       },
       "D": {
         "name": "John Baker",
         "role": "Superintendent"
       },
       "E": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "F": {
-        "name": "Mike Wells",
-        "role": "Clerk"
-      },
-      "G": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
+      "F": {
+        "name": "Janet Lawson",
+        "role": "Vice President — NOTE: Speaker A is presiding; F may be another board member. Re-analysis: A=Lawson presiding. B=Weekly, C=Wells, D=Baker, E=MacAvoy, F=unknown board member, G=staff presenter, H=Richard Willemar (CNS Director)"
+      },
+      "G": {
+        "name": "John Baker",
+        "role": "Superintendent (secondary label; see note)"
+      },
       "H": {
-        "name": "Unidentified speaker",
-        "role": "Unknown"
-      },
-      "I": {
-        "name": "Anna (staff)",
-        "role": "Staff presenter (likely Assistant Superintendent of Instruction)"
-      },
-      "J": {
-        "name": "Anna / Janet (overlapping)",
-        "role": "Staff/board cross-talk"
-      },
-      "K": {
-        "name": "Richie Wilmar",
-        "role": "Director of Child Nutrition Services"
+        "name": "Richard Willemar",
+        "role": "Director of Child Nutritional Services"
       }
     },
-    "agendaChanges": "Item 6 (Discussion of School and Committee Assignments) was pulled from the agenda because Trustee Cecilia I. Márquez was absent. Items 8.6 through 8.9 were presented together with a combined presentation before being voted on individually. The board moved directly from Changes to Agenda into Consent Items, skipping a separate Oral Communication period (no public comment cards were presented for that section). Agenda items were otherwise addressed in order.",
+    "agendaChanges": "Item 6.1 (Discussion of School Assignments and Committee Assignments) was pulled from the agenda due to Trustee Cecilia I. Márquez being absent, to be taken up at a future meeting when she is present. Items 8.6 through 8.9 were addressed together with a combined presentation before individual votes.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
+        "phases": {
+          "opened": 4,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
         "phases": {
           "opened": 4,
           "presentation": null,
@@ -84,10 +86,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 66,
+          "opened": 56,
           "presentation": null,
           "publicComment": null,
-          "discussion": 66,
+          "discussion": 56,
           "vote": null
         },
         "publicComments": [],
@@ -98,14 +100,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 89,
+          "opened": 86,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 93,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -116,9 +118,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 97,
+          "opened": 99,
           "presentation": null,
-          "publicComment": null,
+          "publicComment": 99,
           "discussion": null,
           "vote": null
         },
@@ -142,16 +144,484 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (bundle)",
         "phases": {
-          "opened": 97,
+          "opened": 108,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 115,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.1",
+        "title": "Approval of the June 20 Board Meeting Minutes",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.2",
+        "title": "Approval of the June 26 Board Meeting Minutes",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.3",
+        "title": "Approval of Disbursement of Measure U Funds for the 2024-2025 School Year for Hoover Community School",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.4",
+        "title": "Approval of Service Agreement for the Provision of Election Services between the San Mateo County Superintendent of Schools and the San Mateo County Chief Elections Officer & Assessor - County Clerk - Recorder",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.5",
+        "title": "Approval of the Agreement between the Redwood City School District and College Advising Prep for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.6",
+        "title": "Approval of the Agreement between the Redwood City School District and St. Francis Center For Siena Youth Center for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.7",
+        "title": "Approval of the Agreement between the Redwood City School District and YMCA of Silicon Valley for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.8",
+        "title": "Approval of the Agreement between the Redwood City School District and Boys & Girls Club of the Peninsula for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.9",
+        "title": "Approval of the Agreement between Redwood City School District and Contra Costa County Office of Education",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.10",
+        "title": "Approval of the Agreement between the Redwood City School District and Peter Ingram Consulting for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.11",
+        "title": "Approval of the Agreement between the Redwood City School District and Teacher Created Materials for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.12",
+        "title": "Approval of the Agreement between the Redwood City School District and Recology Peninsula Services",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.13",
+        "title": "Approval of the Agreement between the Redwood City School District and Peninsula Community Center for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.14",
+        "title": "Approval of the i-Ready Quote for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.15",
+        "title": "Approval of the Memorandum of Understanding between Menlo Park City School District and Redwood City School District for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.16",
+        "title": "Approval of Service Agreement Between Redwood City School District Child Development Centers and WestEd for Fiscal Year 2024-25",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.17",
+        "title": "Approval of the Agreement between Redwood City School District and Morgan Autism Center [Non-Public School (NPS)] for specialized services for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.18",
+        "title": "Approval of the Agreement between Redwood City School District and Rebekah Will Audiology, P.C. for Audiology Services for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.19",
+        "title": "Approval of the Agreement between Redwood City School District and Amergis Healthcare Staffing Inc. for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.20",
+        "title": "Approval of the Agreement between the Redwood City School District and Caminar for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.21",
+        "title": "Approval of the Special Education Teacher Induction Agreement with San Mateo County Office of Education for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.22",
+        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Credential Candidates",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.23",
+        "title": "Rejection of Claim",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.24",
+        "title": "Approval of Non-Public School (NPS)/Non-Public Agency (NPA) Master Contracts",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.25",
+        "title": "Approval of Agreement between the Redwood City School District and EdTheory for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.26",
+        "title": "Approval of Agreement between the Redwood City School District and SCOOT Education, Inc. to Provide Access to Substitute Services",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -162,14 +632,14 @@
         "itemLabel": "8.1",
         "title": "Adoption of Resolution No. 1, Approval of Education Code Options for Teaching Assignments for the 2024-2025 School Year",
         "phases": {
-          "opened": 117,
+          "opened": 124,
           "presentation": null,
           "publicComment": null,
-          "discussion": 133,
+          "discussion": 134,
           "vote": {
             "seconds": 153,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -183,11 +653,11 @@
           "opened": 153,
           "presentation": 209,
           "publicComment": null,
-          "discussion": 182,
+          "discussion": 324,
           "vote": {
-            "seconds": 339,
+            "seconds": 340,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -198,14 +668,14 @@
         "itemLabel": "8.3",
         "title": "Approval of Agreement between Redwood City School District and SWING Education to Provide Access to Substitute Services",
         "phases": {
-          "opened": 344,
-          "presentation": null,
+          "opened": 347,
+          "presentation": 354,
           "publicComment": null,
-          "discussion": 352,
+          "discussion": 479,
           "vote": {
             "seconds": 1069,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -217,13 +687,13 @@
         "title": "Approval of Personnel Changes for the 2024-2025 School Year",
         "phases": {
           "opened": 1071,
-          "presentation": null,
+          "presentation": 1079,
           "publicComment": null,
-          "discussion": 1078,
+          "discussion": 1113,
           "vote": {
-            "seconds": 1138,
+            "seconds": 1137,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -235,13 +705,13 @@
         "title": "Approval of the Tentative Agreement between the California School Employee Association Chapter V and the Redwood City School District",
         "phases": {
           "opened": 1141,
-          "presentation": null,
+          "presentation": 1151,
           "publicComment": null,
-          "discussion": 1150,
+          "discussion": 1213,
           "vote": {
-            "seconds": 1278,
+            "seconds": 1277,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -252,22 +722,22 @@
         "itemLabel": "8.6",
         "title": "Award of Bid to Supply Bread & Bakery Products",
         "phases": {
-          "opened": 2274,
-          "presentation": 1362,
-          "publicComment": 1767,
-          "discussion": 1601,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2295,
+            "seconds": 2291,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [
           {
             "name": "Jessica",
-            "startSeconds": 1780,
-            "endSeconds": 1853,
-            "summary": "Expressed strong support for the food supplier bid awards, praised district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
           }
         ],
         "consent": false,
@@ -277,17 +747,24 @@
         "itemLabel": "8.7",
         "title": "Award of Bid to Supply Grocery Products",
         "phases": {
-          "opened": 2298,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2314,
+            "seconds": 2306,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Jessica",
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -295,17 +772,24 @@
         "itemLabel": "8.8",
         "title": "Award of Bid to Supply Fresh Produce and Services",
         "phases": {
-          "opened": 2317,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2327,
+            "seconds": 2322,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Jessica",
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -313,17 +797,24 @@
         "itemLabel": "8.9",
         "title": "Award of Bid to Supply Dairy Services",
         "phases": {
-          "opened": 2329,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2338,
+            "seconds": 2334,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Jessica",
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -331,10 +822,10 @@
         "itemLabel": "9",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 2340,
-          "presentation": null,
+          "opened": 2344,
+          "presentation": 2357,
           "publicComment": null,
-          "discussion": 2351,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -345,7 +836,7 @@
         "itemLabel": "10",
         "title": "Quarterly Williams Report, 4th Quarter, April 2024 through June 2024",
         "phases": {
-          "opened": 2693,
+          "opened": 2692,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -359,7 +850,7 @@
         "itemLabel": "11",
         "title": "Correspondence",
         "phases": {
-          "opened": 2700,
+          "opened": 2702,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -373,7 +864,7 @@
         "itemLabel": "12",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 2713,
+          "opened": 2710,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -387,7 +878,7 @@
         "itemLabel": "13",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 2728,
+          "opened": 2714,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -408,7 +899,7 @@
           "vote": {
             "seconds": 2741,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -429,47 +920,49 @@
         "role": "Trustee"
       },
       "C": {
-        "name": "Wendy (staff presenter)",
-        "role": "HR/staff presenter (likely Wendy, Director of Human Resources)"
+        "name": "Mike Wells",
+        "role": "Clerk"
       },
       "D": {
         "name": "John Baker",
         "role": "Superintendent"
       },
       "E": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
-      },
-      "F": {
-        "name": "Mike Wells",
-        "role": "Clerk"
-      },
-      "G": {
         "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
+      "F": {
+        "name": "Janet Lawson",
+        "role": "Vice President — NOTE: Speaker A is presiding; F may be another board member. Re-analysis: A=Lawson presiding. B=Weekly, C=Wells, D=Baker, E=MacAvoy, F=unknown board member, G=staff presenter, H=Richard Willemar (CNS Director)"
+      },
+      "G": {
+        "name": "John Baker",
+        "role": "Superintendent (secondary label; see note)"
+      },
       "H": {
-        "name": "Unidentified speaker",
-        "role": "Unknown"
-      },
-      "I": {
-        "name": "Anna (staff)",
-        "role": "Staff presenter (likely Assistant Superintendent of Instruction)"
-      },
-      "J": {
-        "name": "Anna / Janet (overlapping)",
-        "role": "Staff/board cross-talk"
-      },
-      "K": {
-        "name": "Richie Wilmar",
-        "role": "Director of Child Nutrition Services"
+        "name": "Richard Willemar",
+        "role": "Director of Child Nutritional Services"
       }
     },
-    "agendaChanges": "Item 6 (Discussion of School and Committee Assignments) was pulled from the agenda because Trustee Cecilia I. Márquez was absent. Items 8.6 through 8.9 were presented together with a combined presentation before being voted on individually. The board moved directly from Changes to Agenda into Consent Items, skipping a separate Oral Communication period (no public comment cards were presented for that section). Agenda items were otherwise addressed in order.",
+    "agendaChanges": "Item 6.1 (Discussion of School Assignments and Committee Assignments) was pulled from the agenda due to Trustee Cecilia I. Márquez being absent, to be taken up at a future meeting when she is present. Items 8.6 through 8.9 were addressed together with a combined presentation before individual votes.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
+        "phases": {
+          "opened": 4,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
         "phases": {
           "opened": 4,
           "presentation": null,
@@ -499,10 +992,10 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 66,
+          "opened": 56,
           "presentation": null,
           "publicComment": null,
-          "discussion": 66,
+          "discussion": 56,
           "vote": null
         },
         "publicComments": [],
@@ -513,14 +1006,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 89,
+          "opened": 86,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 93,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -531,9 +1024,9 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 97,
+          "opened": 99,
           "presentation": null,
-          "publicComment": null,
+          "publicComment": 99,
           "discussion": null,
           "vote": null
         },
@@ -557,16 +1050,484 @@
       },
       {
         "itemLabel": "7",
-        "title": "Approval of Consent Items",
+        "title": "Approval of Consent Items (bundle)",
         "phases": {
-          "opened": 97,
+          "opened": 108,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 115,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.1",
+        "title": "Approval of the June 20 Board Meeting Minutes",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.2",
+        "title": "Approval of the June 26 Board Meeting Minutes",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.3",
+        "title": "Approval of Disbursement of Measure U Funds for the 2024-2025 School Year for Hoover Community School",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.4",
+        "title": "Approval of Service Agreement for the Provision of Election Services between the San Mateo County Superintendent of Schools and the San Mateo County Chief Elections Officer & Assessor - County Clerk - Recorder",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.5",
+        "title": "Approval of the Agreement between the Redwood City School District and College Advising Prep for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.6",
+        "title": "Approval of the Agreement between the Redwood City School District and St. Francis Center For Siena Youth Center for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.7",
+        "title": "Approval of the Agreement between the Redwood City School District and YMCA of Silicon Valley for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.8",
+        "title": "Approval of the Agreement between the Redwood City School District and Boys & Girls Club of the Peninsula for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.9",
+        "title": "Approval of the Agreement between Redwood City School District and Contra Costa County Office of Education",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.10",
+        "title": "Approval of the Agreement between the Redwood City School District and Peter Ingram Consulting for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.11",
+        "title": "Approval of the Agreement between the Redwood City School District and Teacher Created Materials for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.12",
+        "title": "Approval of the Agreement between the Redwood City School District and Recology Peninsula Services",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.13",
+        "title": "Approval of the Agreement between the Redwood City School District and Peninsula Community Center for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.14",
+        "title": "Approval of the i-Ready Quote for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.15",
+        "title": "Approval of the Memorandum of Understanding between Menlo Park City School District and Redwood City School District for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.16",
+        "title": "Approval of Service Agreement Between Redwood City School District Child Development Centers and WestEd for Fiscal Year 2024-25",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.17",
+        "title": "Approval of the Agreement between Redwood City School District and Morgan Autism Center [Non-Public School (NPS)] for specialized services for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.18",
+        "title": "Approval of the Agreement between Redwood City School District and Rebekah Will Audiology, P.C. for Audiology Services for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.19",
+        "title": "Approval of the Agreement between Redwood City School District and Amergis Healthcare Staffing Inc. for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.20",
+        "title": "Approval of the Agreement between the Redwood City School District and Caminar for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.21",
+        "title": "Approval of the Special Education Teacher Induction Agreement with San Mateo County Office of Education for the 2024-2025 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.22",
+        "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Credential Candidates",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.23",
+        "title": "Rejection of Claim",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.24",
+        "title": "Approval of Non-Public School (NPS)/Non-Public Agency (NPA) Master Contracts",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.25",
+        "title": "Approval of Agreement between the Redwood City School District and EdTheory for the 2024-25 School Year",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "7.26",
+        "title": "Approval of Agreement between the Redwood City School District and SCOOT Education, Inc. to Provide Access to Substitute Services",
+        "phases": {
+          "opened": 108,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 115,
+            "type": "voice",
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -577,14 +1538,14 @@
         "itemLabel": "8.1",
         "title": "Adoption of Resolution No. 1, Approval of Education Code Options for Teaching Assignments for the 2024-2025 School Year",
         "phases": {
-          "opened": 117,
+          "opened": 124,
           "presentation": null,
           "publicComment": null,
-          "discussion": 133,
+          "discussion": 134,
           "vote": {
             "seconds": 153,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -598,11 +1559,11 @@
           "opened": 153,
           "presentation": 209,
           "publicComment": null,
-          "discussion": 182,
+          "discussion": 324,
           "vote": {
-            "seconds": 339,
+            "seconds": 340,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -613,14 +1574,14 @@
         "itemLabel": "8.3",
         "title": "Approval of Agreement between Redwood City School District and SWING Education to Provide Access to Substitute Services",
         "phases": {
-          "opened": 344,
-          "presentation": null,
+          "opened": 347,
+          "presentation": 354,
           "publicComment": null,
-          "discussion": 352,
+          "discussion": 479,
           "vote": {
             "seconds": 1069,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -632,13 +1593,13 @@
         "title": "Approval of Personnel Changes for the 2024-2025 School Year",
         "phases": {
           "opened": 1071,
-          "presentation": null,
+          "presentation": 1079,
           "publicComment": null,
-          "discussion": 1078,
+          "discussion": 1113,
           "vote": {
-            "seconds": 1138,
+            "seconds": 1137,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -650,13 +1611,13 @@
         "title": "Approval of the Tentative Agreement between the California School Employee Association Chapter V and the Redwood City School District",
         "phases": {
           "opened": 1141,
-          "presentation": null,
+          "presentation": 1151,
           "publicComment": null,
-          "discussion": 1150,
+          "discussion": 1213,
           "vote": {
-            "seconds": 1278,
+            "seconds": 1277,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -667,22 +1628,22 @@
         "itemLabel": "8.6",
         "title": "Award of Bid to Supply Bread & Bakery Products",
         "phases": {
-          "opened": 2274,
-          "presentation": 1362,
-          "publicComment": 1767,
-          "discussion": 1601,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2295,
+            "seconds": 2291,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [
           {
             "name": "Jessica",
-            "startSeconds": 1780,
-            "endSeconds": 1853,
-            "summary": "Expressed strong support for the food supplier bid awards, praised district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
           }
         ],
         "consent": false,
@@ -692,17 +1653,24 @@
         "itemLabel": "8.7",
         "title": "Award of Bid to Supply Grocery Products",
         "phases": {
-          "opened": 2298,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2314,
+            "seconds": 2306,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Jessica",
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -710,17 +1678,24 @@
         "itemLabel": "8.8",
         "title": "Award of Bid to Supply Fresh Produce and Services",
         "phases": {
-          "opened": 2317,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2327,
+            "seconds": 2322,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Jessica",
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -728,17 +1703,24 @@
         "itemLabel": "8.9",
         "title": "Award of Bid to Supply Dairy Services",
         "phases": {
-          "opened": 2329,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
+          "opened": 1277,
+          "presentation": 1364,
+          "publicComment": 1771,
+          "discussion": 1607,
           "vote": {
-            "seconds": 2338,
+            "seconds": 2334,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Jessica",
+            "startSeconds": 1771,
+            "endSeconds": 1859,
+            "summary": "A parent of two Orion students expressed strong support for the food supplier bid awards, praised the district staff for the RFP process, and expressed hope that the new vendors would lay groundwork for central kitchen infrastructure improvements tied to Measure S."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -746,10 +1728,10 @@
         "itemLabel": "9",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 2340,
-          "presentation": null,
+          "opened": 2344,
+          "presentation": 2357,
           "publicComment": null,
-          "discussion": 2351,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -760,7 +1742,7 @@
         "itemLabel": "10",
         "title": "Quarterly Williams Report, 4th Quarter, April 2024 through June 2024",
         "phases": {
-          "opened": 2693,
+          "opened": 2692,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -774,7 +1756,7 @@
         "itemLabel": "11",
         "title": "Correspondence",
         "phases": {
-          "opened": 2700,
+          "opened": 2702,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -788,7 +1770,7 @@
         "itemLabel": "12",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 2713,
+          "opened": 2710,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -802,7 +1784,7 @@
         "itemLabel": "13",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 2728,
+          "opened": 2714,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -823,7 +1805,7 @@
           "vote": {
             "seconds": 2741,
             "type": "voice",
-            "result": "passed"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -832,7 +1814,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-20T19:39:39.988Z",
-  "inputTokens": 15710,
-  "outputTokens": 3009
+  "cachedAt": "2026-07-22T09:55:07.473Z",
+  "inputTokens": 15089,
+  "outputTokens": 6897
 }

@@ -1,6 +1,6 @@
 {
   "date": "2025-02-05",
-  "transcriptHash": "73f5df97dfe1ee92",
+  "transcriptHash": "0854d526bffa93d2",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -60,37 +60,72 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced. President Wells stated 'I don't know if anyone has additions, deletions, modifications' and received no responses before calling for a motion to approve the agenda.",
+    "agenda_changes": "No formal agenda changes announced during 'Changes to the Agenda' section. President Wells stated 'I don't know if anyone has additions, deletions, modifications' and proceeded directly to motion to approve agenda with no changes noted.",
     "consent_vote_words": "Is there a motion to approve the consent items? I move to approve the consent items. Okay, that was a second from Jen. Uh, all in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "I think we'll go ahead and get started. Evelyn, can you start with the roll call?",
+        "intro_words": "All right, I think we'll go ahead and get started. Um, Evelyn, can you start with the roll call?",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "I think we'll go ahead and get started. Evelyn, can you start with the roll call?",
+        "intro_words": "All right, I think we'll go ahead and get started. Um, Evelyn, can you start with the roll call?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "I'm going to start with the report out on the closed session from today, February 5th, 2025.",
+        "intro_words": "not applicable - no oral communication on closed session items recorded",
+        "status": "not found"
+      },
+      {
+        "item": 4,
+        "intro_words": "not applicable - procedural note only",
+        "status": "not found"
+      },
+      {
+        "item": 5,
+        "intro_words": "not applicable - closed session occurred before transcript",
+        "status": "not found"
+      },
+      {
+        "item": 6,
+        "intro_words": "not applicable - closed session item, not discussed in regular session transcript",
+        "status": "not found"
+      },
+      {
+        "item": 7,
+        "intro_words": "not applicable - reconvene section, implied but not explicitly marked in transcript",
+        "status": "not found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Trustee Lee? Present. Trustee King? Trustee Marcus? Here.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "I'm going to start with the report out on the closed session from today, February 5th, 2025.",
+        "intro_words": "I'm going to start with the report out on the Closed Session from today, February 5th, 2025.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Let's move on to our welcome. Good evening. Welcome to the February 5th, 2025 meeting.",
+        "intro_words": "let's move on to our welcome. Uh, good evening. Welcome to the February 5, 2025 meeting of the Redwood City School District Governing Board.",
+        "status": "found"
+      },
+      {
+        "item": 11,
+        "intro_words": "let's move on to our welcome. Uh, good evening. Welcome to the February 5, 2025 meeting of the Redwood City School District Governing Board.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "With that, I'll move on to changes for the— to the agenda. I don't know if anyone has additions, deletions, modifications.",
+        "intro_words": "I'll move on to changes for the, uh, to the agenda. I don't know if anyone has additions, deletions, modifications.",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "I'll move on to changes for the, uh, to the agenda. I don't know if anyone has additions, deletions, modifications.",
         "status": "found"
       },
       {
@@ -99,88 +134,213 @@
         "status": "found"
       },
       {
+        "item": 15,
+        "intro_words": "can I get a motion to approve the agenda? Motion to approve the agenda. Second.",
+        "status": "found"
+      },
+      {
         "item": 16,
-        "intro_words": "Great. Then we will move on to oral communication. We have a few speakers' cards in person.",
+        "intro_words": "we will move on to Oral Communication. We have a few speakers' cards in person, and I saw at least one online, so we will start with the in-person to begin with.",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "we will move on to Oral Communication. We have a few speakers' cards in person, and I saw at least one online, so we will start with the in-person to begin with.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "Um, okay, so that was it for oral communication. We're going to move on to the bond program consent items.",
+        "intro_words": "We're going to move on to the Bond Program Consent Items. Um, and so 9.1 is approval of the— all the items.",
         "status": "found"
       },
       {
         "item": 19,
-        "intro_words": "Um, and so 9.1 is approval of the— all the items. Uh, can I have a motion to approve?",
+        "intro_words": "moving on to the, um, Bond Program Consent Items, um, is there a motion to approve the Bond Program Consent Items?",
         "status": "found"
       },
       {
+        "item": 20,
+        "intro_words": "Let's move on to Bond Program Action Items. This is 10.1, Approval of the Agreement for Rental and Purchase of Mobile Air Conditioning Units.",
+        "status": "found"
+      },
+      {
+        "item": 21,
+        "intro_words": "not explicitly called as separate action item - part of Bond Program presentation",
+        "status": "not found"
+      },
+      {
         "item": 22,
-        "intro_words": "moving on to the bond program consent items. Is there a motion to approve the bond program consent items?",
+        "intro_words": "Let's move on to Bond Program Action Items. This is 10.1, Approval of the Agreement for Rental and Purchase of Mobile Air Conditioning Units.",
         "status": "found"
       },
       {
         "item": 23,
-        "intro_words": "Great. Let's move on to bond program action items. This is 10.1, approval of the agreement for rental and purchase of mobile air conditioning units.",
+        "intro_words": "This is 10.1, Approval of the Agreement for Rental and Purchase of Mobile Air Conditioning Units. Uh, good evening.",
         "status": "found"
       },
       {
         "item": 24,
-        "intro_words": "All right, let's move on to school and community reports. We're going to start with 11.1, the financial and performance audits for the building funds.",
+        "intro_words": "Let's move on to School and Community Reports. We're going to start with 11.1, the Financial and Performance Audits for the Building Funds.",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "Tonight we are presenting under 11.1, the financial performance audit for both Measure T and S.",
+        "intro_words": "Tonight we are presenting under 11.1, the Financial and Performance Audit for both Measure T S.",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "And so this is for the full district audit. All right, and so this is the annual financial report for the district.",
+        "intro_words": "And so this is for the full district audit. All right, and, and so this is the Annual Financial Report for the district.",
         "status": "found"
       },
       {
         "item": 27,
-        "intro_words": "All right, our next item in the school and community reports is— I think we'll start— are we starting with Hoover?",
+        "intro_words": "Our next item in the School and Community Reports is, uh, I think we'll start— are we starting with Hoover?",
         "status": "found"
       },
       {
         "item": 28,
-        "intro_words": "Is there a motion to approve? I move to approve the consent items. Okay, that was a second from Jen.",
+        "intro_words": "Is there a motion to approve the consent items? I move to approve the consent items.",
         "status": "consent_bundle"
       },
       {
+        "item": 29,
+        "intro_words": "Is there a motion to approve the consent items? I move to approve the consent items.",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 30,
+        "intro_words": "not explicitly discussed as separate agenda item",
+        "status": "not found"
+      },
+      {
+        "item": 31,
+        "intro_words": "not explicitly discussed as separate agenda item",
+        "status": "not found"
+      },
+      {
+        "item": 32,
+        "intro_words": "not explicitly discussed as separate agenda item",
+        "status": "not found"
+      },
+      {
+        "item": 33,
+        "intro_words": "not explicitly discussed as separate agenda item",
+        "status": "not found"
+      },
+      {
+        "item": 34,
+        "intro_words": "not explicitly discussed as separate agenda item",
+        "status": "not found"
+      },
+      {
+        "item": 35,
+        "intro_words": "not explicitly discussed as separate agenda item",
+        "status": "not found"
+      },
+      {
+        "item": 36,
+        "intro_words": "not explicitly discussed as separate agenda item",
+        "status": "not found"
+      },
+      {
         "item": 37,
-        "intro_words": "Okay, so we're on to the consent items. Is there a motion to approve? I move to approve the consent items.",
+        "intro_words": "we're on to Action Items. 13.1 is the acceptance of the Redwood City Teachers Association Sunshine Proposal.",
         "status": "found"
       },
       {
         "item": 38,
-        "intro_words": "Okay, then we'll move on to action items. 13.1 is the acceptance of the Redwood City Teachers Association Sunshine Proposal.",
+        "intro_words": "13.1 is the acceptance of the Redwood City Teachers Association Sunshine Proposal. Yes, thank you.",
         "status": "found"
       },
       {
         "item": 39,
-        "intro_words": "And this will start the first stage of the negotiation process, is board approval. Are there any questions regarding the Sunshine proposal from RCTA?",
+        "intro_words": "then we are on to, uh, 13.2, which is the receipt of the Governing Board's initial proposal for negotiations with RCSD.",
         "status": "found"
       },
       {
         "item": 40,
-        "intro_words": "Anyone have things to report? I don't have something to report that I attended to, but I do want to just, um, bring it out to everyone's attention.",
+        "intro_words": "we can move on to Board and Superintendent Reports. Anyone have things to report?",
+        "status": "found"
+      },
+      {
+        "item": 41,
+        "intro_words": "we can move on to Board and Superintendent Reports. Anyone have things to report?",
         "status": "found"
       },
       {
         "item": 42,
-        "intro_words": "Moving on to correspondence. Does anyone have correspondence? I wanted to mention one thing.",
+        "intro_words": "now we're on to information items. Um, Rick, I think I'm turning this over to you to sort of walk us through it.",
+        "status": "found"
+      },
+      {
+        "item": 43,
+        "intro_words": "Items 15.1, 2, And 3 are Rocketship Redwood City Connect, LCAP respectively, their first interim financial report",
+        "status": "found"
+      },
+      {
+        "item": 44,
+        "intro_words": "Items 15.1, 2, And 3 are Rocketship Redwood City Connect, LCAP respectively, their first interim financial report",
+        "status": "found"
+      },
+      {
+        "item": 45,
+        "intro_words": "Items 15.1, 2, And 3 are Rocketship Redwood City Connect, LCAP respectively, their first interim financial report",
+        "status": "found"
+      },
+      {
+        "item": 46,
+        "intro_words": "items 15.4, 5, and 6, uh, Rocketship Connect and LCAP respectively, uh, is their audit report",
+        "status": "found"
+      },
+      {
+        "item": 47,
+        "intro_words": "items 15.4, 5, and 6, uh, Rocketship Connect and LCAP respectively, uh, is their audit report",
+        "status": "found"
+      },
+      {
+        "item": 48,
+        "intro_words": "items 15.4, 5, and 6, uh, Rocketship Connect and LCAP respectively, uh, is their audit report",
+        "status": "found"
+      },
+      {
+        "item": 49,
+        "intro_words": "moving on to correspondence. Does anyone have correspondence? I wanted to mention one thing.",
+        "status": "found"
+      },
+      {
+        "item": 50,
+        "intro_words": "moving on to correspondence. Does anyone have correspondence? I wanted to mention one thing.",
         "status": "found"
       },
       {
         "item": 51,
-        "intro_words": "Other business, suggested items for future agenda? None. Okay. Um, board meeting calendar.",
+        "intro_words": "Other business? Suggested items for future agenda? None?",
+        "status": "found"
+      },
+      {
+        "item": 52,
+        "intro_words": "Other business? Suggested items for future agenda? None?",
+        "status": "found"
+      },
+      {
+        "item": 53,
+        "intro_words": "Um, Board Meeting Calendar. Right, right. We need to talk about that.",
+        "status": "found"
+      },
+      {
+        "item": 54,
+        "intro_words": "Um, Board Meeting Calendar. Right, right. We need to talk about that.",
         "status": "found"
       },
       {
         "item": 55,
-        "intro_words": "All right, we're on to 19.1, adjourn the meeting. Can I get a motion to adjourn?",
+        "intro_words": "we're on to 19.1, adjourn the meeting. Can I get a motion to adjourn?",
+        "status": "found"
+      },
+      {
+        "item": 56,
+        "intro_words": "Can I get a motion to adjourn? All right, then move motion to second. It's a second.",
         "status": "found"
       }
     ]
@@ -189,16 +349,12 @@
     "videoId": "yoUvmhll1uk",
     "items": [
       {
-        "timestamp": "00:00:03",
-        "timestampSeconds": 3
+        "timestamp": "00:00:06",
+        "timestampSeconds": 6
       },
       {
-        "timestamp": "00:00:03",
-        "timestampSeconds": 3
-      },
-      {
-        "timestamp": "00:00:03",
-        "timestampSeconds": 3
+        "timestamp": "00:00:06",
+        "timestampSeconds": 6
       },
       null,
       null,
@@ -206,66 +362,90 @@
       null,
       null,
       {
-        "timestamp": "00:00:03",
-        "timestampSeconds": 3
+        "timestamp": "00:00:06",
+        "timestampSeconds": 6
       },
       {
-        "timestamp": "00:00:03",
-        "timestampSeconds": 3
+        "timestamp": "00:00:06",
+        "timestampSeconds": 6
       },
-      null,
       {
-        "timestamp": "00:01:03",
-        "timestampSeconds": 63
+        "timestamp": "00:00:06",
+        "timestampSeconds": 6
       },
-      null,
       {
-        "timestamp": "00:01:23",
-        "timestampSeconds": 83
+        "timestamp": "00:00:06",
+        "timestampSeconds": 6
       },
-      null,
       {
-        "timestamp": "00:01:45",
-        "timestampSeconds": 105
+        "timestamp": "00:01:07",
+        "timestampSeconds": 67
       },
-      null,
+      {
+        "timestamp": "00:01:07",
+        "timestampSeconds": 67
+      },
+      {
+        "timestamp": "00:01:22",
+        "timestampSeconds": 82
+      },
+      {
+        "timestamp": "00:01:22",
+        "timestampSeconds": 82
+      },
+      {
+        "timestamp": "00:01:42",
+        "timestampSeconds": 102
+      },
+      {
+        "timestamp": "00:01:42",
+        "timestampSeconds": 102
+      },
       {
         "timestamp": "00:13:03",
         "timestampSeconds": 783
       },
       {
-        "timestamp": "00:13:44",
-        "timestampSeconds": 824
+        "timestamp": "00:15:09",
+        "timestampSeconds": 909
+      },
+      {
+        "timestamp": "00:15:14",
+        "timestampSeconds": 914
       },
       null,
-      null,
       {
-        "timestamp": "00:15:07",
-        "timestampSeconds": 907
+        "timestamp": "00:15:14",
+        "timestampSeconds": 914
       },
       {
-        "timestamp": "00:15:07",
-        "timestampSeconds": 907
+        "timestamp": "00:15:26",
+        "timestampSeconds": 926
       },
       {
-        "timestamp": "00:28:13",
-        "timestampSeconds": 1693
+        "timestamp": "00:28:11",
+        "timestampSeconds": 1691
       },
       {
-        "timestamp": "00:28:18",
-        "timestampSeconds": 1698
+        "timestamp": "00:28:21",
+        "timestampSeconds": 1701
       },
       {
         "timestamp": "00:31:45",
         "timestampSeconds": 1905
       },
       {
-        "timestamp": "00:36:03",
-        "timestampSeconds": 2163
+        "timestamp": "00:36:04",
+        "timestampSeconds": 2164
       },
       {
-        "timestamp": "02:25:13",
-        "timestampSeconds": 8713,
+        "timestamp": "02:25:17",
+        "timestampSeconds": 8717,
+        "consent": true
+      },
+      {
+        "timestamp": "02:25:17",
+        "timestampSeconds": 8717,
         "consent": true
       },
       null,
@@ -275,51 +455,89 @@
       null,
       null,
       null,
-      null,
       {
-        "timestamp": "02:25:08",
-        "timestampSeconds": 8708
+        "timestamp": "02:25:17",
+        "timestampSeconds": 8717
       },
       {
-        "timestamp": "02:25:13",
-        "timestampSeconds": 8713
+        "timestamp": "02:25:37",
+        "timestampSeconds": 8737
       },
       {
-        "timestamp": "02:25:40",
-        "timestampSeconds": 8740
+        "timestamp": "02:26:03",
+        "timestampSeconds": 8763
       },
       {
-        "timestamp": "02:27:03",
-        "timestampSeconds": 8823
+        "timestamp": "02:26:55",
+        "timestampSeconds": 8815
       },
-      null,
+      {
+        "timestamp": "02:26:55",
+        "timestampSeconds": 8815
+      },
+      {
+        "timestamp": "02:31:35",
+        "timestampSeconds": 9095
+      },
+      {
+        "timestamp": "02:31:52",
+        "timestampSeconds": 9112
+      },
+      {
+        "timestamp": "02:31:52",
+        "timestampSeconds": 9112
+      },
+      {
+        "timestamp": "02:31:52",
+        "timestampSeconds": 9112
+      },
+      {
+        "timestamp": "02:31:52",
+        "timestampSeconds": 9112
+      },
+      {
+        "timestamp": "02:31:52",
+        "timestampSeconds": 9112
+      },
+      {
+        "timestamp": "02:31:52",
+        "timestampSeconds": 9112
+      },
       {
         "timestamp": "02:32:42",
         "timestampSeconds": 9162
       },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "02:33:39",
-        "timestampSeconds": 9219
+        "timestamp": "02:32:42",
+        "timestampSeconds": 9162
       },
-      null,
-      null,
-      null,
+      {
+        "timestamp": "02:33:43",
+        "timestampSeconds": 9223
+      },
+      {
+        "timestamp": "02:33:43",
+        "timestampSeconds": 9223
+      },
+      {
+        "timestamp": "02:33:28",
+        "timestampSeconds": 9208
+      },
+      {
+        "timestamp": "02:33:28",
+        "timestampSeconds": 9208
+      },
       {
         "timestamp": "02:34:28",
         "timestampSeconds": 9268
       },
-      null
+      {
+        "timestamp": "02:35:54",
+        "timestampSeconds": 9354
+      }
     ]
   },
-  "cachedAt": "2026-07-20T19:42:08.743Z",
-  "inputTokens": 34300,
-  "outputTokens": 1469
+  "cachedAt": "2026-07-22T09:58:12.901Z",
+  "inputTokens": 34969,
+  "outputTokens": 3119
 }

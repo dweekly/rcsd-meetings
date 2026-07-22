@@ -2,12 +2,12 @@
   "date": "2024-06-26",
   "slug": "2024-06-26-board-meeting",
   "itemCount": 54,
-  "transcriptHash": "0d3a734152fe630b",
+  "transcriptHash": "7af32822c4f4ee69",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Vice President (acting as President/chair of meeting)"
+        "role": "Vice President (acting as President per agenda Section 2)"
       },
       "B": {
         "name": "Evelyn Sanchez",
@@ -22,19 +22,23 @@
         "role": "Trustee"
       },
       "E": {
-        "name": "Mike Wells",
-        "role": "Clerk"
-      },
-      "F": {
         "name": "John Baker",
         "role": "Superintendent (Dr. Baker)"
       },
+      "F": {
+        "name": "Mike Wells",
+        "role": "Clerk"
+      },
       "G": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee (present despite roll noting absent; speaking throughout)"
+        "name": "Rick (CBO)",
+        "role": "Chief Business Official (name not fully identified in transcript)"
+      },
+      "H": {
+        "name": "Staff presenter",
+        "role": "HR/Personnel staff presenter (name not identified in transcript)"
       }
     },
-    "agendaChanges": "Section 7 (Bond Program Action Items) was skipped — no items were taken up under that section. The meeting proceeded from Section 6 directly to Section 8. Roll call noted Trustee MacAvoy as absent, but speaker G appears to be a staff member presenting (likely Wendy or another administrator not on the board roster) rather than MacAvoy; however based on context clues, speaker G most closely matches Alisa MacAvoy or a district administrator. Section 14 (Other Business) and Section 15 (Board Meetings Calendar) were addressed only briefly with no substantive discussion.",
+    "agendaChanges": "Section 7 (Bond Program Action Items) had no items and was skipped. The meeting proceeded directly from Section 6 to Section 8 (Discussion Items). All other items followed agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -68,7 +72,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 17,
+          "opened": 19,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -82,7 +86,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 17,
+          "opened": 19,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -96,7 +100,7 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 35,
+          "opened": 38,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -128,7 +132,7 @@
         "itemLabel": "6",
         "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 47,
+          "opened": 56,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -143,27 +147,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "7",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8",
+        "itemLabel": "8.1",
         "title": "Discussion on Local Indicator Measurement for the California Dashboard",
         "phases": {
-          "opened": 74,
+          "opened": 67,
           "presentation": 86,
           "publicComment": null,
-          "discussion": 599,
+          "discussion": 600,
           "vote": null
         },
         "publicComments": [],
@@ -189,15 +179,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.1",
         "title": "Adoption of Resolution No. 12, Approval of Education Code Options for Teaching Assignments 2024-2025 School Year",
         "phases": {
-          "opened": 1526,
-          "presentation": 1538,
+          "opened": 1530,
+          "presentation": 1539,
           "publicComment": null,
-          "discussion": 1569,
+          "discussion": 1570,
           "vote": {
-            "seconds": 1581,
+            "seconds": 1578,
             "type": "voice",
             "result": "approved"
           }
@@ -207,15 +197,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Adoption of Resolution No. 13, Calling for an Election on November 5, 2024 for Election of 3 Members of the Governing Board",
+        "itemLabel": "10.2",
+        "title": "Adoption of Resolution No. 13, Calling for an Election to be Held on November 5, 2024",
         "phases": {
-          "opened": 1585,
-          "presentation": 1589,
+          "opened": 1583,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 1591,
+          "discussion": 1592,
           "vote": {
-            "seconds": 1632,
+            "seconds": 1631,
             "type": "voice",
             "result": "approved"
           }
@@ -225,13 +215,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.3",
         "title": "Adoption of Resolution No. 14, The Education Protection Account for Fiscal Year 2024-25",
         "phases": {
           "opened": 1636,
-          "presentation": 1641,
+          "presentation": 1644,
           "publicComment": null,
-          "discussion": 1676,
+          "discussion": 1675,
           "vote": {
             "seconds": 1692,
             "type": "voice",
@@ -243,13 +233,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.4",
         "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Credential Candidates",
         "phases": {
-          "opened": 1698,
-          "presentation": 1706,
+          "opened": 1695,
+          "presentation": 1708,
           "publicComment": null,
-          "discussion": 1749,
+          "discussion": 1750,
           "vote": {
             "seconds": 1805,
             "type": "voice",
@@ -261,15 +251,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.5",
         "title": "Approval of the Redwood City Administrators Association (RCAA) Compensation Proposal",
         "phases": {
-          "opened": 1807,
+          "opened": 1808,
           "presentation": 1818,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1833,
+            "seconds": 1825,
             "type": "voice",
             "result": "approved"
           }
@@ -279,13 +269,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.6",
         "title": "Approval of the Local Control Accountability Plan (LCAP) for the 2024-2025 School Year",
         "phases": {
-          "opened": 1835,
-          "presentation": 1841,
+          "opened": 1833,
+          "presentation": 1842,
           "publicComment": null,
-          "discussion": 1915,
+          "discussion": 1913,
           "vote": {
             "seconds": 1964,
             "type": "voice",
@@ -297,15 +287,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.7",
         "title": "Approval of the 2024-2025 Proposed Budget for Redwood City School District",
         "phases": {
-          "opened": 1968,
-          "presentation": 1971,
+          "opened": 1966,
+          "presentation": 1973,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1995,
+            "seconds": 1990,
             "type": "voice",
             "result": "approved"
           }
@@ -319,9 +309,9 @@
         "title": "Report from Board Members and Superintendent",
         "phases": {
           "opened": 2000,
-          "presentation": 2005,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 2006,
           "vote": null
         },
         "publicComments": [],
@@ -332,10 +322,10 @@
         "itemLabel": "12",
         "title": "Contract Update Information and Credit Card Summary",
         "phases": {
-          "opened": 2119,
+          "opened": 2118,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2123,
+          "discussion": 2125,
           "vote": null
         },
         "publicComments": [],
@@ -349,7 +339,7 @@
           "opened": 2134,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 2134,
           "vote": null
         },
         "publicComments": [],
@@ -374,7 +364,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 2162,
+          "opened": 2160,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -388,12 +378,12 @@
         "itemLabel": "16",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 2162,
+          "opened": 2184,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2188,
+            "seconds": 2187,
             "type": "voice",
             "result": "approved"
           }
@@ -409,7 +399,7 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Vice President (acting as President/chair of meeting)"
+        "role": "Vice President (acting as President per agenda Section 2)"
       },
       "B": {
         "name": "Evelyn Sanchez",
@@ -424,19 +414,23 @@
         "role": "Trustee"
       },
       "E": {
-        "name": "Mike Wells",
-        "role": "Clerk"
-      },
-      "F": {
         "name": "John Baker",
         "role": "Superintendent (Dr. Baker)"
       },
+      "F": {
+        "name": "Mike Wells",
+        "role": "Clerk"
+      },
       "G": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee (present despite roll noting absent; speaking throughout)"
+        "name": "Rick (CBO)",
+        "role": "Chief Business Official (name not fully identified in transcript)"
+      },
+      "H": {
+        "name": "Staff presenter",
+        "role": "HR/Personnel staff presenter (name not identified in transcript)"
       }
     },
-    "agendaChanges": "Section 7 (Bond Program Action Items) was skipped — no items were taken up under that section. The meeting proceeded from Section 6 directly to Section 8. Roll call noted Trustee MacAvoy as absent, but speaker G appears to be a staff member presenting (likely Wendy or another administrator not on the board roster) rather than MacAvoy; however based on context clues, speaker G most closely matches Alisa MacAvoy or a district administrator. Section 14 (Other Business) and Section 15 (Board Meetings Calendar) were addressed only briefly with no substantive discussion.",
+    "agendaChanges": "Section 7 (Bond Program Action Items) had no items and was skipped. The meeting proceeded directly from Section 6 to Section 8 (Discussion Items). All other items followed agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -470,7 +464,7 @@
         "itemLabel": "2",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 17,
+          "opened": 19,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -484,7 +478,7 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 17,
+          "opened": 19,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -498,7 +492,7 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 35,
+          "opened": 38,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -530,7 +524,7 @@
         "itemLabel": "6",
         "title": "Approval of Bond Program Consent Items",
         "phases": {
-          "opened": 47,
+          "opened": 56,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -545,27 +539,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "7",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "8",
+        "itemLabel": "8.1",
         "title": "Discussion on Local Indicator Measurement for the California Dashboard",
         "phases": {
-          "opened": 74,
+          "opened": 67,
           "presentation": 86,
           "publicComment": null,
-          "discussion": 599,
+          "discussion": 600,
           "vote": null
         },
         "publicComments": [],
@@ -591,15 +571,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.1",
         "title": "Adoption of Resolution No. 12, Approval of Education Code Options for Teaching Assignments 2024-2025 School Year",
         "phases": {
-          "opened": 1526,
-          "presentation": 1538,
+          "opened": 1530,
+          "presentation": 1539,
           "publicComment": null,
-          "discussion": 1569,
+          "discussion": 1570,
           "vote": {
-            "seconds": 1581,
+            "seconds": 1578,
             "type": "voice",
             "result": "approved"
           }
@@ -609,15 +589,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Adoption of Resolution No. 13, Calling for an Election on November 5, 2024 for Election of 3 Members of the Governing Board",
+        "itemLabel": "10.2",
+        "title": "Adoption of Resolution No. 13, Calling for an Election to be Held on November 5, 2024",
         "phases": {
-          "opened": 1585,
-          "presentation": 1589,
+          "opened": 1583,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 1591,
+          "discussion": 1592,
           "vote": {
-            "seconds": 1632,
+            "seconds": 1631,
             "type": "voice",
             "result": "approved"
           }
@@ -627,13 +607,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.3",
         "title": "Adoption of Resolution No. 14, The Education Protection Account for Fiscal Year 2024-25",
         "phases": {
           "opened": 1636,
-          "presentation": 1641,
+          "presentation": 1644,
           "publicComment": null,
-          "discussion": 1676,
+          "discussion": 1675,
           "vote": {
             "seconds": 1692,
             "type": "voice",
@@ -645,13 +625,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.4",
         "title": "Approval of Local Interagency Agreement(s) to Provide Education and Training to Credential Candidates",
         "phases": {
-          "opened": 1698,
-          "presentation": 1706,
+          "opened": 1695,
+          "presentation": 1708,
           "publicComment": null,
-          "discussion": 1749,
+          "discussion": 1750,
           "vote": {
             "seconds": 1805,
             "type": "voice",
@@ -663,15 +643,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.5",
         "title": "Approval of the Redwood City Administrators Association (RCAA) Compensation Proposal",
         "phases": {
-          "opened": 1807,
+          "opened": 1808,
           "presentation": 1818,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1833,
+            "seconds": 1825,
             "type": "voice",
             "result": "approved"
           }
@@ -681,13 +661,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.6",
         "title": "Approval of the Local Control Accountability Plan (LCAP) for the 2024-2025 School Year",
         "phases": {
-          "opened": 1835,
-          "presentation": 1841,
+          "opened": 1833,
+          "presentation": 1842,
           "publicComment": null,
-          "discussion": 1915,
+          "discussion": 1913,
           "vote": {
             "seconds": 1964,
             "type": "voice",
@@ -699,15 +679,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
+        "itemLabel": "10.7",
         "title": "Approval of the 2024-2025 Proposed Budget for Redwood City School District",
         "phases": {
-          "opened": 1968,
-          "presentation": 1971,
+          "opened": 1966,
+          "presentation": 1973,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1995,
+            "seconds": 1990,
             "type": "voice",
             "result": "approved"
           }
@@ -721,9 +701,9 @@
         "title": "Report from Board Members and Superintendent",
         "phases": {
           "opened": 2000,
-          "presentation": 2005,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 2006,
           "vote": null
         },
         "publicComments": [],
@@ -734,10 +714,10 @@
         "itemLabel": "12",
         "title": "Contract Update Information and Credit Card Summary",
         "phases": {
-          "opened": 2119,
+          "opened": 2118,
           "presentation": null,
           "publicComment": null,
-          "discussion": 2123,
+          "discussion": 2125,
           "vote": null
         },
         "publicComments": [],
@@ -751,7 +731,7 @@
           "opened": 2134,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 2134,
           "vote": null
         },
         "publicComments": [],
@@ -776,7 +756,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 2162,
+          "opened": 2160,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -790,12 +770,12 @@
         "itemLabel": "16",
         "title": "Adjourn the Meeting",
         "phases": {
-          "opened": 2162,
+          "opened": 2184,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2188,
+            "seconds": 2187,
             "type": "voice",
             "result": "approved"
           }
@@ -806,7 +786,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-21T03:17:55.062Z",
-  "inputTokens": 12798,
-  "outputTokens": 2918
+  "cachedAt": "2026-07-22T09:55:41.324Z",
+  "inputTokens": 12128,
+  "outputTokens": 2773
 }

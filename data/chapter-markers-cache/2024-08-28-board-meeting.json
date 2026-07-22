@@ -2,71 +2,43 @@
   "date": "2024-08-28",
   "slug": "2024-08-28-board-meeting",
   "itemCount": 56,
-  "transcriptHash": "ced307193b9b486c",
+  "transcriptHash": "bc811092ba6b0fed",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Vice President (acting as presiding officer)"
+        "role": "Board President"
       },
       "B": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
+        "name": "Cecilia I. Márquez",
+        "role": "Board President (Trustee)"
       },
       "C": {
-        "name": "Alisa MacAvoy",
+        "name": "David Weekly",
         "role": "Trustee"
       },
       "D": {
-        "name": "Cecilia I. Márquez",
-        "role": "President"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "E": {
-        "name": "David Weekly",
+        "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "F": {
         "name": "Mike Wells",
-        "role": "Clerk"
+        "role": "Board Clerk / Vice President"
       },
       "G": {
-        "name": "Kirsten McMullen",
-        "role": "Public speaker (parent)"
+        "name": "Janet Lawson",
+        "role": "Board Vice President (per agenda; note: speaker mapping — G appears to be a fifth board voice consistent with Wells or another trustee)"
       },
       "H": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "I": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "J": {
-        "name": "Mike Wells",
-        "role": "Clerk"
-      },
-      "K": {
-        "name": "Aaron Jobson",
-        "role": "President, QKA Architects (presenter)"
-      },
-      "L": {
         "name": "Eric Van Pelt",
-        "role": "Bond Program Manager, Van Pelt Construction Services (presenter)"
-      },
-      "M": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "N": {
-        "name": "Stephanie Vance",
-        "role": "Public speaker (teacher)"
-      },
-      "O": {
-        "name": "Jessica",
-        "role": "Public speaker (parent)"
+        "role": "Bond Program Construction Services Manager, VPCS"
       }
     },
-    "agendaChanges": "Section 2 (Welcome by Board President Janet Lawson) was not called out as a distinct agenda item — the presiding officer Janet Lawson delivered opening remarks as part of the Call to Order/Roll Call sequence. Section 9 (Public Hearing) was opened briefly without a formal introduction, folded into Dr. Baker's remarks around 5953s. The public hearing was opened and closed without a separate explicit 'opened' announcement from the chair — Dr. Baker introduced it and the chair closed it. Items 13.2 and 13.3 (Investment Fund information items) were taken up briefly in sequence. No items were pulled from the consent calendar. The agenda was otherwise followed in order.",
+    "agendaChanges": "Speaker labels require clarification: A=Janet Lawson (President, runs meeting), B=Cecilia I. Márquez, C=David Weekly, D=John Baker (Superintendent), E=Alisa MacAvoy, F=Mike Wells, G=another board member (likely Wells or MacAvoy secondary voice — context suggests G is a distinct board member, most consistent with Mike Wells based on content). Roll call shows Trustee Marquez (B), Trustee Weekley (C), Trustee McAvoy (E/D overlap in ASR), Vice President Wells (F), President Lawson (A). Section 2 Welcome was not separately introduced — Lawson opened the meeting and proceeded directly. Oral Communication (Section 5) speaker Jeffrey Chabowski was absent; the item was opened but no public comment was received. Public comment on 7.1 HVAC/FMP was taken mid-item. Items proceeded in agenda order with no formal pulls or resequencing noted.",
     "items": [
       {
         "itemLabel": "1",
@@ -114,14 +86,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 97,
+          "opened": 99,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 106,
+            "seconds": 102,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -132,20 +104,13 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 109,
+          "opened": 107,
           "presentation": null,
-          "publicComment": 109,
+          "publicComment": 107,
           "discussion": null,
           "vote": null
         },
-        "publicComments": [
-          {
-            "name": "Jeffrey Schabowski",
-            "startSeconds": 109,
-            "endSeconds": 133,
-            "summary": "Speaker card was submitted but Jeffrey Schabowski was not present in the room or on Zoom, so no comment was given."
-          }
-        ],
+        "publicComments": [],
         "consent": false,
         "pulled": false
       },
@@ -153,14 +118,14 @@
         "itemLabel": "6",
         "title": "Approval of Program Management Services Amendment #4 with Cumming Group (Formerly RGMK)",
         "phases": {
-          "opened": 133,
+          "opened": 130,
           "presentation": 158,
           "publicComment": null,
-          "discussion": 177,
+          "discussion": 178,
           "vote": {
-            "seconds": 202,
+            "seconds": 201,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -171,30 +136,30 @@
         "itemLabel": "7.1",
         "title": "Update on the Progress of the Facilities Master Plan and Next Steps",
         "phases": {
-          "opened": 212,
-          "presentation": 241,
-          "publicComment": 2001,
-          "discussion": 1527,
+          "opened": 202,
+          "presentation": 256,
+          "publicComment": 1998,
+          "discussion": 1530,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Stephanie Vance",
             "startSeconds": 2024,
-            "endSeconds": 2224,
-            "summary": "A 22-year district teacher described the heat in her corner classroom, argued that fans are ineffective and noisy, and proposed OSHA thermometers in classrooms and reflective window film as quicker, less expensive short-term solutions."
+            "endSeconds": 2225,
+            "summary": "A 22-year district employee and teacher described the severe heat in her corner classroom, advocated for OSHA-approved thermometers in classrooms, and proposed reflective window film as a cost-effective near-term solution rather than portable HVAC units."
           },
           {
             "name": "Kirsten McMullen",
-            "startSeconds": 2355,
-            "endSeconds": 2424,
-            "summary": "A parent of a student in Ms. Vance's class urged the board to implement short-term cooling solutions immediately for the hottest classrooms rather than waiting for permanent HVAC installation."
+            "startSeconds": 2349,
+            "endSeconds": 2420,
+            "summary": "A parent of a student in Ms. Vance's class urged the board to pursue short-term cooling solutions for the hottest classrooms immediately rather than waiting for long-term HVAC installation."
           },
           {
-            "name": "Mercedes (and her son)",
-            "startSeconds": 2556,
-            "endSeconds": 2624,
-            "summary": "A parent and her son (a student in Ms. Vance's class) described how the heat—around 80–85 degrees—made it very hard to concentrate during i-Ready testing, and thanked the board for prioritizing the issue."
+            "name": "Mercedes (last name not given)",
+            "startSeconds": 2530,
+            "endSeconds": 2623,
+            "summary": "A parent shared her son's firsthand experience struggling to concentrate during testing in an 80–85 degree classroom and emphasized the need for interim cooling solutions so students and teachers are not harmed by heat."
           }
         ],
         "consent": false,
@@ -204,10 +169,10 @@
         "itemLabel": "8.1",
         "title": "Discussion of School Assignments and Committee Assignments for Board Members for the 2024-25 School Year",
         "phases": {
-          "opened": 4021,
+          "opened": 4023,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4055,
+          "discussion": 4023,
           "vote": null
         },
         "publicComments": [],
@@ -219,9 +184,9 @@
         "title": "Discussion of Process to Appoint Area III Trustee",
         "phases": {
           "opened": 4483,
-          "presentation": 4526,
+          "presentation": 4492,
           "publicComment": null,
-          "discussion": 5089,
+          "discussion": 5090,
           "vote": null
         },
         "publicComments": [],
@@ -232,9 +197,9 @@
         "itemLabel": "9",
         "title": "Public Hearing of Sufficiency of Instructional Materials for the 2024-2025 School Year",
         "phases": {
-          "opened": 5953,
+          "opened": 5954,
           "presentation": null,
-          "publicComment": 5953,
+          "publicComment": 5954,
           "discussion": null,
           "vote": null
         },
@@ -246,14 +211,14 @@
         "itemLabel": "10",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 5989,
+          "opened": 5992,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6000,
+            "seconds": 5999,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -264,14 +229,14 @@
         "itemLabel": "11.1",
         "title": "Adoption of Resolution No. 2, Sufficiency of Instructional Materials for the 2024-25 School Year",
         "phases": {
-          "opened": 6001,
+          "opened": 6000,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 6012,
           "vote": {
             "seconds": 6023,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -282,14 +247,14 @@
         "itemLabel": "11.2",
         "title": "Adoption of Resolution No. 3, Approval of Certificated Staff Gaining Tenured Status",
         "phases": {
-          "opened": 6025,
-          "presentation": 6034,
+          "opened": 6026,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 6033,
           "vote": {
-            "seconds": 6135,
+            "seconds": 6131,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -301,9 +266,9 @@
         "title": "First Reading and Approval of Board Bylaw 9223 - Filling Vacancies",
         "phases": {
           "opened": 6136,
-          "presentation": 6147,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 6178,
+          "discussion": 6136,
           "vote": null
         },
         "publicComments": [],
@@ -314,10 +279,10 @@
         "itemLabel": "12",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 6539,
+          "opened": 6526,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6548,
+          "discussion": 6526,
           "vote": null
         },
         "publicComments": [],
@@ -328,18 +293,18 @@
         "itemLabel": "13.1",
         "title": "Information on Decision Against Parcel Tax on November Ballot",
         "phases": {
-          "opened": 6696,
-          "presentation": 6706,
-          "publicComment": 6841,
-          "discussion": 6760,
+          "opened": 6693,
+          "presentation": 6705,
+          "publicComment": 6843,
+          "discussion": 6799,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Jessica",
             "startSeconds": 6855,
-            "endSeconds": 6969,
-            "summary": "A parent expressed worry about continued budget cuts without parcel tax funding and encouraged community members to consider organizing a citizens' initiative parcel tax, which would require only 51% approval rather than two-thirds."
+            "endSeconds": 6975,
+            "summary": "A parent expressed support for the district's decision but warned about budget cuts and proposed that community members could pursue a citizens' initiative parcel tax requiring only 51% approval rather than the 2/3 supermajority required for a district-run measure."
           }
         ],
         "consent": false,
@@ -349,7 +314,7 @@
         "itemLabel": "13.2",
         "title": "Information on San Mateo County Investment Fund - June 2024",
         "phases": {
-          "opened": 7060,
+          "opened": 7058,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -363,7 +328,7 @@
         "itemLabel": "13.3",
         "title": "Information on San Mateo County Investment Fund - July 2024",
         "phases": {
-          "opened": 7066,
+          "opened": 7063,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -391,7 +356,7 @@
         "itemLabel": "15",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7083,
+          "opened": 7089,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -405,7 +370,7 @@
         "itemLabel": "16",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 7096,
+          "opened": 7100,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -417,16 +382,16 @@
       },
       {
         "itemLabel": "17",
-        "title": "Adjourn the Meeting",
+        "title": "Adjournment",
         "phases": {
           "opened": 7100,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7114,
+            "seconds": 7110,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -440,66 +405,38 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Vice President (acting as presiding officer)"
+        "role": "Board President"
       },
       "B": {
-        "name": "Evelyn Sanchez",
-        "role": "Executive Assistant to Superintendent / Board Secretary"
+        "name": "Cecilia I. Márquez",
+        "role": "Board President (Trustee)"
       },
       "C": {
-        "name": "Alisa MacAvoy",
+        "name": "David Weekly",
         "role": "Trustee"
       },
       "D": {
-        "name": "Cecilia I. Márquez",
-        "role": "President"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "E": {
-        "name": "David Weekly",
+        "name": "Alisa MacAvoy",
         "role": "Trustee"
       },
       "F": {
         "name": "Mike Wells",
-        "role": "Clerk"
+        "role": "Board Clerk / Vice President"
       },
       "G": {
-        "name": "Kirsten McMullen",
-        "role": "Public speaker (parent)"
+        "name": "Janet Lawson",
+        "role": "Board Vice President (per agenda; note: speaker mapping — G appears to be a fifth board voice consistent with Wells or another trustee)"
       },
       "H": {
-        "name": "Alisa MacAvoy",
-        "role": "Trustee"
-      },
-      "I": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "J": {
-        "name": "Mike Wells",
-        "role": "Clerk"
-      },
-      "K": {
-        "name": "Aaron Jobson",
-        "role": "President, QKA Architects (presenter)"
-      },
-      "L": {
         "name": "Eric Van Pelt",
-        "role": "Bond Program Manager, Van Pelt Construction Services (presenter)"
-      },
-      "M": {
-        "name": "John Baker",
-        "role": "Superintendent"
-      },
-      "N": {
-        "name": "Stephanie Vance",
-        "role": "Public speaker (teacher)"
-      },
-      "O": {
-        "name": "Jessica",
-        "role": "Public speaker (parent)"
+        "role": "Bond Program Construction Services Manager, VPCS"
       }
     },
-    "agendaChanges": "Section 2 (Welcome by Board President Janet Lawson) was not called out as a distinct agenda item — the presiding officer Janet Lawson delivered opening remarks as part of the Call to Order/Roll Call sequence. Section 9 (Public Hearing) was opened briefly without a formal introduction, folded into Dr. Baker's remarks around 5953s. The public hearing was opened and closed without a separate explicit 'opened' announcement from the chair — Dr. Baker introduced it and the chair closed it. Items 13.2 and 13.3 (Investment Fund information items) were taken up briefly in sequence. No items were pulled from the consent calendar. The agenda was otherwise followed in order.",
+    "agendaChanges": "Speaker labels require clarification: A=Janet Lawson (President, runs meeting), B=Cecilia I. Márquez, C=David Weekly, D=John Baker (Superintendent), E=Alisa MacAvoy, F=Mike Wells, G=another board member (likely Wells or MacAvoy secondary voice — context suggests G is a distinct board member, most consistent with Mike Wells based on content). Roll call shows Trustee Marquez (B), Trustee Weekley (C), Trustee McAvoy (E/D overlap in ASR), Vice President Wells (F), President Lawson (A). Section 2 Welcome was not separately introduced — Lawson opened the meeting and proceeded directly. Oral Communication (Section 5) speaker Jeffrey Chabowski was absent; the item was opened but no public comment was received. Public comment on 7.1 HVAC/FMP was taken mid-item. Items proceeded in agenda order with no formal pulls or resequencing noted.",
     "items": [
       {
         "itemLabel": "1",
@@ -547,14 +484,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 97,
+          "opened": 99,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 106,
+            "seconds": 102,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -565,20 +502,13 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 109,
+          "opened": 107,
           "presentation": null,
-          "publicComment": 109,
+          "publicComment": 107,
           "discussion": null,
           "vote": null
         },
-        "publicComments": [
-          {
-            "name": "Jeffrey Schabowski",
-            "startSeconds": 109,
-            "endSeconds": 133,
-            "summary": "Speaker card was submitted but Jeffrey Schabowski was not present in the room or on Zoom, so no comment was given."
-          }
-        ],
+        "publicComments": [],
         "consent": false,
         "pulled": false
       },
@@ -586,14 +516,14 @@
         "itemLabel": "6",
         "title": "Approval of Program Management Services Amendment #4 with Cumming Group (Formerly RGMK)",
         "phases": {
-          "opened": 133,
+          "opened": 130,
           "presentation": 158,
           "publicComment": null,
-          "discussion": 177,
+          "discussion": 178,
           "vote": {
-            "seconds": 202,
+            "seconds": 201,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -604,30 +534,30 @@
         "itemLabel": "7.1",
         "title": "Update on the Progress of the Facilities Master Plan and Next Steps",
         "phases": {
-          "opened": 212,
-          "presentation": 241,
-          "publicComment": 2001,
-          "discussion": 1527,
+          "opened": 202,
+          "presentation": 256,
+          "publicComment": 1998,
+          "discussion": 1530,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Stephanie Vance",
             "startSeconds": 2024,
-            "endSeconds": 2224,
-            "summary": "A 22-year district teacher described the heat in her corner classroom, argued that fans are ineffective and noisy, and proposed OSHA thermometers in classrooms and reflective window film as quicker, less expensive short-term solutions."
+            "endSeconds": 2225,
+            "summary": "A 22-year district employee and teacher described the severe heat in her corner classroom, advocated for OSHA-approved thermometers in classrooms, and proposed reflective window film as a cost-effective near-term solution rather than portable HVAC units."
           },
           {
             "name": "Kirsten McMullen",
-            "startSeconds": 2355,
-            "endSeconds": 2424,
-            "summary": "A parent of a student in Ms. Vance's class urged the board to implement short-term cooling solutions immediately for the hottest classrooms rather than waiting for permanent HVAC installation."
+            "startSeconds": 2349,
+            "endSeconds": 2420,
+            "summary": "A parent of a student in Ms. Vance's class urged the board to pursue short-term cooling solutions for the hottest classrooms immediately rather than waiting for long-term HVAC installation."
           },
           {
-            "name": "Mercedes (and her son)",
-            "startSeconds": 2556,
-            "endSeconds": 2624,
-            "summary": "A parent and her son (a student in Ms. Vance's class) described how the heat—around 80–85 degrees—made it very hard to concentrate during i-Ready testing, and thanked the board for prioritizing the issue."
+            "name": "Mercedes (last name not given)",
+            "startSeconds": 2530,
+            "endSeconds": 2623,
+            "summary": "A parent shared her son's firsthand experience struggling to concentrate during testing in an 80–85 degree classroom and emphasized the need for interim cooling solutions so students and teachers are not harmed by heat."
           }
         ],
         "consent": false,
@@ -637,10 +567,10 @@
         "itemLabel": "8.1",
         "title": "Discussion of School Assignments and Committee Assignments for Board Members for the 2024-25 School Year",
         "phases": {
-          "opened": 4021,
+          "opened": 4023,
           "presentation": null,
           "publicComment": null,
-          "discussion": 4055,
+          "discussion": 4023,
           "vote": null
         },
         "publicComments": [],
@@ -652,9 +582,9 @@
         "title": "Discussion of Process to Appoint Area III Trustee",
         "phases": {
           "opened": 4483,
-          "presentation": 4526,
+          "presentation": 4492,
           "publicComment": null,
-          "discussion": 5089,
+          "discussion": 5090,
           "vote": null
         },
         "publicComments": [],
@@ -665,9 +595,9 @@
         "itemLabel": "9",
         "title": "Public Hearing of Sufficiency of Instructional Materials for the 2024-2025 School Year",
         "phases": {
-          "opened": 5953,
+          "opened": 5954,
           "presentation": null,
-          "publicComment": 5953,
+          "publicComment": 5954,
           "discussion": null,
           "vote": null
         },
@@ -679,14 +609,14 @@
         "itemLabel": "10",
         "title": "Approval of Consent Items",
         "phases": {
-          "opened": 5989,
+          "opened": 5992,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 6000,
+            "seconds": 5999,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -697,14 +627,14 @@
         "itemLabel": "11.1",
         "title": "Adoption of Resolution No. 2, Sufficiency of Instructional Materials for the 2024-25 School Year",
         "phases": {
-          "opened": 6001,
+          "opened": 6000,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 6012,
           "vote": {
             "seconds": 6023,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -715,14 +645,14 @@
         "itemLabel": "11.2",
         "title": "Adoption of Resolution No. 3, Approval of Certificated Staff Gaining Tenured Status",
         "phases": {
-          "opened": 6025,
-          "presentation": 6034,
+          "opened": 6026,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 6033,
           "vote": {
-            "seconds": 6135,
+            "seconds": 6131,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -734,9 +664,9 @@
         "title": "First Reading and Approval of Board Bylaw 9223 - Filling Vacancies",
         "phases": {
           "opened": 6136,
-          "presentation": 6147,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 6178,
+          "discussion": 6136,
           "vote": null
         },
         "publicComments": [],
@@ -747,10 +677,10 @@
         "itemLabel": "12",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 6539,
+          "opened": 6526,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6548,
+          "discussion": 6526,
           "vote": null
         },
         "publicComments": [],
@@ -761,18 +691,18 @@
         "itemLabel": "13.1",
         "title": "Information on Decision Against Parcel Tax on November Ballot",
         "phases": {
-          "opened": 6696,
-          "presentation": 6706,
-          "publicComment": 6841,
-          "discussion": 6760,
+          "opened": 6693,
+          "presentation": 6705,
+          "publicComment": 6843,
+          "discussion": 6799,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Jessica",
             "startSeconds": 6855,
-            "endSeconds": 6969,
-            "summary": "A parent expressed worry about continued budget cuts without parcel tax funding and encouraged community members to consider organizing a citizens' initiative parcel tax, which would require only 51% approval rather than two-thirds."
+            "endSeconds": 6975,
+            "summary": "A parent expressed support for the district's decision but warned about budget cuts and proposed that community members could pursue a citizens' initiative parcel tax requiring only 51% approval rather than the 2/3 supermajority required for a district-run measure."
           }
         ],
         "consent": false,
@@ -782,7 +712,7 @@
         "itemLabel": "13.2",
         "title": "Information on San Mateo County Investment Fund - June 2024",
         "phases": {
-          "opened": 7060,
+          "opened": 7058,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -796,7 +726,7 @@
         "itemLabel": "13.3",
         "title": "Information on San Mateo County Investment Fund - July 2024",
         "phases": {
-          "opened": 7066,
+          "opened": 7063,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -824,7 +754,7 @@
         "itemLabel": "15",
         "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 7083,
+          "opened": 7089,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -838,7 +768,7 @@
         "itemLabel": "16",
         "title": "Changes to the Board Meetings Calendar",
         "phases": {
-          "opened": 7096,
+          "opened": 7100,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -850,16 +780,16 @@
       },
       {
         "itemLabel": "17",
-        "title": "Adjourn the Meeting",
+        "title": "Adjournment",
         "phases": {
           "opened": 7100,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7114,
+            "seconds": 7110,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -868,7 +798,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-20T19:39:02.900Z",
-  "inputTokens": 33497,
-  "outputTokens": 3343
+  "cachedAt": "2026-07-22T09:53:50.754Z",
+  "inputTokens": 31946,
+  "outputTokens": 3242
 }
