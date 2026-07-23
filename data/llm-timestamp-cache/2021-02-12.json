@@ -1,5 +1,6 @@
 {
   "date": "2021-02-12",
+  "transcriptHash": "7e6ed272997dd11d",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -27,8 +28,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No formal agenda changes announced. The meeting proceeded with items in general accordance with the posted agenda, though the offsite retreat format combined closed and open sessions differently than a typical meeting.",
-    "consent_vote_words": null,
+    "agenda_changes": "No formal agenda changes announced during 'Changes to the Agenda' section. President stated 'Change agenda. Any changes to the agenda, I'll make a motion to approve the agenda second.' indicating no changes were presented.",
+    "consent_vote_words": "Trustee Wells. Aye. Trustee Lawson. Aye. Trustee Marquez. Aye. Vice President Diaz. Locum. Aye. President McAvoy. Aye.",
     "items": [
       {
         "item": 1,
@@ -37,42 +38,37 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Eliana. Trustee Wells. Here.",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "Okay, so oral communication on closed session items. We basically covered budget",
+        "intro_words": "Trustee Wells. Here. Trustee Lawson. Here. Trustee Marquez. Here.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Closed Session 9:00-12:00 pm [not explicitly reopened in transcript, covered in summary]",
+        "intro_words": "oral communication on closed session items. We basically covered budget negotiations",
         "status": "found"
       },
       {
-        "item": 9,
-        "intro_words": "Welcome, everybody. Nice to have all of you here. Janet, at this point, do we",
+        "item": 11,
+        "intro_words": "Welcome, everybody. Nice to have all of you here.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Change agenda. Any changes to the agenda, I'll make a motion to approve",
+        "intro_words": "Change agenda. Any changes to the agenda, I'll make",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "the agenda second. Okay. Janet and Mike, roll call. Trustee Wells. Aye.",
+        "intro_words": "a motion to approve the agenda second. Okay. Janet and Mike,",
         "status": "found"
       },
       {
         "item": 19,
-        "intro_words": "All right, so now we're officially into the Equity Network update. So thank you,",
+        "intro_words": "All right, so now we're officially into the Equity Network update.",
         "status": "found"
       },
       {
         "item": 21,
-        "intro_words": "All right, well, this leads nicely into our next session, right, John? Unless",
+        "intro_words": "All right, well, this leads nicely into our next session, right, John?",
         "status": "found"
       }
     ]
@@ -85,12 +81,14 @@
         "timestampSeconds": 247
       },
       {
-        "timestamp": "00:04:17",
-        "timestampSeconds": 257
+        "timestamp": "00:04:22",
+        "timestampSeconds": 262
       },
+      null,
+      null,
       {
-        "timestamp": "00:04:27",
-        "timestampSeconds": 267
+        "timestamp": "00:04:33",
+        "timestampSeconds": 273
       },
       null,
       null,
@@ -102,16 +100,14 @@
         "timestampSeconds": 288
       },
       null,
-      null,
+      {
+        "timestamp": "00:05:23",
+        "timestampSeconds": 323
+      },
       null,
       {
         "timestamp": "00:05:08",
         "timestampSeconds": 308
-      },
-      null,
-      {
-        "timestamp": "00:05:18",
-        "timestampSeconds": 318
       },
       null,
       null,
@@ -130,7 +126,7 @@
       null
     ]
   },
-  "cachedAt": "2026-03-26T22:47:50.554Z",
+  "cachedAt": "2026-07-23T20:52:28.637Z",
   "inputTokens": 21055,
-  "outputTokens": 520
+  "outputTokens": 507
 }

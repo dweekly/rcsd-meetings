@@ -1,15 +1,17 @@
 {
   "date": "2022-06-15",
+  "slug": "2022-06-15-board-meeting",
   "itemCount": 56,
+  "transcriptHash": "19197afa020eee50",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "María Díaz-Slocum",
-        "role": "Board President"
+        "role": "President"
       },
       "B": {
         "name": "Eliana (staff/secretary)",
-        "role": "Board Secretary / Staff (roll call and speaker management)"
+        "role": "Board Secretary / Staff calling roll and speakers"
       },
       "C": {
         "name": "Alisa MacAvoy",
@@ -28,11 +30,11 @@
         "role": "Trustee"
       },
       "G": {
-        "name": "Meredith (legal counsel/consultant)",
-        "role": "Legal Counsel / Bond Consultant"
+        "name": "Meredith (Legal Counsel/Consultant)",
+        "role": "Bond counsel presenter"
       }
     },
-    "agendaChanges": "Board approved agenda amendments at the start of the meeting: (1) Sections 10, 11, and 12 (Bond Program Consent Items, Bond Program Action Items, and Consent Items) were moved to be heard immediately after agenda approval (Section 7). (2) Action items 13.1 through 13.6 (second readings) were moved to the consent calendar and approved as part of the Section 12 consent bundle. Items were taken in the following order: Roll Call, Report Out on Closed Session, Welcome (brief), Changes to Agenda, Approval of Agenda, Section 10 Bond Program Consent (bundle), Section 11 Bond Program Action Item, Section 12 Consent + 13.1-13.6 bundle, then Section 9 School/Community Reports (9.1 then 9.2), then 13.7 Personnel Report / Resolution 38, then Sections 14-19.",
+    "agendaChanges": "At the start of the meeting, Trustee MacAvoy moved to resequence the agenda: Sections 10 (Bond Program Consent Items), 11 (Bond Program Action Items), and 12 (Consent Items) were moved to immediately after Section 7 (Approval of Agenda). Additionally, Action Items 13.1 through 13.6 (second readings of board policies/bylaws) were moved to the consent calendar and approved as part of the Section 12 consent bundle. Item 13.7 (Resolution 38) remained as a standalone action item and was taken up after Section 9. Section 9 (School/Community Reports) was heard after the resequenced consent/action items.",
     "items": [
       {
         "itemLabel": "1",
@@ -50,7 +52,7 @@
       },
       {
         "itemLabel": "1",
-        "title": "Roll Call (Opening)",
+        "title": "Roll Call",
         "phases": {
           "opened": 79,
           "presentation": null,
@@ -78,7 +80,7 @@
       },
       {
         "itemLabel": "3",
-        "title": "Closed Session – 5:00 p.m.",
+        "title": "Closed Session",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -106,7 +108,7 @@
       },
       {
         "itemLabel": "5",
-        "title": "Welcome by the Board President",
+        "title": "Welcome by the School Board President",
         "phases": {
           "opened": 123,
           "presentation": null,
@@ -166,14 +168,14 @@
       },
       {
         "itemLabel": "10",
-        "title": "Bond Program Consent Items – Approval of Consent Items (Bundle)",
+        "title": "Bond Program Consent Items – Approval of Consent Items (moved up)",
         "phases": {
-          "opened": 331,
+          "opened": 349,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 361,
+            "seconds": 364,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -184,7 +186,7 @@
       },
       {
         "itemLabel": "11",
-        "title": "Adoption of Resolution 39, Resolution of Intent to Convey a Public Utility Easement to PG&E",
+        "title": "Adoption of Resolution 39 – Intent to Convey Public Utility Easement to PG&E (moved up)",
         "phases": {
           "opened": 380,
           "presentation": null,
@@ -202,7 +204,7 @@
       },
       {
         "itemLabel": "12",
-        "title": "Consent Items (12.1–12.7) and Action Items 13.1–13.6 (moved to consent)",
+        "title": "Consent Items 12.1–12.7 and Action Items 13.1–13.6 (moved up and combined)",
         "phases": {
           "opened": 416,
           "presentation": null,
@@ -220,24 +222,10 @@
       },
       {
         "itemLabel": "9",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 460,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.1",
-        "title": "Presentation and Discussion on the General Obligation (GO) Bond Next Steps",
+        "title": "School/Community Reports – Presentation and Discussion on the General Obligation (GO) Bond Next Steps",
         "phases": {
           "opened": 473,
-          "presentation": 516,
+          "presentation": 543,
           "publicComment": 3252,
           "discussion": 3749,
           "vote": null
@@ -247,26 +235,20 @@
             "name": "Jessica Shade",
             "startSeconds": 3581,
             "endSeconds": 3641,
-            "summary": "Voiced support for the new school bond, called for central kitchen language to be included, and praised the district's efforts."
-          },
-          {
-            "name": "Katerina Schoenbach",
-            "startSeconds": 3647,
-            "endSeconds": 3715,
-            "summary": "Speaker was called but unable to unmute and did not provide comment."
+            "summary": "Voiced support for a new school bond and requested that language for a central kitchen be included in the bond measure."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "9.2",
-        "title": "Recommended Options to the School Board Regarding North Star Academy (NSA)",
+        "itemLabel": "9",
+        "title": "School/Community Reports – Recommended Options to the School Board Regarding North Star Academy (NSA)",
         "phases": {
           "opened": 3978,
           "presentation": 4041,
           "publicComment": 5448,
-          "discussion": 9007,
+          "discussion": 8946,
           "vote": null
         },
         "publicComments": [
@@ -274,208 +256,196 @@
             "name": "Matt Schwal",
             "startSeconds": 5455,
             "endSeconds": 5549,
-            "summary": "Argued the NSA Forward Committee was negatively framed and urged the board to reframe the discussion positively, celebrating North Star's success rather than proposing changes."
+            "summary": "Argued the NSA Forward Committee was negatively framed and called on board members to reframe the discussion positively and inspire change rather than break what is working."
           },
           {
             "name": "Cameron Hoffman",
-            "startSeconds": 5551,
+            "startSeconds": 5566,
             "endSeconds": 5861,
-            "summary": "Argued the proposals are being rushed and lack evidence, compared North Star favorably to U46 in Illinois, and proposed a district-wide talent development program called 'SHINE' to serve younger learners rather than restructuring North Star."
+            "summary": "Argued the proposals are rushed and lack an evidence-based approach, and proposed a 'SHINE' talent development program modeled on the U46 district's AIM program to serve all neighborhood school students rather than restructuring North Star."
           },
           {
             "name": "Tony Webel",
             "startSeconds": 5877,
             "endSeconds": 5981,
-            "summary": "Shared his experience as a committee member and parent of students at both Roosevelt and North Star, and argued that board bylaws require keeping student learning as the primary focus, finding no data justifying grade configuration or location changes."
+            "summary": "Shared his experience as both a Roosevelt and North Star parent, argued there is no data justifying grade configuration or location changes, and cited board bylaws requiring decisions be based on student learning and achievement."
           },
           {
             "name": "Diana Fu",
             "startSeconds": 5983,
             "endSeconds": 6096,
-            "summary": "Drew on her experience helping start the MI program to argue the district should provide more choices and improve other schools rather than restricting a choice program like North Star."
-          },
-          {
-            "name": "Allie Gilmore",
-            "startSeconds": 6098,
-            "endSeconds": 6137,
-            "summary": "Speaker was called but did not respond or unmute."
-          },
-          {
-            "name": "Wenjing Sheng",
-            "startSeconds": 6164,
-            "endSeconds": 6204,
-            "summary": "Speaker was called but was unable to unmute and did not provide comment."
+            "summary": "Drew on her experience helping start the MI program to argue the district should provide more and better school choices rather than taking away the North Star option from parents."
           },
           {
             "name": "Lone Hin",
             "startSeconds": 6204,
             "endSeconds": 6268,
-            "summary": "Described her first-grader's unmet academic needs at their neighborhood school and argued that scaling back North Star would leave more students without appropriate challenge."
+            "summary": "Described her son's unmet needs at his neighborhood school and argued that dismantling or scaling back North Star would not serve any children in the district."
           },
           {
             "name": "Megan O'Neill",
-            "startSeconds": 6303,
+            "startSeconds": 6310,
             "endSeconds": 6422,
-            "summary": "Argued that options A through C would serve fewer students and contradict the stated goal of serving more students more effectively, and that neighborhood schools must first be ready to serve gifted learners before any North Star grades are cut."
+            "summary": "Argued that options A through C would eliminate half of North Star and fail to meet the stated goal of serving more students more effectively, and that no changes should happen until neighborhood schools can serve the needs of academically challenged students."
           },
           {
             "name": "Matt Collier",
             "startSeconds": 6422,
             "endSeconds": 6470,
-            "summary": "As a parent of young children and former magnet school student himself, urged the board to preserve K–8 North Star as a standalone school and to consider Ms. Hoffman's alternative proposal."
+            "summary": "Urged the board to choose an option that allows K–8 programming to continue as a standalone school, sharing his personal experience benefiting from similar magnet programs."
           },
           {
             "name": "Anthony Low",
             "startSeconds": 6480,
             "endSeconds": 6546,
-            "summary": "Stated that three of the four options effectively close half of North Star, called all options deficient, and said his family would likely leave the district if a 6–8 option were chosen."
+            "summary": "As a Roy Cloud and North Star parent, argued all four options are deficient, that three of them effectively close 50% of North Star, and that his family would likely have to leave the district if a 6–8 option were chosen."
           },
           {
             "name": "Andrew Hoffman",
             "startSeconds": 6564,
             "endSeconds": 6662,
-            "summary": "Argued the recommendations target North Star rather than addressing underperforming schools, warned the options would negatively impact North Star's mission, and urged the board not to adopt incomplete proposals."
+            "summary": "Argued the board should focus on lifting lower-performing parts of the district rather than negatively impacting the award-winning North Star, and urged the board not to hastily approve incomplete recommendations."
           },
           {
             "name": "Heidi Wall",
             "startSeconds": 6668,
             "endSeconds": 6778,
-            "summary": "Criticized the proposals as short-sighted and premature, cited district-wide problems like declining test scores and teacher retention, and called for using North Star's proven methods to improve other schools rather than dismantling it."
+            "summary": "Argued the district should focus on systemic problems rather than dismantling a successful school, and cited the U46 model as a proven approach to improving diversity without restructuring."
           },
           {
             "name": "Susan Bouchard",
-            "startSeconds": 6781,
+            "startSeconds": 6805,
             "endSeconds": 6915,
-            "summary": "Argued that capping the number of qualified students allowed to transfer to NSA from neighborhood schools would increase the perception of elitism and create more divisiveness, and asked the board to reject and rework all proposals."
+            "summary": "Opposed the quota cap on neighborhood school transfers to NSA, arguing it would increase perceptions of elitism and division, and asked why the cap is not applied to all school-of-choice programs."
           },
           {
             "name": "Costas Dimitropoulos",
-            "startSeconds": 6955,
+            "startSeconds": 6966,
             "endSeconds": 7069,
-            "summary": "Asked for empirical evidence supporting any proposed changes and questioned whether there is data proving that altering a high-achieving school like North Star would improve outcomes at lower-performing schools."
+            "summary": "Called for empirical evidence and proven models to justify any changes to North Star, noting that demographic differences between schools reflect local demographics rather than the influence of North Star."
           },
           {
             "name": "Kelly McCarthy",
-            "startSeconds": 7069,
+            "startSeconds": 7082,
             "endSeconds": 7158,
-            "summary": "Questioned whether the community pulse had been taken since COVID, called the effort a waste of resources given widespread learning loss, and urged the board to instead use resources to improve neighborhood schools."
+            "summary": "Questioned why the district is prioritizing North Star changes when so many students are underperforming post-COVID, and urged the board to use those resources to bolster neighborhood school programs instead."
           },
           {
             "name": "Casey Wright",
             "startSeconds": 7166,
             "endSeconds": 7265,
-            "summary": "Called several options 'casually cruel,' warned the board against falling for the sunk cost fallacy, and implored them to postpone a decision and demand better-researched options."
+            "summary": "Called the four options deeply flawed and irresponsible without fuller analysis of consequences, urged the board to postpone consideration and demand new options like those proposed by Cameron Hoffman."
           },
           {
             "name": "Catherine Stewart",
             "startSeconds": 7279,
             "endSeconds": 7383,
-            "summary": "Observed that virtually every prior speaker opposed changing or dismantling North Star and argued that the general sentiment—'if it ain't broke, don't fix it'—should guide the board."
+            "summary": "Noted that all speakers before her opposed changes to North Star, and argued that the 'rising tide lifts all boats' principle means the school should be kept as-is rather than changed to reduce resentment from other schools."
           },
           {
             "name": "Gautam Dutta",
             "startSeconds": 7443,
             "endSeconds": 7520,
-            "summary": "As a local attorney, Asian American civic leader, and North Star parent, echoed 'if it ain't broke, don't fix it,' and asked the board to reject all four options and instead improve support and resources for all schools."
+            "summary": "As a North Star parent and community leader, echoed the sentiment that North Star is working well for his daughter and urged the board to reject all four options and instead focus on improving access and resources for all schools."
           },
           {
-            "name": "Jing Zhu",
-            "startSeconds": 7532,
-            "endSeconds": 7618,
-            "summary": "Warned that the proposed changes would create many unhappy parents who become reliable voters against the board, and urged the board to think carefully about the disruption these options would cause to North Star families' daily lives."
+            "name": "Jing Su",
+            "startSeconds": 7552,
+            "endSeconds": 7608,
+            "summary": "Warned that the proposed changes would create many unhappy parents who would become reliable voters opposing the board, and urged trustees to consider the daily disruption to North Star families before making their decision."
           },
           {
             "name": "Kirsten McMullen",
-            "startSeconds": 7622,
+            "startSeconds": 7613,
             "endSeconds": 7721,
-            "summary": "Called the recommendations insufficient and lacking an evidence-based approach, noting they mainly solve the third-grade attrition issue while creating new problems, and urged deeper research and cost-benefit analysis."
+            "summary": "Argued the recommendations lack an evidence-based approach, only adequately solve the third-grade attrition problem while creating new unknowns, and urged additional research before selecting any option."
           },
           {
             "name": "Bara Altaba",
             "startSeconds": 7721,
             "endSeconds": 7806,
-            "summary": "As a parent of current NSA students who transferred from private school because of North Star, urged the board not to break a nationally recognized school and to instead bring other schools up to North Star's level."
+            "summary": "As a parent of current NSA students who came from private school because of NSA, urged the board not to break a nationally recognized school and instead look at how to bring other schools up to NSA's level."
           },
           {
             "name": "Michelle Fogarty",
             "startSeconds": 7806,
             "endSeconds": 7897,
-            "summary": "Argued the proposals take direct aim at one successful school without solving district-wide shortcomings, criticized use of outdated data from 2018, and urged the board to conduct new research before implementing any changes."
+            "summary": "Argued the proposals take direct aim at one successful school rather than addressing full district needs, and urged the board to take more time, examine the data framework, and conduct a new community survey before acting."
           },
           {
             "name": "Katie Goetz",
             "startSeconds": 7897,
             "endSeconds": 7947,
-            "summary": "As a North Star Forward Committee member, encouraged the board to consider and move forward with the proposal to make North Star a 6–8 school on the Bayside, stating it best addresses the committee's three charges."
+            "summary": "As a North Star Forward Committee member, encouraged the board to move forward with the 6–8 Bayside option as the one proposal that addresses all three charges given to the committee."
           },
           {
             "name": "Christopher Bouchard",
             "startSeconds": 7957,
             "endSeconds": 8053,
-            "summary": "Asked the board to reject all four proposals and pause major changes, citing a flawed and biased committee process built on four-year-old data, and called for a reset with current community input."
+            "summary": "Urged the board to reject all four proposals and pause major changes, arguing the NSA Forward process was flawed from the beginning due to outdated and biased data, and called for a new community pulse survey."
           },
           {
             "name": "David Wright",
             "startSeconds": 8067,
             "endSeconds": 8147,
-            "summary": "Implored the board to defer the decision and request a revised set of options aligned to the committee's stated goals, warning against committing to a process not in students' best interests."
+            "summary": "Implored the board to defer the decision and request revised options informed by data that directly align to the committee's stated goals, rather than committing to deeply flawed options."
           },
           {
             "name": "Mike Beebe",
             "startSeconds": 8157,
             "endSeconds": 8261,
-            "summary": "Summarized three broadly supported elements from Dr. Baker's plans (outreach, test prep access, logistics like transportation), suggested spreading entrance grades across third through fifth to reduce the third-grade attrition pinch, and emphasized district-wide learning loss as the true priority."
+            "summary": "Identified three broadly supported elements from Dr. Baker's plans (publicizing NSA, test prep/logistics help, and transportation), suggested spreading entrance grades across 3rd–5th to blunt the third-grade attrition pinch, and argued the board's primary focus should be the 52–72% of district students not at grade level."
           },
           {
             "name": "Meredith Park",
             "startSeconds": 8275,
             "endSeconds": 8369,
-            "summary": "Raised traffic concerns near North Star, warned against adding K–2 at the Duane location, and suggested exploring a neighborhood boundary middle school with an IB program on Duane as an alternative approach."
+            "summary": "As a Sequoia High parent and safe-routes advocate, warned that adding K–2 at the Duane location would worsen traffic, and suggested considering a neighborhood boundary middle school with an IB program at that site instead."
           },
           {
             "name": "Nathan Schmidt",
             "startSeconds": 8369,
             "endSeconds": 8407,
-            "summary": "Using a 'ten boats' analogy, argued the board's duty is to save the underperforming schools rather than compromising the one that is succeeding."
+            "summary": "Used a boat analogy to argue the board must focus on lifting underperforming schools rather than 'dumping water' into the one that is floating, urging them not to take action merely to appear as change agents."
           },
           {
             "name": "Mohamed Tabrizi",
             "startSeconds": 8426,
             "endSeconds": 8503,
-            "summary": "Ceded time to Cameron Hoffman and added that spending district resources on this process instead of lower-income students' education is unacceptable, urging trustees to reject all options and use scientific data."
+            "summary": "Ceded his time to Cameron Hoffman, agreed with her sentiments, and called the entire process a waste of resources that should have gone toward educating lower-income students, urging trustees to reject all options."
           },
           {
             "name": "Lily Melton",
-            "startSeconds": 8518,
-            "endSeconds": 8568,
-            "summary": "As an Orion parent, urged the board to move forward with bold structural changes and noted that a large community of parents who want district-wide improvement supports significant change even if not loudly represented tonight."
+            "startSeconds": 8528,
+            "endSeconds": 8565,
+            "summary": "As an Orion parent, urged the board to move forward with bold structural changes, noting that a large community of district parents supports significant changes even if they are not the loudest voices tonight."
           },
           {
             "name": "Beatrice Chan",
             "startSeconds": 8600,
             "endSeconds": 8678,
-            "summary": "Called the options deeply flawed, asked the board to instead focus on introducing enrichment programs in community schools and helping current students meet grade-level expectations rather than dismantling North Star."
+            "summary": "As a North Star parent, asked the board to present new options focused on introducing enrichment programs at community schools and helping current students meet grade-level expectations, rather than dismantling a successful model."
           },
           {
             "name": "Maribel Ng",
-            "startSeconds": 8842,
-            "endSeconds": 8943,
-            "summary": "Shared her child's struggles before finding North Star, emphasized that students who go there have often struggled elsewhere and need an environment that understands them, and suggested spreading that philosophy across all Redwood City schools."
+            "startSeconds": 8844,
+            "endSeconds": 8946,
+            "summary": "Shared her daughter's struggles before finding North Star and argued that spreading the North Star philosophy of seeing students as individuals and loving what you teach across all Redwood City schools would fix many district-wide problems."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "13.7",
-        "title": "Adoption of Resolution 38, Approval of Education Code Options for Teaching Assignments",
+        "itemLabel": "13",
+        "title": "Action Item 13.7 – Adoption of Resolution 38, Approval of Education Code Options for Teaching Assignments",
         "phases": {
           "opened": 11982,
           "presentation": 11996,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 12044,
+            "seconds": 12045,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -544,10 +514,10 @@
         "itemLabel": "18",
         "title": "Board Agenda Calendar – Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 12533,
+          "opened": 12535,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 12543,
           "vote": null
         },
         "publicComments": [],
@@ -564,8 +534,8 @@
           "discussion": null,
           "vote": {
             "seconds": 12568,
-            "type": "motion-and-second",
-            "result": "approved"
+            "type": "roll-call",
+            "result": "5-0"
           }
         },
         "publicComments": [],
@@ -579,11 +549,11 @@
     "speakers": {
       "A": {
         "name": "María Díaz-Slocum",
-        "role": "Board President"
+        "role": "President"
       },
       "B": {
         "name": "Eliana (staff/secretary)",
-        "role": "Board Secretary / Staff (roll call and speaker management)"
+        "role": "Board Secretary / Staff calling roll and speakers"
       },
       "C": {
         "name": "Alisa MacAvoy",
@@ -602,11 +572,11 @@
         "role": "Trustee"
       },
       "G": {
-        "name": "Meredith (legal counsel/consultant)",
-        "role": "Legal Counsel / Bond Consultant"
+        "name": "Meredith (Legal Counsel/Consultant)",
+        "role": "Bond counsel presenter"
       }
     },
-    "agendaChanges": "Board approved agenda amendments at the start of the meeting: (1) Sections 10, 11, and 12 (Bond Program Consent Items, Bond Program Action Items, and Consent Items) were moved to be heard immediately after agenda approval (Section 7). (2) Action items 13.1 through 13.6 (second readings) were moved to the consent calendar and approved as part of the Section 12 consent bundle. Items were taken in the following order: Roll Call, Report Out on Closed Session, Welcome (brief), Changes to Agenda, Approval of Agenda, Section 10 Bond Program Consent (bundle), Section 11 Bond Program Action Item, Section 12 Consent + 13.1-13.6 bundle, then Section 9 School/Community Reports (9.1 then 9.2), then 13.7 Personnel Report / Resolution 38, then Sections 14-19.",
+    "agendaChanges": "At the start of the meeting, Trustee MacAvoy moved to resequence the agenda: Sections 10 (Bond Program Consent Items), 11 (Bond Program Action Items), and 12 (Consent Items) were moved to immediately after Section 7 (Approval of Agenda). Additionally, Action Items 13.1 through 13.6 (second readings of board policies/bylaws) were moved to the consent calendar and approved as part of the Section 12 consent bundle. Item 13.7 (Resolution 38) remained as a standalone action item and was taken up after Section 9. Section 9 (School/Community Reports) was heard after the resequenced consent/action items.",
     "items": [
       {
         "itemLabel": "1",
@@ -624,7 +594,7 @@
       },
       {
         "itemLabel": "1",
-        "title": "Roll Call (Opening)",
+        "title": "Roll Call",
         "phases": {
           "opened": 79,
           "presentation": null,
@@ -652,7 +622,7 @@
       },
       {
         "itemLabel": "3",
-        "title": "Closed Session – 5:00 p.m.",
+        "title": "Closed Session",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -680,7 +650,7 @@
       },
       {
         "itemLabel": "5",
-        "title": "Welcome by the Board President",
+        "title": "Welcome by the School Board President",
         "phases": {
           "opened": 123,
           "presentation": null,
@@ -740,14 +710,14 @@
       },
       {
         "itemLabel": "10",
-        "title": "Bond Program Consent Items – Approval of Consent Items (Bundle)",
+        "title": "Bond Program Consent Items – Approval of Consent Items (moved up)",
         "phases": {
-          "opened": 331,
+          "opened": 349,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 361,
+            "seconds": 364,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -758,7 +728,7 @@
       },
       {
         "itemLabel": "11",
-        "title": "Adoption of Resolution 39, Resolution of Intent to Convey a Public Utility Easement to PG&E",
+        "title": "Adoption of Resolution 39 – Intent to Convey Public Utility Easement to PG&E (moved up)",
         "phases": {
           "opened": 380,
           "presentation": null,
@@ -776,7 +746,7 @@
       },
       {
         "itemLabel": "12",
-        "title": "Consent Items (12.1–12.7) and Action Items 13.1–13.6 (moved to consent)",
+        "title": "Consent Items 12.1–12.7 and Action Items 13.1–13.6 (moved up and combined)",
         "phases": {
           "opened": 416,
           "presentation": null,
@@ -794,24 +764,10 @@
       },
       {
         "itemLabel": "9",
-        "title": "School/Community Reports",
-        "phases": {
-          "opened": 460,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.1",
-        "title": "Presentation and Discussion on the General Obligation (GO) Bond Next Steps",
+        "title": "School/Community Reports – Presentation and Discussion on the General Obligation (GO) Bond Next Steps",
         "phases": {
           "opened": 473,
-          "presentation": 516,
+          "presentation": 543,
           "publicComment": 3252,
           "discussion": 3749,
           "vote": null
@@ -821,26 +777,20 @@
             "name": "Jessica Shade",
             "startSeconds": 3581,
             "endSeconds": 3641,
-            "summary": "Voiced support for the new school bond, called for central kitchen language to be included, and praised the district's efforts."
-          },
-          {
-            "name": "Katerina Schoenbach",
-            "startSeconds": 3647,
-            "endSeconds": 3715,
-            "summary": "Speaker was called but unable to unmute and did not provide comment."
+            "summary": "Voiced support for a new school bond and requested that language for a central kitchen be included in the bond measure."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "9.2",
-        "title": "Recommended Options to the School Board Regarding North Star Academy (NSA)",
+        "itemLabel": "9",
+        "title": "School/Community Reports – Recommended Options to the School Board Regarding North Star Academy (NSA)",
         "phases": {
           "opened": 3978,
           "presentation": 4041,
           "publicComment": 5448,
-          "discussion": 9007,
+          "discussion": 8946,
           "vote": null
         },
         "publicComments": [
@@ -848,208 +798,196 @@
             "name": "Matt Schwal",
             "startSeconds": 5455,
             "endSeconds": 5549,
-            "summary": "Argued the NSA Forward Committee was negatively framed and urged the board to reframe the discussion positively, celebrating North Star's success rather than proposing changes."
+            "summary": "Argued the NSA Forward Committee was negatively framed and called on board members to reframe the discussion positively and inspire change rather than break what is working."
           },
           {
             "name": "Cameron Hoffman",
-            "startSeconds": 5551,
+            "startSeconds": 5566,
             "endSeconds": 5861,
-            "summary": "Argued the proposals are being rushed and lack evidence, compared North Star favorably to U46 in Illinois, and proposed a district-wide talent development program called 'SHINE' to serve younger learners rather than restructuring North Star."
+            "summary": "Argued the proposals are rushed and lack an evidence-based approach, and proposed a 'SHINE' talent development program modeled on the U46 district's AIM program to serve all neighborhood school students rather than restructuring North Star."
           },
           {
             "name": "Tony Webel",
             "startSeconds": 5877,
             "endSeconds": 5981,
-            "summary": "Shared his experience as a committee member and parent of students at both Roosevelt and North Star, and argued that board bylaws require keeping student learning as the primary focus, finding no data justifying grade configuration or location changes."
+            "summary": "Shared his experience as both a Roosevelt and North Star parent, argued there is no data justifying grade configuration or location changes, and cited board bylaws requiring decisions be based on student learning and achievement."
           },
           {
             "name": "Diana Fu",
             "startSeconds": 5983,
             "endSeconds": 6096,
-            "summary": "Drew on her experience helping start the MI program to argue the district should provide more choices and improve other schools rather than restricting a choice program like North Star."
-          },
-          {
-            "name": "Allie Gilmore",
-            "startSeconds": 6098,
-            "endSeconds": 6137,
-            "summary": "Speaker was called but did not respond or unmute."
-          },
-          {
-            "name": "Wenjing Sheng",
-            "startSeconds": 6164,
-            "endSeconds": 6204,
-            "summary": "Speaker was called but was unable to unmute and did not provide comment."
+            "summary": "Drew on her experience helping start the MI program to argue the district should provide more and better school choices rather than taking away the North Star option from parents."
           },
           {
             "name": "Lone Hin",
             "startSeconds": 6204,
             "endSeconds": 6268,
-            "summary": "Described her first-grader's unmet academic needs at their neighborhood school and argued that scaling back North Star would leave more students without appropriate challenge."
+            "summary": "Described her son's unmet needs at his neighborhood school and argued that dismantling or scaling back North Star would not serve any children in the district."
           },
           {
             "name": "Megan O'Neill",
-            "startSeconds": 6303,
+            "startSeconds": 6310,
             "endSeconds": 6422,
-            "summary": "Argued that options A through C would serve fewer students and contradict the stated goal of serving more students more effectively, and that neighborhood schools must first be ready to serve gifted learners before any North Star grades are cut."
+            "summary": "Argued that options A through C would eliminate half of North Star and fail to meet the stated goal of serving more students more effectively, and that no changes should happen until neighborhood schools can serve the needs of academically challenged students."
           },
           {
             "name": "Matt Collier",
             "startSeconds": 6422,
             "endSeconds": 6470,
-            "summary": "As a parent of young children and former magnet school student himself, urged the board to preserve K–8 North Star as a standalone school and to consider Ms. Hoffman's alternative proposal."
+            "summary": "Urged the board to choose an option that allows K–8 programming to continue as a standalone school, sharing his personal experience benefiting from similar magnet programs."
           },
           {
             "name": "Anthony Low",
             "startSeconds": 6480,
             "endSeconds": 6546,
-            "summary": "Stated that three of the four options effectively close half of North Star, called all options deficient, and said his family would likely leave the district if a 6–8 option were chosen."
+            "summary": "As a Roy Cloud and North Star parent, argued all four options are deficient, that three of them effectively close 50% of North Star, and that his family would likely have to leave the district if a 6–8 option were chosen."
           },
           {
             "name": "Andrew Hoffman",
             "startSeconds": 6564,
             "endSeconds": 6662,
-            "summary": "Argued the recommendations target North Star rather than addressing underperforming schools, warned the options would negatively impact North Star's mission, and urged the board not to adopt incomplete proposals."
+            "summary": "Argued the board should focus on lifting lower-performing parts of the district rather than negatively impacting the award-winning North Star, and urged the board not to hastily approve incomplete recommendations."
           },
           {
             "name": "Heidi Wall",
             "startSeconds": 6668,
             "endSeconds": 6778,
-            "summary": "Criticized the proposals as short-sighted and premature, cited district-wide problems like declining test scores and teacher retention, and called for using North Star's proven methods to improve other schools rather than dismantling it."
+            "summary": "Argued the district should focus on systemic problems rather than dismantling a successful school, and cited the U46 model as a proven approach to improving diversity without restructuring."
           },
           {
             "name": "Susan Bouchard",
-            "startSeconds": 6781,
+            "startSeconds": 6805,
             "endSeconds": 6915,
-            "summary": "Argued that capping the number of qualified students allowed to transfer to NSA from neighborhood schools would increase the perception of elitism and create more divisiveness, and asked the board to reject and rework all proposals."
+            "summary": "Opposed the quota cap on neighborhood school transfers to NSA, arguing it would increase perceptions of elitism and division, and asked why the cap is not applied to all school-of-choice programs."
           },
           {
             "name": "Costas Dimitropoulos",
-            "startSeconds": 6955,
+            "startSeconds": 6966,
             "endSeconds": 7069,
-            "summary": "Asked for empirical evidence supporting any proposed changes and questioned whether there is data proving that altering a high-achieving school like North Star would improve outcomes at lower-performing schools."
+            "summary": "Called for empirical evidence and proven models to justify any changes to North Star, noting that demographic differences between schools reflect local demographics rather than the influence of North Star."
           },
           {
             "name": "Kelly McCarthy",
-            "startSeconds": 7069,
+            "startSeconds": 7082,
             "endSeconds": 7158,
-            "summary": "Questioned whether the community pulse had been taken since COVID, called the effort a waste of resources given widespread learning loss, and urged the board to instead use resources to improve neighborhood schools."
+            "summary": "Questioned why the district is prioritizing North Star changes when so many students are underperforming post-COVID, and urged the board to use those resources to bolster neighborhood school programs instead."
           },
           {
             "name": "Casey Wright",
             "startSeconds": 7166,
             "endSeconds": 7265,
-            "summary": "Called several options 'casually cruel,' warned the board against falling for the sunk cost fallacy, and implored them to postpone a decision and demand better-researched options."
+            "summary": "Called the four options deeply flawed and irresponsible without fuller analysis of consequences, urged the board to postpone consideration and demand new options like those proposed by Cameron Hoffman."
           },
           {
             "name": "Catherine Stewart",
             "startSeconds": 7279,
             "endSeconds": 7383,
-            "summary": "Observed that virtually every prior speaker opposed changing or dismantling North Star and argued that the general sentiment—'if it ain't broke, don't fix it'—should guide the board."
+            "summary": "Noted that all speakers before her opposed changes to North Star, and argued that the 'rising tide lifts all boats' principle means the school should be kept as-is rather than changed to reduce resentment from other schools."
           },
           {
             "name": "Gautam Dutta",
             "startSeconds": 7443,
             "endSeconds": 7520,
-            "summary": "As a local attorney, Asian American civic leader, and North Star parent, echoed 'if it ain't broke, don't fix it,' and asked the board to reject all four options and instead improve support and resources for all schools."
+            "summary": "As a North Star parent and community leader, echoed the sentiment that North Star is working well for his daughter and urged the board to reject all four options and instead focus on improving access and resources for all schools."
           },
           {
-            "name": "Jing Zhu",
-            "startSeconds": 7532,
-            "endSeconds": 7618,
-            "summary": "Warned that the proposed changes would create many unhappy parents who become reliable voters against the board, and urged the board to think carefully about the disruption these options would cause to North Star families' daily lives."
+            "name": "Jing Su",
+            "startSeconds": 7552,
+            "endSeconds": 7608,
+            "summary": "Warned that the proposed changes would create many unhappy parents who would become reliable voters opposing the board, and urged trustees to consider the daily disruption to North Star families before making their decision."
           },
           {
             "name": "Kirsten McMullen",
-            "startSeconds": 7622,
+            "startSeconds": 7613,
             "endSeconds": 7721,
-            "summary": "Called the recommendations insufficient and lacking an evidence-based approach, noting they mainly solve the third-grade attrition issue while creating new problems, and urged deeper research and cost-benefit analysis."
+            "summary": "Argued the recommendations lack an evidence-based approach, only adequately solve the third-grade attrition problem while creating new unknowns, and urged additional research before selecting any option."
           },
           {
             "name": "Bara Altaba",
             "startSeconds": 7721,
             "endSeconds": 7806,
-            "summary": "As a parent of current NSA students who transferred from private school because of North Star, urged the board not to break a nationally recognized school and to instead bring other schools up to North Star's level."
+            "summary": "As a parent of current NSA students who came from private school because of NSA, urged the board not to break a nationally recognized school and instead look at how to bring other schools up to NSA's level."
           },
           {
             "name": "Michelle Fogarty",
             "startSeconds": 7806,
             "endSeconds": 7897,
-            "summary": "Argued the proposals take direct aim at one successful school without solving district-wide shortcomings, criticized use of outdated data from 2018, and urged the board to conduct new research before implementing any changes."
+            "summary": "Argued the proposals take direct aim at one successful school rather than addressing full district needs, and urged the board to take more time, examine the data framework, and conduct a new community survey before acting."
           },
           {
             "name": "Katie Goetz",
             "startSeconds": 7897,
             "endSeconds": 7947,
-            "summary": "As a North Star Forward Committee member, encouraged the board to consider and move forward with the proposal to make North Star a 6–8 school on the Bayside, stating it best addresses the committee's three charges."
+            "summary": "As a North Star Forward Committee member, encouraged the board to move forward with the 6–8 Bayside option as the one proposal that addresses all three charges given to the committee."
           },
           {
             "name": "Christopher Bouchard",
             "startSeconds": 7957,
             "endSeconds": 8053,
-            "summary": "Asked the board to reject all four proposals and pause major changes, citing a flawed and biased committee process built on four-year-old data, and called for a reset with current community input."
+            "summary": "Urged the board to reject all four proposals and pause major changes, arguing the NSA Forward process was flawed from the beginning due to outdated and biased data, and called for a new community pulse survey."
           },
           {
             "name": "David Wright",
             "startSeconds": 8067,
             "endSeconds": 8147,
-            "summary": "Implored the board to defer the decision and request a revised set of options aligned to the committee's stated goals, warning against committing to a process not in students' best interests."
+            "summary": "Implored the board to defer the decision and request revised options informed by data that directly align to the committee's stated goals, rather than committing to deeply flawed options."
           },
           {
             "name": "Mike Beebe",
             "startSeconds": 8157,
             "endSeconds": 8261,
-            "summary": "Summarized three broadly supported elements from Dr. Baker's plans (outreach, test prep access, logistics like transportation), suggested spreading entrance grades across third through fifth to reduce the third-grade attrition pinch, and emphasized district-wide learning loss as the true priority."
+            "summary": "Identified three broadly supported elements from Dr. Baker's plans (publicizing NSA, test prep/logistics help, and transportation), suggested spreading entrance grades across 3rd–5th to blunt the third-grade attrition pinch, and argued the board's primary focus should be the 52–72% of district students not at grade level."
           },
           {
             "name": "Meredith Park",
             "startSeconds": 8275,
             "endSeconds": 8369,
-            "summary": "Raised traffic concerns near North Star, warned against adding K–2 at the Duane location, and suggested exploring a neighborhood boundary middle school with an IB program on Duane as an alternative approach."
+            "summary": "As a Sequoia High parent and safe-routes advocate, warned that adding K–2 at the Duane location would worsen traffic, and suggested considering a neighborhood boundary middle school with an IB program at that site instead."
           },
           {
             "name": "Nathan Schmidt",
             "startSeconds": 8369,
             "endSeconds": 8407,
-            "summary": "Using a 'ten boats' analogy, argued the board's duty is to save the underperforming schools rather than compromising the one that is succeeding."
+            "summary": "Used a boat analogy to argue the board must focus on lifting underperforming schools rather than 'dumping water' into the one that is floating, urging them not to take action merely to appear as change agents."
           },
           {
             "name": "Mohamed Tabrizi",
             "startSeconds": 8426,
             "endSeconds": 8503,
-            "summary": "Ceded time to Cameron Hoffman and added that spending district resources on this process instead of lower-income students' education is unacceptable, urging trustees to reject all options and use scientific data."
+            "summary": "Ceded his time to Cameron Hoffman, agreed with her sentiments, and called the entire process a waste of resources that should have gone toward educating lower-income students, urging trustees to reject all options."
           },
           {
             "name": "Lily Melton",
-            "startSeconds": 8518,
-            "endSeconds": 8568,
-            "summary": "As an Orion parent, urged the board to move forward with bold structural changes and noted that a large community of parents who want district-wide improvement supports significant change even if not loudly represented tonight."
+            "startSeconds": 8528,
+            "endSeconds": 8565,
+            "summary": "As an Orion parent, urged the board to move forward with bold structural changes, noting that a large community of district parents supports significant changes even if they are not the loudest voices tonight."
           },
           {
             "name": "Beatrice Chan",
             "startSeconds": 8600,
             "endSeconds": 8678,
-            "summary": "Called the options deeply flawed, asked the board to instead focus on introducing enrichment programs in community schools and helping current students meet grade-level expectations rather than dismantling North Star."
+            "summary": "As a North Star parent, asked the board to present new options focused on introducing enrichment programs at community schools and helping current students meet grade-level expectations, rather than dismantling a successful model."
           },
           {
             "name": "Maribel Ng",
-            "startSeconds": 8842,
-            "endSeconds": 8943,
-            "summary": "Shared her child's struggles before finding North Star, emphasized that students who go there have often struggled elsewhere and need an environment that understands them, and suggested spreading that philosophy across all Redwood City schools."
+            "startSeconds": 8844,
+            "endSeconds": 8946,
+            "summary": "Shared her daughter's struggles before finding North Star and argued that spreading the North Star philosophy of seeing students as individuals and loving what you teach across all Redwood City schools would fix many district-wide problems."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "13.7",
-        "title": "Adoption of Resolution 38, Approval of Education Code Options for Teaching Assignments",
+        "itemLabel": "13",
+        "title": "Action Item 13.7 – Adoption of Resolution 38, Approval of Education Code Options for Teaching Assignments",
         "phases": {
           "opened": 11982,
           "presentation": 11996,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 12044,
+            "seconds": 12045,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1118,10 +1056,10 @@
         "itemLabel": "18",
         "title": "Board Agenda Calendar – Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 12533,
+          "opened": 12535,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 12543,
           "vote": null
         },
         "publicComments": [],
@@ -1138,8 +1076,8 @@
           "discussion": null,
           "vote": {
             "seconds": 12568,
-            "type": "motion-and-second",
-            "result": "approved"
+            "type": "roll-call",
+            "result": "5-0"
           }
         },
         "publicComments": [],
@@ -1148,7 +1086,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:08:35.587Z",
-  "inputTokens": 43970,
-  "outputTokens": 5567
+  "cachedAt": "2026-07-23T20:27:30.123Z",
+  "inputTokens": 43966,
+  "outputTokens": 5265
 }

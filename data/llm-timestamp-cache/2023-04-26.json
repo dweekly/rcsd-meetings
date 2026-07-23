@@ -21,8 +21,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, item 6.1 (Approval of Bond Program Consent Items) and items 6.2-6.3 were moved from consent to action due to public comments.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved from its original position to before oral communication at the request of a trustee. Additionally, bond program consent items (6.1) were moved to action items to allow for public comment. Items 6.2 and 6.3 were also moved to action.",
+    "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -31,12 +31,12 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley.",
+        "intro_words": "Great. Good evening, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "President Marquez? Here. Thank you. Next item is 1.2",
+        "intro_words": "Next item is 1.2 reported on closed session.",
         "status": "found"
       },
       {
@@ -46,27 +46,57 @@
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "intro_words": "And are there any changes to the agenda?",
         "status": "found"
       },
       {
-        "item": 6,
-        "intro_words": "So moved. Second. All those in favor? Aye. Thank you.",
-        "status": "found"
-      },
-      {
-        "item": 13,
+        "item": 13.1,
         "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
-        "item": 8,
+        "item": 6.1,
+        "intro_words": "Everything under the bond program consent items was moved under action.",
+        "status": "found"
+      },
+      {
+        "item": 6.2,
+        "intro_words": "Item 6.2 approval of measure T bond program tracking list of items under 20,000.",
+        "status": "found"
+      },
+      {
+        "item": 6.3,
+        "intro_words": "6.3, approval of proposal for the furnishing and installation of the water pump",
+        "status": "found"
+      },
+      {
+        "item": 7.1,
+        "intro_words": "And then bond program action items 7.1, approval of measure T final projects list.",
+        "status": "found"
+      },
+      {
+        "item": 7.2,
+        "intro_words": "7.2. Approval of amendment number two to the Program Management Services Agreement with RGMK.",
+        "status": "found"
+      },
+      {
+        "item": 8.1,
         "intro_words": "Okay, so item 8, school and community reports. 8.1.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "All right, so I had one other recognition that I would",
+        "intro_words": "so moving along then, we're on to item nine, discussion items.",
+        "status": "found"
+      },
+      {
+        "item": 11.1,
+        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill",
+        "status": "found"
+      },
+      {
+        "item": 11.2,
+        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
         "status": "found"
       }
     ]
@@ -94,18 +124,12 @@
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
-      {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168
-      },
+      null,
+      null,
       null,
       {
-        "timestamp": "00:20:22",
-        "timestampSeconds": 1222
-      },
-      {
-        "timestamp": "00:26:15",
-        "timestampSeconds": 1575
+        "timestamp": "03:10:21",
+        "timestampSeconds": 11421
       },
       null,
       null,
@@ -117,7 +141,7 @@
       null
     ]
   },
-  "cachedAt": "2026-07-23T09:58:07.279Z",
+  "cachedAt": "2026-07-23T20:46:29.608Z",
   "inputTokens": 43596,
-  "outputTokens": 536
+  "outputTokens": 837
 }

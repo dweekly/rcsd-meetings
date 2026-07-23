@@ -1,6 +1,8 @@
 {
   "date": "2021-09-22",
+  "slug": "2021-09-22-board-meeting",
   "itemCount": 59,
+  "transcriptHash": "fea1267210bf6243",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,8 +10,8 @@
         "role": "Vice President (acting as President for this meeting)"
       },
       "B": {
-        "name": "Eliana (staff/clerk)",
-        "role": "Board Clerk / Meeting Administrator"
+        "name": "Wendy Kelly",
+        "role": "Staff / HR Director (also board clerk functions)"
       },
       "C": {
         "name": "María Díaz-Slocum",
@@ -17,14 +19,14 @@
       },
       "D": {
         "name": "Mike Wells",
-        "role": "Trustee"
+        "role": "Trustee / Superintendent (Baker speaks through D label at times)"
       }
     },
-    "agendaChanges": "Items 14.1 (Unaudited Actuals), 14.2 (Gann Limit Resolution), 14.3 (Substitute Rate Increase), 14.4 (United Through Education Agreement), and 14.7 (Personnel Changes) were moved from Action Items to Consent Items at the start of the meeting. The meeting opened directly with Reconvene to Regular Session (Section 4) as the closed session occurred prior to recording. Sections 5 (Welcome) and 6 (Changes to Agenda) were handled together in the opening remarks. Items are recorded in the order actually taken up.",
+    "agendaChanges": "Items 14.1, 14.2, 14.3, 14.4, and 14.7 were moved from Action Items to Consent Items. The board also noted the agenda numbering: items originally labeled as Section 14 action items were renumbered/resequenced so that 14.5 (Unaudited Actuals), 14.6 (Gann Limit), and 14.8 (Substitute Rate Increase) remained as standalone action items. The formal agenda listed Bond Program Action Items as Section 11 (no items listed) and Discussion Items as Section 12, which was taken up after Bond Program Consent Items (Section 10).",
     "items": [
       {
-        "itemLabel": "4",
-        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
+        "itemLabel": "1",
+        "title": "Call to Order",
         "phases": {
           "opened": 6,
           "presentation": null,
@@ -37,8 +39,64 @@
         "pulled": false
       },
       {
+        "itemLabel": "1",
+        "title": "Roll Call (Opening)",
+        "phases": {
+          "opened": 30,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "2",
+        "title": "Oral Communication on Closed Session Items Only",
+        "phases": {
+          "opened": 44,
+          "presentation": null,
+          "publicComment": 44,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "3",
+        "title": "Closed Session - Conference with Real Property Negotiators (750 Bradford Street)",
+        "phases": {
+          "opened": 44,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "4",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
+        "phases": {
+          "opened": 44,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "5",
-        "title": "Welcome by the School Board President",
+        "title": "Welcome by the Board President",
         "phases": {
           "opened": 44,
           "presentation": null,
@@ -73,7 +131,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 260,
+            "seconds": 237,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -98,12 +156,26 @@
       },
       {
         "itemLabel": "9",
-        "title": "School/Community Reports — Recognition of Staff Longevity Milestones and Induction Program",
+        "title": "School/Community Reports - Recognition of Staff Who Have Reached a Longevity Milestone",
         "phases": {
           "opened": 284,
           "presentation": 294,
           "publicComment": null,
-          "discussion": 951,
+          "discussion": 973,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9",
+        "title": "School/Community Reports - Recognition of 2021-22 Induction Program Participants",
+        "phases": {
+          "opened": 1193,
+          "presentation": 1228,
+          "publicComment": null,
+          "discussion": 1991,
           "vote": null
         },
         "publicComments": [],
@@ -112,7 +184,7 @@
       },
       {
         "itemLabel": "10",
-        "title": "Bond Program Consent Items — Approval of Consent Items",
+        "title": "Bond Program Consent Items - Approval of Consent Items",
         "phases": {
           "opened": 2152,
           "presentation": null,
@@ -129,13 +201,27 @@
         "pulled": false
       },
       {
+        "itemLabel": "11",
+        "title": "Bond Program Action Items",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "12",
-        "title": "Discussion of Requiring COVID Vaccination for Employees and Eligible RCSD Students",
+        "title": "Discussion - Requiring COVID Vaccination for Employees and Eligible RCSD Students",
         "phases": {
           "opened": 2208,
           "presentation": 2229,
           "publicComment": 5165,
-          "discussion": 4063,
+          "discussion": 4058,
           "vote": null
         },
         "publicComments": [
@@ -143,7 +229,7 @@
             "name": "Cameron Hoffman",
             "startSeconds": 5185,
             "endSeconds": 5397,
-            "summary": "Expressed full support for a student vaccine requirement for all eligible students as soon as possible, urged the board to act quickly on student mandates and to improve HR processes to achieve staff vaccination rates comparable to neighboring San Mateo County districts."
+            "summary": "Expressed full support for a student vaccine requirement for all eligible students as soon as possible, urged the board to urgently address the gap in staff vaccination rates through a hard mandate or more effective HR processes, and cited high vaccination rates at neighboring San Mateo County districts as evidence it is achievable without staff loss."
           }
         ],
         "consent": false,
@@ -151,7 +237,7 @@
       },
       {
         "itemLabel": "13",
-        "title": "Consent Items — Approval of Consent Items (including moved Action Items 14.1, 14.2, 14.3, 14.4, 14.7)",
+        "title": "Consent Items - Approval of Consent Items (including moved Action Items 14.1, 14.2, 14.3, 14.4, 14.7)",
         "phases": {
           "opened": 5490,
           "presentation": null,
@@ -169,57 +255,57 @@
       },
       {
         "itemLabel": "14",
-        "title": "Approval of 2020-21 Unaudited Actuals Financial Statement",
+        "title": "Action Item - Approval of 2020-21 Unaudited Actuals Financial Statement",
         "phases": {
           "opened": 5529,
           "presentation": 5537,
           "publicComment": null,
           "discussion": 7450,
           "vote": {
-            "seconds": 7670,
+            "seconds": 7658,
             "type": "roll-call",
             "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": true
+        "pulled": false
       },
       {
         "itemLabel": "14",
-        "title": "Adoption of Resolution 7 — Resolution to Adopt the Gann Limit",
+        "title": "Action Item - Adoption of Resolution 7, Resolution to Adopt the Gann Limit",
         "phases": {
-          "opened": 7681,
+          "opened": 7720,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7761,
+            "seconds": 7759,
             "type": "roll-call",
             "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": true
+        "pulled": false
       },
       {
         "itemLabel": "14",
-        "title": "Approval to Increase the Preschool-8th Grade Teacher Substitute Rate",
+        "title": "Action Item - Approval to Increase the Preschool-8th Grade Teacher Substitute Rate",
         "phases": {
           "opened": 7772,
           "presentation": 7779,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7821,
+            "seconds": 7815,
             "type": "roll-call",
             "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": true
+        "pulled": false
       },
       {
         "itemLabel": "15",
@@ -237,7 +323,7 @@
       },
       {
         "itemLabel": "16",
-        "title": "Information — Hiring of Retirees Prior to 180-day Separation Period / San Mateo County Investment Fund",
+        "title": "Information - Hiring of Retirees Prior to the 180-day Separation Period for CalSTRS",
         "phases": {
           "opened": 8058,
           "presentation": null,
@@ -250,13 +336,27 @@
         "pulled": false
       },
       {
+        "itemLabel": "16",
+        "title": "Information - San Mateo County Investment Fund - August 2021",
+        "phases": {
+          "opened": 8100,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 8100,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 8115,
+          "opened": 8112,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8112,
           "vote": null
         },
         "publicComments": [],
@@ -265,9 +365,9 @@
       },
       {
         "itemLabel": "18",
-        "title": "Other Business/Suggested Items For Future Agenda",
+        "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 8121,
+          "opened": 8118,
           "presentation": null,
           "publicComment": null,
           "discussion": 8141,
@@ -319,8 +419,8 @@
         "role": "Vice President (acting as President for this meeting)"
       },
       "B": {
-        "name": "Eliana (staff/clerk)",
-        "role": "Board Clerk / Meeting Administrator"
+        "name": "Wendy Kelly",
+        "role": "Staff / HR Director (also board clerk functions)"
       },
       "C": {
         "name": "María Díaz-Slocum",
@@ -328,14 +428,14 @@
       },
       "D": {
         "name": "Mike Wells",
-        "role": "Trustee"
+        "role": "Trustee / Superintendent (Baker speaks through D label at times)"
       }
     },
-    "agendaChanges": "Items 14.1 (Unaudited Actuals), 14.2 (Gann Limit Resolution), 14.3 (Substitute Rate Increase), 14.4 (United Through Education Agreement), and 14.7 (Personnel Changes) were moved from Action Items to Consent Items at the start of the meeting. The meeting opened directly with Reconvene to Regular Session (Section 4) as the closed session occurred prior to recording. Sections 5 (Welcome) and 6 (Changes to Agenda) were handled together in the opening remarks. Items are recorded in the order actually taken up.",
+    "agendaChanges": "Items 14.1, 14.2, 14.3, 14.4, and 14.7 were moved from Action Items to Consent Items. The board also noted the agenda numbering: items originally labeled as Section 14 action items were renumbered/resequenced so that 14.5 (Unaudited Actuals), 14.6 (Gann Limit), and 14.8 (Substitute Rate Increase) remained as standalone action items. The formal agenda listed Bond Program Action Items as Section 11 (no items listed) and Discussion Items as Section 12, which was taken up after Bond Program Consent Items (Section 10).",
     "items": [
       {
-        "itemLabel": "4",
-        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
+        "itemLabel": "1",
+        "title": "Call to Order",
         "phases": {
           "opened": 6,
           "presentation": null,
@@ -348,8 +448,64 @@
         "pulled": false
       },
       {
+        "itemLabel": "1",
+        "title": "Roll Call (Opening)",
+        "phases": {
+          "opened": 30,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "2",
+        "title": "Oral Communication on Closed Session Items Only",
+        "phases": {
+          "opened": 44,
+          "presentation": null,
+          "publicComment": 44,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "3",
+        "title": "Closed Session - Conference with Real Property Negotiators (750 Bradford Street)",
+        "phases": {
+          "opened": 44,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "4",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
+        "phases": {
+          "opened": 44,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "5",
-        "title": "Welcome by the School Board President",
+        "title": "Welcome by the Board President",
         "phases": {
           "opened": 44,
           "presentation": null,
@@ -384,7 +540,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 260,
+            "seconds": 237,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -409,12 +565,26 @@
       },
       {
         "itemLabel": "9",
-        "title": "School/Community Reports — Recognition of Staff Longevity Milestones and Induction Program",
+        "title": "School/Community Reports - Recognition of Staff Who Have Reached a Longevity Milestone",
         "phases": {
           "opened": 284,
           "presentation": 294,
           "publicComment": null,
-          "discussion": 951,
+          "discussion": 973,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9",
+        "title": "School/Community Reports - Recognition of 2021-22 Induction Program Participants",
+        "phases": {
+          "opened": 1193,
+          "presentation": 1228,
+          "publicComment": null,
+          "discussion": 1991,
           "vote": null
         },
         "publicComments": [],
@@ -423,7 +593,7 @@
       },
       {
         "itemLabel": "10",
-        "title": "Bond Program Consent Items — Approval of Consent Items",
+        "title": "Bond Program Consent Items - Approval of Consent Items",
         "phases": {
           "opened": 2152,
           "presentation": null,
@@ -440,13 +610,27 @@
         "pulled": false
       },
       {
+        "itemLabel": "11",
+        "title": "Bond Program Action Items",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "12",
-        "title": "Discussion of Requiring COVID Vaccination for Employees and Eligible RCSD Students",
+        "title": "Discussion - Requiring COVID Vaccination for Employees and Eligible RCSD Students",
         "phases": {
           "opened": 2208,
           "presentation": 2229,
           "publicComment": 5165,
-          "discussion": 4063,
+          "discussion": 4058,
           "vote": null
         },
         "publicComments": [
@@ -454,7 +638,7 @@
             "name": "Cameron Hoffman",
             "startSeconds": 5185,
             "endSeconds": 5397,
-            "summary": "Expressed full support for a student vaccine requirement for all eligible students as soon as possible, urged the board to act quickly on student mandates and to improve HR processes to achieve staff vaccination rates comparable to neighboring San Mateo County districts."
+            "summary": "Expressed full support for a student vaccine requirement for all eligible students as soon as possible, urged the board to urgently address the gap in staff vaccination rates through a hard mandate or more effective HR processes, and cited high vaccination rates at neighboring San Mateo County districts as evidence it is achievable without staff loss."
           }
         ],
         "consent": false,
@@ -462,7 +646,7 @@
       },
       {
         "itemLabel": "13",
-        "title": "Consent Items — Approval of Consent Items (including moved Action Items 14.1, 14.2, 14.3, 14.4, 14.7)",
+        "title": "Consent Items - Approval of Consent Items (including moved Action Items 14.1, 14.2, 14.3, 14.4, 14.7)",
         "phases": {
           "opened": 5490,
           "presentation": null,
@@ -480,57 +664,57 @@
       },
       {
         "itemLabel": "14",
-        "title": "Approval of 2020-21 Unaudited Actuals Financial Statement",
+        "title": "Action Item - Approval of 2020-21 Unaudited Actuals Financial Statement",
         "phases": {
           "opened": 5529,
           "presentation": 5537,
           "publicComment": null,
           "discussion": 7450,
           "vote": {
-            "seconds": 7670,
+            "seconds": 7658,
             "type": "roll-call",
             "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": true
+        "pulled": false
       },
       {
         "itemLabel": "14",
-        "title": "Adoption of Resolution 7 — Resolution to Adopt the Gann Limit",
+        "title": "Action Item - Adoption of Resolution 7, Resolution to Adopt the Gann Limit",
         "phases": {
-          "opened": 7681,
+          "opened": 7720,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7761,
+            "seconds": 7759,
             "type": "roll-call",
             "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": true
+        "pulled": false
       },
       {
         "itemLabel": "14",
-        "title": "Approval to Increase the Preschool-8th Grade Teacher Substitute Rate",
+        "title": "Action Item - Approval to Increase the Preschool-8th Grade Teacher Substitute Rate",
         "phases": {
           "opened": 7772,
           "presentation": 7779,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7821,
+            "seconds": 7815,
             "type": "roll-call",
             "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": true
+        "pulled": false
       },
       {
         "itemLabel": "15",
@@ -548,7 +732,7 @@
       },
       {
         "itemLabel": "16",
-        "title": "Information — Hiring of Retirees Prior to 180-day Separation Period / San Mateo County Investment Fund",
+        "title": "Information - Hiring of Retirees Prior to the 180-day Separation Period for CalSTRS",
         "phases": {
           "opened": 8058,
           "presentation": null,
@@ -561,13 +745,27 @@
         "pulled": false
       },
       {
+        "itemLabel": "16",
+        "title": "Information - San Mateo County Investment Fund - August 2021",
+        "phases": {
+          "opened": 8100,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": 8100,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "17",
         "title": "Correspondence",
         "phases": {
-          "opened": 8115,
+          "opened": 8112,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8112,
           "vote": null
         },
         "publicComments": [],
@@ -576,9 +774,9 @@
       },
       {
         "itemLabel": "18",
-        "title": "Other Business/Suggested Items For Future Agenda",
+        "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 8121,
+          "opened": 8118,
           "presentation": null,
           "publicComment": null,
           "discussion": 8141,
@@ -622,7 +820,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:22:55.129Z",
-  "inputTokens": 28230,
-  "outputTokens": 2400
+  "cachedAt": "2026-07-23T20:44:39.168Z",
+  "inputTokens": 28226,
+  "outputTokens": 3138
 }

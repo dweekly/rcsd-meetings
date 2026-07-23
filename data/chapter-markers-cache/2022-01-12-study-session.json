@@ -1,6 +1,8 @@
 {
   "date": "2022-01-12",
+  "slug": "2022-01-12-study-session",
   "itemCount": 13,
+  "transcriptHash": "ea942f9e811a8658",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,37 +10,51 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Dr. John Baker",
+        "name": "John Baker",
         "role": "Superintendent"
       },
       "C": {
         "name": "Alisa MacAvoy",
-        "role": "Board President (listed as Trustee/Clerk in agenda — here acting as Clerk/Trustee)"
+        "role": "Board President / Trustee (here acting as participant)"
       },
       "D": {
         "name": "Eliana (staff)",
-        "role": "Board Secretary / Administrative Staff"
+        "role": "Staff / meeting coordinator (reads roll call and speaker cards)"
       },
       "E": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
       "F": {
-        "name": "Janet Lawson",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Clerk / Trustee"
       },
       "G": {
-        "name": "Cecilia I. Márquez",
-        "role": "Clerk"
+        "name": "Janet Lawson",
+        "role": "Trustee"
       }
     },
-    "agendaChanges": "At the start of the meeting, items 10.5, 10.6, and 10.7 (Measure U Addenda for McKinley, Taft, and Clifford) were moved to the consent calendar. Items 10.3 (Approval of Personnel Changes) and 10.4 (Approval of Personnel Report) were also moved to consent. The consent bundle (Section 9 plus 10.3, 10.4, 10.5, 10.6, 10.7) was voted on together. Items 10.1 and 10.2 were addressed individually. Section 11 (Board and Superintendent Reports) was taken up after 10.2 without a separate Section 12 discussion. Section 12 (Quarterly Williams Report) was addressed briefly at the end.",
+    "agendaChanges": "At the start of the meeting, the board moved items 10.5, 10.6, and 10.7 (Measure U Addenda for McKinley, Taft, and Clifford) to the consent calendar. Items 10.3 (Approval of Personnel Changes) and 10.4 (Approval of Personnel Report) were also moved to consent. Oral Communication (Section 5) speakers were held and addressed during item 8.1 (COVID-19 Update). The items were otherwise taken up in agenda order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": 0,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
+        "phases": {
+          "opened": 44,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -71,7 +87,7 @@
           "publicComment": null,
           "discussion": 108,
           "vote": {
-            "seconds": 161,
+            "seconds": 159,
             "type": "voice",
             "result": "approved"
           }
@@ -84,12 +100,12 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 161,
+          "opened": 159,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 170,
+            "seconds": 161,
             "type": "voice",
             "result": "approved"
           }
@@ -132,14 +148,14 @@
       },
       {
         "itemLabel": "7.1",
-        "title": "Adoption of Resolution 20 – Orion Alternative School (formerly John Gill) Bid Package E Foothill Air Conditioning Change Order #1",
+        "title": "Adoption of Resolution 20 – Orion Alternative School (John Gill) Bid Package E Foothill Air Conditioning Change Order #1",
         "phases": {
           "opened": 240,
           "presentation": null,
           "publicComment": null,
-          "discussion": 272,
+          "discussion": 265,
           "vote": {
-            "seconds": 282,
+            "seconds": 277,
             "type": "voice",
             "result": "approved"
           }
@@ -155,9 +171,9 @@
           "opened": 289,
           "presentation": null,
           "publicComment": null,
-          "discussion": 289,
+          "discussion": null,
           "vote": {
-            "seconds": 310,
+            "seconds": 306,
             "type": "voice",
             "result": "approved"
           }
@@ -181,19 +197,19 @@
             "name": "Pam Barrage",
             "startSeconds": 1947,
             "endSeconds": 2116,
-            "summary": "Raised concerns about inadequate mask supply for teachers, requesting that staff receive five KN95 masks per week through at least the end of the surge rather than having to purchase their own."
+            "summary": "Raised concerns about the inadequate supply of N95/KN95 masks for classroom teachers, describing her personal experience having to purchase her own masks, and requested that staff receive five KN95 masks per week through at least the end of the current surge."
           },
           {
             "name": "Ayla Spinelli Stanc",
             "startSeconds": 2231,
             "endSeconds": 2361,
-            "summary": "Asked about expediting the volunteer clearance process for Healthy Cities tutors so they can work with students more quickly."
+            "summary": "Asked how to expedite the volunteer clearance process so that Healthy Cities tutors could be matched with students more quickly, and offered her own help to support the process."
           },
           {
             "name": "Rebecca Fouch",
             "startSeconds": 2443,
             "endSeconds": 2613,
-            "summary": "Asked whether a student whose day-five isolation falls on a Monday would be tested by the district before the following Sunday, and whether a negative home test result would be acceptable for a COVID-positive student to return to school."
+            "summary": "Asked whether a student whose day-five isolation period falls on a Monday would be tested by the district before the following Sunday, and whether a negative home test result would be accepted for a COVID-positive student to return to school."
           }
         ],
         "consent": false,
@@ -203,7 +219,7 @@
         "itemLabel": "8.2",
         "title": "First Reading and Discussion of Board Policy 1240 – Volunteer Assistance",
         "phases": {
-          "opened": 3013,
+          "opened": 3057,
           "presentation": 3057,
           "publicComment": null,
           "discussion": 3121,
@@ -257,14 +273,14 @@
       },
       {
         "itemLabel": "9",
-        "title": "Consent Items (including pulled action items 10.3, 10.4, 10.5, 10.6, 10.7)",
+        "title": "Consent Items (including moved action items 10.3, 10.4, 10.5, 10.6, 10.7)",
         "phases": {
           "opened": 3365,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -277,7 +293,7 @@
         "itemLabel": "10.1",
         "title": "Revisiting the School Board's March 11, 2020 Vote on Interdistrict Transfers",
         "phases": {
-          "opened": 3396,
+          "opened": 3395,
           "presentation": 3407,
           "publicComment": 3819,
           "discussion": 3885,
@@ -291,14 +307,14 @@
           {
             "name": "Jen Parsons",
             "startSeconds": 3835,
-            "endSeconds": 3866,
-            "summary": "Comment read by staff: expressed strong support for grandfathering in siblings of Mandarin Immersion families, citing room in the program, cost-effectiveness, and the importance of keeping the district's word to build community trust."
+            "endSeconds": 3874,
+            "summary": "Comment read by staff on her behalf: expressed strong support for grandfathering in siblings of Mandarin Immersion program families, arguing it was the right thing to do to build trust and model keeping one's word to the school community."
           },
           {
             "name": "Lily Milton",
             "startSeconds": 4983,
-            "endSeconds": 5049,
-            "summary": "As co-PTO president at Orion, expressed support for retaining siblings in the Mandarin Immersion program, emphasizing community recovery after difficult years and the district's commitment to keeping families together."
+            "endSeconds": 5057,
+            "summary": "As co-PTO president at Orion, expressed support for retaining the MI program siblings, citing the community's ongoing recovery from losing families and calling this a concrete way for the district to reinvest in the impacted program."
           }
         ],
         "consent": false,
@@ -306,7 +322,7 @@
       },
       {
         "itemLabel": "10.2",
-        "title": "Adoption of Resolution 22 – Authorizing Electronic Meetings During a State of Emergency",
+        "title": "Adoption of Resolution 22 – Authorizing Electronic Meetings During State of Emergency",
         "phases": {
           "opened": 5084,
           "presentation": 5116,
@@ -331,7 +347,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -349,7 +365,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -367,7 +383,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -385,7 +401,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -403,7 +419,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -419,7 +435,7 @@
           "opened": 5267,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5267,
+          "discussion": 5274,
           "vote": null
         },
         "publicComments": [],
@@ -444,7 +460,7 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 5849,
+          "opened": 5853,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -456,9 +472,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Possible Other Business / Suggested Items for Future Agenda",
+        "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5882,
+          "opened": 5875,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -472,7 +488,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 5891,
+          "opened": 5882,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -486,12 +502,12 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 5897,
+          "opened": 5893,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5912,
+            "seconds": 5908,
             "type": "voice",
             "result": "approved"
           }
@@ -510,37 +526,51 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Dr. John Baker",
+        "name": "John Baker",
         "role": "Superintendent"
       },
       "C": {
         "name": "Alisa MacAvoy",
-        "role": "Board President (listed as Trustee/Clerk in agenda — here acting as Clerk/Trustee)"
+        "role": "Board President / Trustee (here acting as participant)"
       },
       "D": {
         "name": "Eliana (staff)",
-        "role": "Board Secretary / Administrative Staff"
+        "role": "Staff / meeting coordinator (reads roll call and speaker cards)"
       },
       "E": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
       "F": {
-        "name": "Janet Lawson",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Clerk / Trustee"
       },
       "G": {
-        "name": "Cecilia I. Márquez",
-        "role": "Clerk"
+        "name": "Janet Lawson",
+        "role": "Trustee"
       }
     },
-    "agendaChanges": "At the start of the meeting, items 10.5, 10.6, and 10.7 (Measure U Addenda for McKinley, Taft, and Clifford) were moved to the consent calendar. Items 10.3 (Approval of Personnel Changes) and 10.4 (Approval of Personnel Report) were also moved to consent. The consent bundle (Section 9 plus 10.3, 10.4, 10.5, 10.6, 10.7) was voted on together. Items 10.1 and 10.2 were addressed individually. Section 11 (Board and Superintendent Reports) was taken up after 10.2 without a separate Section 12 discussion. Section 12 (Quarterly Williams Report) was addressed briefly at the end.",
+    "agendaChanges": "At the start of the meeting, the board moved items 10.5, 10.6, and 10.7 (Measure U Addenda for McKinley, Taft, and Clifford) to the consent calendar. Items 10.3 (Approval of Personnel Changes) and 10.4 (Approval of Personnel Report) were also moved to consent. Oral Communication (Section 5) speakers were held and addressed during item 8.1 (COVID-19 Update). The items were otherwise taken up in agenda order.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": 0,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "1",
+        "title": "Roll Call",
+        "phases": {
+          "opened": 44,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -573,7 +603,7 @@
           "publicComment": null,
           "discussion": 108,
           "vote": {
-            "seconds": 161,
+            "seconds": 159,
             "type": "voice",
             "result": "approved"
           }
@@ -586,12 +616,12 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 161,
+          "opened": 159,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 170,
+            "seconds": 161,
             "type": "voice",
             "result": "approved"
           }
@@ -634,14 +664,14 @@
       },
       {
         "itemLabel": "7.1",
-        "title": "Adoption of Resolution 20 – Orion Alternative School (formerly John Gill) Bid Package E Foothill Air Conditioning Change Order #1",
+        "title": "Adoption of Resolution 20 – Orion Alternative School (John Gill) Bid Package E Foothill Air Conditioning Change Order #1",
         "phases": {
           "opened": 240,
           "presentation": null,
           "publicComment": null,
-          "discussion": 272,
+          "discussion": 265,
           "vote": {
-            "seconds": 282,
+            "seconds": 277,
             "type": "voice",
             "result": "approved"
           }
@@ -657,9 +687,9 @@
           "opened": 289,
           "presentation": null,
           "publicComment": null,
-          "discussion": 289,
+          "discussion": null,
           "vote": {
-            "seconds": 310,
+            "seconds": 306,
             "type": "voice",
             "result": "approved"
           }
@@ -683,19 +713,19 @@
             "name": "Pam Barrage",
             "startSeconds": 1947,
             "endSeconds": 2116,
-            "summary": "Raised concerns about inadequate mask supply for teachers, requesting that staff receive five KN95 masks per week through at least the end of the surge rather than having to purchase their own."
+            "summary": "Raised concerns about the inadequate supply of N95/KN95 masks for classroom teachers, describing her personal experience having to purchase her own masks, and requested that staff receive five KN95 masks per week through at least the end of the current surge."
           },
           {
             "name": "Ayla Spinelli Stanc",
             "startSeconds": 2231,
             "endSeconds": 2361,
-            "summary": "Asked about expediting the volunteer clearance process for Healthy Cities tutors so they can work with students more quickly."
+            "summary": "Asked how to expedite the volunteer clearance process so that Healthy Cities tutors could be matched with students more quickly, and offered her own help to support the process."
           },
           {
             "name": "Rebecca Fouch",
             "startSeconds": 2443,
             "endSeconds": 2613,
-            "summary": "Asked whether a student whose day-five isolation falls on a Monday would be tested by the district before the following Sunday, and whether a negative home test result would be acceptable for a COVID-positive student to return to school."
+            "summary": "Asked whether a student whose day-five isolation period falls on a Monday would be tested by the district before the following Sunday, and whether a negative home test result would be accepted for a COVID-positive student to return to school."
           }
         ],
         "consent": false,
@@ -705,7 +735,7 @@
         "itemLabel": "8.2",
         "title": "First Reading and Discussion of Board Policy 1240 – Volunteer Assistance",
         "phases": {
-          "opened": 3013,
+          "opened": 3057,
           "presentation": 3057,
           "publicComment": null,
           "discussion": 3121,
@@ -759,14 +789,14 @@
       },
       {
         "itemLabel": "9",
-        "title": "Consent Items (including pulled action items 10.3, 10.4, 10.5, 10.6, 10.7)",
+        "title": "Consent Items (including moved action items 10.3, 10.4, 10.5, 10.6, 10.7)",
         "phases": {
           "opened": 3365,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -779,7 +809,7 @@
         "itemLabel": "10.1",
         "title": "Revisiting the School Board's March 11, 2020 Vote on Interdistrict Transfers",
         "phases": {
-          "opened": 3396,
+          "opened": 3395,
           "presentation": 3407,
           "publicComment": 3819,
           "discussion": 3885,
@@ -793,14 +823,14 @@
           {
             "name": "Jen Parsons",
             "startSeconds": 3835,
-            "endSeconds": 3866,
-            "summary": "Comment read by staff: expressed strong support for grandfathering in siblings of Mandarin Immersion families, citing room in the program, cost-effectiveness, and the importance of keeping the district's word to build community trust."
+            "endSeconds": 3874,
+            "summary": "Comment read by staff on her behalf: expressed strong support for grandfathering in siblings of Mandarin Immersion program families, arguing it was the right thing to do to build trust and model keeping one's word to the school community."
           },
           {
             "name": "Lily Milton",
             "startSeconds": 4983,
-            "endSeconds": 5049,
-            "summary": "As co-PTO president at Orion, expressed support for retaining siblings in the Mandarin Immersion program, emphasizing community recovery after difficult years and the district's commitment to keeping families together."
+            "endSeconds": 5057,
+            "summary": "As co-PTO president at Orion, expressed support for retaining the MI program siblings, citing the community's ongoing recovery from losing families and calling this a concrete way for the district to reinvest in the impacted program."
           }
         ],
         "consent": false,
@@ -808,7 +838,7 @@
       },
       {
         "itemLabel": "10.2",
-        "title": "Adoption of Resolution 22 – Authorizing Electronic Meetings During a State of Emergency",
+        "title": "Adoption of Resolution 22 – Authorizing Electronic Meetings During State of Emergency",
         "phases": {
           "opened": 5084,
           "presentation": 5116,
@@ -833,7 +863,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -851,7 +881,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -869,7 +899,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -887,7 +917,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -905,7 +935,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3393,
+            "seconds": 3382,
             "type": "voice",
             "result": "approved"
           }
@@ -921,7 +951,7 @@
           "opened": 5267,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5267,
+          "discussion": 5274,
           "vote": null
         },
         "publicComments": [],
@@ -946,7 +976,7 @@
         "itemLabel": "13",
         "title": "Correspondence",
         "phases": {
-          "opened": 5849,
+          "opened": 5853,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -958,9 +988,9 @@
       },
       {
         "itemLabel": "14",
-        "title": "Possible Other Business / Suggested Items for Future Agenda",
+        "title": "Possible Other Business/Suggested Items for Future Agenda",
         "phases": {
-          "opened": 5882,
+          "opened": 5875,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -974,7 +1004,7 @@
         "itemLabel": "15",
         "title": "Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 5891,
+          "opened": 5882,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -988,12 +1018,12 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 5897,
+          "opened": 5893,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5912,
+            "seconds": 5908,
             "type": "voice",
             "result": "approved"
           }
@@ -1004,7 +1034,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:18:26.338Z",
-  "inputTokens": 22861,
-  "outputTokens": 3953
+  "cachedAt": "2026-07-23T20:39:00.583Z",
+  "inputTokens": 22858,
+  "outputTokens": 4006
 }

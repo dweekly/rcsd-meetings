@@ -1,6 +1,8 @@
 {
   "date": "2021-12-15",
+  "slug": "2021-12-15-board-meeting",
   "itemCount": 50,
+  "transcriptHash": "acf5f0f7de820253",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,8 +10,8 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Eliana (Clerk/Secretary staff)",
-        "role": "Board Secretary/Clerk staff reading roll call"
+        "name": "Eliana (clerk/roll caller)",
+        "role": "District Staff / Meeting Clerk"
       },
       "C": {
         "name": "Mike Wells",
@@ -17,18 +19,18 @@
       },
       "D": {
         "name": "María Díaz-Slocum",
-        "role": "Vice President (incoming President)"
+        "role": "Vice President / incoming President"
       },
       "E": {
         "name": "Cecilia I. Márquez",
-        "role": "Clerk (also heard as roll call reader in some instances)"
+        "role": "Clerk / incoming Vice President"
       },
       "F": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
       "G": {
-        "name": "Dr. John Baker",
+        "name": "John Baker",
         "role": "Superintendent"
       },
       "H": {
@@ -36,19 +38,19 @@
         "role": "Trustee"
       },
       "I": {
-        "name": "Kyle (Bond Program Manager/Presenter)",
-        "role": "Bond Program staff presenter"
+        "name": "Kyle (Bond Program Presenter)",
+        "role": "Bond Program Staff Presenter"
       },
       "J": {
         "name": "Josh Chisholm",
-        "role": "Redistricting consultant (demographer)"
+        "role": "Demographic/Redistricting Consultant"
       },
-      "C_alt": {
+      "C2": {
         "name": "William Tunick",
-        "role": "Legal counsel / redistricting consultant"
+        "role": "Legal Counsel / Redistricting Consultant"
       }
     },
-    "agendaChanges": "Items 12.1 (Approval of Amended Agreement with One Life Counseling and Star Vista), 12.3 (Retirement Notification Incentive), and 12.4 (Adoption of 2021 Educator Effectiveness Block Grant Plan) were moved to the consent calendar (Section 11). Section 10 Discussion Item (Presentation Regarding Potential Trustee Area Revisions) was deferred pending arrival of presenters Josh Chisholm and William Tunick, and taken up after Section 12 Action Items (budget). The meeting proceeded in this order: Sections 1, 2, 3, 4, 5, 6, 7, 8, 10 (deferred), 11 (with pulled items added), 12.2, then Section 10 revisited, then Sections 13-18.",
+    "agendaChanges": "Items 12.1 (Approval of Amended Agreement with One Life Counseling and Star Vista), 12.3 (Retirement Notification Incentive), and 12.4 (Adoption of 2021 Educator Effectiveness Block Grant Plan) were moved to the consent calendar (Section 11). Section 10 (Discussion Item: Trustee Area Revisions) was temporarily skipped and taken up after Section 12 action items because the consultant had not yet joined; it was heard after the budget item. Section 13 (Board and Superintendent Reports) was taken up after the discussion item.",
     "items": [
       {
         "itemLabel": "1",
@@ -82,10 +84,10 @@
         "itemLabel": "3",
         "title": "Board Officers' Rotation",
         "phases": {
-          "opened": 50,
+          "opened": 14,
           "presentation": null,
           "publicComment": null,
-          "discussion": 112,
+          "discussion": 162,
           "vote": null
         },
         "publicComments": [],
@@ -96,10 +98,10 @@
         "itemLabel": "4",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 686,
+          "opened": 682,
           "presentation": null,
           "publicComment": null,
-          "discussion": 749,
+          "discussion": 682,
           "vote": null
         },
         "publicComments": [],
@@ -128,9 +130,9 @@
         "itemLabel": "6",
         "title": "Oral Communication",
         "phases": {
-          "opened": 799,
+          "opened": 797,
           "presentation": null,
-          "publicComment": 799,
+          "publicComment": 797,
           "discussion": null,
           "vote": null
         },
@@ -143,7 +145,7 @@
         "title": "Bond Program Update",
         "phases": {
           "opened": 812,
-          "presentation": 832,
+          "presentation": 818,
           "publicComment": null,
           "discussion": 1158,
           "vote": null
@@ -171,56 +173,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "9",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10",
-        "title": "Presentation Regarding Potential Trustee Area Revisions",
-        "phases": {
-          "opened": 3788,
-          "presentation": 3827,
-          "publicComment": null,
-          "discussion": 4195,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "11",
         "title": "Consent Items (including pulled items 12.1, 12.3, 12.4)",
         "phases": {
           "opened": 1473,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1485,
-            "type": "roll-call",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.1",
-        "title": "Approval of Amended Agreement between the Redwood City School District and One Life Counseling and Star Vista for Fiscal Year 2021-22",
-        "phases": {
-          "opened": 686,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -253,39 +209,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.3",
-        "title": "Retirement Notification Incentive",
+        "itemLabel": "10",
+        "title": "Presentation Regarding Potential Trustee Area Revisions",
         "phases": {
-          "opened": 686,
-          "presentation": null,
+          "opened": 3788,
+          "presentation": 3827,
           "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1485,
-            "type": "roll-call",
-            "result": "5-0"
-          }
+          "discussion": 4195,
+          "vote": null
         },
         "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.4",
-        "title": "Adoption of 2021 Educator Effectiveness Block Grant Plan",
-        "phases": {
-          "opened": 686,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1485,
-            "type": "roll-call",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
+        "consent": false,
         "pulled": false
       },
       {
@@ -320,7 +254,7 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 5665,
+          "opened": 5679,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -351,7 +285,7 @@
           "opened": 5696,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5698,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -386,8 +320,8 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Eliana (Clerk/Secretary staff)",
-        "role": "Board Secretary/Clerk staff reading roll call"
+        "name": "Eliana (clerk/roll caller)",
+        "role": "District Staff / Meeting Clerk"
       },
       "C": {
         "name": "Mike Wells",
@@ -395,18 +329,18 @@
       },
       "D": {
         "name": "María Díaz-Slocum",
-        "role": "Vice President (incoming President)"
+        "role": "Vice President / incoming President"
       },
       "E": {
         "name": "Cecilia I. Márquez",
-        "role": "Clerk (also heard as roll call reader in some instances)"
+        "role": "Clerk / incoming Vice President"
       },
       "F": {
         "name": "Mike Wells",
         "role": "Trustee"
       },
       "G": {
-        "name": "Dr. John Baker",
+        "name": "John Baker",
         "role": "Superintendent"
       },
       "H": {
@@ -414,19 +348,19 @@
         "role": "Trustee"
       },
       "I": {
-        "name": "Kyle (Bond Program Manager/Presenter)",
-        "role": "Bond Program staff presenter"
+        "name": "Kyle (Bond Program Presenter)",
+        "role": "Bond Program Staff Presenter"
       },
       "J": {
         "name": "Josh Chisholm",
-        "role": "Redistricting consultant (demographer)"
+        "role": "Demographic/Redistricting Consultant"
       },
-      "C_alt": {
+      "C2": {
         "name": "William Tunick",
-        "role": "Legal counsel / redistricting consultant"
+        "role": "Legal Counsel / Redistricting Consultant"
       }
     },
-    "agendaChanges": "Items 12.1 (Approval of Amended Agreement with One Life Counseling and Star Vista), 12.3 (Retirement Notification Incentive), and 12.4 (Adoption of 2021 Educator Effectiveness Block Grant Plan) were moved to the consent calendar (Section 11). Section 10 Discussion Item (Presentation Regarding Potential Trustee Area Revisions) was deferred pending arrival of presenters Josh Chisholm and William Tunick, and taken up after Section 12 Action Items (budget). The meeting proceeded in this order: Sections 1, 2, 3, 4, 5, 6, 7, 8, 10 (deferred), 11 (with pulled items added), 12.2, then Section 10 revisited, then Sections 13-18.",
+    "agendaChanges": "Items 12.1 (Approval of Amended Agreement with One Life Counseling and Star Vista), 12.3 (Retirement Notification Incentive), and 12.4 (Adoption of 2021 Educator Effectiveness Block Grant Plan) were moved to the consent calendar (Section 11). Section 10 (Discussion Item: Trustee Area Revisions) was temporarily skipped and taken up after Section 12 action items because the consultant had not yet joined; it was heard after the budget item. Section 13 (Board and Superintendent Reports) was taken up after the discussion item.",
     "items": [
       {
         "itemLabel": "1",
@@ -460,10 +394,10 @@
         "itemLabel": "3",
         "title": "Board Officers' Rotation",
         "phases": {
-          "opened": 50,
+          "opened": 14,
           "presentation": null,
           "publicComment": null,
-          "discussion": 112,
+          "discussion": 162,
           "vote": null
         },
         "publicComments": [],
@@ -474,10 +408,10 @@
         "itemLabel": "4",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 686,
+          "opened": 682,
           "presentation": null,
           "publicComment": null,
-          "discussion": 749,
+          "discussion": 682,
           "vote": null
         },
         "publicComments": [],
@@ -506,9 +440,9 @@
         "itemLabel": "6",
         "title": "Oral Communication",
         "phases": {
-          "opened": 799,
+          "opened": 797,
           "presentation": null,
-          "publicComment": 799,
+          "publicComment": 797,
           "discussion": null,
           "vote": null
         },
@@ -521,7 +455,7 @@
         "title": "Bond Program Update",
         "phases": {
           "opened": 812,
-          "presentation": 832,
+          "presentation": 818,
           "publicComment": null,
           "discussion": 1158,
           "vote": null
@@ -549,56 +483,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "9",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10",
-        "title": "Presentation Regarding Potential Trustee Area Revisions",
-        "phases": {
-          "opened": 3788,
-          "presentation": 3827,
-          "publicComment": null,
-          "discussion": 4195,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "11",
         "title": "Consent Items (including pulled items 12.1, 12.3, 12.4)",
         "phases": {
           "opened": 1473,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1485,
-            "type": "roll-call",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.1",
-        "title": "Approval of Amended Agreement between the Redwood City School District and One Life Counseling and Star Vista for Fiscal Year 2021-22",
-        "phases": {
-          "opened": 686,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -631,39 +519,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "12.3",
-        "title": "Retirement Notification Incentive",
+        "itemLabel": "10",
+        "title": "Presentation Regarding Potential Trustee Area Revisions",
         "phases": {
-          "opened": 686,
-          "presentation": null,
+          "opened": 3788,
+          "presentation": 3827,
           "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1485,
-            "type": "roll-call",
-            "result": "5-0"
-          }
+          "discussion": 4195,
+          "vote": null
         },
         "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12.4",
-        "title": "Adoption of 2021 Educator Effectiveness Block Grant Plan",
-        "phases": {
-          "opened": 686,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 1485,
-            "type": "roll-call",
-            "result": "5-0"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
+        "consent": false,
         "pulled": false
       },
       {
@@ -698,7 +564,7 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 5665,
+          "opened": 5679,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -729,7 +595,7 @@
           "opened": 5696,
           "presentation": null,
           "publicComment": null,
-          "discussion": 5698,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -756,7 +622,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:18:57.389Z",
-  "inputTokens": 21075,
-  "outputTokens": 2813
+  "cachedAt": "2026-07-23T20:39:29.683Z",
+  "inputTokens": 21073,
+  "outputTokens": 2257
 }

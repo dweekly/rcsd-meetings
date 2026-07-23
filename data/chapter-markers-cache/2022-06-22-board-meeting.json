@@ -1,6 +1,8 @@
 {
   "date": "2022-06-22",
+  "slug": "2022-06-22-board-meeting",
   "itemCount": 50,
+  "transcriptHash": "9d1efe6a5b52ec51",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,27 +10,27 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Ellie (staff)",
-        "role": "Recording Secretary / Staff (ASR unclear, likely district clerk/secretary)"
+        "name": "Ellie (staff/secretary)",
+        "role": "Board Secretary / ASR unclear — likely district staff conducting roll call and presenting"
       },
       "C": {
         "name": "Cecilia I. Márquez",
         "role": "Board Clerk / Superintendent"
       },
       "D": {
-        "name": "Janet Lawson",
-        "role": "Trustee (also Priscilla, CFO, in finance sections)"
+        "name": "Priscilla (district staff)",
+        "role": "Multiple speakers collapsed by ASR — includes board members Janet Lawson and Alisa MacAvoy, and Chief Business Official Priscilla"
       },
       "E": {
         "name": "Alisa MacAvoy",
-        "role": "Board Trustee (President per roster, Vice President per roll call confusion)"
+        "role": "Board Trustee (President per roll call sequence)"
       },
       "F": {
         "name": "Mike Wells",
-        "role": "Trustee"
+        "role": "Board Trustee"
       }
     },
-    "agendaChanges": "Sections 1-3 (Call to Order, Oral Communication on Closed Session, Closed Session) occurred before the recording begins. The recording opens at the Reconvene to Regular Session (Section 4). Sections 10 and 11 (Bond Program Consent and Action Items) were not taken up in the recorded session. Section 9 school/community reports were taken before Sections 5-8 procedural items, though the president did handle roll call and welcome briefly at the top. The board calendar discussion (Section 12) was taken after Section 9 and before Section 13 consent items. Sections 18, 19, and 20 were handled together near the end.",
+    "agendaChanges": "Sections 3 (Closed Session), 4 (Reconvene/Roll Call), 5 (Welcome), 6 (Changes to Agenda), and 7 (Approval of Agenda) all occurred but were condensed at the start of the recording. Section 10 (Bond Program Consent Items), Section 11 (Bond Program Action Items), Section 17 (Information on SMCIF), Section 18 (Correspondence), Section 19 (Other Business), and Section 20 (Board Agenda Calendar) received only brief or passing mention with no substantive discussion. The meeting proceeded generally in agenda order after reconvening.",
     "items": [
       {
         "itemLabel": "1",
@@ -74,7 +76,7 @@
       },
       {
         "itemLabel": "4",
-        "title": "Reconvene to Regular Session / Roll Call",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -87,22 +89,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "4",
-        "title": "Report Out on Closed Session from June 22, 2022",
-        "phases": {
-          "opened": 40,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "5",
-        "title": "Welcome by the Board President",
+        "title": "Welcome by the School Board President",
         "phases": {
           "opened": 53,
           "presentation": null,
@@ -260,14 +248,14 @@
       },
       {
         "itemLabel": "13",
-        "title": "Approval of Consent Items",
+        "title": "Consent Items — Approval of Consent Items",
         "phases": {
           "opened": 2776,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2791,
+            "seconds": 2796,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -296,7 +284,7 @@
         "phases": {
           "opened": 2812,
           "presentation": 2877,
-          "publicComment": 2812,
+          "publicComment": null,
           "discussion": 4163,
           "vote": null
         },
@@ -310,7 +298,7 @@
         "phases": {
           "opened": 4812,
           "presentation": 4831,
-          "publicComment": 4812,
+          "publicComment": null,
           "discussion": 5258,
           "vote": null
         },
@@ -324,7 +312,7 @@
         "phases": {
           "opened": 5454,
           "presentation": 5468,
-          "publicComment": 5454,
+          "publicComment": null,
           "discussion": 7779,
           "vote": null
         },
@@ -338,7 +326,7 @@
         "phases": {
           "opened": 8328,
           "presentation": 8349,
-          "publicComment": 8328,
+          "publicComment": null,
           "discussion": 8506,
           "vote": null
         },
@@ -385,21 +373,7 @@
           "opened": 8581,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "16.1",
-        "title": "Report from Board Members and Superintendent",
-        "phases": {
-          "opened": 8581,
-          "presentation": 8594,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 8594,
           "vote": null
         },
         "publicComments": [],
@@ -408,20 +382,6 @@
       },
       {
         "itemLabel": "17",
-        "title": "Information",
-        "phases": {
-          "opened": 8704,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "17.1",
         "title": "Information on San Mateo County Investment Fund - May 2022",
         "phases": {
           "opened": 8704,
@@ -464,21 +424,7 @@
       },
       {
         "itemLabel": "20",
-        "title": "Board Agenda Calendar",
-        "phases": {
-          "opened": 8737,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "20.1",
-        "title": "Changes to the Board Agenda Schedule",
+        "title": "Board Agenda Calendar / Changes to the Board Agenda Schedule",
         "phases": {
           "opened": 8737,
           "presentation": null,
@@ -518,27 +464,27 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Ellie (staff)",
-        "role": "Recording Secretary / Staff (ASR unclear, likely district clerk/secretary)"
+        "name": "Ellie (staff/secretary)",
+        "role": "Board Secretary / ASR unclear — likely district staff conducting roll call and presenting"
       },
       "C": {
         "name": "Cecilia I. Márquez",
         "role": "Board Clerk / Superintendent"
       },
       "D": {
-        "name": "Janet Lawson",
-        "role": "Trustee (also Priscilla, CFO, in finance sections)"
+        "name": "Priscilla (district staff)",
+        "role": "Multiple speakers collapsed by ASR — includes board members Janet Lawson and Alisa MacAvoy, and Chief Business Official Priscilla"
       },
       "E": {
         "name": "Alisa MacAvoy",
-        "role": "Board Trustee (President per roster, Vice President per roll call confusion)"
+        "role": "Board Trustee (President per roll call sequence)"
       },
       "F": {
         "name": "Mike Wells",
-        "role": "Trustee"
+        "role": "Board Trustee"
       }
     },
-    "agendaChanges": "Sections 1-3 (Call to Order, Oral Communication on Closed Session, Closed Session) occurred before the recording begins. The recording opens at the Reconvene to Regular Session (Section 4). Sections 10 and 11 (Bond Program Consent and Action Items) were not taken up in the recorded session. Section 9 school/community reports were taken before Sections 5-8 procedural items, though the president did handle roll call and welcome briefly at the top. The board calendar discussion (Section 12) was taken after Section 9 and before Section 13 consent items. Sections 18, 19, and 20 were handled together near the end.",
+    "agendaChanges": "Sections 3 (Closed Session), 4 (Reconvene/Roll Call), 5 (Welcome), 6 (Changes to Agenda), and 7 (Approval of Agenda) all occurred but were condensed at the start of the recording. Section 10 (Bond Program Consent Items), Section 11 (Bond Program Action Items), Section 17 (Information on SMCIF), Section 18 (Correspondence), Section 19 (Other Business), and Section 20 (Board Agenda Calendar) received only brief or passing mention with no substantive discussion. The meeting proceeded generally in agenda order after reconvening.",
     "items": [
       {
         "itemLabel": "1",
@@ -584,7 +530,7 @@
       },
       {
         "itemLabel": "4",
-        "title": "Reconvene to Regular Session / Roll Call",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 5,
           "presentation": null,
@@ -597,22 +543,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "4",
-        "title": "Report Out on Closed Session from June 22, 2022",
-        "phases": {
-          "opened": 40,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "5",
-        "title": "Welcome by the Board President",
+        "title": "Welcome by the School Board President",
         "phases": {
           "opened": 53,
           "presentation": null,
@@ -770,14 +702,14 @@
       },
       {
         "itemLabel": "13",
-        "title": "Approval of Consent Items",
+        "title": "Consent Items — Approval of Consent Items",
         "phases": {
           "opened": 2776,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2791,
+            "seconds": 2796,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -806,7 +738,7 @@
         "phases": {
           "opened": 2812,
           "presentation": 2877,
-          "publicComment": 2812,
+          "publicComment": null,
           "discussion": 4163,
           "vote": null
         },
@@ -820,7 +752,7 @@
         "phases": {
           "opened": 4812,
           "presentation": 4831,
-          "publicComment": 4812,
+          "publicComment": null,
           "discussion": 5258,
           "vote": null
         },
@@ -834,7 +766,7 @@
         "phases": {
           "opened": 5454,
           "presentation": 5468,
-          "publicComment": 5454,
+          "publicComment": null,
           "discussion": 7779,
           "vote": null
         },
@@ -848,7 +780,7 @@
         "phases": {
           "opened": 8328,
           "presentation": 8349,
-          "publicComment": 8328,
+          "publicComment": null,
           "discussion": 8506,
           "vote": null
         },
@@ -895,21 +827,7 @@
           "opened": 8581,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "16.1",
-        "title": "Report from Board Members and Superintendent",
-        "phases": {
-          "opened": 8581,
-          "presentation": 8594,
-          "publicComment": null,
-          "discussion": null,
+          "discussion": 8594,
           "vote": null
         },
         "publicComments": [],
@@ -918,20 +836,6 @@
       },
       {
         "itemLabel": "17",
-        "title": "Information",
-        "phases": {
-          "opened": 8704,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "17.1",
         "title": "Information on San Mateo County Investment Fund - May 2022",
         "phases": {
           "opened": 8704,
@@ -974,21 +878,7 @@
       },
       {
         "itemLabel": "20",
-        "title": "Board Agenda Calendar",
-        "phases": {
-          "opened": 8737,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "20.1",
-        "title": "Changes to the Board Agenda Schedule",
+        "title": "Board Agenda Calendar / Changes to the Board Agenda Schedule",
         "phases": {
           "opened": 8737,
           "presentation": null,
@@ -1020,7 +910,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:07:07.238Z",
+  "cachedAt": "2026-07-23T20:26:03.013Z",
   "inputTokens": 30326,
-  "outputTokens": 3745
+  "outputTokens": 3374
 }

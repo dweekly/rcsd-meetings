@@ -1,5 +1,6 @@
 {
   "date": "2021-04-21",
+  "transcriptHash": "dfa6bc10abf3600c",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -37,8 +38,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 8.1 was pulled from the agenda. A new item 6 was added after the McKinley Institute of Technology showcase - a quick video from Kennedy School showcasing an upcoming musical.",
-    "consent_vote_words": "All right, well, thank you very much. So we had an add on. Yeah, lots of typing. Thank you so much. We're going to see a quick video from Kennedy and it's a teaser for the Little Mermaid musical that's coming up. So why don't we go ahead and show that and then Sabrina, we could bring you on if you want to say anything or if you could put in the chat how we get tickets, that would be helpful. And then we can copy it and send it out to all the attendees as well.",
+    "agenda_changes": "Item 8.1 pulled from consent agenda. Item 6 added: Kennedy School musical video after McKinley Institute presentation.",
+    "consent_vote_words": "Do I have a motion to approve? So moved. Second, Maria and Janet, roll call, please.",
     "items": [
       {
         "item": 1,
@@ -57,12 +58,12 @@
       },
       {
         "item": 4,
-        "intro_words": "All right, so welcome. Thank you, everyone, for being here.",
+        "intro_words": "Bienvenidos. Si. Necesita interpretacion, por favor.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And then I wanted to report out on our closed session from last week's meeting.",
+        "intro_words": "And then I wanted to report out on our closed session from last week's",
         "status": "found"
       },
       {
@@ -77,12 +78,22 @@
       },
       {
         "item": 10,
-        "intro_words": "All right, well, communication. Eliana, I didn't have a chance to look at the speakers in the last hour.",
+        "intro_words": "All right, well, communication. Eliana, I didn't have a chance to look",
+        "status": "found"
+      },
+      {
+        "item": 12,
+        "intro_words": "All right, all right. No oral communications. So wonderful. We're onto our favorite",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "All right, all right. No oral communications. So wonderful. We're onto our favorite part of the agenda every meeting.",
+        "intro_words": "We have our wonderful principal from MIT here. Nick, welcome.",
+        "status": "found"
+      },
+      {
+        "item": 13.5,
+        "intro_words": "So we had an add on. Yeah, lots of typing. Thank you so much.",
         "status": "found"
       },
       {
@@ -92,17 +103,22 @@
       },
       {
         "item": 20,
-        "intro_words": "Onto the boat. Bond program action. No, sorry. Bond program consent items.",
+        "intro_words": "Okay, so we pulled 8.1. So we're on to 9.1. Dr. Baker.",
         "status": "found"
       },
       {
         "item": 23,
-        "intro_words": "All right, so let's see. Let me look at the agenda. Onto the boat.",
+        "intro_words": "All right, So I think we are done there. All right. And thank you,",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "Under information, there's 13.1, the San Mateo County Investment Fund and the 13.2 quarterly Williams report.",
+        "intro_words": "So under information, there's 13.1, the San Mateo County Investment Fund",
+        "status": "found"
+      },
+      {
+        "item": 27,
+        "intro_words": "So under information, there's 13.1, the San Mateo County Investment Fund",
         "status": "found"
       },
       {
@@ -111,18 +127,18 @@
         "status": "found"
       },
       {
-        "item": 30,
-        "intro_words": "All right, correspondence. Okay. Other business suggested items for future agenda.",
+        "item": 31,
+        "intro_words": "All right, so next Wednesday we're meeting at 6:00pm Right. For the bond",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "All right, so I think that's. That's it. Unless there's anything else, I believe we're at the end of the agenda.",
+        "intro_words": "Unless there's anything else, I believe we're at the end of the agenda.",
         "status": "found"
       },
       {
         "item": 34,
-        "intro_words": "All right, so do I have a motion to adjourn? I'll second Cecilia and Janet.",
+        "intro_words": "So do I have a motion to adjourn? I'll second Cecilia and Janet.",
         "status": "found"
       }
     ]
@@ -143,8 +159,8 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
+        "timestamp": "00:00:20",
+        "timestampSeconds": 20
       },
       {
         "timestamp": "00:01:42",
@@ -165,10 +181,13 @@
         "timestampSeconds": 198
       },
       null,
-      null,
       {
         "timestamp": "00:03:18",
         "timestampSeconds": 198
+      },
+      {
+        "timestamp": "00:04:25",
+        "timestampSeconds": 265
       },
       {
         "timestamp": "00:26:49",
@@ -186,26 +205,29 @@
       null,
       null,
       {
-        "timestamp": "00:26:34",
-        "timestampSeconds": 1594
+        "timestamp": "00:25:54",
+        "timestampSeconds": 1554
       },
       null,
       null,
       {
-        "timestamp": "01:30:25",
-        "timestampSeconds": 5425
+        "timestamp": "01:30:20",
+        "timestampSeconds": 5420
       },
-      null,
       {
-        "timestamp": "01:30:30",
-        "timestampSeconds": 5430
+        "timestamp": "01:30:20",
+        "timestampSeconds": 5420
       },
-      null,
       {
         "timestamp": "01:30:30",
         "timestampSeconds": 5430
       },
       null,
+      null,
+      {
+        "timestamp": "01:33:05",
+        "timestampSeconds": 5585
+      },
       null,
       {
         "timestamp": "01:33:05",
@@ -217,7 +239,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:46:13.643Z",
+  "cachedAt": "2026-07-23T20:51:08.545Z",
   "inputTokens": 18081,
-  "outputTokens": 1039
+  "outputTokens": 1044
 }

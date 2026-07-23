@@ -1,6 +1,8 @@
 {
   "date": "2022-02-16",
+  "slug": "2022-02-16-board-meeting",
   "itemCount": 57,
+  "transcriptHash": "dcab4d147038750e",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -9,18 +11,18 @@
       },
       "B": {
         "name": "María Díaz-Slocum",
-        "role": "President"
+        "role": "President (acting as chair; note: agenda lists her as Vice President but she is chairing as President per transcript)"
       },
       "C": {
         "name": "Alisa MacAvoy",
-        "role": "Trustee (later identified as Vice President in some calls; listed as Clerk on agenda but called Trustee McAvoy)"
+        "role": "Trustee (joining remotely)"
       }
     },
-    "agendaChanges": "Item 11.5 (Classified General Leave Request) was pulled from Section 11 Consent Items entirely, as it was already listed under Section 12 Action Items (12.2). Sections 1-3 (Call to Order, Oral Communication on Closed Session, Closed Session) occurred before the recording begins; the recording opens at reconvene to Regular Session (~256s). Section 5 Welcome is delivered by María Díaz-Slocum (not the agenda's listed presenter). Items otherwise followed agenda order.",
+    "agendaChanges": "Item 11.5 (Classified General Leave Request(s) under Consent Items) was pulled entirely from Section 11, as it appeared as Action Item 12.2. Items were otherwise taken in agenda order. Section 2 (Oral Communication on Closed Session Items) and Section 3 (Closed Session) occurred before the recording begins in earnest; the recording picks up at the Reconvene to Regular Session. Sections 1-3 are not captured in the transcript.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -48,7 +50,7 @@
       },
       {
         "itemLabel": "3",
-        "title": "Closed Session",
+        "title": "Closed Session – Public Employee Leaves of Absence",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -64,7 +66,7 @@
         "itemLabel": "4",
         "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 256,
+          "opened": 299,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -76,7 +78,7 @@
       },
       {
         "itemLabel": "5",
-        "title": "Welcome by the School Board President",
+        "title": "Welcome by the Board President",
         "phases": {
           "opened": 325,
           "presentation": null,
@@ -113,7 +115,7 @@
           "vote": {
             "seconds": 427,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "4-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye; note MacAvoy joined remotely)"
           }
         },
         "publicComments": [],
@@ -145,7 +147,7 @@
           "vote": {
             "seconds": 478,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -177,39 +179,11 @@
           "vote": {
             "seconds": 553,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
         "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "11.5",
-        "title": "Approval of Classified General Leave Request(s) [pulled from consent]",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": true
-      },
-      {
-        "itemLabel": "12",
-        "title": "Action Items",
-        "phases": {
-          "opened": 562,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
         "pulled": false
       },
       {
@@ -223,7 +197,7 @@
           "vote": {
             "seconds": 661,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -241,12 +215,12 @@
           "vote": {
             "seconds": 732,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye; recommendation was NOT to approve the leave)"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": false
+        "pulled": true
       },
       {
         "itemLabel": "12.3",
@@ -259,7 +233,7 @@
           "vote": {
             "seconds": 871,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -277,7 +251,7 @@
           "vote": {
             "seconds": 1185,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -289,7 +263,7 @@
         "title": "Second Reading and Approval of Board Policy 5116.1 - Intradistrict Open Enrollment",
         "phases": {
           "opened": 1194,
-          "presentation": 1226,
+          "presentation": 1215,
           "publicComment": 1602,
           "discussion": 4445,
           "vote": null
@@ -298,110 +272,104 @@
           {
             "name": "David Weekley",
             "startSeconds": 1632,
-            "endSeconds": 1957,
-            "summary": "Opposed the policy, arguing that restricting intradistrict transfers hurts students and the district by limiting parental choice, and that the way to protect programs like Mandarin Immersion is to invest in their quality rather than lock families in."
+            "endSeconds": 1910,
+            "summary": "Opposed the proposed transfer restriction, arguing it harms students and the district by reducing choice and will ultimately hurt enrollment in programs like Mandarin Immersion."
           },
           {
             "name": "Eric Liu",
-            "startSeconds": 1976,
-            "endSeconds": 2026,
-            "summary": "Opposed the policy as an Asian American parent of a Mandarin Immersion student, stating that barring choice program students from applying to North Star felt discriminatory and contrary to Redwood City's values of diversity and equality."
+            "startSeconds": 1945,
+            "endSeconds": 2025,
+            "summary": "Opposed the policy as a Chinese-American parent of a Mandarin Immersion student, saying the proposal felt discriminatory by barring MI families from competing for North Star."
           },
           {
             "name": "Connie Kwan",
             "startSeconds": 2026,
-            "endSeconds": 2128,
-            "summary": "Opposed the policy, describing the unfair dilemma it creates for parents who must choose between staying in a choice program or leaving early to preserve eligibility for North Star, and asked the committee to consider alternative solutions to attrition."
+            "endSeconds": 2127,
+            "summary": "Raised the unintended consequence that parents might be forced to pull their child from MI and place them in private school for a year just to preserve the option to apply to North Star."
           },
           {
-            "name": "Peter Cowan",
+            "name": "Peter Kwan",
             "startSeconds": 2128,
-            "endSeconds": 2310,
-            "summary": "Opposed the policy, noting the difficult bind it creates for families with children in different programs, criticized the timing during enrollment season, argued the policy is a band-aid on a third-grade attrition cliff, and called for transparency instead of 'unspoken rules.'"
+            "endSeconds": 2357,
+            "summary": "Raised concerns about timing, the fundamental problem of attrition rather than the symptom, and the lack of transparency around 'unspoken rules' in choice program enrollment."
           },
           {
             "name": "Dennis Lee",
             "startSeconds": 2364,
-            "endSeconds": 2493,
-            "summary": "Opposed the policy as a parent of a rising kindergartner accepted to Mandarin Immersion, arguing it raises the stakes of choosing a school by requiring parents to predict their child's needs years in advance and that it unfairly limits future choices while potentially benefiting private school families."
+            "endSeconds": 2549,
+            "summary": "As a parent of a rising kindergartner newly accepted to MI, he opposed the policy for forcing families to predict years ahead what is best for their child and for penalizing choice-school families while potentially benefiting private school families."
           },
           {
             "name": "Michelle Hsu",
-            "startSeconds": 2550,
-            "endSeconds": 2630,
-            "summary": "Opposed the policy, arguing that North Star and Mandarin Immersion are not competing on fair ground given North Star's third-grade entry and testing-based admissions, and urged the committee to address equity issues in North Star's admissions process instead."
+            "startSeconds": 2553,
+            "endSeconds": 2629,
+            "summary": "Argued the root issue is that North Star and Mandarin Immersion are not set up on fair ground due to North Star's third-grade start and admissions process, and urged the committee to address equity in North Star admissions."
           },
           {
             "name": "Jennifer Barnett",
-            "startSeconds": 2691,
-            "endSeconds": 2795,
-            "summary": "Opposed the policy as a Mandarin Immersion kindergarten parent, calling it shortsighted and inequitable, arguing it will not fix the exodus to North Star and instead should prompt examination of North Star's own problematic policies."
+            "startSeconds": 2693,
+            "endSeconds": 2800,
+            "summary": "Called the policy shortsighted and harmful to enrollment, arguing it will increase inequity, may turn North Star into a publicly funded private school, and urged addressing North Star's own issues instead."
           },
           {
             "name": "Diana Chang",
             "startSeconds": 2811,
-            "endSeconds": 2898,
-            "summary": "Submitted a written comment opposing the restriction on transferring between non-boundary schools, calling it unnecessarily limiting for families who discover a choice school is not the right fit, and questioning whether there are better ways to distribute opportunities equitably."
+            "endSeconds": 2897,
+            "summary": "Submitted written comment opposing the restriction as unnecessarily limiting for families who discover their first choice school is not the right fit, and asked the board to find more rational ways to achieve their objectives."
           },
           {
             "name": "Alvin Cheon",
             "startSeconds": 2898,
-            "endSeconds": 3053,
-            "summary": "As an Orion Parent Participation parent, expressed concern that removing intradistrict transfer incentives would push families away from public school, and suggested alternatives such as embedding advanced coursework at the classroom level within each school rather than concentrating it at North Star."
-          },
-          {
-            "name": "Eric Garcia",
-            "startSeconds": 3053,
-            "endSeconds": 3126,
-            "summary": "Submitted a written comment opposing the policy, arguing it removes parents' ability to choose what is best for their children's evolving educational needs and that schools losing students to transfers should instead be empowered to improve their programs."
+            "endSeconds": 3051,
+            "summary": "As an Orion parent participation parent, expressed concern that removing the North Star incentive would push committed families out of RCSD, and suggested alternatives such as distributing North Star-style culture across schools rather than concentrating it at one site."
           },
           {
             "name": "Christina Jade Lee Simmons",
             "startSeconds": 3147,
             "endSeconds": 3334,
-            "summary": "Opposed the policy and called for deeper structural reform, arguing that North Star perpetuates inequality as the least economically integrated school in the district, and encouraged the board to consider starting North Star in sixth grade and investing in enrichment at every elementary school."
+            "summary": "Urged the district to address structural inequality perpetuated by the North Star model, suggested starting North Star at sixth grade, and called for more enrichment across all elementary schools."
           },
           {
             "name": "Kyle Zeibes",
             "startSeconds": 3369,
-            "endSeconds": 3527,
-            "summary": "Opposed the policy as a Mandarin Immersion kindergarten parent and budget committee member, arguing it will harm equity by trapping low-income families and push higher-income families to private school, and suggested delaying North Star until sixth grade as a preferable alternative."
+            "endSeconds": 3526,
+            "summary": "Thanked the board for postponing the policy, argued it would harm equity and push families to private school, and suggested delaying North Star to sixth grade as a cleaner solution."
           },
           {
             "name": "Brian Hicks",
             "startSeconds": 3535,
-            "endSeconds": 3726,
-            "summary": "Opposed the policy, challenging the administration's framing of it as formalizing an 'unwritten rule' since the actual long-standing practice has been that families can move between choice programs, and requested that any future policy not be applied retroactively to families already enrolled."
+            "endSeconds": 3725,
+            "summary": "Argued the proposed policy is the opposite of any long-standing unwritten rule, urged addressing the real problem rather than restricting choice, and requested that any new policy not apply retroactively to families already enrolled."
           },
           {
             "name": "Elle Kolekar",
             "startSeconds": 3789,
-            "endSeconds": 3922,
-            "summary": "Opposed the policy as an Orion Parent Participation parent, warning it will cause families interested in North Star to attend private school for K–2 and could devastate Orion's Parent Participation program, and instead urged the district to invest in making neighborhood schools more attractive."
+            "endSeconds": 3920,
+            "summary": "As an Orion parent participation parent with a child starting there in the fall, warned that the policy would drive families to private school and could effectively end the parent participation program."
           },
           {
             "name": "Keith Simmons",
             "startSeconds": 3922,
-            "endSeconds": 4015,
-            "summary": "Opposed the policy as a Mandarin Immersion parent, echoing others' concerns and specifically warning that the superintendent exception process would create racial inequities because immigrant families face language and cultural barriers to requesting special exceptions."
+            "endSeconds": 4013,
+            "summary": "Echoed earlier concerns and highlighted that the superintendent-exception carve-out could create racial inequities because language and cultural barriers make it harder for immigrant families to petition for exceptions."
           },
           {
             "name": "Ting Cheng Wang",
             "startSeconds": 4026,
             "endSeconds": 4100,
-            "summary": "Opposed the policy, noting that it effectively forces parents to choose their child's middle school at age five, which is an unfair burden given that only non-choice school families retain access to both Kennedy and North Star."
+            "summary": "Opposed the policy because it effectively forces parents of kindergartners to choose their child's middle school years in advance, which is unfair."
           },
           {
             "name": "Megan O'Reilly Green",
-            "startSeconds": 4105,
-            "endSeconds": 4220,
-            "summary": "Expressed nuanced support for pausing the policy and argued that the fundamental problem is North Star's structure and the perception that it is the 'best' school, stating she does not believe the proposed policy would harm Mandarin Immersion recruitment and that the district's real challenge is North Star's incompatibility with its equity mission."
+            "startSeconds": 4107,
+            "endSeconds": 4284,
+            "summary": "As Orion PTO co-president, argued that the fundamental problem is North Star's structure and its perceived status as the 'best' school, and that the policy would not ultimately harm MI recruitment since committed immersion families exist and the program has a waitlist."
           },
           {
             "name": "Elizabeth Flavel",
             "startSeconds": 4287,
-            "endSeconds": 4418,
-            "summary": "As an active Adelante community member, shared her personal experience that the flexibility to try kindergarten with the option to transfer gave her family the confidence to enroll in Spanish Immersion, and cautioned the board about potential unintended consequences of the policy on incoming family decisions."
+            "endSeconds": 4443,
+            "summary": "Shared her experience choosing Adelante partly because she knew she could leave if it didn't work out, and cautioned that the policy may have unintended consequences for incoming families' enrollment decisions."
           }
         ],
         "consent": false,
@@ -411,14 +379,14 @@
         "itemLabel": "12.6",
         "title": "Second Reading and Approval of Board Policy 5117 - Interdistrict Attendance",
         "phases": {
-          "opened": 5035,
+          "opened": 4913,
           "presentation": 5038,
           "publicComment": null,
           "discussion": 5068,
           "vote": {
             "seconds": 5134,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -436,7 +404,7 @@
           "vote": {
             "seconds": 5248,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -447,7 +415,7 @@
         "itemLabel": "13",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 5264,
+          "opened": 5263,
           "presentation": 5272,
           "publicComment": null,
           "discussion": null,
@@ -503,7 +471,7 @@
         "itemLabel": "14.3",
         "title": "RCSD Review of KIPP Excelencia Community Prep's Audit Report for FY2020-21",
         "phases": {
-          "opened": 6780,
+          "opened": 6787,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -517,7 +485,7 @@
         "itemLabel": "14.4",
         "title": "RCSD Review of Rocketship Redwood City Prep's Audit Report for FY2020-21",
         "phases": {
-          "opened": 6793,
+          "opened": 6800,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -531,7 +499,7 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 6809,
+          "opened": 6811,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -545,10 +513,10 @@
         "itemLabel": "16",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6827,
+          "opened": 6828,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 6863,
           "vote": null
         },
         "publicComments": [],
@@ -557,12 +525,12 @@
       },
       {
         "itemLabel": "17",
-        "title": "Board Agenda Calendar",
+        "title": "Board Agenda Calendar / Changes to the Board Agenda Schedule",
         "phases": {
           "opened": 6907,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6925,
+          "discussion": 6911,
           "vote": null
         },
         "publicComments": [],
@@ -578,9 +546,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7000,
+            "seconds": 6994,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -598,18 +566,18 @@
       },
       "B": {
         "name": "María Díaz-Slocum",
-        "role": "President"
+        "role": "President (acting as chair; note: agenda lists her as Vice President but she is chairing as President per transcript)"
       },
       "C": {
         "name": "Alisa MacAvoy",
-        "role": "Trustee (later identified as Vice President in some calls; listed as Clerk on agenda but called Trustee McAvoy)"
+        "role": "Trustee (joining remotely)"
       }
     },
-    "agendaChanges": "Item 11.5 (Classified General Leave Request) was pulled from Section 11 Consent Items entirely, as it was already listed under Section 12 Action Items (12.2). Sections 1-3 (Call to Order, Oral Communication on Closed Session, Closed Session) occurred before the recording begins; the recording opens at reconvene to Regular Session (~256s). Section 5 Welcome is delivered by María Díaz-Slocum (not the agenda's listed presenter). Items otherwise followed agenda order.",
+    "agendaChanges": "Item 11.5 (Classified General Leave Request(s) under Consent Items) was pulled entirely from Section 11, as it appeared as Action Item 12.2. Items were otherwise taken in agenda order. Section 2 (Oral Communication on Closed Session Items) and Section 3 (Closed Session) occurred before the recording begins in earnest; the recording picks up at the Reconvene to Regular Session. Sections 1-3 are not captured in the transcript.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -637,7 +605,7 @@
       },
       {
         "itemLabel": "3",
-        "title": "Closed Session",
+        "title": "Closed Session – Public Employee Leaves of Absence",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -653,7 +621,7 @@
         "itemLabel": "4",
         "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
-          "opened": 256,
+          "opened": 299,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -665,7 +633,7 @@
       },
       {
         "itemLabel": "5",
-        "title": "Welcome by the School Board President",
+        "title": "Welcome by the Board President",
         "phases": {
           "opened": 325,
           "presentation": null,
@@ -702,7 +670,7 @@
           "vote": {
             "seconds": 427,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "4-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye; note MacAvoy joined remotely)"
           }
         },
         "publicComments": [],
@@ -734,7 +702,7 @@
           "vote": {
             "seconds": 478,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -766,39 +734,11 @@
           "vote": {
             "seconds": 553,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
         "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "11.5",
-        "title": "Approval of Classified General Leave Request(s) [pulled from consent]",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": true
-      },
-      {
-        "itemLabel": "12",
-        "title": "Action Items",
-        "phases": {
-          "opened": 562,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
         "pulled": false
       },
       {
@@ -812,7 +752,7 @@
           "vote": {
             "seconds": 661,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -830,12 +770,12 @@
           "vote": {
             "seconds": 732,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye; recommendation was NOT to approve the leave)"
           }
         },
         "publicComments": [],
         "consent": false,
-        "pulled": false
+        "pulled": true
       },
       {
         "itemLabel": "12.3",
@@ -848,7 +788,7 @@
           "vote": {
             "seconds": 871,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -866,7 +806,7 @@
           "vote": {
             "seconds": 1185,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -878,7 +818,7 @@
         "title": "Second Reading and Approval of Board Policy 5116.1 - Intradistrict Open Enrollment",
         "phases": {
           "opened": 1194,
-          "presentation": 1226,
+          "presentation": 1215,
           "publicComment": 1602,
           "discussion": 4445,
           "vote": null
@@ -887,110 +827,104 @@
           {
             "name": "David Weekley",
             "startSeconds": 1632,
-            "endSeconds": 1957,
-            "summary": "Opposed the policy, arguing that restricting intradistrict transfers hurts students and the district by limiting parental choice, and that the way to protect programs like Mandarin Immersion is to invest in their quality rather than lock families in."
+            "endSeconds": 1910,
+            "summary": "Opposed the proposed transfer restriction, arguing it harms students and the district by reducing choice and will ultimately hurt enrollment in programs like Mandarin Immersion."
           },
           {
             "name": "Eric Liu",
-            "startSeconds": 1976,
-            "endSeconds": 2026,
-            "summary": "Opposed the policy as an Asian American parent of a Mandarin Immersion student, stating that barring choice program students from applying to North Star felt discriminatory and contrary to Redwood City's values of diversity and equality."
+            "startSeconds": 1945,
+            "endSeconds": 2025,
+            "summary": "Opposed the policy as a Chinese-American parent of a Mandarin Immersion student, saying the proposal felt discriminatory by barring MI families from competing for North Star."
           },
           {
             "name": "Connie Kwan",
             "startSeconds": 2026,
-            "endSeconds": 2128,
-            "summary": "Opposed the policy, describing the unfair dilemma it creates for parents who must choose between staying in a choice program or leaving early to preserve eligibility for North Star, and asked the committee to consider alternative solutions to attrition."
+            "endSeconds": 2127,
+            "summary": "Raised the unintended consequence that parents might be forced to pull their child from MI and place them in private school for a year just to preserve the option to apply to North Star."
           },
           {
-            "name": "Peter Cowan",
+            "name": "Peter Kwan",
             "startSeconds": 2128,
-            "endSeconds": 2310,
-            "summary": "Opposed the policy, noting the difficult bind it creates for families with children in different programs, criticized the timing during enrollment season, argued the policy is a band-aid on a third-grade attrition cliff, and called for transparency instead of 'unspoken rules.'"
+            "endSeconds": 2357,
+            "summary": "Raised concerns about timing, the fundamental problem of attrition rather than the symptom, and the lack of transparency around 'unspoken rules' in choice program enrollment."
           },
           {
             "name": "Dennis Lee",
             "startSeconds": 2364,
-            "endSeconds": 2493,
-            "summary": "Opposed the policy as a parent of a rising kindergartner accepted to Mandarin Immersion, arguing it raises the stakes of choosing a school by requiring parents to predict their child's needs years in advance and that it unfairly limits future choices while potentially benefiting private school families."
+            "endSeconds": 2549,
+            "summary": "As a parent of a rising kindergartner newly accepted to MI, he opposed the policy for forcing families to predict years ahead what is best for their child and for penalizing choice-school families while potentially benefiting private school families."
           },
           {
             "name": "Michelle Hsu",
-            "startSeconds": 2550,
-            "endSeconds": 2630,
-            "summary": "Opposed the policy, arguing that North Star and Mandarin Immersion are not competing on fair ground given North Star's third-grade entry and testing-based admissions, and urged the committee to address equity issues in North Star's admissions process instead."
+            "startSeconds": 2553,
+            "endSeconds": 2629,
+            "summary": "Argued the root issue is that North Star and Mandarin Immersion are not set up on fair ground due to North Star's third-grade start and admissions process, and urged the committee to address equity in North Star admissions."
           },
           {
             "name": "Jennifer Barnett",
-            "startSeconds": 2691,
-            "endSeconds": 2795,
-            "summary": "Opposed the policy as a Mandarin Immersion kindergarten parent, calling it shortsighted and inequitable, arguing it will not fix the exodus to North Star and instead should prompt examination of North Star's own problematic policies."
+            "startSeconds": 2693,
+            "endSeconds": 2800,
+            "summary": "Called the policy shortsighted and harmful to enrollment, arguing it will increase inequity, may turn North Star into a publicly funded private school, and urged addressing North Star's own issues instead."
           },
           {
             "name": "Diana Chang",
             "startSeconds": 2811,
-            "endSeconds": 2898,
-            "summary": "Submitted a written comment opposing the restriction on transferring between non-boundary schools, calling it unnecessarily limiting for families who discover a choice school is not the right fit, and questioning whether there are better ways to distribute opportunities equitably."
+            "endSeconds": 2897,
+            "summary": "Submitted written comment opposing the restriction as unnecessarily limiting for families who discover their first choice school is not the right fit, and asked the board to find more rational ways to achieve their objectives."
           },
           {
             "name": "Alvin Cheon",
             "startSeconds": 2898,
-            "endSeconds": 3053,
-            "summary": "As an Orion Parent Participation parent, expressed concern that removing intradistrict transfer incentives would push families away from public school, and suggested alternatives such as embedding advanced coursework at the classroom level within each school rather than concentrating it at North Star."
-          },
-          {
-            "name": "Eric Garcia",
-            "startSeconds": 3053,
-            "endSeconds": 3126,
-            "summary": "Submitted a written comment opposing the policy, arguing it removes parents' ability to choose what is best for their children's evolving educational needs and that schools losing students to transfers should instead be empowered to improve their programs."
+            "endSeconds": 3051,
+            "summary": "As an Orion parent participation parent, expressed concern that removing the North Star incentive would push committed families out of RCSD, and suggested alternatives such as distributing North Star-style culture across schools rather than concentrating it at one site."
           },
           {
             "name": "Christina Jade Lee Simmons",
             "startSeconds": 3147,
             "endSeconds": 3334,
-            "summary": "Opposed the policy and called for deeper structural reform, arguing that North Star perpetuates inequality as the least economically integrated school in the district, and encouraged the board to consider starting North Star in sixth grade and investing in enrichment at every elementary school."
+            "summary": "Urged the district to address structural inequality perpetuated by the North Star model, suggested starting North Star at sixth grade, and called for more enrichment across all elementary schools."
           },
           {
             "name": "Kyle Zeibes",
             "startSeconds": 3369,
-            "endSeconds": 3527,
-            "summary": "Opposed the policy as a Mandarin Immersion kindergarten parent and budget committee member, arguing it will harm equity by trapping low-income families and push higher-income families to private school, and suggested delaying North Star until sixth grade as a preferable alternative."
+            "endSeconds": 3526,
+            "summary": "Thanked the board for postponing the policy, argued it would harm equity and push families to private school, and suggested delaying North Star to sixth grade as a cleaner solution."
           },
           {
             "name": "Brian Hicks",
             "startSeconds": 3535,
-            "endSeconds": 3726,
-            "summary": "Opposed the policy, challenging the administration's framing of it as formalizing an 'unwritten rule' since the actual long-standing practice has been that families can move between choice programs, and requested that any future policy not be applied retroactively to families already enrolled."
+            "endSeconds": 3725,
+            "summary": "Argued the proposed policy is the opposite of any long-standing unwritten rule, urged addressing the real problem rather than restricting choice, and requested that any new policy not apply retroactively to families already enrolled."
           },
           {
             "name": "Elle Kolekar",
             "startSeconds": 3789,
-            "endSeconds": 3922,
-            "summary": "Opposed the policy as an Orion Parent Participation parent, warning it will cause families interested in North Star to attend private school for K–2 and could devastate Orion's Parent Participation program, and instead urged the district to invest in making neighborhood schools more attractive."
+            "endSeconds": 3920,
+            "summary": "As an Orion parent participation parent with a child starting there in the fall, warned that the policy would drive families to private school and could effectively end the parent participation program."
           },
           {
             "name": "Keith Simmons",
             "startSeconds": 3922,
-            "endSeconds": 4015,
-            "summary": "Opposed the policy as a Mandarin Immersion parent, echoing others' concerns and specifically warning that the superintendent exception process would create racial inequities because immigrant families face language and cultural barriers to requesting special exceptions."
+            "endSeconds": 4013,
+            "summary": "Echoed earlier concerns and highlighted that the superintendent-exception carve-out could create racial inequities because language and cultural barriers make it harder for immigrant families to petition for exceptions."
           },
           {
             "name": "Ting Cheng Wang",
             "startSeconds": 4026,
             "endSeconds": 4100,
-            "summary": "Opposed the policy, noting that it effectively forces parents to choose their child's middle school at age five, which is an unfair burden given that only non-choice school families retain access to both Kennedy and North Star."
+            "summary": "Opposed the policy because it effectively forces parents of kindergartners to choose their child's middle school years in advance, which is unfair."
           },
           {
             "name": "Megan O'Reilly Green",
-            "startSeconds": 4105,
-            "endSeconds": 4220,
-            "summary": "Expressed nuanced support for pausing the policy and argued that the fundamental problem is North Star's structure and the perception that it is the 'best' school, stating she does not believe the proposed policy would harm Mandarin Immersion recruitment and that the district's real challenge is North Star's incompatibility with its equity mission."
+            "startSeconds": 4107,
+            "endSeconds": 4284,
+            "summary": "As Orion PTO co-president, argued that the fundamental problem is North Star's structure and its perceived status as the 'best' school, and that the policy would not ultimately harm MI recruitment since committed immersion families exist and the program has a waitlist."
           },
           {
             "name": "Elizabeth Flavel",
             "startSeconds": 4287,
-            "endSeconds": 4418,
-            "summary": "As an active Adelante community member, shared her personal experience that the flexibility to try kindergarten with the option to transfer gave her family the confidence to enroll in Spanish Immersion, and cautioned the board about potential unintended consequences of the policy on incoming family decisions."
+            "endSeconds": 4443,
+            "summary": "Shared her experience choosing Adelante partly because she knew she could leave if it didn't work out, and cautioned that the policy may have unintended consequences for incoming families' enrollment decisions."
           }
         ],
         "consent": false,
@@ -1000,14 +934,14 @@
         "itemLabel": "12.6",
         "title": "Second Reading and Approval of Board Policy 5117 - Interdistrict Attendance",
         "phases": {
-          "opened": 5035,
+          "opened": 4913,
           "presentation": 5038,
           "publicComment": null,
           "discussion": 5068,
           "vote": {
             "seconds": 5134,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -1025,7 +959,7 @@
           "vote": {
             "seconds": 5248,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -1036,7 +970,7 @@
         "itemLabel": "13",
         "title": "Board and Superintendent Reports",
         "phases": {
-          "opened": 5264,
+          "opened": 5263,
           "presentation": 5272,
           "publicComment": null,
           "discussion": null,
@@ -1092,7 +1026,7 @@
         "itemLabel": "14.3",
         "title": "RCSD Review of KIPP Excelencia Community Prep's Audit Report for FY2020-21",
         "phases": {
-          "opened": 6780,
+          "opened": 6787,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1106,7 +1040,7 @@
         "itemLabel": "14.4",
         "title": "RCSD Review of Rocketship Redwood City Prep's Audit Report for FY2020-21",
         "phases": {
-          "opened": 6793,
+          "opened": 6800,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1120,7 +1054,7 @@
         "itemLabel": "15",
         "title": "Correspondence",
         "phases": {
-          "opened": 6809,
+          "opened": 6811,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1134,10 +1068,10 @@
         "itemLabel": "16",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6827,
+          "opened": 6828,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 6863,
           "vote": null
         },
         "publicComments": [],
@@ -1146,12 +1080,12 @@
       },
       {
         "itemLabel": "17",
-        "title": "Board Agenda Calendar",
+        "title": "Board Agenda Calendar / Changes to the Board Agenda Schedule",
         "phases": {
           "opened": 6907,
           "presentation": null,
           "publicComment": null,
-          "discussion": 6925,
+          "discussion": 6911,
           "vote": null
         },
         "publicComments": [],
@@ -1167,9 +1101,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7000,
+            "seconds": 6994,
             "type": "roll-call",
-            "result": "5-0"
+            "result": "5-0 (MacAvoy, Wells, Lawson, Márquez, Díaz-Slocum all aye)"
           }
         },
         "publicComments": [],
@@ -1178,7 +1112,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:15:30.734Z",
-  "inputTokens": 26629,
-  "outputTokens": 5319
+  "cachedAt": "2026-07-23T20:35:52.601Z",
+  "inputTokens": 26620,
+  "outputTokens": 5187
 }

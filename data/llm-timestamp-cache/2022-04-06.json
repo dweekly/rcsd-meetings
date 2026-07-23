@@ -1,5 +1,6 @@
 {
   "date": "2022-04-06",
+  "transcriptHash": "0d0d22c2d407a277",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -22,12 +23,12 @@
     "items": [
       {
         "item": 1,
-        "intro_words": "Hello? Can you hear me now? Yep. There we go. Excellent.",
+        "intro_words": "Hello? Can you hear me now? Yep. There we go.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Okay, Ellie, roll call, please. Trustee McAvoy. Present.",
+        "intro_words": "Excellent. Okay, Ellie, roll call, please. Trustee McAvoy.",
         "status": "found"
       },
       {
@@ -72,16 +73,11 @@
       },
       {
         "item": 12,
-        "intro_words": "Good evening, Superintendent Baker, President D.S. slocum and members",
+        "intro_words": "Good evening, Superintendent Baker, President D.S. slocum and members of the board.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Can I have a motion to adjourn? I'll make a motion",
-        "status": "found"
-      },
-      {
-        "item": 14,
         "intro_words": "Can I have a motion to adjourn? I'll make a motion",
         "status": "found"
       }
@@ -139,13 +135,10 @@
         "timestamp": "00:00:51",
         "timestampSeconds": 51
       },
-      {
-        "timestamp": "00:00:51",
-        "timestampSeconds": 51
-      }
+      null
     ]
   },
-  "cachedAt": "2026-03-26T22:42:25.593Z",
+  "cachedAt": "2026-07-23T20:47:09.182Z",
   "inputTokens": 6723,
-  "outputTokens": 625
+  "outputTokens": 581
 }

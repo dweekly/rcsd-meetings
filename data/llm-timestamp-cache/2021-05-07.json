@@ -1,5 +1,6 @@
 {
   "date": "2021-05-07",
+  "transcriptHash": "645bd38e5e917566",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -18,7 +19,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda announced. The meeting proceeded with agenda items as posted.",
+    "agenda_changes": null,
     "consent_vote_words": null,
     "items": [
       {
@@ -63,12 +64,12 @@
       },
       {
         "item": 9,
-        "intro_words": "I did not have a chance to look",
+        "intro_words": "I did not have a chance to look at",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "I did not have a chance to look",
+        "intro_words": "If you have public comment related to the",
         "status": "found"
       },
       {
@@ -78,23 +79,23 @@
       },
       {
         "item": 12,
-        "intro_words": "Okay, so the agenda here. All right, so",
+        "intro_words": "so we were on to discussion items. So today",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "All right, so I think if we are",
+        "intro_words": "I think we're done with this portion of the",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "All right, so I think if we are",
-        "status": "found"
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 15,
-        "intro_words": "All right, so I think if we are",
-        "status": "found"
+        "intro_words": "pulled",
+        "status": "pulled"
       }
     ]
   },
@@ -137,33 +138,24 @@
         "timestamp": "00:00:43",
         "timestampSeconds": 43
       },
-      {
-        "timestamp": "00:00:43",
-        "timestampSeconds": 43
-      },
+      null,
       {
         "timestamp": "00:01:03",
         "timestampSeconds": 63
       },
       {
-        "timestamp": "00:01:03",
-        "timestampSeconds": 63
+        "timestamp": "00:01:08",
+        "timestampSeconds": 68
       },
       {
-        "timestamp": "00:09:38",
-        "timestampSeconds": 578
+        "timestamp": "00:10:27",
+        "timestampSeconds": 627
       },
-      {
-        "timestamp": "00:09:38",
-        "timestampSeconds": 578
-      },
-      {
-        "timestamp": "00:09:38",
-        "timestampSeconds": 578
-      }
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-03-26T22:45:52.710Z",
+  "cachedAt": "2026-07-23T20:50:51.354Z",
   "inputTokens": 15195,
-  "outputTokens": 672
+  "outputTokens": 641
 }
