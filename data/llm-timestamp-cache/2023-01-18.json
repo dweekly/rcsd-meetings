@@ -1,6 +1,6 @@
 {
   "date": "2023-01-18",
-  "transcriptHash": "4188633b72ad8e55",
+  "transcriptHash": "b8f7874c366c4ab2",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -54,62 +54,72 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 9 moved forward (Bond Program Consent Items taken before Closed Session Report Out). Regular agenda reordered with consent items grouped differently than posted.",
+    "agenda_changes": "Item 9 (Bond Program Consent Items) was taken up immediately after Oral Communication, before the posted Item 10 (Discussion Items). The posted agenda shows Item 9 as 'Bond Program Consent Items' but it was called as 'item nine, Bond program consent item.' Items 11-17 follow, with Item 12 (Action Items) containing 12.1-12.26 approved as consent bundle, then individual action items discussed.",
     "consent_vote_words": "Can I please get a motion to approve the item? So moved. Second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Do we have any oral communication?",
-        "status": "found"
+        "intro_words": "Call to Order",
+        "status": "not_found"
+      },
+      {
+        "item": 2,
+        "intro_words": "Roll Call",
+        "status": "not_found"
       },
       {
         "item": 9,
-        "intro_words": "Moving on to item 9, Bond Program Consent Item.",
+        "intro_words": "Moving on to item nine, Bond program consent item.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Item 10, Discussion Items. 10.1 is School Plan for Student Achievement Report for Hoover School.",
+        "intro_words": "Item 10, Discussion Items 10.1 is School Plan for Students Achievement",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "moving on with the agenda. 11, consent items. Item 11, consent items.",
+        "intro_words": "moving on with the agenda. 11 consent items. Item 11 consent items.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Item 12, Action Items. 12.1 is recommendation regarding adoption of Resolution 22,",
+        "intro_words": "Item 12, Action Items 12.1 is Recommendation Regarding Adoption of Resolution",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Item 13, Board and Superintendent Reports. Who wants to go first?",
+        "intro_words": "Item 13, Board of and superintendent reports. Who wants to go first?",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Okay, so moving along, item 14, Information. 14.1, Quarterly Williams Report,",
+        "intro_words": "Item 14, information. 14.1, quarterly Williams report, second quarter",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "And then 14.2, Contract update information and credit card summary.",
+        "intro_words": "And then 14.2, contract update information and credit card summary.",
         "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "Correspondence. That's kind of amazing. Okay, item 16, other business or suggested",
+        "intro_words": "And then 14.3, information on San Mateo county investment fund.",
         "status": "found"
       },
       {
         "item": 17,
-        "intro_words": "Okay, so then item 17, board meeting calendar. Are there any changes",
+        "intro_words": "Correspondence. Okay. Item 16, other business suggested items for future.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "I'll make a motion to adjourn the meeting. I'll second.",
+        "intro_words": "Okay, so then item 17, board meeting calendar. Are there any changes",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "I'll make a motion to adjourn the meeting. I'll second. All those in favor?",
         "status": "found"
       }
     ]
@@ -117,10 +127,7 @@
   "result": {
     "videoId": "tqvsE4VeAzE",
     "items": [
-      {
-        "timestamp": "00:02:17",
-        "timestampSeconds": 137
-      },
+      null,
       null,
       null,
       null,
@@ -129,32 +136,36 @@
       null,
       null,
       {
-        "timestamp": "00:02:17",
-        "timestampSeconds": 137
+        "timestamp": "00:00:03",
+        "timestampSeconds": 3
       },
       {
-        "timestamp": "00:02:17",
-        "timestampSeconds": 137
+        "timestamp": "00:00:03",
+        "timestampSeconds": 3
       },
       {
         "timestamp": "01:30:14",
         "timestampSeconds": 5414
       },
       {
-        "timestamp": "01:30:19",
-        "timestampSeconds": 5419
+        "timestamp": "01:30:14",
+        "timestampSeconds": 5414
       },
       {
-        "timestamp": "01:33:18",
-        "timestampSeconds": 5598
+        "timestamp": "01:33:21",
+        "timestampSeconds": 5601
       },
       {
-        "timestamp": "01:36:43",
-        "timestampSeconds": 5803
+        "timestamp": "01:36:45",
+        "timestampSeconds": 5805
       },
       {
-        "timestamp": "01:36:38",
-        "timestampSeconds": 5798
+        "timestamp": "01:36:40",
+        "timestampSeconds": 5800
+      },
+      {
+        "timestamp": "01:36:40",
+        "timestampSeconds": 5800
       },
       {
         "timestamp": "01:37:19",
@@ -165,10 +176,9 @@
         "timestampSeconds": 5887
       },
       {
-        "timestamp": "01:38:12",
-        "timestampSeconds": 5892
+        "timestamp": "01:37:57",
+        "timestampSeconds": 5877
       },
-      null,
       null,
       null,
       null,
@@ -202,7 +212,7 @@
       null
     ]
   },
-  "cachedAt": "2026-07-21T09:58:25.721Z",
-  "inputTokens": 20753,
-  "outputTokens": 623
+  "cachedAt": "2026-07-23T09:59:15.372Z",
+  "inputTokens": 20108,
+  "outputTokens": 757
 }

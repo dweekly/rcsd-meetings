@@ -1,39 +1,41 @@
 {
   "date": "2022-08-24",
+  "slug": "2022-08-24-board-meeting",
   "itemCount": 71,
+  "transcriptHash": "c5085b1b23ac1f46",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "María Díaz-Slocum",
-        "role": "Board President"
+        "role": "President"
       },
       "B": {
         "name": "Cecilia I. Márquez",
-        "role": "Board Clerk"
+        "role": "Clerk / Vice President (acting as clerk for roll calls)"
       },
       "C": {
         "name": "Alisa MacAvoy",
-        "role": "Board Trustee"
+        "role": "Trustee"
       },
       "D": {
         "name": "Mike Wells",
-        "role": "Board Trustee"
+        "role": "Trustee"
       },
       "E": {
         "name": "Janet Lawson",
-        "role": "Board Trustee"
+        "role": "Trustee"
       },
       "F": {
         "name": "John Baker",
         "role": "Superintendent"
       },
       "G": {
-        "name": "Wendy Stratton",
-        "role": "Assistant Superintendent / Cabinet (staff presenter for recognition items and HR-adjacent items)"
+        "name": "Wendy Gudalewicz",
+        "role": "Assistant Superintendent / Cabinet (presents longevity/recognition/bond items)"
       },
       "H": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (secondary speaker label — transcript appears to split A/H for same person in some sequences; H aligns with President votes and comments)"
+        "name": "Cecilia I. Márquez",
+        "role": "Clerk (also board member making motions)"
       },
       "I": {
         "name": "Petrinia Reid",
@@ -41,14 +43,14 @@
       },
       "J": {
         "name": "Rick (last name unclear)",
-        "role": "District Business/Finance staff presenter"
+        "role": "Director of Business/Finance (presents 45-Day Revision)"
       }
     },
-    "agendaChanges": "The board approved the following resequencing: (1) Items 14.3, 14.4, and 14.5 (staff recognitions) were moved to immediately after item 10.3 (end of Bond Program Action Items). (2) Items 12.4 and 12.5 were moved to the consent calendar (item 11). Sections 1–3 (Call to Order, Roll Call, Closed Session) and Section 5 (Welcome by María Díaz-Slocum) are not captured in the transcript recording, which begins at reconvening to regular session (Section 4).",
+    "agendaChanges": "Board approved the following resequencing: (1) Items 14.3, 14.4, and 14.5 (staff recognition) were moved to immediately after Bond Program Action Items (Section 10), specifically after item 10.3; (2) Items 12.4 and 12.5 were moved to the Consent Items (Section 11). Sections 1, 2, 3, and 5 (Welcome by María Díaz-Slocum) do not appear in the transcript as the recording begins at reconvening to regular session.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -90,23 +92,9 @@
       },
       {
         "itemLabel": "4",
-        "title": "Reconvene to Regular Session / Roll Call",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 6,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "4",
-        "title": "Report Out on Closed Session from August 24, 2022",
-        "phases": {
-          "opened": 29,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -120,7 +108,7 @@
         "itemLabel": "5",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": null,
+          "opened": 29,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -139,7 +127,7 @@
           "publicComment": null,
           "discussion": 76,
           "vote": {
-            "seconds": 211,
+            "seconds": 220,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -189,7 +177,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 253,
+            "seconds": 256,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -200,14 +188,28 @@
       },
       {
         "itemLabel": "10",
-        "title": "Bond Program Action Items — Item 10.1: Adoption of Futility Resolution 6, Change Order #2 with Dinelli Plumbing at Taft Community School",
+        "title": "Bond Program Action Items",
+        "phases": {
+          "opened": 288,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.1",
+        "title": "Adoption of Futility Resolution 6 – Change Order #2 with Dinelli Plumbing at Taft Community School",
         "phases": {
           "opened": 288,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 323,
+            "seconds": 326,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -217,15 +219,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items — Item 10.2: Adoption of Futility Resolution 7, Change Order #5 with Scapes, Inc. at Garfield Community School",
+        "itemLabel": "10.2",
+        "title": "Adoption of Futility Resolution 7 – Change Order #5 with Scapes, Inc. at Garfield Community School",
         "phases": {
           "opened": 343,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 364,
+            "seconds": 367,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -235,15 +237,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items — Item 10.3: Adoption of Futility Resolution 8, Change Order #4 with Marquee Fire Protection at Garfield Community School",
+        "itemLabel": "10.3",
+        "title": "Adoption of Futility Resolution 8 – Change Order #4 with Marquee Fire Protection at Garfield Community School",
         "phases": {
           "opened": 380,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 403,
+            "seconds": 406,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -253,8 +255,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.3 (moved): Recognize Staff Who Have Reached a Longevity Milestone with the District",
+        "itemLabel": "14.3",
+        "title": "Recognize Staff Who Have Reached a Longevity Milestone with the District (moved earlier per agenda changes)",
         "phases": {
           "opened": 421,
           "presentation": 438,
@@ -267,8 +269,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.4 (moved): Recognition of Certificated Employee(s)",
+        "itemLabel": "14.4",
+        "title": "Recognition of Certificated Employee(s) (moved earlier per agenda changes)",
         "phases": {
           "opened": 695,
           "presentation": 729,
@@ -281,8 +283,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.5 (moved): Recognition of Classified Employee(s)",
+        "itemLabel": "14.5",
+        "title": "Recognition of Classified Employee(s) (moved earlier per agenda changes)",
         "phases": {
           "opened": 1189,
           "presentation": 1194,
@@ -303,7 +305,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1859,
+            "seconds": 1860,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -313,15 +315,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.1: Adoption of Resolution 9, Conflict of Interest Code and Second Reading of Board Policy 9270",
+        "itemLabel": "12.1",
+        "title": "Adoption of Resolution 9, Conflict of Interest Code and Second Reading and Approval of Board Policy 9270",
         "phases": {
           "opened": 1876,
           "presentation": 1890,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1922,
+            "seconds": 1926,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -331,15 +333,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.2: Adoption of Resolution 10, Approval of Teachers Gaining Tenure Status",
+        "itemLabel": "12.2",
+        "title": "Adoption of Resolution 10, Approval of Teachers Gaining Tenured Status",
         "phases": {
           "opened": 1940,
           "presentation": 1951,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2004,
+            "seconds": 2007,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -349,8 +351,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.3: Adoption of Resolution 11, Approval of Education Code Options for Teaching Assignments",
+        "itemLabel": "12.3",
+        "title": "Adoption of Resolution 11, Approval of Education Code Options for Teaching Assignments",
         "phases": {
           "opened": 2024,
           "presentation": 2047,
@@ -367,15 +369,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.4: Addendum to 2022-2023 Measure U Application for Garfield Community School (moved to consent)",
+        "itemLabel": "12.4",
+        "title": "Addendum to 2022-2023 Measure U Application for Garfield Community School (moved to consent)",
         "phases": {
           "opened": 1777,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1859,
+            "seconds": 1860,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -385,15 +387,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.5: Approval of Local Assignment Options in Areas of Special Skill and Preparation Outside of Credential Authorization (moved to consent)",
+        "itemLabel": "12.5",
+        "title": "Approval of Local Assignment Options in Areas of Special Skill and Preparation Outside of Credential Authorization (moved to consent)",
         "phases": {
           "opened": 1777,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1859,
+            "seconds": 1860,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -404,12 +406,12 @@
       },
       {
         "itemLabel": "13",
-        "title": "Board and Superintendent Reports — Item 13.1: Report from Board Members and Superintendent",
+        "title": "Board and Superintendent Reports",
         "phases": {
           "opened": 2083,
-          "presentation": 2132,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 2407,
+          "discussion": 2083,
           "vote": null
         },
         "publicComments": [],
@@ -417,8 +419,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.1: Information on San Mateo County Investment Fund - July 2022",
+        "itemLabel": "14.1",
+        "title": "Information on San Mateo County Investment Fund – July 2022",
         "phases": {
           "opened": 2470,
           "presentation": null,
@@ -431,8 +433,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.2: 45-Day Revision (Budget Update)",
+        "itemLabel": "14.2",
+        "title": "45-Day Revision",
         "phases": {
           "opened": 2509,
           "presentation": 2515,
@@ -445,8 +447,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.6: Information Regarding the RCSD Plan for COVID Response for the 2022-2023 School Year",
+        "itemLabel": "14.6",
+        "title": "Information Regarding the RCSD Plan for COVID Response for the 2022-2023 School Year",
         "phases": {
           "opened": 3183,
           "presentation": 3195,
@@ -474,7 +476,7 @@
       },
       {
         "itemLabel": "16",
-        "title": "Other Business / Suggested Items for Future Agenda",
+        "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
           "opened": 4186,
           "presentation": null,
@@ -488,7 +490,7 @@
       },
       {
         "itemLabel": "17",
-        "title": "Board Agenda Calendar — Changes to the Board Agenda Schedule of Items",
+        "title": "Board Agenda Calendar – Changes to the Board Agenda Schedule of Items",
         "phases": {
           "opened": 4186,
           "presentation": null,
@@ -507,7 +509,7 @@
           "opened": 4186,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 4248,
           "vote": {
             "seconds": 4239,
             "type": "motion",
@@ -525,35 +527,35 @@
     "speakers": {
       "A": {
         "name": "María Díaz-Slocum",
-        "role": "Board President"
+        "role": "President"
       },
       "B": {
         "name": "Cecilia I. Márquez",
-        "role": "Board Clerk"
+        "role": "Clerk / Vice President (acting as clerk for roll calls)"
       },
       "C": {
         "name": "Alisa MacAvoy",
-        "role": "Board Trustee"
+        "role": "Trustee"
       },
       "D": {
         "name": "Mike Wells",
-        "role": "Board Trustee"
+        "role": "Trustee"
       },
       "E": {
         "name": "Janet Lawson",
-        "role": "Board Trustee"
+        "role": "Trustee"
       },
       "F": {
         "name": "John Baker",
         "role": "Superintendent"
       },
       "G": {
-        "name": "Wendy Stratton",
-        "role": "Assistant Superintendent / Cabinet (staff presenter for recognition items and HR-adjacent items)"
+        "name": "Wendy Gudalewicz",
+        "role": "Assistant Superintendent / Cabinet (presents longevity/recognition/bond items)"
       },
       "H": {
-        "name": "María Díaz-Slocum",
-        "role": "Board President (secondary speaker label — transcript appears to split A/H for same person in some sequences; H aligns with President votes and comments)"
+        "name": "Cecilia I. Márquez",
+        "role": "Clerk (also board member making motions)"
       },
       "I": {
         "name": "Petrinia Reid",
@@ -561,14 +563,14 @@
       },
       "J": {
         "name": "Rick (last name unclear)",
-        "role": "District Business/Finance staff presenter"
+        "role": "Director of Business/Finance (presents 45-Day Revision)"
       }
     },
-    "agendaChanges": "The board approved the following resequencing: (1) Items 14.3, 14.4, and 14.5 (staff recognitions) were moved to immediately after item 10.3 (end of Bond Program Action Items). (2) Items 12.4 and 12.5 were moved to the consent calendar (item 11). Sections 1–3 (Call to Order, Roll Call, Closed Session) and Section 5 (Welcome by María Díaz-Slocum) are not captured in the transcript recording, which begins at reconvening to regular session (Section 4).",
+    "agendaChanges": "Board approved the following resequencing: (1) Items 14.3, 14.4, and 14.5 (staff recognition) were moved to immediately after Bond Program Action Items (Section 10), specifically after item 10.3; (2) Items 12.4 and 12.5 were moved to the Consent Items (Section 11). Sections 1, 2, 3, and 5 (Welcome by María Díaz-Slocum) do not appear in the transcript as the recording begins at reconvening to regular session.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order / Roll Call",
+        "title": "Call to Order",
         "phases": {
           "opened": null,
           "presentation": null,
@@ -610,23 +612,9 @@
       },
       {
         "itemLabel": "4",
-        "title": "Reconvene to Regular Session / Roll Call",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 6,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "4",
-        "title": "Report Out on Closed Session from August 24, 2022",
-        "phases": {
-          "opened": 29,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -640,7 +628,7 @@
         "itemLabel": "5",
         "title": "Welcome by the School Board President",
         "phases": {
-          "opened": null,
+          "opened": 29,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -659,7 +647,7 @@
           "publicComment": null,
           "discussion": 76,
           "vote": {
-            "seconds": 211,
+            "seconds": 220,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -709,7 +697,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 253,
+            "seconds": 256,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -720,14 +708,28 @@
       },
       {
         "itemLabel": "10",
-        "title": "Bond Program Action Items — Item 10.1: Adoption of Futility Resolution 6, Change Order #2 with Dinelli Plumbing at Taft Community School",
+        "title": "Bond Program Action Items",
+        "phases": {
+          "opened": 288,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.1",
+        "title": "Adoption of Futility Resolution 6 – Change Order #2 with Dinelli Plumbing at Taft Community School",
         "phases": {
           "opened": 288,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 323,
+            "seconds": 326,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -737,15 +739,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items — Item 10.2: Adoption of Futility Resolution 7, Change Order #5 with Scapes, Inc. at Garfield Community School",
+        "itemLabel": "10.2",
+        "title": "Adoption of Futility Resolution 7 – Change Order #5 with Scapes, Inc. at Garfield Community School",
         "phases": {
           "opened": 343,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 364,
+            "seconds": 367,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -755,15 +757,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items — Item 10.3: Adoption of Futility Resolution 8, Change Order #4 with Marquee Fire Protection at Garfield Community School",
+        "itemLabel": "10.3",
+        "title": "Adoption of Futility Resolution 8 – Change Order #4 with Marquee Fire Protection at Garfield Community School",
         "phases": {
           "opened": 380,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 403,
+            "seconds": 406,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -773,8 +775,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.3 (moved): Recognize Staff Who Have Reached a Longevity Milestone with the District",
+        "itemLabel": "14.3",
+        "title": "Recognize Staff Who Have Reached a Longevity Milestone with the District (moved earlier per agenda changes)",
         "phases": {
           "opened": 421,
           "presentation": 438,
@@ -787,8 +789,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.4 (moved): Recognition of Certificated Employee(s)",
+        "itemLabel": "14.4",
+        "title": "Recognition of Certificated Employee(s) (moved earlier per agenda changes)",
         "phases": {
           "opened": 695,
           "presentation": 729,
@@ -801,8 +803,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.5 (moved): Recognition of Classified Employee(s)",
+        "itemLabel": "14.5",
+        "title": "Recognition of Classified Employee(s) (moved earlier per agenda changes)",
         "phases": {
           "opened": 1189,
           "presentation": 1194,
@@ -823,7 +825,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1859,
+            "seconds": 1860,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -833,15 +835,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.1: Adoption of Resolution 9, Conflict of Interest Code and Second Reading of Board Policy 9270",
+        "itemLabel": "12.1",
+        "title": "Adoption of Resolution 9, Conflict of Interest Code and Second Reading and Approval of Board Policy 9270",
         "phases": {
           "opened": 1876,
           "presentation": 1890,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1922,
+            "seconds": 1926,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -851,15 +853,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.2: Adoption of Resolution 10, Approval of Teachers Gaining Tenure Status",
+        "itemLabel": "12.2",
+        "title": "Adoption of Resolution 10, Approval of Teachers Gaining Tenured Status",
         "phases": {
           "opened": 1940,
           "presentation": 1951,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 2004,
+            "seconds": 2007,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -869,8 +871,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.3: Adoption of Resolution 11, Approval of Education Code Options for Teaching Assignments",
+        "itemLabel": "12.3",
+        "title": "Adoption of Resolution 11, Approval of Education Code Options for Teaching Assignments",
         "phases": {
           "opened": 2024,
           "presentation": 2047,
@@ -887,15 +889,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.4: Addendum to 2022-2023 Measure U Application for Garfield Community School (moved to consent)",
+        "itemLabel": "12.4",
+        "title": "Addendum to 2022-2023 Measure U Application for Garfield Community School (moved to consent)",
         "phases": {
           "opened": 1777,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1859,
+            "seconds": 1860,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -905,15 +907,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "12",
-        "title": "Action Items — Item 12.5: Approval of Local Assignment Options in Areas of Special Skill and Preparation Outside of Credential Authorization (moved to consent)",
+        "itemLabel": "12.5",
+        "title": "Approval of Local Assignment Options in Areas of Special Skill and Preparation Outside of Credential Authorization (moved to consent)",
         "phases": {
           "opened": 1777,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 1859,
+            "seconds": 1860,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -924,12 +926,12 @@
       },
       {
         "itemLabel": "13",
-        "title": "Board and Superintendent Reports — Item 13.1: Report from Board Members and Superintendent",
+        "title": "Board and Superintendent Reports",
         "phases": {
           "opened": 2083,
-          "presentation": 2132,
+          "presentation": null,
           "publicComment": null,
-          "discussion": 2407,
+          "discussion": 2083,
           "vote": null
         },
         "publicComments": [],
@@ -937,8 +939,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.1: Information on San Mateo County Investment Fund - July 2022",
+        "itemLabel": "14.1",
+        "title": "Information on San Mateo County Investment Fund – July 2022",
         "phases": {
           "opened": 2470,
           "presentation": null,
@@ -951,8 +953,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.2: 45-Day Revision (Budget Update)",
+        "itemLabel": "14.2",
+        "title": "45-Day Revision",
         "phases": {
           "opened": 2509,
           "presentation": 2515,
@@ -965,8 +967,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "14",
-        "title": "Information — Item 14.6: Information Regarding the RCSD Plan for COVID Response for the 2022-2023 School Year",
+        "itemLabel": "14.6",
+        "title": "Information Regarding the RCSD Plan for COVID Response for the 2022-2023 School Year",
         "phases": {
           "opened": 3183,
           "presentation": 3195,
@@ -994,7 +996,7 @@
       },
       {
         "itemLabel": "16",
-        "title": "Other Business / Suggested Items for Future Agenda",
+        "title": "Other Business/Suggested Items for Future Agenda",
         "phases": {
           "opened": 4186,
           "presentation": null,
@@ -1008,7 +1010,7 @@
       },
       {
         "itemLabel": "17",
-        "title": "Board Agenda Calendar — Changes to the Board Agenda Schedule of Items",
+        "title": "Board Agenda Calendar – Changes to the Board Agenda Schedule of Items",
         "phases": {
           "opened": 4186,
           "presentation": null,
@@ -1027,7 +1029,7 @@
           "opened": 4186,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 4248,
           "vote": {
             "seconds": 4239,
             "type": "motion",
@@ -1040,7 +1042,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:04:36.848Z",
-  "inputTokens": 17849,
-  "outputTokens": 3988
+  "cachedAt": "2026-07-23T09:55:29.361Z",
+  "inputTokens": 17847,
+  "outputTokens": 3865
 }

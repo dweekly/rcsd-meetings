@@ -1,6 +1,6 @@
 {
   "date": "2022-08-24",
-  "transcriptHash": "da4aab21235aa03f",
+  "transcriptHash": "c5085b1b23ac1f46",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -75,37 +75,37 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced: (1) Items 14.3, 14.4, and 14.5 (staff recognitions) moved from end of agenda to after oral communication and before Bond Program Action Items; (2) Items 12.4 and 12.5 moved to consent agenda; (3) Bond Program Consent Items moved to be taken first for efficiency.",
-    "consent_vote_words": "Can I please get a motion to approve the consent items?",
+    "agenda_changes": "Multiple changes announced and approved: (1) Items 14.3, 14.4, and 14.5 (staff recognition items) moved from end of agenda to immediately after oral communication and before bond program action items; (2) Items 12.4 and 12.5 moved to consent agenda; (3) Bond program items reordered to be taken first after oral communication to allow attendees to leave early if desired.",
+    "consent_vote_words": "Can I please get a motion to approve the consent items? So moved. Second",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay, welcome everyone. Thank you for waiting. We're reconvening to regular session.",
+        "intro_words": "Okay. Welcome, everyone. Thank you for waiting. We're reconvening to regular session.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee MacAvoy. Present. Trustee Wells.",
+        "intro_words": "Roll call, please. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Item 4.2, report on closed session from August 24th, 2022. No action was taken.",
+        "intro_words": "Item 4.2, Report on closed session from August 24, 2022. No action was taken.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Again, welcome to another Redwood City School District meeting.",
-        "status": "found"
-      },
-      {
-        "item": 11,
-        "intro_words": "Any changes to the agenda? I was gonna ask, and I don't know if everybody's here,",
+        "intro_words": "We heard information from our consultants regarding 750 Raffert property. Again, welcome to another Redwood City",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "And with that, can I get a motion to approve the changes to the agenda?",
+        "intro_words": "Any changes to the agenda? I was going to ask, and I don't know",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "Can I get a motion to approve the changes to the agenda? So moved.",
         "status": "found"
       },
       {
@@ -115,107 +115,127 @@
       },
       {
         "item": 18,
-        "intro_words": "So, 9 bond program consent items. Can I get a motion to approve?",
+        "intro_words": "So9 bond program consent items. Can I get a motion to approve?",
         "status": "found"
       },
       {
+        "item": 19,
+        "intro_words": "So moved. Second roll call, please. Trustee mcavoy? Aye.",
+        "status": "consent_bundle"
+      },
+      {
         "item": 30,
-        "intro_words": "So bond program action items. 10.1, recommendation, adoption of Futility Resolution 6,",
+        "intro_words": "SO bond program action items 10.1 recommendation, adoption of fertility resolution 6,",
         "status": "found"
       },
       {
         "item": 31,
-        "intro_words": "10.1, recommendation, adoption of Futility Resolution 6, approval of the new building modernization",
+        "intro_words": "SO bond program action items 10.1 recommendation, adoption of fertility resolution 6, approval of the new building",
         "status": "found"
       },
       {
         "item": 32,
-        "intro_words": "10.2, recommendation adoption of Futility Resolution 7, approval of new Scapes Incorporated at Garfield",
+        "intro_words": "10.2 recommendation, adoption of fertility resolution 7, approval of new scapes incorporated at Garfield",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "Item 10.3, recommendation, adoption of Futility Resolution 8, approval of new marquee fire protection",
+        "intro_words": "Item 10.3 Recommendation, Adoption of Fertility Resolution 8, Approval of New marquee fire protection",
         "status": "found"
       },
       {
         "item": 60,
-        "intro_words": "So 14.3, recognize staff who have reached the longevity milestone with the district.",
+        "intro_words": "And then is this where the items 14.3 to 14.5, this is where they'll go.",
         "status": "found"
       },
       {
         "item": 61,
-        "intro_words": "So moving right along to item 14.5, recognition of classified employees. Okay, thank you.",
+        "intro_words": "Okay, so 14.3 recognize staff who have reached the longevity milestone with the district.",
         "status": "found"
       },
       {
-        "item": 34,
-        "intro_words": "Okay, so moving right along to item 14.5, recognition of classified employees.",
-        "status": "found"
-      },
-      {
-        "item": 35,
-        "intro_words": "Okay, so with that, can I please get a motion to approve the consent items?",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 49,
-        "intro_words": "Action items 12.1, recommendation adoption of Resolution 9, Conflict of Interest Code, and",
-        "status": "found"
-      },
-      {
-        "item": 50,
-        "intro_words": "Action items 12.1, recommendation adoption of Resolution 9, Conflict of Interest Code, and",
-        "status": "found"
-      },
-      {
-        "item": 51,
-        "intro_words": "Item 12.2, recommendation regarding Adoption of Resolution 10, Approval of Teachers Gaining Tenure Status.",
-        "status": "found"
-      },
-      {
-        "item": 52,
-        "intro_words": "Item, Board and Superintendent Reports, 13.1, Report from Board Members and Superintendent. I apologize.",
-        "status": "found"
-      },
-      {
-        "item": 52,
-        "intro_words": "So 12.3, Recommendation Regarding Adoption of Resolution 11, Approval of Education Code Options for Teaching Assignments.",
-        "status": "found"
-      },
-      {
-        "item": 55,
-        "intro_words": "Okay, Board and Superintendent's Report, item 13.1, Report from Board Members and Superintendent.",
-        "status": "found"
-      },
-      {
-        "item": 57,
-        "intro_words": "So moving along to information item 4.1— I mean, 14.1, information on the San Mateo County Investment Fund for July 2022.",
-        "status": "found"
-      },
-      {
-        "item": 59,
-        "intro_words": "Okay, so item 14.2, 45-day revision. That's right. Good evening.",
+        "item": 62,
+        "intro_words": "So Moving on to 14.4, recognition of certificated employees. So thank you.",
         "status": "found"
       },
       {
         "item": 63,
-        "intro_words": "14.6, information regarding the Redwood City School District plan for COVID response for the 2022-23 school year.",
+        "intro_words": "moving right along to item 14.5, recognition of classified employees. Hey, thank you.",
+        "status": "found"
+      },
+      {
+        "item": 34,
+        "intro_words": "Okay, moving to item 11, consent items. Can I get a motion?",
+        "status": "found"
+      },
+      {
+        "item": 35,
+        "intro_words": "Okay, so with that, can I please get a motion to approve the consent Items?",
+        "status": "found"
+      },
+      {
+        "item": 49,
+        "intro_words": "Action items 12.1, recommendation, adoption of resolution 9, conflict of interest code,",
+        "status": "found"
+      },
+      {
+        "item": 50,
+        "intro_words": "Action items 12.1, recommendation, adoption of resolution 9, conflict of interest code, and second reading,",
+        "status": "found"
+      },
+      {
+        "item": 51,
+        "intro_words": "Item 12.2, Recommendation Regarding Adoption of Resolution 10, Approval of Teachers gaining tenure status.",
+        "status": "found"
+      },
+      {
+        "item": 52,
+        "intro_words": "12.3. Recommendation regarding adoption of resolution 11, approval of education Code, options for teaching",
+        "status": "found"
+      },
+      {
+        "item": 55,
+        "intro_words": "Item board and superintendent reports. 13.1. Report from board members and Superintendent.",
+        "status": "found"
+      },
+      {
+        "item": 56,
+        "intro_words": "I apologize. So, 12.3. Recommendation regarding adoption of resolution 11, approval of education Code",
+        "status": "found"
+      },
+      {
+        "item": 57,
+        "intro_words": "Board and Superintendents Report, Item 13.1, Report from Board members and superintendent. None for me.",
+        "status": "found"
+      },
+      {
+        "item": 58,
+        "intro_words": "Information on San Mateo County Investment Fund for July 2022. Does anyone have any questions?",
+        "status": "found"
+      },
+      {
+        "item": 59,
+        "intro_words": "14 6. 14.6 Information regarding the Redwood City School District plan for Covid response",
         "status": "found"
       },
       {
         "item": 64,
-        "intro_words": "Item 15.1, correspondence. None. Item 16, other business, suggested items for future agendas.",
+        "intro_words": "item 15.1, correspondence. None. Item 16, other business suggested items for future agendas.",
         "status": "found"
       },
       {
         "item": 66,
-        "intro_words": "17.1, changes to the board agenda schedule. Of items. Do we have any changes?",
+        "intro_words": "17.1, changes to the board agenda, schedule of items. Do we have any changes?",
         "status": "found"
       },
       {
         "item": 70,
-        "intro_words": "Well, it is 8:16 now. Can I get a motion to adjourn?",
+        "intro_words": "Thank you. Well, it is 8. 16 now. Can I get a motion to adjourn?",
+        "status": "found"
+      },
+      {
+        "item": 71,
+        "intro_words": "So move. And thank you very much. Oh, sorry. Okay. Go ahead.",
         "status": "found"
       }
     ]
@@ -242,30 +262,34 @@
         "timestampSeconds": 10
       },
       {
-        "timestamp": "00:00:28",
-        "timestampSeconds": 28
-      },
-      {
-        "timestamp": "00:00:49",
-        "timestampSeconds": 49
-      },
-      {
-        "timestamp": "00:03:07",
-        "timestampSeconds": 187
-      },
-      null,
-      null,
-      null,
-      {
-        "timestamp": "00:03:30",
-        "timestampSeconds": 210
+        "timestamp": "00:00:10",
+        "timestampSeconds": 10
       },
       null,
       {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
+        "timestamp": "00:00:25",
+        "timestampSeconds": 25
       },
       null,
+      {
+        "timestamp": "00:03:00",
+        "timestampSeconds": 180
+      },
+      null,
+      {
+        "timestamp": "00:03:24",
+        "timestampSeconds": 204
+      },
+      null,
+      {
+        "timestamp": "00:02:32",
+        "timestampSeconds": 152
+      },
+      {
+        "timestamp": "00:05:34",
+        "timestampSeconds": 334,
+        "consent": true
+      },
       null,
       null,
       null,
@@ -281,8 +305,8 @@
         "timestampSeconds": 249
       },
       {
-        "timestamp": "00:04:14",
-        "timestampSeconds": 254
+        "timestamp": "00:04:09",
+        "timestampSeconds": 249
       },
       {
         "timestamp": "00:05:02",
@@ -293,13 +317,12 @@
         "timestampSeconds": 347
       },
       {
-        "timestamp": "00:18:36",
-        "timestampSeconds": 1116
+        "timestamp": "00:28:54",
+        "timestampSeconds": 1734
       },
       {
-        "timestamp": "00:28:59",
-        "timestampSeconds": 1739,
-        "consent": true
+        "timestamp": "00:28:39",
+        "timestampSeconds": 1719
       },
       null,
       null,
@@ -314,45 +337,48 @@
       null,
       null,
       null,
-      {
-        "timestamp": "00:30:33",
-        "timestampSeconds": 1833
-      },
       {
         "timestamp": "00:30:33",
         "timestampSeconds": 1833
       },
       {
-        "timestamp": "00:31:42",
-        "timestampSeconds": 1902
+        "timestamp": "00:30:33",
+        "timestampSeconds": 1833
+      },
+      {
+        "timestamp": "00:31:41",
+        "timestampSeconds": 1901
+      },
+      {
+        "timestamp": "00:33:30",
+        "timestampSeconds": 2010
+      },
+      null,
+      null,
+      {
+        "timestamp": "00:33:25",
+        "timestampSeconds": 2005
+      },
+      {
+        "timestamp": "00:33:20",
+        "timestampSeconds": 2000
       },
       {
         "timestamp": "00:33:25",
         "timestampSeconds": 2005
       },
-      null,
-      null,
       {
-        "timestamp": "00:34:22",
-        "timestampSeconds": 2062
+        "timestamp": "00:40:59",
+        "timestampSeconds": 2459
       },
-      null,
       {
-        "timestamp": "00:40:58",
-        "timestampSeconds": 2458
-      },
-      null,
-      {
-        "timestamp": "00:41:10",
-        "timestampSeconds": 2470
+        "timestamp": "00:52:28",
+        "timestampSeconds": 3148
       },
       null,
       null,
       null,
-      {
-        "timestamp": "00:52:30",
-        "timestampSeconds": 3150
-      },
+      null,
       {
         "timestamp": "01:09:38",
         "timestampSeconds": 4178
@@ -369,10 +395,13 @@
         "timestamp": "01:09:33",
         "timestampSeconds": 4173
       },
-      null
+      {
+        "timestamp": "01:09:43",
+        "timestampSeconds": 4183
+      }
     ]
   },
-  "cachedAt": "2026-07-21T10:00:33.898Z",
-  "inputTokens": 14538,
-  "outputTokens": 1602
+  "cachedAt": "2026-07-23T10:01:20.774Z",
+  "inputTokens": 13896,
+  "outputTokens": 1805
 }

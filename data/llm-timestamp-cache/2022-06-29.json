@@ -1,6 +1,6 @@
 {
   "date": "2022-06-29",
-  "transcriptHash": "02eb76289285b2fc",
+  "transcriptHash": "36da5eede2ba5ba0",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -82,41 +82,46 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Items 12.11 through 12.14 moved to consent agenda. Item 12.10 pulled from agenda. Staff Recognition added as item 6.0 under School and Community Reports section.",
+    "agenda_changes": "Items 12.10-12.14 moved to consent agenda (items 12.11-12.14); item 12.10 pulled from agenda; Staff Recognition added as new item 6.0 before bond program discussion",
     "consent_vote_words": "Can I please get a motion to approve the consent items?",
     "items": [
       {
         "item": 1,
-        "intro_words": "Roll call, please. Trustee MacAvoy. Present.",
+        "intro_words": "Roll call, please. Trustee mcavoy. Present. Trustee wells.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee MacAvoy. Present.",
+        "intro_words": "Roll call, please. Trustee mcavoy. Present. Trustee wells.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone. Buenas noches a todos.",
+        "intro_words": "Welcome, everyone. Buenos muches. Roll call, please.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again, good evening, everyone, and welcome to the last school year board meeting",
+        "intro_words": "Good evening, everyone, and welcome to the last school year board",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes? To the agenda. Yeah, I had a few.",
+        "intro_words": "Are there any changes to the agenda? Yeah, I had a few.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "So moved. Second. Oh, actually, I'll use you.",
+        "intro_words": "Can I please get a more son to approve the agenda?",
         "status": "found"
       },
       {
         "item": 7,
+        "intro_words": "Can I please get a motion to approve the agenda?",
+        "status": "found"
+      },
+      {
+        "item": 8,
         "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
@@ -126,13 +131,28 @@
         "status": "found"
       },
       {
+        "item": 10,
+        "intro_words": "If you have public comment related to a Regular Board Meeting",
+        "status": "found"
+      },
+      {
         "item": 11,
-        "intro_words": "So moving along to item 6, School and Community Report.",
+        "intro_words": "So, moving along to item six. School and community report",
+        "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "Yes. Why don't I kick start it and then I can turn",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "And now on to 6.1, Measure T Bond Program Progress Update.",
+        "intro_words": "And now on to 6.1 measure T bond program progress update.",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Bond Program Consent Items. Can I please get a motion to approve",
         "status": "found"
       },
       {
@@ -142,137 +162,242 @@
       },
       {
         "item": 25,
-        "intro_words": "Item 8, Public Hearing. 8.1, Public Hearing, Authorize Conveyance of Public",
+        "intro_words": "Item 8, Public Hearing. 8.1. Public Hearing authorized conveyance of public",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "At this time, the public hearing is now open.",
+        "intro_words": "Item 8, Public Hearing. 8.1. Public Hearing authorized conveyance of public",
         "status": "found"
       },
       {
         "item": 27,
-        "intro_words": "Moving on to item 9, Bond Program Action Items.",
+        "intro_words": "Moving on to item 9, bond program action items. 9.1.",
         "status": "found"
       },
       {
         "item": 28,
-        "intro_words": "9.1, recommendation regarding adoption of Resolution 41, Resolution Authorizing",
+        "intro_words": "Moving on to item 9, bond program action items. 9.1.",
         "status": "found"
       },
       {
         "item": 29,
-        "intro_words": "9.2, recommendation regarding approval of new buildings.",
+        "intro_words": "9.2. Recommendation regarding approval of new buildings modernization and site",
         "status": "found"
       },
       {
         "item": 30,
-        "intro_words": "9.3, recommendation regarding approval of new buildings, modernization, and sitework",
+        "intro_words": "9.3. Recommendation regarding approval of new buildings, modernization and side",
         "status": "found"
       },
       {
         "item": 31,
-        "intro_words": "Discussion items 10.1, discussion of the local Oh, Control Accountability Plan",
+        "intro_words": "Discussion items 10.1. Discussion of the Local OH Control Accountability Plan.",
         "status": "found"
       },
       {
         "item": 32,
-        "intro_words": "Okay, so, um, this is more information about funding, federal funding, and how",
+        "intro_words": "Discussion items 10.1. Discussion of the Local OH Control Accountability Plan.",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "Item 10.2, discussion of draft resolution ordering a school bond election",
+        "intro_words": "Item 10.2 Discussion of draft resolution ordering a school Bond election",
         "status": "found"
       },
       {
         "item": 34,
-        "intro_words": "Item 11, consent items. Can I please get a motion to approve",
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "found"
+      },
+      {
+        "item": 35,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 36,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 37,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 38,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 39,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 40,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 41,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 42,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 43,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 44,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 45,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 46,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 47,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 48,
+        "intro_words": "Item 11, consent items. Can I please get a motion to",
         "status": "consent_bundle"
       },
       {
         "item": 50,
-        "intro_words": "Action items 12.1, recommendation regarding approval of the Local Control",
+        "intro_words": "Action items 12.1, recommendation regarding approval of the local control",
         "status": "found"
       },
       {
         "item": 51,
-        "intro_words": "12.2, recommendation regarding approval of Local Control Funding Formula, LCFF",
+        "intro_words": "Action items 12.1, recommendation regarding approval of the local control accountability",
         "status": "found"
       },
       {
         "item": 52,
-        "intro_words": "Item 12.3, recommendation regarding approval of 2022-23 proposed budget for",
+        "intro_words": "12.2, recommendation regarding approval of local control funding formula. LCFF budget",
         "status": "found"
       },
       {
         "item": 53,
-        "intro_words": "Item 12.4, recommendation regarding adoption of 2022-23 statement of reasons",
+        "intro_words": "Item 12.3, Recommendation Regarding Approval of 202223 Proposed Budget for Redwood",
         "status": "found"
       },
       {
         "item": 54,
-        "intro_words": "Item 12.5, recommendation regarding adoption of Resolution 44, San Mateo County",
+        "intro_words": "Item 12.4, Recommendation Regarding Adoption of 2022, 23, Statement of Reasons",
         "status": "found"
       },
       {
         "item": 55,
-        "intro_words": "Item 12.6, recommendation regarding adoption of Resolution 45, bank signatures",
+        "intro_words": "Item 12.5, Recommendation Regarding Adoption of Resolution 44. San Mateo County",
         "status": "found"
       },
       {
         "item": 56,
-        "intro_words": "Okay, item 12.7, recommendation regarding adoption of Resolution 46, bank",
+        "intro_words": "Item 12.6, Recommendation Regarding Adoption of Resolution 45, Bank Signatures. Sequoia",
         "status": "found"
       },
       {
         "item": 57,
-        "intro_words": "Item 12.8, recommendation regarding adoption of Resolution 47, bank signatures",
+        "intro_words": "Item 12.7, Recommendation Regarding Adoption of Resolution 46, Bank Signatures. TRI",
         "status": "found"
       },
       {
         "item": 58,
-        "intro_words": "Item 12.9, recommendation regarding adoption of Resolution 48, resolution calling",
+        "intro_words": "Item 12.8, Recommendation Regarding Adoption of Resolution 47, Bank Signatures. Wells",
+        "status": "found"
+      },
+      {
+        "item": 59,
+        "intro_words": "Item 12.9, Recommendation Regarding Adoption of Resolution 48, Resolution Calling for",
         "status": "found"
       },
       {
         "item": 65,
-        "intro_words": "Item 13, Board of Superintendent— Board and Superintendent Reports.",
+        "intro_words": "Item 13, Board of Superintendent. Board and Superintendent Reports. 13.1.",
         "status": "found"
       },
       {
         "item": 66,
-        "intro_words": "13.1, Report from Board Members and Superintendent. I have nothing to report.",
+        "intro_words": "Item 13, Board of Superintendent. Board and Superintendent Reports. 13.1.",
+        "status": "found"
+      },
+      {
+        "item": 67,
+        "intro_words": "Item 14, Information 14.1, Contract Update. Information on credit card summary.",
         "status": "found"
       },
       {
         "item": 68,
-        "intro_words": "Item 14, information 14.1, contract update information on credit card summary.",
+        "intro_words": "Item 12.2, Universal Pre Kindergarten Planning Template. And that's Ms. Wolf",
         "status": "found"
       },
       {
         "item": 69,
-        "intro_words": "Item 12.2, universal pre-kindergarten planning template. And that's Ms. Wolf",
+        "intro_words": "Item 14.3 local indicators for the California School Dashboard. Thank you.",
         "status": "found"
       },
       {
         "item": 70,
-        "intro_words": "Moving on to 14.3, local indicators for the California School Dashboard.",
+        "intro_words": "Item 14.3 local indicators for the California School Dashboard. Thank you.",
         "status": "found"
       },
       {
         "item": 71,
-        "intro_words": "Item 15, 15.1, Correspondence. Okay, 16, other business suggested items",
+        "intro_words": "Item 15.15.1, correspondence. Okay. 16 other business suggested items for future",
+        "status": "found"
+      },
+      {
+        "item": 72,
+        "intro_words": "Item 15.15.1, correspondence. Okay. 16 other business suggested items for future",
+        "status": "found"
+      },
+      {
+        "item": 73,
+        "intro_words": "16 other business suggested items for future agenda. Okay, moving right",
+        "status": "found"
+      },
+      {
+        "item": 74,
+        "intro_words": "16 other business suggested items for future agenda. Okay, moving right",
         "status": "found"
       },
       {
         "item": 75,
-        "intro_words": "Item 17, board agenda calendar. Are there any changes? No.",
+        "intro_words": "17 board agenda, calendar. Are there any changes? Yeah. Okay.",
+        "status": "found"
+      },
+      {
+        "item": 76,
+        "intro_words": "17 board agenda, calendar. Are there any changes? Yeah. Okay.",
         "status": "found"
       },
       {
         "item": 77,
-        "intro_words": "I'll make a motion to adjourn the meeting. I second that",
+        "intro_words": "I would like to end the meeting by actually giving thanks to",
+        "status": "found"
+      },
+      {
+        "item": 78,
+        "intro_words": "I would like to end the meeting by actually giving thanks to",
         "status": "found"
       }
     ]
@@ -301,82 +426,28 @@
         "timestampSeconds": 44
       },
       {
-        "timestamp": "00:03:13",
-        "timestampSeconds": 193
-      },
-      {
         "timestamp": "00:02:57",
         "timestampSeconds": 177
       },
-      null,
       {
-        "timestamp": "00:03:18",
-        "timestampSeconds": 198
-      },
-      null,
-      {
-        "timestamp": "00:02:33",
-        "timestampSeconds": 153
+        "timestamp": "00:47:59",
+        "timestampSeconds": 2879
       },
       {
-        "timestamp": "00:34:24",
-        "timestampSeconds": 2064
-      },
-      null,
-      {
-        "timestamp": "00:48:04",
-        "timestampSeconds": 2884,
-        "consent": true
+        "timestamp": "00:47:59",
+        "timestampSeconds": 2879
       },
       null,
       null,
       null,
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:48:14",
-        "timestampSeconds": 2894
+        "timestamp": "01:09:24",
+        "timestampSeconds": 4164
       },
       {
-        "timestamp": "00:48:49",
-        "timestampSeconds": 2929
-      },
-      {
-        "timestamp": "00:49:19",
-        "timestampSeconds": 2959
-      },
-      {
-        "timestamp": "00:49:24",
-        "timestampSeconds": 2964
-      },
-      {
-        "timestamp": "00:50:03",
-        "timestampSeconds": 3003
-      },
-      {
-        "timestamp": "00:50:03",
-        "timestampSeconds": 3003
-      },
-      {
-        "timestamp": "00:51:27",
-        "timestampSeconds": 3087
-      },
-      {
-        "timestamp": "00:51:21",
-        "timestampSeconds": 3081
-      },
-      {
-        "timestamp": "00:56:59",
-        "timestampSeconds": 3419
-      },
-      {
-        "timestamp": "00:48:04",
-        "timestampSeconds": 2884,
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
         "consent": true
       },
       null,
@@ -394,9 +465,92 @@
       null,
       null,
       null,
+      null,
+      null,
+      null,
+      null,
       {
-        "timestamp": "01:09:42",
-        "timestampSeconds": 4182
+        "timestamp": "01:09:19",
+        "timestampSeconds": 4159
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      {
+        "timestamp": "01:09:07",
+        "timestampSeconds": 4147,
+        "consent": true
+      },
+      null,
+      {
+        "timestamp": "01:09:41",
+        "timestampSeconds": 4181
+      },
+      {
+        "timestamp": "01:09:41",
+        "timestampSeconds": 4181
       },
       {
         "timestamp": "01:10:26",
@@ -411,26 +565,25 @@
         "timestampSeconds": 4348
       },
       {
-        "timestamp": "01:13:20",
-        "timestampSeconds": 4400
+        "timestamp": "01:13:16",
+        "timestampSeconds": 4396
       },
       {
-        "timestamp": "01:13:20",
-        "timestampSeconds": 4400
+        "timestamp": "01:13:49",
+        "timestampSeconds": 4429
       },
       {
-        "timestamp": "01:12:57",
-        "timestampSeconds": 4377
+        "timestamp": "01:13:49",
+        "timestampSeconds": 4429
       },
       {
-        "timestamp": "01:13:20",
-        "timestampSeconds": 4400
+        "timestamp": "01:13:16",
+        "timestampSeconds": 4396
       },
       {
-        "timestamp": "01:15:11",
-        "timestampSeconds": 4511
+        "timestamp": "01:15:10",
+        "timestampSeconds": 4510
       },
-      null,
       null,
       null,
       null,
@@ -444,39 +597,57 @@
         "timestamp": "01:15:47",
         "timestampSeconds": 4547
       },
-      null,
       {
-        "timestamp": "01:16:22",
-        "timestampSeconds": 4582
+        "timestamp": "01:16:17",
+        "timestampSeconds": 4577
       },
       {
-        "timestamp": "01:16:22",
-        "timestampSeconds": 4582
+        "timestamp": "01:16:17",
+        "timestampSeconds": 4577
       },
       {
-        "timestamp": "01:29:24",
-        "timestampSeconds": 5364
+        "timestamp": "01:29:26",
+        "timestampSeconds": 5366
       },
       {
-        "timestamp": "01:45:11",
-        "timestampSeconds": 6311
+        "timestamp": "01:29:26",
+        "timestampSeconds": 5366
       },
-      null,
-      null,
-      null,
       {
-        "timestamp": "01:45:11",
-        "timestampSeconds": 6311
+        "timestamp": "01:45:10",
+        "timestampSeconds": 6310
       },
-      null,
       {
-        "timestamp": "01:46:09",
-        "timestampSeconds": 6369
+        "timestamp": "01:45:10",
+        "timestampSeconds": 6310
       },
-      null
+      {
+        "timestamp": "01:45:10",
+        "timestampSeconds": 6310
+      },
+      {
+        "timestamp": "01:45:10",
+        "timestampSeconds": 6310
+      },
+      {
+        "timestamp": "01:45:15",
+        "timestampSeconds": 6315
+      },
+      {
+        "timestamp": "01:45:15",
+        "timestampSeconds": 6315
+      },
+      {
+        "timestamp": "01:45:34",
+        "timestampSeconds": 6334
+      },
+      {
+        "timestamp": "01:45:34",
+        "timestampSeconds": 6334
+      }
     ]
   },
-  "cachedAt": "2026-07-21T10:01:02.167Z",
-  "inputTokens": 22805,
-  "outputTokens": 1863
+  "cachedAt": "2026-07-23T10:01:59.336Z",
+  "inputTokens": 21929,
+  "outputTokens": 3092
 }

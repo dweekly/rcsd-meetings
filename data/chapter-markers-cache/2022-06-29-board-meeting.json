@@ -1,6 +1,8 @@
 {
   "date": "2022-06-29",
+  "slug": "2022-06-29-board-meeting",
   "itemCount": 78,
+  "transcriptHash": "36da5eede2ba5ba0",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,23 +10,23 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board Clerk"
+        "name": "Alisa MacAvoy",
+        "role": "Board Member (Trustee), also reading roll call"
       },
       "C": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "D": {
-        "name": "Alisa MacAvoy",
-        "role": "Board President / Trustee (note: ASR label confusion; context suggests this is a staff/trustee voice)"
+        "name": "Priscilla (CBO, attending remotely from Hawaii)",
+        "role": "Chief Business Official (outgoing)"
       },
       "E": {
-        "name": "Janet Lawson",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Clerk / Vice President area — actually appears to be Mike Wells or Janet Lawson based on context; re-examining: E makes motions and discusses bond subcommittee, consistent with a board member. Given roll call order and context, E is likely Janet Lawson or Mike Wells. Roll call at 217s: McAvoy=B, Wells=E(aye), Lawson=aye(unlabeled), Marquez=A(aye), President=A. Re-examining: at 225s B says 'Trustee McAvoy' then 'Trustee Wells' and E says 'aye' at 226s, so E=Wells. But E also discusses bond subcommittee with Janet — so E=Mike Wells."
       }
     },
-    "agendaChanges": "Item 12.10 (Approval of Employment Contract for Deputy Superintendent) was pulled from the agenda and deferred to the August 10 meeting. Items 12.11 through 12.14 (Declaration of Obsolete Textbooks, Adoption of History/Social Studies Curriculum for Grades 6-8, Approval of Proposed Expenditures from Measure U for 2022-23, and Approval of Employment Contract for Deputy Superintendent) were moved to consent. A staff recognition item (6.0) was added before Section 6 bond program items. Items otherwise followed the posted agenda order.",
+    "agendaChanges": "Several changes were made before agenda approval: (1) Item 12.10 (Approval of Employment Contract for Deputy Superintendent) was pulled entirely, deferred to August 10th meeting. (2) Items 12.11 through 12.14 (Declaration of Obsolete Textbooks, Adoption of History/Social Studies Curriculum, Approval of Proposed Expenditures from Measure U, and one other) were moved to consent. (3) A staff recognition item was added as item 6.0, inserted before the bond program update (Section 6). Items otherwise proceeded in agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -102,7 +104,7 @@
       },
       {
         "itemLabel": "6",
-        "title": "School/Community Reports — Staff Recognition (added item 6.0) and Measure T Bond Program Progress Update",
+        "title": "Staff Recognition (added item 6.0) and Measure T Bond Program Progress Update",
         "phases": {
           "opened": 244,
           "presentation": 2096,
@@ -116,7 +118,7 @@
       },
       {
         "itemLabel": "7",
-        "title": "Bond Program Consent Items — Approval of Consent Items",
+        "title": "Bond Program Consent Items — Approval of Consent Items (bundle)",
         "phases": {
           "opened": 2904,
           "presentation": null,
@@ -139,20 +141,6 @@
           "opened": 2934,
           "presentation": null,
           "publicComment": 2934,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": 2973,
-          "presentation": null,
-          "publicComment": null,
           "discussion": null,
           "vote": null
         },
@@ -187,7 +175,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3051,
+            "seconds": 3053,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -215,27 +203,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 3101,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "10.1",
         "title": "Discussion of the Local Control Accountability Plan (LCAP) Federal Addendum for 2022-23",
         "phases": {
           "opened": 3101,
           "presentation": 3148,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3424,
           "vote": null
         },
         "publicComments": [],
@@ -249,7 +223,7 @@
           "opened": 3424,
           "presentation": 3528,
           "publicComment": null,
-          "discussion": 3676,
+          "discussion": 3685,
           "vote": null
         },
         "publicComments": [],
@@ -258,7 +232,7 @@
       },
       {
         "itemLabel": "11",
-        "title": "Consent Items — Approval of Consent Items",
+        "title": "Consent Items — Approval of Consent Items (bundle, including items moved from 12.11–12.14)",
         "phases": {
           "opened": 4176,
           "presentation": null,
@@ -272,20 +246,6 @@
         },
         "publicComments": [],
         "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12",
-        "title": "Action Items",
-        "phases": {
-          "opened": 4200,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
         "pulled": false
       },
       {
@@ -369,7 +329,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4434,
+            "seconds": 4439,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -387,7 +347,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4461,
+            "seconds": 4464,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -405,7 +365,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4488,
+            "seconds": 4492,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -434,14 +394,14 @@
       },
       {
         "itemLabel": "12.9",
-        "title": "Adoption of Resolution 48 — Resolution Calling for an Election on November 8, 2022 for the Election of Two Members of the Governing Board",
+        "title": "Adoption of Resolution 48 — Resolution Calling for an Election to be Held on November 8, 2022 for the Election of Two Members of the Governing Board",
         "phases": {
           "opened": 4523,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4551,
+            "seconds": 4555,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -479,34 +439,6 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.1",
-        "title": "Report from Board Members and Superintendent",
-        "phases": {
-          "opened": 4562,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": 4562,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14",
-        "title": "Information",
-        "phases": {
-          "opened": 4591,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "14.1",
         "title": "Contract Update Information and Credit Card Summary",
         "phases": {
@@ -524,7 +456,7 @@
         "itemLabel": "14.2",
         "title": "Universal Prekindergarten Planning Template",
         "phases": {
-          "opened": 4600,
+          "opened": 4607,
           "presentation": 4636,
           "publicComment": null,
           "discussion": 5287,
@@ -566,7 +498,7 @@
         "itemLabel": "16",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6322,
+          "opened": 6323,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -580,7 +512,7 @@
         "itemLabel": "17",
         "title": "Board Agenda Calendar — Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 6325,
+          "opened": 6326,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -618,23 +550,23 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Cecilia I. Márquez",
-        "role": "Board Clerk"
+        "name": "Alisa MacAvoy",
+        "role": "Board Member (Trustee), also reading roll call"
       },
       "C": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "John Baker",
+        "role": "Superintendent"
       },
       "D": {
-        "name": "Alisa MacAvoy",
-        "role": "Board President / Trustee (note: ASR label confusion; context suggests this is a staff/trustee voice)"
+        "name": "Priscilla (CBO, attending remotely from Hawaii)",
+        "role": "Chief Business Official (outgoing)"
       },
       "E": {
-        "name": "Janet Lawson",
-        "role": "Trustee"
+        "name": "Cecilia I. Márquez",
+        "role": "Board Clerk / Vice President area — actually appears to be Mike Wells or Janet Lawson based on context; re-examining: E makes motions and discusses bond subcommittee, consistent with a board member. Given roll call order and context, E is likely Janet Lawson or Mike Wells. Roll call at 217s: McAvoy=B, Wells=E(aye), Lawson=aye(unlabeled), Marquez=A(aye), President=A. Re-examining: at 225s B says 'Trustee McAvoy' then 'Trustee Wells' and E says 'aye' at 226s, so E=Wells. But E also discusses bond subcommittee with Janet — so E=Mike Wells."
       }
     },
-    "agendaChanges": "Item 12.10 (Approval of Employment Contract for Deputy Superintendent) was pulled from the agenda and deferred to the August 10 meeting. Items 12.11 through 12.14 (Declaration of Obsolete Textbooks, Adoption of History/Social Studies Curriculum for Grades 6-8, Approval of Proposed Expenditures from Measure U for 2022-23, and Approval of Employment Contract for Deputy Superintendent) were moved to consent. A staff recognition item (6.0) was added before Section 6 bond program items. Items otherwise followed the posted agenda order.",
+    "agendaChanges": "Several changes were made before agenda approval: (1) Item 12.10 (Approval of Employment Contract for Deputy Superintendent) was pulled entirely, deferred to August 10th meeting. (2) Items 12.11 through 12.14 (Declaration of Obsolete Textbooks, Adoption of History/Social Studies Curriculum, Approval of Proposed Expenditures from Measure U, and one other) were moved to consent. (3) A staff recognition item was added as item 6.0, inserted before the bond program update (Section 6). Items otherwise proceeded in agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -712,7 +644,7 @@
       },
       {
         "itemLabel": "6",
-        "title": "School/Community Reports — Staff Recognition (added item 6.0) and Measure T Bond Program Progress Update",
+        "title": "Staff Recognition (added item 6.0) and Measure T Bond Program Progress Update",
         "phases": {
           "opened": 244,
           "presentation": 2096,
@@ -726,7 +658,7 @@
       },
       {
         "itemLabel": "7",
-        "title": "Bond Program Consent Items — Approval of Consent Items",
+        "title": "Bond Program Consent Items — Approval of Consent Items (bundle)",
         "phases": {
           "opened": 2904,
           "presentation": null,
@@ -749,20 +681,6 @@
           "opened": 2934,
           "presentation": null,
           "publicComment": 2934,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9",
-        "title": "Bond Program Action Items",
-        "phases": {
-          "opened": 2973,
-          "presentation": null,
-          "publicComment": null,
           "discussion": null,
           "vote": null
         },
@@ -797,7 +715,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 3051,
+            "seconds": 3053,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -825,27 +743,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Discussion Items",
-        "phases": {
-          "opened": 3101,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "10.1",
         "title": "Discussion of the Local Control Accountability Plan (LCAP) Federal Addendum for 2022-23",
         "phases": {
           "opened": 3101,
           "presentation": 3148,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 3424,
           "vote": null
         },
         "publicComments": [],
@@ -859,7 +763,7 @@
           "opened": 3424,
           "presentation": 3528,
           "publicComment": null,
-          "discussion": 3676,
+          "discussion": 3685,
           "vote": null
         },
         "publicComments": [],
@@ -868,7 +772,7 @@
       },
       {
         "itemLabel": "11",
-        "title": "Consent Items — Approval of Consent Items",
+        "title": "Consent Items — Approval of Consent Items (bundle, including items moved from 12.11–12.14)",
         "phases": {
           "opened": 4176,
           "presentation": null,
@@ -882,20 +786,6 @@
         },
         "publicComments": [],
         "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "12",
-        "title": "Action Items",
-        "phases": {
-          "opened": 4200,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
         "pulled": false
       },
       {
@@ -979,7 +869,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4434,
+            "seconds": 4439,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -997,7 +887,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4461,
+            "seconds": 4464,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1015,7 +905,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4488,
+            "seconds": 4492,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1044,14 +934,14 @@
       },
       {
         "itemLabel": "12.9",
-        "title": "Adoption of Resolution 48 — Resolution Calling for an Election on November 8, 2022 for the Election of Two Members of the Governing Board",
+        "title": "Adoption of Resolution 48 — Resolution Calling for an Election to be Held on November 8, 2022 for the Election of Two Members of the Governing Board",
         "phases": {
           "opened": 4523,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 4551,
+            "seconds": 4555,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1089,34 +979,6 @@
         "pulled": false
       },
       {
-        "itemLabel": "13.1",
-        "title": "Report from Board Members and Superintendent",
-        "phases": {
-          "opened": 4562,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": 4562,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14",
-        "title": "Information",
-        "phases": {
-          "opened": 4591,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "14.1",
         "title": "Contract Update Information and Credit Card Summary",
         "phases": {
@@ -1134,7 +996,7 @@
         "itemLabel": "14.2",
         "title": "Universal Prekindergarten Planning Template",
         "phases": {
-          "opened": 4600,
+          "opened": 4607,
           "presentation": 4636,
           "publicComment": null,
           "discussion": 5287,
@@ -1176,7 +1038,7 @@
         "itemLabel": "16",
         "title": "Other Business / Suggested Items for Future Agenda",
         "phases": {
-          "opened": 6322,
+          "opened": 6323,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1190,7 +1052,7 @@
         "itemLabel": "17",
         "title": "Board Agenda Calendar — Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 6325,
+          "opened": 6326,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1220,7 +1082,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:06:21.062Z",
-  "inputTokens": 26947,
-  "outputTokens": 4568
+  "cachedAt": "2026-07-23T09:57:14.270Z",
+  "inputTokens": 26938,
+  "outputTokens": 4282
 }
