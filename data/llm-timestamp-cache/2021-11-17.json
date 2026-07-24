@@ -18,12 +18,22 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced during 'Changes to the Agenda' section: Items 7.1, 7.2, and 7.3 moved to consent; 10.1 (grand jury response) moved to consent; continuation of study session discussion added after 8.2 as new item 8.2A or 8.3",
+    "agenda_changes": "Items 7.1, 7.2, and 7.3 moved to consent (section 6). Item 10.1 (grand jury response) moved to consent. Continuation of study session conversation moved to after 8.2 as new 8.2A or 8.3.",
     "consent_vote_words": "Roll call vote, please. Trustee Wells. Aye. Trustee Lawson. Aye. Tracy Marquez. Aye. Vice President Diasokum. Aye. President Macavoy. Aye.",
     "items": [
       {
         "item": 1,
         "intro_words": "All right, roll call, please. Trustee Wells. Here.",
+        "status": "found"
+      },
+      {
+        "item": 3,
+        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021.",
+        "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "Vien venidos. Si necesita interpretacion en espanol, por favor.",
         "status": "found"
       },
       {
@@ -47,63 +57,83 @@
         "status": "found"
       },
       {
-        "item": "7.4",
+        "item": 12,
         "intro_words": "All right, 7.4. Does anyone have any questions on this resolution?",
         "status": "found"
       },
       {
-        "item": "8.1",
-        "intro_words": "Right, okay, so we're on to 8.1. Discussion of reconvening North Star Forward Committee.",
-        "status": "found"
-      },
-      {
-        "item": "8.2",
-        "intro_words": "Right, okay, so we're on to the presentation regarding potential trustee area revision.",
-        "status": "found"
-      },
-      {
-        "item": "8.2A",
-        "intro_words": "All right, we'll have a new board president on December 15 as well.",
-        "status": "found"
-      },
-      {
-        "item": "8.3",
-        "intro_words": "All right, so this is 8.3 regarding uniform complaint Procedures.",
-        "status": "found"
-      },
-      {
-        "item": "8.4",
-        "intro_words": "Great. So the second.the second. This item 8.4 is regarding staff development.",
-        "status": "found"
-      },
-      {
-        "item": "8.5",
-        "intro_words": "Okay, moving ahead to 8.5. This board policy is an update.",
-        "status": "found"
-      },
-      {
-        "item": "8.6",
-        "intro_words": "Okay. Moving forward. 8.6. This actually is a new policy",
-        "status": "found"
-      },
-      {
-        "item": "8.7",
-        "intro_words": "Okay. And the next one goes hand in hand as well.",
-        "status": "found"
-      },
-      {
-        "item": "10.2",
-        "intro_words": "All right, great. So do I have a motion to approve?",
-        "status": "found"
-      },
-      {
         "item": 13,
-        "intro_words": "All right, board and superintendent reports. I have none.",
+        "intro_words": "All right, 8.1. Discussion of reconvening North Star Forward Committee.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Do I have a motion to adjourn? Second.",
+        "intro_words": "All right, so we're on to 8.1. Discussion of reconvening North Star Forward Committee.",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "All right, so we're on to the presentation regarding potential trustee area revision.",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "All right, so let's see. We are on to our 8.2 A or B",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "All right, so we are on to. We have a number of board policies",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "All right, so this is 8.3 regarding uniform complaint Procedures.",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "So the second board policy that we're reviewing tonight is on",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "Moving ahead to 8.5. This board policy is an update.",
+        "status": "found"
+      },
+      {
+        "item": 21,
+        "intro_words": "Okay. Moving forward. 8.6. This actually is a new policy",
+        "status": "found"
+      },
+      {
+        "item": 22,
+        "intro_words": "And the next one goes hand in hand as well.",
+        "status": "found"
+      },
+      {
+        "item": 23,
+        "intro_words": "All right, well, thank you Wendy, for all the work",
+        "status": "found"
+      },
+      {
+        "item": 24,
+        "intro_words": "And as a reminder, we had moved 10.1 to consent that",
+        "status": "found"
+      },
+      {
+        "item": 25,
+        "intro_words": "All right. Board and superintendent reports. I have none.",
+        "status": "found"
+      },
+      {
+        "item": 26,
+        "intro_words": "All right, anything else? Okay, so information. We don't have it.",
+        "status": "found"
+      },
+      {
+        "item": 27,
+        "intro_words": "Do I have a motion to adjourn? Second. All right,",
         "status": "found"
       }
     ]
@@ -116,8 +146,14 @@
         "timestampSeconds": 105
       },
       null,
-      null,
-      null,
+      {
+        "timestamp": "00:02:32",
+        "timestampSeconds": 152
+      },
+      {
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142
+      },
       {
         "timestamp": "00:02:12",
         "timestampSeconds": 132
@@ -137,18 +173,21 @@
         "timestamp": "00:05:35",
         "timestampSeconds": 335
       },
-      null,
       {
-        "timestamp": "02:12:50",
-        "timestampSeconds": 7970
+        "timestamp": "00:06:25",
+        "timestampSeconds": 385
       },
       {
-        "timestamp": "02:11:04",
-        "timestampSeconds": 7864
+        "timestamp": "00:07:27",
+        "timestampSeconds": 447
+      },
+      {
+        "timestamp": "00:07:12",
+        "timestampSeconds": 432
       }
     ]
   },
-  "cachedAt": "2026-07-24T09:56:44.443Z",
+  "cachedAt": "2026-07-24T20:50:29.190Z",
   "inputTokens": 25018,
-  "outputTokens": 969
+  "outputTokens": 1221
 }

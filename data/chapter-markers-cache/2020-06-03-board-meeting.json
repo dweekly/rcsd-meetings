@@ -1,18 +1,20 @@
 {
   "date": "2020-06-03",
+  "slug": "2020-06-03-board-meeting",
   "itemCount": 16,
+  "transcriptHash": "dc8cb9313f287bf3",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "President (Board President per transcript context — note: agenda lists Dennis McBride as President, but speaker A is running the meeting as President; the transcript has ASR confusion on roles. Based on the final vote where 'President Lawson' votes last, A=Janet Lawson)"
       },
       "B": {
-        "name": "John Baker",
-        "role": "Superintendent / Dr. Baker"
+        "name": "Multiple speakers",
+        "role": "B is used for multiple speakers including Dennis McBride (Board Member), Dr. John Baker (Superintendent), Kyle (IT staff), and various public speakers — disambiguated by context"
       }
     },
-    "agendaChanges": "The Pledge of Allegiance was replaced with a moment of silence. Oral Communication (Section 5) was addressed after Changes to the Agenda and Approval of Agenda, as is typical procedural order, but public speakers for item 6.1 were interspersed with board discussion of that item rather than held separately. No items were pulled from consent; consent calendar had no items listed.",
+    "agendaChanges": "The Pledge of Allegiance (listed under Section 2) was replaced with a moment of silence by the board president. Roll Call and Welcome were combined with Call to Order at the start. Oral Communication (Section 5) was called after the Pledge/Welcome/Changes/Approval sequence. No items were pulled from consent (Section 7 had no items). Items otherwise followed agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -46,15 +48,11 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 98,
+          "opened": 105,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": {
-            "seconds": 105,
-            "type": "roll-call",
-            "result": "4-0 (Márquez absent at time of vote)"
-          }
+          "vote": null
         },
         "publicComments": [],
         "consent": false,
@@ -64,14 +62,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 98,
+          "opened": 105,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 105,
+            "seconds": 115,
             "type": "roll-call",
-            "result": "4-0 (Márquez absent at time of vote)"
+            "result": "4-0 (Marquez absent at time of vote)"
           }
         },
         "publicComments": [],
@@ -82,13 +80,20 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 136,
+          "opened": 229,
           "presentation": null,
-          "publicComment": 136,
+          "publicComment": 2724,
           "discussion": null,
           "vote": null
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Catherine Stewart",
+            "startSeconds": 2726,
+            "endSeconds": 2860,
+            "summary": "Raised three points: re-establishing intra/out-of-district transfers, requesting Mandarin immersion instruction (language, writing, math) at least three days a week for at least an hour each, and asking the district to survey parents on work schedule needs so child care and school schedules can be coordinated."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -98,154 +103,154 @@
         "phases": {
           "opened": 229,
           "presentation": 260,
-          "publicComment": 2726,
+          "publicComment": 2643,
           "discussion": 2359,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Katherine Stewart",
-            "startSeconds": 2726,
-            "endSeconds": 2860,
-            "summary": "Asked about re-establishing transfer students, requested Mandarin immersion instruction at least three days a week, and urged the district to survey parents about work schedules to inform hybrid scheduling."
-          },
-          {
             "name": "Christy Herrera",
             "startSeconds": 2892,
             "endSeconds": 3085,
-            "summary": "A kindergarten teacher with 19 years of experience expressed concerns about the hybrid model for kindergartners and advocated for 100% distance learning for TK/K students at the start of the year."
+            "summary": "A 19-year kindergarten teacher argued that the hybrid model is unworkable for kindergartners given COVID restrictions, and strongly recommended 100% distance learning for TK/K students to avoid trauma and allow proper acclimation."
           },
           {
             "name": "Sarah Latora",
             "startSeconds": 3365,
             "endSeconds": 3559,
-            "summary": "A parent of two praised Clifford Elementary staff, raised concerns about mask barriers for students with vision issues, requested consistent sibling scheduling, and supported team teaching and a district-wide virtual classroom for full-distance families."
+            "summary": "A parent of a third and fifth grader praised Clifford Elementary staff, raised concerns about mask-wearing barriers for children with vision/sensory issues, requested consistent scheduling for siblings, suggested grouping full-distance-learning students across sites with a single teacher, and supported team teaching."
           },
           {
             "name": "Sandy Hoover",
             "startSeconds": 3266,
             "endSeconds": 3365,
-            "summary": "A TK teacher at Clifford advocated for the full distance learning model to keep all staff, students, and families safe and to allow a positive introduction to school routines before returning in person."
+            "summary": "A TK teacher at Clifford advocated for full distance learning as the best model to keep staff, students, and families safe while still delivering curriculum, and suggested it would allow children to acclimate positively before returning in person."
           },
           {
             "name": "Jacqueline Rodriguez",
             "startSeconds": 3744,
             "endSeconds": 3838,
-            "summary": "A parent leader proposed the creation of a parent committee to collaborate with the district on decisions about returning to school."
+            "summary": "A parent leader proposed the creation of a parent committee to collaborate with the district on decisions about returning to school, and thanked board members who met with parents."
           },
           {
             "name": "Alexandra Sawiski",
-            "startSeconds": 3839,
+            "startSeconds": 3851,
             "endSeconds": 3941,
-            "summary": "An essential worker and single guardian expressed concerns about child care support for working parents and about support for non-Spanish-speaking families in the immersion program."
+            "summary": "An essential worker and sole guardian expressed concern about lack of support for working parents during distance learning, and asked for help with the Spanish-language component of her child's Adelante immersion program."
           },
           {
             "name": "Maria Elena Arteaga",
             "startSeconds": 3981,
             "endSeconds": 4098,
-            "summary": "A parent leader echoed the request for a parent committee to be involved in decisions about the return to school."
+            "summary": "A parent leader echoed the request for a parent committee to be involved in back-to-school decision-making and thanked board members who attended parent meetings."
           },
           {
             "name": "Jenny Overby",
             "startSeconds": 4120,
             "endSeconds": 4258,
-            "summary": "A teacher thanked Dr. Baker and the board for the professional development week and asked what the plan is for regular COVID-19 testing of all district staff."
+            "summary": "A teacher thanked Dr. Baker and the board for the professional development week, praised frontline essential workers, and asked what the district's plan is for regular COVID testing of all staff before and during the school year."
           },
           {
             "name": "Abid Kama",
             "startSeconds": 4369,
             "endSeconds": 4591,
-            "summary": "A Stanford instructor asked whether there is data comparing direct teacher instruction versus packaged online modules, and whether there is a plan to make up for lost instructional hours."
+            "summary": "A Stanford instructor asked whether there is data showing that live teacher instruction is more effective than packaged online modules, and also asked whether there is a plan to make up lost instructional hours and whether staff would be compensated for them."
           },
           {
             "name": "Michelle S.M.",
-            "startSeconds": 4664,
+            "startSeconds": 4704,
             "endSeconds": 4982,
-            "summary": "A speaker raised questions about why Fridays were chosen as the off day rather than Wednesday for cleaning, expressed concern about young children maintaining six-foot distancing, and stressed the need for child care solutions for both families and teachers."
+            "summary": "A community member questioned why Fridays were chosen as the off/cleaning day rather than Wednesday, raised concerns about enforcing six-foot distancing with young children, supported the idea of district-wide distance-learning teachers for students not returning, and stressed the need for child care solutions for both families and teachers."
           },
           {
-            "name": "Mercedes Nording",
+            "name": "Mercedes Northen and Rex Northen",
             "startSeconds": 5028,
-            "endSeconds": 5341,
-            "summary": "A parent from Adelante and her husband Rex asked what the educational goals and expectations are for the new school year, whether grading will return, and whether there will be improved interactivity rather than just task assignment."
+            "endSeconds": 5359,
+            "summary": "Two parents speaking together asked the district to articulate clear educational goals for the new year — including restoring grading, increasing teacher-student interactivity, and improving Spanish immersion instruction — expressing concern that lowered expectations harm all students, especially those who were excelling or most disadvantaged."
           },
           {
             "name": "Rosemary Campos",
-            "startSeconds": 5409,
+            "startSeconds": 5408,
             "endSeconds": 5643,
-            "summary": "A parent asked why a five-day AM/PM program is not feasible, raised concerns about the immersion component in all three models, asked how decision-making committees were formed, and questioned how teachers with health concerns would be accommodated and how cleaning frequency would be addressed."
+            "summary": "A parent asked for more explanation of why a five-day AM/PM model is not feasible, raised concerns about immersion program quality in all three models, asked how decision-making committees were formed, and questioned how teachers with health concerns will be accommodated and whether cleaning staff capacity is sufficient."
           },
           {
             "name": "Jen Cook",
             "startSeconds": 5895,
             "endSeconds": 6025,
-            "summary": "A parent of an incoming kindergartner expressed concern that none of the proposed models would be sustainable or effective for a child entering a Spanish immersion program via distance learning."
+            "summary": "A parent of an incoming kindergartner expressed serious doubt that any of the proposed models can effectively deliver Spanish immersion to a five-year-old in a home without native Spanish speakers, and asked for clear communication to incoming kinder families about how immersion challenges will be mitigated."
           },
           {
             "name": "Christopher Rosan",
             "startSeconds": 6025,
             "endSeconds": 6094,
-            "summary": "A parent from Adelante echoed concerns about kindergartners falling behind in language immersion and suggested that unused district campuses could alleviate space constraints."
+            "summary": "A parent echoed concerns about immersion fundamentals for kindergartners at Adelante/Selby, and suggested that unused open campuses in the district could be utilized to address space constraints for physical distancing."
           },
           {
             "name": "Michelle Buetler",
             "startSeconds": 6145,
             "endSeconds": 6366,
-            "summary": "A teacher expressed concern that school cannot function normally under all the restrictions, particularly for primary and special education students, and encouraged creative solutions such as weekly in-person check-ins and leveraging teachers who prefer to work from home."
+            "summary": "A teacher expressed doubt that school can function normally under COVID restrictions, especially for primary and special-education students, and called for creative outside-the-box thinking such as one in-person day per week combined with flexible remote learning, and allowing medically vulnerable teachers to serve larger distance-learning caseloads."
           },
           {
             "name": "Ceri Phillips",
             "startSeconds": 6368,
             "endSeconds": 6557,
-            "summary": "A parent of a first grader and incoming kindergartner stressed that learning loss is a long-term concern and that 85% of parents want their children back in school, urging the district to think creatively about safe in-person options."
+            "summary": "A parent of a first grader and incoming kindergartner stressed that the learning loss is a long-term issue affecting the whole year, argued that kindergartners cannot effectively learn online with a teacher they have never met in person, and noted that even non-essential workers will eventually need to return to work and require child care support."
           },
           {
             "name": "Ali Gilmore",
             "startSeconds": 6560,
-            "endSeconds": 6914,
-            "summary": "A parent of a student with an IEP asked for more detail about plans for special education accommodations, therapy services, and whether IEP modifications or outside service providers are being considered."
+            "endSeconds": 6812,
+            "summary": "A parent of a child receiving IEP therapy services asked for more detail on plans for special education — both mainstream accommodations and therapy services — noting that remote learning has been largely inaccessible or ineffective for students with special needs and asking whether outside providers, IEP modifications, or different in-person models are being considered."
           },
           {
             "name": "Heather Morey",
             "startSeconds": 6956,
             "endSeconds": 7006,
-            "summary": "A PE Plus representative thanked the district for its partnership during the pandemic and expressed readiness to support the district in whatever form next year takes."
+            "summary": "Speaking on behalf of PE Plus, she thanked the district for its partnership and the professional development time, and offered PE Plus's continued support in whatever form next year takes."
           },
           {
             "name": "Patricia Tez",
             "startSeconds": 7033,
             "endSeconds": 7117,
-            "summary": "A community member from North Fair Oaks asked about school lunch continuity during distance learning, how teachers would identify students suffering abuse at home, how non-English-speaking parents would be supported with technology, and what mental health support would be available for students."
+            "summary": "Speaking on behalf of North Fair Oaks area parents, she asked about continuity of school lunch and dinner programs under distance learning, how teachers will detect child abuse when not seeing students in person, and how the district will support non-English-speaking, non-tech-savvy parents and students experiencing depression or housing/job instability."
           },
           {
             "name": "Victor Hernandez",
             "startSeconds": 7339,
             "endSeconds": 7458,
-            "summary": "The executive director of PCC School Age Childcare offered the program's support to the district for child care needs, noting they had successfully supported distance learning and were ready to expand capacity at a new campus if needed."
+            "summary": "Executive Director of PCC School Age Childcare offered PCC's support to the district in providing child care, noting they successfully supported distance learning during the last two weeks of school and are ready to expand capacity at their current or a new campus."
           },
           {
             "name": "Karina Perez",
             "startSeconds": 7492,
             "endSeconds": 7565,
-            "summary": "A parent from Garfield Community School advocated for Option 1 (full distance learning), arguing that Option 2 is unworkable given parent hesitancy and that Option 3 places too much burden on teachers."
+            "summary": "A Garfield parent of two children advocated for Option 1 (full distance learning), arguing that Option 2 is unworkable given parent refusals and that Option 3 places too heavy a burden on teachers, while praising her children's teachers for their communication and virtual classes."
           },
           {
             "name": "Daniel Hecht",
             "startSeconds": 7628,
             "endSeconds": 7695,
-            "summary": "A parent of an upcoming first grader at Adelante expressed serious concerns about education quality in the fall and asked how many parents have expressed interest in withdrawing from public school."
+            "summary": "A parent of an upcoming first grader at Adelante Selby expressed dissatisfaction with all proposed plans, raised the possibility of homeschooling or private school, and asked how many parents have expressed interest in leaving the district and how that affects enrollment and funding."
           },
           {
             "name": "Marlena Goanna",
             "startSeconds": 7720,
             "endSeconds": 7971,
-            "summary": "A special education instructional assistant described the physical care needs of her students, including diapering and managing runners, explained how distance learning had produced remarkable progress for her students this year, and expressed worry about regression and challenges with health protocols when students return."
+            "summary": "A special education paraeducator working with kinder–second grade students with significant needs described the physical impossibility of maintaining six-foot distance while caring for students who need diaper changes, hand-over-hand support, or have elopement behaviors, and reported remarkable student progress during distance learning, expressing worry about regression if students return under restrictive conditions."
           },
           {
             "name": "Carrie Schmidt",
             "startSeconds": 8021,
             "endSeconds": 8376,
-            "summary": "A bilingual teacher with 25 years at Hoover acknowledged the trauma of the transition to distance learning, emphasized the importance of social-emotional monitoring, expressed concern about students who rely on school as a safe space, and personally favored a hybrid model while acknowledging the virus constrains all options."
+            "summary": "A 25-year bilingual teacher and reading specialist at Hoover acknowledged the trauma of the switch to distance learning, emphasized the importance of social-emotional wellbeing and parent partnership, expressed concern about children who depend on school as a safe haven, and said she personally favors a hybrid model but recognizes the virus ultimately dictates what is possible."
+          },
+          {
+            "name": "Nora Aguirre",
+            "startSeconds": 8383,
+            "endSeconds": 8448,
+            "summary": "Did not speak — the board was unable to locate or unmute her; a board member noted that the Special Ed Director Dr. Palino would call her the following day regarding her special education questions raised at a prior meeting."
           }
         ],
         "consent": false,
@@ -255,7 +260,7 @@
         "itemLabel": "7",
         "title": "Consent Items",
         "phases": {
-          "opened": 10245,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -287,7 +292,7 @@
         "itemLabel": "9",
         "title": "Adjournment",
         "phases": {
-          "opened": 10533,
+          "opened": 10518,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -308,14 +313,14 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "Board President"
+        "role": "President (Board President per transcript context — note: agenda lists Dennis McBride as President, but speaker A is running the meeting as President; the transcript has ASR confusion on roles. Based on the final vote where 'President Lawson' votes last, A=Janet Lawson)"
       },
       "B": {
-        "name": "John Baker",
-        "role": "Superintendent / Dr. Baker"
+        "name": "Multiple speakers",
+        "role": "B is used for multiple speakers including Dennis McBride (Board Member), Dr. John Baker (Superintendent), Kyle (IT staff), and various public speakers — disambiguated by context"
       }
     },
-    "agendaChanges": "The Pledge of Allegiance was replaced with a moment of silence. Oral Communication (Section 5) was addressed after Changes to the Agenda and Approval of Agenda, as is typical procedural order, but public speakers for item 6.1 were interspersed with board discussion of that item rather than held separately. No items were pulled from consent; consent calendar had no items listed.",
+    "agendaChanges": "The Pledge of Allegiance (listed under Section 2) was replaced with a moment of silence by the board president. Roll Call and Welcome were combined with Call to Order at the start. Oral Communication (Section 5) was called after the Pledge/Welcome/Changes/Approval sequence. No items were pulled from consent (Section 7 had no items). Items otherwise followed agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -349,15 +354,11 @@
         "itemLabel": "3",
         "title": "Changes to the Agenda",
         "phases": {
-          "opened": 98,
+          "opened": 105,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": {
-            "seconds": 105,
-            "type": "roll-call",
-            "result": "4-0 (Márquez absent at time of vote)"
-          }
+          "vote": null
         },
         "publicComments": [],
         "consent": false,
@@ -367,14 +368,14 @@
         "itemLabel": "4",
         "title": "Approval of Agenda",
         "phases": {
-          "opened": 98,
+          "opened": 105,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 105,
+            "seconds": 115,
             "type": "roll-call",
-            "result": "4-0 (Márquez absent at time of vote)"
+            "result": "4-0 (Marquez absent at time of vote)"
           }
         },
         "publicComments": [],
@@ -385,13 +386,20 @@
         "itemLabel": "5",
         "title": "Oral Communication",
         "phases": {
-          "opened": 136,
+          "opened": 229,
           "presentation": null,
-          "publicComment": 136,
+          "publicComment": 2724,
           "discussion": null,
           "vote": null
         },
-        "publicComments": [],
+        "publicComments": [
+          {
+            "name": "Catherine Stewart",
+            "startSeconds": 2726,
+            "endSeconds": 2860,
+            "summary": "Raised three points: re-establishing intra/out-of-district transfers, requesting Mandarin immersion instruction (language, writing, math) at least three days a week for at least an hour each, and asking the district to survey parents on work schedule needs so child care and school schedules can be coordinated."
+          }
+        ],
         "consent": false,
         "pulled": false
       },
@@ -401,154 +409,154 @@
         "phases": {
           "opened": 229,
           "presentation": 260,
-          "publicComment": 2726,
+          "publicComment": 2643,
           "discussion": 2359,
           "vote": null
         },
         "publicComments": [
           {
-            "name": "Katherine Stewart",
-            "startSeconds": 2726,
-            "endSeconds": 2860,
-            "summary": "Asked about re-establishing transfer students, requested Mandarin immersion instruction at least three days a week, and urged the district to survey parents about work schedules to inform hybrid scheduling."
-          },
-          {
             "name": "Christy Herrera",
             "startSeconds": 2892,
             "endSeconds": 3085,
-            "summary": "A kindergarten teacher with 19 years of experience expressed concerns about the hybrid model for kindergartners and advocated for 100% distance learning for TK/K students at the start of the year."
+            "summary": "A 19-year kindergarten teacher argued that the hybrid model is unworkable for kindergartners given COVID restrictions, and strongly recommended 100% distance learning for TK/K students to avoid trauma and allow proper acclimation."
           },
           {
             "name": "Sarah Latora",
             "startSeconds": 3365,
             "endSeconds": 3559,
-            "summary": "A parent of two praised Clifford Elementary staff, raised concerns about mask barriers for students with vision issues, requested consistent sibling scheduling, and supported team teaching and a district-wide virtual classroom for full-distance families."
+            "summary": "A parent of a third and fifth grader praised Clifford Elementary staff, raised concerns about mask-wearing barriers for children with vision/sensory issues, requested consistent scheduling for siblings, suggested grouping full-distance-learning students across sites with a single teacher, and supported team teaching."
           },
           {
             "name": "Sandy Hoover",
             "startSeconds": 3266,
             "endSeconds": 3365,
-            "summary": "A TK teacher at Clifford advocated for the full distance learning model to keep all staff, students, and families safe and to allow a positive introduction to school routines before returning in person."
+            "summary": "A TK teacher at Clifford advocated for full distance learning as the best model to keep staff, students, and families safe while still delivering curriculum, and suggested it would allow children to acclimate positively before returning in person."
           },
           {
             "name": "Jacqueline Rodriguez",
             "startSeconds": 3744,
             "endSeconds": 3838,
-            "summary": "A parent leader proposed the creation of a parent committee to collaborate with the district on decisions about returning to school."
+            "summary": "A parent leader proposed the creation of a parent committee to collaborate with the district on decisions about returning to school, and thanked board members who met with parents."
           },
           {
             "name": "Alexandra Sawiski",
-            "startSeconds": 3839,
+            "startSeconds": 3851,
             "endSeconds": 3941,
-            "summary": "An essential worker and single guardian expressed concerns about child care support for working parents and about support for non-Spanish-speaking families in the immersion program."
+            "summary": "An essential worker and sole guardian expressed concern about lack of support for working parents during distance learning, and asked for help with the Spanish-language component of her child's Adelante immersion program."
           },
           {
             "name": "Maria Elena Arteaga",
             "startSeconds": 3981,
             "endSeconds": 4098,
-            "summary": "A parent leader echoed the request for a parent committee to be involved in decisions about the return to school."
+            "summary": "A parent leader echoed the request for a parent committee to be involved in back-to-school decision-making and thanked board members who attended parent meetings."
           },
           {
             "name": "Jenny Overby",
             "startSeconds": 4120,
             "endSeconds": 4258,
-            "summary": "A teacher thanked Dr. Baker and the board for the professional development week and asked what the plan is for regular COVID-19 testing of all district staff."
+            "summary": "A teacher thanked Dr. Baker and the board for the professional development week, praised frontline essential workers, and asked what the district's plan is for regular COVID testing of all staff before and during the school year."
           },
           {
             "name": "Abid Kama",
             "startSeconds": 4369,
             "endSeconds": 4591,
-            "summary": "A Stanford instructor asked whether there is data comparing direct teacher instruction versus packaged online modules, and whether there is a plan to make up for lost instructional hours."
+            "summary": "A Stanford instructor asked whether there is data showing that live teacher instruction is more effective than packaged online modules, and also asked whether there is a plan to make up lost instructional hours and whether staff would be compensated for them."
           },
           {
             "name": "Michelle S.M.",
-            "startSeconds": 4664,
+            "startSeconds": 4704,
             "endSeconds": 4982,
-            "summary": "A speaker raised questions about why Fridays were chosen as the off day rather than Wednesday for cleaning, expressed concern about young children maintaining six-foot distancing, and stressed the need for child care solutions for both families and teachers."
+            "summary": "A community member questioned why Fridays were chosen as the off/cleaning day rather than Wednesday, raised concerns about enforcing six-foot distancing with young children, supported the idea of district-wide distance-learning teachers for students not returning, and stressed the need for child care solutions for both families and teachers."
           },
           {
-            "name": "Mercedes Nording",
+            "name": "Mercedes Northen and Rex Northen",
             "startSeconds": 5028,
-            "endSeconds": 5341,
-            "summary": "A parent from Adelante and her husband Rex asked what the educational goals and expectations are for the new school year, whether grading will return, and whether there will be improved interactivity rather than just task assignment."
+            "endSeconds": 5359,
+            "summary": "Two parents speaking together asked the district to articulate clear educational goals for the new year — including restoring grading, increasing teacher-student interactivity, and improving Spanish immersion instruction — expressing concern that lowered expectations harm all students, especially those who were excelling or most disadvantaged."
           },
           {
             "name": "Rosemary Campos",
-            "startSeconds": 5409,
+            "startSeconds": 5408,
             "endSeconds": 5643,
-            "summary": "A parent asked why a five-day AM/PM program is not feasible, raised concerns about the immersion component in all three models, asked how decision-making committees were formed, and questioned how teachers with health concerns would be accommodated and how cleaning frequency would be addressed."
+            "summary": "A parent asked for more explanation of why a five-day AM/PM model is not feasible, raised concerns about immersion program quality in all three models, asked how decision-making committees were formed, and questioned how teachers with health concerns will be accommodated and whether cleaning staff capacity is sufficient."
           },
           {
             "name": "Jen Cook",
             "startSeconds": 5895,
             "endSeconds": 6025,
-            "summary": "A parent of an incoming kindergartner expressed concern that none of the proposed models would be sustainable or effective for a child entering a Spanish immersion program via distance learning."
+            "summary": "A parent of an incoming kindergartner expressed serious doubt that any of the proposed models can effectively deliver Spanish immersion to a five-year-old in a home without native Spanish speakers, and asked for clear communication to incoming kinder families about how immersion challenges will be mitigated."
           },
           {
             "name": "Christopher Rosan",
             "startSeconds": 6025,
             "endSeconds": 6094,
-            "summary": "A parent from Adelante echoed concerns about kindergartners falling behind in language immersion and suggested that unused district campuses could alleviate space constraints."
+            "summary": "A parent echoed concerns about immersion fundamentals for kindergartners at Adelante/Selby, and suggested that unused open campuses in the district could be utilized to address space constraints for physical distancing."
           },
           {
             "name": "Michelle Buetler",
             "startSeconds": 6145,
             "endSeconds": 6366,
-            "summary": "A teacher expressed concern that school cannot function normally under all the restrictions, particularly for primary and special education students, and encouraged creative solutions such as weekly in-person check-ins and leveraging teachers who prefer to work from home."
+            "summary": "A teacher expressed doubt that school can function normally under COVID restrictions, especially for primary and special-education students, and called for creative outside-the-box thinking such as one in-person day per week combined with flexible remote learning, and allowing medically vulnerable teachers to serve larger distance-learning caseloads."
           },
           {
             "name": "Ceri Phillips",
             "startSeconds": 6368,
             "endSeconds": 6557,
-            "summary": "A parent of a first grader and incoming kindergartner stressed that learning loss is a long-term concern and that 85% of parents want their children back in school, urging the district to think creatively about safe in-person options."
+            "summary": "A parent of a first grader and incoming kindergartner stressed that the learning loss is a long-term issue affecting the whole year, argued that kindergartners cannot effectively learn online with a teacher they have never met in person, and noted that even non-essential workers will eventually need to return to work and require child care support."
           },
           {
             "name": "Ali Gilmore",
             "startSeconds": 6560,
-            "endSeconds": 6914,
-            "summary": "A parent of a student with an IEP asked for more detail about plans for special education accommodations, therapy services, and whether IEP modifications or outside service providers are being considered."
+            "endSeconds": 6812,
+            "summary": "A parent of a child receiving IEP therapy services asked for more detail on plans for special education — both mainstream accommodations and therapy services — noting that remote learning has been largely inaccessible or ineffective for students with special needs and asking whether outside providers, IEP modifications, or different in-person models are being considered."
           },
           {
             "name": "Heather Morey",
             "startSeconds": 6956,
             "endSeconds": 7006,
-            "summary": "A PE Plus representative thanked the district for its partnership during the pandemic and expressed readiness to support the district in whatever form next year takes."
+            "summary": "Speaking on behalf of PE Plus, she thanked the district for its partnership and the professional development time, and offered PE Plus's continued support in whatever form next year takes."
           },
           {
             "name": "Patricia Tez",
             "startSeconds": 7033,
             "endSeconds": 7117,
-            "summary": "A community member from North Fair Oaks asked about school lunch continuity during distance learning, how teachers would identify students suffering abuse at home, how non-English-speaking parents would be supported with technology, and what mental health support would be available for students."
+            "summary": "Speaking on behalf of North Fair Oaks area parents, she asked about continuity of school lunch and dinner programs under distance learning, how teachers will detect child abuse when not seeing students in person, and how the district will support non-English-speaking, non-tech-savvy parents and students experiencing depression or housing/job instability."
           },
           {
             "name": "Victor Hernandez",
             "startSeconds": 7339,
             "endSeconds": 7458,
-            "summary": "The executive director of PCC School Age Childcare offered the program's support to the district for child care needs, noting they had successfully supported distance learning and were ready to expand capacity at a new campus if needed."
+            "summary": "Executive Director of PCC School Age Childcare offered PCC's support to the district in providing child care, noting they successfully supported distance learning during the last two weeks of school and are ready to expand capacity at their current or a new campus."
           },
           {
             "name": "Karina Perez",
             "startSeconds": 7492,
             "endSeconds": 7565,
-            "summary": "A parent from Garfield Community School advocated for Option 1 (full distance learning), arguing that Option 2 is unworkable given parent hesitancy and that Option 3 places too much burden on teachers."
+            "summary": "A Garfield parent of two children advocated for Option 1 (full distance learning), arguing that Option 2 is unworkable given parent refusals and that Option 3 places too heavy a burden on teachers, while praising her children's teachers for their communication and virtual classes."
           },
           {
             "name": "Daniel Hecht",
             "startSeconds": 7628,
             "endSeconds": 7695,
-            "summary": "A parent of an upcoming first grader at Adelante expressed serious concerns about education quality in the fall and asked how many parents have expressed interest in withdrawing from public school."
+            "summary": "A parent of an upcoming first grader at Adelante Selby expressed dissatisfaction with all proposed plans, raised the possibility of homeschooling or private school, and asked how many parents have expressed interest in leaving the district and how that affects enrollment and funding."
           },
           {
             "name": "Marlena Goanna",
             "startSeconds": 7720,
             "endSeconds": 7971,
-            "summary": "A special education instructional assistant described the physical care needs of her students, including diapering and managing runners, explained how distance learning had produced remarkable progress for her students this year, and expressed worry about regression and challenges with health protocols when students return."
+            "summary": "A special education paraeducator working with kinder–second grade students with significant needs described the physical impossibility of maintaining six-foot distance while caring for students who need diaper changes, hand-over-hand support, or have elopement behaviors, and reported remarkable student progress during distance learning, expressing worry about regression if students return under restrictive conditions."
           },
           {
             "name": "Carrie Schmidt",
             "startSeconds": 8021,
             "endSeconds": 8376,
-            "summary": "A bilingual teacher with 25 years at Hoover acknowledged the trauma of the transition to distance learning, emphasized the importance of social-emotional monitoring, expressed concern about students who rely on school as a safe space, and personally favored a hybrid model while acknowledging the virus constrains all options."
+            "summary": "A 25-year bilingual teacher and reading specialist at Hoover acknowledged the trauma of the switch to distance learning, emphasized the importance of social-emotional wellbeing and parent partnership, expressed concern about children who depend on school as a safe haven, and said she personally favors a hybrid model but recognizes the virus ultimately dictates what is possible."
+          },
+          {
+            "name": "Nora Aguirre",
+            "startSeconds": 8383,
+            "endSeconds": 8448,
+            "summary": "Did not speak — the board was unable to locate or unmute her; a board member noted that the Special Ed Director Dr. Palino would call her the following day regarding her special education questions raised at a prior meeting."
           }
         ],
         "consent": false,
@@ -558,7 +566,7 @@
         "itemLabel": "7",
         "title": "Consent Items",
         "phases": {
-          "opened": 10245,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -590,7 +598,7 @@
         "itemLabel": "9",
         "title": "Adjournment",
         "phases": {
-          "opened": 10533,
+          "opened": 10518,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -606,7 +614,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:49:03.934Z",
+  "cachedAt": "2026-07-24T20:43:43.217Z",
   "inputTokens": 36495,
-  "outputTokens": 3239
+  "outputTokens": 3712
 }

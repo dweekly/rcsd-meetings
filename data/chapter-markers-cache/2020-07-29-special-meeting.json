@@ -1,19 +1,21 @@
 {
   "date": "2020-07-29",
+  "slug": "2020-07-29-special-meeting",
   "itemCount": 43,
+  "transcriptHash": "e2b5979c27340ab3",
   "llmResponse": {
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "President (per ASR confusion — actually Vice President Janet Lawson; but based on context she is running the meeting as President)"
+        "role": "President (ASR misidentified as Vice President; Dennis McBride is actually listed as President but transcript context shows Janet running the meeting as President)"
       },
       "B": {
         "name": "Dennis McBride",
-        "role": "Trustee (ASR calls him 'Jesse McBride'; board list shows Dennis McBride as President, but in this meeting Janet Lawson is presiding)"
+        "role": "Trustee (ASR called 'Jesse McBride')"
       },
       "C": {
-        "name": "Eliana (Clerk/Secretary)",
-        "role": "Board Secretary conducting roll call; also Wendy (HR presenter) shares this label in later segments — C is dual-used: roll call by secretary, and Wendy Cazares for HR/policy presentations"
+        "name": "Eliana (Kyle)",
+        "role": "Secretary/Clerk of the Board (conducting roll call)"
       },
       "D": {
         "name": "Dr. John Baker",
@@ -21,18 +23,18 @@
       },
       "E": {
         "name": "Alisa MacAvoy",
-        "role": "Vice President (ASR: 'McAvoy')"
+        "role": "Vice President (ASR called 'McAvoy', 'Makava')"
       },
       "F": {
         "name": "Liz Wolf",
         "role": "Assistant Superintendent, Educational Services"
       },
       "G": {
-        "name": "María Díaz-Slocum",
-        "role": "Trustee (also used for public speaker Kitty Aguilera in public comment segment)"
+        "name": "María Díaz-Slocum / various public speakers",
+        "role": "Trustee / public comment speakers (shared label in transcript)"
       }
     },
-    "agendaChanges": "During Changes to the Agenda (Section 3): Item 10.5 (Board Policy 6157 - Distance Teaching and Learning) was moved to immediately follow Item 8.1 (Discussion on COVID-19) so it could be discussed in that context. Items 10.3 (Approval of Changes to Employment Contract for Chief Business Official) and 10.4 (Approval of Personnel Changes for 2020-21) were moved to the Consent Items bundle (Section 9). As a result, the actual order of items taken up was: 1 (Roll Call), 2 (Welcome), 3 (Changes to Agenda), 4 (Approval of Agenda), 5 (Oral Communication), 6 (Bond Program Consent), 7 (Bond Program Action — no items), 8.1 (Discussion on COVID-19), 10.5 (Board Policy 6157, moved up), 9 (Consent Items including 10.3 and 10.4), 10.1 (New Attendance Area Boundaries), 10.2 (Resolution #2), 11 (Adjournment).",
+    "agendaChanges": "Three changes were approved: (1) Item 10.5 (Board Policy 6157 - Distance Teaching and Learning) was moved to be heard immediately after Item 8.1 (Discussion on COVID-19); (2) Item 10.3 (Approval of Changes to Employment Contract for Chief Business Official) was moved to Consent Items; (3) Item 10.4 (Approval of Personnel Changes for 2020-21) was moved to Consent Items. As a result, the actual order of business was: Sections 1-6, then 8.1, then 10.5, then Section 9 (including 10.3 and 10.4 as consent), then 10.1, then 10.2, then Adjournment. Section 7 had no action items and was skipped.",
     "items": [
       {
         "itemLabel": "1",
@@ -53,7 +55,7 @@
         "title": "Welcome by the School Board President",
         "phases": {
           "opened": 28,
-          "presentation": 28,
+          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -87,7 +89,7 @@
           "vote": {
             "seconds": 174,
             "type": "roll-call",
-            "result": "4-0 (Díaz-Slocum absent/away temporarily)"
+            "result": "4-0 (Díaz-Slocum absent)"
           }
         },
         "publicComments": [],
@@ -110,7 +112,7 @@
       },
       {
         "itemLabel": "6",
-        "title": "Bond Program Consent Items (Action Required) — Bundle including all 17 sub-items",
+        "title": "Bond Program Consent Items (Action Required)",
         "phases": {
           "opened": 198,
           "presentation": null,
@@ -119,7 +121,7 @@
           "vote": {
             "seconds": 226,
             "type": "roll-call",
-            "result": "4-0 (Díaz-Slocum absent/away temporarily; McBride, Márquez, MacAvoy, Lawson aye)"
+            "result": "4-0 (Díaz-Slocum absent)"
           }
         },
         "publicComments": [],
@@ -128,9 +130,9 @@
       },
       {
         "itemLabel": "7",
-        "title": "Bond Program Action Items",
+        "title": "Bond Program Action Items (Action Required)",
         "phases": {
-          "opened": 198,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -154,8 +156,8 @@
           {
             "name": "Megan O'Reilly Green",
             "startSeconds": 2853,
-            "endSeconds": 2936,
-            "summary": "As PTO co-president at Orion Alternative School, she described resources her group developed to help parents form distance learning supervision pods or micro-schools, and offered to share those resources via email."
+            "endSeconds": 2943,
+            "summary": "Offered resources developed by Orion Alternative School PTO to help parents organize distance learning supervision pods and micro-schools, and shared her contact email for those interested."
           }
         ],
         "consent": false,
@@ -163,7 +165,7 @@
       },
       {
         "itemLabel": "10.5",
-        "title": "Discussion and Approval of New Board Policy 6157 - Distance Teaching and Learning (moved to follow Item 8.1)",
+        "title": "Discussion and Approval of New Board Policy 6157 - Distance Teaching and Learning",
         "phases": {
           "opened": 3908,
           "presentation": 3928,
@@ -172,7 +174,7 @@
           "vote": {
             "seconds": 4166,
             "type": "roll-call",
-            "result": "5-0 (McBride, Márquez, Díaz-Slocum, MacAvoy, Lawson aye)"
+            "result": "5-0"
           }
         },
         "publicComments": [],
@@ -181,7 +183,7 @@
       },
       {
         "itemLabel": "9",
-        "title": "Consent Items (Action Required) — including original Section 9 items plus moved items 10.3 and 10.4",
+        "title": "Consent Items (Action Required) — including moved items 10.3 and 10.4",
         "phases": {
           "opened": 4190,
           "presentation": null,
@@ -190,43 +192,7 @@
           "vote": {
             "seconds": 4210,
             "type": "roll-call",
-            "result": "5-0 (McBride, Márquez, MacAvoy, Lawson aye; Díaz-Slocum aye)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10.3",
-        "title": "Approval of Changes to Employment Contract for Chief Business Official (moved to Consent)",
-        "phases": {
-          "opened": 4190,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4210,
-            "type": "roll-call",
-            "result": "passed as part of consent bundle"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10.4",
-        "title": "Approval of Personnel Changes for 2020-21 (moved to Consent)",
-        "phases": {
-          "opened": 4190,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4210,
-            "type": "roll-call",
-            "result": "passed as part of consent bundle"
+            "result": "4-0 (Díaz-Slocum absent from roll call)"
           }
         },
         "publicComments": [],
@@ -239,26 +205,26 @@
         "phases": {
           "opened": 4224,
           "presentation": 4239,
-          "publicComment": 4511,
+          "publicComment": 4507,
           "discussion": 4725,
           "vote": {
-            "seconds": 5316,
+            "seconds": 5308,
             "type": "roll-call",
-            "result": "5-0 (McBride, Márquez, Díaz-Slocum, MacAvoy, Lawson aye)"
+            "result": "5-0"
           }
         },
         "publicComments": [
           {
             "name": "Selena Holder",
             "startSeconds": 4511,
-            "endSeconds": 4511,
-            "summary": "Comment card submitted in favor of Scenario 2 but speaker was not present at the meeting."
+            "endSeconds": 4518,
+            "summary": "Was not present at the meeting; comment card submitted in advance in favor of Scenario 2."
           },
           {
             "name": "Kitty Aguilera",
             "startSeconds": 4568,
-            "endSeconds": 4692,
-            "summary": "A Hampton Oaks neighborhood resident with two young children implored the board to approve Map 3, citing safety, walkability, and community cohesion concerns about being assigned to Garfield School under Maps 1 or 2."
+            "endSeconds": 4700,
+            "summary": "Urged the board to approve Map 3, citing safety concerns about walkability and distance from the Hampton Oaks neighborhood to Garfield School, and argued that Map 3 correctly assigns their neighborhood to the closest school."
           }
         ],
         "consent": false,
@@ -273,13 +239,49 @@
           "publicComment": null,
           "discussion": 5487,
           "vote": {
-            "seconds": 5593,
+            "seconds": 5588,
             "type": "roll-call",
-            "result": "5-0 (Díaz-Slocum, MacAvoy, Lawson aye; McBride and Márquez confirmed by roll call)"
+            "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.3",
+        "title": "Approval of Changes to Employment Contract for Chief Business Official",
+        "phases": {
+          "opened": 4190,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 4210,
+            "type": "roll-call",
+            "result": "4-0 (moved to consent)"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.4",
+        "title": "Approval of Personnel Changes for 2020-21",
+        "phases": {
+          "opened": 4190,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 4210,
+            "type": "roll-call",
+            "result": "4-0 (moved to consent)"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
         "pulled": false
       },
       {
@@ -291,9 +293,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5633,
+            "seconds": 5634,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -307,15 +309,15 @@
     "speakers": {
       "A": {
         "name": "Janet Lawson",
-        "role": "President (per ASR confusion — actually Vice President Janet Lawson; but based on context she is running the meeting as President)"
+        "role": "President (ASR misidentified as Vice President; Dennis McBride is actually listed as President but transcript context shows Janet running the meeting as President)"
       },
       "B": {
         "name": "Dennis McBride",
-        "role": "Trustee (ASR calls him 'Jesse McBride'; board list shows Dennis McBride as President, but in this meeting Janet Lawson is presiding)"
+        "role": "Trustee (ASR called 'Jesse McBride')"
       },
       "C": {
-        "name": "Eliana (Clerk/Secretary)",
-        "role": "Board Secretary conducting roll call; also Wendy (HR presenter) shares this label in later segments — C is dual-used: roll call by secretary, and Wendy Cazares for HR/policy presentations"
+        "name": "Eliana (Kyle)",
+        "role": "Secretary/Clerk of the Board (conducting roll call)"
       },
       "D": {
         "name": "Dr. John Baker",
@@ -323,18 +325,18 @@
       },
       "E": {
         "name": "Alisa MacAvoy",
-        "role": "Vice President (ASR: 'McAvoy')"
+        "role": "Vice President (ASR called 'McAvoy', 'Makava')"
       },
       "F": {
         "name": "Liz Wolf",
         "role": "Assistant Superintendent, Educational Services"
       },
       "G": {
-        "name": "María Díaz-Slocum",
-        "role": "Trustee (also used for public speaker Kitty Aguilera in public comment segment)"
+        "name": "María Díaz-Slocum / various public speakers",
+        "role": "Trustee / public comment speakers (shared label in transcript)"
       }
     },
-    "agendaChanges": "During Changes to the Agenda (Section 3): Item 10.5 (Board Policy 6157 - Distance Teaching and Learning) was moved to immediately follow Item 8.1 (Discussion on COVID-19) so it could be discussed in that context. Items 10.3 (Approval of Changes to Employment Contract for Chief Business Official) and 10.4 (Approval of Personnel Changes for 2020-21) were moved to the Consent Items bundle (Section 9). As a result, the actual order of items taken up was: 1 (Roll Call), 2 (Welcome), 3 (Changes to Agenda), 4 (Approval of Agenda), 5 (Oral Communication), 6 (Bond Program Consent), 7 (Bond Program Action — no items), 8.1 (Discussion on COVID-19), 10.5 (Board Policy 6157, moved up), 9 (Consent Items including 10.3 and 10.4), 10.1 (New Attendance Area Boundaries), 10.2 (Resolution #2), 11 (Adjournment).",
+    "agendaChanges": "Three changes were approved: (1) Item 10.5 (Board Policy 6157 - Distance Teaching and Learning) was moved to be heard immediately after Item 8.1 (Discussion on COVID-19); (2) Item 10.3 (Approval of Changes to Employment Contract for Chief Business Official) was moved to Consent Items; (3) Item 10.4 (Approval of Personnel Changes for 2020-21) was moved to Consent Items. As a result, the actual order of business was: Sections 1-6, then 8.1, then 10.5, then Section 9 (including 10.3 and 10.4 as consent), then 10.1, then 10.2, then Adjournment. Section 7 had no action items and was skipped.",
     "items": [
       {
         "itemLabel": "1",
@@ -355,7 +357,7 @@
         "title": "Welcome by the School Board President",
         "phases": {
           "opened": 28,
-          "presentation": 28,
+          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -389,7 +391,7 @@
           "vote": {
             "seconds": 174,
             "type": "roll-call",
-            "result": "4-0 (Díaz-Slocum absent/away temporarily)"
+            "result": "4-0 (Díaz-Slocum absent)"
           }
         },
         "publicComments": [],
@@ -412,7 +414,7 @@
       },
       {
         "itemLabel": "6",
-        "title": "Bond Program Consent Items (Action Required) — Bundle including all 17 sub-items",
+        "title": "Bond Program Consent Items (Action Required)",
         "phases": {
           "opened": 198,
           "presentation": null,
@@ -421,7 +423,7 @@
           "vote": {
             "seconds": 226,
             "type": "roll-call",
-            "result": "4-0 (Díaz-Slocum absent/away temporarily; McBride, Márquez, MacAvoy, Lawson aye)"
+            "result": "4-0 (Díaz-Slocum absent)"
           }
         },
         "publicComments": [],
@@ -430,9 +432,9 @@
       },
       {
         "itemLabel": "7",
-        "title": "Bond Program Action Items",
+        "title": "Bond Program Action Items (Action Required)",
         "phases": {
-          "opened": 198,
+          "opened": null,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -456,8 +458,8 @@
           {
             "name": "Megan O'Reilly Green",
             "startSeconds": 2853,
-            "endSeconds": 2936,
-            "summary": "As PTO co-president at Orion Alternative School, she described resources her group developed to help parents form distance learning supervision pods or micro-schools, and offered to share those resources via email."
+            "endSeconds": 2943,
+            "summary": "Offered resources developed by Orion Alternative School PTO to help parents organize distance learning supervision pods and micro-schools, and shared her contact email for those interested."
           }
         ],
         "consent": false,
@@ -465,7 +467,7 @@
       },
       {
         "itemLabel": "10.5",
-        "title": "Discussion and Approval of New Board Policy 6157 - Distance Teaching and Learning (moved to follow Item 8.1)",
+        "title": "Discussion and Approval of New Board Policy 6157 - Distance Teaching and Learning",
         "phases": {
           "opened": 3908,
           "presentation": 3928,
@@ -474,7 +476,7 @@
           "vote": {
             "seconds": 4166,
             "type": "roll-call",
-            "result": "5-0 (McBride, Márquez, Díaz-Slocum, MacAvoy, Lawson aye)"
+            "result": "5-0"
           }
         },
         "publicComments": [],
@@ -483,7 +485,7 @@
       },
       {
         "itemLabel": "9",
-        "title": "Consent Items (Action Required) — including original Section 9 items plus moved items 10.3 and 10.4",
+        "title": "Consent Items (Action Required) — including moved items 10.3 and 10.4",
         "phases": {
           "opened": 4190,
           "presentation": null,
@@ -492,43 +494,7 @@
           "vote": {
             "seconds": 4210,
             "type": "roll-call",
-            "result": "5-0 (McBride, Márquez, MacAvoy, Lawson aye; Díaz-Slocum aye)"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10.3",
-        "title": "Approval of Changes to Employment Contract for Chief Business Official (moved to Consent)",
-        "phases": {
-          "opened": 4190,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4210,
-            "type": "roll-call",
-            "result": "passed as part of consent bundle"
-          }
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10.4",
-        "title": "Approval of Personnel Changes for 2020-21 (moved to Consent)",
-        "phases": {
-          "opened": 4190,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": {
-            "seconds": 4210,
-            "type": "roll-call",
-            "result": "passed as part of consent bundle"
+            "result": "4-0 (Díaz-Slocum absent from roll call)"
           }
         },
         "publicComments": [],
@@ -541,26 +507,26 @@
         "phases": {
           "opened": 4224,
           "presentation": 4239,
-          "publicComment": 4511,
+          "publicComment": 4507,
           "discussion": 4725,
           "vote": {
-            "seconds": 5316,
+            "seconds": 5308,
             "type": "roll-call",
-            "result": "5-0 (McBride, Márquez, Díaz-Slocum, MacAvoy, Lawson aye)"
+            "result": "5-0"
           }
         },
         "publicComments": [
           {
             "name": "Selena Holder",
             "startSeconds": 4511,
-            "endSeconds": 4511,
-            "summary": "Comment card submitted in favor of Scenario 2 but speaker was not present at the meeting."
+            "endSeconds": 4518,
+            "summary": "Was not present at the meeting; comment card submitted in advance in favor of Scenario 2."
           },
           {
             "name": "Kitty Aguilera",
             "startSeconds": 4568,
-            "endSeconds": 4692,
-            "summary": "A Hampton Oaks neighborhood resident with two young children implored the board to approve Map 3, citing safety, walkability, and community cohesion concerns about being assigned to Garfield School under Maps 1 or 2."
+            "endSeconds": 4700,
+            "summary": "Urged the board to approve Map 3, citing safety concerns about walkability and distance from the Hampton Oaks neighborhood to Garfield School, and argued that Map 3 correctly assigns their neighborhood to the closest school."
           }
         ],
         "consent": false,
@@ -575,13 +541,49 @@
           "publicComment": null,
           "discussion": 5487,
           "vote": {
-            "seconds": 5593,
+            "seconds": 5588,
             "type": "roll-call",
-            "result": "5-0 (Díaz-Slocum, MacAvoy, Lawson aye; McBride and Márquez confirmed by roll call)"
+            "result": "5-0"
           }
         },
         "publicComments": [],
         "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.3",
+        "title": "Approval of Changes to Employment Contract for Chief Business Official",
+        "phases": {
+          "opened": 4190,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 4210,
+            "type": "roll-call",
+            "result": "4-0 (moved to consent)"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10.4",
+        "title": "Approval of Personnel Changes for 2020-21",
+        "phases": {
+          "opened": 4190,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 4210,
+            "type": "roll-call",
+            "result": "4-0 (moved to consent)"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
         "pulled": false
       },
       {
@@ -593,9 +595,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 5633,
+            "seconds": 5634,
             "type": "voice",
-            "result": "approved unanimously"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -604,7 +606,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:41:04.587Z",
-  "inputTokens": 23924,
-  "outputTokens": 2772
+  "cachedAt": "2026-07-24T20:35:52.276Z",
+  "inputTokens": 23918,
+  "outputTokens": 2474
 }

@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - board will not discuss that night, to come forward at another time. Item 9.3 moved from consent to action for further discussion and elaboration.",
-    "consent_vote_words": null,
+    "agenda_changes": "Two agenda changes announced: Item 10.1 pulled (not to be discussed); Item 9.3 moved from consent to action with request for elaboration",
+    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1",
     "items": [
       {
         "item": 1,
@@ -28,82 +28,77 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll Call",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome",
+        "intro_words": "Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "intro_words": "Welcome by the School Board President, Cecilia Marquez - implicit in President's opening remarks",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Changes to the Agenda",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Additions, Deletions, or Modifications to the Agenda",
+        "intro_words": "Included in item 5 announcement",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Approval of the Agenda (Action required)",
+        "intro_words": "does somebody want to make a motion to approve the agenda with the changes",
         "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Not applicable - duplicate of item 7",
+        "status": "skipped"
       },
       {
         "item": 9,
-        "intro_words": "moving on to our study session discussion on dyslexia",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Item pulled from agenda per announced changes",
+        "status": "pulled"
       },
       {
         "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3",
+        "intro_words": "moving on to bond program consent Items, again with 9.3.",
         "status": "found"
       },
       {
-        "item": 9.3,
-        "intro_words": "Approval of proposal for the infrastructure of two video intercom buzzers",
-        "status": "found"
-      },
-      {
-        "item": 11.1,
-        "intro_words": "Hoover and Henry Ford school presentations for the 2324 school year",
-        "status": "found"
-      },
-      {
-        "item": 12.1,
-        "intro_words": "First reading and discussion of board policy and Administrative Regulation",
+        "item": 12,
+        "intro_words": "moving on to 12.1 being first reading and discussion of board policy",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items",
+        "intro_words": "moving to item 13, consent items. If there are no questions",
         "status": "found"
       },
       {
-        "item": 14.1,
-        "intro_words": "adoption of resolution number five to approve continued funding application",
+        "item": 14,
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five",
         "status": "found"
       },
       {
-        "item": 14.2,
-        "intro_words": "Adoption of annual organizational meeting date set for December",
-        "status": "found"
-      },
-      {
-        "item": 16.1,
-        "intro_words": "information on San Mateo county investment fund",
+        "item": 16,
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "Other business possible other business suggested items for future",
+        "intro_words": "moving on to item 18. Other business possible other business suggested items",
         "status": "found"
       }
     ]
@@ -112,34 +107,49 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:00:22",
-        "timestampSeconds": 22
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
+      },
+      {
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
       null,
-      null,
+      {
+        "timestamp": "01:10:10",
+        "timestampSeconds": 4210
+      },
       null,
       {
-        "timestamp": "00:00:59",
-        "timestampSeconds": 59
+        "timestamp": "01:10:41",
+        "timestampSeconds": 4241
+      },
+      null,
+      {
+        "timestamp": "01:11:15",
+        "timestampSeconds": 4275
       },
       null,
       {
         "timestamp": "01:11:21",
         "timestampSeconds": 4281
       },
-      null,
+      {
+        "timestamp": "02:57:18",
+        "timestampSeconds": 10638
+      },
       {
         "timestamp": "03:03:35",
         "timestampSeconds": 11015
       },
-      null
+      {
+        "timestamp": "03:03:12",
+        "timestampSeconds": 10992
+      }
     ]
   },
-  "cachedAt": "2026-07-24T09:55:05.956Z",
+  "cachedAt": "2026-07-24T20:48:50.300Z",
   "inputTokens": 37863,
-  "outputTokens": 778
+  "outputTokens": 819
 }

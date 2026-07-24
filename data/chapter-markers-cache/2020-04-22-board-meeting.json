@@ -1,6 +1,8 @@
 {
   "date": "2020-04-22",
+  "slug": "2020-04-22-board-meeting",
   "itemCount": 59,
+  "transcriptHash": "494729ab04da8d6f",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -9,11 +11,11 @@
       },
       "B": {
         "name": "Eliana (staff)",
-        "role": "Board Secretary / Roll Call"
+        "role": "District Staff / Roll Call Reader"
       },
       "C": {
-        "name": "María Díaz-Slocum",
-        "role": "Trustee"
+        "name": "Alisa MacAvoy",
+        "role": "Clerk"
       },
       "D": {
         "name": "Janet Lawson",
@@ -21,11 +23,11 @@
       },
       "E": {
         "name": "Janet Lawson",
-        "role": "Vice President (meeting chair)"
+        "role": "Vice President / Meeting Chair (reconvened session)"
       },
       "F": {
-        "name": "Kyle (IT Director)",
-        "role": "District IT Director"
+        "name": "Kyle (staff)",
+        "role": "District Technology Staff"
       },
       "G": {
         "name": "Alisa MacAvoy",
@@ -36,11 +38,11 @@
         "role": "Trustee"
       },
       "I": {
-        "name": "Dr. John Baker",
+        "name": "John Baker",
         "role": "Superintendent"
       }
     },
-    "agendaChanges": "Oral Communication (Section 8) was moved to after the Discussion Items (after item 11.5) due to technical difficulties at the start of the meeting; it was ultimately heard just before item 11.2 at approximately 4194s. The board confirmed no changes to the agenda under Section 6. Items otherwise proceeded in posted order.",
+    "agendaChanges": "Oral Communication (Section 8) was moved to after the Discussion Items (Section 11) due to technical difficulties at the start of the meeting, and was taken up between Section 11 and Section 12. One speaker card for item 13.1 that came in during oral communication was held for that item. Sections 1-3 (Call to Order through Closed Session) and the Roll Call and Report Out on Closed Session from Section 4 occurred before the recording begins or at the very start; the recording opens mid-session at the Reconvened Regular Session.",
     "items": [
       {
         "itemLabel": "1",
@@ -57,8 +59,36 @@
         "pulled": false
       },
       {
-        "itemLabel": "1",
-        "title": "Roll Call (Opening / Closed Session)",
+        "itemLabel": "2",
+        "title": "Oral Communication on Closed Session Items Only",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "3",
+        "title": "Closed Session",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "4",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 7,
           "presentation": null,
@@ -71,50 +101,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "2",
-        "title": "Oral Communication on Closed Session Items Only",
-        "phases": {
-          "opened": 21,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "3",
-        "title": "Closed Session 6:00-7:00pm – Conference with Legal Counsel – Anticipated Litigation",
-        "phases": {
-          "opened": 21,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "4",
-        "title": "Reconvene to Regular Session – Roll Call and Report Out on Closed Session",
-        "phases": {
-          "opened": 21,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "5",
-        "title": "Welcome by the School Board President and Pledge of Allegiance",
+        "title": "Welcome by the School Board President / Pledge of Allegiance",
         "phases": {
           "opened": 21,
           "presentation": null,
@@ -162,7 +150,7 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 4194,
+          "opened": 4186,
           "presentation": null,
           "publicComment": 4194,
           "discussion": null,
@@ -171,9 +159,9 @@
         "publicComments": [
           {
             "name": "Kevin Sugar",
-            "startSeconds": 4221,
+            "startSeconds": 4222,
             "endSeconds": 4331,
-            "summary": "As president of the Redwood City Teachers Association, he urged the board to honor the commitments made in the recently signed tentative agreement with the district."
+            "summary": "As president of the Redwood City Teachers Association, he urged the board to honor the commitments and tentative agreement signed with the district, emphasizing the importance of the association's continued prosperity and solidarity during the COVID-19 era."
           }
         ],
         "consent": false,
@@ -198,15 +186,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.1: Approval of Agreement for Abatement Construction with ATI at Hoover School",
+        "itemLabel": "10.1",
+        "title": "Approval of Agreement for Abatement Construction with ATI at Hoover School",
         "phases": {
           "opened": 379,
-          "presentation": 412,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 417,
           "vote": {
-            "seconds": 437,
+            "seconds": 444,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -216,13 +204,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.2: Approval of New Gymnasium and Modernization Project Package G Change Order #2 with Beals Martin for Hoover Community School",
+        "itemLabel": "10.2",
+        "title": "Approval of New Gymnasium and Modernization Project Package D Change Order #2 with Beals Martin for Hoover Community School",
         "phases": {
           "opened": 457,
-          "presentation": 468,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 468,
           "vote": {
             "seconds": 490,
             "type": "roll-call",
@@ -234,13 +222,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.3: Adoption of Resolution 24, Energy Management System (EMS) Upgrades Sole Source Resolution and Agreements with Siemens",
+        "itemLabel": "10.3",
+        "title": "Adoption of Resolution 24, Approval of Energy Management System (EMS) Upgrades Sole Source Resolution and Agreements with Siemens",
         "phases": {
           "opened": 507,
-          "presentation": 518,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 518,
           "vote": {
             "seconds": 544,
             "type": "roll-call",
@@ -252,15 +240,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.4: Approval of Agreements for Energy Management System (EMS) Intrusion and Security Camera System Design with Siemens",
+        "itemLabel": "10.4",
+        "title": "Approval of Agreements for Energy Management System (EMS) Intrusion and Security Camera System Design with Siemens",
         "phases": {
           "opened": 561,
-          "presentation": 566,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 579,
           "vote": {
-            "seconds": 621,
+            "seconds": 627,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -270,8 +258,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.5: Approval of Construction Management Consultant Fee Reconciliation Proposals with RGM Kramer",
+        "itemLabel": "10.5",
+        "title": "Approval of Construction Management Consultant Fee Reconciliation Proposals with RGM Kramer",
         "phases": {
           "opened": 639,
           "presentation": null,
@@ -288,13 +276,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.1: Discussion on COVID-19",
+        "itemLabel": "11.1",
+        "title": "Discussion on COVID-19",
         "phases": {
           "opened": 706,
           "presentation": 720,
           "publicComment": 3966,
-          "discussion": 1692,
+          "discussion": 1682,
           "vote": null
         },
         "publicComments": [
@@ -302,15 +290,15 @@
             "name": "Teresita Carlos",
             "startSeconds": 4031,
             "endSeconds": 4108,
-            "summary": "Expressed gratitude to Henry Ford teachers for their phenomenal daily videos and packets that made distance learning easier for her as a parent of a kindergartner and first grader."
+            "summary": "Thanked teachers at Henry Ford School for their phenomenal work during distance learning, noting their daily videos, packets, and consistent communication made the transition easier for her family with four children across multiple grade levels."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.2: Discussion of Revisions to Board Policy 5131 – Conduct",
+        "itemLabel": "11.2",
+        "title": "Discussion of Revisions to Board Policy 5131 - Conduct",
         "phases": {
           "opened": 4339,
           "presentation": 4355,
@@ -323,8 +311,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.3: Discussion of Revisions to Board Policy 5145.9 – Hate Motivated Behavior",
+        "itemLabel": "11.3",
+        "title": "Discussion of Revisions to Board Policy 5145.9 - Hate Motivated Behavior",
         "phases": {
           "opened": 4511,
           "presentation": 4520,
@@ -337,8 +325,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.4: Discussion of Revisions to Board Policy and Administrative Regulations 6143 – Courses of Study",
+        "itemLabel": "11.4",
+        "title": "Discussion of Revisions to Board Policy and Administrative Regulations 6143 - Courses of Study",
         "phases": {
           "opened": 4609,
           "presentation": 4617,
@@ -351,8 +339,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.5: Discussion of Revisions to Board Policy and Administrative Regulations 6145.5 – Student Organization and Equal Access",
+        "itemLabel": "11.5",
+        "title": "Discussion of Revisions to Board Policy and Administrative Regulations 6145.5 - Student Organization and Equal Access",
         "phases": {
           "opened": 4689,
           "presentation": 4699,
@@ -383,17 +371,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.1: Approval of Permanently Renaming 170 Selby Lane as Adelante Selby Spanish Immersion School",
+        "itemLabel": "13.1",
+        "title": "Approval of Permanently Renaming the 170 Selby Lane Site as Adelante Selby Spanish Immersion School",
         "phases": {
           "opened": 5060,
           "presentation": 5088,
           "publicComment": 5480,
-          "discussion": 6110,
+          "discussion": 6092,
           "vote": {
             "seconds": 6806,
             "type": "roll-call",
-            "result": "5-0 (motion to reject the proposed name)"
+            "result": "5-0 (to reject the proposed name)"
           }
         },
         "publicComments": [
@@ -401,34 +389,34 @@
             "name": "Michelle Smith",
             "startSeconds": 5507,
             "endSeconds": 5705,
-            "summary": "Advocated that the name should be either Adelante Spanish Immersion or Unidos rather than Adelante Selby, which she felt was a compromise that satisfied neither community."
+            "summary": "Advocated that neither Adelante alone nor Adelante Selby was fully satisfying, and suggested 'Unidos' as a more unifying alternative name that her children and other parents supported as representing both communities coming together."
           },
           {
             "name": "Rita Melton",
             "startSeconds": 5729,
             "endSeconds": 5943,
-            "summary": "Read a letter on behalf of Adelante teachers opposing the name Adelante Selby, arguing that 'Selby' has no connection to bilingualism and that if the name cannot be Adelante, Unidos would be an acceptable second choice."
+            "summary": "Read a letter signed by Adelante teachers objecting to the name Adelante Selby, arguing Thomas H. Selby has no connection to bilingualism or immersion, that the Adelante program is internationally recognized and its name should be honored as the majority vote winner, and offering Unidos as a second-choice alternative."
           },
           {
             "name": "James Carrig",
             "startSeconds": 5982,
             "endSeconds": 6086,
-            "summary": "Expressed disappointment that teachers were still advocating for the Adelante name and suggested a completely fresh new name, also questioning whether a board member who is a parent at the school should abstain from the vote."
+            "summary": "Expressed disappointment that Adelante teachers and staff were still pushing for strictly the Adelante name rather than moving on, suggested a completely fresh new name for a true new beginning, questioned the equity of the voting process, and suggested that a board member who is a parent at the school might consider abstaining from the vote."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.2: Approval of First Amendment to Joint Use Agreement with Anna Cencioso, LLC DBA Touchstone Learning (Hawes Elementary School)",
+        "itemLabel": "13.2",
+        "title": "Approval of First Amendment to Joint Use Agreement with Anna Cencioso, LLC DBA Touchstone Learning (Hawes Elementary School)",
         "phases": {
           "opened": 7168,
           "presentation": 7200,
           "publicComment": null,
           "discussion": 7426,
           "vote": {
-            "seconds": 7594,
+            "seconds": 7597,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -438,15 +426,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.3: Approval of Personnel Report",
+        "itemLabel": "13.3",
+        "title": "Approval of Personnel Report",
         "phases": {
           "opened": 7617,
           "presentation": 7624,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7663,
+            "seconds": 7669,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -456,15 +444,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.4: Approval of Variable Term Waiver Request",
+        "itemLabel": "13.4",
+        "title": "Approval of Variable Term Waiver Request",
         "phases": {
           "opened": 7683,
           "presentation": 7688,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7719,
+            "seconds": 7723,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -474,15 +462,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.5: Approval of Resolution 25 to Designate Authorized Agents for FEMA COVID-19 Disaster Relief",
+        "itemLabel": "13.5",
+        "title": "Approval of Resolution 25 to Designate Authorized Agents for FEMA COVID-19 Disaster Relief",
         "phases": {
           "opened": 7733,
-          "presentation": 7744,
+          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7754,
+            "seconds": 7760,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -493,7 +481,7 @@
       },
       {
         "itemLabel": "14",
-        "title": "Board and Superintendent Report",
+        "title": "Report from Board Members and Superintendent",
         "phases": {
           "opened": 7772,
           "presentation": 7808,
@@ -507,37 +495,9 @@
       },
       {
         "itemLabel": "15",
-        "title": "Information – 15.1: Contract Update Information and Credit Card Summary",
+        "title": "Information",
         "phases": {
-          "opened": 8088,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "15",
-        "title": "Information – 15.2: Information on San Mateo County Investment Fund – March 2020",
-        "phases": {
-          "opened": 8097,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "15",
-        "title": "Information – 15.3: Quarterly Williams Report, 3rd Quarter",
-        "phases": {
-          "opened": 8105,
+          "opened": 8083,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -568,7 +528,7 @@
           "opened": 8208,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8216,
           "vote": null
         },
         "publicComments": [],
@@ -577,12 +537,12 @@
       },
       {
         "itemLabel": "18",
-        "title": "Board Agenda Calendar – Changes to the Board Agenda Schedule",
+        "title": "Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 8255,
+          "opened": 8281,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8216,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -593,14 +553,14 @@
         "itemLabel": "19",
         "title": "Adjournment",
         "phases": {
-          "opened": 8421,
+          "opened": 8385,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 8493,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -618,11 +578,11 @@
       },
       "B": {
         "name": "Eliana (staff)",
-        "role": "Board Secretary / Roll Call"
+        "role": "District Staff / Roll Call Reader"
       },
       "C": {
-        "name": "María Díaz-Slocum",
-        "role": "Trustee"
+        "name": "Alisa MacAvoy",
+        "role": "Clerk"
       },
       "D": {
         "name": "Janet Lawson",
@@ -630,11 +590,11 @@
       },
       "E": {
         "name": "Janet Lawson",
-        "role": "Vice President (meeting chair)"
+        "role": "Vice President / Meeting Chair (reconvened session)"
       },
       "F": {
-        "name": "Kyle (IT Director)",
-        "role": "District IT Director"
+        "name": "Kyle (staff)",
+        "role": "District Technology Staff"
       },
       "G": {
         "name": "Alisa MacAvoy",
@@ -645,11 +605,11 @@
         "role": "Trustee"
       },
       "I": {
-        "name": "Dr. John Baker",
+        "name": "John Baker",
         "role": "Superintendent"
       }
     },
-    "agendaChanges": "Oral Communication (Section 8) was moved to after the Discussion Items (after item 11.5) due to technical difficulties at the start of the meeting; it was ultimately heard just before item 11.2 at approximately 4194s. The board confirmed no changes to the agenda under Section 6. Items otherwise proceeded in posted order.",
+    "agendaChanges": "Oral Communication (Section 8) was moved to after the Discussion Items (Section 11) due to technical difficulties at the start of the meeting, and was taken up between Section 11 and Section 12. One speaker card for item 13.1 that came in during oral communication was held for that item. Sections 1-3 (Call to Order through Closed Session) and the Roll Call and Report Out on Closed Session from Section 4 occurred before the recording begins or at the very start; the recording opens mid-session at the Reconvened Regular Session.",
     "items": [
       {
         "itemLabel": "1",
@@ -666,8 +626,36 @@
         "pulled": false
       },
       {
-        "itemLabel": "1",
-        "title": "Roll Call (Opening / Closed Session)",
+        "itemLabel": "2",
+        "title": "Oral Communication on Closed Session Items Only",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "3",
+        "title": "Closed Session",
+        "phases": {
+          "opened": null,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "4",
+        "title": "Reconvene to Regular Session / Roll Call / Report Out on Closed Session",
         "phases": {
           "opened": 7,
           "presentation": null,
@@ -680,50 +668,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "2",
-        "title": "Oral Communication on Closed Session Items Only",
-        "phases": {
-          "opened": 21,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "3",
-        "title": "Closed Session 6:00-7:00pm – Conference with Legal Counsel – Anticipated Litigation",
-        "phases": {
-          "opened": 21,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "4",
-        "title": "Reconvene to Regular Session – Roll Call and Report Out on Closed Session",
-        "phases": {
-          "opened": 21,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "5",
-        "title": "Welcome by the School Board President and Pledge of Allegiance",
+        "title": "Welcome by the School Board President / Pledge of Allegiance",
         "phases": {
           "opened": 21,
           "presentation": null,
@@ -771,7 +717,7 @@
         "itemLabel": "8",
         "title": "Oral Communication",
         "phases": {
-          "opened": 4194,
+          "opened": 4186,
           "presentation": null,
           "publicComment": 4194,
           "discussion": null,
@@ -780,9 +726,9 @@
         "publicComments": [
           {
             "name": "Kevin Sugar",
-            "startSeconds": 4221,
+            "startSeconds": 4222,
             "endSeconds": 4331,
-            "summary": "As president of the Redwood City Teachers Association, he urged the board to honor the commitments made in the recently signed tentative agreement with the district."
+            "summary": "As president of the Redwood City Teachers Association, he urged the board to honor the commitments and tentative agreement signed with the district, emphasizing the importance of the association's continued prosperity and solidarity during the COVID-19 era."
           }
         ],
         "consent": false,
@@ -807,15 +753,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.1: Approval of Agreement for Abatement Construction with ATI at Hoover School",
+        "itemLabel": "10.1",
+        "title": "Approval of Agreement for Abatement Construction with ATI at Hoover School",
         "phases": {
           "opened": 379,
-          "presentation": 412,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 417,
           "vote": {
-            "seconds": 437,
+            "seconds": 444,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -825,13 +771,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.2: Approval of New Gymnasium and Modernization Project Package G Change Order #2 with Beals Martin for Hoover Community School",
+        "itemLabel": "10.2",
+        "title": "Approval of New Gymnasium and Modernization Project Package D Change Order #2 with Beals Martin for Hoover Community School",
         "phases": {
           "opened": 457,
-          "presentation": 468,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 468,
           "vote": {
             "seconds": 490,
             "type": "roll-call",
@@ -843,13 +789,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.3: Adoption of Resolution 24, Energy Management System (EMS) Upgrades Sole Source Resolution and Agreements with Siemens",
+        "itemLabel": "10.3",
+        "title": "Adoption of Resolution 24, Approval of Energy Management System (EMS) Upgrades Sole Source Resolution and Agreements with Siemens",
         "phases": {
           "opened": 507,
-          "presentation": 518,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 518,
           "vote": {
             "seconds": 544,
             "type": "roll-call",
@@ -861,15 +807,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.4: Approval of Agreements for Energy Management System (EMS) Intrusion and Security Camera System Design with Siemens",
+        "itemLabel": "10.4",
+        "title": "Approval of Agreements for Energy Management System (EMS) Intrusion and Security Camera System Design with Siemens",
         "phases": {
           "opened": 561,
-          "presentation": 566,
+          "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 579,
           "vote": {
-            "seconds": 621,
+            "seconds": 627,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -879,8 +825,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "10",
-        "title": "Bond Program Action Items – Item 10.5: Approval of Construction Management Consultant Fee Reconciliation Proposals with RGM Kramer",
+        "itemLabel": "10.5",
+        "title": "Approval of Construction Management Consultant Fee Reconciliation Proposals with RGM Kramer",
         "phases": {
           "opened": 639,
           "presentation": null,
@@ -897,13 +843,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.1: Discussion on COVID-19",
+        "itemLabel": "11.1",
+        "title": "Discussion on COVID-19",
         "phases": {
           "opened": 706,
           "presentation": 720,
           "publicComment": 3966,
-          "discussion": 1692,
+          "discussion": 1682,
           "vote": null
         },
         "publicComments": [
@@ -911,15 +857,15 @@
             "name": "Teresita Carlos",
             "startSeconds": 4031,
             "endSeconds": 4108,
-            "summary": "Expressed gratitude to Henry Ford teachers for their phenomenal daily videos and packets that made distance learning easier for her as a parent of a kindergartner and first grader."
+            "summary": "Thanked teachers at Henry Ford School for their phenomenal work during distance learning, noting their daily videos, packets, and consistent communication made the transition easier for her family with four children across multiple grade levels."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.2: Discussion of Revisions to Board Policy 5131 – Conduct",
+        "itemLabel": "11.2",
+        "title": "Discussion of Revisions to Board Policy 5131 - Conduct",
         "phases": {
           "opened": 4339,
           "presentation": 4355,
@@ -932,8 +878,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.3: Discussion of Revisions to Board Policy 5145.9 – Hate Motivated Behavior",
+        "itemLabel": "11.3",
+        "title": "Discussion of Revisions to Board Policy 5145.9 - Hate Motivated Behavior",
         "phases": {
           "opened": 4511,
           "presentation": 4520,
@@ -946,8 +892,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.4: Discussion of Revisions to Board Policy and Administrative Regulations 6143 – Courses of Study",
+        "itemLabel": "11.4",
+        "title": "Discussion of Revisions to Board Policy and Administrative Regulations 6143 - Courses of Study",
         "phases": {
           "opened": 4609,
           "presentation": 4617,
@@ -960,8 +906,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "11",
-        "title": "Discussion Items – Item 11.5: Discussion of Revisions to Board Policy and Administrative Regulations 6145.5 – Student Organization and Equal Access",
+        "itemLabel": "11.5",
+        "title": "Discussion of Revisions to Board Policy and Administrative Regulations 6145.5 - Student Organization and Equal Access",
         "phases": {
           "opened": 4689,
           "presentation": 4699,
@@ -992,17 +938,17 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.1: Approval of Permanently Renaming 170 Selby Lane as Adelante Selby Spanish Immersion School",
+        "itemLabel": "13.1",
+        "title": "Approval of Permanently Renaming the 170 Selby Lane Site as Adelante Selby Spanish Immersion School",
         "phases": {
           "opened": 5060,
           "presentation": 5088,
           "publicComment": 5480,
-          "discussion": 6110,
+          "discussion": 6092,
           "vote": {
             "seconds": 6806,
             "type": "roll-call",
-            "result": "5-0 (motion to reject the proposed name)"
+            "result": "5-0 (to reject the proposed name)"
           }
         },
         "publicComments": [
@@ -1010,34 +956,34 @@
             "name": "Michelle Smith",
             "startSeconds": 5507,
             "endSeconds": 5705,
-            "summary": "Advocated that the name should be either Adelante Spanish Immersion or Unidos rather than Adelante Selby, which she felt was a compromise that satisfied neither community."
+            "summary": "Advocated that neither Adelante alone nor Adelante Selby was fully satisfying, and suggested 'Unidos' as a more unifying alternative name that her children and other parents supported as representing both communities coming together."
           },
           {
             "name": "Rita Melton",
             "startSeconds": 5729,
             "endSeconds": 5943,
-            "summary": "Read a letter on behalf of Adelante teachers opposing the name Adelante Selby, arguing that 'Selby' has no connection to bilingualism and that if the name cannot be Adelante, Unidos would be an acceptable second choice."
+            "summary": "Read a letter signed by Adelante teachers objecting to the name Adelante Selby, arguing Thomas H. Selby has no connection to bilingualism or immersion, that the Adelante program is internationally recognized and its name should be honored as the majority vote winner, and offering Unidos as a second-choice alternative."
           },
           {
             "name": "James Carrig",
             "startSeconds": 5982,
             "endSeconds": 6086,
-            "summary": "Expressed disappointment that teachers were still advocating for the Adelante name and suggested a completely fresh new name, also questioning whether a board member who is a parent at the school should abstain from the vote."
+            "summary": "Expressed disappointment that Adelante teachers and staff were still pushing for strictly the Adelante name rather than moving on, suggested a completely fresh new name for a true new beginning, questioned the equity of the voting process, and suggested that a board member who is a parent at the school might consider abstaining from the vote."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.2: Approval of First Amendment to Joint Use Agreement with Anna Cencioso, LLC DBA Touchstone Learning (Hawes Elementary School)",
+        "itemLabel": "13.2",
+        "title": "Approval of First Amendment to Joint Use Agreement with Anna Cencioso, LLC DBA Touchstone Learning (Hawes Elementary School)",
         "phases": {
           "opened": 7168,
           "presentation": 7200,
           "publicComment": null,
           "discussion": 7426,
           "vote": {
-            "seconds": 7594,
+            "seconds": 7597,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1047,15 +993,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.3: Approval of Personnel Report",
+        "itemLabel": "13.3",
+        "title": "Approval of Personnel Report",
         "phases": {
           "opened": 7617,
           "presentation": 7624,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7663,
+            "seconds": 7669,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1065,15 +1011,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.4: Approval of Variable Term Waiver Request",
+        "itemLabel": "13.4",
+        "title": "Approval of Variable Term Waiver Request",
         "phases": {
           "opened": 7683,
           "presentation": 7688,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7719,
+            "seconds": 7723,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1083,15 +1029,15 @@
         "pulled": false
       },
       {
-        "itemLabel": "13",
-        "title": "Action Items – Item 13.5: Approval of Resolution 25 to Designate Authorized Agents for FEMA COVID-19 Disaster Relief",
+        "itemLabel": "13.5",
+        "title": "Approval of Resolution 25 to Designate Authorized Agents for FEMA COVID-19 Disaster Relief",
         "phases": {
           "opened": 7733,
-          "presentation": 7744,
+          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7754,
+            "seconds": 7760,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -1102,7 +1048,7 @@
       },
       {
         "itemLabel": "14",
-        "title": "Board and Superintendent Report",
+        "title": "Report from Board Members and Superintendent",
         "phases": {
           "opened": 7772,
           "presentation": 7808,
@@ -1116,37 +1062,9 @@
       },
       {
         "itemLabel": "15",
-        "title": "Information – 15.1: Contract Update Information and Credit Card Summary",
+        "title": "Information",
         "phases": {
-          "opened": 8088,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "15",
-        "title": "Information – 15.2: Information on San Mateo County Investment Fund – March 2020",
-        "phases": {
-          "opened": 8097,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "15",
-        "title": "Information – 15.3: Quarterly Williams Report, 3rd Quarter",
-        "phases": {
-          "opened": 8105,
+          "opened": 8083,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -1177,7 +1095,7 @@
           "opened": 8208,
           "presentation": null,
           "publicComment": null,
-          "discussion": null,
+          "discussion": 8216,
           "vote": null
         },
         "publicComments": [],
@@ -1186,12 +1104,12 @@
       },
       {
         "itemLabel": "18",
-        "title": "Board Agenda Calendar – Changes to the Board Agenda Schedule",
+        "title": "Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 8255,
+          "opened": 8281,
           "presentation": null,
           "publicComment": null,
-          "discussion": 8216,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -1202,14 +1120,14 @@
         "itemLabel": "19",
         "title": "Adjournment",
         "phases": {
-          "opened": 8421,
+          "opened": 8385,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
             "seconds": 8493,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -1218,7 +1136,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:51:41.952Z",
-  "inputTokens": 34250,
-  "outputTokens": 4777
+  "cachedAt": "2026-07-24T20:47:19.851Z",
+  "inputTokens": 34248,
+  "outputTokens": 4438
 }

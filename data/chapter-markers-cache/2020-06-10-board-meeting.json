@@ -1,6 +1,8 @@
 {
   "date": "2020-06-10",
+  "slug": "2020-06-10-board-meeting",
   "itemCount": 63,
+  "transcriptHash": "5c8677e1bdefc209",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -8,12 +10,12 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Kyle (staff)",
-        "role": "Technology Director / Meeting Host"
+        "name": "Kyle (staff/tech)",
+        "role": "Technology Director / Webinar Host"
       },
       "C": {
         "name": "Eliana (staff)",
-        "role": "Board Clerk / Meeting Support"
+        "role": "Board Secretary / Roll Call"
       },
       "D": {
         "name": "María Díaz-Slocum",
@@ -25,14 +27,14 @@
       },
       "F": {
         "name": "Dennis McBride",
-        "role": "Trustee"
+        "role": "Board Member (President per roster, but acting as Trustee here)"
       }
     },
-    "agendaChanges": "Items 9.1, 9.2, 9.3, and 9.4 were moved from Bond Program Action Items to Bond Program Consent Items (merged with Section 8). Item 7.4 (First of Two Public Hearings: School Attendance Boundary Change for Neighborhood Schools) was pulled from the agenda and deferred to the June 17 special meeting. The board also skipped the Pledge of Allegiance by consensus.",
+    "agendaChanges": "Items 9.1, 9.2, 9.3, and 9.4 were moved from Bond Program Action Items to Bond Program Consent Items (merged with Section 8). Item 7.4 (First of Two Public Hearings: School Attendance Boundary Change for Neighborhood Schools) was pulled from the agenda and deferred to the June 17 special meeting. The Pledge of Allegiance was removed from remaining meetings through July. Item 7.5 (Renaming of 170 Selby Lane) was noted as coming back as an action item on June 17 (special meeting) rather than June 24.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 1,
           "presentation": null,
@@ -45,38 +47,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 15,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "2",
-        "title": "Welcome by the School Board President",
+        "title": "Welcome by the School Board President / Pledge of Allegiance",
         "phases": {
           "opened": 37,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "Pledge of Allegiance",
-        "title": "Pledge of Allegiance",
-        "phases": {
-          "opened": 71,
           "presentation": null,
           "publicComment": null,
           "discussion": 71,
@@ -180,8 +154,8 @@
         "phases": {
           "opened": 4292,
           "presentation": 4300,
-          "publicComment": null,
-          "discussion": 7545,
+          "publicComment": 7545,
+          "discussion": 7565,
           "vote": null
         },
         "publicComments": [],
@@ -223,39 +197,39 @@
           "opened": 9043,
           "presentation": 9054,
           "publicComment": 9187,
-          "discussion": 9890,
+          "discussion": 9900,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Suzanne Ruiz Dunlap",
-            "startSeconds": 9243,
+            "startSeconds": 9242,
             "endSeconds": 9304,
-            "summary": "Thanked the naming committee and Dr. Baker, expressed support for the recommendation to permanently name the school Adelante Selby Spanish Immersion School."
+            "summary": "Thanked the naming committee and Dr. Baker for honoring the community's voice and urged the board to vote to permanently name the school Adelante Selby Spanish Immersion School."
           },
           {
             "name": "Michelle Smith",
             "startSeconds": 9316,
             "endSeconds": 9522,
-            "summary": "Expressed frustration with the overall naming process, questioning why the community vote was not honored the first time and criticizing the process as undemocratic."
+            "summary": "Expressed frustration with the naming process, calling it undemocratic and arguing that the community's voice was not adequately considered the first time, and that the drawn-out process further eroded trust between the community and the board."
           },
           {
             "name": "Jonathan Cantu",
             "startSeconds": 9571,
             "endSeconds": 9688,
-            "summary": "Expressed disappointment that the board initially rejected the naming recommendation and voiced concern about the community losing both their campus and potentially their name."
+            "summary": "Expressed disappointment that the board initially declined the naming recommendation and voiced concern that the Adelante community was at risk of losing both their campus and their school name."
           },
           {
-            "name": "Chris Rosone",
-            "startSeconds": 9706,
-            "endSeconds": 9751,
-            "summary": "Affirmed community attachment to the Adelante Selby identity and expressed concern that the loudest voices at the end of the process had overtaken the broader community's wishes."
+            "name": "Chris Rosane",
+            "startSeconds": 9703,
+            "endSeconds": 9754,
+            "summary": "Affirmed that the community felt the process was controlled by the loudest voices at the end and reiterated strong community attachment to the Adelante Selby identity."
           },
           {
             "name": "Devin Mulaney",
             "startSeconds": 9809,
             "endSeconds": 9888,
-            "summary": "Urged the board to wrap up the naming process quickly given other pressing priorities, and noted that 'Mid Peninsula' could be confused with a nearby continuation school."
+            "summary": "Expressed appreciation for the process but urged the board to wrap up the naming decision quickly given other pressing district priorities, and noted a potential name-confusion issue with a nearby continuation school named Mid-Peninsula."
           }
         ],
         "consent": false,
@@ -263,14 +237,14 @@
       },
       {
         "itemLabel": "8",
-        "title": "Bond Program Consent Items (Action Required) — includes original Section 8 items and moved Section 9 items 9.1–9.4",
+        "title": "Bond Program Consent Items (including moved items 9.1–9.4)",
         "phases": {
           "opened": 10558,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 10588,
+            "seconds": 10581,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -280,63 +254,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "9.1",
-        "title": "Approval of Lunch Shelter Proposal at Roosevelt School with Park Planet",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.2",
-        "title": "Approval of Modernization Project, Change Order #2 at Kennedy Middle School with Cal-Pacific Construction",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.3",
-        "title": "Approval of Modernization Project, Change Order #2 at Henry Ford Elementary School with Cal Pacific, Inc.",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.4",
-        "title": "Approval of Project Inspector Amendment #6 at Hoover Community School with Inspectacon",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10",
+        "itemLabel": "10.1",
         "title": "Discussion on COVID-19",
         "phases": {
           "opened": 10603,
@@ -358,7 +276,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 12601,
+            "seconds": 12597,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -412,7 +330,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 12952,
+            "seconds": 12949,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -425,7 +343,7 @@
         "itemLabel": "12.4",
         "title": "Adoption of Resolution 31, Temporary Interfund Borrowing",
         "phases": {
-          "opened": 13007,
+          "opened": 12990,
           "presentation": 13007,
           "publicComment": null,
           "discussion": null,
@@ -459,24 +377,10 @@
       },
       {
         "itemLabel": "13",
-        "title": "Report from Board Members and Superintendent",
+        "title": "Board and Superintendent Report",
         "phases": {
           "opened": 13179,
           "presentation": 13192,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14",
-        "title": "Information",
-        "phases": {
-          "opened": null,
-          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -500,27 +404,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "16",
-        "title": "Other Business/Suggested Items for Future Agenda",
+        "itemLabel": "17",
+        "title": "Board Agenda Calendar / Changes to the Board Agenda Schedule",
         "phases": {
           "opened": 13739,
           "presentation": null,
           "publicComment": null,
-          "discussion": 13739,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "17",
-        "title": "Changes to the Board Agenda Schedule",
-        "phases": {
-          "opened": 13746,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": 13760,
+          "discussion": 13746,
           "vote": null
         },
         "publicComments": [],
@@ -555,12 +445,12 @@
         "role": "Board President"
       },
       "B": {
-        "name": "Kyle (staff)",
-        "role": "Technology Director / Meeting Host"
+        "name": "Kyle (staff/tech)",
+        "role": "Technology Director / Webinar Host"
       },
       "C": {
         "name": "Eliana (staff)",
-        "role": "Board Clerk / Meeting Support"
+        "role": "Board Secretary / Roll Call"
       },
       "D": {
         "name": "María Díaz-Slocum",
@@ -572,14 +462,14 @@
       },
       "F": {
         "name": "Dennis McBride",
-        "role": "Trustee"
+        "role": "Board Member (President per roster, but acting as Trustee here)"
       }
     },
-    "agendaChanges": "Items 9.1, 9.2, 9.3, and 9.4 were moved from Bond Program Action Items to Bond Program Consent Items (merged with Section 8). Item 7.4 (First of Two Public Hearings: School Attendance Boundary Change for Neighborhood Schools) was pulled from the agenda and deferred to the June 17 special meeting. The board also skipped the Pledge of Allegiance by consensus.",
+    "agendaChanges": "Items 9.1, 9.2, 9.3, and 9.4 were moved from Bond Program Action Items to Bond Program Consent Items (merged with Section 8). Item 7.4 (First of Two Public Hearings: School Attendance Boundary Change for Neighborhood Schools) was pulled from the agenda and deferred to the June 17 special meeting. The Pledge of Allegiance was removed from remaining meetings through July. Item 7.5 (Renaming of 170 Selby Lane) was noted as coming back as an action item on June 17 (special meeting) rather than June 24.",
     "items": [
       {
         "itemLabel": "1",
-        "title": "Call to Order",
+        "title": "Call to Order / Roll Call",
         "phases": {
           "opened": 1,
           "presentation": null,
@@ -592,38 +482,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call",
-        "title": "Roll Call",
-        "phases": {
-          "opened": 15,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
         "itemLabel": "2",
-        "title": "Welcome by the School Board President",
+        "title": "Welcome by the School Board President / Pledge of Allegiance",
         "phases": {
           "opened": 37,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "Pledge of Allegiance",
-        "title": "Pledge of Allegiance",
-        "phases": {
-          "opened": 71,
           "presentation": null,
           "publicComment": null,
           "discussion": 71,
@@ -727,8 +589,8 @@
         "phases": {
           "opened": 4292,
           "presentation": 4300,
-          "publicComment": null,
-          "discussion": 7545,
+          "publicComment": 7545,
+          "discussion": 7565,
           "vote": null
         },
         "publicComments": [],
@@ -770,39 +632,39 @@
           "opened": 9043,
           "presentation": 9054,
           "publicComment": 9187,
-          "discussion": 9890,
+          "discussion": 9900,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Suzanne Ruiz Dunlap",
-            "startSeconds": 9243,
+            "startSeconds": 9242,
             "endSeconds": 9304,
-            "summary": "Thanked the naming committee and Dr. Baker, expressed support for the recommendation to permanently name the school Adelante Selby Spanish Immersion School."
+            "summary": "Thanked the naming committee and Dr. Baker for honoring the community's voice and urged the board to vote to permanently name the school Adelante Selby Spanish Immersion School."
           },
           {
             "name": "Michelle Smith",
             "startSeconds": 9316,
             "endSeconds": 9522,
-            "summary": "Expressed frustration with the overall naming process, questioning why the community vote was not honored the first time and criticizing the process as undemocratic."
+            "summary": "Expressed frustration with the naming process, calling it undemocratic and arguing that the community's voice was not adequately considered the first time, and that the drawn-out process further eroded trust between the community and the board."
           },
           {
             "name": "Jonathan Cantu",
             "startSeconds": 9571,
             "endSeconds": 9688,
-            "summary": "Expressed disappointment that the board initially rejected the naming recommendation and voiced concern about the community losing both their campus and potentially their name."
+            "summary": "Expressed disappointment that the board initially declined the naming recommendation and voiced concern that the Adelante community was at risk of losing both their campus and their school name."
           },
           {
-            "name": "Chris Rosone",
-            "startSeconds": 9706,
-            "endSeconds": 9751,
-            "summary": "Affirmed community attachment to the Adelante Selby identity and expressed concern that the loudest voices at the end of the process had overtaken the broader community's wishes."
+            "name": "Chris Rosane",
+            "startSeconds": 9703,
+            "endSeconds": 9754,
+            "summary": "Affirmed that the community felt the process was controlled by the loudest voices at the end and reiterated strong community attachment to the Adelante Selby identity."
           },
           {
             "name": "Devin Mulaney",
             "startSeconds": 9809,
             "endSeconds": 9888,
-            "summary": "Urged the board to wrap up the naming process quickly given other pressing priorities, and noted that 'Mid Peninsula' could be confused with a nearby continuation school."
+            "summary": "Expressed appreciation for the process but urged the board to wrap up the naming decision quickly given other pressing district priorities, and noted a potential name-confusion issue with a nearby continuation school named Mid-Peninsula."
           }
         ],
         "consent": false,
@@ -810,14 +672,14 @@
       },
       {
         "itemLabel": "8",
-        "title": "Bond Program Consent Items (Action Required) — includes original Section 8 items and moved Section 9 items 9.1–9.4",
+        "title": "Bond Program Consent Items (including moved items 9.1–9.4)",
         "phases": {
           "opened": 10558,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 10588,
+            "seconds": 10581,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -827,63 +689,7 @@
         "pulled": false
       },
       {
-        "itemLabel": "9.1",
-        "title": "Approval of Lunch Shelter Proposal at Roosevelt School with Park Planet",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.2",
-        "title": "Approval of Modernization Project, Change Order #2 at Kennedy Middle School with Cal-Pacific Construction",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.3",
-        "title": "Approval of Modernization Project, Change Order #2 at Henry Ford Elementary School with Cal Pacific, Inc.",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "9.4",
-        "title": "Approval of Project Inspector Amendment #6 at Hoover Community School with Inspectacon",
-        "phases": {
-          "opened": null,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": true,
-        "pulled": false
-      },
-      {
-        "itemLabel": "10",
+        "itemLabel": "10.1",
         "title": "Discussion on COVID-19",
         "phases": {
           "opened": 10603,
@@ -905,7 +711,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 12601,
+            "seconds": 12597,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -959,7 +765,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 12952,
+            "seconds": 12949,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -972,7 +778,7 @@
         "itemLabel": "12.4",
         "title": "Adoption of Resolution 31, Temporary Interfund Borrowing",
         "phases": {
-          "opened": 13007,
+          "opened": 12990,
           "presentation": 13007,
           "publicComment": null,
           "discussion": null,
@@ -1006,24 +812,10 @@
       },
       {
         "itemLabel": "13",
-        "title": "Report from Board Members and Superintendent",
+        "title": "Board and Superintendent Report",
         "phases": {
           "opened": 13179,
           "presentation": 13192,
-          "publicComment": null,
-          "discussion": null,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "14",
-        "title": "Information",
-        "phases": {
-          "opened": null,
-          "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -1047,27 +839,13 @@
         "pulled": false
       },
       {
-        "itemLabel": "16",
-        "title": "Other Business/Suggested Items for Future Agenda",
+        "itemLabel": "17",
+        "title": "Board Agenda Calendar / Changes to the Board Agenda Schedule",
         "phases": {
           "opened": 13739,
           "presentation": null,
           "publicComment": null,
-          "discussion": 13739,
-          "vote": null
-        },
-        "publicComments": [],
-        "consent": false,
-        "pulled": false
-      },
-      {
-        "itemLabel": "17",
-        "title": "Changes to the Board Agenda Schedule",
-        "phases": {
-          "opened": 13746,
-          "presentation": null,
-          "publicComment": null,
-          "discussion": 13760,
+          "discussion": 13746,
           "vote": null
         },
         "publicComments": [],
@@ -1094,7 +872,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:48:05.254Z",
-  "inputTokens": 49313,
-  "outputTokens": 4181
+  "cachedAt": "2026-07-24T20:42:30.471Z",
+  "inputTokens": 49298,
+  "outputTokens": 3463
 }
