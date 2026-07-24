@@ -1,5 +1,6 @@
 {
   "date": "2020-10-07",
+  "transcriptHash": "89eec22b226ae65d",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -15,17 +16,17 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "No formal agenda changes announced during the early part of the meeting. The president stated 'we have kind of a simple agenda if there are any changes or we need a motion to approve' and the agenda was approved by roll call vote without announced changes.",
-    "consent_vote_words": "So moved. Alisa. Second. Maria. Can we have a roll call vote, please? Trustee McBride. Aye. Trustee Marquez. Trustee D. Silocum. Aye. Vice President Macavoy. Aye. President Lawson. Aye.",
+    "agenda_changes": "No formal changes announced during 'Changes to the Agenda' section. President Lawson stated 'we have kind of a simple agenda if there are any changes or we need a motion to approve.' A motion to approve the agenda was made and passed by roll call vote.",
+    "consent_vote_words": "So moved. Alisa. Second. Maria. Can we have a roll call vote, please?",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
+        "intro_words": "Welcome, Everybody, to the October 7th Rowan City School Board meeting.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee McBride. Here. Trustee Marquez. Here. Trustee Locum. Here. Oh. Oh.",
+        "intro_words": "Here. Trustee Marquez. Here. Trustee Locum. Here.",
         "status": "found"
       },
       {
@@ -35,32 +36,47 @@
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President",
-        "status": "not_explicitly_found"
+        "intro_words": "Welcome, Everybody, to the October 7th Rowan City School Board meeting.",
+        "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "With that said, we have kind of a simple agenda if there are any changes",
+        "intro_words": "we have kind of a simple agenda if there are any changes or we need",
+        "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "we have kind of a simple agenda if there are any changes or we need",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "So moved. Alisa. Second. Maria. Can we have a roll call vote",
+        "intro_words": "So moved. Alisa. Second. Maria. Can we have a roll call vote, please?",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 8,
+        "intro_words": "So moved. Alisa. Second. Maria. Can we have a roll call vote, please?",
         "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "We are on now oral communication, and we don't have any",
+        "intro_words": "We are on now oral communication, and we don't have any under item five",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "We are on now oral communication, and we don't have any under item five",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "we can move on to the study session. All right, thank you",
+        "intro_words": "we can move on to the study session. All right, thank you very much, Janet",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Well, that's the end of our agenda. Unless there's other comments",
+        "intro_words": "So do we have a motion to adjourn until our October 21st meeting? So move.",
         "status": "found"
       }
     ]
@@ -69,29 +85,58 @@
     "videoId": "JcNZt38Y1yo",
     "items": [
       {
-        "timestamp": "01:13:34",
-        "timestampSeconds": 4414
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
       },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "01:40:45",
-        "timestampSeconds": 6045
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
       },
-      null,
-      null,
       {
-        "timestamp": "02:08:21",
-        "timestampSeconds": 7701
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      {
+        "timestamp": "00:01:31",
+        "timestampSeconds": 91
+      },
+      {
+        "timestamp": "00:01:31",
+        "timestampSeconds": 91
+      },
+      {
+        "timestamp": "00:01:41",
+        "timestampSeconds": 101,
+        "consent": true
+      },
+      {
+        "timestamp": "00:01:41",
+        "timestampSeconds": 101,
+        "consent": true
+      },
+      {
+        "timestamp": "00:02:16",
+        "timestampSeconds": 136
+      },
+      {
+        "timestamp": "00:02:16",
+        "timestampSeconds": 136
+      },
+      {
+        "timestamp": "00:02:16",
+        "timestampSeconds": 136
+      },
+      {
+        "timestamp": "02:09:15",
+        "timestampSeconds": 7755
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:49:14.392Z",
+  "cachedAt": "2026-07-24T09:58:46.534Z",
   "inputTokens": 23638,
-  "outputTokens": 580
+  "outputTokens": 707
 }

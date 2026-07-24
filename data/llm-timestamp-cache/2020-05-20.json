@@ -1,5 +1,6 @@
 {
   "date": "2020-05-20",
+  "transcriptHash": "3d494a906a3b3386",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -54,8 +55,8 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 15.2 (Approval of Cisco/AMS.NET - Cisco Telecommunications Flex Licensing Contract) moved to consent agenda",
-    "consent_vote_words": "Can we have a roll call vote, please? Aye. Trustee Marquez. Aye. Trustee Diaz Locum. Aye. Vice President McAvoy. Aye. President Lawson. Aye.",
+    "agenda_changes": "Item 15.2 (Approval of Cisco/AMS.NET - Cisco Telecommunications Flex Licensing Contract) moved from action items to consent agenda. Proclamation reading added before item 9.1 (Recognition of 2019-20 Induction Program Participants).",
+    "consent_vote_words": "Can we have a roll call vote, please?",
     "items": [
       {
         "item": 1,
@@ -64,22 +65,37 @@
       },
       {
         "item": 2,
-        "intro_words": "So we are on item 4.2, report out on closed session from May 6th.",
+        "intro_words": "Roll call, please. Here. Tristan Marquez. Here. Trustee Diaz",
         "status": "found"
       },
       {
+        "item": 3,
+        "intro_words": "So we are on item 4.2, report out on closed session",
+        "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "So we are on item 4.2, report out on closed session from May",
+        "status": "not_found"
+      },
+      {
         "item": 8,
-        "intro_words": "So we are on item 4.2, report out on closed session from May 6th.",
+        "intro_words": "So we are on item 4.2, report out on closed session from May 6th",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "report out 4.3 on closed session from this evening, May 20",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Welcome, everybody. I posted the links a couple of times in the chat box",
+        "intro_words": "Welcome, everybody. I posted the links a couple of times in the",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "I pledge allegiance to the flag of the United States of America",
+        "intro_words": "That said, we're going to go into the Pledge of Allegiance. Hello,",
         "status": "found"
       },
       {
@@ -94,57 +110,87 @@
       },
       {
         "item": 17,
-        "intro_words": "It looks like we are on oral communication now, and I have some for this item.",
+        "intro_words": "It looks like we are on oral communication now, and I have some",
         "status": "found"
       },
       {
-        "item": 18,
-        "intro_words": "So we're on item 9.1, recognition of the 2019-2020 induction program participants.",
+        "item": 19,
+        "intro_words": "So we're on item 9.1, recognition of the 2019-2020 induction program participants",
         "status": "found"
       },
       {
         "item": 21,
-        "intro_words": "So we will move on to item 10.1, the bond program update.",
+        "intro_words": "we will move on to item 10.1, the bond program update. Will, you're on",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "So we can move on, then, to the bond consent items. Item 11.",
+        "intro_words": "Bond program update. Thank you, guys. Thank you, Will. It's exciting",
         "status": "consent_bundle"
       },
       {
         "item": 23,
-        "intro_words": "Item 12.1 of bond program action item, approval of construction agreement with Cal State",
+        "intro_words": "consent_bundle",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 24,
+        "intro_words": "consent_bundle",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 25,
+        "intro_words": "consent_bundle",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 26,
+        "intro_words": "consent_bundle",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 27,
+        "intro_words": "Item 12.1 of bond program action item, approval of construction agreement",
         "status": "found"
       },
       {
         "item": 30,
-        "intro_words": "So we're moving on to an item that I think many of our attendees are here for. 13.1",
+        "intro_words": "So we're moving on to an item that I think many of our attendees",
         "status": "found"
       },
       {
         "item": 31,
-        "intro_words": "So we do have a number of comment cards on this item. I don't know if",
+        "intro_words": "Discussion of School Attendance Boundary Change for Neighborhood Schools. Dr. Baker",
         "status": "found"
       },
       {
         "item": 32,
-        "intro_words": "So I would like to have that June 3rd meeting because that's when we will",
+        "intro_words": "Discussion on COVID-19. And we do have a number of comment cards",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "So I'll make it very quick. Usually I give an update on the LCAP",
+        "intro_words": "Update on the Development of the 2020-21 Local Control Accountability Plan",
         "status": "found"
       },
       {
         "item": 34,
-        "intro_words": "13.4 the federal program Monitoring Review okay, so as you know we were",
+        "intro_words": "Updates on the Outcomes to the Federal Program Monitoring Review okay, so as you know",
         "status": "found"
       },
       {
         "item": 35,
-        "intro_words": "Are there any questions on this? No, I'm seeing. Just for the audience.",
+        "intro_words": "Update on Immunizations. Are there any questions on this? No, I'm seeing",
+        "status": "found"
+      },
+      {
+        "item": 36,
+        "intro_words": "So we are now on consent, which also includes item 15.2. So moved",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 37,
+        "intro_words": "consent_bundle",
         "status": "consent_bundle"
       },
       {
@@ -154,37 +200,47 @@
       },
       {
         "item": 40,
-        "intro_words": "152 was on consent, so moving on to 15 3. Review and approval of board policy.",
-        "status": "found"
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 41,
-        "intro_words": "Last action item is 15 4. Adoption of resolutions. For me, grading during emergency",
+        "intro_words": "Review and approval of board policy. 51, 41, 52 on suicide prevention",
+        "status": "found"
+      },
+      {
+        "item": 42,
+        "intro_words": "Adoption of resolutions. For me, grading during emergency school closures. So we",
         "status": "found"
       },
       {
         "item": 43,
-        "intro_words": "Okay, moving on to board and superintendent reports. Would somebody like to go first?",
+        "intro_words": "moving on to board and superintendent reports. Would somebody like to go first?",
         "status": "found"
       },
       {
         "item": 46,
-        "intro_words": "Information on the San Mateo county investment fund. Were there any questions, comments?",
+        "intro_words": "Information on the San Mateo county investment fund. Were there any questions",
+        "status": "found"
+      },
+      {
+        "item": 47,
+        "intro_words": "Correspondence. We've gotten a lot of correspondence on the boundary changes, some",
         "status": "found"
       },
       {
         "item": 48,
-        "intro_words": "Other business suggested items for future agendas. We have enough. Don't need to add",
+        "intro_words": "Other business suggested items for future agendas. We have enough. Don't need",
         "status": "found"
       },
       {
-        "item": 50,
-        "intro_words": "Changes to the board agenda schedule. I think just adding the June 3rd meeting.",
+        "item": 49,
+        "intro_words": "Changes to the board agenda schedule. I think just adding the June",
         "status": "found"
       },
       {
         "item": 51,
-        "intro_words": "What time's the meeting gonna be? Yeah, we can leave it at 7 or",
+        "intro_words": "Is there a motion to adjourn? So moved. So moved. I'll second",
         "status": "found"
       }
     ]
@@ -200,8 +256,14 @@
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      null,
-      null,
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
       null,
       null,
       null,
@@ -209,15 +271,18 @@
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      null,
+      {
+        "timestamp": "00:00:27",
+        "timestampSeconds": 27
+      },
       {
         "timestamp": "00:00:37",
         "timestampSeconds": 37
       },
       null,
       {
-        "timestamp": "00:01:58",
-        "timestampSeconds": 118
+        "timestamp": "00:01:43",
+        "timestampSeconds": 103
       },
       {
         "timestamp": "00:02:40",
@@ -233,19 +298,39 @@
         "timestamp": "00:04:07",
         "timestampSeconds": 247
       },
+      null,
       {
         "timestamp": "00:26:44",
         "timestampSeconds": 1604
       },
-      null,
       null,
       {
         "timestamp": "00:36:24",
         "timestampSeconds": 2184
       },
       {
-        "timestamp": "04:06:49",
-        "timestampSeconds": 14809,
+        "timestamp": "00:41:30",
+        "timestampSeconds": 2490,
+        "consent": true
+      },
+      {
+        "timestamp": "00:41:30",
+        "timestampSeconds": 2490,
+        "consent": true
+      },
+      {
+        "timestamp": "00:41:30",
+        "timestampSeconds": 2490,
+        "consent": true
+      },
+      {
+        "timestamp": "00:41:30",
+        "timestampSeconds": 2490,
+        "consent": true
+      },
+      {
+        "timestamp": "00:41:30",
+        "timestampSeconds": 2490,
         "consent": true
       },
       {
@@ -254,51 +339,51 @@
       },
       null,
       null,
-      null,
-      null,
-      null,
-      null,
       {
         "timestamp": "00:43:14",
         "timestampSeconds": 2594
       },
       {
-        "timestamp": "01:19:32",
-        "timestampSeconds": 4772
+        "timestamp": "00:44:12",
+        "timestampSeconds": 2652
       },
       {
-        "timestamp": "02:53:06",
-        "timestampSeconds": 10386
+        "timestamp": "01:19:42",
+        "timestampSeconds": 4782
+      },
+      null,
+      {
+        "timestamp": "04:02:33",
+        "timestampSeconds": 14553
       },
       {
-        "timestamp": "04:00:44",
-        "timestampSeconds": 14444
+        "timestamp": "04:02:48",
+        "timestampSeconds": 14568
       },
       {
-        "timestamp": "04:02:53",
-        "timestampSeconds": 14573
-      },
-      {
-        "timestamp": "04:06:49",
-        "timestampSeconds": 14809,
+        "timestamp": "00:41:30",
+        "timestampSeconds": 2490,
         "consent": true
       },
-      null,
-      null,
+      {
+        "timestamp": "00:41:30",
+        "timestampSeconds": 2490,
+        "consent": true
+      },
       null,
       {
         "timestamp": "04:07:24",
         "timestampSeconds": 14844
       },
-      {
-        "timestamp": "04:08:11",
-        "timestampSeconds": 14891
-      },
-      {
-        "timestamp": "04:09:36",
-        "timestampSeconds": 14976
-      },
       null,
+      {
+        "timestamp": "04:08:26",
+        "timestampSeconds": 14906
+      },
+      {
+        "timestamp": "04:09:41",
+        "timestampSeconds": 14981
+      },
       {
         "timestamp": "04:10:32",
         "timestampSeconds": 15032
@@ -309,23 +394,26 @@
         "timestamp": "04:22:05",
         "timestampSeconds": 15725
       },
-      null,
+      {
+        "timestamp": "04:22:05",
+        "timestampSeconds": 15725
+      },
       {
         "timestamp": "04:22:25",
         "timestampSeconds": 15745
       },
-      null,
       {
         "timestamp": "04:22:20",
         "timestampSeconds": 15740
       },
+      null,
       {
-        "timestamp": "04:22:43",
-        "timestampSeconds": 15763
+        "timestamp": "04:23:20",
+        "timestampSeconds": 15800
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:51:47.619Z",
+  "cachedAt": "2026-07-24T10:01:19.447Z",
   "inputTokens": 48849,
-  "outputTokens": 1416
+  "outputTokens": 1826
 }

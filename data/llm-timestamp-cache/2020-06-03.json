@@ -1,5 +1,6 @@
 {
   "date": "2020-06-03",
+  "transcriptHash": "dc8cb9313f287bf3",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -19,7 +20,7 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced. Item 6 (Changes to the Agenda) was called and no changes were reported.",
+    "agenda_changes": null,
     "consent_vote_words": null,
     "items": [
       {
@@ -34,47 +35,52 @@
       },
       {
         "item": 3,
-        "intro_words": "So welcome, everybody. Thank you for joining us for our June 3rd special board meeting.",
+        "intro_words": "So welcome, everybody. Thank you for joining us for our June",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "I would like to forego the Pledge of Allegiance and join me in a moment of silence",
+        "intro_words": "I would like to forego the Pledge of Allegiance and join me",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "We are Moving on to 3.1 changes to the agenda. Does anybody have any changes?",
+        "intro_words": "We are Moving on to 3.1 changes to the agenda. Does anybody",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "We are Moving on to 3.1 changes to the agenda. Does anybody have any changes?",
+        "intro_words": "So item 6.1. If she's not here, then we can go ahead",
         "status": "found"
       },
       {
-        "item": 8,
-        "intro_words": "I'm just checking. We do have one item for oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "So item 6.1. If she's not here, then we can go ahead and move on to item 6.1.",
-        "status": "found"
+        "item": 11,
+        "intro_words": "Discussion Items",
+        "status": "not_found"
       },
       {
         "item": 12,
-        "intro_words": "So item 6.1. If she's not here, then we can go ahead and move on to item 6.1.",
+        "intro_words": "Dr. Baker? Perfect. Good evening, everyone. So, as we have been",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "No consent items. So 8.1 approval of updated RCTA contract",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "No consent items. So 8.1 approval of updated RCTA contract",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "So we'll move on if there are no other comments or questions. Okay. No consent items.",
+        "intro_words": "Wendy, do you want to take that? Yes. Thank you very much.",
         "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "That brings us to the end of our agenda. So do we have a motion to adjourn?",
+        "intro_words": "That brings us to the end of our agenda. So do we have",
         "status": "found"
       }
     ]
@@ -103,29 +109,29 @@
         "timestampSeconds": 131
       },
       {
-        "timestamp": "00:02:11",
-        "timestampSeconds": 131
-      },
-      null,
-      {
-        "timestamp": "00:03:00",
-        "timestampSeconds": 180
-      },
-      null,
-      {
-        "timestamp": "00:03:36",
-        "timestampSeconds": 216
-      },
-      null,
-      {
         "timestamp": "00:03:36",
         "timestampSeconds": 216
       },
       null,
       null,
+      null,
+      null,
+      null,
       {
-        "timestamp": "02:50:33",
-        "timestampSeconds": 10233
+        "timestamp": "00:04:02",
+        "timestampSeconds": 242
+      },
+      {
+        "timestamp": "02:50:43",
+        "timestampSeconds": 10243
+      },
+      {
+        "timestamp": "02:50:43",
+        "timestampSeconds": 10243
+      },
+      {
+        "timestamp": "02:50:38",
+        "timestampSeconds": 10238
       },
       {
         "timestamp": "02:54:55",
@@ -133,7 +139,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:51:35.085Z",
+  "cachedAt": "2026-07-24T10:01:04.359Z",
   "inputTokens": 33305,
-  "outputTokens": 627
+  "outputTokens": 595
 }

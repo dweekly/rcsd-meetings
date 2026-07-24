@@ -1,5 +1,6 @@
 {
   "date": "2020-07-15",
+  "transcriptHash": "d8d1566788b66e4b",
   "items": [
     "Call to Order",
     "Roll Call",
@@ -28,8 +29,8 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.2 pulled from agenda because item 8.1 is discussion only. Items 10.3 and 10.4 moved to consent agenda.",
-    "consent_vote_words": "So moved. Maria. Second. Is that Elisa? Yeah. Second. Okay. Thank you. So, Eliana, can we have a roll call vote, please?",
+    "agenda_changes": "Item 10.2 pulled from agenda because item 8.1 is discussion only. Items 10.3 and 10.4 moved to consent.",
+    "consent_vote_words": "Do we have a motion to approve? So moved. Second. Okay. Thank you. So, Eliana, can we have a roll call vote, please?",
     "items": [
       {
         "item": 1,
@@ -38,7 +39,17 @@
       },
       {
         "item": 2,
+        "intro_words": "Can't hear you, Cecilia, but you're not muted",
+        "status": "found"
+      },
+      {
+        "item": 3,
         "intro_words": "Welcome, everyone, to our July 15th special board meeting.",
+        "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "Welcome by the School Board President",
         "status": "found"
       },
       {
@@ -47,33 +58,103 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "We need to pull item 10.2 because item 8.1 is discussion only.",
+        "status": "found"
+      },
+      {
         "item": 7,
-        "intro_words": "Can we have a roll call vote, please? And Eliana probably needs to be unmuted again.",
+        "intro_words": "So we're pulling item 10.2. And while you're working on that",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "It looks like all of our speakers cards are for item 8.1, so we can move on to the bond consent.",
+        "intro_words": "Can we have a roll call vote, please? And Eliana probably needs",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "It looks like all of our speakers cards are for item 8.1",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have a motion to approve? So move. Second, Dennis and Elisa, roll call vote, please.",
+        "intro_words": "Do we have a motion to approve? So move. Second, Dennis and Elisa",
         "status": "consent_bundle"
       },
       {
-        "item": 18,
-        "intro_words": "Thank you, Dr. Baker. I'm going to share my screen. Let's hope all goes well.",
+        "item": 11,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 12,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 13,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 14,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 15,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 16,
+        "intro_words": "Bond Program Action Items not discussed in this meeting",
+        "status": "not_found"
+      },
+      {
+        "item": 17,
+        "intro_words": "Discussion of Roadmap to Reopening My School Plan, thank you so much",
         "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "For everyone attending this evening. Thank you so much. Attend for attending",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "consent_bundle - Items 10.3 and 10.4 moved to consent",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 20,
+        "intro_words": "not discussed as action item in this meeting",
+        "status": "not_found"
       },
       {
         "item": 21,
-        "intro_words": "Then we would need a motion to approve it. I'll second Dennis and Elisa. Can we have a roll call vote, please?",
+        "intro_words": "Are there any questions or comments on that? Yeah, I talked",
         "status": "found"
       },
       {
+        "item": 22,
+        "intro_words": "not discussed in this meeting",
+        "status": "not_found"
+      },
+      {
+        "item": 23,
+        "intro_words": "not discussed in this meeting",
+        "status": "not_found"
+      },
+      {
+        "item": 24,
+        "intro_words": "not discussed in this meeting",
+        "status": "not_found"
+      },
+      {
         "item": 25,
-        "intro_words": "That brings us to the end of our agenda 1055. And we'll see you back here for our next.",
+        "intro_words": "That brings us to the end of our agenda 1055.",
         "status": "found"
       }
     ]
@@ -86,16 +167,26 @@
         "timestampSeconds": 0
       },
       {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      {
         "timestamp": "00:01:03",
         "timestampSeconds": 63
       },
-      null,
       null,
       {
         "timestamp": "00:01:44",
         "timestampSeconds": 104
       },
-      null,
+      {
+        "timestamp": "00:01:49",
+        "timestampSeconds": 109
+      },
+      {
+        "timestamp": "00:01:44",
+        "timestampSeconds": 104
+      },
       {
         "timestamp": "00:11:44",
         "timestampSeconds": 704
@@ -104,7 +195,6 @@
         "timestamp": "00:12:19",
         "timestampSeconds": 739
       },
-      null,
       {
         "timestamp": "04:47:36",
         "timestampSeconds": 17256,
@@ -118,14 +208,21 @@
       null,
       null,
       {
-        "timestamp": "00:16:03",
-        "timestampSeconds": 963
+        "timestamp": "00:13:26",
+        "timestampSeconds": 806
       },
-      null,
-      null,
       {
-        "timestamp": "04:50:53",
-        "timestampSeconds": 17453
+        "timestamp": "04:47:36",
+        "timestampSeconds": 17256,
+        "consent": true
+      },
+      {
+        "timestamp": "04:44:46",
+        "timestampSeconds": 17086
+      },
+      {
+        "timestamp": "04:50:23",
+        "timestampSeconds": 17423
       },
       null,
       null,
@@ -136,7 +233,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-26T22:50:49.164Z",
+  "cachedAt": "2026-07-24T10:00:19.182Z",
   "inputTokens": 54210,
-  "outputTokens": 577
+  "outputTokens": 1157
 }

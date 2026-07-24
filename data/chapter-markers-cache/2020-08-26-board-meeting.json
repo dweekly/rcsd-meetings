@@ -1,6 +1,8 @@
 {
   "date": "2020-08-26",
+  "slug": "2020-08-26-board-meeting",
   "itemCount": 54,
+  "transcriptHash": "6ac1454c9e0df447",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -9,18 +11,18 @@
       },
       "B": {
         "name": "Dennis McBride",
-        "role": "Board Member / later identified as Trustee, also voices for Kyle (technology director) and Dr. Baker at times — primary label for Dennis McBride and Kyle (tech)"
+        "role": "Board Member / Superintendent (context-dependent)"
       },
       "C": {
-        "name": "Alisa MacAvoy",
-        "role": "Board Clerk / Vice President"
+        "name": "Cecilia I. Márquez",
+        "role": "Trustee"
       },
       "D": {
         "name": "Dr. John Baker",
         "role": "Superintendent"
       }
     },
-    "agendaChanges": "Board moved agenda items 7.1 and 7.2 (Bond Program Action Items) to the Bond Program Consent Items bundle (Section 6) before approval of agenda. All bond consent items including 7.1 and 7.2 were voted on together as a single bundle.",
+    "agendaChanges": "Bond Program Action Items 7.1 and 7.2 were moved from Action Items to Bond Program Consent Items (Section 6) at the start of the meeting. Both were approved as part of the Section 6 consent bundle.",
     "items": [
       {
         "itemLabel": "1",
@@ -100,12 +102,12 @@
         "itemLabel": "6",
         "title": "Bond Program Consent Items (including 7.1 and 7.2 moved to consent)",
         "phases": {
-          "opened": 140,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 162,
+            "seconds": 163,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -118,11 +120,15 @@
         "itemLabel": "7.1",
         "title": "Approval of Construction Agreement for Roy Cloud School with Mar Con Builders",
         "phases": {
-          "opened": null,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 163,
+            "type": "roll-call",
+            "result": "5-0"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -132,11 +138,15 @@
         "itemLabel": "7.2",
         "title": "Adoption of Resolution #9, Approval of Security Guard Services Resolution and Agreement with Metro Surveillance Security",
         "phases": {
-          "opened": null,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 163,
+            "type": "roll-call",
+            "result": "5-0"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -149,21 +159,21 @@
           "opened": 197,
           "presentation": 205,
           "publicComment": 6540,
-          "discussion": 1669,
+          "discussion": 1671,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Michelle Smith",
             "startSeconds": 6576,
-            "endSeconds": 6710,
-            "summary": "Praised the school's distance learning rollout but raised concern about students being able to access YouTube on district Chromebooks unsupervised during instructional time."
+            "endSeconds": 6720,
+            "summary": "Praised the distance learning rollout at her children's schools but raised concern about students being able to access YouTube on district Chromebooks during class time without parental supervision."
           },
           {
             "name": "Maria Stockton",
-            "startSeconds": 6718,
-            "endSeconds": 6888,
-            "summary": "Raised concerns about insufficient PPE protections at school sites for classified staff, broken temperature equipment, lack of protocols for parent entry, and asked why more staff could not work from home."
+            "startSeconds": 6725,
+            "endSeconds": 6920,
+            "summary": "Raised concerns about inadequate COVID-19 safety protocols at school sites, including missing barriers, broken temperature equipment, parents walking in unannounced, improper PPE for custodians, loss of Google Voice for remote phone calls, and the requirement for some classified staff to be on-site when working from home should be permitted."
           }
         ],
         "consent": false,
@@ -188,15 +198,29 @@
         "pulled": false
       },
       {
+        "itemLabel": "10",
+        "title": "Action Items",
+        "phases": {
+          "opened": 7038,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "10.1",
         "title": "Adoption of Resolution #6, Reduction of Certain Classified Services for Fiscal Year 2020-21",
         "phases": {
-          "opened": 7039,
+          "opened": 7038,
           "presentation": 7047,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7131,
+            "seconds": 7135,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -209,8 +233,8 @@
         "itemLabel": "10.2",
         "title": "Adoption of Resolution #7, Approval of Education Code Options for Teaching Assignments",
         "phases": {
-          "opened": 7165,
-          "presentation": 7174,
+          "opened": 7162,
+          "presentation": 7168,
           "publicComment": null,
           "discussion": 7220,
           "vote": {
@@ -227,8 +251,8 @@
         "itemLabel": "10.3",
         "title": "Approval of Local Assignment Options in Areas of Special Skill and Preparation Outside of Credential Authorization",
         "phases": {
-          "opened": 7285,
-          "presentation": 7294,
+          "opened": 7284,
+          "presentation": 7291,
           "publicComment": null,
           "discussion": 7433,
           "vote": {
@@ -250,7 +274,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7554,
+            "seconds": 7560,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -263,7 +287,7 @@
         "itemLabel": "10.5",
         "title": "Adoption of Resolution #8, Sufficiency of Instructional Materials",
         "phases": {
-          "opened": 7597,
+          "opened": 7596,
           "presentation": 7601,
           "publicComment": null,
           "discussion": null,
@@ -281,10 +305,10 @@
         "itemLabel": "11",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 7658,
-          "presentation": null,
+          "opened": 7657,
+          "presentation": 7677,
           "publicComment": null,
-          "discussion": 7677,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -295,7 +319,7 @@
         "itemLabel": "12",
         "title": "Information",
         "phases": {
-          "opened": 7706,
+          "opened": 7709,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -337,10 +361,10 @@
         "itemLabel": "15",
         "title": "Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 7762,
+          "opened": 7765,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7762,
+          "discussion": 7765,
           "vote": null
         },
         "publicComments": [],
@@ -351,7 +375,7 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 7822,
+          "opened": 7813,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -376,18 +400,18 @@
       },
       "B": {
         "name": "Dennis McBride",
-        "role": "Board Member / later identified as Trustee, also voices for Kyle (technology director) and Dr. Baker at times — primary label for Dennis McBride and Kyle (tech)"
+        "role": "Board Member / Superintendent (context-dependent)"
       },
       "C": {
-        "name": "Alisa MacAvoy",
-        "role": "Board Clerk / Vice President"
+        "name": "Cecilia I. Márquez",
+        "role": "Trustee"
       },
       "D": {
         "name": "Dr. John Baker",
         "role": "Superintendent"
       }
     },
-    "agendaChanges": "Board moved agenda items 7.1 and 7.2 (Bond Program Action Items) to the Bond Program Consent Items bundle (Section 6) before approval of agenda. All bond consent items including 7.1 and 7.2 were voted on together as a single bundle.",
+    "agendaChanges": "Bond Program Action Items 7.1 and 7.2 were moved from Action Items to Bond Program Consent Items (Section 6) at the start of the meeting. Both were approved as part of the Section 6 consent bundle.",
     "items": [
       {
         "itemLabel": "1",
@@ -467,12 +491,12 @@
         "itemLabel": "6",
         "title": "Bond Program Consent Items (including 7.1 and 7.2 moved to consent)",
         "phases": {
-          "opened": 140,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 162,
+            "seconds": 163,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -485,11 +509,15 @@
         "itemLabel": "7.1",
         "title": "Approval of Construction Agreement for Roy Cloud School with Mar Con Builders",
         "phases": {
-          "opened": null,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 163,
+            "type": "roll-call",
+            "result": "5-0"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -499,11 +527,15 @@
         "itemLabel": "7.2",
         "title": "Adoption of Resolution #9, Approval of Security Guard Services Resolution and Agreement with Metro Surveillance Security",
         "phases": {
-          "opened": null,
+          "opened": 141,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
-          "vote": null
+          "vote": {
+            "seconds": 163,
+            "type": "roll-call",
+            "result": "5-0"
+          }
         },
         "publicComments": [],
         "consent": true,
@@ -516,21 +548,21 @@
           "opened": 197,
           "presentation": 205,
           "publicComment": 6540,
-          "discussion": 1669,
+          "discussion": 1671,
           "vote": null
         },
         "publicComments": [
           {
             "name": "Michelle Smith",
             "startSeconds": 6576,
-            "endSeconds": 6710,
-            "summary": "Praised the school's distance learning rollout but raised concern about students being able to access YouTube on district Chromebooks unsupervised during instructional time."
+            "endSeconds": 6720,
+            "summary": "Praised the distance learning rollout at her children's schools but raised concern about students being able to access YouTube on district Chromebooks during class time without parental supervision."
           },
           {
             "name": "Maria Stockton",
-            "startSeconds": 6718,
-            "endSeconds": 6888,
-            "summary": "Raised concerns about insufficient PPE protections at school sites for classified staff, broken temperature equipment, lack of protocols for parent entry, and asked why more staff could not work from home."
+            "startSeconds": 6725,
+            "endSeconds": 6920,
+            "summary": "Raised concerns about inadequate COVID-19 safety protocols at school sites, including missing barriers, broken temperature equipment, parents walking in unannounced, improper PPE for custodians, loss of Google Voice for remote phone calls, and the requirement for some classified staff to be on-site when working from home should be permitted."
           }
         ],
         "consent": false,
@@ -555,15 +587,29 @@
         "pulled": false
       },
       {
+        "itemLabel": "10",
+        "title": "Action Items",
+        "phases": {
+          "opened": 7038,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
         "itemLabel": "10.1",
         "title": "Adoption of Resolution #6, Reduction of Certain Classified Services for Fiscal Year 2020-21",
         "phases": {
-          "opened": 7039,
+          "opened": 7038,
           "presentation": 7047,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7131,
+            "seconds": 7135,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -576,8 +622,8 @@
         "itemLabel": "10.2",
         "title": "Adoption of Resolution #7, Approval of Education Code Options for Teaching Assignments",
         "phases": {
-          "opened": 7165,
-          "presentation": 7174,
+          "opened": 7162,
+          "presentation": 7168,
           "publicComment": null,
           "discussion": 7220,
           "vote": {
@@ -594,8 +640,8 @@
         "itemLabel": "10.3",
         "title": "Approval of Local Assignment Options in Areas of Special Skill and Preparation Outside of Credential Authorization",
         "phases": {
-          "opened": 7285,
-          "presentation": 7294,
+          "opened": 7284,
+          "presentation": 7291,
           "publicComment": null,
           "discussion": 7433,
           "vote": {
@@ -617,7 +663,7 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7554,
+            "seconds": 7560,
             "type": "roll-call",
             "result": "5-0"
           }
@@ -630,7 +676,7 @@
         "itemLabel": "10.5",
         "title": "Adoption of Resolution #8, Sufficiency of Instructional Materials",
         "phases": {
-          "opened": 7597,
+          "opened": 7596,
           "presentation": 7601,
           "publicComment": null,
           "discussion": null,
@@ -648,10 +694,10 @@
         "itemLabel": "11",
         "title": "Report from Board Members and Superintendent",
         "phases": {
-          "opened": 7658,
-          "presentation": null,
+          "opened": 7657,
+          "presentation": 7677,
           "publicComment": null,
-          "discussion": 7677,
+          "discussion": null,
           "vote": null
         },
         "publicComments": [],
@@ -662,7 +708,7 @@
         "itemLabel": "12",
         "title": "Information",
         "phases": {
-          "opened": 7706,
+          "opened": 7709,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -704,10 +750,10 @@
         "itemLabel": "15",
         "title": "Changes to the Board Agenda Schedule",
         "phases": {
-          "opened": 7762,
+          "opened": 7765,
           "presentation": null,
           "publicComment": null,
-          "discussion": 7762,
+          "discussion": 7765,
           "vote": null
         },
         "publicComments": [],
@@ -718,7 +764,7 @@
         "itemLabel": "16",
         "title": "Adjournment",
         "phases": {
-          "opened": 7822,
+          "opened": 7813,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -734,7 +780,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:39:09.967Z",
-  "inputTokens": 31356,
-  "outputTokens": 2708
+  "cachedAt": "2026-07-24T09:54:44.421Z",
+  "inputTokens": 31343,
+  "outputTokens": 2841
 }

@@ -1,42 +1,44 @@
 {
   "date": "2021-03-24",
+  "slug": "2021-03-24-board-meeting",
   "itemCount": 45,
+  "transcriptHash": "53d6ae4a6fabe0bb",
   "llmResponse": {
     "speakers": {
       "A": {
-        "name": "Kyle (IT/Staff)",
-        "role": "District IT staff / meeting technician"
+        "name": "Kyle (District Staff/Tech)",
+        "role": "District technology/support staff"
       },
       "B": {
         "name": "María Díaz-Slocum",
-        "role": "Clerk / Board Member"
+        "role": "Clerk"
       },
       "C": {
         "name": "Janet Lawson",
-        "role": "Trustee (later identified as making roll call responses)"
+        "role": "Trustee"
       },
       "D": {
-        "name": "Eliana (staff)",
-        "role": "District staff / roll call caller"
+        "name": "Cecilia I. Márquez",
+        "role": "Trustee"
       },
       "E": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Alisa MacAvoy",
+        "role": "Vice President"
       },
       "F": {
-        "name": "Alisa MacAvoy",
-        "role": "Vice President (acting as presiding officer)"
+        "name": "Janet Lawson (President role confusion — actually Alisa MacAvoy presiding)",
+        "role": "President (Alisa MacAvoy)"
       },
       "G": {
-        "name": "Janet Lawson",
-        "role": "Trustee"
+        "name": "María Díaz-Slocum",
+        "role": "Clerk"
       },
       "H": {
         "name": "Mike Wells",
         "role": "Trustee"
       }
     },
-    "agendaChanges": "At the start of the meeting, the following changes were made to the agenda: (1) A carryover vision/mission discussion from the 6pm study session was added as item 9.1B, to be taken up after 9.1; (2) Items 11.1 and 11.2 were moved from Action to the Consent calendar. Items were then taken up in the following order: Roll Call, Welcome, Changes to the Agenda, Approval of Agenda, Oral Communication, School/Community Report (Northstar GSA presentation, not a formal agenda section but taken up here), Bond Program Consent Items (Section 10 consent), Bond Program Action Item (8.1), Discussion Item 9.1 (Spring Expansion/Reopening), Discussion Item 9.1B (Vision and Mission carryover), Discussion Item 9.2 (BP Special Education), Discussion Item 9.3 (Food Service), Discussion Item 9.4 (Safety), Consent Calendar (including 11.1 and 11.2), Board/Superintendent Reports, Future Agenda Items, Adjournment.",
+    "agendaChanges": "At the start of the meeting, the following changes were made: (1) A carryover vision/mission item from the 6 PM study session was added as item 9.1B, to be heard after 9.1; (2) Items 11.1 and 11.2 were moved to the consent calendar. The meeting proceeded in this order: Roll Call, Welcome, Changes to Agenda, Approval of Agenda, Oral Communication (no speakers), Section 6 Study Session (carried over to 9.1B per motion), then school/community report (Northstar student presentation), bond program consent items, bond program action item (8.1), Discussion 9.1, Discussion 9.1B (vision/mission carryover), Discussion 9.2, Discussion 9.3, Discussion 9.4, Consent (items 10.x + 11.1 + 11.2), Board/Superintendent Reports, Future Agenda Items, Adjournment.",
     "items": [
       {
         "itemLabel": "1",
@@ -114,16 +116,165 @@
       },
       {
         "itemLabel": "6",
-        "title": "Study Session – Update on the Equity Consciousness Committee (carried over as 9.1B)",
+        "title": "Study Session: Update on the Equity Consciousness Committee (carried over to 9.1B)",
         "phases": {
           "opened": 5469,
           "presentation": 5532,
           "publicComment": null,
-          "discussion": 5920,
+          "discussion": 6068,
           "vote": null
         },
         "publicComments": [],
         "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.1",
+        "title": "Spring Expansion of the School District / January Reopening",
+        "phases": {
+          "opened": 1224,
+          "presentation": 1244,
+          "publicComment": 3075,
+          "discussion": 4164,
+          "vote": null
+        },
+        "publicComments": [
+          {
+            "name": "Linda Joya",
+            "startSeconds": 3093,
+            "endSeconds": 3272,
+            "summary": "Expressed deep frustration that her children at Roy Cloud had only 2.75 hours of in-person instruction four days a week and felt the district had failed students during the pandemic year."
+          },
+          {
+            "name": "Maria Stockton",
+            "startSeconds": 3297,
+            "endSeconds": 3444,
+            "summary": "Asked whether the adult-to-child distancing would change from 6 to 3 feet, raised concerns about lack of SAM transportation and whether the district planned alternatives, and questioned whether buses were being properly disinfected between groups of students."
+          },
+          {
+            "name": "Devin Mulaney",
+            "startSeconds": 3513,
+            "endSeconds": 3676,
+            "summary": "Expressed concern that students who chose to return in person might end up in a pod rather than with their own classroom teacher if 6-foot distancing was not reduced to 3 feet, and asked for follow-through on the commitment that returning students would be with their teacher."
+          },
+          {
+            "name": "Kathryn Stewart",
+            "startSeconds": 3862,
+            "endSeconds": 4035,
+            "summary": "Asked specific questions about the Mandarin Immersion program at Orion regarding whether choosing independent study would allow her child to keep access to the Mandarin technology/apps (Better Immersion, Level Chinese) versus switching to a different teacher and losing that access."
+          }
+        ],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.1B",
+        "title": "Vision and Mission (Carryover from Study Session)",
+        "phases": {
+          "opened": 5469,
+          "presentation": 5532,
+          "publicComment": null,
+          "discussion": 6068,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.2",
+        "title": "First Reading and Discussion: Board Policy on Comprehensive Local Plan for Special Education",
+        "phases": {
+          "opened": 7365,
+          "presentation": 7398,
+          "publicComment": null,
+          "discussion": 7470,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.3",
+        "title": "First Reading and Discussion: Board Policy on Food Service Operations / Cafeteria Fund",
+        "phases": {
+          "opened": 7473,
+          "presentation": 7492,
+          "publicComment": null,
+          "discussion": 7562,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.4",
+        "title": "First Reading and Discussion: Board Policy on Safety",
+        "phases": {
+          "opened": 7599,
+          "presentation": 7606,
+          "publicComment": null,
+          "discussion": 7697,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "8.1",
+        "title": "Bond Program Action Item (Resolution)",
+        "phases": {
+          "opened": 1172,
+          "presentation": 1179,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1208,
+            "type": "roll-call",
+            "result": "5-0"
+          }
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10",
+        "title": "Bond Program Consent Items (and items 11.1, 11.2 moved to consent)",
+        "phases": {
+          "opened": 1131,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1161,
+            "type": "roll-call",
+            "result": "5-0"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "11",
+        "title": "Consent Items (including 11.1 and 11.2 moved from action)",
+        "phases": {
+          "opened": 7741,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 7760,
+            "type": "roll-call",
+            "result": "5-0"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
         "pulled": false
       },
       {
@@ -137,7 +288,7 @@
           "vote": {
             "seconds": 8879,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -150,39 +301,39 @@
     "videoId": "sJQNqQu1Jfs",
     "speakers": {
       "A": {
-        "name": "Kyle (IT/Staff)",
-        "role": "District IT staff / meeting technician"
+        "name": "Kyle (District Staff/Tech)",
+        "role": "District technology/support staff"
       },
       "B": {
         "name": "María Díaz-Slocum",
-        "role": "Clerk / Board Member"
+        "role": "Clerk"
       },
       "C": {
         "name": "Janet Lawson",
-        "role": "Trustee (later identified as making roll call responses)"
+        "role": "Trustee"
       },
       "D": {
-        "name": "Eliana (staff)",
-        "role": "District staff / roll call caller"
+        "name": "Cecilia I. Márquez",
+        "role": "Trustee"
       },
       "E": {
-        "name": "Mike Wells",
-        "role": "Trustee"
+        "name": "Alisa MacAvoy",
+        "role": "Vice President"
       },
       "F": {
-        "name": "Alisa MacAvoy",
-        "role": "Vice President (acting as presiding officer)"
+        "name": "Janet Lawson (President role confusion — actually Alisa MacAvoy presiding)",
+        "role": "President (Alisa MacAvoy)"
       },
       "G": {
-        "name": "Janet Lawson",
-        "role": "Trustee"
+        "name": "María Díaz-Slocum",
+        "role": "Clerk"
       },
       "H": {
         "name": "Mike Wells",
         "role": "Trustee"
       }
     },
-    "agendaChanges": "At the start of the meeting, the following changes were made to the agenda: (1) A carryover vision/mission discussion from the 6pm study session was added as item 9.1B, to be taken up after 9.1; (2) Items 11.1 and 11.2 were moved from Action to the Consent calendar. Items were then taken up in the following order: Roll Call, Welcome, Changes to the Agenda, Approval of Agenda, Oral Communication, School/Community Report (Northstar GSA presentation, not a formal agenda section but taken up here), Bond Program Consent Items (Section 10 consent), Bond Program Action Item (8.1), Discussion Item 9.1 (Spring Expansion/Reopening), Discussion Item 9.1B (Vision and Mission carryover), Discussion Item 9.2 (BP Special Education), Discussion Item 9.3 (Food Service), Discussion Item 9.4 (Safety), Consent Calendar (including 11.1 and 11.2), Board/Superintendent Reports, Future Agenda Items, Adjournment.",
+    "agendaChanges": "At the start of the meeting, the following changes were made: (1) A carryover vision/mission item from the 6 PM study session was added as item 9.1B, to be heard after 9.1; (2) Items 11.1 and 11.2 were moved to the consent calendar. The meeting proceeded in this order: Roll Call, Welcome, Changes to Agenda, Approval of Agenda, Oral Communication (no speakers), Section 6 Study Session (carried over to 9.1B per motion), then school/community report (Northstar student presentation), bond program consent items, bond program action item (8.1), Discussion 9.1, Discussion 9.1B (vision/mission carryover), Discussion 9.2, Discussion 9.3, Discussion 9.4, Consent (items 10.x + 11.1 + 11.2), Board/Superintendent Reports, Future Agenda Items, Adjournment.",
     "items": [
       {
         "itemLabel": "1",
@@ -260,16 +411,165 @@
       },
       {
         "itemLabel": "6",
-        "title": "Study Session – Update on the Equity Consciousness Committee (carried over as 9.1B)",
+        "title": "Study Session: Update on the Equity Consciousness Committee (carried over to 9.1B)",
         "phases": {
           "opened": 5469,
           "presentation": 5532,
           "publicComment": null,
-          "discussion": 5920,
+          "discussion": 6068,
           "vote": null
         },
         "publicComments": [],
         "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.1",
+        "title": "Spring Expansion of the School District / January Reopening",
+        "phases": {
+          "opened": 1224,
+          "presentation": 1244,
+          "publicComment": 3075,
+          "discussion": 4164,
+          "vote": null
+        },
+        "publicComments": [
+          {
+            "name": "Linda Joya",
+            "startSeconds": 3093,
+            "endSeconds": 3272,
+            "summary": "Expressed deep frustration that her children at Roy Cloud had only 2.75 hours of in-person instruction four days a week and felt the district had failed students during the pandemic year."
+          },
+          {
+            "name": "Maria Stockton",
+            "startSeconds": 3297,
+            "endSeconds": 3444,
+            "summary": "Asked whether the adult-to-child distancing would change from 6 to 3 feet, raised concerns about lack of SAM transportation and whether the district planned alternatives, and questioned whether buses were being properly disinfected between groups of students."
+          },
+          {
+            "name": "Devin Mulaney",
+            "startSeconds": 3513,
+            "endSeconds": 3676,
+            "summary": "Expressed concern that students who chose to return in person might end up in a pod rather than with their own classroom teacher if 6-foot distancing was not reduced to 3 feet, and asked for follow-through on the commitment that returning students would be with their teacher."
+          },
+          {
+            "name": "Kathryn Stewart",
+            "startSeconds": 3862,
+            "endSeconds": 4035,
+            "summary": "Asked specific questions about the Mandarin Immersion program at Orion regarding whether choosing independent study would allow her child to keep access to the Mandarin technology/apps (Better Immersion, Level Chinese) versus switching to a different teacher and losing that access."
+          }
+        ],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.1B",
+        "title": "Vision and Mission (Carryover from Study Session)",
+        "phases": {
+          "opened": 5469,
+          "presentation": 5532,
+          "publicComment": null,
+          "discussion": 6068,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.2",
+        "title": "First Reading and Discussion: Board Policy on Comprehensive Local Plan for Special Education",
+        "phases": {
+          "opened": 7365,
+          "presentation": 7398,
+          "publicComment": null,
+          "discussion": 7470,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.3",
+        "title": "First Reading and Discussion: Board Policy on Food Service Operations / Cafeteria Fund",
+        "phases": {
+          "opened": 7473,
+          "presentation": 7492,
+          "publicComment": null,
+          "discussion": 7562,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9.4",
+        "title": "First Reading and Discussion: Board Policy on Safety",
+        "phases": {
+          "opened": 7599,
+          "presentation": 7606,
+          "publicComment": null,
+          "discussion": 7697,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "8.1",
+        "title": "Bond Program Action Item (Resolution)",
+        "phases": {
+          "opened": 1172,
+          "presentation": 1179,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1208,
+            "type": "roll-call",
+            "result": "5-0"
+          }
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "10",
+        "title": "Bond Program Consent Items (and items 11.1, 11.2 moved to consent)",
+        "phases": {
+          "opened": 1131,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 1161,
+            "type": "roll-call",
+            "result": "5-0"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
+        "pulled": false
+      },
+      {
+        "itemLabel": "11",
+        "title": "Consent Items (including 11.1 and 11.2 moved from action)",
+        "phases": {
+          "opened": 7741,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": {
+            "seconds": 7760,
+            "type": "roll-call",
+            "result": "5-0"
+          }
+        },
+        "publicComments": [],
+        "consent": true,
         "pulled": false
       },
       {
@@ -283,7 +583,7 @@
           "vote": {
             "seconds": 8879,
             "type": "voice",
-            "result": "unanimous"
+            "result": "approved"
           }
         },
         "publicComments": [],
@@ -292,7 +592,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:28:27.205Z",
+  "cachedAt": "2026-07-24T09:43:14.283Z",
   "inputTokens": 33347,
-  "outputTokens": 1224
+  "outputTokens": 2519
 }

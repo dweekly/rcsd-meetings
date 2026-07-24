@@ -1,6 +1,8 @@
 {
   "date": "2021-01-13",
+  "slug": "2021-01-13-board-meeting",
   "itemCount": 58,
+  "transcriptHash": "e16d506ad5c5c471",
   "llmResponse": {
     "speakers": {
       "A": {
@@ -12,20 +14,20 @@
         "role": "Trustee (former President)"
       },
       "C": {
-        "name": "Eliana (Clerk/Staff)",
-        "role": "Board Clerk / Roll Call"
+        "name": "Eliana (staff)",
+        "role": "Board Clerk/Staff (roll call)"
       },
       "D": {
-        "name": "Kyle (Staff)",
-        "role": "Technology/Support Staff"
+        "name": "Kyle (staff)",
+        "role": "Staff/Tech support"
       },
       "E": {
-        "name": "John Baker",
+        "name": "Dr. John Baker",
         "role": "Superintendent"
       },
       "F": {
-        "name": "Wendy (Kelly)",
-        "role": "HR/District Staff"
+        "name": "Wendy (staff)",
+        "role": "Staff presenter (HR/screen sharing)"
       },
       "G": {
         "name": "Cecilia I. Márquez",
@@ -36,7 +38,7 @@
         "role": "Trustee"
       }
     },
-    "agendaChanges": "Item 10.1 (Approval of December 9th Board Minutes) was pulled from the Consent Calendar and moved to Action Items (Section 11) because Mike Wells was not a trustee at the time of that meeting. Items were otherwise taken in agenda order. Section 8 (Bond Program Action Items) had no items. Section 15 (Other Business) had no items.",
+    "agendaChanges": "Item 10.1 (Approval of December 9th Board Minutes) was pulled from the consent calendar and moved to action items (Section 11) because Mike Wells was not a trustee at that meeting and needed to abstain. The item was voted on separately after items 10.2-10.7 were approved as a bundle. Section 8 (Bond Program Action Items) had no items. All other items were taken in agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -53,10 +55,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "2",
-        "title": "Welcome by the School Board President",
+        "itemLabel": "1",
+        "title": "Roll Call",
         "phases": {
-          "opened": 1,
+          "opened": 202,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -67,10 +69,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call",
-        "title": "Roll Call",
+        "itemLabel": "2",
+        "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 202,
+          "opened": 1,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -118,7 +120,7 @@
         "phases": {
           "opened": 295,
           "presentation": null,
-          "publicComment": null,
+          "publicComment": 295,
           "discussion": null,
           "vote": null
         },
@@ -131,7 +133,7 @@
         "title": "Kennedy Middle School Art Show",
         "phases": {
           "opened": 331,
-          "presentation": 370,
+          "presentation": 384,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -159,7 +161,21 @@
         "pulled": false
       },
       {
-        "itemLabel": "9.1",
+        "itemLabel": "8",
+        "title": "Bond Program Action Items (Action Required)",
+        "phases": {
+          "opened": 660,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9",
         "title": "Discussion on COVID-19",
         "phases": {
           "opened": 723,
@@ -173,20 +189,20 @@
             "name": "Pam Barish",
             "startSeconds": 1839,
             "endSeconds": 2000,
-            "summary": "Expressed concern about the FDA's warning regarding Curative tests producing too many false negatives, and urged the district to seek more accurate testing alternatives."
+            "summary": "A kindergarten teacher raised concerns about the FDA's warning regarding Curative's false negative rate and urged the district to seek more accurate COVID testing alternatives."
           },
           {
             "name": "Michelle Smith",
             "startSeconds": 4384,
             "endSeconds": 4515,
-            "summary": "Asked whether teachers willing to be vaccinated would trigger expanded in-person or hybrid instruction before year end, and whether equity was being considered in which students are invited back."
+            "summary": "Asked whether teachers who agree to be vaccinated would enable the district to open more hybrid or hub classes before June, and whether equity was being considered in how students are invited back to campuses."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "9.2",
+        "itemLabel": "9",
         "title": "January 2021 Reopening Plan",
         "phases": {
           "opened": 4607,
@@ -200,8 +216,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "9.3",
-        "title": "Update of the Learning Continuity and Attendance Plan (LCP) Update on Activities and Services for 2020-21",
+        "itemLabel": "9",
+        "title": "Update of the Learning Continuity and Attendance Plan (LCP)",
         "phases": {
           "opened": 5998,
           "presentation": 6013,
@@ -217,7 +233,7 @@
         "itemLabel": "10",
         "title": "Consent Items (10.2 through 10.7)",
         "phases": {
-          "opened": 7574,
+          "opened": 7562,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -233,14 +249,14 @@
       },
       {
         "itemLabel": "10.1",
-        "title": "Approval of December 9th Board Minutes (pulled to Action)",
+        "title": "Approval of December 9th Board Minutes (pulled to action)",
         "phases": {
           "opened": 7613,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7641,
+            "seconds": 7640,
             "type": "roll-call",
             "result": "4-0 (Wells abstained)"
           }
@@ -400,9 +416,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8674,
+            "seconds": 8680,
             "type": "voice",
-            "result": "approved"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -423,20 +439,20 @@
         "role": "Trustee (former President)"
       },
       "C": {
-        "name": "Eliana (Clerk/Staff)",
-        "role": "Board Clerk / Roll Call"
+        "name": "Eliana (staff)",
+        "role": "Board Clerk/Staff (roll call)"
       },
       "D": {
-        "name": "Kyle (Staff)",
-        "role": "Technology/Support Staff"
+        "name": "Kyle (staff)",
+        "role": "Staff/Tech support"
       },
       "E": {
-        "name": "John Baker",
+        "name": "Dr. John Baker",
         "role": "Superintendent"
       },
       "F": {
-        "name": "Wendy (Kelly)",
-        "role": "HR/District Staff"
+        "name": "Wendy (staff)",
+        "role": "Staff presenter (HR/screen sharing)"
       },
       "G": {
         "name": "Cecilia I. Márquez",
@@ -447,7 +463,7 @@
         "role": "Trustee"
       }
     },
-    "agendaChanges": "Item 10.1 (Approval of December 9th Board Minutes) was pulled from the Consent Calendar and moved to Action Items (Section 11) because Mike Wells was not a trustee at the time of that meeting. Items were otherwise taken in agenda order. Section 8 (Bond Program Action Items) had no items. Section 15 (Other Business) had no items.",
+    "agendaChanges": "Item 10.1 (Approval of December 9th Board Minutes) was pulled from the consent calendar and moved to action items (Section 11) because Mike Wells was not a trustee at that meeting and needed to abstain. The item was voted on separately after items 10.2-10.7 were approved as a bundle. Section 8 (Bond Program Action Items) had no items. All other items were taken in agenda order.",
     "items": [
       {
         "itemLabel": "1",
@@ -464,10 +480,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "2",
-        "title": "Welcome by the School Board President",
+        "itemLabel": "1",
+        "title": "Roll Call",
         "phases": {
-          "opened": 1,
+          "opened": 202,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -478,10 +494,10 @@
         "pulled": false
       },
       {
-        "itemLabel": "Roll Call",
-        "title": "Roll Call",
+        "itemLabel": "2",
+        "title": "Welcome by the School Board President",
         "phases": {
-          "opened": 202,
+          "opened": 1,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -529,7 +545,7 @@
         "phases": {
           "opened": 295,
           "presentation": null,
-          "publicComment": null,
+          "publicComment": 295,
           "discussion": null,
           "vote": null
         },
@@ -542,7 +558,7 @@
         "title": "Kennedy Middle School Art Show",
         "phases": {
           "opened": 331,
-          "presentation": 370,
+          "presentation": 384,
           "publicComment": null,
           "discussion": null,
           "vote": null
@@ -570,7 +586,21 @@
         "pulled": false
       },
       {
-        "itemLabel": "9.1",
+        "itemLabel": "8",
+        "title": "Bond Program Action Items (Action Required)",
+        "phases": {
+          "opened": 660,
+          "presentation": null,
+          "publicComment": null,
+          "discussion": null,
+          "vote": null
+        },
+        "publicComments": [],
+        "consent": false,
+        "pulled": false
+      },
+      {
+        "itemLabel": "9",
         "title": "Discussion on COVID-19",
         "phases": {
           "opened": 723,
@@ -584,20 +614,20 @@
             "name": "Pam Barish",
             "startSeconds": 1839,
             "endSeconds": 2000,
-            "summary": "Expressed concern about the FDA's warning regarding Curative tests producing too many false negatives, and urged the district to seek more accurate testing alternatives."
+            "summary": "A kindergarten teacher raised concerns about the FDA's warning regarding Curative's false negative rate and urged the district to seek more accurate COVID testing alternatives."
           },
           {
             "name": "Michelle Smith",
             "startSeconds": 4384,
             "endSeconds": 4515,
-            "summary": "Asked whether teachers willing to be vaccinated would trigger expanded in-person or hybrid instruction before year end, and whether equity was being considered in which students are invited back."
+            "summary": "Asked whether teachers who agree to be vaccinated would enable the district to open more hybrid or hub classes before June, and whether equity was being considered in how students are invited back to campuses."
           }
         ],
         "consent": false,
         "pulled": false
       },
       {
-        "itemLabel": "9.2",
+        "itemLabel": "9",
         "title": "January 2021 Reopening Plan",
         "phases": {
           "opened": 4607,
@@ -611,8 +641,8 @@
         "pulled": false
       },
       {
-        "itemLabel": "9.3",
-        "title": "Update of the Learning Continuity and Attendance Plan (LCP) Update on Activities and Services for 2020-21",
+        "itemLabel": "9",
+        "title": "Update of the Learning Continuity and Attendance Plan (LCP)",
         "phases": {
           "opened": 5998,
           "presentation": 6013,
@@ -628,7 +658,7 @@
         "itemLabel": "10",
         "title": "Consent Items (10.2 through 10.7)",
         "phases": {
-          "opened": 7574,
+          "opened": 7562,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
@@ -644,14 +674,14 @@
       },
       {
         "itemLabel": "10.1",
-        "title": "Approval of December 9th Board Minutes (pulled to Action)",
+        "title": "Approval of December 9th Board Minutes (pulled to action)",
         "phases": {
           "opened": 7613,
           "presentation": null,
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 7641,
+            "seconds": 7640,
             "type": "roll-call",
             "result": "4-0 (Wells abstained)"
           }
@@ -811,9 +841,9 @@
           "publicComment": null,
           "discussion": null,
           "vote": {
-            "seconds": 8674,
+            "seconds": 8680,
             "type": "voice",
-            "result": "approved"
+            "result": "unanimous"
           }
         },
         "publicComments": [],
@@ -822,7 +852,7 @@
       }
     ]
   },
-  "cachedAt": "2026-03-15T18:32:30.911Z",
-  "inputTokens": 32187,
-  "outputTokens": 2980
+  "cachedAt": "2026-07-24T09:47:35.210Z",
+  "inputTokens": 32180,
+  "outputTokens": 3151
 }
