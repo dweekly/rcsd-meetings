@@ -172,6 +172,16 @@ const SITE_PRESENTATIONS = (() => {
   catch { return {}; }
 })();
 
+// ---- Student clubs & activities (AI-extracted from board presentations) ----
+// Built by scripts/extract-school-clubs.mjs. Best-effort / not authoritative —
+// only clubs a principal named aloud on their presentation night. Labeled as
+// such on the page. See data/school-clubs.json.
+const SCHOOL_CLUBS = (() => {
+  try { return JSON.parse(readFileSync(resolve(ROOT, 'data/school-clubs.json'), 'utf-8')).schools; }
+  catch { return {}; }
+})();
+const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
 // ---- Load board meeting summaries (concise per-school EN/ES) ----
 const BOARD_SUMMARIES = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/school-board-summaries.json'), 'utf-8')); } catch { return {}; } })();
 
@@ -1344,6 +1354,9 @@ const LABELS = {
     boardPresentation: 'Board Presentation',
     sitePresentations: 'Board Site Presentations',
     sitePresentationsDesc: 'Annual presentations this school made to the Board of Trustees.',
+    studentClubs: 'Student Clubs & Activities',
+    studentClubsDesc: 'Clubs and activities this school mentioned in its board presentations. Compiled by AI from meeting transcripts — likely incomplete, and clubs change year to year.',
+    clubCats: { environmental: 'Environment', arts: 'Arts', stem: 'STEM', sports: 'Sports', service: 'Service', academic: 'Academic', social: 'Community', other: 'Other' },
     viewPresentation: 'View presentation (PDF)',
     watchPresentation: 'Watch',
     viewCssp: 'Download CSSP (PDF)',
@@ -1515,6 +1528,9 @@ const LABELS = {
     viewSpsa: 'Descargar SPSA (PDF)',
     safetyPlan: 'Plan Integral de Seguridad',
     boardPresentation: 'Presentación a la Junta',
+    studentClubs: 'Clubes y Actividades Estudiantiles',
+    studentClubsDesc: 'Clubes y actividades que esta escuela mencionó en sus presentaciones a la Junta. Recopilado por IA de las transcripciones de las reuniones — probablemente incompleto, y los clubes cambian de año en año.',
+    clubCats: { environmental: 'Medio ambiente', arts: 'Artes', stem: 'STEM', sports: 'Deportes', service: 'Servicio', academic: 'Académico', social: 'Comunidad', other: 'Otros' },
     sitePresentations: 'Presentaciones de la escuela a la Junta',
     sitePresentationsDesc: 'Presentaciones anuales que esta escuela hizo a la Junta de Síndicos.',
     viewPresentation: 'Ver presentación (PDF)',
@@ -2483,6 +2499,22 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
         <h3>${L.sitePresentations}</h3>
         <p>${L.sitePresentationsDesc}</p>
         <ul style="list-style:none; padding:0; margin:0.5rem 0 0; font-size:0.82rem">${rows}</ul>
+      </div>`;
+      })()}
+      ${(() => {
+        const clubs = SCHOOL_CLUBS[slug]?.clubs || [];
+        if (!clubs.length) return '';
+        // Group club names by category, in a fixed display order.
+        const order = ['environmental', 'arts', 'stem', 'sports', 'service', 'academic', 'social', 'other'];
+        const byCat = {};
+        for (const c of clubs) (byCat[c.category] ||= []).push(c.name);
+        const rows = order.filter(cat => byCat[cat]).map(cat =>
+          `<li style="margin-bottom:0.4rem"><span style="font-family:'IBM Plex Mono',monospace; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.03em; color:var(--green-mid); display:block; margin-bottom:0.1rem">${L.clubCats[cat] || cat}</span>${byCat[cat].map(escapeHtml).join(', ')}</li>`
+        ).join('');
+        return `<div class="resource-card">
+        <h3>${L.studentClubs}</h3>
+        <ul style="list-style:none; padding:0; margin:0.3rem 0 0; font-size:0.82rem; line-height:1.5">${rows}</ul>
+        <p style="margin-top:0.6rem; font-size:0.72rem; color:var(--text-muted); line-height:1.35; font-style:italic">${L.studentClubsDesc}</p>
       </div>`;
       })()}
       <div class="resource-card bell-card">
