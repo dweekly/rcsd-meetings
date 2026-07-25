@@ -106,6 +106,7 @@ run(`${step++}. Committee summaries`, 'generate-committee-summaries.mjs');
 run(`${step++}. Committee pages`, 'build-committee-pages.mjs');
 run(`${step++}. Homepage`, 'build-homepage.mjs');
 run(`${step++}. District pages`, 'build-district.mjs');
+run(`${step++}. Site presentations index`, 'build-site-presentations.mjs');
 run(`${step++}. School pages`, 'build-schools.mjs');
 run(`${step++}. Charter school pages`, 'build-charters.mjs');
 run(`${step++}. Budget pages`, 'build-budget.mjs');
