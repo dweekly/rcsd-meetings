@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two agenda changes announced: Item 10.1 pulled (not to be discussed); Item 9.3 moved from consent to action with request for elaboration",
-    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1",
+    "agenda_changes": "Two items modified: Item 9.3 moved from consent to action; Item 10.1 pulled and not discussed tonight",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -28,77 +28,102 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Roll Call",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome to another Redwood City School District study session.",
+        "intro_words": "Welcome",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez - implicit in President's opening remarks",
+        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
-        "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "Included in item 5 announcement",
+        "intro_words": "Are there any changes to the agenda? Yes, it is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "does somebody want to make a motion to approve the agenda with the changes",
+        "intro_words": "And with that, does somebody want to make a motion to approve?",
         "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "Not applicable - duplicate of item 7",
-        "status": "skipped"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "And do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
-        "item": 10,
-        "intro_words": "Item pulled from agenda per announced changes",
-        "status": "pulled"
+        "item": 11,
+        "intro_words": "And item 11. School. Yeah. So 9.3.",
+        "status": "found"
       },
       {
-        "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3.",
+        "item": 11.1,
+        "intro_words": "So again, moving to 11.11.1 being Hoover and Henry Ford school presentations",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "moving on to 12.1 being first reading and discussion of board policy",
+        "intro_words": "So moving to item 12 for discussion. 12.1 being first reading",
+        "status": "found"
+      },
+      {
+        "item": 12.1,
+        "intro_words": "12.1 being first reading and discussion of board policy and Administrative Regulation 6173",
+        "status": "found"
+      },
+      {
+        "item": 12.2,
+        "intro_words": "moving on to 12.2. Again, First Reading and Discussion of Foreign Policy",
+        "status": "found"
+      },
+      {
+        "item": 12.3,
+        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
+        "status": "found"
+      },
+      {
+        "item": 12.4,
+        "intro_words": "And moving on to 12.4, first reading and discussion of BP and AR6171",
+        "status": "found"
+      },
+      {
+        "item": 12.5,
+        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use of technology.",
+        "status": "found"
+      },
+      {
+        "item": 12.6,
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items. If there are no questions",
+        "intro_words": "Okay, great. Thank you. Yeah. And so moving to item 13, consent items.",
         "status": "found"
       },
       {
-        "item": 14,
-        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five",
+        "item": 14.1,
+        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five",
+        "status": "found"
+      },
+      {
+        "item": 14.2,
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023",
         "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund.",
+        "intro_words": "Okay, so moving on to item 16.1, information on San Mateo county investment fund.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "moving on to item 18. Other business possible other business suggested items",
+        "intro_words": "with that, moving on to item 18. Other business possible other business",
         "status": "found"
       }
     ]
@@ -107,14 +132,8 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
+      null,
       null,
       {
         "timestamp": "01:10:10",
@@ -132,24 +151,21 @@
       },
       null,
       {
-        "timestamp": "01:11:21",
-        "timestampSeconds": 4281
+        "timestamp": "01:11:26",
+        "timestampSeconds": 4286
       },
       {
-        "timestamp": "02:57:18",
-        "timestampSeconds": 10638
+        "timestamp": "02:38:10",
+        "timestampSeconds": 9490
       },
       {
-        "timestamp": "03:03:35",
-        "timestampSeconds": 11015
+        "timestamp": "03:03:30",
+        "timestampSeconds": 11010
       },
-      {
-        "timestamp": "03:03:12",
-        "timestampSeconds": 10992
-      }
+      null
     ]
   },
-  "cachedAt": "2026-07-24T20:48:50.300Z",
+  "cachedAt": "2026-07-25T09:16:03.310Z",
   "inputTokens": 37863,
-  "outputTokens": 819
+  "outputTokens": 1086
 }

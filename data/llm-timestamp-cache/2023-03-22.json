@@ -18,17 +18,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced at the start of the meeting. The meeting proceeded with posted agenda items.",
-    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No agenda changes announced. The meeting proceeded in the posted order with discussion items presented in sequence.",
+    "consent_vote_words": "Can I please get a motion to approve the consent items? I'll move to approve. Second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
@@ -53,28 +53,28 @@
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "consent_bundle"
+        "status": "found"
       },
       {
         "item": 12,
@@ -83,12 +83,12 @@
       },
       {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "I know we went over, but I don't think by too much. Thank you again for the presentation, and I will go ahead and open it up to you guys to speak.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "I know we went over, but I don't think by too much. Thank you again for the presentation, and I will go ahead and open it up to you guys to speak.",
         "status": "found"
       }
     ]
@@ -137,9 +137,8 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79,
-        "consent": true
+        "timestamp": "00:01:33",
+        "timestampSeconds": 93
       },
       {
         "timestamp": "00:01:19",
@@ -147,16 +146,16 @@
         "consent": true
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "01:08:55",
+        "timestampSeconds": 4135
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "01:08:55",
+        "timestampSeconds": 4135
       }
     ]
   },
-  "cachedAt": "2026-07-24T20:49:46.688Z",
+  "cachedAt": "2026-07-25T09:17:03.940Z",
   "inputTokens": 27924,
-  "outputTokens": 718
+  "outputTokens": 767
 }
