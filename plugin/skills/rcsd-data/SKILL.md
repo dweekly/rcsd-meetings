@@ -44,6 +44,7 @@ Read these files from `data/` to answer questions. For field-by-field documentat
 | File | Size | Use For |
 |------|------|---------|
 | `schools.json` | 609 lines | School profiles, bell schedules, addresses, principals, PTO/PTA info, parent links, CDS codes |
+| `site-presentations.json` | 12 schools | Per-school index of the last 3 years of board **"site presentation" decks** (the annual data presentation each school gives the Board — LCAP goals, CAASPP/i-Ready, attendance, SEL). `schools[<slug>]` = array (newest school-year first) of `{schoolYear, meetingDate, title, pdfUrl, videoUrl, sourceUrl}`; every `pdfUrl` is mirrored to R2. Built by `build-site-presentations.mjs`. **Note:** these are *data decks*, not club/program rosters — they mention student clubs only incidentally. |
 | `charters.json` | 3 charters | RCSD-authorized charter schools: addresses, authorizer, enrollment, leaders, CDS codes (separate from district schools) |
 | `properties.json` | 6 properties | District-owned/leased real estate that is **not** an operating school — admin buildings, leased-out former campuses (Hawes at 909 Roosevelt: Rocketship charter + Building Kidz + Touchstone; Fair Oaks at 2950 Fair Oaks Ave: KIPP + Connect), storage. Each entry links its board-approved leases/use agreements (`documents[]`). Keyed by address; use to resolve a district site named only by street address. |
 | `district-calendar-2025-26.json` | ~17 events | "Is there school?" queries for 2025-26 year |
