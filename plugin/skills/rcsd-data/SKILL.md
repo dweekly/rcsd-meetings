@@ -44,6 +44,7 @@ Read these files from `data/` to answer questions. For field-by-field documentat
 | File | Size | Use For |
 |------|------|---------|
 | `schools.json` | 609 lines | School profiles, bell schedules, addresses, principals, PTO/PTA info, parent links, CDS codes |
+| `school-clubs.json` | 12 schools | **Student clubs & extracurriculars per school** — `schools[<slug>].clubs[]` = `{name, category (environmental/arts/stem/sports/service/academic/social/other), evidence, lastMentioned, mentions[]}`. **AI-extracted from board site-presentation transcripts** (claude-sonnet-4-6) and labeled **best-effort / not authoritative**: it lists only clubs a principal named aloud on their presentation night, not a complete roster. Each club cites an evidence quote + the meeting date(s). Use for "what clubs does X have?" but state the caveat. Built by `extract-school-clubs.mjs`. |
 | `charters.json` | 3 charters | RCSD-authorized charter schools: addresses, authorizer, enrollment, leaders, CDS codes (separate from district schools) |
 | `properties.json` | 6 properties | District-owned/leased real estate that is **not** an operating school — admin buildings, leased-out former campuses (Hawes at 909 Roosevelt: Rocketship charter + Building Kidz + Touchstone; Fair Oaks at 2950 Fair Oaks Ave: KIPP + Connect), storage. Each entry links its board-approved leases/use agreements (`documents[]`). Keyed by address; use to resolve a district site named only by street address. |
 | `district-calendar-2025-26.json` | ~17 events | "Is there school?" queries for 2025-26 year |
