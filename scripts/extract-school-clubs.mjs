@@ -56,6 +56,33 @@ const SCHOOL_NAMES = {
 
 const CATEGORIES = 'environmental | arts | stem | sports | service | academic | social | other';
 
+// --- Fuzzy club-name matching (per-school dedup across years) ---
+// Filler/stop words that vary between years or carry no identity.
+const CLUB_STOP = new Set(['the', 'a', 'an', 'of', 'for', 'and', 'at', 'to', 'with',
+  'program', 'club', 'initiative', 'group']);
+// Normalize a club name to its set of significant tokens: lowercase, drop
+// parentheticals, stem mentor*, strip punctuation and filler/stop words.
+function clubTokens(name) {
+  return new Set(
+    String(name).toLowerCase()
+      .replace(/\([^)]*\)/g, ' ')                 // drop "(Associated Student Body)"
+      .replace(/mentorship|mentoring/g, 'mentor')  // mentoring ≈ mentorship
+      .replace(/[^a-z0-9]+/g, ' ')                 // punctuation → space
+      .split(' ')
+      .filter(t => t && !CLUB_STOP.has(t))
+  );
+}
+// Two clubs are the same if their token sets are equal, or one is a subset of
+// the other AND the smaller set has ≥2 significant tokens — so "Rainbow Cloud"
+// folds into "GSA / Rainbow Cloud", but a lone shared word ("Math") never merges
+// distinct clubs ("Math Club" vs "Math Olympiad").
+function sameClub(a, b) {
+  if (!a || !b || a.size === 0 || b.size === 0) return false;
+  const [small, big] = a.size <= b.size ? [a, b] : [b, a];
+  if (![...small].every(t => big.has(t))) return false;
+  return small.size === big.size || small.size >= 2;
+}
+
 function transcriptText(path) {
   const j = JSON.parse(readFileSync(path, 'utf-8'));
   if (Array.isArray(j.utterances)) {
@@ -153,20 +180,26 @@ async function main() {
   const all = [];
   for (const night of nights) all.push(...await extractNight(getClientFn, night));
 
-  // Group by school; dedupe same club name (case-insensitive) keeping the most
-  // recent mention, preserving prior-year evidence dates.
+  // Group by school; dedupe clubs that are the same across years despite phrasing
+  // drift (e.g. "Friends for Youth Mentoring Program" vs "...Mentorship Program",
+  // "ASB (Student Body Leadership)" vs "ASB (Associated Student Body)", "Rainbow
+  // Cloud" vs "GSA / Rainbow Cloud"). Keep the most recent name/category/evidence
+  // and preserve every mention date. Matching is per-school only.
   const schools = {};
   for (const c of all) {
     if (!c.school_slug || !c.club_name) continue;
     const bucket = (schools[c.school_slug] ||= { clubs: [] });
-    const key = c.club_name.trim().toLowerCase();
-    const existing = bucket.clubs.find(x => x.name.toLowerCase() === key);
+    const tokens = clubTokens(c.club_name);
+    const existing = bucket.clubs.find(x => sameClub(x._tokens, tokens));
     if (existing) {
       existing.mentions = [...new Set([...existing.mentions, c.meetingDate])].sort().reverse();
-      if (c.meetingDate > existing.lastMentioned) {
+      if (c.meetingDate >= existing.lastMentioned) {
+        // Newest mention wins for the displayed name/category/evidence.
         existing.lastMentioned = c.meetingDate;
+        existing.name = c.club_name.trim();
         existing.category = c.category || existing.category;
         existing.evidence = c.evidence_quote || existing.evidence;
+        existing._tokens = tokens;
       }
     } else {
       bucket.clubs.push({
@@ -175,11 +208,13 @@ async function main() {
         evidence: c.evidence_quote || '',
         lastMentioned: c.meetingDate,
         mentions: [c.meetingDate],
+        _tokens: tokens,
       });
     }
   }
   for (const s of Object.values(schools)) {
     s.clubs.sort((a, b) => b.lastMentioned.localeCompare(a.lastMentioned) || a.name.localeCompare(b.name));
+    for (const club of s.clubs) delete club._tokens; // internal matching field only
   }
 
   const out = {
