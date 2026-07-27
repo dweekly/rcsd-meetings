@@ -21,87 +21,52 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) moved from its original position to after oral communication, then moved again to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) moved from consent to action. Items 6.2 and 6.3 moved to action. One additional staff recognition added under 13.1.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its posted position to before oral communication. Additionally, items 6.1 (Approval of Comprehensive School Safety Plans) and 6.2-6.4 (other closed session items) were modified: 6.1 was approved in closed session and moved to action; 6.2 and 6.3 were moved to action items.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Evelyn. Trustee Weekley. Present. Trustee McEvoy.",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "Thank you. Next item is 1.2 reported on closed session.",
-        "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
+        "intro_words": "Next item is 1.2 reported on closed session.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "intro_words": "And are there any changes to the agenda?",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
         "status": "found"
       },
       {
         "item": 13.1,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
         "status": "found"
       },
       {
-        "item": 6.1,
-        "intro_words": "And this is recognition of classified employees. Thank you. Well, it's",
-        "status": "found"
-      },
-      {
-        "item": 6.2,
-        "intro_words": "So I just realized that we do have. So I don't know",
-        "status": "found"
-      },
-      {
-        "item": 6.3,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation of",
-        "status": "found"
-      },
-      {
-        "item": 7.1,
-        "intro_words": "And then bond program action items 7.1, approval of measure",
-        "status": "found"
-      },
-      {
-        "item": 7.2,
-        "intro_words": "7.2. Approval of amendment number two to the Program Management",
-        "status": "found"
-      },
-      {
-        "item": 8.1,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1. School",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "Moving along then, we're on to item nine, discussion items.",
+        "item": 8,
+        "intro_words": "Okay, so item 8, school and community reports. 8.1.",
         "status": "found"
       },
       {
         "item": 11.1,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for",
+        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle school, special education and bilingual teacher positions.",
         "status": "found"
       },
       {
         "item": 11.2,
-        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment",
+        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
         "status": "found"
       },
       {
-        "item": 16,
-        "intro_words": "All those on Tamer. Thank you. All right.",
+        "item": 12,
+        "intro_words": "More super and superintendent reports.",
         "status": "found"
       }
     ]
@@ -117,39 +82,36 @@
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
-      },
+      null,
+      null,
       {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
       null,
+      {
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
+      },
+      {
+        "timestamp": "00:20:22",
+        "timestampSeconds": 1222
+      },
+      null,
       null,
       null,
       {
-        "timestamp": "03:10:26",
-        "timestampSeconds": 11426
+        "timestamp": "03:18:59",
+        "timestampSeconds": 11939
       },
       null,
       null,
       null,
       null,
-      null,
-      null,
-      {
-        "timestamp": "03:10:16",
-        "timestampSeconds": 11416
-      },
       null
     ]
   },
-  "cachedAt": "2026-07-27T11:00:14.538Z",
+  "cachedAt": "2026-07-27T20:37:31.320Z",
   "inputTokens": 43596,
-  "outputTokens": 883
+  "outputTokens": 588
 }
