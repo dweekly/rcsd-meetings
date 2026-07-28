@@ -18,7 +18,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - will be discussed at a future meeting. Item 9.3 moved from consent to action for individual discussion.",
+    "agenda_changes": "Item 10.1 pulled (will be discussed at a future meeting with additional information). Item 9.3 moved from consent to action.",
     "consent_vote_words": null,
     "items": [
       {
@@ -48,32 +48,37 @@
       },
       {
         "item": 7,
-        "intro_words": "Approval of the Agenda (Action required)",
+        "intro_words": "does somebody want to make a motion to approve the agenda",
         "status": "found"
       },
       {
-        "item": 9,
+        "item": 11,
         "intro_words": "moving on to our study session discussion on dyslexia",
         "status": "found"
       },
       {
-        "item": 9.3,
-        "intro_words": "Approval of proposal for the infrastructure of two video intercom buzzers",
+        "item": 11.1,
+        "intro_words": "moving to item 11.11.1 being Hoover and Henry Ford school presentations",
         "status": "found"
       },
       {
-        "item": 11.1,
-        "intro_words": "Hoover and Henry Ford school presentations for the 2324 school year",
+        "item": "11.1.1",
+        "intro_words": "Good evening everyone. Trustee please. Dr. Baker, cabinet. Thank you very much for having us here today.",
+        "status": "found"
+      },
+      {
+        "item": "11.1.2",
+        "intro_words": "Good evening. I'm Jennifer Knopf, the principal at Henry Ford.",
         "status": "found"
       },
       {
         "item": 12.1,
-        "intro_words": "first reading and discussion of board policy and Administrative Regulation 6173",
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
         "status": "found"
       },
       {
         "item": 12.2,
-        "intro_words": "First Reading and Discussion of Foreign Policy and Administrative Regulation 6173.1",
+        "intro_words": "with that we could move on to 12.2. Again, First Reading and Discussion of Foreign Policy",
         "status": "found"
       },
       {
@@ -83,52 +88,52 @@
       },
       {
         "item": 12.4,
-        "intro_words": "first reading and discussion of BP and AR6171 Title 1 programs",
+        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171 Title 1 programs",
         "status": "found"
       },
       {
         "item": 12.5,
-        "intro_words": "first reading of BP 6163.4 student use of technology",
+        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use of technology",
         "status": "found"
       },
       {
         "item": 12.6,
-        "intro_words": "first reading and discussion of board policy NAR 5144.1 Suspension and expulsion due process",
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension and expulsion",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "consent items If there are no questions, can I please get a motion",
-        "status": "consent_bundle"
+        "intro_words": "moving to item 13, consent items. If there are no questions",
+        "status": "found"
       },
       {
         "item": 14.1,
-        "intro_words": "adoption of resolution number five to approve continued funding application for the 24, 25",
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five",
         "status": "found"
       },
       {
         "item": 14.2,
-        "intro_words": "Adoption of annual organizational meeting date set for December 6, 2023",
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "board and superintendent report",
+        "intro_words": "so now on to board and superintendent report",
         "status": "found"
       },
       {
         "item": 16.1,
-        "intro_words": "information on San Mateo county investment fund",
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund",
         "status": "found"
       },
       {
         "item": 17,
-        "intro_words": "corresponding correspondence",
+        "intro_words": "moving on to corresponding correspondence",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "Other business possible other business suggested items for future agendas",
+        "intro_words": "moving on to item 18. Other business possible other business suggested items",
         "status": "found"
       }
     ]
@@ -145,20 +150,23 @@
         "timestampSeconds": 22
       },
       null,
-      null,
-      null,
       {
-        "timestamp": "00:00:59",
-        "timestampSeconds": 59
+        "timestamp": "01:10:54",
+        "timestampSeconds": 4254
       },
       null,
       null,
       null,
       null,
+      null,
+      {
+        "timestamp": "03:03:35",
+        "timestampSeconds": 11015
+      },
       null
     ]
   },
-  "cachedAt": "2026-07-28T09:42:35.143Z",
+  "cachedAt": "2026-07-28T20:32:13.593Z",
   "inputTokens": 37863,
-  "outputTokens": 1026
+  "outputTokens": 1150
 }
