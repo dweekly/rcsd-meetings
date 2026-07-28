@@ -18,12 +18,12 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced. The president asked 'are there any changes to the agenda having here?' with no response, then moved directly to approval.",
+    "agenda_changes": "No agenda changes were announced at the start of the meeting. The president asked 'are there any changes to the agenda having here?' and received no response before proceeding to approve the agenda.",
     "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call,",
         "status": "found"
       },
       {
@@ -33,12 +33,12 @@
       },
       {
         "item": 3,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District",
         "status": "found"
       },
       {
@@ -53,42 +53,42 @@
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "intro_words": "Moving along to board program consent items 6.1. Approval",
+        "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "can I please get a motion to approve the consent bond program?",
+        "intro_words": "Moving along to board program consent items 6.1. Approval",
         "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "Item seven, we don't have any action items. Eight,",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "I would like to adjourn the meeting and honor a",
         "status": "found"
       }
     ]
@@ -137,8 +137,9 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "00:01:19",
@@ -146,16 +147,16 @@
         "consent": true
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:02:30",
+        "timestampSeconds": 150
       }
     ]
   },
-  "cachedAt": "2026-07-27T20:37:52.920Z",
+  "cachedAt": "2026-07-28T09:43:25.018Z",
   "inputTokens": 27924,
-  "outputTokens": 733
+  "outputTokens": 724
 }
