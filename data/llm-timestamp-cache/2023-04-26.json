@@ -21,22 +21,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication (and then clarified to be before rather than after). Item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action due to public comments. Items 6.2 and 6.3 were also moved to action. Additional staff recognition was added under modified 13.1.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, consent items 6.1 (Approval of Bond Program Consent Items) were moved to action items, with 6.2 and 6.3 also moved to action to allow for public comment.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "intro_words": "Call to Order",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley.",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "President Marquez? Here. Thank you. Next item is 1.2",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
@@ -50,38 +45,33 @@
         "status": "found"
       },
       {
-        "item": 6,
-        "intro_words": "Yes, I was hoping that we could move 13.1",
+        "item": 7,
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion",
         "status": "found"
       },
       {
-        "item": 7,
-        "intro_words": "With that, if there's no other changes to the agenda",
+        "item": 13.1,
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "So item 13.1 has been moved up to oral communication.",
+        "intro_words": "So item 8, school and community reports. 8.1. School plans for student",
         "status": "found"
       },
       {
-        "item": 13,
-        "intro_words": "So item 8, school and community reports. 8.1.",
+        "item": 9,
+        "intro_words": "So moving along then, we're on to item nine, discussion items.",
         "status": "found"
       },
       {
         "item": 11.1,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend",
+        "intro_words": "Item 11.1, approval of recruitment incentive stipend for hard to fill",
         "status": "found"
       },
       {
         "item": 11.2,
-        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment",
-        "status": "found"
-      },
-      {
-        "item": 12,
-        "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank",
         "status": "found"
       }
     ]
@@ -89,18 +79,12 @@
   "result": {
     "videoId": "inuwqFycW2Q",
     "items": [
+      null,
       {
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
+      null,
       {
         "timestamp": "00:00:30",
         "timestampSeconds": 30
@@ -109,25 +93,22 @@
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
+      null,
       {
-        "timestamp": "00:01:40",
-        "timestampSeconds": 100
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
       },
       {
-        "timestamp": "00:02:43",
-        "timestampSeconds": 163
+        "timestamp": "00:20:22",
+        "timestampSeconds": 1222
       },
       {
-        "timestamp": "00:02:18",
-        "timestampSeconds": 138
+        "timestamp": "03:10:21",
+        "timestampSeconds": 11421
       },
       null,
       null,
       null,
-      {
-        "timestamp": "03:18:59",
-        "timestampSeconds": 11939
-      },
       null,
       null,
       null,
@@ -135,7 +116,7 @@
       null
     ]
   },
-  "cachedAt": "2026-07-28T20:32:53.170Z",
+  "cachedAt": "2026-07-29T09:50:47.939Z",
   "inputTokens": 43596,
-  "outputTokens": 679
+  "outputTokens": 584
 }

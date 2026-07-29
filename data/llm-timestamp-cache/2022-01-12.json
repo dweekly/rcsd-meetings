@@ -17,113 +17,53 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "President DS Locum announced the following changes: (1) Move measure U items 10.5, 10.6, 10.7 to consent; (2) Move items 10.3 and 10.4 to consent. These were approved by motion and second.",
+    "agenda_changes": "Items 10.5, 10.6, 10.7 moved to consent. Items 10.3 and 10.4 moved to consent.",
     "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay, let's get started. Once again, for those of you",
+        "intro_words": "Okay, let's get started. Once again, for those of you that are just",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
+        "intro_words": "Roll call, please. Trustee McAvoy. Present. Trustee",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's great to see you in person",
+        "intro_words": "Welcome, everybody. It's great to see you in person, although",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening?",
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "So we have three speakers cards, but they are for",
+        "intro_words": "So moved. Second. That was Mike and Cecilia. All those",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening?",
+        "intro_words": "Ali, do we have any oral communication this Evening? We have",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving right along to the bond program consent items. Recommendation",
-        "status": "consent_bundle"
+        "intro_words": "Moving on to bond program action items. The first one is",
+        "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Moving on to bond program action items. The first",
-        "status": "found"
+        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle",
+        "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "Okay, on to eight discussion items. The first one",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240",
-        "status": "found"
-      },
-      {
-        "item": 15,
-        "intro_words": "Okay. Moving on to 8.3. First reading and discussion",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "8.4. First reading and discussion of board policy 0460",
-        "status": "found"
-      },
-      {
-        "item": 17,
-        "intro_words": "Along to 8.5. First reading and discussion of board",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "Okay, can I have a motion to move the consent",
-        "status": "found"
-      },
-      {
-        "item": 19,
-        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school",
-        "status": "found"
-      },
-      {
-        "item": 20,
-        "intro_words": "Moving on to 10.2. Recommendation. Adoption of Resolution 22",
-        "status": "found"
-      },
-      {
-        "item": 21,
-        "intro_words": "12.1. The quarterly Williams Report. Do we have",
-        "status": "found"
-      },
-      {
-        "item": 22,
-        "intro_words": "Correspondence. We did have a email from a parent",
-        "status": "found"
-      },
-      {
-        "item": 23,
-        "intro_words": "14.1 possible other business suggested items for future agendas.",
-        "status": "found"
-      },
-      {
-        "item": 24,
-        "intro_words": "15.1. Changes to the board agenda schedule. None this",
-        "status": "found"
-      },
-      {
-        "item": 25,
-        "intro_words": "Can we have a motion to adjourn? So moved.",
-        "status": "found"
+        "intro_words": "Adjournment",
+        "status": "not_found"
       }
     ]
   },
@@ -159,21 +99,18 @@
       },
       null,
       {
-        "timestamp": "00:02:22",
-        "timestampSeconds": 142,
-        "consent": true
-      },
-      {
         "timestamp": "00:02:45",
         "timestampSeconds": 165
       },
       {
         "timestamp": "00:02:22",
-        "timestampSeconds": 142
-      }
+        "timestampSeconds": 142,
+        "consent": true
+      },
+      null
     ]
   },
-  "cachedAt": "2026-07-28T20:33:35.735Z",
+  "cachedAt": "2026-07-29T09:51:26.430Z",
   "inputTokens": 18781,
-  "outputTokens": 1039
+  "outputTokens": 499
 }
