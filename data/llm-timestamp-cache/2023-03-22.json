@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda announced. Items proceeded in posted order with some sections combined or reordered during discussion (e.g., consent items were voted on together, multiple discussion items grouped as \"9. Discussion items\").",
-    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No agenda changes announced during the early portion of the transcript. The president asked 'are there any changes to the agenda having here?' and there was no response indicating changes.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program",
     "items": [
       {
         "item": 1,
@@ -28,17 +28,17 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
+        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
@@ -63,32 +63,32 @@
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 12,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "intro_words": "Moving along to board program consent items 6.1. Approval",
         "status": "found"
       },
       {
+        "item": 12,
+        "intro_words": "can I please get a motion to approve the consent bond program",
+        "status": "consent_bundle"
+      },
+      {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month",
         "status": "found"
       }
     ]
@@ -137,13 +137,13 @@
         "timestampSeconds": 74
       },
       {
+        "timestamp": "00:01:33",
+        "timestampSeconds": 93
+      },
+      {
         "timestamp": "00:01:19",
         "timestampSeconds": 79,
         "consent": true
-      },
-      {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
       },
       {
         "timestamp": "02:17:50",
@@ -155,7 +155,7 @@
       }
     ]
   },
-  "cachedAt": "2026-07-29T09:51:07.982Z",
+  "cachedAt": "2026-07-29T20:26:09.591Z",
   "inputTokens": 27924,
-  "outputTokens": 743
+  "outputTokens": 707
 }
