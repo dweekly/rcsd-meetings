@@ -63,6 +63,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # trogdor's apt rclone is v1.60.1 (2022): its R2 uploads to existing keys
+      # fail with empty-request-id 501 NotImplemented and the retry then reports
+      # "nothing to transfer" — which silently dropped every nightly batch of
+      # fresh ES translations for 10 days (the stale-refresh cap re-bought the
+      # same 25 meetings twice a day). Prefer the pinned current binary.
+      - name: Use current rclone (self-hosted tools dir)
+        if: runner.environment == 'self-hosted'
+        run: echo "/mnt/data/actions-runner/tools" >> "$GITHUB_PATH"
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
