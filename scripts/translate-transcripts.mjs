@@ -307,7 +307,7 @@ async function checkAndRestoreTranslation(date) {
   // 1. Try to restore English slim transcript if missing locally
   if (!existsSync(enPath)) {
     try {
-      const url = `https://data.rcsd.info/transcripts/${date}.json`;
+      const url = `https://data.rcsd.info/transcripts/${date}.json?cb=${Date.now()}`; // cache-bust (see above)
       const res = await fetch(url);
       if (res.ok) {
         const text = await res.text();
@@ -325,7 +325,7 @@ async function checkAndRestoreTranslation(date) {
   // 2. Try to restore Spanish slim transcript if missing locally
   if (!force && !existsSync(esPath)) {
     try {
-      const url = `https://data.rcsd.info/transcripts/${date}-es.json`;
+      const url = `https://data.rcsd.info/transcripts/${date}-es.json?cb=${Date.now()}`; // cache-bust: a stale edge copy resurrects old content and defeats hash caching
       const res = await fetch(url);
       if (res.ok) {
         const text = await res.text();

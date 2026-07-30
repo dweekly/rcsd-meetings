@@ -105,7 +105,7 @@ async function hasCachedOrRestored(videoId, date) {
 
   if (!forceAll) {
     try {
-      const url = `https://data.rcsd.info/transcripts-aai/${videoId}.json`;
+      const url = `https://data.rcsd.info/transcripts-aai/${videoId}.json?cb=${Date.now()}`; // cache-bust (stale edge copies)
       const res = await fetch(url);
       if (res.ok) {
         const text = await res.text();
