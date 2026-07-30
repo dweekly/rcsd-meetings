@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced: Items 7.1, 7.2, and 7.3 moved to consent; item 10.1 (grand jury response) moved to consent; continuation of study session conversation moved to after 8.2 as item 8.2A or 8.3",
-    "consent_vote_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike, roll called out, please.",
+    "agenda_changes": "Multiple changes announced: Items 7.1, 7.2, and 7.3 moved to consent; item 10.1 (grand jury response) moved to consent; continuation of study session discussion added as 8.2A or 8.3.",
+    "consent_vote_words": "Roll call vote, please. Trustee Wells. Aye. Trustee Lawson. Aye. Trustee Marquez. Aye. Vice President Diaz locum. Aye. President McAvoy. Aye.",
     "items": [
       {
         "item": 1,
@@ -28,17 +28,17 @@
       },
       {
         "item": 2,
-        "intro_words": "All right, roll call, please. Trustee Wells. Here. Trustee Lawson.",
+        "intro_words": "All right, roll call, please. Trustee Wells. Here.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021. School board meeting.",
+        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021. School board meeting.",
+        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021.",
         "status": "found"
       },
       {
@@ -47,43 +47,58 @@
         "status": "found"
       },
       {
-        "item": 6,
-        "intro_words": "All right, do I have any changes to the agenda? I have one three proposed changes.",
-        "status": "found"
-      },
-      {
-        "item": 7,
-        "intro_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike",
-        "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike",
-        "status": "found"
-      },
-      {
         "item": 9,
-        "intro_words": "All right, I do not see any oral communication comments. All right, so we're on",
+        "intro_words": "All right, I do not see any oral communication comments.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "All right, 7.4. Does anyone have any questions on this resolution? All right, so it's",
+        "intro_words": "All right, so we're on to the bond program consent items.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Right, okay, so we're on to 8.1. Discussion of reconvening North Star Forward Committee.",
+        "intro_words": "All right, so we're on to 8.1. Discussion of reconvening North Star Forward Committee.",
+        "status": "found"
+      },
+      {
+        "item": 8.2,
+        "intro_words": "All right, so we're on to the presentation regarding potential trustee area revision.",
+        "status": "found"
+      },
+      {
+        "item": 8.3,
+        "intro_words": "All right, so we are on to 8.3 regarding uniform complaint Procedures.",
+        "status": "found"
+      },
+      {
+        "item": 8.4,
+        "intro_words": "So the second. This item 8.4 is regarding staff development.",
+        "status": "found"
+      },
+      {
+        "item": 8.5,
+        "intro_words": "Moving ahead to 8.5. This board policy is an update.",
+        "status": "found"
+      },
+      {
+        "item": 8.6,
+        "intro_words": "Okay. Moving forward. 8.6. This actually is a new policy for the redwood City school district.",
+        "status": "found"
+      },
+      {
+        "item": 8.7,
+        "intro_words": "Okay. And the next one goes hand in hand as well. This is 8.7.",
+        "status": "found"
+      },
+      {
+        "item": 10.2,
+        "intro_words": "And I know we've done this before. I don't know if folks have questions or if there's anything you wanted to add.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "So I think we'll move on to the next agenda items. Okay, 8.2. We're on to",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "All right, thank you. Have a good evening. You too. All right, we'll have a new",
+        "intro_words": "Do I have a motion to adjourn? Second.",
         "status": "found"
       }
     ]
@@ -111,42 +126,30 @@
         "timestamp": "00:03:53",
         "timestampSeconds": 233
       },
-      {
-        "timestamp": "00:03:53",
-        "timestampSeconds": 233
-      },
-      {
-        "timestamp": "00:04:36",
-        "timestampSeconds": 276
-      },
-      {
-        "timestamp": "00:04:36",
-        "timestampSeconds": 276
-      },
+      null,
+      null,
+      null,
       {
         "timestamp": "00:05:35",
         "timestampSeconds": 335
       },
       null,
       {
-        "timestamp": "00:03:53",
-        "timestampSeconds": 233
+        "timestamp": "00:05:35",
+        "timestampSeconds": 335
       },
       {
-        "timestamp": "00:07:17",
-        "timestampSeconds": 437
+        "timestamp": "00:07:12",
+        "timestampSeconds": 432
       },
       {
-        "timestamp": "01:00:26",
-        "timestampSeconds": 3626
+        "timestamp": "00:05:30",
+        "timestampSeconds": 330
       },
-      {
-        "timestamp": "01:36:45",
-        "timestampSeconds": 5805
-      }
+      null
     ]
   },
-  "cachedAt": "2026-07-29T09:51:46.943Z",
+  "cachedAt": "2026-07-30T09:36:46.007Z",
   "inputTokens": 25018,
-  "outputTokens": 806
+  "outputTokens": 937
 }
