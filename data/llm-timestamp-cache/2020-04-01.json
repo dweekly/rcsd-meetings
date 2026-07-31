@@ -37,82 +37,167 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item added: Staff Recognition was added after item 5 (Oral Communication). No items were pulled or reordered beyond this addition.",
-    "consent_vote_words": "And a roll call vote, please. Trustee McBride. Aye. Trustee Marquez. Aye. Trustee Diaz Locum. Aye. Trustee McAvoy. Aye. Trustee Lawson. Aye.",
+    "agenda_changes": "Item 'Staff Recognition' was added after item 5 (Oral Communication). This change was announced during the 'Changes to the Agenda' section at the beginning of the meeting.",
+    "consent_vote_words": "So moved. This is Maria. Is there a second? Second. Cecilia. Cecilia. And a roll call vote, please.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
-        "status": "found"
+        "intro_words": "not found",
+        "status": "called_to_order_informally"
       },
       {
         "item": 2,
-        "intro_words": "Roll Call",
-        "status": "found"
+        "intro_words": "not found",
+        "status": "called_to_order_informally"
       },
       {
         "item": 3,
+        "intro_words": "not found",
+        "status": "called_to_order_informally"
+      },
+      {
+        "item": 4,
         "intro_words": "Welcome, everybody. It's good to see some familiar faces again.",
         "status": "found"
       },
       {
-        "item": 4,
-        "intro_words": "Welcome by the School Board President",
-        "status": "found"
-      },
-      {
         "item": 5,
-        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
+        "intro_words": "My name is Jude. I am in the second grade at Henry Ford",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis.",
+        "intro_words": "Moving on. Are there any changes to the agenda? This is",
         "status": "found"
       },
       {
         "item": 7,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 8,
         "intro_words": "Do we have a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
-        "item": "staff_recognition_added",
-        "intro_words": "So we will move on to the staff recognition. Stanley, thank you.",
-        "status": "found"
+        "item": 9,
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 10,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
+        "intro_words": "Okay, at this point, I believe we only have one speaker",
+        "status": "found"
+      },
+      {
+        "item": 11,
+        "intro_words": "So we will move on to the staff recognition. Stanley,",
+        "status": "found"
+      },
+      {
+        "item": 12,
+        "intro_words": "So we are on to item six, the bond program consent items",
         "status": "consent_bundle"
       },
       {
-        "item": 20,
-        "intro_words": "So, moving on to 7.1, which is a bond action item. Do we know we have Will here?",
+        "item": 13,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 14,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 15,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 16,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 17,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 18,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 19,
+        "intro_words": "All right, moving on to 7.1, which is a bond action",
         "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "Does anyone have any questions about the TAF construction agreement?",
+        "status": "found"
+      },
+      {
+        "item": 21,
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 22,
-        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want to go ahead and start?",
+        "intro_words": "Okay, item 8.1, which I think is here for. So, John,",
         "status": "found"
       },
       {
+        "item": 23,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 24,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
         "item": 25,
-        "intro_words": "We are on 11.1. Action item. This is the resolution of emergency relating to COVID 19.",
+        "intro_words": "We have no items on consent. Moving on to item 10.1. Action",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have anything they would like to.",
+        "intro_words": "We are on 11.1. Report from board members and superintendent.",
         "status": "found"
+      },
+      {
+        "item": 27,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 28,
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 29,
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 30,
-        "intro_words": "Other business suggested items for future agenda. Anybody have anything else?",
+        "intro_words": "Other business suggested items for future agenda. Anybody have anything",
         "status": "found"
       },
       {
-        "item": 33,
-        "intro_words": "Is there a motion to adjourn. In unison?",
+        "item": 31,
+        "intro_words": "And then changes to the agenda, the board agenda, schedule.",
+        "status": "found"
+      },
+      {
+        "item": 32,
+        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard",
         "status": "found"
       }
     ]
@@ -120,16 +205,13 @@
   "result": {
     "videoId": "0cWwZ9lGR0U",
     "items": [
-      {
-        "timestamp": "00:00:27",
-        "timestampSeconds": 27
-      },
+      null,
+      null,
       null,
       {
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      null,
       {
         "timestamp": "00:03:01",
         "timestampSeconds": 181
@@ -138,15 +220,23 @@
         "timestamp": "00:03:28",
         "timestampSeconds": 208
       },
+      null,
       {
         "timestamp": "00:03:46",
         "timestampSeconds": 226
       },
       null,
-      null,
       {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
+        "timestamp": "00:04:41",
+        "timestampSeconds": 281
+      },
+      {
+        "timestamp": "00:03:23",
+        "timestampSeconds": 203
+      },
+      {
+        "timestamp": "00:07:29",
+        "timestampSeconds": 449,
         "consent": true
       },
       null,
@@ -155,12 +245,13 @@
       null,
       null,
       null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:06:12",
-        "timestampSeconds": 372
+        "timestamp": "00:05:53",
+        "timestampSeconds": 353
+      },
+      {
+        "timestamp": "00:06:22",
+        "timestampSeconds": 382
       },
       null,
       {
@@ -170,8 +261,8 @@
       null,
       null,
       {
-        "timestamp": "01:47:14",
-        "timestampSeconds": 6434
+        "timestamp": "01:46:44",
+        "timestampSeconds": 6404
       },
       {
         "timestamp": "01:48:57",
@@ -184,15 +275,18 @@
         "timestamp": "02:00:00",
         "timestampSeconds": 7200
       },
-      null,
-      null,
+      {
+        "timestamp": "02:00:00",
+        "timestampSeconds": 7200
+      },
       {
         "timestamp": "02:04:16",
         "timestampSeconds": 7456
-      }
+      },
+      null
     ]
   },
-  "cachedAt": "2026-07-30T22:12:25.044Z",
+  "cachedAt": "2026-07-31T10:01:24.939Z",
   "inputTokens": 24593,
-  "outputTokens": 825
+  "outputTokens": 1356
 }
