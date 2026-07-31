@@ -74,7 +74,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two changes announced: (1) Added closed session after item 19 to continue CSEA and RCTA negotiations; (2) Moved item 16.1 (Information on Financial Audit Report) to after item 11 (bond program action items) instead of original placement",
+    "agenda_changes": "Two changes announced: (1) Add closed session continuation after item 19 to continue CSEA and RCTA negotiations; (2) Move item 16.1 (Information on Financial Audit Report) to after item 11 (Report Out on Closed Session)",
     "consent_vote_words": "Do I have a motion to approve? So moved. Second. Maria Cecilia seconds roll call vote.",
     "items": [
       {
@@ -84,67 +84,77 @@
       },
       {
         "item": 2,
-        "intro_words": "Here. Trustee lawson. Here. Trustee marquez.",
+        "intro_words": "To order roll call, please. Trustee wells.",
+        "status": "found"
+      },
+      {
+        "item": 3,
+        "intro_words": "Communication and closed session. Full Internet connection",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Communication and closed session. Full Internet connection tonight.",
+        "intro_words": "I did want to report out on the closed session",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "All right, so we're on to 9.1. Showcase of student projects",
+        "intro_words": "All right, so we're on to. Oh, thank you, Maria.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "All right, so we're on to the bond program consent items.",
+        "intro_words": "All right, so we're on oh, yeah. Thank you.",
         "status": "found"
       },
       {
-        "item": 16.1,
-        "intro_words": "All right, so we're on to the audit report. Dr. Baker and Priscilla",
+        "item": 12,
+        "intro_words": "All right, we're on to the audit report. Dr. Baker",
         "status": "found"
       },
       {
-        "item": 12.1,
-        "intro_words": "Okay, we're on to 12.1. Spring expansion of school district January reopening.",
+        "item": 18,
+        "intro_words": "All right, so we're on to 12.1. Spring expansion of school",
         "status": "found"
       },
       {
-        "item": 46,
-        "intro_words": "All right, so we are on to the consent items. Do I have",
-        "status": "consent_bundle"
+        "item": 22,
+        "intro_words": "All right, so we're on to the consent items.",
+        "status": "found"
+      },
+      {
+        "item": 43,
+        "intro_words": "All right, onto the action Items. We have 14.1.",
+        "status": "found"
       },
       {
         "item": 57,
-        "intro_words": "All right. 14.1. Adoption of resolution 20, reduction of certain classified services.",
-        "status": "found"
-      },
-      {
-        "item": 58,
-        "intro_words": "All right. 14.2. Approval of additional personnel needed for 2021.",
+        "intro_words": "All right. 14.2. Approval of additional personnel needed",
         "status": "found"
       },
       {
         "item": 59,
-        "intro_words": "All right. 14.3. Recommendation regarding the approval of classified general leave",
+        "intro_words": "All right. 14.3. Recommendation regarding the approval of classified",
         "status": "found"
       },
       {
         "item": 60,
-        "intro_words": "All right, so we're on to 15.1. Report from board members and superintendent.",
+        "intro_words": "All right, so we're on to 15.1. Report from board",
         "status": "found"
       },
       {
         "item": 64,
-        "intro_words": "Any correspondence? We're still getting a few emails, but they've",
+        "intro_words": "Any correspondence? We're still getting a few emails",
+        "status": "found"
+      },
+      {
+        "item": 66,
+        "intro_words": "Other business items for future agenda. So, Ellie,",
         "status": "found"
       },
       {
         "item": 69,
-        "intro_words": "All right, well, thank you, everybody, all of our attendees, for being",
+        "intro_words": "Okay, so procedurally, yeah, I think, you know, we",
         "status": "found"
       }
     ]
@@ -160,7 +170,10 @@
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      null,
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
       null,
       {
         "timestamp": "00:00:00",
@@ -175,23 +188,29 @@
       },
       null,
       {
-        "timestamp": "00:30:15",
-        "timestampSeconds": 1815
+        "timestamp": "00:11:17",
+        "timestampSeconds": 677
+      },
+      {
+        "timestamp": "00:31:04",
+        "timestampSeconds": 1864
       },
       null,
       null,
       null,
       null,
       null,
+      {
+        "timestamp": "00:43:54",
+        "timestampSeconds": 2634
+      },
       null,
       null,
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
+      {
+        "timestamp": "00:41:57",
+        "timestampSeconds": 2517
+      },
       null,
       null,
       null,
@@ -213,9 +232,8 @@
       null,
       null,
       {
-        "timestamp": "02:01:43",
-        "timestampSeconds": 7303,
-        "consent": true
+        "timestamp": "02:01:53",
+        "timestampSeconds": 7313
       },
       null,
       null,
@@ -227,14 +245,14 @@
       null,
       null,
       null,
-      {
-        "timestamp": "02:02:18",
-        "timestampSeconds": 7338
-      },
+      null,
+      null,
+      null,
       {
         "timestamp": "02:03:25",
         "timestampSeconds": 7405
       },
+      null,
       {
         "timestamp": "02:05:36",
         "timestampSeconds": 7536
@@ -251,17 +269,20 @@
         "timestampSeconds": 7884
       },
       null,
-      null,
+      {
+        "timestamp": "02:12:21",
+        "timestampSeconds": 7941
+      },
       null,
       null,
       {
-        "timestamp": "02:18:36",
-        "timestampSeconds": 8316
+        "timestamp": "02:17:36",
+        "timestampSeconds": 8256
       },
       null
     ]
   },
-  "cachedAt": "2026-07-31T10:00:44.914Z",
+  "cachedAt": "2026-07-31T20:36:10.131Z",
   "inputTokens": 26473,
-  "outputTokens": 789
+  "outputTokens": 824
 }

@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Items pulled from agenda: 10.1 (pulled until further information is provided). Item 9.3 moved from consent to action. Both changes announced at start of meeting during 'Changes to the Agenda' section.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Two items were pulled from the agenda during approval: 10.1 was pulled to be discussed at a future time (not held for this meeting), and 9.3 was moved from consent to action for further discussion.",
+    "consent_vote_words": "I'll move to approve. Second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -28,7 +28,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll Call. Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Roll Call",
         "status": "found"
       },
       {
@@ -38,112 +38,137 @@
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez. Thank you. Good evening, everyone.",
+        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3.",
+        "intro_words": "moving on to bond program consent Items, again with 9.3. That move to action. Are there any questions?",
         "status": "found"
       },
       {
-        "item": 12,
-        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two video intercom buzzers",
+        "item": "11.1",
+        "intro_words": "moving on to 11.11.1 being Hoover and Henry Ford school presentations for the 2324 school year",
+        "status": "found"
+      },
+      {
+        "item": "11.1a",
+        "intro_words": "Good. Good afternoon. Good evening, everyone. Trustee, please. Dr. Baker, cabinet. Thank you very much for having us here today.",
+        "status": "found"
+      },
+      {
+        "item": "11.1b",
+        "intro_words": "Good evening. I'm just, I first want to say that I'm so happy to be part of Redwood City School District",
+        "status": "found"
+      },
+      {
+        "item": "11.1c",
+        "intro_words": "So I'm going to be talking about student voice, which is so important at Henry Ford",
+        "status": "found"
+      },
+      {
+        "item": "11.1d",
+        "intro_words": "Finally, one of the other things I wanted to talk about is our mental health campaigns",
+        "status": "found"
+      },
+      {
+        "item": "11.1e",
+        "intro_words": "And I won't repeat what everybody said. I did have one question, but it was",
+        "status": "found"
+      },
+      {
+        "item": "11.1f",
+        "intro_words": "So good evening. President Marquez, Superintendent, Dr. Baker, board members, cabinet members, and all the teachers that are here tonight is very impressive",
+        "status": "found"
+      },
+      {
+        "item": "12.1",
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
+        "status": "found"
+      },
+      {
+        "item": "12.2",
+        "intro_words": "we could move on to 12.2. Again, First Reading and Discussion of Foreign Policy and Administrative Regulation",
+        "status": "found"
+      },
+      {
+        "item": "12.3",
+        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement",
+        "status": "found"
+      },
+      {
+        "item": "12.4",
+        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171 Title 1 programs",
+        "status": "found"
+      },
+      {
+        "item": "12.5",
+        "intro_words": "moving on to 12.5 first reading of BP 6163.4 student use of technology",
+        "status": "found"
+      },
+      {
+        "item": "12.6",
+        "intro_words": "moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension and expulsion due process",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to 11.11.1 being Hoover and Henry Ford school presentations for the 2324",
+        "intro_words": "moving to item 13, consent items. If there are no questions",
         "status": "found"
       },
       {
-        "item": 14,
-        "intro_words": "Good. Good afternoon. Good evening, everyone. Trustee, please. Dr. Baker, cabinet.",
+        "item": "14.1",
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five to approve continued funding",
         "status": "found"
       },
       {
-        "item": 15,
-        "intro_words": "All right, thank you. We, we take turns here. We try to be respectful",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "Next. Okay, so next we have Henry 14, Ms. Knopf, and Hema.",
-        "status": "found"
-      },
-      {
-        "item": 17,
-        "intro_words": "All right, so good evening. President Marquez, Superintendent, Dr. Baker, board members",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board",
-        "status": "found"
-      },
-      {
-        "item": 19,
-        "intro_words": "moving on to 12.2. Again, First Reading and Discussion of Foreign Policy",
-        "status": "found"
-      },
-      {
-        "item": 20,
-        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
-        "status": "found"
-      },
-      {
-        "item": 21,
-        "intro_words": "And moving on to 12.4, first reading and discussion of BP and AR6171",
-        "status": "found"
-      },
-      {
-        "item": 22,
-        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use of technology.",
-        "status": "found"
-      },
-      {
-        "item": 23,
-        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1",
-        "status": "found"
-      },
-      {
-        "item": 24,
-        "intro_words": "Okay, great. Thank you. Yeah. And so moving to item 13, consent items.",
-        "status": "found"
-      },
-      {
-        "item": 25,
-        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five",
-        "status": "found"
-      },
-      {
-        "item": 26,
+        "item": "14.2",
         "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023",
         "status": "found"
       },
       {
-        "item": 27,
-        "intro_words": "Okay, so now on to board and superintendent report. I can go.",
+        "item": 15,
+        "intro_words": "on to board and superintendent report. I can go. Just two things we had",
         "status": "found"
       },
       {
-        "item": 28,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund.",
+        "item": "16.1",
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund",
         "status": "found"
       },
       {
-        "item": 29,
-        "intro_words": "And then I got a couple of different emails from a community member",
+        "item": 17,
+        "intro_words": "moving on to corresponding correspondence. Yeah, I got a correspondence from",
         "status": "found"
       },
       {
-        "item": 30,
-        "intro_words": "With that, moving on to item 18. Other business possible other business",
+        "item": 18,
+        "intro_words": "moving on to item 18. Other business possible other business suggested items for future agendas",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "so moving on to board meeting calendar. Are there any changes to the board meeting calendar",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "with that it is 9:15. What you say? What did you say? What time? I'll second",
         "status": "found"
       }
     ]
@@ -152,10 +177,7 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
       null,
       null,
       {
@@ -163,29 +185,29 @@
         "timestampSeconds": 4210
       },
       null,
+      {
+        "timestamp": "01:10:41",
+        "timestampSeconds": 4241
+      },
       null,
-      null,
-      null,
+      {
+        "timestamp": "01:11:15",
+        "timestampSeconds": 4275
+      },
       null,
       {
         "timestamp": "01:11:21",
         "timestampSeconds": 4281
       },
+      null,
       {
-        "timestamp": "01:11:36",
-        "timestampSeconds": 4296
+        "timestamp": "03:03:35",
+        "timestampSeconds": 11015
       },
-      {
-        "timestamp": "01:13:41",
-        "timestampSeconds": 4421
-      },
-      {
-        "timestamp": "01:14:38",
-        "timestampSeconds": 4478
-      }
+      null
     ]
   },
-  "cachedAt": "2026-07-31T09:58:51.366Z",
+  "cachedAt": "2026-07-31T20:34:10.617Z",
   "inputTokens": 37863,
-  "outputTokens": 1331
+  "outputTokens": 1638
 }
