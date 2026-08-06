@@ -113,8 +113,12 @@ console.log("\nTools:");
 
 await test("list-schools returns 12 schools", async () => {
   const text = await toolCall("list-schools");
-  // one row per school ends in "N students"; a provenance line follows
-  const schoolLines = text.trim().split("\n").filter((l) => l.includes("students"));
+  // School rows start at column 0 and end in "N students". The trailing totals
+  // block also ends in "students" but is indented, so anchor to column 0.
+  const schoolLines = text
+    .trim()
+    .split("\n")
+    .filter((l) => /^\S/.test(l) && /\d+ students$/.test(l));
   assert(schoolLines.length === 12, `expected 12 school lines, got ${schoolLines.length}`);
   assert(text.includes("orion"), "missing orion");
   assert(text.includes("kennedy"), "missing kennedy");
