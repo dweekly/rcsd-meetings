@@ -65,14 +65,11 @@
     "ajv-formats": "^3.0.1",
     "pagefind": "^1.5.2",
     "satori": "^0.26.0",
-    "wrangler": "^4.100.0"
+    "wrangler": "^4.119.0"
   },
-  "//overrides": "ws: miniflare (via wrangler) pins ws@8.18.0 exactly, vulnerable to GHSA-58qx-3vcg-4xpx (fixed in 8.20.1). Remove once wrangler ships a miniflare with ws >= 8.20.1. esbuild: wrangler pins esbuild@0.27.x, vulnerable to GHSA-gv7w-rqvm-qjhr + GHSA-g7r4-m6w7-qqqr (fixed in 0.28.1); we only run `wrangler pages deploy` (no esbuild bundling), so the bump is audit-hygiene. Remove once wrangler ships esbuild >= 0.28.1. undici: wrangler pins undici@7.28.0 exactly via miniflare, so Dependabot cannot open a PR at all — its only path to the patched 7.29.0 would downgrade wrangler 4.118.0 -> 4.35.0, so it errors out every cycle and the alerts never move. Remove once wrangler ships a miniflare with undici >= 7.29.0. fast-uri, sharp: Dependabot's own PRs landed below the fix line (3.1.4 vs 3.1.5, 0.34.5 vs 0.35.0) and left the alerts open. Remove once the dependency tree resolves at or above these on its own.",
+  "//overrides": "undici: miniflare (via wrangler) pins undici@7.28.0 exactly, below the patched 7.29.0. Dependabot cannot open a PR for it — the only unforced path to 7.29.0 downgrades wrangler — so this override is the fix. Remove once wrangler ships a miniflare with undici >= 7.29.0. fast-uri: pins the patched 3.1.5. Remove once the tree resolves at or above 3.1.5 unaided.",
   "overrides": {
-    "ws": "^8.20.1",
-    "esbuild": "^0.28.1",
     "undici": "^7.29.0",
-    "fast-uri": "^3.1.5",
-    "sharp": "^0.35.0"
+    "fast-uri": "^3.1.5"
   }
 }
