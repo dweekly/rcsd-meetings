@@ -18,12 +18,13 @@
     "@cloudflare/workers-types": "^4.20260510.1",
     "wrangler": "^4.100.0"
   },
-  "//overrides": "ws: miniflare (via wrangler) pins ws@8.18.0 exactly, vulnerable to GHSA-58qx-3vcg-4xpx (fixed in 8.20.1). Remove once wrangler ships a miniflare with ws >= 8.20.1. esbuild: wrangler pins esbuild@0.27.x, vulnerable to GHSA-gv7w-rqvm-qjhr + GHSA-g7r4-m6w7-qqqr (fixed in 0.28.1). Remove once wrangler ships esbuild >= 0.28.1. undici: wrangler pins undici@7.28.0 exactly via miniflare, so Dependabot cannot open a PR at all — its only path to the patched 7.29.0 would downgrade wrangler, so it errors out every cycle. Remove once wrangler ships a miniflare with undici >= 7.29.0. fast-uri, sharp: Dependabot's own PRs landed below the fix line (3.1.4 vs 3.1.5, 0.34.5 vs 0.35.0). Remove once the tree resolves at or above these on its own. NOT overridden: @hono/node-server 1.19.13 -> 2.0.5 (GHSA path traversal in serve-static) is a transitive semver-major; forcing it here risks a runtime break no lockfile check would catch. Needs a human on the 2.0 changelog.",
+  "//overrides": "ws: miniflare (via wrangler) pins ws@8.18.0 exactly, vulnerable to GHSA-58qx-3vcg-4xpx (fixed in 8.20.1). Remove once wrangler ships a miniflare with ws >= 8.20.1. esbuild: wrangler pins esbuild@0.27.x, vulnerable to GHSA-gv7w-rqvm-qjhr + GHSA-g7r4-m6w7-qqqr (fixed in 0.28.1). Remove once wrangler ships esbuild >= 0.28.1. undici: wrangler pins undici@7.28.0 exactly via miniflare, so Dependabot cannot open a PR at all — its only path to the patched 7.29.0 would downgrade wrangler, so it errors out every cycle. Remove once wrangler ships a miniflare with undici >= 7.29.0. fast-uri, sharp: Dependabot's own PRs landed below the fix line (3.1.4 vs 3.1.5, 0.34.5 vs 0.35.0). Remove once the tree resolves at or above these on its own. @hono/node-server: vulnerable to path traversal in serve-static (fixed in 2.0.5). Not an unsupported major — @modelcontextprotocol/sdk declares `^1.19.9 || ^2.0.5`, so 2.x is inside its published range and npm merely picked the 1.x branch; this pins the branch that is both satisfying and patched. Remove once the SDK drops the 1.x alternative.",
   "overrides": {
     "ws": "^8.20.1",
     "esbuild": "^0.28.1",
     "undici": "^7.29.0",
     "fast-uri": "^3.1.5",
-    "sharp": "^0.35.0"
+    "sharp": "^0.35.0",
+    "@hono/node-server": "^2.0.5"
   }
 }
