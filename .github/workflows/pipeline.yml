@@ -202,10 +202,9 @@ jobs:
             # Rebase onto the current remote tip before pushing so a stale checkout
             # heals itself instead of red-failing. Retry once in case the remote moves
             # again during the rebase.
-            # --autostash is required, not cosmetic: the pipeline leaves worktree
-            # files modified that this step does not stage, so a plain
-            # `pull --rebase` aborts with "cannot pull with rebase: You have
-            # unstaged changes" and the self-heal above never actually ran.
+            # --autostash is load-bearing: the pipeline leaves worktree files
+            # this step does not stage, and `pull --rebase` refuses to start
+            # while unstaged changes are present.
             git pull --rebase --autostash origin main || true
             git push || (git pull --rebase --autostash origin main && git push)
           else
