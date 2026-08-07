@@ -12,6 +12,7 @@ Last updated: June 22, 2026
 
 | Date | Type | MID | YouTube | Key Topics |
 |------|------|-----|---------|------------|
+| 08/10/2026 | Regular | 60909 | — | (auto-discovered, fill in topics) |
 | 07/22/2026 | Special | 76641 | — | (auto-discovered, fill in topics) |
 | 07/16/2026 | Workshop | 76327 | — | (auto-discovered, fill in topics) |
 | 06/24/2026 | Regular | 51017 | — | Adoption of the 2026-27 LCAP and 2026-27 Proposed Budget (following the June 17 public hearings), bond program consent items (Industrial Hygienist Add Service Amendment 01 for HVAC Upgrades, Array A1 additional potholing/investigative work Change Order #5, Measure T sub-$20k tracking list), 2026-27 instructional/services agreements (Newsela, PowerSchool Analytics & Insights, Solution Tree, Curriculum Associates i-Ready, Komir Minds, Ellevation, Benchmark Education renewal, Language Power supplemental ELD), Sequoia Healthcare District MOU, Siena Youth Center, You Consulting Mandarin oral language, Federal Addendum + 2026-29 Federal Funding Con App, R.B. Construction hazardous materials removal (three sites), sale of district-issued technology to the retiring superintendent, Air Education amendment, Resolutions 31-35 (SMCOE authorized signatures, bank/credit-union signatures, Ed Code teaching assignments), 2025-26 Year in Review |
