@@ -217,6 +217,7 @@ Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.
 - [ ] Pre-April 2020 BoardDocs backfill (agenda-only, no video) — 2019-2020 school year meetings exist in BoardDocs but YouTube recordings only start April 2020 (first COVID virtual meeting)
 - [ ] Add "comprehensive from" statement on meetings page — clearly state April 2020 as start of full coverage (agenda + video + transcript), with agenda-only for earlier meetings if/when backfilled
 - [ ] Backfill board packet PDFs for pre-June 2025 meetings — currently only 22 recent meetings have downloaded attachments; 167 older meetings have metadata links but no archived PDFs. BoardDocs links may break; good candidate for trogdor batch job
+- [ ] **Snapshot external (non-Simbli) attachment links** — some agenda attachments are bare hrefs to third-party hosts rather than Simbli-hosted PDFs (e.g. 2026-08-10's county Investment/Compliance Reports on smcgov.org, and a bit.ly link to the NPS/NPA approved rate sheets), so `download-board-packets.mjs` correctly skips them and the packet archive isn't self-contained. Teach the downloader (or a sibling step) to capture these URLs too, clearly labeled as third-party captures with fetch date + source URL, so the archive survives link rot — bit.ly redirects especially can break or be repointed silently
 
 ## Board Meetings — Lifecycle States
 
