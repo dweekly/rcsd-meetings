@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, items 6.2 and 6.3 (bond program items) were moved from consent to action items to allow for public comment.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) moved from later position to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) and items 6.2-6.3 moved from consent to action items due to public comments received.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -31,7 +31,12 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
+        "status": "found"
+      },
+      {
+        "item": 3,
+        "intro_words": "Thank you. Next item is 1.2 reported on closed session.",
         "status": "found"
       },
       {
@@ -41,57 +46,57 @@
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda?",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping that we could move 13.1",
+        "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "can I please get a motion to approve it?",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
         "status": "found"
       },
       {
-        "item": 13.1,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "item": 8,
+        "intro_words": "So item 8, school and community reports. 8.1. School plans for student achievement reports",
         "status": "found"
       },
       {
-        "item": 6.1,
-        "intro_words": "So I can modify my motion to move 6.1 to action.",
+        "item": 9,
+        "intro_words": "moving on to consent items, can I please get a motion to approve?",
         "status": "found"
       },
       {
-        "item": 6.2,
-        "intro_words": "6.2 approval of measure T bond program tracking list of items under 20,000.",
+        "item": 10,
+        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard",
         "status": "found"
       },
       {
-        "item": 6.3,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation",
+        "item": 11,
+        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment",
         "status": "found"
       },
       {
-        "item": 7.1,
-        "intro_words": "bond program action items 7.1, approval of measure T final projects list.",
+        "item": 12,
+        "intro_words": "More super and superintendent reports. Wait, I'll go.",
         "status": "found"
       },
       {
-        "item": 7.2,
-        "intro_words": "7.2. Approval of amendment number two to the Program",
+        "item": 13,
+        "intro_words": "Correspondence. Continue to get public records. That's true.",
         "status": "found"
       },
       {
-        "item": 8.1,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1. School plans",
+        "item": 14,
+        "intro_words": "Any possible other business or suggested items. Just a quick note",
         "status": "found"
       },
       {
-        "item": 11.1,
-        "intro_words": "Item 11.1, approval of recruitment incentive stipend for hard to fill",
-        "status": "found"
-      },
-      {
-        "item": 11.2,
-        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment",
+        "item": 15,
+        "intro_words": "And then any changes to the board meeting calendar? Are there any changes?",
         "status": "found"
       }
     ]
@@ -107,33 +112,63 @@
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      null,
+      {
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
+      },
       {
         "timestamp": "00:00:30",
         "timestampSeconds": 30
       },
       {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
+        "timestamp": "00:01:30",
+        "timestampSeconds": 90
       },
-      null,
       {
-        "timestamp": "00:02:43",
-        "timestampSeconds": 163
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
       },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
+      {
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
+      },
+      {
+        "timestamp": "00:20:22",
+        "timestampSeconds": 1222
+      },
+      {
+        "timestamp": "03:16:31",
+        "timestampSeconds": 11791
+      },
+      {
+        "timestamp": "03:16:36",
+        "timestampSeconds": 11796
+      },
+      {
+        "timestamp": "03:18:01",
+        "timestampSeconds": 11881
+      },
+      {
+        "timestamp": "03:18:59",
+        "timestampSeconds": 11939
+      },
+      {
+        "timestamp": "03:27:22",
+        "timestampSeconds": 12442
+      },
+      {
+        "timestamp": "03:27:27",
+        "timestampSeconds": 12447
+      },
+      {
+        "timestamp": "03:29:57",
+        "timestampSeconds": 12597
+      },
       null,
       null
     ]
   },
-  "cachedAt": "2026-08-07T08:26:59.006Z",
+  "cachedAt": "2026-08-07T20:08:07.177Z",
   "inputTokens": 43596,
-  "outputTokens": 762
+  "outputTokens": 824
 }
