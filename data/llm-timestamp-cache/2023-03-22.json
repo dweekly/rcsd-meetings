@@ -18,12 +18,12 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda announced at the beginning. The meeting proceeded with items in the posted order.",
+    "agenda_changes": "No changes to the agenda announced at the beginning of the meeting. The meeting proceeded with the posted agenda items.",
     "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
@@ -83,7 +83,7 @@
       },
       {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
         "status": "found"
       },
       {
@@ -146,8 +146,8 @@
         "consent": true
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       },
       {
         "timestamp": "02:17:50",
@@ -155,7 +155,7 @@
       }
     ]
   },
-  "cachedAt": "2026-08-08T08:02:38.066Z",
+  "cachedAt": "2026-08-08T19:48:57.980Z",
   "inputTokens": 27924,
-  "outputTokens": 722
+  "outputTokens": 725
 }
