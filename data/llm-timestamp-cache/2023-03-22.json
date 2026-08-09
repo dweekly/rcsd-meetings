@@ -18,17 +18,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda announced at the beginning of the meeting. The meeting proceeded with the posted agenda items.",
+    "agenda_changes": "No changes to the agenda were announced. The meeting proceeded with items as posted.",
     "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells? Here.",
         "status": "found"
       },
       {
@@ -63,18 +63,18 @@
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great. Thank you.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great. Thank you.",
         "status": "found"
       },
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 12,
@@ -88,7 +88,7 @@
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
         "status": "found"
       }
     ]
@@ -137,8 +137,9 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "00:01:19",
@@ -150,12 +151,12 @@
         "timestampSeconds": 123
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       }
     ]
   },
-  "cachedAt": "2026-08-08T19:48:57.980Z",
+  "cachedAt": "2026-08-09T08:08:24.473Z",
   "inputTokens": 27924,
-  "outputTokens": 725
+  "outputTokens": 731
 }

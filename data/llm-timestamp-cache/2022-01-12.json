@@ -17,8 +17,8 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Items 10.5, 10.6, 10.7 moved to consent. Items 10.3 and 10.4 moved to consent.",
-    "consent_vote_words": "Do I have a motion to approve all those three?",
+    "agenda_changes": "Early in meeting: President announced moving items 10.5, 10.6, 10.7 to consent and also proposed moving 10.3 and 10.4 to consent. Motion passed.",
+    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
         "item": 1,
@@ -27,7 +27,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
+        "intro_words": "Roll call, please. Trustee McAvoy. Present. Trustee Wells. Here.",
         "status": "found"
       },
       {
@@ -38,7 +38,7 @@
       {
         "item": 4,
         "intro_words": "Welcome, everybody. It's great to see you in person, although we're six feet apart, being cautious and keeping up with our safety rules.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 5,
@@ -48,7 +48,7 @@
       {
         "item": 6,
         "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move the three measure U's.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 7,
@@ -58,7 +58,7 @@
       {
         "item": 8,
         "intro_words": "So moved. Second. That was Mike and Cecilia. All those in favor?",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 9,
@@ -67,7 +67,7 @@
       },
       {
         "item": 10,
-        "intro_words": "If you have public comment related to a study session item, please post it on:",
+        "intro_words": "If you have public comment related to a study session item, please post it on",
         "status": "found"
       },
       {
@@ -82,7 +82,7 @@
       },
       {
         "item": 13,
-        "intro_words": "Thank you. So I want to thank once again the board policy committee, Janet Lawson and Elisa McAvoy for meeting regularly to discuss these policies.",
+        "intro_words": "Can we have a motion to adjourn? So moved. Second. All in favor?",
         "status": "found"
       }
     ]
@@ -103,24 +103,27 @@
         "timestampSeconds": 0
       },
       {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
       },
       {
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
       {
-        "timestamp": "00:00:46",
-        "timestampSeconds": 46
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
       },
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
       },
       {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
       },
       {
         "timestamp": "00:01:42",
@@ -136,12 +139,12 @@
         "timestampSeconds": 306
       },
       {
-        "timestamp": "00:49:59",
-        "timestampSeconds": 2999
+        "timestamp": "00:04:31",
+        "timestampSeconds": 271
       }
     ]
   },
-  "cachedAt": "2026-08-08T19:49:18.519Z",
+  "cachedAt": "2026-08-09T08:08:44.795Z",
   "inputTokens": 18781,
-  "outputTokens": 788
+  "outputTokens": 804
 }
