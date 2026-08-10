@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled from agenda - board to discuss at future meeting. Item 9.3 moved from consent to action for individual discussion.",
-    "consent_vote_words": "I'll make a motion to approve consent items. I'll second. All those in favor? Aye.",
+    "agenda_changes": "Item 10.1 pulled - no discussion tonight, to be brought forward at another time. Item 9.3 moved from consent to action for discussion before approval.",
+    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1.",
     "items": [
       {
         "item": 1,
@@ -28,37 +28,32 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll Call",
+        "intro_words": "Roll Call. Trustee Weekley. Present. Trustee McAvoy. Present.",
         "status": "found"
       },
       {
         "item": 3,
         "intro_words": "Welcome",
-        "status": "found"
+        "status": "not_found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "intro_words": "Welcome by the School Board President, Cecilia Marquez. Good evening, everyone.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
+        "intro_words": "Changes to the Agenda. Are there any changes to the agenda? Yes, It is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda with the changes",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Approval of the Agenda. And with that, does somebody want to make a motion to approve?",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "And with that, moving on to bond program consent items, again with 9.3.",
+        "intro_words": "moving on to bond program consent Items, again with 9.3. That move to action.",
         "status": "found"
       },
       {
@@ -67,13 +62,23 @@
         "status": "found"
       },
       {
-        "item": "11.1 (Hoover)",
-        "intro_words": "Good afternoon. Good evening, everyone. Trustee, please. Dr. Baker, cabinet. Thank you very much for having us here today.",
+        "item": "11.1a",
+        "intro_words": "So we are going to begin to share information about our academics. We started the year with inauguration",
         "status": "found"
       },
       {
-        "item": "11.1 (Henry Ford)",
-        "intro_words": "All right, so next we have Henry 14, Ms. Knopf, and Hema.",
+        "item": "11.1b",
+        "intro_words": "Good evening trustees, Dr. Baker and cabinet members. I'm Mr. Fang. I am the new assistant principal",
+        "status": "found"
+      },
+      {
+        "item": "11.1c",
+        "intro_words": "Okay. Good evening everyone. Trustee, please. Dr. Baker, cabinet. Thank you very much for having",
+        "status": "found"
+      },
+      {
+        "item": "11.1d",
+        "intro_words": "All right, so good evening. President Marquez, Superintendent, Dr. Baker, board members, cabinet members,",
         "status": "found"
       },
       {
@@ -83,17 +88,17 @@
       },
       {
         "item": "12.1",
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy and Administrative Regulation 6173, Education for Homelessness, Homeless Children.",
+        "intro_words": "the first reading at 12.1 is regarding education for homeless students to re to see",
         "status": "found"
       },
       {
         "item": "12.2",
-        "intro_words": "So with that we could move on to 12.2. Again, First Reading and Discussion of Foreign Policy and Administrative Regulation 6173.1",
+        "intro_words": "with that we could move on to 12.2. Again, First Reading and Discussion of Foreign Policy",
         "status": "found"
       },
       {
         "item": "12.3",
-        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
+        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement. So this particular policy",
         "status": "found"
       },
       {
@@ -108,47 +113,47 @@
       },
       {
         "item": "12.6",
-        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension and expulsion due process.",
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension and expulsion",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Okay. All right. Yep. Okay, great. Thank you. Yeah. And so moving to item 13, consent items.",
+        "intro_words": "moving to item 13, consent items. If there are no questions, can I please get a motion",
         "status": "found"
       },
       {
         "item": "14.1",
-        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five to approve continued funding application for the 24, 25",
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five to approve continued funding",
         "status": "found"
       },
       {
         "item": "14.2",
-        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023 at 7:00pm.",
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "Okay, so now on to board and superintendent report.",
+        "intro_words": "so now on to board and superintendent report. I can go. Just two things we had.",
         "status": "found"
       },
       {
-        "item": 16,
-        "intro_words": "So moving on to item 16.1, information on San Mateo county investment fund.",
+        "item": "16.1",
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund. Are there any questions?",
         "status": "found"
       },
       {
         "item": 17,
-        "intro_words": "And then moving on to corresponding correspondence.",
+        "intro_words": "moving on to corresponding correspondence. Yeah, I got a correspondence from.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "With that, moving on to item 18. Other business possible other business suggested items for future agendas.",
+        "intro_words": "moving on to item 18. Other business possible other business suggested items for future agendas.",
         "status": "found"
       },
       {
-        "item": 19,
-        "intro_words": "Okay, so moving on to board meeting calendar. Are there any changes to the board meeting calendar?",
+        "item": 13,
+        "intro_words": "Adjournment",
         "status": "found"
       }
     ]
@@ -157,40 +162,40 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      null,
+      {
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
+      },
       null,
       null,
       {
-        "timestamp": "01:10:10",
-        "timestampSeconds": 4210
+        "timestamp": "01:10:00",
+        "timestampSeconds": 4200
       },
       null,
       {
-        "timestamp": "01:10:41",
-        "timestampSeconds": 4241
+        "timestamp": "01:10:21",
+        "timestampSeconds": 4221
       },
       null,
-      {
-        "timestamp": "01:11:15",
-        "timestampSeconds": 4275
-      },
+      null,
       null,
       {
-        "timestamp": "01:11:15",
-        "timestampSeconds": 4275
+        "timestamp": "01:11:21",
+        "timestampSeconds": 4281
       },
       {
         "timestamp": "02:38:15",
         "timestampSeconds": 9495
       },
       {
-        "timestamp": "03:03:30",
-        "timestampSeconds": 11010
+        "timestamp": "03:03:35",
+        "timestampSeconds": 11015
       },
       null
     ]
   },
-  "cachedAt": "2026-08-09T19:51:10.880Z",
+  "cachedAt": "2026-08-10T08:43:05.944Z",
   "inputTokens": 37863,
-  "outputTokens": 1454
+  "outputTokens": 1514
 }
