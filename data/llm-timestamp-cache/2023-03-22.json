@@ -18,77 +18,77 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced during the meeting.",
-    "consent_vote_words": "can I please get a motion to approve the consent bond program",
+    "agenda_changes": "No changes to the agenda announced during the early portion of the meeting. The transcript shows roll call, welcome, and then moves directly to 'are there any changes to the agenda having here?' with no changes reported before agenda approval.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
+        "intro_words": "At seven o'. Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley?",
+        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone. Roll call, please.",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda having here?",
+        "intro_words": "are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Do we have any oral communication? No oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 11,
-        "intro_words": "Moving along to board program consent items 6.1.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 12,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "8.1. Discussion of the school plan for student achievement for Roy Cloud",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Item 9, discussion items 9.1 is first reading and discussion of board policy",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "And then item 10, consent items. Can I please get a motion to approve the consent items?",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 11,
-        "intro_words": "Action items 11.1, adoption of resolution 31, establishing fund 35 county schools",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
+        "item": 11,
+        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 12,
+        "intro_words": "can I please get a motion to approve the consent bond program? I'll move to approve",
+        "status": "consent_bundle"
+      },
+      {
         "item": 13,
-        "intro_words": "Adjournment",
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
         "status": "found"
       }
     ]
@@ -96,7 +96,10 @@
   "result": {
     "videoId": "TYxODeND3Dw",
     "items": [
-      null,
+      {
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
+      },
       {
         "timestamp": "00:00:05",
         "timestampSeconds": 5
@@ -114,6 +117,14 @@
         "timestampSeconds": 69
       },
       {
+        "timestamp": "00:01:09",
+        "timestampSeconds": 69
+      },
+      {
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79
+      },
+      {
         "timestamp": "00:01:19",
         "timestampSeconds": 79
       },
@@ -122,10 +133,9 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:02:09",
-        "timestampSeconds": 129
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
       },
-      null,
       {
         "timestamp": "00:01:19",
         "timestampSeconds": 79,
@@ -140,11 +150,13 @@
         "timestamp": "00:02:03",
         "timestampSeconds": 123
       },
-      null,
-      null
+      {
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
+      }
     ]
   },
-  "cachedAt": "2026-08-10T20:10:08.827Z",
+  "cachedAt": "2026-08-11T08:26:23.078Z",
   "inputTokens": 27924,
-  "outputTokens": 672
+  "outputTokens": 748
 }
