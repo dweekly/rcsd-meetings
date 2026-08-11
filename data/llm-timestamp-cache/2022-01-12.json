@@ -17,27 +17,37 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Items 10.5, 10.6, 10.7 moved to consent. Items 10.3 and 10.4 moved to consent.",
-    "consent_vote_words": "Do I have a motion to approve all those three?",
+    "agenda_changes": "At the start of the meeting, President DS Locum announced: 'Are there any changes to the agenda this evening? I'd propose that we move the three measure U's. So that's 10.5, 10.6, 10.7 to consent. I was also wondering if it could move 10.3 and 10.4.' The board voted to move items 10.3, 10.4, 10.5, 10.6, and 10.7 to consent.",
+    "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay, let's get started. Once again, for those of you that are just joining us, welcome.",
+        "intro_words": "Okay, let's get started. Once again, for those of you that are just",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
+        "intro_words": "Eliana. Roll call, please. Trustee McAvoy. Present. Trustee",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's great to see you in person, although we're six feet apart",
+        "intro_words": "Welcome, everybody. It's great to see you in person, although we're",
+        "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "Welcome, everybody. It's great to see you in person, although we're",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move",
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose that",
+        "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose that",
         "status": "found"
       },
       {
@@ -46,8 +56,18 @@
         "status": "found"
       },
       {
+        "item": 8,
+        "intro_words": "So moved. Second. That was Mike and Cecilia. All those in favor?",
+        "status": "found"
+      },
+      {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards",
+        "intro_words": "Ali, do we have any oral communication this Evening? We have three",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Ali, do we have any oral communication this Evening? We have three",
         "status": "found"
       },
       {
@@ -57,47 +77,12 @@
       },
       {
         "item": 12,
-        "intro_words": "Moving on to bond program action items. The first one is 7.1.",
-        "status": "found"
-      },
-      {
-        "item": "8.1",
-        "intro_words": "Okay, on to eight discussion items. The first one is 8.1.",
-        "status": "found"
-      },
-      {
-        "item": "8.2",
-        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240 Volunteer Assistance.",
-        "status": "found"
-      },
-      {
-        "item": "8.3",
-        "intro_words": "Moving on to 8.3. First reading and discussion of board policy 3555.",
-        "status": "found"
-      },
-      {
-        "item": "8.4",
-        "intro_words": "8.4. First reading and discussion of board policy 0460 local control and accountability",
-        "status": "found"
-      },
-      {
-        "item": "8.5",
-        "intro_words": "Along to 8.5. First reading and discussion of board policy 5141.31.",
-        "status": "found"
-      },
-      {
-        "item": "10.1",
-        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school board's March 11,",
-        "status": "found"
-      },
-      {
-        "item": "10.2",
-        "intro_words": "Moving on to 10.2. Recommendation. Adoption of Resolution 22, authorizing electronic meeting",
-        "status": "found"
+        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval",
+        "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "Okay, can we have a motion to adjourn? So moved. Second.",
+        "intro_words": "All those in favor? Aye. Okay. 7.2. Recommendation of adoption of resolution",
         "status": "found"
       }
     ]
@@ -117,37 +102,50 @@
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
-      null,
       {
-        "timestamp": "00:01:22",
-        "timestampSeconds": 82
+        "timestamp": "00:00:46",
+        "timestampSeconds": 46
       },
-      null,
+      {
+        "timestamp": "00:01:27",
+        "timestampSeconds": 87
+      },
+      {
+        "timestamp": "00:01:27",
+        "timestampSeconds": 87
+      },
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
       },
-      null,
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
       },
-      null,
+      {
+        "timestamp": "00:01:42",
+        "timestampSeconds": 102
+      },
+      {
+        "timestamp": "00:01:42",
+        "timestampSeconds": 102
+      },
       {
         "timestamp": "00:02:53",
         "timestampSeconds": 173
       },
       {
-        "timestamp": "00:02:45",
-        "timestampSeconds": 165
+        "timestamp": "00:03:28",
+        "timestampSeconds": 208,
+        "consent": true
       },
       {
-        "timestamp": "00:04:15",
-        "timestampSeconds": 255
+        "timestamp": "00:03:33",
+        "timestampSeconds": 213
       }
     ]
   },
-  "cachedAt": "2026-08-11T08:26:44.491Z",
+  "cachedAt": "2026-08-11T20:14:38.353Z",
   "inputTokens": 18781,
-  "outputTokens": 880
+  "outputTokens": 795
 }
