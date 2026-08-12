@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda announced at the start of the meeting. The posted agenda order was generally followed, though items were discussed in a slightly different sequence than posted (study session format).",
-    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No agenda changes announced",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program",
     "items": [
       {
         "item": 1,
@@ -28,62 +28,67 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells? Here.",
+        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "are there any changes to the agenda having here?",
+        "intro_words": "And are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "are there any changes to the agenda having here?",
+        "intro_words": "And are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "intro_words": "Moving along to board program consent items 6.1. Approval",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "can I please get a motion to approve the consent bond program? I'll move to approve",
+        "intro_words": "can I please get a motion to approve the consent bond program",
         "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I know we went over, but I don't think by too much. Thank you again for the presentation",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month",
         "status": "found"
       }
     ]
@@ -127,7 +132,10 @@
         "timestamp": "00:01:14",
         "timestampSeconds": 74
       },
-      null,
+      {
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
+      },
       {
         "timestamp": "00:01:33",
         "timestampSeconds": 93
@@ -138,16 +146,16 @@
         "consent": true
       },
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       },
       {
-        "timestamp": "01:08:55",
-        "timestampSeconds": 4135
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       }
     ]
   },
-  "cachedAt": "2026-08-12T08:35:24.629Z",
+  "cachedAt": "2026-08-12T20:12:33.138Z",
   "inputTokens": 27924,
-  "outputTokens": 709
+  "outputTokens": 677
 }
