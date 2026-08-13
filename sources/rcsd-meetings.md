@@ -45,8 +45,11 @@ Last updated: June 22, 2026
 | 08/19/2025 | Regular | 41854 | [Video](https://www.youtube.com/watch?v=B8blJsqUL_4) | Parcel tax survey (TeamCivX: 17.5¢/sqft = $14.3M/yr), board assignments, instructional materials sufficiency (Res 3), Connect Charter 5yr FUA+MOU, REACH afterschool ($1.18M), Catalyst ($959.9K), 7 food bids ($2.7M+), Res 1-3 |
 | 08/12/2025 | Workshop | 42571 | — | Good Beginnings Workshop — CSBA governance consultant, 2025-26 priority setting |
 | 06/25/2025 | Regular | 47153 | [Video](https://www.youtube.com/watch?v=nsizIuPIt5E) | LCAP adoption ($133.7M), Budget adoption ($148.7M/$151.5M deficit), HVAC Phase II ($21.25M for Kennedy/Orion/Clifford), Boys & Girls Clubs ($2M), PAL ($1.08M), labor agreements ($3.24M), Res 26-27 |
+| 06/25/2025 | Regular | 80381 | — | (auto-discovered, fill in topics) |
 | 06/18/2025 | Regular | 45380 | [Video](https://www.youtube.com/watch?v=-TNa0V1WU5M) | LCAP public hearing ($133.2M revenue), Budget hearing ($148.7M revenue, $151.5M expenditures = deficit spending), Prop 28 arts ($1.02M), solar DSA inspector ($287.6K) |
+| 06/18/2025 | Regular | 80380 | — | (auto-discovered, fill in topics) |
 | 06/11/2025 | Regular | 45272 | [Video](https://www.youtube.com/watch?v=CdvAkolAYk4) | FMP adoption, Siemens BMS 4 schools ($1.88M), Blach HVAC GMP ($19.74M), Siena Youth Center ($435K), i-Ready ($195.4K), labor agreements ($3.24M combined: RCAA/RCTA/CSEA), Res 25, 3+5 policy readings |
+| 06/11/2025 | Regular | 80379 | — | (auto-discovered, fill in topics) |
 
 ---
 
