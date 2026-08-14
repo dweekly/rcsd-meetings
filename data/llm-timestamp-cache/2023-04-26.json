@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of classified employees) moved from original position to before oral communication. Item 6.1 (Approval of bond program consent items) moved to action. Items 6.2 and 6.3 moved to action.",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved from its original position to immediately after oral communication, before other items. Additionally, items 6.2 and 6.3 (bond program items) were moved from consent to action due to public comments received.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -37,6 +37,11 @@
       {
         "item": 13,
         "intro_words": "item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "item 8, school and community reports. 8.1. School plans for student achievement reports for Garfield Community School and Henry Ford.",
         "status": "found"
       },
       {
@@ -56,22 +61,17 @@
       },
       {
         "item": 7.2,
-        "intro_words": "7.2. Approval of amendment number two to the Program Management Services Agreement",
-        "status": "found"
-      },
-      {
-        "item": 8.1,
-        "intro_words": "item 8, school and community reports. 8.1. School plans for student achievement",
+        "intro_words": "7.2. Approval of amendment number two to the Program Management Services Agreement with RGMK.",
         "status": "found"
       },
       {
         "item": 11.1,
-        "intro_words": "action. Item 11.1, approval of recruitment incentive stipend for hard to fill",
+        "intro_words": "action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle school, special education and bilingual teacher positions.",
         "status": "found"
       },
       {
         "item": 11.2,
-        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank",
+        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
         "status": "found"
       }
     ]
@@ -92,22 +92,22 @@
       null,
       null,
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:02:38",
-        "timestampSeconds": 158
+        "timestamp": "00:20:32",
+        "timestampSeconds": 1232
       },
+      null,
+      null,
+      null,
+      null,
+      null,
       null,
       null,
       null,
       null
     ]
   },
-  "cachedAt": "2026-08-13T20:13:43.716Z",
+  "cachedAt": "2026-08-14T08:34:37.229Z",
   "inputTokens": 43596,
-  "outputTokens": 612
+  "outputTokens": 640
 }
