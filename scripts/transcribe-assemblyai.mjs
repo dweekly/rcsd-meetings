@@ -24,8 +24,8 @@ import 'dotenv/config';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { execFileSync } from 'child_process';
 import { AssemblyAI } from 'assemblyai';
+import { downloadAudio as fetchAudio } from './lib/yt-audio.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -126,28 +126,13 @@ async function hasCachedOrRestored(videoId, date) {
 /**
  * Download audio from YouTube to a local file via yt-dlp.
  * Skips download if audio already cached locally.
+ * Retry + format fallback live in scripts/lib/yt-audio.mjs: YouTube's media
+ * hosts intermittently 403 an otherwise-valid signed URL, which used to fail
+ * a meeting outright (2026-08-14, video 7ShPhkVjFDQ).
  * Returns the path to the audio file.
  */
 function downloadAudio(videoId) {
-  // Check if we already have it cached
-  for (const ext of ['webm', 'm4a', 'opus', 'ogg', 'mp3']) {
-    const p = resolve(AUDIO_DIR, `${videoId}.${ext}`);
-    if (existsSync(p)) return p;
-  }
-
-  const outTemplate = resolve(AUDIO_DIR, `${videoId}.%(ext)s`);
-  execFileSync('yt-dlp', [
-    '-f', 'bestaudio',
-    '--no-warnings',
-    '-o', outTemplate,
-    `https://www.youtube.com/watch?v=${videoId}`,
-  ], { encoding: 'utf-8', timeout: 300_000, stdio: 'pipe' });
-
-  for (const ext of ['webm', 'm4a', 'opus', 'ogg', 'mp3']) {
-    const p = resolve(AUDIO_DIR, `${videoId}.${ext}`);
-    if (existsSync(p)) return p;
-  }
-  throw new Error(`Audio file not found after download for ${videoId}`);
+  return fetchAudio(videoId, { audioDir: AUDIO_DIR, log: (msg) => console.log(msg) });
 }
 
 // ---- Board composition by date range ----
