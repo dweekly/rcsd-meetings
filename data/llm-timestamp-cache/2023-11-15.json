@@ -18,7 +18,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled from agenda; Item 9.3 moved from consent to action; approval announced at start of meeting during 'Approval of the Agenda'",
+    "agenda_changes": "Item 10.1 pulled (to get further information before discussion). Item 9.3 moved from consent to action for discussion. Two agenda changes announced during 'Changes to the Agenda' section after approval of agenda.",
     "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
     "items": [
       {
@@ -28,63 +28,68 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome",
-        "status": "not_found"
+        "intro_words": "Good evening, everyone. Welcome to another Redwood City School",
+        "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome to another Redwood City School District study session.",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
+        "intro_words": "Are there any changes to the agenda? Yes, It is",
+        "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "And with that, does somebody want to make a motion",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda",
+        "intro_words": "Yeah, I'll make a motion to approve the agenda with",
         "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "I'll second. All those in favor? Aye. Aye. Thank",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "And do we have any oral communication? No oral",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Thank you. And with that, moving on to bond program",
+        "status": "pulled"
       },
       {
         "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3. That move to action.",
+        "intro_words": "Thank you, guys. Thank you. And item 11. School.",
         "status": "found"
       },
       {
-        "item": "9.3",
-        "intro_words": "Approval of proposal for the infrastructure of two video intercom buzzers with Atlas",
-        "status": "found"
-      },
-      {
-        "item": "11.1",
-        "intro_words": "Hoover and Henry Ford school presentations for the 2324 school year. So we want to welcome",
-        "status": "found"
-      },
-      {
-        "item": "12.1",
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
+        "item": 12,
+        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items. If there are no questions, can I please get a motion",
-        "status": "found"
+        "intro_words": "Adjournment",
+        "status": "not_found"
       },
       {
-        "item": "14.1",
-        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five to approve",
-        "status": "found"
-      },
-      {
-        "item": "14.2",
-        "intro_words": "Adoption of annual organizational meeting date set for December 6, 2023 at 7:00pm.",
-        "status": "found"
+        "item": 14,
+        "intro_words": "Adjourn the Meeting",
+        "status": "not_found"
       }
     ]
   },
@@ -96,36 +101,48 @@
         "timestamp": "00:00:07",
         "timestampSeconds": 7
       },
-      null,
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
       },
       {
-        "timestamp": "01:10:10",
-        "timestampSeconds": 4210
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
-      null,
       {
-        "timestamp": "01:10:41",
-        "timestampSeconds": 4241
+        "timestamp": "00:01:04",
+        "timestampSeconds": 64
       },
-      null,
-      null,
+      {
+        "timestamp": "00:49:05",
+        "timestampSeconds": 2945
+      },
+      {
+        "timestamp": "01:01:20",
+        "timestampSeconds": 3680
+      },
+      {
+        "timestamp": "01:01:30",
+        "timestampSeconds": 3690
+      },
+      {
+        "timestamp": "01:11:15",
+        "timestampSeconds": 4275
+      },
       null,
       {
         "timestamp": "01:11:21",
         "timestampSeconds": 4281
       },
-      null,
       {
-        "timestamp": "03:03:35",
-        "timestampSeconds": 11015
+        "timestamp": "01:11:36",
+        "timestampSeconds": 4296
       },
+      null,
       null
     ]
   },
-  "cachedAt": "2026-08-15T07:45:40.083Z",
+  "cachedAt": "2026-08-15T19:37:41.543Z",
   "inputTokens": 37863,
-  "outputTokens": 730
+  "outputTokens": 712
 }
