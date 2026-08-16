@@ -18,85 +18,89 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled (to get further information before discussion). Item 9.3 moved from consent to action for discussion. Two agenda changes announced during 'Changes to the Agenda' section after approval of agenda.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Two changes announced: Item 10.1 pulled (will be discussed at a future meeting), Item 9.3 moved from consent to action for additional discussion and elaboration",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Good evening, everyone. Welcome to another Redwood City School",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood",
+        "intro_words": "So I'm just going to read a few things before we get started.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "And with that, does somebody want to make a motion",
+        "intro_words": "And with that, does somebody want to make a motion to approve?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Yeah, I'll make a motion to approve the agenda with",
+        "intro_words": "And with that, moving on to bond program consent Items, again with 9.3.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "I'll second. All those in favor? Aye. Aye. Thank",
-        "status": "found"
+        "intro_words": "I'll make a motion to approve. I'll second. All those in favor.",
+        "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "And do we have any oral communication? No oral",
+        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for the infrastructure",
         "status": "found"
       },
       {
-        "item": 10,
-        "intro_words": "Thank you. And with that, moving on to bond program",
-        "status": "pulled"
-      },
-      {
         "item": 11,
-        "intro_words": "Thank you, guys. Thank you. And item 11. School.",
+        "intro_words": "And with that, moving on to 11.11.1 being Hoover and Henry Ford school presentations",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two",
+        "intro_words": "And with that we could move on to 12.2. Again, First Reading and Discussion",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Adjournment",
-        "status": "not_found"
+        "intro_words": "And moving on to item 13, consent items. If there are no questions,",
+        "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Adjourn the Meeting",
-        "status": "not_found"
+        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Okay, so moving on to item 16.1, information on San Mateo county investment fund.",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "Okay, so moving on to item 18. Other business possible other business suggested",
+        "status": "found"
       }
     ]
   },
   "result": {
     "videoId": "LPmyvuhgudA",
     "items": [
-      null,
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
@@ -110,39 +114,50 @@
         "timestampSeconds": 7
       },
       {
-        "timestamp": "00:01:04",
-        "timestampSeconds": 64
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
       {
-        "timestamp": "00:49:05",
-        "timestampSeconds": 2945
+        "timestamp": "01:10:10",
+        "timestampSeconds": 4210
       },
       {
-        "timestamp": "01:01:20",
-        "timestampSeconds": 3680
-      },
-      {
-        "timestamp": "01:01:30",
-        "timestampSeconds": 3690
+        "timestamp": "01:10:41",
+        "timestampSeconds": 4241
       },
       {
         "timestamp": "01:11:15",
         "timestampSeconds": 4275
       },
-      null,
       {
-        "timestamp": "01:11:21",
-        "timestampSeconds": 4281
+        "timestamp": "01:10:59",
+        "timestampSeconds": 4259,
+        "consent": true
       },
       {
-        "timestamp": "01:11:36",
-        "timestampSeconds": 4296
+        "timestamp": "01:11:26",
+        "timestampSeconds": 4286
       },
       null,
-      null
+      {
+        "timestamp": "01:13:41",
+        "timestampSeconds": 4421
+      },
+      {
+        "timestamp": "02:37:08",
+        "timestampSeconds": 9428
+      },
+      {
+        "timestamp": "03:03:07",
+        "timestampSeconds": 10987
+      },
+      {
+        "timestamp": "03:03:07",
+        "timestampSeconds": 10987
+      }
     ]
   },
-  "cachedAt": "2026-08-15T19:37:41.543Z",
+  "cachedAt": "2026-08-16T07:48:04.089Z",
   "inputTokens": 37863,
-  "outputTokens": 712
+  "outputTokens": 840
 }
