@@ -118,6 +118,11 @@ jobs:
           rclone copy r2:rcsd-meetings/transcripts-aai/ artifacts/transcripts-aai/ \
             --ignore-existing --progress
           # Sync other cache folders (excluding heavy media, json, and transcripts)
+          # transcripts-slim/ is a dead legacy bucket prefix (pre-July-2026, no
+          # _sourceHash in its -es files; canonical copies live at transcripts/,
+          # restored above). Without this exclude it overwrote the fresh restore
+          # every run, so every ES translation read as stale and the pipeline
+          # re-bought the same 25 translations twice a day (~$15/run, Aug 2026).
           rclone copy r2:rcsd-meetings/ artifacts/ \
             --exclude "audio/**" \
             --exclude "board-packets/**" \
@@ -125,6 +130,7 @@ jobs:
             --exclude "json/**" \
             --exclude "transcripts/**" \
             --exclude "transcripts-aai/**" \
+            --exclude "transcripts-slim/**" \
             --progress
 
       # Operator inbox for out-of-band (re-)transcriptions: anything staged in
