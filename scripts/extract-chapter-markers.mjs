@@ -471,7 +471,10 @@ async function main() {
 
     try {
       const response = await client.messages.create({
-        model: 'claude-sonnet-4-6',
+        model: 'claude-sonnet-5',
+        // Disable Sonnet 5's default adaptive thinking to keep cost parity
+        // with the prior 4.6 behavior (thinking off unless requested).
+        thinking: { type: 'disabled' },
         max_tokens: 16384,
         messages: [{ role: 'user', content: prompt }],
       });

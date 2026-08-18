@@ -170,6 +170,10 @@ jobs:
           # 'all' removes the per-run cap on stale-cache refreshes; unset uses
           # each script's default of 25 (see --max-refresh).
           MAX_REFRESH: ${{ github.event.inputs.refresh_all == 'true' && 'all' || '' }}
+          # A deliberate uncapped drain legitimately spends more than the $10
+          # default per-run cost guard in translate-transcripts.mjs allows;
+          # unset falls back to the script default.
+          MAX_RUN_COST: ${{ github.event.inputs.refresh_all == 'true' && '150' || '' }}
         run: |
           if [ "${{ github.event.inputs.quick }}" = "true" ]; then
             node scripts/run-pipeline.mjs --quick
@@ -193,6 +197,9 @@ jobs:
             data/timestamp-map.json data/llm-timestamp-cache/ 2>/dev/null || \
           git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md \
             data/meetings-data.json data/chapter-markers.json data/chapter-markers-cache/ data/timestamp-map.json
+          # Health record must persist across runs (runner workspace is wiped)
+          # for the stuck-drain streak counter to work; asserted post-deploy.
+          if [ -e data/translation-health.json ]; then git add data/translation-health.json; fi
           # ES translation outputs only exist after a full run; add them only if
           # present so quick runs (which skip translation) don't fail on a
           # pathspec that matches nothing.
@@ -242,3 +249,11 @@ jobs:
 
       - name: Verify Promoted Release in Production
         run: npm run release:smoke
+
+      # LAST step by design: a tripped guard (runaway API spend, or completed
+      # translations being lost run-over-run) must alert via a red run WITHOUT
+      # skipping the upload/commit/deploy above — failing earlier would discard
+      # this run's paid API work (checkout wipes artifacts/ next run), which is
+      # the pay-and-discard failure mode itself. See check-pipeline-health.mjs.
+      - name: Assert Pipeline Health Guards
+        run: node scripts/check-pipeline-health.mjs

@@ -61,7 +61,10 @@ async function translateStrings(texts) {
   const flush = async () => {
     if (batch.length === 0) return;
     const stream = await client.messages.stream({
-      model: 'claude-sonnet-4-6',
+      model: 'claude-sonnet-5',
+      // Disable Sonnet 5's default adaptive thinking: mechanical translation
+      // doesn't benefit and reasoning tokens bill at output rates.
+      thinking: { type: 'disabled' },
       max_tokens: 32768,
       system: SYSTEM_PROMPT,
       messages: [{ role: 'user', content: JSON.stringify(batch) }],

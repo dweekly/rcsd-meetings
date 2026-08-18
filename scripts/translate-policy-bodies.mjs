@@ -63,9 +63,11 @@ const LIMIT = limitIdx >= 0 ? parseInt(process.argv[limitIdx + 1], 10) : Infinit
 
 // Task spec for this dataset names Sonnet explicitly; Claude model ids have
 // no date suffix (claude-api skill, models table cached 2026-05-26).
-const MODEL = 'claude-sonnet-4-6';
-// Pricing per million tokens for claude-sonnet-4-6, from the claude-api
-// skill's model table (cached 2026-05-26): $3 input / $15 output.
+const MODEL = 'claude-sonnet-5';
+// Pricing per million tokens for claude-sonnet-5, from the claude-api skill's
+// model table (cached 2026-06-24): $3 input / $15 output standard. Intro
+// pricing ($2/$10 through 2026-08-31) is deliberately not encoded; cost
+// estimates use standard rates.
 const INPUT_USD_PER_MTOK = 3.0;
 const OUTPUT_USD_PER_MTOK = 15.0;
 
@@ -111,7 +113,7 @@ const USER_TEMPLATE_ID = 'policy-body-translation-user-v1';
 const USER_TEMPLATE = 'Translate this board policy text to Spanish:\n\n{{contentText}}';
 const OUTPUT_SCHEMA_ID = 'policy-body-translation-text-v1';
 const GENERATION_PARAMETERS = {
-  sent: { max_tokens: MAX_TOKENS, stream: true },
+  sent: { max_tokens: MAX_TOKENS, stream: true, thinking: { type: 'disabled' } },
   providerDefaults: 'unknown',
   unsupported: ['seed'],
 };
@@ -291,6 +293,9 @@ async function callChunk(chunk, invocation, apiClient) {
     // Streaming keeps long responses clear of SDK HTTP timeouts.
     const stream = apiClient.messages.stream({
       model: MODEL,
+      // Disable Sonnet 5's default adaptive thinking — mechanical translation
+      // doesn't need billed reasoning tokens.
+      thinking: { type: 'disabled' },
       max_tokens: MAX_TOKENS,
       system: SYSTEM_PROMPT,
       messages: [{ role: 'user', content: userPrompt }],

@@ -62,9 +62,11 @@ const FORCE = process.argv.includes('--force');
 
 // Task spec for this dataset names Sonnet explicitly; Claude model ids have
 // no date suffix (claude-api skill, models table cached 2026-05-26).
-const MODEL = 'claude-sonnet-4-6';
-// Pricing per million tokens for claude-sonnet-4-6, from the claude-api
-// skill's model table (cached 2026-05-26): $3 input / $15 output.
+const MODEL = 'claude-sonnet-5';
+// Pricing per million tokens for claude-sonnet-5, from the claude-api skill's
+// model table (cached 2026-06-24): $3 input / $15 output standard. Intro
+// pricing ($2/$10 through 2026-08-31) is deliberately not encoded; cost
+// estimates use standard rates.
 const INPUT_USD_PER_MTOK = 3.0;
 const OUTPUT_USD_PER_MTOK = 15.0;
 // Two one-sentence summaries — 1024 tokens is generous headroom.
@@ -131,7 +133,7 @@ Policy text:
 {{contentText}}{{validationFeedback}}`;
 const OUTPUT_SCHEMA_ID = 'policy-bilingual-summary-v1';
 const GENERATION_PARAMETERS = {
-  sent: { max_tokens: MAX_TOKENS },
+  sent: { max_tokens: MAX_TOKENS, thinking: { type: 'disabled' } },
   providerDefaults: 'unknown',
   unsupported: ['seed'],
 };
@@ -335,6 +337,9 @@ export async function summarizePolicy(policy, { apiClient = getClient() } = {}) 
     try {
       response = await apiClient.messages.create({
         model: MODEL,
+        // Disable Sonnet 5's default adaptive thinking — one-sentence
+        // summaries don't need billed reasoning tokens.
+        thinking: { type: 'disabled' },
         max_tokens: MAX_TOKENS,
         // No cache_control: the system prompt is below the model's cacheable minimum.
         system: SYSTEM_PROMPT,
