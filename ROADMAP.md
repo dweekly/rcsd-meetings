@@ -198,6 +198,9 @@ The calendar widget and meeting pages should reflect which state each meeting is
 ## Board Meetings — Transcription & Chapters
 - [ ] Unified meeting page with tab selector: Transcript / Agenda / Minutes — all synced to video playback (click agenda item 9.3 → scrub video to that timestamp; agenda highlights current item during playback)
 - [ ] Spanish translation of transcripts
+- [ ] **Alignment-shift repeat failures** (2026-08-18): ~6 meetings (2020-04-22, 2020-06-17, 2020-07-22, 2020-09-09, 2020-09-30, 2021-02-10) fail translate-transcripts' digit-alignment guard every run — each paid for (~$0.5–1/meeting) then discarded, retried next run forever. Fix: on shift detection, retry that meeting with smaller batches (shift risk grows with batch length), or per-batch shift check instead of whole-file; add a persistent skip-list/backoff so a meeting can't re-buy twice a day.
+- [ ] API spend guardrail in pipeline: translate-transcripts (and other Sonnet scripts) should abort or alert when per-run cost exceeds a threshold (e.g. $5) — the $40/day stale-loop burned for ~6 weeks (~$1.5k) before the Console cost page caught it. Also set a workspace spend limit + alert in Anthropic Console (operator action).
+- [ ] Audit `dweekly-key-1` API key usage ($81.72 month-to-date, last used Aug 14) — identify what's calling it, rotate/kill if orphaned.
 
 ## Board Meetings — Detailed summaries from transcripts
 Build a pipeline for rich per-meeting summaries (inputs already in place: AAI transcripts + formal agenda + minutes + chapter markers):
