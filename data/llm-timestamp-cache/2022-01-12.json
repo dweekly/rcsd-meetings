@@ -17,8 +17,8 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced: Items 10.5, 10.6, 10.7 (three measure U's) moved to consent; items 10.3 and 10.4 moved to consent.",
-    "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
+    "agenda_changes": "At the start of the meeting, the president announced changes to move items 10.5, 10.6, 10.7 (the three measure U's) to consent, and also move items 10.3 and 10.4 to consent. These items were subsequently voted on as a consent bundle.",
+    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
         "item": 1,
@@ -27,11 +27,16 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present. Trustee Wells",
+        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
         "status": "found"
       },
       {
         "item": 3,
+        "intro_words": "Welcome, everybody. It's great to see you in person",
+        "status": "found"
+      },
+      {
+        "item": 4,
         "intro_words": "Welcome, everybody. It's great to see you in person",
         "status": "found"
       },
@@ -41,8 +46,18 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda this evening?",
+        "status": "found"
+      },
+      {
         "item": 7,
-        "intro_words": "That was Mike and Cecilia. All those in favor?",
+        "intro_words": "All those in favor? Aye. Ali, do we have",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "All those in favor? Aye. Ali, do we have",
         "status": "found"
       },
       {
@@ -51,18 +66,23 @@
         "status": "found"
       },
       {
+        "item": 10,
+        "intro_words": "If you have public comment related to a study session",
+        "status": "found"
+      },
+      {
         "item": 11,
-        "intro_words": "Moving right along to the bond program consent items",
+        "intro_words": "Moving right along to the bond program consent items. Recommendation",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Update on Workforce Housing at 750 Bradford Street",
-        "status": "not_found"
+        "intro_words": "Moving on to bond program action items. The first one",
+        "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Thank you, guys. Thank you, Will. Bye. Okay, on",
+        "intro_words": "Okay. 7.2. Recommendation of adoption of resolution 21. The",
         "status": "found"
       }
     ]
@@ -82,17 +102,26 @@
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
-      null,
+      {
+        "timestamp": "00:00:46",
+        "timestampSeconds": 46
+      },
       {
         "timestamp": "00:01:27",
         "timestampSeconds": 87
       },
-      null,
       {
-        "timestamp": "00:01:58",
-        "timestampSeconds": 118
+        "timestamp": "00:01:27",
+        "timestampSeconds": 87
       },
-      null,
+      {
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
+      },
+      {
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
+      },
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
@@ -102,14 +131,17 @@
         "timestamp": "00:02:53",
         "timestampSeconds": 173
       },
-      null,
       {
-        "timestamp": "00:04:55",
-        "timestampSeconds": 295
+        "timestamp": "00:02:45",
+        "timestampSeconds": 165
+      },
+      {
+        "timestamp": "00:03:50",
+        "timestampSeconds": 230
       }
     ]
   },
-  "cachedAt": "2026-08-19T01:29:55.030Z",
+  "cachedAt": "2026-08-19T06:50:15.375Z",
   "inputTokens": 18781,
-  "outputTokens": 506
+  "outputTokens": 691
 }

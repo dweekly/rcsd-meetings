@@ -18,17 +18,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No formal agenda changes announced. The meeting proceeded with items in posted order with minor deviations in discussion depth.",
-    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No changes to agenda announced. Roll call completed, welcome remarks given, and proceeding with posted agenda items.",
+    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells? Here.",
         "status": "found"
       },
       {
@@ -74,11 +74,11 @@
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "can I please get a motion to approve the consent bond program?",
+        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
         "status": "consent_bundle"
       },
       {
@@ -137,8 +137,9 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "00:01:19",
@@ -155,7 +156,7 @@
       }
     ]
   },
-  "cachedAt": "2026-08-19T01:29:33.990Z",
+  "cachedAt": "2026-08-19T06:49:57.550Z",
   "inputTokens": 27924,
-  "outputTokens": 725
+  "outputTokens": 729
 }
