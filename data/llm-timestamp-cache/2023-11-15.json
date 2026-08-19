@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled until further information provided. Item 9.3 moved from consent to action for elaboration on expenses.",
-    "consent_vote_words": "I'll move to approve consent items. I'll second. All those in favor?",
+    "agenda_changes": "Item 10.1 pulled - will not be discussed tonight, will come forward at another time. Item 9.3 moved from consent to action for discussion.",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -28,77 +28,77 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll Call - Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Roll Call",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome - Good evening, everyone. Welcome to another Redwood City School",
-        "status": "found"
+        "intro_words": "Welcome",
+        "status": "not_found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez - Thank you. Good evening,",
+        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Changes to the Agenda - Yes, it is going to be 10.1. We are going to pull that",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Approval of the Agenda - Yeah, I'll make a motion to approve the agenda with the changes",
-        "status": "found"
+        "intro_words": "Additions, Deletions, or Modifications to the Agenda",
+        "status": "not_found"
       },
       {
         "item": 7,
-        "intro_words": "Oral Communication on Closed Session - is there any oral communication? No oral communication.",
+        "intro_words": "I'll make a motion to approve the agenda with the changes",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Study Session on Dyslexia - moving on to our study session discussion on dyslexia.",
+        "intro_words": "No oral communication. Thank you. And with that, moving on to bond program consent",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "School Board/Principal Presentations - Hoover and Henry Ford school presentations for the 2324 school year.",
+        "intro_words": "moving on to 11.11.1 being Hoover and Henry Ford school presentations",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "First Reading and Discussion of Board Policies - first reading and discussion of board policy",
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Consent Items - Moving to item 13, consent items. If there are no questions",
+        "intro_words": "moving to item 13, consent items. If there are no questions",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Action Items - moving on to action items. 14.1 is adoption of resolution number five",
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "Board and Superintendent Report - moving on to board and superintendent report.",
+        "intro_words": "board and superintendent report",
         "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "Information and Correspondence - moving on to item 16.1, information on San Mateo county",
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "Other Business - moving on to item 18. Other business possible other business suggested",
+        "intro_words": "moving on to item 18. Other business possible other business",
         "status": "found"
       },
       {
         "item": 19,
-        "intro_words": "Adjournment - with that it is 9:15. What you say? What did you say? What time?",
+        "intro_words": "board meeting calendar. Are there any changes to the board meeting calendar",
         "status": "found"
       }
     ]
@@ -107,38 +107,35 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
-      {
-        "timestamp": "01:10:00",
-        "timestampSeconds": 4200
-      },
-      null,
-      {
-        "timestamp": "01:09:55",
-        "timestampSeconds": 4195
-      },
-      {
-        "timestamp": "01:10:21",
-        "timestampSeconds": 4221
-      },
-      null,
       null,
       null,
       null,
       {
-        "timestamp": "01:13:48",
-        "timestampSeconds": 4428
+        "timestamp": "01:10:10",
+        "timestampSeconds": 4210
+      },
+      null,
+      {
+        "timestamp": "01:09:40",
+        "timestampSeconds": 4180
+      },
+      null,
+      {
+        "timestamp": "01:11:10",
+        "timestampSeconds": 4270
+      },
+      null,
+      {
+        "timestamp": "01:13:41",
+        "timestampSeconds": 4421
       },
       {
-        "timestamp": "02:38:31",
-        "timestampSeconds": 9511
+        "timestamp": "02:38:15",
+        "timestampSeconds": 9495
       },
       {
-        "timestamp": "03:03:12",
-        "timestampSeconds": 10992
+        "timestamp": "03:03:35",
+        "timestampSeconds": 11015
       },
       {
         "timestamp": "03:03:12",
@@ -146,7 +143,7 @@
       }
     ]
   },
-  "cachedAt": "2026-08-18T19:47:40.241Z",
+  "cachedAt": "2026-08-19T01:28:34.248Z",
   "inputTokens": 37863,
-  "outputTokens": 875
+  "outputTokens": 791
 }
