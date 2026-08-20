@@ -274,5 +274,12 @@ jobs:
       # Same final-step reasoning: published facts that no longer match their
       # source (a rotated principal, a changed superintendent) alert via a red
       # run without discarding the work above. See scripts/check-freshness.mjs.
+      # `!cancelled()` rather than the default `success()`: the health guard
+      # above exits nonzero on a tripped cost guard or a stuck drain, which
+      # would otherwise SKIP this step — so a run that is already red for one
+      # reason would silently stop checking whether the site's published facts
+      # still match their sources. The two guards are independent and both must
+      # report.
       - name: Assert Published Facts Still Match Their Sources
+        if: ${{ !cancelled() }}
         run: node scripts/check-freshness.mjs

@@ -171,7 +171,7 @@ Top-level: `{ _metadata, properties[] }` — district-owned or district-leased r
 
 ## data/trustees.json
 
-The elected Board of Trustees plus district leadership. Three top-level keys: `trustees` (array), `superintendent` (object with `current` + `incoming`), and `cabinet` (array). Plus a `_metadata` provenance block.
+The elected Board of Trustees plus district leadership. Three top-level keys: `trustees` (array), `superintendent` (object with `current`, plus `former[]` for predecessors and `incoming` only while a transition is pending), and `cabinet` (array). Plus a `_metadata` provenance block.
 
 ### Sample Trustee Record
 
@@ -206,15 +206,55 @@ The elected Board of Trustees plus district leadership. Three top-level keys: `t
 | `photo` | string | Filename under `https://data.rcsd.info/trustees/`; null if none |
 | `photoSource` | string | Upstream CDN URL the headshot was mirrored from |
 
-`superintendent.current` / `superintendent.incoming` use `name`, `titleEn`/`titleEs`, `statusEn`/`statusEs`, `email`, `photo`, `photoSource`, `bioUrl`, and `contractUrl` (nullable). An optional `photoCrop` (e.g. `"4:5"`) tells `fetch-leadership-photos.mjs` to center-crop a non-portrait source via `sips`; `photoNote` documents why. `cabinet[]` (Deputy Superintendent, Assistant Superintendent of Educational Services, CBO) and `directors[]` (14 directors/coordinators) each use `slug`, `name`, `titleEn`, `titleEs`. ES titles for directors use the gender-neutral "Dirección de …" form to avoid misgendering by name.
+`superintendent.current` / `superintendent.incoming` use `name`, `titleEn`/`titleEs`, `statusEn`/`statusEs`, `email`, `photo`, `photoSource`, `bioUrl`, and `contractUrl` (nullable). `superintendent.former[]` holds predecessors with the same shape plus `servedThrough` (ISO date); it is retained for history and is NOT rendered. `incoming` is present only during a pending transition — `build-district.mjs` shows the "district is in a superintendent transition" note if and only if `incoming` exists, and `check-freshness.mjs` fails the build if someone recorded as `incoming` is already the sitting superintendent on the district page. An optional `photoCrop` (e.g. `"4:5"`) tells `fetch-leadership-photos.mjs` to center-crop a non-portrait source via `sips`; `photoNote` documents why. `cabinet[]` (Assistant Superintendent of Human Resources, Assistant Superintendent of Educational Services, CBO) and `directors[]` (13 directors/coordinators) each use `slug`, `name`, `titleEn`, `titleEs`. ES titles for directors use the gender-neutral "Dirección de …" form to avoid misgendering by name.
 
 ### Key Field Notes
 
 - **Areas 2 and 5** (David Weekly, Cecilia I. Márquez) expire 2026 and are on the November 2026 ballot; **Areas 1, 3, 4** expire 2028.
-- **Superintendent transition:** Dr. John R. Baker serves through 2026-06-30; Dr. Christian J. Rubalcaba (appointed 2026-01-21) begins 2026-07-01.
+- **Superintendent:** Dr. Christian J. Rubalcaba (appointed 2026-01-21) has been superintendent since 2026-07-01. Dr. John R. Baker retired 2026-06-30 and is under `superintendent.former[]`. Note `scripts/extract-chapter-markers.mjs` carries a SECOND, date-ranged copy of the superintendency for LLM speaker attribution — the two must be changed together; see `docs/ANNUAL-REFRESH.md`.
 - Hand-maintained; re-check after each November election and the December board reorganization. See `_metadata.refreshProcedure`.
 
 ---
+
+## data/freshness.json
+
+Observations of RCSD-authoritative web pages, used to detect that a published fact
+has drifted from its source. Written by `scripts/verify-live-facts.mjs` on every
+pipeline run; asserted by `scripts/check-freshness.mjs` as a final workflow step.
+
+**This file is not a source of published values.** It records what rcsdk8.net *said*.
+The values the site publishes stay in `schools.json` (`principal`) and `trustees.json`
+(`superintendent`, `cabinet`, `directors`), so each fact keeps exactly one definition.
+
+### Schema
+
+- `_metadata` — provenance: `source` (the district superintendent page),
+  `additionalSources[]` (the 12 per-school leadership pages), `scrapedAt` (ISO),
+  `method`, `writer`, `asserter`.
+- `maxObservationAgeDays` — how stale observations may get before the guard reports
+  that probing itself has stopped. Default 7; the pipeline runs twice daily.
+- `lastRun` — `probedAt` (ISO), `probed`, `failed`, `failures[]` (human-readable
+  strings naming the URL that could not be read).
+- `observations[]` — each has `id`, `kind`, `source`, and `observed`:
+  - `kind: "principal"` — plus `slug`; `observed` is the principal's name. Compared
+    against `schools.json` → the matching school's `principal`. **Fatal on drift.**
+  - `kind: "superintendent"` — `observed` is the name. Compared against
+    `trustees.json` → `superintendent.current.name`. **Fatal on drift**, and also
+    fatal if the observed person is still sitting in `superintendent.incoming`.
+  - `kind: "cabinet"` — `observed` is an array of `{name, title}` for everyone else
+    on the superintendent page. Compared against the union of `trustees.json`
+    `cabinet[]` + `directors[]`. **Advisory only** — that page churns and is not a
+    complete roster of record, and a guard that cries wolf gets ignored.
+
+### Key Field Notes
+
+- Names are compared on a normalized key (`scripts/lib/person-name.mjs`): courtesy
+  titles (Mr./Mrs./Ms.) and post-nominals are dropped, accents folded, case flattened.
+  Earned doctorates are kept, since they are part of the published name. So
+  "Ms. Melissa Bowdoin" does not read as a change, but "Dr. Luis Arreola" →
+  "Nick Fanourgiakis" does.
+- An unrecognized `kind` fails the guard rather than being ignored, so adding a probe
+  without teaching the guard about it cannot read as "clean".
 
 ## data/district-calendar-{year}.json
 

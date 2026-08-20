@@ -1,12 +1,29 @@
 {
   "_metadata": {
     "description": "Observations of RCSD-authoritative sources for facts the site publishes. Written by scripts/verify-live-facts.mjs; asserted by scripts/check-freshness.mjs. This file records what the sources SAY, never what the site should say — the published values live in data/schools.json and data/trustees.json.",
+    "source": "https://www.rcsdk8.net/our-programs-and-services/our-superintendent",
+    "additionalSources": [
+      "https://adelanteselby.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://clifford.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://garfield.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://henryford.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://hoover.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://kennedy.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://mit.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://northstar.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://orion.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://roosevelt.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://roycloud.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://taft.rcsdk8.net/our-school/meet-our-school-leadership"
+    ],
+    "scrapedAt": "2026-08-20T00:57:12.359Z",
+    "method": "Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. People are extracted structurally from \"<h2>Name | Title</h2>\" headings; the person titled exactly \"Principal\" (or \"Superintendent\") is taken as the officeholder. Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; earned doctorates are preserved. A source that 404s or whose markup no longer matches is recorded in lastRun.failures and fails the run rather than being silently skipped.",
     "writer": "scripts/verify-live-facts.mjs",
     "asserter": "scripts/check-freshness.mjs"
   },
   "maxObservationAgeDays": 7,
   "lastRun": {
-    "probedAt": "2026-08-20T00:40:35.806Z",
+    "probedAt": "2026-08-20T00:57:12.359Z",
     "probed": 14,
     "failed": 0,
     "failures": []

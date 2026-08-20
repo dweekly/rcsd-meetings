@@ -199,13 +199,29 @@ const prior = existsSync(FRESHNESS_PATH)
   ? JSON.parse(readFileSync(FRESHNESS_PATH, 'utf-8'))
   : {};
 
+const probedAt = new Date().toISOString();
+
 const record = {
+  // Provenance block per AGENTS.md: source, scrapedAt, method are required on
+  // any JSON carrying externally-sourced data. This file is published to R2,
+  // so a consumer must be able to see where each observation came from and
+  // when — every observation also carries its own `source` URL.
   _metadata: {
     description:
       'Observations of RCSD-authoritative sources for facts the site publishes. '
       + 'Written by scripts/verify-live-facts.mjs; asserted by scripts/check-freshness.mjs. '
       + 'This file records what the sources SAY, never what the site should say — '
       + 'the published values live in data/schools.json and data/trustees.json.',
+    source: SUPERINTENDENT_URL,
+    additionalSources: schools.map(s => `${s.website}${LEADERSHIP_PATH}`),
+    scrapedAt: probedAt,
+    method:
+      'Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. '
+      + 'People are extracted structurally from "<h2>Name | Title</h2>" headings; the person '
+      + 'titled exactly "Principal" (or "Superintendent") is taken as the officeholder. '
+      + 'Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; '
+      + 'earned doctorates are preserved. A source that 404s or whose markup no longer matches '
+      + 'is recorded in lastRun.failures and fails the run rather than being silently skipped.',
     writer: 'scripts/verify-live-facts.mjs',
     asserter: 'scripts/check-freshness.mjs',
   },
@@ -214,7 +230,7 @@ const record = {
   // silence means the probe step is broken, not merely unlucky.
   maxObservationAgeDays: prior.maxObservationAgeDays ?? 7,
   lastRun: {
-    probedAt: new Date().toISOString(),
+    probedAt,
     probed: observations.length,
     failed: failures.length,
     failures,
