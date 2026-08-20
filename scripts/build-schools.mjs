@@ -21,6 +21,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { charterSummaries } from './build-charters.mjs';
+import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, CA_DASHBOARD_YEAR } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -87,11 +88,17 @@ const SSC_DATA = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'da
 const SSC_MEETINGS = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/ssc-meetings.json'), 'utf-8')); } catch { return {}; } })();
 
 // ---- Load CDE data ----
-const CDE_ABSENT = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/absenteeism-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_LTEL = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/ltel-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_STAFF_ETH = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/staff-ethnicity-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_STAFF_EXP = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/staff-experience-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_RATIOS = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/staff-ratios-2024-25.json'), 'utf-8')); } catch { return {}; } })();
+// Filenames carry the ingested year, so a year bump renames every one of these.
+// They are loaded strictly: previously each was wrapped in `try/catch -> {}`,
+// which turned a renamed file into school pages silently rendering without
+// absenteeism, LTEL, and staffing data. See scripts/lib/school-year.mjs.
+const cde = (dataset, what) =>
+  loadYearScopedJson(cdeDatasetPath(ROOT, dataset), { what });
+const CDE_ABSENT = cde('absenteeism', 'CDE chronic absenteeism');
+const CDE_LTEL = cde('ltel', 'CDE long-term English learners');
+const CDE_STAFF_ETH = cde('staff-ethnicity', 'CDE staff ethnicity');
+const CDE_STAFF_EXP = cde('staff-experience', 'CDE staff experience');
+const CDE_RATIOS = cde('staff-ratios', 'CDE staff ratios');
 
 
 // i-Ready Expected Growth data, extracted from each school's 25-26 Board of
@@ -1795,7 +1802,7 @@ function schoolJsonLd(school, data, lang) {
 
   const sameAs = [school.website];
   if (school.cdsCode) {
-    sameAs.push(`https://www.caschooldashboard.org/reports/${school.cdsCode}/2024`);
+    sameAs.push(`https://www.caschooldashboard.org/reports/${school.cdsCode}/${CA_DASHBOARD_YEAR}`);
   }
   if (school.greatSchools?.url) {
     sameAs.push(school.greatSchools.url);
@@ -1980,9 +1987,9 @@ function buildSchoolPage(school, data, lang) {
   const logoUrl = `https://data.rcsd.info/logos/${slug}.${logoExt}`;
 
   // Info bubble helper for source attribution
-  const sarcPdfUrl = `https://data.rcsd.info/documents/sarc/2024-25/english/${slug}.pdf`;
-  const spsaPdfUrl = `https://data.rcsd.info/documents/spsa/2025-26/${slug}.pdf`;
-  const dashboardUrl = `https://www.caschooldashboard.org/reports/${school.cdsCode}/2024`;
+  const sarcPdfUrl = `https://data.rcsd.info/documents/sarc/${SARC_YEAR}/english/${slug}.pdf`;
+  const spsaPdfUrl = `https://data.rcsd.info/documents/spsa/${SPSA_YEAR}/${slug}.pdf`;
+  const dashboardUrl = `https://www.caschooldashboard.org/reports/${school.cdsCode}/${CA_DASHBOARD_YEAR}`;
   const infoBubble = (text, url) => `<span class="info-bubble" tabindex="0"><span class="info-bubble-icon">i</span><span class="info-bubble-tip"><a href="${url}" target="_blank">${text}</a></span></span>`;
 
   return `<!DOCTYPE html>
@@ -2477,12 +2484,12 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       <div class="resource-card">
         <h3>${L.sarc}</h3>
         <p>${L.sarcDesc}</p>
-        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/sarc/2024-25/english/${slug}.pdf" target="_blank">${L.viewSarc}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
+        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/sarc/${SARC_YEAR}/english/${slug}.pdf" target="_blank">${L.viewSarc}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
       </div>
       <div class="resource-card">
         <h3>${L.spsa}</h3>
         <p>${L.spsaDesc}</p>
-        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/2025-26/${slug}.pdf" target="_blank">${L.viewSpsa}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
+        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/${SPSA_YEAR}/${slug}.pdf" target="_blank">${L.viewSpsa}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
       </div>
       ${(() => {
         const decks = SITE_PRESENTATIONS[slug] || [];
@@ -2569,7 +2576,7 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
             const names = ssc.members.filter(m => m.role === role).map(m => m.name);
             return names.length ? `<span class="ssc-role">${label}:</span> ${names.join(', ')}` : '';
           }).filter(Boolean).join('<br>')}</div>
-          <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/2025-26/${slug}.pdf" target="_blank">${isEs ? 'Ver SPSA' : 'View SPSA'} &#8599;</a></p>
+          <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/${SPSA_YEAR}/${slug}.pdf" target="_blank">${isEs ? 'Ver SPSA' : 'View SPSA'} &#8599;</a></p>
           ${(() => {
             const meetings = SSC_MEETINGS[slug]?.['2025-26'] || [];
             if (!meetings.length) return '';

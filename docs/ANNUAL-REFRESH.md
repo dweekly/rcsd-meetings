@@ -63,6 +63,10 @@ absent, so a local rebuild produces a page that looks fine and is missing data:
 - `scripts/build-schools.mjs` — the five `data/cde/*.json` reads are wrapped in
   `try/catch → {}` (see PR 2).
 
+Revert **only the generated HTML** when you undo a local build — `git checkout -- docs/`
+also reverts the hand-written `docs/*.md` runbooks, which are real content that lives in
+the same directory.
+
 The pipeline rebuilds and deploys `docs/` on every run with the full artifact set, and
 never commits it. So when a change only touches `data/` or a builder, **let CI rebuild** —
 committing your local `docs/` output buys nothing and can ship data loss. If you do need to
@@ -89,27 +93,35 @@ in both places. It is not yet probed.
   `https://www.rcsdk8.net/our-district/our-board-of-trustees/meet-the-trustees`. Not probed
   (trustee areas, terms, and assignments are structured differently from the leadership
   pages). Then `scripts/fetch-leadership-photos.mjs` and `scripts/build-district.mjs`.
-- CA Dashboard release: the year `2024` is hardcoded in `build-schools.mjs`,
-  `build-homepage.mjs`, and `build-budget.mjs`.
+- CA Dashboard release: bump `CA_DASHBOARD_YEAR` in `scripts/lib/school-year.mjs`.
+  (`build-homepage.mjs` and `build-budget.mjs` still hold their own copies — see ROADMAP.)
 
 ### Each fall
-- SPSA year — `scripts/extract-spsa-budgets.mjs`, and the SPSA URLs in `build-schools.mjs`
-  and `build-homepage.mjs`.
-- SSC membership — append the new year to `YEARS` in `scripts/extract-ssc-membership.mjs`.
+- SPSA year — bump `SPSA_YEAR` in `scripts/lib/school-year.mjs`; it drives both
+  `extract-spsa-budgets.mjs` and the SPSA links on school pages. (`build-homepage.mjs`
+  still has its own copy — see ROADMAP.)
+- SSC membership — append the new year to `SSC_YEARS` in `scripts/lib/school-year.mjs`.
   Note SSC rosters are point-in-time records of an adopted SPSA and legitimately name
   people who have since moved on; they render with their adoption date.
 - School clubs — `scripts/extract-school-clubs.mjs`.
 
 ### Each February
-- SARC — `scripts/extract-sarc.mjs`. Currently reads a hardcoded `2024-25` directory under
-  an out-of-repo path (`../../nanoclaw/…`); both need fixing, see PR 2 below.
+- SARC — bump `SARC_YEAR` in `scripts/lib/school-year.mjs`. `scripts/extract-sarc.mjs` now
+  looks for `artifacts/documents/sarc/{year}/english/`, falls back to the legacy
+  out-of-repo staging path for existing setups, accepts `--pdf-dir`, and fails naming every
+  path it tried rather than reading a directory that is not there.
 
 ### November–January
-- CDE bulk data — the five dataset URLs in `scripts/pull-cde-data.mjs` have the year baked
-  into the filename (`stre2425.txt`, `chronicabsenteeism25-v2.txt`, …).
-  **Do not bump these before PR 2 lands.** `scripts/build-schools.mjs` loads the five
-  outputs each wrapped in `try/catch → {}`, so a renamed file makes school pages silently
-  render without absenteeism, LTEL, and staffing data. No error, no test.
+- CDE bulk data. **The probe now tells you when to do this** — it checks whether CDE has
+  published a year newer than the one in `CDE_DATA_YEARS`. One cycle behind prints an
+  advisory; two cycles behind fails the build, because that means a whole annual refresh
+  was skipped. A blocked probe reports nothing (CDE sits behind Radware bot protection that
+  answers 303 under load, so "I could not tell" must not read as either answer).
+
+  To ingest: `node scripts/pull-cde-data.mjs --dataset <name>`, confirm the output, bump
+  that dataset's entry in `CDE_DATA_YEARS`, rebuild, and check the numbers actually moved
+  on a school page. CDE releases the five datasets **separately** — verified 2026-08-19,
+  when the three staff files had published 2025-26 and chronic absenteeism had not.
 
 ### Not covered, deliberately
 Bell schedules, district calendars, and lunch URLs rotate each August and have no clean
@@ -122,11 +134,17 @@ verify opportunistically. See `ROADMAP.md`.
   `check-freshness.mjs`, `data/freshness.json`, `tests/freshness.test.mjs`, pipeline
   wiring; four principals and the superintendent corrected; transition note made
   conditional; chapter-marker roster fixed.
-- [ ] **PR 2 — year-scoped constants centralized.** `scripts/lib/school-year.mjs` as the
-  one definition; the `try/catch → {}` at `build-schools.mjs` becomes a loud failure
-  *before* any year bump; CDE URLs bumped where published; SARC/SPSA/SSC year and path
-  parameterized; `freshness.json` extended to assert dataset years so an unpublished
-  ingest goes red.
+- [x] **PR 2 — year-scoped constants centralized.** `scripts/lib/school-year.mjs` holds
+  every year with its source and its bump trigger; `scripts/lib/cde-datasets.mjs` derives
+  CDE URLs from a year instead of five hardcoded strings; the `try/catch → {}` CDE loads in
+  `build-schools.mjs` now fail loudly; SARC/SPSA/SSC years and the SARC path parameterized;
+  the probe reports CDE year staleness, escalating from advisory to build-failing at two
+  cycles.
+
+  Deliberately **not** included: ingesting the 2025-26 staff files that CDE has already
+  published. That is a data change (tens of MB, then re-verifying every school page's
+  numbers) and belongs in its own reviewable PR, not bundled with a refactor. The probe
+  now nags for it.
 - [ ] **PR 3 — agenda-invalidation check.** After `scrape:simbli`, ask of each newly
   posted agenda item and attachment: does this invalidate a truth the site currently
   publishes? Reports rather than hard-fails; bounded by the existing `MAX_RUN_COST`

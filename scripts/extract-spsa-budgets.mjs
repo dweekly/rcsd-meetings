@@ -19,10 +19,11 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { SPSA_YEAR } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const SPSA_DIR = resolve(ROOT, 'artifacts/documents/spsa/2025-26');
+const SPSA_DIR = resolve(ROOT, `artifacts/documents/spsa/${SPSA_YEAR}`);
 const CACHE_DIR = resolve(ROOT, 'data/spsa-budget-cache');
 const OUTPUT_PATH = resolve(ROOT, 'data/spsa-budgets.json');
 

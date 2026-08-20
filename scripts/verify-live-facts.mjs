@@ -39,6 +39,8 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { decodeEntities, displayName } from './lib/person-name.mjs';
+import { CDE_DATA_YEARS } from './lib/school-year.mjs';
+import { datasetFor, nextSchoolYear, CDE_DATASET_NAMES, classifyAvailability } from './lib/cde-datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SCHOOLS_PATH = resolve(ROOT, 'data/schools.json');
@@ -192,6 +194,63 @@ try {
 } catch (err) {
   failures.push(`superintendent:current — ${err.message}`);
   console.error(`  ${'superintendent'.padEnd(16)} PROBE FAILED: ${err.message}`);
+}
+
+// --- CDE: has a newer year been published than the one we ingested? ---------
+//
+// CDE puts the school year in the filename, so availability is a plain HTTP
+// check on next year's URL. The asymmetry matters: we only report when a newer
+// year is POSITIVELY confirmed to exist. CDE sits behind Radware bot protection
+// that returns 303/403 under load, and treating "I could not tell" as "nothing
+// new" would be wrong in the safe direction while treating it as "something new"
+// would cry wolf. Unknown is recorded as unknown.
+/** Probe one CDE URL; returns true / false / 'unknown'. */
+async function cdeYearAvailable(url) {
+  try {
+    // Range-limited GET: these hosts reject HEAD, and we need the status line,
+    // not a 37 MB file.
+    const res = await fetch(url, {
+      headers: { range: 'bytes=0-1023' },
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    });
+    if (res.body) await res.body.cancel();
+    return classifyAvailability(res.status);
+  } catch {
+    // A blocked request or network failure is not evidence either way. CDE's
+    // bot protection answers a 303 redirect loop, which surfaces here as a
+    // thrown "redirect count exceeded".
+    return 'unknown';
+  }
+}
+
+for (const dataset of CDE_DATASET_NAMES) {
+  const ingested = CDE_DATA_YEARS[dataset];
+  const nextYear = nextSchoolYear(ingested);
+  const yearAfter = nextSchoolYear(nextYear);
+
+  const availability = {};
+  availability[nextYear] = await cdeYearAvailable(datasetFor(dataset, nextYear).url);
+  // Only look a second year out once the first is confirmed published — that is
+  // the only case where the answer changes what the guard does.
+  if (availability[nextYear] === true) {
+    availability[yearAfter] = await cdeYearAvailable(datasetFor(dataset, yearAfter).url);
+  }
+
+  observations.push({
+    id: `cde-year:${dataset}`,
+    kind: 'cde-year',
+    dataset,
+    ingestedYear: ingested,
+    availability,
+    source: datasetFor(dataset, nextYear).url,
+  });
+
+  const first = availability[nextYear];
+  const label = first === true
+    ? `${nextYear} PUBLISHED${availability[yearAfter] === true ? ` and ${yearAfter} too` : ''} (ingested ${ingested})`
+    : first === false ? `${nextYear} not yet published`
+    : `${nextYear} unknown (probe blocked)`;
+  console.log(`  ${('cde:' + dataset).padEnd(20)} ${label}`);
 }
 
 // --- Record -----------------------------------------------------------------

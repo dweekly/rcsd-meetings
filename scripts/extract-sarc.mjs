@@ -17,10 +17,33 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { SARC_YEAR } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const SARC_PDF_DIR = resolve(ROOT, '../../nanoclaw/groups/main/rcsd/sarc/2024-25/english');
+// SARC source PDFs. Default is the in-repo artifacts location; the historical
+// out-of-repo staging path (a sibling nanoclaw checkout) is still honoured as a
+// fallback so an existing operator setup keeps working, and either can be
+// overridden with --pdf-dir. Year comes from SARC_YEAR — bumping it there is
+// the whole February refresh for this script.
+const SARC_YEAR_ARG = process.argv.includes('--year')
+  ? process.argv[process.argv.indexOf('--year') + 1]
+  : SARC_YEAR;
+const SARC_PDF_DIR = (() => {
+  const i = process.argv.indexOf('--pdf-dir');
+  if (i !== -1) return resolve(process.cwd(), process.argv[i + 1]);
+  const inRepo = resolve(ROOT, `artifacts/documents/sarc/${SARC_YEAR_ARG}/english`);
+  if (existsSync(inRepo)) return inRepo;
+  const legacy = resolve(ROOT, `../../nanoclaw/groups/main/rcsd/sarc/${SARC_YEAR_ARG}/english`);
+  if (existsSync(legacy)) {
+    console.warn(`  Using legacy out-of-repo SARC staging dir: ${legacy}`);
+    return legacy;
+  }
+  throw new Error(
+    `No SARC PDFs for ${SARC_YEAR_ARG}. Looked in:\n    ${inRepo}\n    ${legacy}\n`
+    + '  Stage the PDFs, pass --pdf-dir <path>, or check SARC_YEAR in scripts/lib/school-year.mjs.',
+  );
+})();
 const OUTPUT_DIR = resolve(ROOT, 'data/sarc');
 
 // All 12 RCSD school slugs — PDF filenames match slugs exactly

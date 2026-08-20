@@ -24,6 +24,8 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { CDE_DATA_YEARS } from './lib/school-year.mjs';
+import { datasetFor, CDE_DATASET_NAMES } from './lib/cde-datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -35,48 +37,9 @@ const SCHOOLS_PATH = resolve(ROOT, 'data/schools.json');
 const COUNTY_CODE = '41';
 const DISTRICT_CODE = '69005';
 
-const DATASETS = {
-  'absenteeism': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism25-v2.txt',
-    cacheFile: 'chronicabsenteeism25-v2.txt',
-    outputFile: 'absenteeism-2024-25.json',
-    year: '2024-25',
-    description: 'Chronic absenteeism rates by school and student group',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fsabd.asp',
-  },
-  'staff-ethnicity': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/staff/stre2425.txt',
-    cacheFile: 'stre2425.txt',
-    outputFile: 'staff-ethnicity-2024-25.json',
-    year: '2024-25',
-    description: 'Staff ethnicity/race counts by school (teachers)',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fsspre.asp',
-  },
-  'staff-experience': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/staff/stex2425.txt',
-    cacheFile: 'stex2425.txt',
-    outputFile: 'staff-experience-2024-25.json',
-    year: '2024-25',
-    description: 'Staff experience levels by school (teachers)',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fsspex.asp',
-  },
-  'ltel': {
-    url: 'https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25',
-    cacheFile: 'ltel-2024-25.txt',
-    outputFile: 'ltel-2024-25.json',
-    year: '2024-25',
-    description: 'Long-term English learner counts by school',
-    fileStructure: 'https://dq.cde.ca.gov/dataquest/longtermel/',
-  },
-  'staff-ratios': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/staff/strat2425.txt',
-    cacheFile: 'strat2425.txt',
-    outputFile: 'staff-ratios-2024-25.json',
-    year: '2024-25',
-    description: 'Student-to-staff ratios by school',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fssprat.asp',
-  },
-};
+const DATASETS = Object.fromEntries(
+  CDE_DATASET_NAMES.map((name) => [name, datasetFor(name, CDE_DATA_YEARS[name])]),
+);
 
 // ---------------------------------------------------------------------------
 // Column name maps for each CDE file format

@@ -20,6 +20,8 @@ import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { nameKey, sameName, displayName, decodeEntities } from '../scripts/lib/person-name.mjs';
+import { classifyAvailability, cyclesBehind, nextSchoolYear, datasetFor } from '../scripts/lib/cde-datasets.mjs';
+import { currentSchoolYear, loadYearScopedJson, cdeDatasetPath } from '../scripts/lib/school-year.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GUARD = resolve(ROOT, 'scripts/check-freshness.mjs');
@@ -37,6 +39,7 @@ function runGuard({ freshness, schools, trustees }) {
   writeFileSync(join(dir, 'data/trustees.json'), JSON.stringify(trustees, null, 2));
   cpSync(GUARD, join(dir, 'scripts/check-freshness.mjs'));
   cpSync(resolve(ROOT, 'scripts/lib/person-name.mjs'), join(dir, 'scripts/lib/person-name.mjs'));
+  cpSync(resolve(ROOT, 'scripts/lib/cde-datasets.mjs'), join(dir, 'scripts/lib/cde-datasets.mjs'));
   try {
     const stdout = execFileSync(process.execPath, [join(dir, 'scripts/check-freshness.mjs')], {
       encoding: 'utf-8', stdio: ['ignore', 'pipe', 'pipe'],
@@ -154,6 +157,7 @@ test('a missing freshness record passes, so a first run is not a failure', () =>
   writeFileSync(join(dir, 'data/trustees.json'), JSON.stringify(baseTrustees));
   cpSync(GUARD, join(dir, 'scripts/check-freshness.mjs'));
   cpSync(resolve(ROOT, 'scripts/lib/person-name.mjs'), join(dir, 'scripts/lib/person-name.mjs'));
+  cpSync(resolve(ROOT, 'scripts/lib/cde-datasets.mjs'), join(dir, 'scripts/lib/cde-datasets.mjs'));
   const out = execFileSync(process.execPath, [join(dir, 'scripts/check-freshness.mjs')], { encoding: 'utf-8' });
   assert.match(out, /No freshness record yet/);
 });
@@ -182,4 +186,80 @@ test('accents fold for comparison but survive in the display form', () => {
   assert.equal(nameKey('Lupe Guzmán'), nameKey('Lupe Guzman'));
   assert.equal(displayName('Lupe Guzm&aacute;n'), 'Lupe Guzmán');
   assert.equal(decodeEntities('Jos&eacute; Luna'), 'José Luna');
+});
+
+// --- CDE year staleness ------------------------------------------------------
+
+test('only a definite status decides availability; a blocked probe decides nothing', () => {
+  // CDE's bot protection answers 303/403 under load. Treating that as "nothing
+  // new" would hide a real refresh; treating it as "something new" would nag.
+  assert.equal(classifyAvailability(200), true);
+  assert.equal(classifyAvailability(206), true);
+  assert.equal(classifyAvailability(404), false);
+  assert.equal(classifyAvailability(303), 'unknown');
+  assert.equal(classifyAvailability(403), 'unknown');
+  assert.equal(classifyAvailability(500), 'unknown');
+});
+
+test('one cycle behind advises; two cycles behind fails the build', () => {
+  const freshness = baseFreshness();
+  freshness.observations.push({
+    id: 'cde-year:staff-ratios', kind: 'cde-year', dataset: 'staff-ratios',
+    ingestedYear: '2024-25', availability: { '2025-26': true, '2026-27': false },
+    source: 'https://example.test/cde',
+  });
+  const one = runGuard({ freshness, schools: baseSchools, trustees: baseTrustees });
+  assert.equal(one.code, 0, one.stderr);
+  assert.match(one.stdout, /staff-ratios/);
+
+  freshness.observations.at(-1).availability = { '2025-26': true, '2026-27': true };
+  const two = runGuard({ freshness, schools: baseSchools, trustees: baseTrustees });
+  assert.equal(two.code, 1);
+  assert.match(two.stderr, /2 release cycles behind/);
+  assert.match(two.stderr, /pull-cde-data\.mjs --dataset staff-ratios/);
+});
+
+test('a blocked CDE probe neither advises nor fails', () => {
+  const freshness = baseFreshness();
+  freshness.observations.push({
+    id: 'cde-year:ltel', kind: 'cde-year', dataset: 'ltel',
+    ingestedYear: '2024-25', availability: { '2025-26': 'unknown' },
+    source: 'https://example.test/cde',
+  });
+  const r = runGuard({ freshness, schools: baseSchools, trustees: baseTrustees });
+  assert.equal(r.code, 0, r.stderr);
+  assert.doesNotMatch(r.stdout, /ltel/);
+});
+
+// --- year-scoped constants ---------------------------------------------------
+
+test('CDE URLs are derived correctly for each year encoding', () => {
+  // Verified against the live URLs on 2026-08-19.
+  assert.equal(datasetFor('staff-ethnicity', '2024-25').url,
+    'https://www3.cde.ca.gov/demo-downloads/staff/stre2425.txt');
+  assert.equal(datasetFor('staff-ethnicity', '2025-26').url,
+    'https://www3.cde.ca.gov/demo-downloads/staff/stre2526.txt');
+  assert.equal(datasetFor('absenteeism', '2024-25').url,
+    'https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism25-v2.txt');
+  assert.equal(datasetFor('ltel', '2024-25').url,
+    'https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25');
+  assert.equal(datasetFor('staff-ratios', '2025-26').outputFile, 'staff-ratios-2025-26.json');
+});
+
+test('school years roll over in August, not January', () => {
+  assert.equal(nextSchoolYear('2024-25'), '2025-26');
+  assert.equal(nextSchoolYear('2099-00'), '2100-01');  // century rollover
+  assert.equal(currentSchoolYear(new Date('2026-07-31T12:00:00Z')), '2025-26');
+  assert.equal(currentSchoolYear(new Date('2026-08-01T12:00:00Z')), '2026-27');
+  assert.equal(currentSchoolYear(new Date('2027-01-15T12:00:00Z')), '2026-27');
+});
+
+test('a missing year-scoped dataset throws instead of yielding empty data', () => {
+  // The whole point: a year bump renames a file, and the old code returned {}
+  // so pages rendered without the data and nothing failed.
+  assert.throws(
+    () => loadYearScopedJson('/nonexistent/cde/absenteeism-2099-00.json', { what: 'CDE absenteeism' }),
+    /Missing CDE absenteeism/,
+  );
+  assert.match(cdeDatasetPath('/repo', 'absenteeism'), /\/repo\/data\/cde\/absenteeism-\d{4}-\d{2}\.json/);
 });

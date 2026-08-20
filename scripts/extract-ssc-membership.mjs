@@ -24,6 +24,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { SSC_YEARS } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -37,7 +38,7 @@ const SCHOOL_SLUGS = [
   'orion', 'roosevelt', 'roy-cloud', 'taft',
 ];
 
-const YEARS = ['2023-24', '2024-25', '2025-26'];
+const YEARS = SSC_YEARS;
 
 const EXTRACTION_PROMPT = `Extract the School Site Council (SSC) membership data from this SPSA PDF.
 
