@@ -764,8 +764,10 @@ const leadershipCSS = `
        listed (the normal case outside a transition), so the lone card sits at
        the column minimum. 320px keeps a long name like "Dr. Christian J.
        Rubalcaba" off three lines while still fitting two cards side by side
-       during a transition. */
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+       during a transition.
+       min() caps the track at the available width so the card cannot overflow
+       a 320px viewport, where .content leaves only ~284px after its padding. */
+    grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
     gap: 1rem;
     margin-top: 0.9rem;
   }
