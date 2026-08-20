@@ -50,6 +50,24 @@ longer matches, exits non-zero and names the URL. An earlier draft of the superi
 probe scanned flattened page text and confidently returned "Trustees Meeting Calendar" out
 of the nav; extraction is structural now, and absence of the structure is loud.
 
+## Do not commit a locally-rebuilt `docs/`
+
+`artifacts/` is gitignored. Several builders read it and **degrade silently** when it is
+absent, so a local rebuild produces a page that looks fine and is missing data:
+
+- `scripts/document-inventory.mjs` — without `artifacts/documents/sarc/`, the district page
+  loses all 36 language-specific SARC links, every Spanish direct link included. This
+  happened while preparing PR 1 and was caught in review. It now prints a warning.
+- `scripts/build-meetings.mjs` — without the R2 transcript cache, transcript flags and
+  durations are stripped from `meetings-data.json`.
+- `scripts/build-schools.mjs` — the five `data/cde/*.json` reads are wrapped in
+  `try/catch → {}` (see PR 2).
+
+The pipeline rebuilds and deploys `docs/` on every run with the full artifact set, and
+never commits it. So when a change only touches `data/` or a builder, **let CI rebuild** —
+committing your local `docs/` output buys nothing and can ship data loss. If you do need to
+commit built HTML, sync `artifacts/` from R2 first and check the warnings.
+
 ## Facts with two copies
 
 These must move together. Changing one and not the other is how the chapter-marker roster
