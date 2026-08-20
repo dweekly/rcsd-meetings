@@ -1033,6 +1033,7 @@ const LEADERSHIP_LABELS = {
     oversees: 'Oversees',
     superTitle: 'Superintendent',
     superNote: 'The district is in a superintendent transition.',
+    superNoteSettled: '',
     cabinetTitle: 'District Cabinet',
     leadershipTitle: 'District Leadership',
     badgeCurrent: 'Current',
@@ -1049,6 +1050,7 @@ const LEADERSHIP_LABELS = {
     oversees: 'Supervisa',
     superTitle: 'Superintendente',
     superNote: 'El distrito está en una transición de superintendente.',
+    superNoteSettled: '',
     cabinetTitle: 'Gabinete del Distrito',
     leadershipTitle: 'Liderazgo del Distrito',
     badgeCurrent: 'Actual',
@@ -1115,9 +1117,15 @@ function renderLeadership(lang) {
       </div>`;
   };
   const sup = data.superintendent || {};
+  // The transition note is conditional on an `incoming` record actually being
+  // present. It used to render unconditionally, so /district told readers the
+  // district was "in a superintendent transition" for seven weeks after the
+  // transition finished. A date-conditional sentence that nothing ever moves
+  // is a stale fact waiting to happen — tie it to the data instead.
+  const note = sup.incoming ? L.superNote : L.superNoteSettled;
   const suptSection = (sup.current || sup.incoming) ? `
-  <h3 class="leadership-subhead">${L.superTitle}</h3>
-  <p class="leadership-note">${L.superNote}</p>
+  <h3 class="leadership-subhead">${L.superTitle}</h3>${note ? `
+  <p class="leadership-note">${note}</p>` : ''}
   <div class="supt-grid">${suptCard(sup.current, 'current')}${suptCard(sup.incoming, 'incoming')}
   </div>` : '';
 

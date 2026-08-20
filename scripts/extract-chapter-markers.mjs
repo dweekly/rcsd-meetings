@@ -168,8 +168,17 @@ const OFFICER_ROTATIONS = [
 ];
 
 // Key district staff (non-board). Filtered by date range.
+//
+// This is the SECOND place the superintendency is recorded — data/trustees.json
+// is the first, and it is what /district renders. The two must move together:
+// this roster went on telling the LLM that Baker was superintendent for seven
+// weeks after Rubalcaba took office, silently mis-attributing speakers in every
+// chapter marker extracted in that window. scripts/check-freshness.mjs asserts
+// the trustees.json side and its failure message points here. See
+// docs/ANNUAL-REFRESH.md.
 const DISTRICT_STAFF = [
-  { name: 'John Baker', role: 'Superintendent', from: '2023-07-01', notes: 'Dr. Baker' },
+  { name: 'John Baker', role: 'Superintendent', from: '2023-07-01', to: '2026-06-30', notes: 'Dr. Baker; retired 2026-06-30' },
+  { name: 'Christian Rubalcaba', role: 'Superintendent', from: '2026-07-01', notes: 'Dr. Rubalcaba; took office 2026-07-01' },
   { name: 'Evelyn Sanchez', role: 'Executive Assistant to Superintendent', from: '2024-01-01', notes: 'Acts as board secretary — takes roll call, drafts minutes' },
 ];
 

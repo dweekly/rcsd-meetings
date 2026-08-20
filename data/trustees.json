@@ -6,10 +6,10 @@
       "https://www.rcsdk8.net/our-stories-and-initiatives/news-details/~board/news-items/post/redwood-city-school-district-board-of-trustees-appoints-dr-christian-j-rubalcaba-as-next-superintendent-of-schools",
       "https://www.rcsdk8.net/our-stories-and-initiatives/news-details/~board/message-from-the-superintendent/post/superintendent-baker-announces-retirement"
     ],
-    "retrieved": "2026-06-05",
-    "method": "Manually extracted from the official RCSD 'Meet the Trustees' page and district news releases. Officer roles, trustee-area numbers, school/area assignments, emails, and term-expiration years are stated verbatim on the source page. Superintendent transition (Baker retiring 2026-06-30; Rubalcaba appointed 2026-01-21, starting 2026-07-01) and the CBO/Deputy Superintendent come from official RCSD news releases and the published board agenda. Headshots mirrored from the RCSD Finalsite CDN to R2 (data.rcsd.info/trustees/).",
+    "retrieved": "2026-08-19",
+    "method": "Manually extracted from the official RCSD 'Meet the Trustees' page and district news releases. Officer roles, trustee-area numbers, school/area assignments, emails, and term-expiration years are stated verbatim on the source page. Superintendent succession is complete: Dr. Baker retired 2026-06-30 and Dr. Rubalcaba, appointed 2026-01-21, took office 2026-07-01 and is the sitting superintendent named on the Office of the Superintendent page. Baker is retained under superintendent.former for history and is not rendered. Cabinet and director names/titles are taken from the Office of the Superintendent page, which lists each person as a Name-pipe-Title heading. Headshots mirrored from the RCSD Finalsite CDN to R2 (data.rcsd.info/trustees/).",
     "notes": "termStartYear is DERIVED as termEndYear - 4: California Education Code §35107 sets governing-board terms at four years. termEndYear is authoritative (stated on source page). Spanish role/assignment labels follow RCSD's colloquial register; school proper names are kept in English in both languages. Rubalcaba's executed employment contract is the Jan 21, 2026 board agenda item 12.3 (board packet on R2); Baker's contract predates the scraped packet window and remains pending.",
-    "refreshProcedure": "Re-check the 'Meet the Trustees' page after each November election and the December board reorganization (officer rotation). Run scripts/fetch-leadership-photos.mjs to refresh headshots, then scripts/build-district.mjs."
+    "refreshProcedure": "The sitting superintendent and the cabinet roster are now probed automatically every pipeline run by scripts/verify-live-facts.mjs and asserted by scripts/check-freshness.mjs — a changed superintendent fails the build, a changed cabinet roster prints an advisory. Trustee records are NOT yet probed: re-check the 'Meet the Trustees' page by hand after each November election and the December board reorganization (officer rotation). Run scripts/fetch-leadership-photos.mjs to refresh headshots, then scripts/build-district.mjs. See docs/ANNUAL-REFRESH.md."
   },
   "trustees": [
     {
@@ -85,24 +85,12 @@
   ],
   "superintendent": {
     "current": {
-      "slug": "john-baker",
-      "name": "Dr. John R. Baker, Ed.D.",
-      "titleEn": "Superintendent",
-      "titleEs": "Superintendente",
-      "statusEn": "Serving through June 30, 2026",
-      "statusEs": "En el cargo hasta el 30 de junio de 2026",
-      "email": "jbaker@rcsdk8.net",
-      "photo": "john-baker.jpg",
-      "photoSource": "https://resources.finalsite.net/images/t_image_size_3/v1671125746/rcsdk8net/swcguc9pioche2qoslgc/SuperintendentJohnBaker.jpg",
-      "contractUrl": null
-    },
-    "incoming": {
       "slug": "christian-rubalcaba",
       "name": "Dr. Christian J. Rubalcaba",
-      "titleEn": "Superintendent (incoming)",
-      "titleEs": "Superintendente (entrante)",
-      "statusEn": "Begins July 1, 2026 — appointed January 21, 2026",
-      "statusEs": "Comienza el 1 de julio de 2026 — nombrado el 21 de enero de 2026",
+      "titleEn": "Superintendent",
+      "titleEs": "Superintendente",
+      "statusEn": "Began July 1, 2026 — appointed January 21, 2026",
+      "statusEs": "Comenzó el 1 de julio de 2026 — nombrado el 21 de enero de 2026",
       "email": "crubalcaba@rcsdk8.net",
       "bioUrl": "https://www.rcsdk8.net/our-district/superintendent-transition/meet-dr-rubalcaba",
       "photo": "christian-rubalcaba.jpg",
@@ -110,10 +98,23 @@
       "photoCrop": "4:5",
       "photoNote": "Source is a 16:9 environmental portrait (Finalsite serves no portrait variant and blocks custom crops); fetch-leadership-photos.mjs center-crops it to 4:5 to match the other headshots.",
       "contractUrl": "https://data.rcsd.info/board-packets/2026-01-21/Superintendent-s-Employment-Contract_Redwood-City-SD-Dr.-Christian-Rubalcaba-202.pdf"
-    }
+    },
+    "former": [
+      {
+        "slug": "john-baker",
+        "name": "Dr. John R. Baker, Ed.D.",
+        "titleEn": "Superintendent",
+        "titleEs": "Superintendente",
+        "servedThrough": "2026-06-30",
+        "statusEn": "Superintendent through June 30, 2026 (retired)",
+        "statusEs": "Superintendente hasta el 30 de junio de 2026 (jubilado)",
+        "photo": "john-baker.jpg",
+        "photoSource": "https://resources.finalsite.net/images/t_image_size_3/v1671125746/rcsdk8net/swcguc9pioche2qoslgc/SuperintendentJohnBaker.jpg"
+      }
+    ]
   },
   "cabinet": [
-    { "slug": "wendy-kelly", "name": "Wendy Kelly", "titleEn": "Deputy Superintendent", "titleEs": "Subsuperintendente", "email": null, "photo": null, "photoSource": null },
+    { "slug": "wendy-kelly", "name": "Wendy Kelly", "titleEn": "Assistant Superintendent of Human Resources", "titleEs": "Subsuperintendente Auxiliar de Recursos Humanos", "email": null, "photo": null, "photoSource": null },
     { "slug": "anna-herrera", "name": "Anna Herrera", "titleEn": "Assistant Superintendent of Educational Services", "titleEs": "Subsuperintendente Auxiliar de Servicios Educativos", "email": null, "photo": null, "photoSource": null },
     { "slug": "rick-edson", "name": "Rick Edson", "titleEn": "Chief Business Official", "titleEs": "Director de Finanzas (Chief Business Official)", "email": null, "photo": null, "photoSource": null }
   ],
@@ -123,10 +124,9 @@
     { "slug": "kimberley-chen", "name": "Kimberley Chen", "titleEn": "Director of Fiscal Services", "titleEs": "Dirección de Servicios Fiscales" },
     { "slug": "martin-cervantes", "name": "Martin Cervantes", "titleEn": "Director of Maintenance, Operations, and Transportation", "titleEs": "Dirección de Mantenimiento, Operaciones y Transporte" },
     { "slug": "ana-paula-garay", "name": "Ana Paula Garay, LMFT", "titleEn": "Lead Mental Health Clinician", "titleEs": "Clínica Principal de Salud Mental" },
-    { "slug": "maeve-mulholland", "name": "Dr. Maeve Mulholland, Ed.D.", "titleEn": "Director of Special Education", "titleEs": "Dirección de Educación Especial" },
+    { "slug": "tina-mercer", "name": "Tina Mercer", "titleEn": "Executive Director of Special Education", "titleEs": "Dirección Ejecutiva de Educación Especial" },
     { "slug": "jennifer-pare", "name": "Jennifer Pare", "titleEn": "Principal and Director of the Child Development Center", "titleEs": "Dirección del Centro de Desarrollo Infantil" },
-    { "slug": "antonio-perez", "name": "Antonio Pérez", "titleEn": "Director of Student Services", "titleEs": "Dirección de Servicios Estudiantiles" },
-    { "slug": "patricia-perez", "name": "Patricia Pérez", "titleEn": "Director of Human Resources", "titleEs": "Dirección de Recursos Humanos" },
+    { "slug": "trish-perez", "name": "Trish Pérez", "titleEn": "Director of Human Resources", "titleEs": "Dirección de Recursos Humanos" },
     { "slug": "jorge-quintana", "name": "Jorge Quintana", "titleEn": "Director of Communications and Community Engagement", "titleEs": "Dirección de Comunicaciones y Participación Comunitaria" },
     { "slug": "patrinia-redd", "name": "Patrinia Redd", "titleEn": "Director of Health and Wellness", "titleEs": "Dirección de Salud y Bienestar" },
     { "slug": "carlos-reyna", "name": "Carlos Reyna", "titleEn": "Director of Technology", "titleEs": "Dirección de Tecnología" },
