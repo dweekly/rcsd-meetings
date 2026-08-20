@@ -143,7 +143,19 @@ export function scanDocuments(rootDir) {
         } catch {}
       }
     }
-  } catch {}
+  } catch {
+    // artifacts/ is gitignored, so a local build without it silently produced a
+    // district page with ZERO language-specific SARC links (36 per page, every
+    // Spanish direct link among them) — and that degraded output then got
+    // committed. Same class as the transcript-cache trap in build-meetings.mjs.
+    // Warn loudly instead: CI always has the artifacts, so this only fires on a
+    // local build, which is exactly who needs to know not to commit the result.
+    console.warn(
+      '  WARNING: artifacts/documents/sarc/ is missing — the district page will be built '
+      + 'WITHOUT language-specific (English/Spanish) SARC links. Do not commit docs/ from '
+      + 'this build; sync artifacts from R2 first. See docs/ANNUAL-REFRESH.md.',
+    );
+  }
   // Sort each year's schools
   for (const year of Object.keys(sarc)) {
     if (sarc[year].schools) {

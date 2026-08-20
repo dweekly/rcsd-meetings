@@ -62,6 +62,41 @@ in commit messages, `CHANGELOG.md`, and the project blog.
   and fragmented multilingual publishing; use Oakland/Legistar as the later high-volume
   multi-body stress test, with Dixon available for Granicus coverage.
 
+## Annual Refresh — deferred items
+
+Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.md`.
+
+- [ ] **Committed `docs/` drifts from `data/`, and regenerating surfaces it in unrelated PRs.**
+  The pipeline rebuilds and deploys `docs/` but never commits it, so tracked HTML falls
+  behind whatever `data/` currently holds. Rebuilding on a pristine `origin/main` with no
+  source changes at all already produces diffs — verified 2026-08-19. Two concrete ones:
+  - Kennedy's 2025-06-25 section renders "HVAC Upgrade Projects Phase II" twice, the same
+    item with the same watch URL. Board-meeting items need de-duplication before render.
+  - Roosevelt's 2020-04-01 portable-rental item gets `t=258`, which lands on approval of
+    the agenda rather than the bond consent item (the regenerated cache puts the first
+    bond consent item at 313s). A confidently wrong video jump.
+
+  Both predate and are independent of the freshness work. Either commit rebuilt `docs/`
+  from CI so drift cannot accumulate, or stop tracking built HTML — the current halfway
+  state means any PR that rebuilds inherits unrelated churn.
+- [ ] **Principal headshots are not refreshed when a principal changes.** `docs/img/principals/{slug}.jpg`
+  is a hand-maintained asset, so the four principals corrected on 2026-08-19 briefly had
+  their predecessor's face under their name. Photos were replaced by hand from the school
+  leadership pages. The probe already reads those pages and could record the portrait URL,
+  making this checkable the same way the name is.
+- [ ] **Bell schedules, district calendars, and lunch URLs** rotate each August with no clean
+  machine source. Deliberately out of scope for the annual-refresh effort; verify
+  opportunistically until a source exists.
+- [ ] **The budget page is the densest concentration of stale facts in the repo.**
+  `scripts/build-budget.mjs` hardcodes the 2025-26 Second Interim narrative across ~40
+  sites, plus a 2026-27 proposed-budget banner that explicitly promises a post-adoption
+  refresh. Needs its own effort.
+- [ ] **CA Dashboard year `2024`** is hardcoded in `build-schools.mjs`, `build-homepage.mjs`,
+  and `build-budget.mjs`. Rolls each December.
+- [ ] **Surface "data as of" dates to readers.** `schools.json.lastUpdated`,
+  `trustees.json._metadata.retrieved`, `cde/*._metadata.downloadDate` and others all exist
+  and are never displayed. Near-zero cost, and it makes the refresh self-auditing.
+
 ## Calendars
 - [ ] Full district calendar page (not just homepage widget) with clearer visual treatment of multi-day windows (e.g. Spring Break shown as a block, not just start date)
 - [ ] Per-school calendars with school-specific events layered on top of district calendar
