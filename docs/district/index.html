@@ -1028,7 +1028,12 @@
   .leadership-note { font-size: 0.85rem; color: var(--text-muted); margin: 0 0 0.4rem; }
   .supt-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+    /* auto-fill keeps the empty second track when only one superintendent is
+       listed (the normal case outside a transition), so the lone card sits at
+       the column minimum. 320px keeps a long name like "Dr. Christian J.
+       Rubalcaba" off three lines while still fitting two cards side by side
+       during a transition. */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1rem;
     margin-top: 0.9rem;
   }
