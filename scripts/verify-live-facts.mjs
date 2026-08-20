@@ -257,6 +257,11 @@ for (const dataset of CDE_DATASET_NAMES) {
     dataset,
     ingestedYear: ingested,
     availability,
+    // One URL per probed year: each availability claim must point at the URL it
+    // was actually derived from, not just the first one checked.
+    sources: Object.fromEntries(
+      Object.keys(availability).map((y) => [y, datasetFor(dataset, y).url]),
+    ),
     source: datasetFor(dataset, nextYear).url,
   });
 
@@ -287,7 +292,11 @@ const record = {
       + 'This file records what the sources SAY, never what the site should say — '
       + 'the published values live in data/schools.json and data/trustees.json.',
     source: SUPERINTENDENT_URL,
-    additionalSources: schools.map(s => `${s.website}${LEADERSHIP_PATH}`),
+    additionalSources: [
+      ...schools.map(s => `${s.website}${LEADERSHIP_PATH}`),
+      // CDE / DataQuest bulk-download endpoints, probed for year availability.
+      ...CDE_DATASET_NAMES.map(d => datasetFor(d, CDE_DATA_YEARS[d]).url),
+    ],
     scrapedAt: probedAt,
     method:
       'Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. '
@@ -295,7 +304,9 @@ const record = {
       + 'titled exactly "Principal" (or "Superintendent") is taken as the officeholder. '
       + 'Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; '
       + 'earned doctorates are preserved. A source that 404s or whose markup no longer matches '
-      + 'is recorded in lastRun.failures and fails the run rather than being silently skipped.',
+      + 'is recorded in lastRun.failures and fails the run rather than being silently skipped. '
+      + 'CDE year availability is a range-limited GET per candidate year, judged on whether '
+      + 'the response carries rows beneath its header (DataQuest answers 200 for any year).',
     writer: 'scripts/verify-live-facts.mjs',
     asserter: 'scripts/check-freshness.mjs',
   },

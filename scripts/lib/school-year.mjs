@@ -10,6 +10,17 @@
  * Every constant here records what it means, where its value comes from, and
  * what tells you it is time to change it. Do not add a bare year to this file.
  *
+ * KNOWN LIMITATION — read before bumping anything. Roughly 50 school years are
+ * still written out by hand in scripts/build-schools.mjs, in headings, bubbles,
+ * and intro copy. They do NOT follow these constants. Bumping a constant here
+ * therefore moves the URLs and the source notes but leaves those literals
+ * behind, and no test can catch it: a literal cannot be told apart from another
+ * constant's literal by grepping ("2025-26" is the SPSA year AND the LCAP year
+ * AND the i-Ready year today). A tests/freshness.test.mjs check bounds the
+ * count so the debt cannot grow, and ROADMAP tracks binding each one to its
+ * fact. Until that lands, **bumping a year means auditing build-schools.mjs for
+ * that year by hand** — see docs/ANNUAL-REFRESH.md.
+ *
  * IMPORTANT: these constants describe **the data we have ingested**, not the
  * newest data that exists. Bumping a year here without ingesting the matching
  * files makes the build fail (by design — see loadYearScopedJson below). The

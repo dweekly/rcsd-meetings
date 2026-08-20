@@ -771,6 +771,18 @@ async function main() {
     // Parse TSV
     const { headers, rows } = parseTSV(text);
     console.log(`  Parsed ${rows.length} total rows, ${headers.length} columns`);
+    // A header-only body is how DataQuest says "that year has no data" — it
+    // answers HTTP 200 for ANY year, so this is a successful download of
+    // nothing. Writing it would produce a metadata-only JSON that reads like a
+    // completed ingest and lets an operator bump CDE_DATA_YEARS onto empty data.
+    if (rows.length === 0) {
+      console.error(
+        `  No data rows for ${name} ${dataset.year} — the source returned headers only, `
+        + 'which means that year is not published yet.',
+      );
+      failed.push(`${name} (${dataset.year}: no rows)`);
+      continue;
+    }
     if (headers.length > 0) {
       console.log(`  Columns: ${headers.slice(0, 8).join(', ')}${headers.length > 8 ? ', ...' : ''}`);
     }

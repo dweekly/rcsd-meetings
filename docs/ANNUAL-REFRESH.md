@@ -72,6 +72,24 @@ never commits it. So when a change only touches `data/` or a builder, **let CI r
 committing your local `docs/` output buys nothing and can ship data loss. If you do need to
 commit built HTML, sync `artifacts/` from R2 first and check the warnings.
 
+## Bumping a year is not yet a one-line change
+
+`scripts/lib/school-year.mjs` holds each year, and the URLs, file paths, and CDE source
+notes follow it. **About 50 school years are still written out by hand in
+`scripts/build-schools.mjs`** — section headings, stat-card bubbles, intro sentences — and
+those do not.
+
+No automated check can close this gap, and it is worth understanding why: a literal does
+not move when a constant moves, and grepping cannot tell "2025-26 the SPSA year" from
+"2025-26 the LCAP year", since several constants hold the same value today. An earlier
+attempt at a guard here passed cleanly with `SPSA_YEAR` already bumped. What exists instead
+is a test that bounds the count, so the debt cannot quietly grow.
+
+So, until the audit in `ROADMAP.md` lands: **after bumping any year, grep
+`scripts/build-schools.mjs` for the OLD value and check each hit**, in both languages.
+Some will be genuinely different facts that should keep their old year — a SARC reports on
+the prior year, and SSC rosters are point-in-time records.
+
 ## Facts with two copies
 
 These must move together. Changing one and not the other is how the chapter-marker roster

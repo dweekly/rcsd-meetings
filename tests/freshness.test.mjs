@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 
 import { nameKey, sameName, displayName, decodeEntities } from '../scripts/lib/person-name.mjs';
 import { classifyAvailability, cyclesBehind, nextSchoolYear, datasetFor, hasDataRows } from '../scripts/lib/cde-datasets.mjs';
-import { currentSchoolYear, loadYearScopedJson, cdeDatasetPath } from '../scripts/lib/school-year.mjs';
+import { currentSchoolYear, loadYearScopedJson, cdeDatasetPath, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, IREADY_YEAR, CDE_DATA_YEARS, priorSchoolYear } from '../scripts/lib/school-year.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GUARD = resolve(ROOT, 'scripts/check-freshness.mjs');
@@ -333,4 +333,33 @@ test('the CDE puller can target a year other than the ingested one', () => {
   const puller = readFileSync(resolve(ROOT, 'scripts/pull-cde-data.mjs'), 'utf-8');
   assert.match(puller, /--year/);
   assert.match(puller, /datasetFor\(singleDataset, targetYear\)/);
+});
+
+test('the years build-schools still writes out by hand are a known, bounded set', () => {
+  // NOT a bump guard, and deliberately not pretending to be one. A literal does
+  // not move when a constant moves, so no grep can tell "2025-26 the SPSA year"
+  // from "2025-26 the LCAP year" — an earlier attempt here passed happily with
+  // SPSA_YEAR bumped, because other constants still held the old value.
+  //
+  // What this DOES do is bound the debt: it records how many hand-written years
+  // remain, so the number cannot quietly grow while the audit is pending
+  // (tracked in ROADMAP). Converting one to its proper constant lowers the
+  // count; adding a new literal fails here.
+  const src = readFileSync(resolve(ROOT, 'scripts/build-schools.mjs'), 'utf-8');
+  const literals = [...src.matchAll(/\b(20\d{2}-\d{2})(?![\d-])/g)].map(m => m[1]);
+  const counts = {};
+  for (const y of literals) counts[y] = (counts[y] ?? 0) + 1;
+
+  // Baseline taken 2026-08-20. Lower these as years are bound to constants;
+  // raising one means a new hand-written year was introduced — don't.
+  const BASELINE = { '2022-23': 2, '2023-24': 2, '2024-25': 23, '2025-26': 30 };
+  for (const [year, max] of Object.entries(BASELINE)) {
+    assert.ok((counts[year] ?? 0) <= max,
+      `build-schools.mjs now writes "${year}" ${counts[year]} times (was ${max}). `
+      + 'Use the matching constant from scripts/lib/school-year.mjs instead.');
+  }
+  for (const year of Object.keys(counts)) {
+    assert.ok(year in BASELINE,
+      `New hand-written school year "${year}" in build-schools.mjs — use a constant.`);
+  }
 });

@@ -320,15 +320,29 @@ async function main() {
     }
   }
 
-  // If processing all schools, also load any previously extracted ones for the summary
+  // If processing all schools, also load any previously extracted ones for the
+  // summary — but ONLY for the year we are publishing. The cache check above
+  // correctly rejects a stale record, then extraction can still fail (missing
+  // PDF, unparseable response); without this year check the fallback reloaded
+  // that same stale file and the run wrote a summary labelled with the NEW
+  // SARC year over prior-year contents. Same defect as extract-spsa-budgets.
+  const staleSlugs = [];
   if (!singleSchool) {
     for (const slug of SCHOOL_SLUGS) {
       if (!results[slug]) {
         const path = resolve(OUTPUT_DIR, `${slug}.json`);
-        if (existsSync(path)) {
-          results[slug] = JSON.parse(readFileSync(path, 'utf-8'));
-        }
+        if (!existsSync(path)) continue;
+        const cached = JSON.parse(readFileSync(path, 'utf-8'));
+        if (cached.sarcYear === SARC_YEAR_ARG) results[slug] = cached;
+        else staleSlugs.push(`${slug} (has ${cached.sarcYear ?? 'no stamped year'})`);
       }
+    }
+    if (staleSlugs.length) {
+      console.error(
+        `\nFAILED: no ${SARC_YEAR_ARG} SARC for ${staleSlugs.length} school(s): ${staleSlugs.join(', ')}.\n`
+        + `  Refusing to write a ${SARC_YEAR_ARG} summary over prior-year records.`,
+      );
+      process.exit(1);
     }
   }
 
