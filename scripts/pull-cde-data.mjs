@@ -749,6 +749,12 @@ async function main() {
     );
   }
 
+  // A failed ingest must not exit 0: CDE sits behind bot protection that blocks
+  // downloads for stretches, and a caller (or an operator following the annual
+  // refresh steps) cannot otherwise tell a completed ingest from one that wrote
+  // nothing at all.
+  const failed = [];
+
   for (const [name, dataset] of Object.entries(datasetsToProcess)) {
     console.log(`\n=== ${name} (${dataset.year}) ===`);
 
@@ -758,6 +764,7 @@ async function main() {
       text = await ensureCached(dataset, force);
     } catch (err) {
       console.error(`  Download failed: ${err.message}`);
+      failed.push(name);
       continue;
     }
 
@@ -774,6 +781,16 @@ async function main() {
 
     // Write output
     writeOutput(dataset, name, data);
+  }
+
+  if (failed.length) {
+    console.error(
+      `\nFAILED to ingest ${failed.length} dataset(s): ${failed.join(', ')}.\n`
+      + '  Nothing was written for them. CDE is behind bot protection that blocks\n'
+      + '  downloads for stretches — wait and retry before concluding the release\n'
+      + '  is unavailable. See docs/ANNUAL-REFRESH.md.',
+    );
+    process.exit(1);
   }
 
   console.log('\nDone.');

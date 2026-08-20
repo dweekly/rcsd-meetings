@@ -20,7 +20,7 @@ import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { nameKey, sameName, displayName, decodeEntities } from '../scripts/lib/person-name.mjs';
-import { classifyAvailability, cyclesBehind, nextSchoolYear, datasetFor } from '../scripts/lib/cde-datasets.mjs';
+import { classifyAvailability, cyclesBehind, nextSchoolYear, datasetFor, hasDataRows } from '../scripts/lib/cde-datasets.mjs';
 import { currentSchoolYear, loadYearScopedJson, cdeDatasetPath } from '../scripts/lib/school-year.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -190,15 +190,33 @@ test('accents fold for comparison but survive in the display form', () => {
 
 // --- CDE year staleness ------------------------------------------------------
 
-test('only a definite status decides availability; a blocked probe decides nothing', () => {
+const HEADER = 'AcademicYear\tCountyCode\tSchoolName';
+const WITH_ROWS = `${HEADER}\n2025-26\t41\tKennedy Middle\n2025-26\t41\tTaft`;
+
+test('a blocked probe decides nothing, in either direction', () => {
   // CDE's bot protection answers 303/403 under load. Treating that as "nothing
   // new" would hide a real refresh; treating it as "something new" would nag.
-  assert.equal(classifyAvailability(200), true);
-  assert.equal(classifyAvailability(206), true);
-  assert.equal(classifyAvailability(404), false);
   assert.equal(classifyAvailability(303), 'unknown');
   assert.equal(classifyAvailability(403), 'unknown');
   assert.equal(classifyAvailability(500), 'unknown');
+  assert.equal(classifyAvailability(404), false);
+  // 200 with an unreadable body is not evidence either.
+  assert.equal(classifyAvailability(200, null), 'unknown');
+});
+
+test('a 200 carrying only a header is NOT a published year', () => {
+  // DataQuest serves LTEL from a query parameter and answers 200 for ANY year:
+  // verified 2026-08-20, 2030-31 returned 200 with a 190-byte header-only body
+  // while 2024-25 returned 27 MB. Trusting the status alone would have reported
+  // LTEL two cycles behind and failed the build for nothing.
+  assert.equal(classifyAvailability(200, HEADER), false);
+  assert.equal(classifyAvailability(200, `${HEADER}\n`), false);
+  assert.equal(classifyAvailability(200, WITH_ROWS), true);
+  assert.equal(classifyAvailability(206, WITH_ROWS), true);
+
+  assert.equal(hasDataRows(HEADER), false);
+  assert.equal(hasDataRows(WITH_ROWS), true);
+  assert.equal(hasDataRows(''), false);
 });
 
 test('one cycle behind advises; two cycles behind fails the build', () => {

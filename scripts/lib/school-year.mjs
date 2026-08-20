@@ -72,6 +72,24 @@ export const SPSA_YEAR = '2025-26';
 export const SSC_YEARS = ['2023-24', '2024-25', '2025-26'];
 
 /**
+ * LCAP (Local Control and Accountability Plan), adopted each June.
+ *
+ * Separate from SPSA_YEAR even when the two currently read the same, because
+ * they are adopted on different schedules by different bodies. Collapsing
+ * independent facts onto one constant is the same defect as writing the year
+ * out by hand — it just fails less visibly.
+ */
+export const LCAP_YEAR = '2025-26';
+
+/**
+ * The year of the per-school Board of Trustees data presentations that supply
+ * i-Ready growth figures (see scripts/extract-ireadyu-growth.mjs). Schools
+ * present on a rolling schedule through the spring, so this moves when those
+ * presentations are re-extracted — NOT when the SPSA or LCAP year moves.
+ */
+export const IREADY_YEAR = '2025-26';
+
+/**
  * California School Dashboard reporting year, used in caschooldashboard.org
  * report URLs. Released each December.
  */

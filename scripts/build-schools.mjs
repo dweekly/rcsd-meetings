@@ -21,7 +21,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { charterSummaries } from './build-charters.mjs';
-import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, CA_DASHBOARD_YEAR, CDE_DATA_YEARS, priorSchoolYear } from './lib/school-year.mjs';
+import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, IREADY_YEAR, CA_DASHBOARD_YEAR, CDE_DATA_YEARS, priorSchoolYear } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -1404,7 +1404,7 @@ const LABELS = {
     backToDistrict: 'All schools',
     disclaimer: '<strong>Draft document.</strong> Personally prepared by David Weekly; this is not a representation of the district or the Board of Trustees and may contain material factual errors. For official information, visit <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Leer en espa&ntilde;ol',
-    sourceNote: `Sources: ${SARC_YEAR} SARCs, ${SPSA_YEAR} SPSAs, ${SPSA_YEAR} LCAP, each school’s ${SPSA_YEAR} Board of Trustees data presentation. Proficiency from ${priorSchoolYear(SARC_YEAR)} CAASPP. Growth from each school’s ${SPSA_YEAR} mid-year i-Ready diagnostic as reported to the Board.`,
+    sourceNote: `Sources: ${SARC_YEAR} SARCs, ${SPSA_YEAR} SPSAs, ${LCAP_YEAR} LCAP, each school’s ${IREADY_YEAR} Board of Trustees data presentation. Proficiency from ${priorSchoolYear(SARC_YEAR)} CAASPP. Growth from each school’s ${IREADY_YEAR} mid-year i-Ready diagnostic as reported to the Board.`,
     chronicAbsentNote: 'reported as 0% -- likely a data error',
     address: 'Address',
     phone: 'Phone',
@@ -1443,6 +1443,7 @@ const LABELS = {
     cdeCounselorNote: 'Counselors, psychologists, social workers & nurses',
     cdeCounselorSuppressed: 'CDE lists less than one full-time position here',
     cdeStaffSource: `Source: <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">California Dept. of Education</a> staffing data, ${CDE_DATA_YEARS['staff-experience']} school year.`,
+    cdeRatiosSource: `Pupil ratios: <a href="https://www.cde.ca.gov/ds/ad/fssprat.asp" target="_blank">California Dept. of Education</a> staff ratio data, ${CDE_DATA_YEARS['staff-ratios']} school year.`,
   },
   es: {
     overview: 'Resumen',
@@ -1580,7 +1581,7 @@ const LABELS = {
     backToDistrict: 'Todas las escuelas',
     disclaimer: '<strong>Documento borrador.</strong> Preparado personalmente por David Weekly; esto no es una representación del distrito o de la Mesa Directiva y puede contener errores materiales. Para información oficial, visite <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Read in English',
-    sourceNote: `Fuentes: SARCs ${SARC_YEAR}, SPSAs ${SPSA_YEAR}, LCAP ${SPSA_YEAR}, presentaciones ${SPSA_YEAR} de cada escuela a la Mesa Directiva. Competencia del CAASPP ${priorSchoolYear(SARC_YEAR)}. Crecimiento de la evaluación diagnóstica de medio año i-Ready ${SPSA_YEAR} reportada a la Mesa.`,
+    sourceNote: `Fuentes: SARCs ${SARC_YEAR}, SPSAs ${SPSA_YEAR}, LCAP ${LCAP_YEAR}, presentaciones ${IREADY_YEAR} de cada escuela a la Mesa Directiva. Competencia del CAASPP ${priorSchoolYear(SARC_YEAR)}. Crecimiento de la evaluación diagnóstica de medio año i-Ready ${IREADY_YEAR} reportada a la Mesa.`,
     chronicAbsentNote: 'reportado como 0% -- probablemente un error de datos',
     address: 'Dirección',
     phone: 'Teléfono',
@@ -1619,6 +1620,7 @@ const LABELS = {
     cdeCounselorNote: 'Consejeros, psicólogos, trabajadores sociales y enfermeras',
     cdeCounselorSuppressed: 'CDE reporta menos de un puesto de tiempo completo aquí',
     cdeStaffSource: `Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS['staff-experience']}.`,
+    cdeRatiosSource: `Proporciones por alumno: datos de proporciones de personal del <a href="https://www.cde.ca.gov/ds/ad/fssprat.asp" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS['staff-ratios']}.`,
   },
 };
 
@@ -2400,7 +2402,9 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       return `${intro ? `<p>${intro}</p>\n` : ''}
     <div class="stat-grid">${cards}
     </div>
-    <p class="source">${L.cdeStaffSource}</p>`;
+    <p class="source">${L.cdeStaffSource}</p>${
+      ratios && CDE_DATA_YEARS['staff-ratios'] !== CDE_DATA_YEARS['staff-experience']
+        ? `\n    <p class="source">${L.cdeRatiosSource}</p>` : ''}`;
     })()}
 
     <h3 style="margin-top:2rem">${L.credentialsHeading}</h3>
@@ -2566,7 +2570,10 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       <div class="resource-card">
         <h3>${L.schoolSiteCouncil}</h3>
         ${(() => {
-          const ssc = SSC_DATA[slug]?.['2025-26'];
+          // Must track the SPSA we link to: the roster is the council that
+          // approved that plan, so a mismatched pair would show last year's
+          // members beside this year's document.
+          const ssc = SSC_DATA[slug]?.[SPSA_YEAR];
           if (!ssc?.members?.length) return `<p class="coming-soon">${L.comingSoon}</p>`;
           const roleLabel = { principal: L.sscRolePrincipal, classroomTeacher: L.sscRoleTeacher, otherStaff: L.sscRoleStaff, parentCommunity: L.sscRoleParent };
           const adoptedStr = ssc.adoptionDate ? new Date(ssc.adoptionDate + 'T12:00:00').toLocaleDateString(lang === 'es' ? 'es-US' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '';

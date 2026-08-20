@@ -197,16 +197,30 @@ async function main() {
     }
   }
 
-  // Load any cached results we didn't process this run
+  // Load any cached results we didn't process this run — but ONLY if they are
+  // for the year we are publishing. Without the year check, a refresh where the
+  // new PDFs are missing or extraction fails would fall through to here, reload
+  // last year's records, and publish them under _metadata.schoolYear of the NEW
+  // year: a completed-looking run whose contents are the previous year's.
+  const staleSlugs = [];
   if (!singleSchool) {
     for (const slug of SCHOOL_SLUGS) {
       if (!results[slug]) {
         const cachePath = resolve(CACHE_DIR, `${slug}.json`);
-        if (existsSync(cachePath)) {
-          results[slug] = JSON.parse(readFileSync(cachePath, 'utf-8'));
-        }
+        if (!existsSync(cachePath)) continue;
+        const cached = JSON.parse(readFileSync(cachePath, 'utf-8'));
+        if (cached.schoolYear === SPSA_YEAR) results[slug] = cached;
+        else staleSlugs.push(`${slug} (has ${cached.schoolYear})`);
       }
     }
+  }
+  if (staleSlugs.length) {
+    console.error(
+      `\nFAILED: no ${SPSA_YEAR} SPSA budget for ${staleSlugs.length} school(s): ${staleSlugs.join(', ')}.\n`
+      + `  Refusing to publish a ${SPSA_YEAR} dataset containing prior-year records.\n`
+      + `  Stage the ${SPSA_YEAR} PDFs in artifacts/documents/spsa/${SPSA_YEAR}/ and re-run.`,
+    );
+    process.exit(1);
   }
 
   // Build output with categorized funding

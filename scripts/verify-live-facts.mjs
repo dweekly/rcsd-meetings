@@ -210,11 +210,26 @@ async function cdeYearAvailable(url) {
     // Range-limited GET: these hosts reject HEAD, and we need the status line,
     // not a 37 MB file.
     const res = await fetch(url, {
-      headers: { range: 'bytes=0-1023' },
+      headers: { range: 'bytes=0-8191' },
       signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
     });
-    if (res.body) await res.body.cancel();
-    return classifyAvailability(res.status);
+    if (res.status !== 200 && res.status !== 206) {
+      if (res.body) await res.body.cancel();
+      return classifyAvailability(res.status);
+    }
+    // Read only the leading chunk: enough to see whether any row follows the
+    // header, without pulling a 27 MB statewide file. Servers that ignore Range
+    // stream the whole file, so stop reading once we have what we need.
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let sample = '';
+    while (sample.length < 8192) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      sample += decoder.decode(value, { stream: true });
+    }
+    await reader.cancel();
+    return classifyAvailability(res.status, sample);
   } catch {
     // A blocked request or network failure is not evidence either way. CDE's
     // bot protection answers a 303 redirect loop, which surfaces here as a

@@ -118,7 +118,14 @@ in both places. It is not yet probed.
   was skipped. A blocked probe reports nothing (CDE sits behind Radware bot protection that
   answers 303 under load, so "I could not tell" must not read as either answer).
 
-  To ingest: `node scripts/pull-cde-data.mjs --dataset <name>`, confirm the output, bump
+  Two gotchas the probe already accounts for, both verified the hard way:
+  DataQuest serves LTEL from `?year=…` and returns **HTTP 200 for any year you ask**
+  (2030-31 included), with a header-only body when there is no data — so availability is
+  decided by whether rows came back, not by the status code. And CDE's bot protection
+  answers 303 for stretches, which reports as unknown rather than as either answer.
+
+  To ingest: `node scripts/pull-cde-data.mjs --dataset <name> --year <new-year>`
+  (`--year` is required to fetch a year newer than the one recorded), confirm the output, bump
   that dataset's entry in `CDE_DATA_YEARS`, rebuild, and check the numbers actually moved
   on a school page. CDE releases the five datasets **separately** — verified 2026-08-19,
   when the three staff files had published 2025-26 and chronic absenteeism had not.

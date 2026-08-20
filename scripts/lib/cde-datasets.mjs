@@ -83,20 +83,40 @@ export function nextSchoolYear(year) {
 }
 
 /**
- * Map an HTTP status from a CDE bulk-download URL to whether that year exists.
+ * Decide whether a CDE year is actually published, from the status AND the
+ * start of the body.
  *
- * Deliberately asymmetric. CDE sits behind Radware bot protection that answers
- * 303 (and sometimes 403) once you have made a few requests — observed
- * 2026-08-19/20 from a single workstation, against both fetch and curl. Reading
- * "I was blocked" as "no newer data" would hide a real annual refresh; reading
- * it as "newer data exists" would raise an alarm nobody can act on. So only a
- * 200/206 counts as published and only a 404 counts as absent; everything else
- * is `'unknown'` and reports nothing.
+ * Status alone is not enough, and assuming it was would have failed the build
+ * for no reason. CDE serves its bulk .txt files from a static path that 404s a
+ * year it does not have, but DataQuest serves LTEL from
+ * `lteldnld.aspx?year=…`, which answers **HTTP 200 for any year you ask for** —
+ * verified 2026-08-20, where 2030-31 returned 200 with a 190-byte
+ * header-only body while 2024-25 returned 27 MB. Reading that as "published"
+ * would have reported LTEL as two release cycles behind and failed the build.
+ *
+ * So a year counts as published only when the response carries at least one row
+ * beneath the header. Anything ambiguous is `'unknown'` and reports nothing:
+ * CDE also sits behind Radware bot protection that answers 303/403 under load,
+ * and "I could not tell" must not read as either answer.
+ *
+ * @param status HTTP status.
+ * @param bodySample First few KB of the body, or null if it could not be read.
  */
-export function classifyAvailability(status) {
-  if (status === 200 || status === 206) return true;
+export function classifyAvailability(status, bodySample = null) {
   if (status === 404) return false;
-  return 'unknown';
+  if (status !== 200 && status !== 206) return 'unknown';
+  if (bodySample == null) return 'unknown';
+  return hasDataRows(bodySample);
+}
+
+/**
+ * True when a tab-delimited sample has content beyond its header line. A
+ * header-only response is CDE/DataQuest's way of saying "that year has no
+ * data", not an error.
+ */
+export function hasDataRows(sample) {
+  const lines = String(sample).split(/\r?\n/).filter((l) => l.trim() !== '');
+  return lines.length > 1;
 }
 
 /**

@@ -16,14 +16,14 @@
       "https://roycloud.rcsdk8.net/our-school/meet-our-school-leadership",
       "https://taft.rcsdk8.net/our-school/meet-our-school-leadership"
     ],
-    "scrapedAt": "2026-08-20T16:10:38.848Z",
+    "scrapedAt": "2026-08-20T16:29:32.117Z",
     "method": "Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. People are extracted structurally from \"<h2>Name | Title</h2>\" headings; the person titled exactly \"Principal\" (or \"Superintendent\") is taken as the officeholder. Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; earned doctorates are preserved. A source that 404s or whose markup no longer matches is recorded in lastRun.failures and fails the run rather than being silently skipped.",
     "writer": "scripts/verify-live-facts.mjs",
     "asserter": "scripts/check-freshness.mjs"
   },
   "maxObservationAgeDays": 7,
   "lastRun": {
-    "probedAt": "2026-08-20T16:10:38.848Z",
+    "probedAt": "2026-08-20T16:29:32.117Z",
     "probed": 19,
     "failed": 0,
     "failures": []
@@ -209,7 +209,7 @@
       "dataset": "absenteeism",
       "ingestedYear": "2024-25",
       "availability": {
-        "2025-26": "unknown"
+        "2025-26": false
       },
       "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism26-v2.txt"
     },
@@ -219,7 +219,8 @@
       "dataset": "staff-ethnicity",
       "ingestedYear": "2024-25",
       "availability": {
-        "2025-26": "unknown"
+        "2025-26": true,
+        "2026-27": false
       },
       "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2526.txt"
     },
@@ -229,7 +230,8 @@
       "dataset": "staff-experience",
       "ingestedYear": "2024-25",
       "availability": {
-        "2025-26": "unknown"
+        "2025-26": true,
+        "2026-27": false
       },
       "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2526.txt"
     },
@@ -239,7 +241,8 @@
       "dataset": "staff-ratios",
       "ingestedYear": "2024-25",
       "availability": {
-        "2025-26": "unknown"
+        "2025-26": true,
+        "2026-27": false
       },
       "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2526.txt"
     },
@@ -249,7 +252,8 @@
       "dataset": "ltel",
       "ingestedYear": "2024-25",
       "availability": {
-        "2025-26": "unknown"
+        "2025-26": true,
+        "2026-27": false
       },
       "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2025-26"
     }

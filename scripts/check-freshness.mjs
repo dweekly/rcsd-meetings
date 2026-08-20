@@ -152,13 +152,14 @@ for (const obs of observations) {
     if (behind >= 2) {
       problems.push(
         `CDE ${obs.dataset} is ${behind} release cycles behind — we hold ${obs.ingestedYear} `
-        + `while CDE has published ${years}. Run: node scripts/pull-cde-data.mjs --dataset ${obs.dataset}, `
+        + `while CDE has published ${years}. Run: node scripts/pull-cde-data.mjs --dataset ${obs.dataset} `
+        + `--year <newest>, `
         + 'then bump CDE_DATA_YEARS in scripts/lib/school-year.mjs. See docs/ANNUAL-REFRESH.md.',
       );
     } else if (behind === 1) {
       advisories.push(
         `CDE ${obs.dataset}: ${years} is published, we hold ${obs.ingestedYear}. `
-        + `Ingest with: node scripts/pull-cde-data.mjs --dataset ${obs.dataset}`,
+        + `Ingest with: node scripts/pull-cde-data.mjs --dataset ${obs.dataset} --year ${years}`,
       );
     }
   } else {
