@@ -18,12 +18,12 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced at meeting start. Agenda items proceeded as posted.",
+    "agenda_changes": "No changes to the agenda were announced at the start of the meeting. The board proceeded with the posted agenda.",
     "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
@@ -58,37 +58,37 @@
       },
       {
         "item": 8,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Thank you, guys. Thank you. Item seven, we don't have any action items.",
+        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Eight, community reports. 8.1. Discussion of the school plan for student achievement",
-        "status": "found"
+        "intro_words": "Can I please get a motion to approve the consent bond program?",
+        "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "Item 13, information on San Mateo county investment fund.",
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
         "status": "found"
       }
     ]
@@ -129,32 +129,33 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
       },
       {
         "timestamp": "00:01:14",
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:58",
-        "timestampSeconds": 118
+        "timestamp": "00:01:33",
+        "timestampSeconds": 93
       },
       {
-        "timestamp": "00:02:09",
-        "timestampSeconds": 129
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
-        "timestamp": "02:15:40",
-        "timestampSeconds": 8140
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       }
     ]
   },
-  "cachedAt": "2026-08-19T18:41:49.916Z",
+  "cachedAt": "2026-08-20T06:51:13.051Z",
   "inputTokens": 27924,
-  "outputTokens": 723
+  "outputTokens": 727
 }

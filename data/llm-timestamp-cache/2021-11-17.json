@@ -18,27 +18,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced during agenda approval: Items 7.1, 7.2, and 7.3 moved to consent; 10.1 (grand jury response) moved to consent; continuation of study session discussion to be added after 8.2 as item 8.2A or 8.3",
-    "consent_vote_words": "Roll call vote, please. Trustee Wells. Aye. Trustee Lawson. Aye. Trustee Marquez. Aye. Vice President Dio silcom. Aye. President McEvoy. Aye.",
+    "agenda_changes": "Multiple changes announced: Items 7.1, 7.2, and 7.3 moved to consent; 10.1 (grand jury response) moved to consent; continuation of study session conversation to be scheduled after 8.2",
+    "consent_vote_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike, roll called out, please.",
     "items": [
       {
         "item": 1,
-        "intro_words": "all right, roll call, please. Trustee Wells. Here.",
+        "intro_words": "All right, roll call, please. Trustee Wells. Here. Trustee Lawson.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Let's see. I didn't mute myself, did I?",
+        "intro_words": "All right, roll call, please. Trustee Wells. Here. Trustee Lawson.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Vien venidos. Si necesita interpretacion en espanol, por favor.",
+        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021. School board meeting.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021.",
+        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021. School board meeting.",
         "status": "found"
       },
       {
@@ -48,37 +48,37 @@
       },
       {
         "item": 6,
-        "intro_words": "Additions, Deletions or Modifications to the agenda.",
+        "intro_words": "All right, do I have any changes to the agenda? I have one three proposed changes.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Do I have a motion to approve with Those changes.",
-        "status": "found"
+        "intro_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike, roll called out, please.",
+        "status": "consent_bundle"
       },
       {
         "item": 8,
-        "intro_words": "Approval of Agenda",
-        "status": "found"
+        "intro_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike, roll called out, please.",
+        "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "All right, I do not see any oral communication comments.",
+        "intro_words": "All right, I do not see any oral communication comments. All right, so we're on to the bond program consent items.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "All right, so we're on to the bond program consent items.",
+        "intro_words": "All right, so we're on to 8.1. Discussion of reconvening North Star Forward Committee. Yes, we are.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Right, okay, so we're on to 8.1. Discussion of reconvening North Star Forward Committee.",
+        "intro_words": "All right, so we're on to 8.1. Discussion of reconvening North Star Forward Committee. Yes, we are.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So I'm going to look over and see if we have speaker cards.",
+        "intro_words": "All right, so we're on to 8.1. Discussion of reconvening North Star Forward Committee. Yes, we are.",
         "status": "found"
       },
       {
@@ -88,7 +88,7 @@
       },
       {
         "item": 14,
-        "intro_words": "All right, so it is 9 o' clock or almost 9 normally.",
+        "intro_words": "All right, so let's see. We are on to our 8.2 A or B or and a half point five.",
         "status": "found"
       }
     ]
@@ -101,12 +101,12 @@
         "timestampSeconds": 105
       },
       {
-        "timestamp": "00:01:55",
-        "timestampSeconds": 115
+        "timestamp": "00:01:45",
+        "timestampSeconds": 105
       },
       {
-        "timestamp": "00:02:22",
-        "timestampSeconds": 142
+        "timestamp": "00:02:32",
+        "timestampSeconds": 152
       },
       {
         "timestamp": "00:02:32",
@@ -116,39 +116,47 @@
         "timestamp": "00:03:53",
         "timestampSeconds": 233
       },
-      null,
       {
-        "timestamp": "00:03:59",
-        "timestampSeconds": 239
-      },
-      null,
-      {
-        "timestamp": "00:05:35",
-        "timestampSeconds": 335
+        "timestamp": "00:03:53",
+        "timestampSeconds": 233
       },
       {
-        "timestamp": "00:05:35",
-        "timestampSeconds": 335
+        "timestamp": "00:05:20",
+        "timestampSeconds": 320,
+        "consent": true
       },
       {
-        "timestamp": "00:07:17",
-        "timestampSeconds": 437
+        "timestamp": "00:05:20",
+        "timestampSeconds": 320,
+        "consent": true
       },
       {
-        "timestamp": "00:38:52",
-        "timestampSeconds": 2332
+        "timestamp": "00:05:10",
+        "timestampSeconds": 310
+      },
+      {
+        "timestamp": "00:07:12",
+        "timestampSeconds": 432
+      },
+      {
+        "timestamp": "00:07:12",
+        "timestampSeconds": 432
+      },
+      {
+        "timestamp": "00:07:12",
+        "timestampSeconds": 432
       },
       {
         "timestamp": "00:37:06",
         "timestampSeconds": 2226
       },
       {
-        "timestamp": "01:59:53",
-        "timestampSeconds": 7193
+        "timestamp": "00:37:06",
+        "timestampSeconds": 2226
       }
     ]
   },
-  "cachedAt": "2026-08-19T18:42:30.456Z",
+  "cachedAt": "2026-08-20T06:51:53.799Z",
   "inputTokens": 25018,
-  "outputTokens": 813
+  "outputTokens": 895
 }

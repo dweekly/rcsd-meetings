@@ -17,8 +17,8 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "At the start of the meeting, President DS Locum announced: 'Are there any changes to the agenda this evening? I'd propose that we move the three measure U's. So that's 10.5, 10.6, 10.7 to consent. I was also wondering if it could move 10.3 and 10.4.' These items were moved to consent and approved as a bundle.",
-    "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
+    "agenda_changes": "At the start of the meeting, the President announced changes to move three measure U items (10.5, 10.6, 10.7) to consent, and also move items 10.3 and 10.4 to consent. These were voted on and approved.",
+    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
         "item": 1,
@@ -27,7 +27,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
+        "intro_words": "Roll call, please. Trustee McAvoy.",
         "status": "found"
       },
       {
@@ -36,23 +36,58 @@
         "status": "found"
       },
       {
+        "item": 4,
+        "intro_words": "Are there any changes to the agenda this evening",
+        "status": "found"
+      },
+      {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening?",
+        "intro_words": "All those in favor? Aye. Ali, do we have any oral communication this Evening",
         "status": "found"
       },
       {
-        "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening?",
+        "item": 8,
+        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 8.1,
+        "intro_words": "on to eight discussion items. The first one is 8.1. COVID 19",
         "status": "found"
       },
       {
-        "item": 11,
-        "intro_words": "Moving right along to the bond program consent items.",
+        "item": 8.2,
+        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240 Volunteer Assistance",
         "status": "found"
       },
       {
-        "item": 12,
-        "intro_words": "Update on Workforce Housing at 750 Bradford Street",
+        "item": 8.3,
+        "intro_words": "Moving on to 8.3. First reading and discussion of board policy 3555",
+        "status": "found"
+      },
+      {
+        "item": 8.4,
+        "intro_words": "8.4. First reading and discussion of board policy 0460 local control and accountability Plan",
+        "status": "found"
+      },
+      {
+        "item": 8.5,
+        "intro_words": "Along to 8.5. First reading and discussion of board policy 5141.31",
+        "status": "found"
+      },
+      {
+        "item": 10.1,
+        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school board's March 11",
+        "status": "found"
+      },
+      {
+        "item": 10.2,
+        "intro_words": "Moving on to 10.2. Recommendation. Adoption of Resolution 22, authorizing electronic meeting of the board",
+        "status": "found"
+      },
+      {
+        "item": 12.1,
+        "intro_words": "12.1. The quarterly Williams Report. Do we have any questions or comments",
         "status": "found"
       },
       {
@@ -77,23 +112,24 @@
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
-      null,
       {
         "timestamp": "00:01:27",
         "timestampSeconds": 87
       },
-      null,
+      {
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
+      },
       null,
       null,
       {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
       },
       null,
-      {
-        "timestamp": "00:02:53",
-        "timestampSeconds": 173
-      },
+      null,
+      null,
       null,
       {
         "timestamp": "00:04:31",
@@ -101,7 +137,7 @@
       }
     ]
   },
-  "cachedAt": "2026-08-19T18:42:10.230Z",
+  "cachedAt": "2026-08-20T06:51:33.134Z",
   "inputTokens": 18781,
-  "outputTokens": 493
+  "outputTokens": 849
 }
