@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - will be discussed at a future meeting pending further information. Item 9.3 moved from consent to action for separate discussion and vote.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Item 10.1 pulled per agenda change announcement. Item 9.3 moved from consent to action per agenda change announcement.",
+    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1",
     "items": [
       {
         "item": 1,
@@ -29,6 +29,11 @@
       {
         "item": 2,
         "intro_words": "Roll Call",
+        "status": "found"
+      },
+      {
+        "item": 3,
+        "intro_words": "Welcome",
         "status": "found"
       },
       {
@@ -42,13 +47,28 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "Additions, Deletions, or Modifications to the Agenda",
+        "status": "consent_bundle"
+      },
+      {
         "item": 7,
         "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make a motion to approve",
         "status": "found"
       },
       {
+        "item": 8,
+        "intro_words": "Approval of the Agenda",
+        "status": "consent_bundle"
+      },
+      {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Thank you.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "If you have a public comment related to a Closed Session item, please post it",
         "status": "found"
       },
       {
@@ -57,63 +77,18 @@
         "status": "found"
       },
       {
-        "item": 11.1,
-        "intro_words": "moving to 11.11.1 being Hoover and Henry Ford school presentations for the 2324 school year",
-        "status": "found"
+        "item": 12,
+        "intro_words": "CONFERENCE WITH LEGAL COUNSEL—EXISTING LITIGATION (Paragraph (1) of subdivision",
+        "status": "pulled"
       },
       {
-        "item": 12.1,
+        "item": 13,
         "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
         "status": "found"
       },
       {
-        "item": 12.2,
-        "intro_words": "moving on to 12.2. Again, First Reading and Discussion of Foreign Policy and Administrative Regulation 6173.1",
-        "status": "found"
-      },
-      {
-        "item": 12.3,
-        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement",
-        "status": "found"
-      },
-      {
-        "item": 12.4,
-        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171 Title 1 programs",
-        "status": "found"
-      },
-      {
-        "item": 12.5,
-        "intro_words": "with that 12.5 first reading of BP 6163.4 student use of technology",
-        "status": "found"
-      },
-      {
-        "item": 12.6,
-        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension",
-        "status": "found"
-      },
-      {
-        "item": 13,
-        "intro_words": "moving to item 13, consent items. If there are no questions, can I please",
-        "status": "found"
-      },
-      {
-        "item": 14.1,
-        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five to approve",
-        "status": "found"
-      },
-      {
-        "item": 14.2,
-        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023",
-        "status": "found"
-      },
-      {
-        "item": 16.1,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund. Are there",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "with that, moving on to board meeting calendar. Are there any changes to the board meeting",
+        "item": 14,
+        "intro_words": "Adjournment",
         "status": "found"
       }
     ]
@@ -129,12 +104,20 @@
         "timestamp": "01:10:10",
         "timestampSeconds": 4210
       },
-      null,
+      {
+        "timestamp": "01:10:05",
+        "timestampSeconds": 4205,
+        "consent": true
+      },
       {
         "timestamp": "01:10:41",
         "timestampSeconds": 4241
       },
-      null,
+      {
+        "timestamp": "01:10:05",
+        "timestampSeconds": 4205,
+        "consent": true
+      },
       {
         "timestamp": "01:11:15",
         "timestampSeconds": 4275
@@ -146,13 +129,13 @@
       },
       null,
       {
-        "timestamp": "03:03:35",
-        "timestampSeconds": 11015
+        "timestamp": "02:38:15",
+        "timestampSeconds": 9495
       },
       null
     ]
   },
-  "cachedAt": "2026-08-20T06:50:18.298Z",
+  "cachedAt": "2026-08-20T18:44:55.594Z",
   "inputTokens": 37863,
-  "outputTokens": 1055
+  "outputTokens": 712
 }
