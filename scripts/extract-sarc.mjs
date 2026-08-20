@@ -17,7 +17,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { SARC_YEAR } from './lib/school-year.mjs';
+import { SARC_YEAR, priorSchoolYear } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -270,6 +270,10 @@ async function extractSchool(slug) {
     console.warn(`  Warnings for ${slug}: ${issues.join('; ')}`);
   }
 
+  // Stamp which SARC edition this record came from. `dataYear` is the year the
+  // SARC reports ON (a 2024-25 SARC covers 2023-24), which is a different fact
+  // and cannot stand in for cache validation.
+  json.sarcYear = SARC_YEAR_ARG;
   writeFileSync(outputPath, JSON.stringify(json, null, 2) + '\n', 'utf-8');
   console.log(`  Wrote ${outputPath}`);
   return json;
@@ -296,9 +300,17 @@ async function main() {
   for (const slug of slugsToProcess) {
     const outputPath = resolve(OUTPUT_DIR, `${slug}.json`);
     if (!forceFlag && existsSync(outputPath)) {
-      console.log(`[${slug}] Already extracted, skipping (use --force to re-extract)`);
-      results[slug] = JSON.parse(readFileSync(outputPath, 'utf-8'));
-      continue;
+      // data/sarc/{slug}.json carries no year in its path, so a bumped
+      // SARC_YEAR would otherwise hit last year's extraction and report
+      // success while republishing the prior SARC. Records are stamped with
+      // sarcYear; anything without one predates the stamp and is re-extracted.
+      const cached = JSON.parse(readFileSync(outputPath, 'utf-8'));
+      if (cached.sarcYear === SARC_YEAR_ARG) {
+        console.log(`[${slug}] Already extracted, skipping (use --force to re-extract)`);
+        results[slug] = cached;
+        continue;
+      }
+      console.log(`[${slug}] Cache holds ${cached.sarcYear ?? 'an unstamped year'}, need ${SARC_YEAR_ARG} — re-extracting`);
     }
 
     console.log(`[${slug}] Extracting SARC data...`);
@@ -345,7 +357,10 @@ async function main() {
 
   const summary = {
     generated: new Date().toISOString().slice(0, 10),
-    source: '2024-25 SARCs (covering 2023-24 data)',
+    // Derived, not written out: a SARC edition reports on the PRIOR year, so
+    // both facts move together and neither may be hardcoded.
+    source: `${SARC_YEAR_ARG} SARCs (covering ${priorSchoolYear(SARC_YEAR_ARG)} data)`,
+    sarcYear: SARC_YEAR_ARG,
     schools: summarySchools,
   };
 

@@ -219,6 +219,7 @@ async function main() {
     _metadata: {
       description: 'School Site Council membership extracted from SPSA PDFs',
       source: 'SPSA documents at artifacts/documents/spsa/',
+      schoolYears: SSC_YEARS,
       extractionMethod: 'Claude Haiku via document content block API',
       lastUpdated: new Date().toISOString().slice(0, 10),
     },

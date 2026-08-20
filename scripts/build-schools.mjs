@@ -21,7 +21,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { charterSummaries } from './build-charters.mjs';
-import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, CA_DASHBOARD_YEAR } from './lib/school-year.mjs';
+import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, CA_DASHBOARD_YEAR, CDE_DATA_YEARS, priorSchoolYear } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -1404,7 +1404,7 @@ const LABELS = {
     backToDistrict: 'All schools',
     disclaimer: '<strong>Draft document.</strong> Personally prepared by David Weekly; this is not a representation of the district or the Board of Trustees and may contain material factual errors. For official information, visit <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Leer en espa&ntilde;ol',
-    sourceNote: 'Sources: 2024-25 SARCs, 2025-26 SPSAs, 2025-26 LCAP, each school’s 2025-26 Board of Trustees data presentation. Proficiency from 2023-24 CAASPP. Growth from each school’s 2025-26 mid-year i-Ready diagnostic as reported to the Board.',
+    sourceNote: `Sources: ${SARC_YEAR} SARCs, ${SPSA_YEAR} SPSAs, ${SPSA_YEAR} LCAP, each school’s ${SPSA_YEAR} Board of Trustees data presentation. Proficiency from ${priorSchoolYear(SARC_YEAR)} CAASPP. Growth from each school’s ${SPSA_YEAR} mid-year i-Ready diagnostic as reported to the Board.`,
     chronicAbsentNote: 'reported as 0% -- likely a data error',
     address: 'Address',
     phone: 'Phone',
@@ -1418,7 +1418,7 @@ const LABELS = {
     viewFullMeeting: 'Full meeting',
     noBoardItems: 'No board meeting items found for this school.',
     cdeAbsenteeismBreakdown: 'Chronic Absenteeism by Subgroup',
-    cdeAbsenteeismNote: 'Chronic absenteeism rate by student subgroup. A student is chronically absent if they miss 10% or more of school days — about 18 days a year. Groups too small to report (fewer than 10 students) are not shown, to protect privacy. Source: California Dept. of Education, 2024-25.',
+    cdeAbsenteeismNote: `Chronic absenteeism rate by student subgroup. A student is chronically absent if they miss 10% or more of school days — about 18 days a year. Groups too small to report (fewer than 10 students) are not shown, to protect privacy. Source: California Dept. of Education, ${CDE_DATA_YEARS.absenteeism}.`,
     cdeLtelHeading: 'English Learners: A Closer Look',
     cdeElStudents: 'Learning English',
     cdeLtelCount: 'Long-Term (LTEL)',
@@ -1429,10 +1429,10 @@ const LABELS = {
     cdeReclassifiedNote: 'Tested out of English Learner status',
     cdeLtelExplainer: 'A "long-term English Learner" (LTEL) is a student who has been learning English for 6 or more years without yet reaching fluency; students at 4-5 years are counted as "at risk" of becoming long-term. Schools watch these numbers because the goal is for students to reach fluency well before the 6-year mark.',
     cdeLtelElementaryNote: 'California only starts counting students as long-term English Learners in grade 6, so elementary schools always show zero.',
-    cdeLtelSource: 'Source: <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">California Dept. of Education</a> English Learner data (ELAS/LTEL), 2024-25 school year.',
+    cdeLtelSource: `Source: <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">California Dept. of Education</a> English Learner data (ELAS/LTEL), ${CDE_DATA_YEARS.ltel} school year.`,
     cdeSuppressed: 'fewer than 10',
     cdeStaffDiversity: 'Teacher Race & Ethnicity',
-    cdeStaffDiversityNote: 'Counts classroom teachers only. Source: <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">California Dept. of Education</a> staff data, 2024-25 school year.',
+    cdeStaffDiversityNote: `Counts classroom teachers only. Source: <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">California Dept. of Education</a> staff data, ${CDE_DATA_YEARS['staff-ethnicity']} school year.`,
     cdeNotReported: 'Not reported',
     cdeTeachers: 'Teachers',
     cdeAvgYears: 'Avg Years Teaching',
@@ -1442,7 +1442,7 @@ const LABELS = {
     cdePupilCounselor: 'Students per Counselor',
     cdeCounselorNote: 'Counselors, psychologists, social workers & nurses',
     cdeCounselorSuppressed: 'CDE lists less than one full-time position here',
-    cdeStaffSource: 'Source: <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">California Dept. of Education</a> staffing data, 2024-25 school year.',
+    cdeStaffSource: `Source: <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">California Dept. of Education</a> staffing data, ${CDE_DATA_YEARS['staff-experience']} school year.`,
   },
   es: {
     overview: 'Resumen',
@@ -1580,7 +1580,7 @@ const LABELS = {
     backToDistrict: 'Todas las escuelas',
     disclaimer: '<strong>Documento borrador.</strong> Preparado personalmente por David Weekly; esto no es una representación del distrito o de la Mesa Directiva y puede contener errores materiales. Para información oficial, visite <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Read in English',
-    sourceNote: 'Fuentes: SARCs 2024-25, SPSAs 2025-26, LCAP 2025-26, presentaciones 2025-26 de cada escuela a la Mesa Directiva. Competencia del CAASPP 2023-24. Crecimiento de la evaluación diagnóstica de medio año i-Ready 2025-26 reportada a la Mesa.',
+    sourceNote: `Fuentes: SARCs ${SARC_YEAR}, SPSAs ${SPSA_YEAR}, LCAP ${SPSA_YEAR}, presentaciones ${SPSA_YEAR} de cada escuela a la Mesa Directiva. Competencia del CAASPP ${priorSchoolYear(SARC_YEAR)}. Crecimiento de la evaluación diagnóstica de medio año i-Ready ${SPSA_YEAR} reportada a la Mesa.`,
     chronicAbsentNote: 'reportado como 0% -- probablemente un error de datos',
     address: 'Dirección',
     phone: 'Teléfono',
@@ -1594,7 +1594,7 @@ const LABELS = {
     viewFullMeeting: 'Reunión completa',
     noBoardItems: 'No se encontraron temas de reuniones de la mesa directiva para esta escuela.',
     cdeAbsenteeismBreakdown: 'Ausentismo Crónico por Subgrupo',
-    cdeAbsenteeismNote: 'Tasa de ausentismo crónico por subgrupo estudiantil. Un estudiante está crónicamente ausente si falta el 10% o más de los días de clases — como 18 días al año. Los grupos muy chicos (menos de 10 estudiantes) no se muestran, para proteger la privacidad. Fuente: Departamento de Educación de California, 2024-25.',
+    cdeAbsenteeismNote: `Tasa de ausentismo crónico por subgrupo estudiantil. Un estudiante está crónicamente ausente si falta el 10% o más de los días de clases — como 18 días al año. Los grupos muy chicos (menos de 10 estudiantes) no se muestran, para proteger la privacidad. Fuente: Departamento de Educación de California, ${CDE_DATA_YEARS.absenteeism}.`,
     cdeLtelHeading: 'Estudiantes de Inglés: una mirada más de cerca',
     cdeElStudents: 'Aprendiendo Inglés',
     cdeLtelCount: 'A Largo Plazo (LTEL)',
@@ -1605,10 +1605,10 @@ const LABELS = {
     cdeReclassifiedNote: 'Pasaron el examen y salieron del programa',
     cdeLtelExplainer: 'Un "Estudiante de Inglés a largo plazo" (LTEL) es un estudiante que lleva 6 años o más aprendiendo inglés sin llegar a dominarlo; los que llevan 4-5 años cuentan como "en riesgo" de volverse de largo plazo. Las escuelas vigilan estos números porque la meta es que los estudiantes dominen el inglés mucho antes de los 6 años.',
     cdeLtelElementaryNote: 'California empieza a contar a los estudiantes como LTEL hasta el 6º grado, así que las escuelas primarias siempre muestran cero.',
-    cdeLtelSource: 'Fuente: datos de Estudiantes de Inglés (ELAS/LTEL) del <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">Departamento de Educación de California</a>, año escolar 2024-25.',
+    cdeLtelSource: `Fuente: datos de Estudiantes de Inglés (ELAS/LTEL) del <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS.ltel}.`,
     cdeSuppressed: 'menos de 10',
     cdeStaffDiversity: 'Raza y Etnicidad de los Maestros',
-    cdeStaffDiversityNote: 'Cuenta solo a los maestros de salón. Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">Departamento de Educación de California</a>, año escolar 2024-25.',
+    cdeStaffDiversityNote: `Cuenta solo a los maestros de salón. Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS['staff-ethnicity']}.`,
     cdeNotReported: 'No reportado',
     cdeTeachers: 'Maestros',
     cdeAvgYears: 'Años Promedio Enseñando',
@@ -1618,7 +1618,7 @@ const LABELS = {
     cdePupilCounselor: 'Estudiantes por Consejero',
     cdeCounselorNote: 'Consejeros, psicólogos, trabajadores sociales y enfermeras',
     cdeCounselorSuppressed: 'CDE reporta menos de un puesto de tiempo completo aquí',
-    cdeStaffSource: 'Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">Departamento de Educación de California</a>, año escolar 2024-25.',
+    cdeStaffSource: `Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS['staff-experience']}.`,
   },
 };
 

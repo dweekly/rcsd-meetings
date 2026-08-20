@@ -176,9 +176,17 @@ async function main() {
     const cachePath = resolve(CACHE_DIR, `${slug}.json`);
 
     if (!forceFlag && existsSync(cachePath)) {
-      console.log(`[${slug}] Cached, skipping (use --force to re-extract)`);
-      results[slug] = JSON.parse(readFileSync(cachePath, 'utf-8'));
-      continue;
+      // The cache filename has no year in it, so after SPSA_YEAR is bumped the
+      // prior year's extraction still matches this path. Without this check the
+      // annual refresh would silently republish last year's budgets and report
+      // success. Compare the year the record says it holds.
+      const cached = JSON.parse(readFileSync(cachePath, 'utf-8'));
+      if (cached.schoolYear === SPSA_YEAR) {
+        console.log(`[${slug}] Cached, skipping (use --force to re-extract)`);
+        results[slug] = cached;
+        continue;
+      }
+      console.log(`[${slug}] Cache holds ${cached.schoolYear}, need ${SPSA_YEAR} — re-extracting`);
     }
 
     console.log(`[${slug}] Extracting SPSA budget...`);
@@ -204,8 +212,9 @@ async function main() {
   // Build output with categorized funding
   const output = {
     _metadata: {
-      description: 'SPSA budget summaries extracted from 2025-26 SPSA PDFs',
-      source: 'Budget Summary pages in artifacts/documents/spsa/2025-26/',
+      description: `SPSA budget summaries extracted from ${SPSA_YEAR} SPSA PDFs`,
+      source: `Budget Summary pages in artifacts/documents/spsa/${SPSA_YEAR}/`,
+      schoolYear: SPSA_YEAR,
       extractionMethod: 'Claude Haiku via document content block API',
       lastUpdated: new Date().toISOString().slice(0, 10),
     },

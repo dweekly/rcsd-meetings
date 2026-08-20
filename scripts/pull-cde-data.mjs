@@ -12,6 +12,10 @@
  *   node scripts/pull-cde-data.mjs --dataset absenteeism    # single dataset
  *   node scripts/pull-cde-data.mjs --force                  # re-download cached files
  *   node scripts/pull-cde-data.mjs --force --dataset ltel   # re-download + process one
+ *   node scripts/pull-cde-data.mjs --dataset staff-ratios --year 2025-26
+ *                                                          # ingest a NEWER year than
+ *                                                          # the one in CDE_DATA_YEARS,
+ *                                                          # which you then bump
  *
  * Data sources:
  *   - Chronic Absenteeism: https://www.cde.ca.gov/ds/ad/filesabd.asp
@@ -278,7 +282,7 @@ function writeOutput(dataset, datasetName, data) {
       dataYear: dataset.year,
       downloadDate: new Date().toISOString().slice(0, 10),
       fileStructure: dataset.fileStructure,
-      pipeline: `scripts/pull-cde-data.mjs --dataset ${datasetName}`,
+      pipeline: `scripts/pull-cde-data.mjs --dataset ${datasetName} --year ${dataset.year}`,
     },
     ...data,
   };
@@ -705,10 +709,26 @@ async function main() {
   const force = args.includes('--force');
   const datasetIdx = args.indexOf('--dataset');
   const singleDataset = datasetIdx !== -1 ? args[datasetIdx + 1] : null;
+  // --year is what makes an annual refresh possible at all. Without it this
+  // script could only ever re-fetch the year already recorded in
+  // CDE_DATA_YEARS, so "pull the new release, then bump the constant" had no
+  // first step: the pull would fetch the OLD year and write the OLD filename.
+  const yearIdx = args.indexOf('--year');
+  const targetYear = yearIdx !== -1 ? args[yearIdx + 1] : null;
 
-  if (singleDataset && !DATASETS[singleDataset]) {
+  if (singleDataset && !CDE_DATASET_NAMES.includes(singleDataset)) {
     console.error(`Unknown dataset: ${singleDataset}`);
-    console.error(`Valid datasets: ${Object.keys(DATASETS).join(', ')}`);
+    console.error(`Valid datasets: ${CDE_DATASET_NAMES.join(', ')}`);
+    process.exit(1);
+  }
+  if (targetYear && !/^\d{4}-\d{2}$/.test(targetYear)) {
+    console.error(`--year must look like 2025-26, got: ${targetYear}`);
+    process.exit(1);
+  }
+  if (targetYear && !singleDataset) {
+    // CDE releases the five datasets separately, so a blanket --year would
+    // request years that do not exist for some of them.
+    console.error('--year requires --dataset: CDE publishes each dataset on its own schedule.');
     process.exit(1);
   }
 
@@ -718,8 +738,16 @@ async function main() {
   console.log(`Loaded ${slugCount} school code mappings from schools.json`);
 
   const datasetsToProcess = singleDataset
-    ? { [singleDataset]: DATASETS[singleDataset] }
+    ? { [singleDataset]: targetYear ? datasetFor(singleDataset, targetYear) : DATASETS[singleDataset] }
     : DATASETS;
+
+  if (targetYear) {
+    console.log(
+      `Pulling ${singleDataset} for ${targetYear} (currently ingested: ${CDE_DATA_YEARS[singleDataset]}).\n`
+      + `After this succeeds, set CDE_DATA_YEARS['${singleDataset}'] = '${targetYear}' in `
+      + 'scripts/lib/school-year.mjs, rebuild, and confirm the numbers moved.',
+    );
+  }
 
   for (const [name, dataset] of Object.entries(datasetsToProcess)) {
     console.log(`\n=== ${name} (${dataset.year}) ===`);

@@ -41,8 +41,8 @@ export function currentSchoolYear(now = new Date()) {
  * land in the fall; absenteeism and LTEL lag further.
  *
  * The year here is the year INGESTED into data/cde/. To move it: run
- * `node scripts/pull-cde-data.mjs --dataset <name>`, confirm the output, then
- * bump. See docs/ANNUAL-REFRESH.md.
+ * `node scripts/pull-cde-data.mjs --dataset <name> --year <new-year>`, confirm
+ * the output, then bump this entry. See docs/ANNUAL-REFRESH.md.
  */
 export const CDE_DATA_YEARS = {
   absenteeism: '2024-25',
@@ -122,4 +122,10 @@ export function loadYearScopedJson(path, { what, optional = false } = {}) {
     // page that looks complete and is not.
     throw new Error(`${what ?? 'Dataset'} at ${path} is not valid JSON: ${err.message}`);
   }
+}
+
+/** The school year before `year`: "2024-25" -> "2023-24". */
+export function priorSchoolYear(year) {
+  const start = Number(year.slice(0, 4));
+  return `${start - 1}-${String(start % 100).padStart(2, '0')}`;
 }

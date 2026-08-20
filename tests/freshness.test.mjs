@@ -14,7 +14,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync, cpSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, cpSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve, dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -262,4 +262,57 @@ test('a missing year-scoped dataset throws instead of yielding empty data', () =
     /Missing CDE absenteeism/,
   );
   assert.match(cdeDatasetPath('/repo', 'absenteeism'), /\/repo\/data\/cde\/absenteeism-\d{4}-\d{2}\.json/);
+});
+
+test('year-scoped labels and paths are derived, not written out again', () => {
+  // Per the "replace a stale fact, never annotate beside it" rule: once a year
+  // moves into school-year.mjs, a literal copy left behind in a label or a path
+  // is a second source of truth that will silently disagree. This greps for the
+  // retired values so a reintroduced literal fails rather than drifts.
+  const buildSchools = readFileSync(resolve(ROOT, 'scripts/build-schools.mjs'), 'utf-8');
+
+  for (const key of ['cdeAbsenteeismNote', 'cdeLtelSource', 'cdeStaffDiversityNote', 'cdeStaffSource']) {
+    // Each label exists twice (EN + ES) and both must interpolate their year.
+    const lines = buildSchools.split('\n').filter(l => l.trimStart().startsWith(`${key}:`));
+    assert.equal(lines.length, 2, `expected EN+ES definitions of ${key}`);
+    for (const line of lines) {
+      assert.match(line, /\$\{CDE_DATA_YEARS/, `${key} must derive its year from CDE_DATA_YEARS`);
+      assert.doesNotMatch(line, /\b20\d{2}-\d{2}\b/, `${key} still hardcodes a school year`);
+    }
+  }
+
+  // Dataset file paths and document URLs must not carry literal years either.
+  assert.doesNotMatch(buildSchools, /data\/cde\/[a-z-]+-20\d{2}-\d{2}\.json/,
+    'CDE dataset paths must come from cdeDatasetPath()');
+  assert.doesNotMatch(buildSchools, /documents\/(sarc|spsa)\/20\d{2}-\d{2}\//,
+    'SARC/SPSA document URLs must come from SARC_YEAR / SPSA_YEAR');
+});
+
+test('extractor provenance reports the year it actually used', () => {
+  // sarc-summary.json once hardcoded "2024-25 SARCs (covering 2023-24 data)",
+  // which would have kept claiming 2024-25 after a bump.
+  const sarc = readFileSync(resolve(ROOT, 'scripts/extract-sarc.mjs'), 'utf-8');
+  assert.doesNotMatch(sarc, /source: '20\d{2}-\d{2} SARCs/, 'SARC provenance must be derived');
+  assert.match(sarc, /\$\{SARC_YEAR_ARG\} SARCs/);
+
+  const spsa = readFileSync(resolve(ROOT, 'scripts/extract-spsa-budgets.mjs'), 'utf-8');
+  assert.doesNotMatch(spsa, /artifacts\/documents\/spsa\/20\d{2}-\d{2}\//,
+    'SPSA provenance path must be derived from SPSA_YEAR');
+});
+
+test('a bumped year invalidates an extraction cache instead of reusing it', () => {
+  // The caches are keyed by slug with no year in the path, so a bumped year
+  // would otherwise hit last year's file and republish it as if fresh.
+  const spsa = readFileSync(resolve(ROOT, 'scripts/extract-spsa-budgets.mjs'), 'utf-8');
+  assert.match(spsa, /cached\.schoolYear === SPSA_YEAR/);
+  const sarc = readFileSync(resolve(ROOT, 'scripts/extract-sarc.mjs'), 'utf-8');
+  assert.match(sarc, /cached\.sarcYear === SARC_YEAR_ARG/);
+});
+
+test('the CDE puller can target a year other than the ingested one', () => {
+  // Without --year the documented "pull, then bump" sequence had no first step:
+  // the pull would re-fetch the year already recorded.
+  const puller = readFileSync(resolve(ROOT, 'scripts/pull-cde-data.mjs'), 'utf-8');
+  assert.match(puller, /--year/);
+  assert.match(puller, /datasetFor\(singleDataset, targetYear\)/);
 });
