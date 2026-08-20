@@ -1,0 +1,190 @@
+{
+  "_metadata": {
+    "description": "Observations of RCSD-authoritative sources for facts the site publishes. Written by scripts/verify-live-facts.mjs; asserted by scripts/check-freshness.mjs. This file records what the sources SAY, never what the site should say — the published values live in data/schools.json and data/trustees.json.",
+    "writer": "scripts/verify-live-facts.mjs",
+    "asserter": "scripts/check-freshness.mjs"
+  },
+  "maxObservationAgeDays": 7,
+  "lastRun": {
+    "probedAt": "2026-08-20T00:40:35.806Z",
+    "probed": 14,
+    "failed": 0,
+    "failures": []
+  },
+  "observations": [
+    {
+      "id": "principal:adelante-selby",
+      "kind": "principal",
+      "slug": "adelante-selby",
+      "observed": "Patricia Alcocer",
+      "observedRaw": "Patricia Alcocer",
+      "source": "https://adelanteselby.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:clifford",
+      "kind": "principal",
+      "slug": "clifford",
+      "observed": "Kristy Jackson",
+      "observedRaw": "Kristy Jackson",
+      "source": "https://clifford.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:garfield",
+      "kind": "principal",
+      "slug": "garfield",
+      "observed": "Jennifer Knopf",
+      "observedRaw": "Jennifer Knopf",
+      "source": "https://garfield.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:henry-ford",
+      "kind": "principal",
+      "slug": "henry-ford",
+      "observed": "Enrique Pin",
+      "observedRaw": "Enrique Pin",
+      "source": "https://henryford.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:hoover",
+      "kind": "principal",
+      "slug": "hoover",
+      "observed": "Lupe Guzmán",
+      "observedRaw": "Lupe Guzmán",
+      "source": "https://hoover.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:kennedy",
+      "kind": "principal",
+      "slug": "kennedy",
+      "observed": "Dr. Rangel Fernández",
+      "observedRaw": "Dr. Rangel Fernández",
+      "source": "https://kennedy.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:mckinley-mit",
+      "kind": "principal",
+      "slug": "mckinley-mit",
+      "observed": "Nick Fanourgiakis",
+      "observedRaw": "Nick Fanourgiakis",
+      "source": "https://mit.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:north-star",
+      "kind": "principal",
+      "slug": "north-star",
+      "observed": "Erin Kekos",
+      "observedRaw": "Erin Kekos",
+      "source": "https://northstar.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:orion",
+      "kind": "principal",
+      "slug": "orion",
+      "observed": "Winnie Chen",
+      "observedRaw": "Winnie Chen",
+      "source": "https://orion.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:roosevelt",
+      "kind": "principal",
+      "slug": "roosevelt",
+      "observed": "Dr. Shanna Laney",
+      "observedRaw": "Dr. Shanna Laney",
+      "source": "https://roosevelt.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:roy-cloud",
+      "kind": "principal",
+      "slug": "roy-cloud",
+      "observed": "Melissa Bowdoin",
+      "observedRaw": "Ms. Melissa Bowdoin",
+      "source": "https://roycloud.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "principal:taft",
+      "kind": "principal",
+      "slug": "taft",
+      "observed": "David Camarena",
+      "observedRaw": "David Camarena",
+      "source": "https://taft.rcsdk8.net/our-school/meet-our-school-leadership"
+    },
+    {
+      "id": "superintendent:current",
+      "kind": "superintendent",
+      "observed": "Dr. Christian J. Rubalcaba",
+      "observedRaw": "Dr. Christian J. Rubalcaba",
+      "source": "https://www.rcsdk8.net/our-programs-and-services/our-superintendent"
+    },
+    {
+      "id": "cabinet:roster",
+      "kind": "cabinet",
+      "observed": [
+        {
+          "name": "Rick Edson",
+          "title": "Chief Business Official"
+        },
+        {
+          "name": "Anna Herrera",
+          "title": "Assistant Superintendent of Educational Services"
+        },
+        {
+          "name": "Wendy Kelly, MPA, MA",
+          "title": "Assistant Superintendent of Human Resources"
+        },
+        {
+          "name": "Enrique Calderon, M.Ed.",
+          "title": "Coordinator of Expanded Learning"
+        },
+        {
+          "name": "Liz Calderon, MPA",
+          "title": "Director of Community Schools and Partnerships"
+        },
+        {
+          "name": "Kimberley Chen",
+          "title": "Director of Fiscal Services"
+        },
+        {
+          "name": "Martin Cervantes",
+          "title": "Director of Maintenance, Operations, and Transportation"
+        },
+        {
+          "name": "Ana Paula Garay, LMFT",
+          "title": "Lead Mental Health Clinician"
+        },
+        {
+          "name": "Tina Mercer",
+          "title": "Executive Director of Special Education"
+        },
+        {
+          "name": "Jennifer Pare",
+          "title": "Principal and Director of the Child Development Center"
+        },
+        {
+          "name": "Trish Pérez",
+          "title": "Director of Human Resources"
+        },
+        {
+          "name": "Jorge Quintana, DHSc",
+          "title": "Director of Communications and Community Engagement"
+        },
+        {
+          "name": "Patrinia Redd",
+          "title": "Director of Health and Wellness"
+        },
+        {
+          "name": "Carlos Reyna",
+          "title": "Director of Technology"
+        },
+        {
+          "name": "Katherine Rivera",
+          "title": "Director of Multilingual English Learners and Categorical Programs"
+        },
+        {
+          "name": "Richie Wilim",
+          "title": "Director of Child Nutrition Services"
+        }
+      ],
+      "source": "https://www.rcsdk8.net/our-programs-and-services/our-superintendent"
+    }
+  ]
+}
