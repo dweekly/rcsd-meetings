@@ -25,7 +25,7 @@
  *   - Staff Ratios: https://www.cde.ca.gov/ds/ad/filessp.asp
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync} from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { CDE_DATA_YEARS } from './lib/school-year.mjs';
@@ -780,6 +780,16 @@ async function main() {
         `  No data rows for ${name} ${dataset.year} — the source returned headers only, `
         + 'which means that year is not published yet.',
       );
+      // Discard the cached body. It is a valid HTTP 200 as far as ensureCached
+      // is concerned, so keeping it would poison every later attempt: once the
+      // year IS published, the next run would "use cached", find zero rows
+      // again, and fail without ever asking the server. Retrying must not need
+      // --force to escape a cache that was never data.
+      const stalePath = resolve(CACHE_DIR, dataset.cacheFile);
+      if (existsSync(stalePath)) {
+        unlinkSync(stalePath);
+        console.error(`  Discarded empty cached response ${stalePath}`);
+      }
       failed.push(`${name} (${dataset.year}: no rows)`);
       continue;
     }
