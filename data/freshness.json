@@ -14,17 +14,22 @@
       "https://orion.rcsdk8.net/our-school/meet-our-school-leadership",
       "https://roosevelt.rcsdk8.net/our-school/meet-our-school-leadership",
       "https://roycloud.rcsdk8.net/our-school/meet-our-school-leadership",
-      "https://taft.rcsdk8.net/our-school/meet-our-school-leadership"
+      "https://taft.rcsdk8.net/our-school/meet-our-school-leadership",
+      "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism25-v2.txt",
+      "https://www3.cde.ca.gov/demo-downloads/staff/stre2425.txt",
+      "https://www3.cde.ca.gov/demo-downloads/staff/stex2425.txt",
+      "https://www3.cde.ca.gov/demo-downloads/staff/strat2425.txt",
+      "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25"
     ],
-    "scrapedAt": "2026-08-20T00:57:12.359Z",
-    "method": "Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. People are extracted structurally from \"<h2>Name | Title</h2>\" headings; the person titled exactly \"Principal\" (or \"Superintendent\") is taken as the officeholder. Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; earned doctorates are preserved. A source that 404s or whose markup no longer matches is recorded in lastRun.failures and fails the run rather than being silently skipped.",
+    "scrapedAt": "2026-08-20T16:35:38.239Z",
+    "method": "Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. People are extracted structurally from \"<h2>Name | Title</h2>\" headings; the person titled exactly \"Principal\" (or \"Superintendent\") is taken as the officeholder. Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; earned doctorates are preserved. A source that 404s or whose markup no longer matches is recorded in lastRun.failures and fails the run rather than being silently skipped. CDE year availability is a range-limited GET per candidate year, judged on whether the response carries rows beneath its header (DataQuest answers 200 for any year).",
     "writer": "scripts/verify-live-facts.mjs",
     "asserter": "scripts/check-freshness.mjs"
   },
   "maxObservationAgeDays": 7,
   "lastRun": {
-    "probedAt": "2026-08-20T00:57:12.359Z",
-    "probed": 14,
+    "probedAt": "2026-08-20T16:35:38.239Z",
+    "probed": 19,
     "failed": 0,
     "failures": []
   },
@@ -202,6 +207,79 @@
         }
       ],
       "source": "https://www.rcsdk8.net/our-programs-and-services/our-superintendent"
+    },
+    {
+      "id": "cde-year:absenteeism",
+      "kind": "cde-year",
+      "dataset": "absenteeism",
+      "ingestedYear": "2024-25",
+      "availability": {
+        "2025-26": false
+      },
+      "sources": {
+        "2025-26": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism26-v2.txt"
+      },
+      "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism26-v2.txt"
+    },
+    {
+      "id": "cde-year:staff-ethnicity",
+      "kind": "cde-year",
+      "dataset": "staff-ethnicity",
+      "ingestedYear": "2024-25",
+      "availability": {
+        "2025-26": true,
+        "2026-27": false
+      },
+      "sources": {
+        "2025-26": "https://www3.cde.ca.gov/demo-downloads/staff/stre2526.txt",
+        "2026-27": "https://www3.cde.ca.gov/demo-downloads/staff/stre2627.txt"
+      },
+      "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2526.txt"
+    },
+    {
+      "id": "cde-year:staff-experience",
+      "kind": "cde-year",
+      "dataset": "staff-experience",
+      "ingestedYear": "2024-25",
+      "availability": {
+        "2025-26": true,
+        "2026-27": false
+      },
+      "sources": {
+        "2025-26": "https://www3.cde.ca.gov/demo-downloads/staff/stex2526.txt",
+        "2026-27": "https://www3.cde.ca.gov/demo-downloads/staff/stex2627.txt"
+      },
+      "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2526.txt"
+    },
+    {
+      "id": "cde-year:staff-ratios",
+      "kind": "cde-year",
+      "dataset": "staff-ratios",
+      "ingestedYear": "2024-25",
+      "availability": {
+        "2025-26": true,
+        "2026-27": false
+      },
+      "sources": {
+        "2025-26": "https://www3.cde.ca.gov/demo-downloads/staff/strat2526.txt",
+        "2026-27": "https://www3.cde.ca.gov/demo-downloads/staff/strat2627.txt"
+      },
+      "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2526.txt"
+    },
+    {
+      "id": "cde-year:ltel",
+      "kind": "cde-year",
+      "dataset": "ltel",
+      "ingestedYear": "2024-25",
+      "availability": {
+        "2025-26": true,
+        "2026-27": false
+      },
+      "sources": {
+        "2025-26": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2025-26",
+        "2026-27": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2026-27"
+      },
+      "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2025-26"
     }
   ]
 }

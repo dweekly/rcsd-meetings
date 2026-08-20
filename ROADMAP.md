@@ -84,6 +84,14 @@ Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.
   their predecessor's face under their name. Photos were replaced by hand from the school
   leadership pages. The probe already reads those pages and could record the portrait URL,
   making this checkable the same way the name is.
+- [ ] **Bind the ~50 hand-written school years in `build-schools.mjs` to their constants.**
+  `scripts/lib/school-year.mjs` now owns the years that drive URLs, file paths, and CDE
+  source notes, but headings, stat bubbles, and intro copy still write years out. Each one
+  needs identifying with the fact it belongs to (SPSA, LCAP, i-Ready presentation, SSC
+  roster, CSSP, SARC, or the year a SARC reports on) — several are NOT the same fact even
+  though they read the same today, and substituting one constant across them produced false
+  provenance once already. This is a careful reading pass, not a find-and-replace, which is
+  why it is its own task. A test bounds the current count so the debt cannot grow.
 - [ ] **Bell schedules, district calendars, and lunch URLs** rotate each August with no clean
   machine source. Deliberately out of scope for the annual-refresh effort; verify
   opportunistically until a source exists.

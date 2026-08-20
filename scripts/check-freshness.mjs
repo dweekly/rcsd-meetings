@@ -30,6 +30,7 @@ import { readFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { sameName, nameKey } from './lib/person-name.mjs';
+import { cyclesBehind } from './lib/cde-datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const FRESHNESS_PATH = resolve(ROOT, 'data/freshness.json');
@@ -135,6 +136,31 @@ for (const obs of observations) {
       if (!liveKeys.has(key)) {
         advisories.push(`cabinet: "${pub.name} | ${pub.titleEn}" is in data/trustees.json but no longer listed on ${obs.source}.`);
       }
+    }
+  } else if (obs.kind === 'cde-year') {
+    // Escalating, because these two situations are not the same thing:
+    //   one cycle behind  — CDE just published; ingesting is a deliberate job
+    //                       (tens of MB, then re-verifying the numbers on every
+    //                       school page), so nudge rather than break the build.
+    //   two cycles behind — a whole annual refresh was skipped. That is exactly
+    //                       the failure this project exists to catch.
+    // 'unknown' counts as neither: CDE's bot protection blocks the probe often
+    // enough that a flapping red build would train the operator to ignore it.
+    const behind = cyclesBehind(obs.availability ?? {});
+    const years = Object.entries(obs.availability ?? {})
+      .filter(([, v]) => v === true).map(([y]) => y).join(', ');
+    if (behind >= 2) {
+      problems.push(
+        `CDE ${obs.dataset} is ${behind} release cycles behind — we hold ${obs.ingestedYear} `
+        + `while CDE has published ${years}. Run: node scripts/pull-cde-data.mjs --dataset ${obs.dataset} `
+        + `--year <newest>, `
+        + 'then bump CDE_DATA_YEARS in scripts/lib/school-year.mjs. See docs/ANNUAL-REFRESH.md.',
+      );
+    } else if (behind === 1) {
+      advisories.push(
+        `CDE ${obs.dataset}: ${years} is published, we hold ${obs.ingestedYear}. `
+        + `Ingest with: node scripts/pull-cde-data.mjs --dataset ${obs.dataset} --year ${years}`,
+      );
     }
   } else {
     problems.push(`Observation ${obs.id} has unknown kind "${obs.kind}" — check-freshness.mjs needs updating.`);

@@ -39,6 +39,8 @@ import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { decodeEntities, displayName } from './lib/person-name.mjs';
+import { CDE_DATA_YEARS } from './lib/school-year.mjs';
+import { datasetFor, nextSchoolYear, CDE_DATASET_NAMES, classifyAvailability } from './lib/cde-datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SCHOOLS_PATH = resolve(ROOT, 'data/schools.json');
@@ -194,6 +196,83 @@ try {
   console.error(`  ${'superintendent'.padEnd(16)} PROBE FAILED: ${err.message}`);
 }
 
+// --- CDE: has a newer year been published than the one we ingested? ---------
+//
+// CDE puts the school year in the filename, so availability is a plain HTTP
+// check on next year's URL. The asymmetry matters: we only report when a newer
+// year is POSITIVELY confirmed to exist. CDE sits behind Radware bot protection
+// that returns 303/403 under load, and treating "I could not tell" as "nothing
+// new" would be wrong in the safe direction while treating it as "something new"
+// would cry wolf. Unknown is recorded as unknown.
+/** Probe one CDE URL; returns true / false / 'unknown'. */
+async function cdeYearAvailable(url) {
+  try {
+    // Range-limited GET: these hosts reject HEAD, and we need the status line,
+    // not a 37 MB file.
+    const res = await fetch(url, {
+      headers: { range: 'bytes=0-8191' },
+      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    });
+    if (res.status !== 200 && res.status !== 206) {
+      if (res.body) await res.body.cancel();
+      return classifyAvailability(res.status);
+    }
+    // Read only the leading chunk: enough to see whether any row follows the
+    // header, without pulling a 27 MB statewide file. Servers that ignore Range
+    // stream the whole file, so stop reading once we have what we need.
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let sample = '';
+    while (sample.length < 8192) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      sample += decoder.decode(value, { stream: true });
+    }
+    await reader.cancel();
+    return classifyAvailability(res.status, sample);
+  } catch {
+    // A blocked request or network failure is not evidence either way. CDE's
+    // bot protection answers a 303 redirect loop, which surfaces here as a
+    // thrown "redirect count exceeded".
+    return 'unknown';
+  }
+}
+
+for (const dataset of CDE_DATASET_NAMES) {
+  const ingested = CDE_DATA_YEARS[dataset];
+  const nextYear = nextSchoolYear(ingested);
+  const yearAfter = nextSchoolYear(nextYear);
+
+  const availability = {};
+  availability[nextYear] = await cdeYearAvailable(datasetFor(dataset, nextYear).url);
+  // Only look a second year out once the first is confirmed published — that is
+  // the only case where the answer changes what the guard does.
+  if (availability[nextYear] === true) {
+    availability[yearAfter] = await cdeYearAvailable(datasetFor(dataset, yearAfter).url);
+  }
+
+  observations.push({
+    id: `cde-year:${dataset}`,
+    kind: 'cde-year',
+    dataset,
+    ingestedYear: ingested,
+    availability,
+    // One URL per probed year: each availability claim must point at the URL it
+    // was actually derived from, not just the first one checked.
+    sources: Object.fromEntries(
+      Object.keys(availability).map((y) => [y, datasetFor(dataset, y).url]),
+    ),
+    source: datasetFor(dataset, nextYear).url,
+  });
+
+  const first = availability[nextYear];
+  const label = first === true
+    ? `${nextYear} PUBLISHED${availability[yearAfter] === true ? ` and ${yearAfter} too` : ''} (ingested ${ingested})`
+    : first === false ? `${nextYear} not yet published`
+    : `${nextYear} unknown (probe blocked)`;
+  console.log(`  ${('cde:' + dataset).padEnd(20)} ${label}`);
+}
+
 // --- Record -----------------------------------------------------------------
 const prior = existsSync(FRESHNESS_PATH)
   ? JSON.parse(readFileSync(FRESHNESS_PATH, 'utf-8'))
@@ -213,7 +292,11 @@ const record = {
       + 'This file records what the sources SAY, never what the site should say — '
       + 'the published values live in data/schools.json and data/trustees.json.',
     source: SUPERINTENDENT_URL,
-    additionalSources: schools.map(s => `${s.website}${LEADERSHIP_PATH}`),
+    additionalSources: [
+      ...schools.map(s => `${s.website}${LEADERSHIP_PATH}`),
+      // CDE / DataQuest bulk-download endpoints, probed for year availability.
+      ...CDE_DATASET_NAMES.map(d => datasetFor(d, CDE_DATA_YEARS[d]).url),
+    ],
     scrapedAt: probedAt,
     method:
       'Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. '
@@ -221,7 +304,9 @@ const record = {
       + 'titled exactly "Principal" (or "Superintendent") is taken as the officeholder. '
       + 'Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; '
       + 'earned doctorates are preserved. A source that 404s or whose markup no longer matches '
-      + 'is recorded in lastRun.failures and fails the run rather than being silently skipped.',
+      + 'is recorded in lastRun.failures and fails the run rather than being silently skipped. '
+      + 'CDE year availability is a range-limited GET per candidate year, judged on whether '
+      + 'the response carries rows beneath its header (DataQuest answers 200 for any year).',
     writer: 'scripts/verify-live-facts.mjs',
     asserter: 'scripts/check-freshness.mjs',
   },

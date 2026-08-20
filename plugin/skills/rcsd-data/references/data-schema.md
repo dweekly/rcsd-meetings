@@ -245,6 +245,11 @@ The values the site publishes stay in `schools.json` (`principal`) and `trustees
     on the superintendent page. Compared against the union of `trustees.json`
     `cabinet[]` + `directors[]`. **Advisory only** — that page churns and is not a
     complete roster of record, and a guard that cries wolf gets ignored.
+  - `kind: "cde-year"` — plus `dataset`, `ingestedYear`, and `availability`, a map of
+    candidate school year → `true` / `false` / `"unknown"` for whether CDE has published
+    that year. **Escalating:** one cycle behind is an advisory, two or more fails the
+    build (a whole annual refresh was skipped). `"unknown"` reports nothing — CDE's bot
+    protection answers 303 under load, so a blocked probe is not evidence either way.
 
 ### Key Field Notes
 
