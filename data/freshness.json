@@ -21,14 +21,14 @@
       "https://www3.cde.ca.gov/demo-downloads/staff/strat2425.txt",
       "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25"
     ],
-    "scrapedAt": "2026-08-20T20:10:05.114Z",
+    "scrapedAt": "2026-08-21T06:54:49.449Z",
     "method": "Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. People are extracted structurally from \"<h2>Name | Title</h2>\" headings; the person titled exactly \"Principal\" (or \"Superintendent\") is taken as the officeholder. Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; earned doctorates are preserved. A source that 404s or whose markup no longer matches is recorded in lastRun.failures and fails the run rather than being silently skipped. CDE year availability is a range-limited GET per candidate year, judged on whether the response carries rows beneath its header (DataQuest answers 200 for any year).",
     "writer": "scripts/verify-live-facts.mjs",
     "asserter": "scripts/check-freshness.mjs"
   },
   "maxObservationAgeDays": 7,
   "lastRun": {
-    "probedAt": "2026-08-20T20:10:05.114Z",
+    "probedAt": "2026-08-21T06:54:49.449Z",
     "probed": 19,
     "failed": 0,
     "failures": []

@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, consent items 6.1 (Approval of Bond Program Consent Items) and items 6.2-6.3 were moved from consent to action due to public comment on bond items.",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved from its original position to before oral communication. Item 6.1 (Approval of bond program consent items) was moved from consent to action due to public comments received. Items 6.2 and 6.3 were moved to action.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -50,58 +50,78 @@
         "status": "found"
       },
       {
-        "item": 13.1,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "item": 6,
+        "intro_words": "And are there any changes to the agenda?",
         "status": "found"
       },
       {
-        "item": 6.1,
-        "intro_words": "So I just realized that we do have. So I don't know how this works because then I messed up.",
+        "item": 7,
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
         "status": "found"
       },
       {
-        "item": 6.2,
-        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond program tracking list of items under 20,000.",
+        "item": 8,
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
         "status": "found"
       },
       {
-        "item": 6.3,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation of the water pump",
+        "item": 13,
+        "intro_words": "So item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
         "status": "found"
       },
       {
-        "item": 7.1,
-        "intro_words": "And then bond program action items 7.1, approval of measure T final projects list.",
-        "status": "found"
-      },
-      {
-        "item": 7.2,
-        "intro_words": "7.2. Approval of amendment number two to the Program Management Services Agreement",
-        "status": "found"
-      },
-      {
-        "item": 8.1,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1. School plans for student achievement reports",
+        "item": 8,
+        "intro_words": "So item 8, school and community reports. 8.1. School plans for student achievement reports for Garfield Community School",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "So moving along then, we're on to item nine, discussion items.",
+        "intro_words": "So moving along then, we're on to item nine, discussion items. So board of trustees graduation and promotion",
+        "status": "found"
+      },
+      {
+        "item": 11,
+        "intro_words": "So moving on to consent items, can I please get a motion to approve?",
         "status": "found"
       },
       {
         "item": 11.1,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill",
+        "intro_words": "Item 11.1, approval of recruitment incentive stipend for hard to fill middle school, special education and bilingual teacher",
         "status": "found"
       },
       {
         "item": 11.2,
-        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
+        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
         "status": "found"
       },
       {
         "item": 12,
         "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Okay, so information Items. We move 13.1. So 13.2 is contract update information",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "Correspondence. Continue to get public records. That's true.",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "Any possible other business or suggested items.",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Does somebody want to make a motion to adjourn them? I move to adjourn",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "Does somebody want to make a motion to adjourn them? I move to adjourn",
         "status": "found"
       }
     ]
@@ -129,27 +149,51 @@
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
-      null,
-      null,
-      null,
+      {
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
+      },
+      {
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
+      },
+      {
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
+      },
       {
         "timestamp": "03:10:21",
         "timestampSeconds": 11421
       },
       null,
-      null,
+      {
+        "timestamp": "03:16:26",
+        "timestampSeconds": 11786
+      },
       {
         "timestamp": "03:18:59",
         "timestampSeconds": 11939
       },
       null,
-      null,
-      null,
-      null,
-      null
+      {
+        "timestamp": "03:27:22",
+        "timestampSeconds": 12442
+      },
+      {
+        "timestamp": "03:27:27",
+        "timestampSeconds": 12447
+      },
+      {
+        "timestamp": "03:30:07",
+        "timestampSeconds": 12607
+      },
+      {
+        "timestamp": "03:30:07",
+        "timestampSeconds": 12607
+      }
     ]
   },
-  "cachedAt": "2026-08-20T18:45:26.825Z",
+  "cachedAt": "2026-08-21T06:51:30.218Z",
   "inputTokens": 43596,
-  "outputTokens": 907
+  "outputTokens": 1081
 }

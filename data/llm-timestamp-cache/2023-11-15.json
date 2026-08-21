@@ -18,77 +18,77 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled per agenda change announcement. Item 9.3 moved from consent to action per agenda change announcement.",
-    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1",
+    "agenda_changes": "Item 10.1 pulled (not to be discussed that night); Item 9.3 moved from consent to action for elaboration and individual discussion",
+    "consent_vote_words": null,
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll Call",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1",
+        "intro_words": "And with that, is there any oral communication? We have four speakers",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Additions, Deletions, or Modifications to the Agenda",
-        "status": "consent_bundle"
+        "intro_words": "And with that, moving on to our study session discussion on dyslexia.",
+        "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make a motion to approve",
+        "intro_words": "Trustee weekly. Present. Trustee mcevoy. Present. Trustee wells. Here.",
         "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "Approval of the Agenda",
-        "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "If you have a public comment related to a Closed Session item, please post it",
+        "intro_words": "moving on just to the agenda really quick for those that need",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3. That move to action",
+        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for the",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "CONFERENCE WITH LEGAL COUNSEL—EXISTING LITIGATION (Paragraph (1) of subdivision",
-        "status": "pulled"
+        "intro_words": "And moving to item 12 for discussion. 12.1 being first reading",
+        "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
+        "intro_words": "Okay, great. Thank you. Yeah. And so moving to item 13,",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Adjournment",
+        "intro_words": "Thank you. And moving on to action items. 14.1 is adoption",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Okay, so moving on to item 16.1, information on San Mateo",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "Okay, so moving on to item 18. Other business possible other",
         "status": "found"
       }
     ]
@@ -96,46 +96,59 @@
   "result": {
     "videoId": "LPmyvuhgudA",
     "items": [
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "01:10:10",
-        "timestampSeconds": 4210
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
       {
-        "timestamp": "01:10:05",
-        "timestampSeconds": 4205,
-        "consent": true
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
       {
-        "timestamp": "01:10:41",
-        "timestampSeconds": 4241
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
       {
-        "timestamp": "01:10:05",
-        "timestampSeconds": 4205,
-        "consent": true
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
       {
-        "timestamp": "01:11:15",
-        "timestampSeconds": 4275
+        "timestamp": "00:00:49",
+        "timestampSeconds": 49
       },
-      null,
       {
-        "timestamp": "01:11:21",
-        "timestampSeconds": 4281
+        "timestamp": "00:00:49",
+        "timestampSeconds": 49
+      },
+      {
+        "timestamp": "01:03:47",
+        "timestampSeconds": 3827
       },
       null,
       {
-        "timestamp": "02:38:15",
-        "timestampSeconds": 9495
+        "timestamp": "01:08:50",
+        "timestampSeconds": 4130
       },
-      null
+      null,
+      {
+        "timestamp": "01:11:26",
+        "timestampSeconds": 4286
+      },
+      {
+        "timestamp": "02:38:10",
+        "timestampSeconds": 9490
+      },
+      {
+        "timestamp": "03:03:30",
+        "timestampSeconds": 11010
+      },
+      {
+        "timestamp": "03:03:07",
+        "timestampSeconds": 10987
+      }
     ]
   },
-  "cachedAt": "2026-08-20T18:44:55.594Z",
+  "cachedAt": "2026-08-21T06:50:54.304Z",
   "inputTokens": 37863,
-  "outputTokens": 712
+  "outputTokens": 757
 }
