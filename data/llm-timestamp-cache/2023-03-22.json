@@ -18,77 +18,92 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced at the beginning of the meeting",
+    "agenda_changes": "No agenda changes announced. The meeting proceeded according to the posted agenda with minor natural progression.",
     "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o'. Clock. Welcome, everyone.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley? Present.",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting. Por favor, yame",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda having here?",
+        "intro_words": "And are there any changes to the agenda having here? 9.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda having here?",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda?",
-        "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda?",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving along to board program consent items 6.1. Approval",
+        "intro_words": "Moving along to board program consent items 6.1. Approval of. I'm sorry,",
         "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "Moving along to board program consent items 6.1. Approval",
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports. 8.1.",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Discussion of the school plan for student achievement for Roy Cloud and North Star Academy.",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "Moving on to item seven discussion items. 9.1 is first reading and discussion",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Can I please get a motion to approve the consent items? I'll move to approve.",
         "status": "consent_bundle"
       },
       {
+        "item": 11.1,
+        "intro_words": "Action items 11.1, adoption of resolution 31, establishing fund 35 county schools facilities",
+        "status": "found"
+      },
+      {
+        "item": 11.2,
+        "intro_words": "Moving on to 11.2 approval of Redwood City School District. 20, 22, 23. Second interim",
+        "status": "found"
+      },
+      {
+        "item": 12.1,
+        "intro_words": "Board and superintendent report 12.1. So I don't have any reports from",
+        "status": "found"
+      },
+      {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a",
+        "intro_words": "Item 13, information on San Mateo county investment fund. Yeah. The normal monthly",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a",
+        "intro_words": "Any correspondence? I know we've gotten some emails. Yeah. And let's see",
         "status": "found"
       }
     ]
@@ -117,14 +132,6 @@
         "timestampSeconds": 69
       },
       {
-        "timestamp": "00:01:09",
-        "timestampSeconds": 69
-      },
-      {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79
-      },
-      {
         "timestamp": "00:01:19",
         "timestampSeconds": 79
       },
@@ -133,30 +140,35 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:14",
-        "timestampSeconds": 74
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       },
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79,
+        "timestamp": "01:34:22",
+        "timestampSeconds": 5662
+      },
+      {
+        "timestamp": "01:42:34",
+        "timestampSeconds": 6154,
         "consent": true
       },
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79,
+        "timestamp": "01:42:34",
+        "timestampSeconds": 6154,
         "consent": true
       },
+      null,
       {
-        "timestamp": "00:02:30",
-        "timestampSeconds": 150
+        "timestamp": "02:15:40",
+        "timestampSeconds": 8140
       },
       {
-        "timestamp": "00:02:30",
-        "timestampSeconds": 150
+        "timestamp": "02:15:46",
+        "timestampSeconds": 8146
       }
     ]
   },
-  "cachedAt": "2026-08-22T06:38:22.628Z",
+  "cachedAt": "2026-08-22T18:29:04.242Z",
   "inputTokens": 27924,
-  "outputTokens": 681
+  "outputTokens": 927
 }
