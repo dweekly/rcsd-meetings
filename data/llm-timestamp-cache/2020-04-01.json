@@ -37,17 +37,17 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Staff recognition was added to the agenda after item 5 (oral communication). This was announced during the 'Changes to the Agenda' section when Dennis requested to add it.",
-    "consent_vote_words": "Okay, Cecilia was second. And a roll call vote, please.",
+    "agenda_changes": "Staff recognition was added after item 5 (Oral Communication). No items were pulled or reordered beyond this change.",
+    "consent_vote_words": "So moved. This is Maria. Is there a second? Second. Cecilia. Cecilia. And a roll call vote, please.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Trustee Marquez. Here. Trustee Diaz locum. Here. Trustee McAvoy.",
+        "intro_words": "Call to Order",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Here. Trustee Marquez. Here. Trustee Diaz locum. Here. Trustee McAvoy.",
+        "intro_words": "Roll Call",
         "status": "found"
       },
       {
@@ -57,8 +57,8 @@
       },
       {
         "item": 4,
-        "intro_words": "Welcome, everybody. It's good to see some familiar faces again.",
-        "status": "found"
+        "intro_words": "Welcome by the School Board President",
+        "status": "not_found"
       },
       {
         "item": 5,
@@ -67,142 +67,52 @@
       },
       {
         "item": 6,
-        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis.",
+        "intro_words": "Moving on. Are there any changes to the agenda?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis.",
+        "intro_words": "Do we have a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Do we have a motion to approve the agenda? So moved. Is that Elisa?",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "Do we have a motion to approve the agenda? So moved. Is that Elisa?",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "At this point, I believe we only have one speaker's card and I think",
+        "intro_words": "Staff recognition",
         "status": "found"
       },
       {
         "item": 11,
         "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "found"
-      },
-      {
-        "item": 12,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 13,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 14,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 15,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 16,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 17,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 18,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
         "status": "consent_bundle"
       },
       {
         "item": 19,
-        "intro_words": "All right, moving on to 7.1, which is a bond action item.",
+        "intro_words": "moving on to 7.1, which is a bond action item.",
         "status": "found"
       },
       {
         "item": 20,
-        "intro_words": "All right, moving on to 7.1, which is a bond action item.",
-        "status": "found"
-      },
-      {
-        "item": 21,
-        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want",
+        "intro_words": "Does anyone have any questions about the TAF construction agreement?",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "So good evening. So before I start and before I have cabinet members",
-        "status": "found"
-      },
-      {
-        "item": 23,
-        "intro_words": "Thank you. I'm sorry, I did. So you mentioned that the direction is",
-        "status": "found"
-      },
-      {
-        "item": 24,
-        "intro_words": "So I'm putting the link in. And then after we call you, I think",
+        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want to go ahead and start?",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "So this is a resolution that. I think Elisa brought it to my attention.",
+        "intro_words": "Action item. This is the resolution of emergency relating to COVID 19.",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have anything",
-        "status": "found"
-      },
-      {
-        "item": 27,
-        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have anything",
-        "status": "found"
-      },
-      {
-        "item": 28,
-        "intro_words": "We have no information items, correspondence to share, Just email we've been getting.",
-        "status": "found"
-      },
-      {
-        "item": 29,
-        "intro_words": "We have no information items, correspondence to share, Just email we've been getting.",
-        "status": "found"
-      },
-      {
-        "item": 30,
-        "intro_words": "Other business suggested items for future agenda. Anybody have anything else?",
-        "status": "found"
-      },
-      {
-        "item": 31,
-        "intro_words": "Other business suggested items for future agenda. Anybody have anything else?",
-        "status": "found"
-      },
-      {
-        "item": 32,
-        "intro_words": "And then changes to the agenda, the board agenda, schedule. No.",
+        "intro_words": "We are on 11.1. Report from board members and superintendent.",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard a first",
+        "intro_words": "Is there a motion to adjourn. In unison?",
         "status": "found"
       }
     ]
@@ -211,21 +121,15 @@
     "videoId": "0cWwZ9lGR0U",
     "items": [
       {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
+        "timestamp": "00:00:27",
+        "timestampSeconds": 27
       },
+      null,
       {
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
+      null,
       {
         "timestamp": "00:03:01",
         "timestampSeconds": 181
@@ -235,123 +139,60 @@
         "timestampSeconds": 208
       },
       {
-        "timestamp": "00:03:28",
-        "timestampSeconds": 208
-      },
-      {
         "timestamp": "00:03:46",
         "timestampSeconds": 226
       },
+      null,
+      null,
+      null,
       {
-        "timestamp": "00:03:46",
-        "timestampSeconds": 226
-      },
-      {
-        "timestamp": "00:04:41",
-        "timestampSeconds": 281
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
+        "timestamp": "00:07:29",
+        "timestampSeconds": 449,
         "consent": true
       },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
+        "timestamp": "00:06:12",
+        "timestampSeconds": 372
       },
       {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
+        "timestamp": "00:06:22",
+        "timestampSeconds": 382
       },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:05:53",
-        "timestampSeconds": 353
-      },
-      {
-        "timestamp": "00:05:53",
-        "timestampSeconds": 353
-      },
+      null,
       {
         "timestamp": "00:08:30",
         "timestampSeconds": 510
       },
+      null,
+      null,
       {
-        "timestamp": "00:08:30",
-        "timestampSeconds": 510
-      },
-      {
-        "timestamp": "00:06:59",
-        "timestampSeconds": 419
-      },
-      {
-        "timestamp": "00:12:49",
-        "timestampSeconds": 769
-      },
-      {
-        "timestamp": "00:23:08",
-        "timestampSeconds": 1388
+        "timestamp": "01:47:19",
+        "timestampSeconds": 6439
       },
       {
         "timestamp": "01:48:57",
         "timestampSeconds": 6537
       },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       {
-        "timestamp": "01:48:57",
-        "timestampSeconds": 6537
-      },
-      {
-        "timestamp": "01:59:55",
-        "timestampSeconds": 7195
-      },
-      {
-        "timestamp": "01:59:55",
-        "timestampSeconds": 7195
-      },
-      {
-        "timestamp": "02:00:00",
-        "timestampSeconds": 7200
-      },
-      {
-        "timestamp": "02:00:00",
-        "timestampSeconds": 7200
-      },
-      {
-        "timestamp": "02:00:00",
-        "timestampSeconds": 7200
-      },
-      {
-        "timestamp": "02:04:16",
-        "timestampSeconds": 7456
+        "timestamp": "01:48:14",
+        "timestampSeconds": 6494
       }
     ]
   },
-  "cachedAt": "2026-08-23T06:41:32.584Z",
+  "cachedAt": "2026-08-23T18:29:41.722Z",
   "inputTokens": 24593,
-  "outputTokens": 1681
+  "outputTokens": 737
 }

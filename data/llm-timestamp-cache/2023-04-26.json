@@ -21,27 +21,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to immediately after oral communication, before it was changed again to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action due to public comments received. Items 6.2 and 6.3 were also moved to action.",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) moved from later position to before oral communication (then clarified to before oral communication, not after). Item 6.1 (Approval of bond program consent items) moved from consent to action. Items 6.2 and 6.3 moved to action. All bond program items moved to action.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "intro_words": "Call to Order",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
-        "status": "consent_bundle"
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley.",
+        "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
-        "status": "consent_bundle"
+        "intro_words": "Welcome",
+        "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
+        "intro_words": "Welcome by the School Board President, Cecilia Márquez",
         "status": "found"
       },
       {
@@ -51,8 +51,8 @@
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda?",
-        "status": "consent_bundle"
+        "intro_words": "And are there any changes to the agenda? Yes",
+        "status": "found"
       },
       {
         "item": 7,
@@ -60,33 +60,8 @@
         "status": "found"
       },
       {
-        "item": 8,
-        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 13,
-        "intro_words": "So item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "I had one other recognition that I would like to do.",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "So with oral communication do we. Chris Roble.",
-        "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "So I can modify my motion to move 6.1 to action.",
-        "status": "found"
-      },
-      {
-        "item": 6.1,
-        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond program tracking list of items under 20,000.",
+        "item": 13.1,
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
         "status": "found"
       },
       {
@@ -96,7 +71,7 @@
       },
       {
         "item": 6.3,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation of the water pump with Scapes Incorporated.",
+        "intro_words": "6.3, approval of proposal for the furnishing and installation of the water pump with Scapes Incorporated",
         "status": "found"
       },
       {
@@ -111,7 +86,7 @@
       },
       {
         "item": 8,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1.",
+        "intro_words": "Okay, so item 8, school and community reports.",
         "status": "found"
       },
       {
@@ -120,8 +95,13 @@
         "status": "found"
       },
       {
+        "item": 9,
+        "intro_words": "So moving along then, we're on to item nine, discussion items.",
+        "status": "found"
+      },
+      {
         "item": 11.1,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle school, special education and bilingual teacher positions.",
+        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle school, special education",
         "status": "found"
       },
       {
@@ -130,8 +110,8 @@
         "status": "found"
       },
       {
-        "item": 13,
-        "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "item": 12,
+        "intro_words": "More super and superintendent reports.",
         "status": "found"
       }
     ]
@@ -139,60 +119,47 @@
   "result": {
     "videoId": "inuwqFycW2Q",
     "items": [
+      null,
       {
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
+      null,
+      null,
       {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168,
-        "consent": true
-      },
-      {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168,
-        "consent": true
-      },
-      {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
       },
       {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
       {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168,
-        "consent": true
-      },
-      {
         "timestamp": "00:02:23",
         "timestampSeconds": 143
       },
       {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168,
-        "consent": true
+        "timestamp": "00:20:22",
+        "timestampSeconds": 1222
       },
       {
-        "timestamp": "00:10:55",
-        "timestampSeconds": 655
+        "timestamp": "03:10:21",
+        "timestampSeconds": 11421
       },
-      null,
-      null,
       null,
       null,
       {
-        "timestamp": "00:09:09",
-        "timestampSeconds": 549
+        "timestamp": "03:18:59",
+        "timestampSeconds": 11939
       },
+      null,
+      null,
       null,
       null,
       null
     ]
   },
-  "cachedAt": "2026-08-23T06:39:15.954Z",
+  "cachedAt": "2026-08-23T18:27:44.433Z",
   "inputTokens": 43596,
-  "outputTokens": 1224
+  "outputTokens": 986
 }
