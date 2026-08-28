@@ -18,42 +18,37 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 was pulled and will not be discussed tonight; Item 9.3 was moved from consent to action",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Two items were pulled or modified: Item 10.1 was pulled (not to be discussed that evening, to come forward at another time). Item 9.3 was moved from consent to action for discussion.",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll Call",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "Welcome",
+        "intro_words": "Roll call already completed, moving to Welcome and agenda items",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda",
+        "intro_words": "Does somebody want to make a motion to approve? Yeah, I'll make a motion",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Thank you.",
+        "intro_words": "And do we have any oral communication? No oral communication. Thank you.",
         "status": "found"
       },
       {
@@ -63,17 +58,17 @@
       },
       {
         "item": "11.1",
-        "intro_words": "moving on to 11.11.1 being Hoover and Henry Ford school presentations for the 2324 school year.",
+        "intro_words": "moving on to 11.11.1 being Hoover and Henry Ford school presentations for",
         "status": "found"
       },
       {
         "item": "12.1",
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion",
         "status": "found"
       },
       {
         "item": "12.2",
-        "intro_words": "moving on to 12.2. Again, First Reading and Discussion of Foreign Policy and Administrative Regulation",
+        "intro_words": "moving on to 12.2. Again, First Reading and Discussion of Foreign Policy",
         "status": "found"
       },
       {
@@ -83,42 +78,37 @@
       },
       {
         "item": "12.4",
-        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171 Title 1 programs.",
+        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171",
         "status": "found"
       },
       {
         "item": "12.5",
-        "intro_words": "moving on to 12.5 first reading of BP 6163.4 student use of technology.",
+        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use of technology.",
         "status": "found"
       },
       {
         "item": "12.6",
-        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension",
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items. If there are no questions, can I",
+        "intro_words": "Okay, great. Thank you. Yeah. And so moving to item 13, consent items.",
         "status": "found"
       },
       {
         "item": "14.1",
-        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five to approve continued",
+        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five",
         "status": "found"
       },
       {
         "item": "14.2",
-        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023",
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for December",
         "status": "found"
       },
       {
         "item": 16,
         "intro_words": "moving on to item 16.1, information on San Mateo county investment fund.",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "moving on to item 18. Other business possible other business suggested items",
         "status": "found"
       }
     ]
@@ -126,10 +116,16 @@
   "result": {
     "videoId": "LPmyvuhgudA",
     "items": [
+      {
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
+      },
       null,
       null,
-      null,
-      null,
+      {
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
+      },
       {
         "timestamp": "01:10:10",
         "timestampSeconds": 4210
@@ -151,13 +147,13 @@
       },
       null,
       {
-        "timestamp": "03:03:35",
-        "timestampSeconds": 11015
+        "timestamp": "03:03:30",
+        "timestampSeconds": 11010
       },
       null
     ]
   },
-  "cachedAt": "2026-08-27T17:22:05.699Z",
+  "cachedAt": "2026-08-28T02:03:32.512Z",
   "inputTokens": 37863,
-  "outputTokens": 1069
+  "outputTokens": 1002
 }
