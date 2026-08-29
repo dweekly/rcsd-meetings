@@ -21,18 +21,18 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, consent bond items were modified: 6.1 was moved to action with public comment required, and 6.2 and 6.3 were moved to action items.",
-    "consent_vote_words": "All those in favor? Aye.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action due to public comments. Items 6.2 and 6.3 were moved to action. All bond program items (6.2, 6.3, 7.1, 7.2) were moved to action.",
+    "consent_vote_words": "with that, if there's no other changes to the agenda, can I please get a motion to approve it?",
     "items": [
       {
         "item": 1,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
+        "intro_words": "Good evening, everyone. Roll call, please. Evelyn.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
-        "status": "consent_bundle"
+        "intro_words": "Trustee Weekley. Present. Trustee McEvoy. Present.",
+        "status": "found"
       },
       {
         "item": 3,
@@ -46,57 +46,37 @@
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping that we could move 13.1",
         "status": "found"
       },
       {
-        "item": 6,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
-        "status": "found"
-      },
-      {
-        "item": 7,
-        "intro_words": "With that, if there's no other changes to the agenda, can",
+        "item": 13,
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "With that, if there's no other changes to the agenda, can",
+        "intro_words": "Great. So I know it's been a long day, but I just want to say, Lupus and Fanny",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "Well, it's a special evening tonight. We have in our audience",
+        "intro_words": "So moving along then, we're on to item nine, discussion items.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "And I had one other recognition that I would like to do.",
+        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So I just realized that we do have. So I don't know how",
-        "status": "pulled"
+        "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Chris Roble. Hi. So yes, I would like to talk about",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond",
-        "status": "found"
-      },
-      {
-        "item": 15,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation",
+        "intro_words": "Correspondence. Continue to get public records. That's true.",
         "status": "found"
       }
     ]
@@ -109,9 +89,8 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168,
-        "consent": true
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
       },
       {
         "timestamp": "00:00:05",
@@ -122,51 +101,36 @@
         "timestampSeconds": 30
       },
       {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
+        "timestamp": "00:01:30",
+        "timestampSeconds": 90
+      },
+      null,
+      null,
+      {
+        "timestamp": "01:28:30",
+        "timestampSeconds": 5310
       },
       {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
-      },
-      {
-        "timestamp": "00:02:43",
-        "timestampSeconds": 163
-      },
-      {
-        "timestamp": "00:02:43",
-        "timestampSeconds": 163
-      },
-      {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
-      },
-      {
-        "timestamp": "00:02:58",
-        "timestampSeconds": 178
-      },
-      {
-        "timestamp": "00:01:52",
-        "timestampSeconds": 112
+        "timestamp": "03:10:21",
+        "timestampSeconds": 11421
       },
       null,
       {
-        "timestamp": "00:10:45",
-        "timestampSeconds": 645
+        "timestamp": "03:18:01",
+        "timestampSeconds": 11881
       },
       {
-        "timestamp": "00:12:58",
-        "timestampSeconds": 778
+        "timestamp": "03:18:59",
+        "timestampSeconds": 11939
       },
-      {
-        "timestamp": "00:15:58",
-        "timestampSeconds": 958
-      },
+      null,
+      null,
+      null,
       null,
       null
     ]
   },
-  "cachedAt": "2026-08-28T18:14:22.600Z",
+  "cachedAt": "2026-08-29T12:18:48.234Z",
   "inputTokens": 43596,
-  "outputTokens": 800
+  "outputTokens": 691
 }

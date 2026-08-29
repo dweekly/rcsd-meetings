@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled (will not be discussed tonight); Item 9.3 moved from consent to action for discussion",
-    "consent_vote_words": "I'll move to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1",
+    "agenda_changes": "Item 10.1 was pulled from the agenda; Item 9.3 was moved from consent to action; Board approved agenda with these changes at the start of the open session meeting",
+    "consent_vote_words": "I'll move to approve consent items, I'll second, all those in favor, aye, thank you",
     "items": [
       {
         "item": 1,
@@ -32,53 +32,53 @@
         "status": "found"
       },
       {
-        "item": 3,
-        "intro_words": "Welcome to another Redwood City School District study session.",
-        "status": "found"
-      },
-      {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "intro_words": "Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda?",
+        "intro_words": "And with that, is there any oral communication or any changes",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "And with that, moving on to our study session discussion on dyslexia.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "and moving on to our study session discussion on dyslexia",
+        "intro_words": "And with that, we're done with oral communication. Do you guys have any questions?",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3",
-        "status": "found"
-      },
-      {
-        "item": 11.1,
-        "intro_words": "So we want to welcome the Hoover team to the podium",
+        "intro_words": "Welcome to another Redwood City school district board meeting. Are there any changes to the agenda?",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading",
+        "intro_words": "And with that, moving on to bond program consent Items, again with nine point three.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And moving on to action items. 14.1 is adoption of resolution",
+        "intro_words": "And so, moving on to item 13, consent items. If there are no questions",
         "status": "found"
       },
       {
-        "item": 16.1,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund",
+        "item": 14,
+        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "Okay, so moving on to item 18. Other business possible other business",
+        "intro_words": "Okay, so moving on to board meeting calendar. Are there any changes to the board meeting calendar?",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "Okay, with that it is 9:15. What you say?",
         "status": "found"
       }
     ]
@@ -91,17 +91,15 @@
         "timestamp": "00:00:07",
         "timestampSeconds": 7
       },
+      null,
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
       },
-      null,
       {
-        "timestamp": "00:01:04",
-        "timestampSeconds": 64
+        "timestamp": "00:01:09",
+        "timestampSeconds": 69
       },
-      null,
-      null,
       null,
       {
         "timestamp": "00:00:49",
@@ -109,21 +107,29 @@
       },
       null,
       {
-        "timestamp": "01:11:21",
-        "timestampSeconds": 4281
+        "timestamp": "00:28:12",
+        "timestampSeconds": 1692
+      },
+      null,
+      {
+        "timestamp": "01:10:00",
+        "timestampSeconds": 4200
       },
       {
-        "timestamp": "02:38:15",
-        "timestampSeconds": 9495
+        "timestamp": "01:11:26",
+        "timestampSeconds": 4286
       },
       {
         "timestamp": "03:03:07",
         "timestampSeconds": 10987
       },
-      null
+      {
+        "timestamp": "03:03:07",
+        "timestampSeconds": 10987
+      }
     ]
   },
-  "cachedAt": "2026-08-28T18:13:42.287Z",
+  "cachedAt": "2026-08-29T12:18:02.084Z",
   "inputTokens": 37863,
-  "outputTokens": 639
+  "outputTokens": 665
 }
