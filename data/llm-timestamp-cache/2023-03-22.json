@@ -18,27 +18,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced. Item 9 (Discussion Items) proceeded as posted with three policy readings (9.1, 9.2, 9.3). Item 10 (Consent Items) was voted on as a bundle. Items proceeded in posted order.",
-    "consent_vote_words": "Can I please get a motion to approve the consent items? I'll move to approve. Second. All those in favor? Aye.",
+    "agenda_changes": "No changes to the agenda were announced. The board president asked 'are there any changes to the agenda having here?' with no response indicating changes. The agenda proceeded as posted.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
@@ -53,22 +53,22 @@
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
@@ -79,7 +79,7 @@
       {
         "item": 12,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 13,
@@ -141,8 +141,9 @@
         "timestampSeconds": 93
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "02:17:50",
@@ -154,7 +155,7 @@
       }
     ]
   },
-  "cachedAt": "2026-08-30T11:16:58.150Z",
+  "cachedAt": "2026-08-30T20:35:36.288Z",
   "inputTokens": 27924,
-  "outputTokens": 752
+  "outputTokens": 730
 }
