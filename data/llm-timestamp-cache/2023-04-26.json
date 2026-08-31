@@ -7,33 +7,36 @@
     "Welcome",
     "Welcome by the School Board President, Cecilia Márquez",
     "Changes to the Agenda",
-    "Additions, Deletions or Modifications to the agenda.",
+    "Additions, Deletions or Modifications to the Agenda",
+    "Approval of the Agenda (Action Required)",
     "Approval of Agenda",
-    "Approval of Agenda",
-    "Oral Communication",
-    "If you have public comment related to a Study Session Board Meeting item, please post it on the links available under Public Content prior to the Study Session Board Meeting or immediately upon the meeting opening.",
-    "Information",
-    "Bond Oversight Committee Roles and Responsibilities",
-    "Adjournment",
+    "Oral Communication on Closed Session Items Only",
+    "If you have a public comment related to a Closed Session item, please post it on the links available under Public Content prior to the Closed Session Meeting or immediately upon the meeting opening.",
+    "Closed Session – 5:20 PM",
+    "Approval of Comprehensive School Safety Plans (Tactical / Non-Public) 2022-2023",
+    "Conference with Labor Negotiators (§54957.6) Agency designated representative: Wendy Kelly Employee organization: RCTA",
+    "Conference with Labor Negotiators (§54957.6) Agency designated representative: Wendy Kelly Employee organization: CSEA",
+    "RCAA Negotiations Update with District Representative, Superintendent Baker, (§54957.6)",
+    "Adjournment (Action Required)",
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to immediately after oral communication, before the regular agenda items. Additionally, all bond program consent items (6.1) were moved to action items (6.2 and 6.3) due to public comments received.",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved from its original position to before oral communication. Additionally, items 6.2 and 6.3 (bond program action items) were moved to action after public comment on 6.1 was identified.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn.",
+        "intro_words": "Great. Good evening, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McEvoy. Present.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
+        "intro_words": "President Marquez? Here. Thank you. Next item",
         "status": "found"
       },
       {
@@ -43,47 +46,42 @@
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "intro_words": "And are there any changes to the agenda?",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "intro_words": "Yes, I was hoping that we could move 13.1",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "With that, if there's no other changes to the agenda, can I",
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "With that, if there's no other changes to the agenda, can I",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 12,
-        "intro_words": "Great. So I know it's been a long day, but I just",
+        "intro_words": "And this is recognition of classified employees. Thank you.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Right, we're gonna take a Five minute break. She's ready.",
+        "intro_words": "So item 8, school and community reports. 8.1.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Right, we're gonna take a Five minute break. She's ready.",
+        "intro_words": "School plans for student achievement reports for Garfield Community School and Henry Ford.",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "Go ahead, Liz. Yeah, so it's with great enthusiasm",
         "status": "found"
       }
     ]
@@ -100,8 +98,8 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
       },
       {
         "timestamp": "00:00:30",
@@ -112,16 +110,8 @@
         "timestampSeconds": 95
       },
       {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
-      },
-      {
-        "timestamp": "00:02:43",
-        "timestampSeconds": 163
-      },
-      {
-        "timestamp": "00:02:43",
-        "timestampSeconds": 163
+        "timestamp": "00:01:40",
+        "timestampSeconds": 100
       },
       {
         "timestamp": "00:02:23",
@@ -130,23 +120,31 @@
       {
         "timestamp": "00:02:23",
         "timestampSeconds": 143
+      },
+      {
+        "timestamp": "00:02:58",
+        "timestampSeconds": 178
       },
       null,
+      null,
+      null,
       {
-        "timestamp": "01:03:53",
-        "timestampSeconds": 3833
+        "timestamp": "00:20:22",
+        "timestampSeconds": 1222
       },
       {
-        "timestamp": "02:34:26",
-        "timestampSeconds": 9266
+        "timestamp": "00:20:32",
+        "timestampSeconds": 1232
       },
       {
-        "timestamp": "02:34:26",
-        "timestampSeconds": 9266
-      }
+        "timestamp": "00:20:52",
+        "timestampSeconds": 1252
+      },
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-08-30T20:34:28.531Z",
-  "inputTokens": 43475,
-  "outputTokens": 711
+  "cachedAt": "2026-08-31T12:42:27.156Z",
+  "inputTokens": 43596,
+  "outputTokens": 648
 }
