@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda announced at the start of the meeting.",
-    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No changes to the agenda were announced. The board president asked 'are there any changes to the agenda having here?' and received no response. The agenda proceeded as posted.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -33,32 +33,32 @@
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again, welcome everyone. And are there any changes to the agenda having here?",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Again, welcome everyone. And are there any changes to the agenda having here?",
+        "intro_words": "And are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Again, welcome everyone. And are there any changes to the agenda having here?",
+        "intro_words": "And are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
@@ -74,7 +74,7 @@
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 12,
@@ -109,8 +109,24 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:01:14",
-        "timestampSeconds": 74
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
+      },
+      {
+        "timestamp": "00:01:09",
+        "timestampSeconds": 69
+      },
+      {
+        "timestamp": "00:01:09",
+        "timestampSeconds": 69
+      },
+      {
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79
+      },
+      {
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79
       },
       {
         "timestamp": "00:01:14",
@@ -122,23 +138,8 @@
       },
       {
         "timestamp": "00:01:19",
-        "timestampSeconds": 79
-      },
-      {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79
-      },
-      {
-        "timestamp": "00:01:14",
-        "timestampSeconds": 74
-      },
-      {
-        "timestamp": "00:01:14",
-        "timestampSeconds": 74
-      },
-      {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "00:02:03",
@@ -154,7 +155,7 @@
       }
     ]
   },
-  "cachedAt": "2026-08-31T12:42:56.500Z",
+  "cachedAt": "2026-08-31T22:28:26.430Z",
   "inputTokens": 27924,
-  "outputTokens": 704
+  "outputTokens": 710
 }
