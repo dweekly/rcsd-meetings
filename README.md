@@ -257,7 +257,10 @@ npm run transcribe                          # all unprocessed meetings
 npm run transcribe -- --date 2026-01-14     # single meeting
 npm run transcribe -- --limit 5             # batch of 5
 node scripts/transcribe-dashboard.mjs       # live progress dashboard at localhost:3456
+node scripts/diagnose-yt-audio.mjs <videoId> # diagnose an audio-fetch failure (fresh as of 2026-08-14)
 ```
+
+If a meeting's audio will not download, run `diagnose-yt-audio.mjs` before changing anything: it lists the formats YouTube offers and probes each one repeatedly, which distinguishes an intermittent `HTTP 403` (handled by the retry policy in `scripts/lib/yt-audio.mjs`) from a genuinely unavailable stream or a blocked IP.
 
 **Output:**
 - `artifacts/audio/{videoId}.webm` — raw Opus audio (permanent cache)
