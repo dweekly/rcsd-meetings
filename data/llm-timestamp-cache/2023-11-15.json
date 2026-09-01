@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - to be discussed at a future meeting. Item 9.3 moved from consent to action for discussion and elaboration on video intercom buzzer proposal at Haas School.",
-    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1.",
+    "agenda_changes": "Two changes announced during Approval of Agenda: (1) Item 10.1 pulled - will not be discussed tonight and will come forward at another time; (2) Item 9.3 moved from consent to action with request for elaboration",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
     "items": [
       {
         "item": 1,
@@ -28,12 +28,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "Welcome to another Redwood City School District study session.",
+        "intro_words": "Roll Call",
         "status": "found"
       },
       {
@@ -43,53 +38,63 @@
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
-        "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "And with that, does somebody want to make a motion to approve?",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "And with that, moving on to bond program consent Items, again with 9.3.",
+        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make",
         "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "consent_bundle",
-        "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "And with that, moving on to our study session discussion on dyslexia.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
-        "item": 10,
-        "intro_words": "pulled",
-        "status": "pulled"
+        "item": 11,
+        "intro_words": "moving on to bond program consent Items, again with 9.3",
+        "status": "found"
       },
       {
-        "item": 11,
-        "intro_words": "Closed Session 5:30 p.m. (Closed to the Public)",
-        "status": "not_found"
+        "item": 11.1,
+        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two",
+        "status": "found"
+      },
+      {
+        "item": 11.2,
+        "intro_words": "moving to 11.11.1 being Hoover and Henry Ford school presentations",
+        "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So moving to item 12 for discussion. 12.1 being first reading and discussion",
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five",
+        "intro_words": "moving to item 13, consent items. If there are no questions",
         "status": "found"
       },
       {
-        "item": 14,
-        "intro_words": "Adjournment / Adjourn the Meeting",
-        "status": "not_found"
+        "item": 14.1,
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution",
+        "status": "found"
+      },
+      {
+        "item": 14.2,
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for",
+        "status": "found"
+      },
+      {
+        "item": 16.1,
+        "intro_words": "moving on to item 16.1, information on San Mateo county",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "moving on to board meeting calendar. Are there any changes",
+        "status": "found"
       }
     ]
   },
@@ -97,47 +102,40 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
+      null,
       null,
       {
         "timestamp": "01:10:10",
         "timestampSeconds": 4210
       },
+      null,
       {
-        "timestamp": "01:10:41",
-        "timestampSeconds": 4241
+        "timestamp": "01:10:54",
+        "timestampSeconds": 4254
       },
+      null,
       {
         "timestamp": "01:11:15",
         "timestampSeconds": 4275
       },
-      {
-        "timestamp": "01:10:15",
-        "timestampSeconds": 4215,
-        "consent": true
-      },
-      null,
-      null,
       null,
       {
-        "timestamp": "02:38:10",
-        "timestampSeconds": 9490
+        "timestamp": "01:11:21",
+        "timestampSeconds": 4281
       },
       {
-        "timestamp": "03:03:07",
-        "timestampSeconds": 10987
+        "timestamp": "02:38:15",
+        "timestampSeconds": 9495
+      },
+      {
+        "timestamp": "03:03:35",
+        "timestampSeconds": 11015
       },
       null
     ]
   },
-  "cachedAt": "2026-08-31T22:27:30.768Z",
+  "cachedAt": "2026-09-01T11:06:47.352Z",
   "inputTokens": 37863,
-  "outputTokens": 743
+  "outputTokens": 781
 }
