@@ -21,23 +21,23 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, consent bond items were modified: item 6.1 was moved to action due to public comments, and items 6.2 and 6.3 were moved to action.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its posted position to be taken before Oral Communication. The board also decided to move bond program consent items (6.1, 6.2, 6.3) from consent to action items due to public comment received.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Evelyn. Trustee Weekley. Present. Trustee McEvoy.",
-        "status": "found"
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
+        "status": "consent_bundle"
       },
       {
         "item": 3,
-        "intro_words": "Thank you. Next item is 1.2 reported on closed session.",
-        "status": "found"
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
+        "status": "consent_bundle"
       },
       {
         "item": 4,
@@ -46,33 +46,63 @@
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping that we could move 13.1",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
         "status": "found"
       },
       {
-        "item": 13,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition",
+        "item": 6,
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 7,
+        "intro_words": "With that, if there's no other changes to the agenda, can I",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1. School plans for student",
-        "status": "found"
+        "intro_words": "With that, if there's no other changes to the agenda, can I",
+        "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "moving on to item nine, discussion items. So board of trustees graduation and promotion",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
-        "item": 11,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle school",
-        "status": "found"
+        "item": 10,
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "intro_words": "Next item is 1.2 reported on closed session. We took staff",
         "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "pulled from agenda",
+        "status": "pulled"
+      },
+      {
+        "item": 14,
+        "intro_words": "pulled from agenda",
+        "status": "pulled"
+      },
+      {
+        "item": 15,
+        "intro_words": "pulled from agenda",
+        "status": "pulled"
+      },
+      {
+        "item": 16,
+        "intro_words": "does anybody want to make a motion to adjourn them?",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "does anybody want to make a motion to adjourn them?",
+        "status": "consent_bundle"
       }
     ]
   },
@@ -84,48 +114,63 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
       },
       {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
       },
       {
         "timestamp": "00:00:30",
         "timestampSeconds": 30
       },
       {
-        "timestamp": "00:01:30",
-        "timestampSeconds": 90
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
       },
+      {
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
+      },
+      {
+        "timestamp": "00:02:43",
+        "timestampSeconds": 163
+      },
+      {
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
+      },
+      {
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
+      },
+      {
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
+      },
+      null,
+      null,
+      null,
       null,
       null,
       {
-        "timestamp": "00:20:22",
-        "timestampSeconds": 1222
+        "timestamp": "00:17:25",
+        "timestampSeconds": 1045
       },
       {
-        "timestamp": "03:10:34",
-        "timestampSeconds": 11434
-      },
-      null,
-      {
-        "timestamp": "03:16:36",
-        "timestampSeconds": 11796
-      },
-      {
-        "timestamp": "03:18:59",
-        "timestampSeconds": 11939
-      },
-      null,
-      null,
-      null,
-      null,
-      null
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
+      }
     ]
   },
-  "cachedAt": "2026-09-01T20:34:55.439Z",
+  "cachedAt": "2026-09-02T10:39:07.678Z",
   "inputTokens": 43596,
-  "outputTokens": 597
+  "outputTokens": 825
 }

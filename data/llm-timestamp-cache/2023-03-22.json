@@ -18,17 +18,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced at start of meeting. Items were taken in posted order with minor variations in numbering/formatting.",
+    "agenda_changes": "No changes to agenda announced. Consent bond program items (item 6.1) were approved as a bundle without individual discussion.",
     "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
@@ -48,77 +48,47 @@
       },
       {
         "item": 6,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "And are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "consent_bundle"
+        "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
-        "status": "found"
-      },
-      {
-        "item": 8.1,
-        "intro_words": "8.1. Discussion of the school plan for student achievement for Roy Cloud and North Star Academy.",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports. 8.1. Discussion",
-        "status": "found"
-      },
-      {
-        "item": 9.1,
-        "intro_words": "The agenda, item seven discussion items. 9.1 is first reading and discussion of board policy.",
-        "status": "found"
-      },
-      {
-        "item": 9.2,
-        "intro_words": "Moving on to 9.2. First reading and discussion of Board Bylaw 9220, governing board elections.",
-        "status": "found"
-      },
-      {
-        "item": 9.3,
-        "intro_words": "9.3. First reading and discussion of board bylaw 9323 meeting conduct.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "And then item 10, consent items. Can I please get a motion to approve the consent items?",
-        "status": "found"
-      },
-      {
-        "item": 11.1,
-        "intro_words": "Action items 11.1, adoption of resolution 31, establishing fund 35 county schools facilities fund.",
-        "status": "found"
-      },
-      {
-        "item": 11.2,
-        "intro_words": "Moving on to 11.2 approval of Redwood City School District. 20, 22, 23. Second interim financial.",
-        "status": "found"
-      },
-      {
-        "item": 12.1,
-        "intro_words": "Board and superintendent report 12.1. So I don't have any reports from the.",
-        "status": "found"
+        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "Item 13, information on San Mateo county investment fund.",
+        "intro_words": "Thank you, guys. Thank you. Item seven, we don't have any action items.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "And then I think moving on to obviously, adjournment.",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
         "status": "found"
       }
     ]
@@ -147,6 +117,14 @@
         "timestampSeconds": 69
       },
       {
+        "timestamp": "00:01:09",
+        "timestampSeconds": 69
+      },
+      {
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79
+      },
+      {
         "timestamp": "00:01:19",
         "timestampSeconds": 79
       },
@@ -154,14 +132,13 @@
         "timestamp": "00:01:14",
         "timestampSeconds": 74
       },
-      null,
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79
+        "timestamp": "00:01:33",
+        "timestampSeconds": 93
       },
       {
         "timestamp": "00:01:19",
@@ -169,20 +146,16 @@
         "consent": true
       },
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "00:01:58",
+        "timestampSeconds": 118
       },
       {
-        "timestamp": "02:15:40",
-        "timestampSeconds": 8140
-      },
-      {
-        "timestamp": "02:17:55",
-        "timestampSeconds": 8275
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       }
     ]
   },
-  "cachedAt": "2026-09-01T20:35:19.154Z",
+  "cachedAt": "2026-09-02T10:39:35.902Z",
   "inputTokens": 27924,
-  "outputTokens": 1080
+  "outputTokens": 735
 }
