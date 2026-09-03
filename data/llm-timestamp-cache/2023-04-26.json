@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) moved from later in agenda to before oral communication; Item 6.1 (Approval of Bond Program Consent Items) moved to action items; Items 6.2 and 6.3 moved to action items; Additional staff recognition added under modified 13.1",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action, and items 6.2 and 6.3 were also moved to action.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -36,22 +36,22 @@
       },
       {
         "item": 3,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 4,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion. Pueden marcar",
+        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
         "status": "found"
       },
       {
+        "item": 4,
+        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
+        "status": "consent_bundle"
+      },
+      {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda? Yes, I was",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
         "status": "consent_bundle"
       },
       {
@@ -66,41 +66,48 @@
       },
       {
         "item": 9,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication",
         "status": "consent_bundle"
       },
       {
         "item": 11,
-        "intro_words": "pulled"
+        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn. Trustee",
+        "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "pulled"
+        "intro_words": "Next item is 1.2 reported on closed session. We took",
+        "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "pulled"
+        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn. Trustee",
+        "status": "consent_bundle"
       },
       {
         "item": 14,
-        "intro_words": "pulled"
+        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn. Trustee",
+        "status": "consent_bundle"
       },
       {
         "item": 15,
-        "intro_words": "pulled"
+        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn. Trustee",
+        "status": "consent_bundle"
       },
       {
         "item": 16,
-        "intro_words": "moved to June discussion"
+        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn. Trustee",
+        "status": "consent_bundle"
       },
       {
         "item": 17,
-        "intro_words": "All those on Tamer. Thank you. All right."
+        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn. Trustee",
+        "status": "consent_bundle"
       }
     ]
   },
@@ -117,13 +124,13 @@
         "consent": true
       },
       {
+        "timestamp": "00:00:30",
+        "timestampSeconds": 30
+      },
+      {
         "timestamp": "00:02:48",
         "timestampSeconds": 168,
         "consent": true
-      },
-      {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
       },
       {
         "timestamp": "00:01:35",
@@ -154,20 +161,34 @@
       },
       null,
       null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "03:22:36",
-        "timestampSeconds": 12156
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
       },
       {
-        "timestamp": "03:30:13",
-        "timestampSeconds": 12613
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
+      },
+      {
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
+      },
+      {
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
+      },
+      {
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168,
+        "consent": true
       }
     ]
   },
-  "cachedAt": "2026-09-02T20:32:29.353Z",
+  "cachedAt": "2026-09-03T10:42:14.085Z",
   "inputTokens": 43596,
-  "outputTokens": 780
+  "outputTokens": 938
 }
