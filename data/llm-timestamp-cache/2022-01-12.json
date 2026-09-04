@@ -17,8 +17,8 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "At the start of the meeting, the President announced changes to the agenda: moving three Measure U items (10.5, 10.6, 10.7) to consent, and moving items 10.3 and 10.4 to consent. A motion was made and seconded to approve these changes, with all in favor.",
-    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items. Recommendation of approval measure T, bond program tracking list of items, and recommendation of approval of the MUB transfer switch installation proposal for various sites. Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
+    "agenda_changes": "Multiple items moved to consent: Measure U items (10.5, 10.6, 10.7) and items 10.3 and 10.4 were moved to consent agenda. Bond program consent items were voted as a bundle.",
+    "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
     "items": [
       {
         "item": 1,
@@ -27,7 +27,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
+        "intro_words": "Roll call, please. Trustee McAvoy. Present. Trustee",
         "status": "found"
       },
       {
@@ -37,37 +37,37 @@
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening?",
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "So all those in favor? Aye. Ali, do we have any oral communication",
+        "intro_words": "All those in favor? Aye. Ali, do we have any oral communication",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Moving right along to the bond program consent items. Recommendation",
+        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval",
         "status": "consent_bundle"
       },
       {
         "item": 11,
-        "intro_words": "Moving on to bond program action items. The first one is 7.1.",
+        "intro_words": "Moving on to bond program action items. The first one is 7.1",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "On to eight discussion items. The first one is 8.1. COVID 19. Update",
+        "intro_words": "Okay, on to eight discussion items. The first one is 8.1",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240 Volunteer Assistance.",
+        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240 Volunteer Assistance",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Moving on to 8.3. First reading and discussion of board policy 3555.",
+        "intro_words": "Moving on to 8.3. First reading and discussion of board policy",
         "status": "found"
       },
       {
@@ -77,17 +77,17 @@
       },
       {
         "item": 16,
-        "intro_words": "Along to 8.5. First reading and discussion of board policy 5141.31.",
+        "intro_words": "Along to 8.5. First reading and discussion of board policy 5141.31",
         "status": "found"
       },
       {
         "item": 17,
-        "intro_words": "Okay, can I have a motion to move the consent items, which include",
-        "status": "found"
+        "intro_words": "Okay, can I have a motion to move the consent items, which",
+        "status": "consent_bundle"
       },
       {
         "item": 18,
-        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school board's March 11",
+        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school board's March",
         "status": "found"
       },
       {
@@ -97,27 +97,32 @@
       },
       {
         "item": 20,
-        "intro_words": "12.1. The quarterly Williams Report. Do we have any questions",
+        "intro_words": "Do I have a motion? So mood. Second. So let's start",
         "status": "found"
       },
       {
         "item": 21,
-        "intro_words": "Correspondence. We did have a email from a parent about",
+        "intro_words": "12.1. The quarterly Williams Report. Do we have any questions",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "14.1 possible other business suggested items for future agendas. None.",
+        "intro_words": "Correspondence. We did have a email from a parent about",
         "status": "found"
       },
       {
         "item": 23,
-        "intro_words": "15.1. Changes to the board agenda schedule. None this evening.",
+        "intro_words": "14.1 possible other business suggested items for future agendas. None",
         "status": "found"
       },
       {
         "item": 24,
-        "intro_words": "Can we have a motion to adjourn? So moved. Second.",
+        "intro_words": "15.1. Changes to the board agenda schedule. None this evening",
+        "status": "found"
+      },
+      {
+        "item": 25,
+        "intro_words": "Great. Okay. Can we have a motion to adjourn? So moved",
         "status": "found"
       }
     ]
@@ -144,13 +149,13 @@
       },
       null,
       {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
       },
       null,
       {
-        "timestamp": "00:02:22",
-        "timestampSeconds": 142,
+        "timestamp": "00:03:28",
+        "timestampSeconds": 208,
         "consent": true
       },
       null,
@@ -159,8 +164,8 @@
         "timestampSeconds": 165
       },
       {
-        "timestamp": "00:04:36",
-        "timestampSeconds": 276
+        "timestamp": "00:02:53",
+        "timestampSeconds": 173
       },
       {
         "timestamp": "00:50:20",
@@ -168,7 +173,7 @@
       }
     ]
   },
-  "cachedAt": "2026-09-04T10:38:50.526Z",
+  "cachedAt": "2026-09-04T20:18:53.486Z",
   "inputTokens": 18781,
-  "outputTokens": 1124
+  "outputTokens": 1104
 }
