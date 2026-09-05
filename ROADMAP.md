@@ -393,6 +393,23 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
   runner (trogdor) has no `.venv` with PyMuPDF installed. The step is currently
   soft-failing, so agenda-link extraction silently degrades. Add a `.venv` + `pip install
   pymupdf` (latest) to the runner or a pipeline setup step, per the venv-always rule.
+- [ ] **Move the ingestion cron off GitHub's scheduler.** `.github/workflows/pipeline.yml`
+  declares `schedule: '0 6,18 * * *'`, but GitHub delays queued scheduled runs: the
+  Sep 4 2026 runs started at 10:34 and 20:15 UTC — 4h34m and 2h15m late. The freshness
+  SLA is therefore being carried by `check-rcsd.sh` (trogdor crontab, 02/08/14/20 UTC),
+  which dispatches a full run whenever it spots an un-ingested Simbli MID; that is what
+  pulled the 2026-09-09 agenda, ~14h after RCSD posted it and ~2h after the watchdog saw
+  it. Either fire the pipeline from trogdor's crontab directly (it already runs the
+  watchdog and hosts the self-hosted runner) so it starts on time, or accept the
+  watchdog as the primary trigger and document it as such in docs/WATCHDOG.md.
+- [ ] **Simbli's listing returns only 50 rows and `discoverMeetings()` has no pagination.**
+  `scripts/scrape-simbli-agendas.mjs:135` takes whatever rows the listing page renders;
+  every observed run reports exactly "Found 50 meetings on Simbli listing." Harmless
+  today — the rows falling off the end are 2020-era meetings already in `data/` — but a
+  district backfill, or any burst of special meetings, would silently push meetings out
+  of discovery with no error. Confirm whether the page is server-paginated, and if so
+  page through it (or assert the row count against an expected floor so a shrinking
+  listing fails loudly rather than quietly).
 - [ ] **Screencap demo** — narrated screen recording showing: homepage, clicking into a meeting, transcript click-to-seek, Spanish toggle, chapter markers, MCP query. For embedding on the site and social sharing.
 
 ## Data Attribution (in progress)
