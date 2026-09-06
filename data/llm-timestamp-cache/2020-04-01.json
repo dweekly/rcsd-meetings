@@ -37,62 +37,82 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item pulled: Staff recognition was added after item 5 (Oral Communication). Board President announced: 'I'd like to add staff recognition. I need to pull it up my after oral communication. Wherever you'd like it. We'll move it after item five.'",
-    "consent_vote_words": "Do we have a motion to approve the agenda? So moved. Is that Elisa? Yeah. Yes. It's Alisa. Second. Cecilia.",
+    "agenda_changes": "Staff recognition item was added and moved to after item 5 (Oral Communication). No items were pulled from the agenda.",
+    "consent_vote_words": "And a roll call vote, please. Trustee McBride. Aye. Trustee Marquez. Aye. Trustee Diaz Locum. Aye. Trustee McAvoy. Aye. Trustee Lawson. Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Not found in opening sequence",
-        "status": "procedural"
+        "intro_words": "Call to Order",
+        "status": "not_found_verbatim"
       },
       {
         "item": 2,
-        "intro_words": "Not found in opening sequence",
-        "status": "procedural"
+        "intro_words": "Roll Call",
+        "status": "not_found_verbatim"
       },
       {
         "item": 3,
-        "intro_words": "Not found in opening sequence",
-        "status": "procedural"
+        "intro_words": "Welcome",
+        "status": "not_found_verbatim"
       },
       {
         "item": 4,
-        "intro_words": "Welcome, everybody. It's good to see some familiar faces again.",
-        "status": "found"
+        "intro_words": "Welcome by the School Board President",
+        "status": "not_found_verbatim"
       },
       {
         "item": 5,
-        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
-        "status": "found"
-      },
-      {
-        "item": "Staff Recognition (added)",
-        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis.",
-        "status": "found"
+        "intro_words": "Pledge of Allegiance",
+        "status": "not_found_verbatim"
       },
       {
         "item": 6,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
+        "intro_words": "Moving on. Are there any changes to the agenda?",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "So, we are on to 7.1, which is a bond action item. Do we know we have Will here?",
+        "intro_words": "Do we have a motion to approve the agenda?",
         "status": "found"
       },
       {
-        "item": 8.1,
-        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want to go ahead and start?",
+        "item": 8,
+        "intro_words": "I'd like to thank every employee in the district, from the custodians",
         "status": "found"
       },
       {
-        "item": 10.1,
-        "intro_words": "Moving on to item 10.1. Action item. This is the resolution of emergency relating to COVID 19.",
+        "item": 11,
+        "intro_words": "So we are on to item six, the bond program consent items to approve.",
         "status": "found"
       },
       {
-        "item": 11.1,
-        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have anything they would like to.",
+        "item": 19,
+        "intro_words": "So, moving on to 7.1, which is a bond action item.",
+        "status": "found"
+      },
+      {
+        "item": 21,
+        "intro_words": "Okay, item 8.1, which I think is here for.",
+        "status": "found"
+      },
+      {
+        "item": 25,
+        "intro_words": "Okay, so we're going to move on. And that was our last speaker's",
+        "status": "found"
+      },
+      {
+        "item": 26,
+        "intro_words": "We are on 11.1. Report from board members and superintendent.",
+        "status": "found"
+      },
+      {
+        "item": 30,
+        "intro_words": "All right, then. Other business suggested items for future agenda.",
+        "status": "found"
+      },
+      {
+        "item": 33,
+        "intro_words": "Is there a motion to adjourn",
         "status": "found"
       }
     ]
@@ -100,17 +120,31 @@
   "result": {
     "videoId": "0cWwZ9lGR0U",
     "items": [
+      {
+        "timestamp": "00:00:27",
+        "timestampSeconds": 27
+      },
       null,
       null,
       null,
       {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
+        "timestamp": "00:02:06",
+        "timestampSeconds": 126
       },
       {
-        "timestamp": "00:03:01",
-        "timestampSeconds": 181
+        "timestamp": "00:03:28",
+        "timestampSeconds": 208
       },
+      {
+        "timestamp": "00:03:46",
+        "timestampSeconds": 226
+      },
+      {
+        "timestamp": "00:04:51",
+        "timestampSeconds": 291
+      },
+      null,
+      null,
       {
         "timestamp": "00:05:13",
         "timestampSeconds": 313
@@ -122,29 +156,42 @@
       null,
       null,
       null,
+      {
+        "timestamp": "00:06:12",
+        "timestampSeconds": 372
+      },
+      null,
+      {
+        "timestamp": "00:08:30",
+        "timestampSeconds": 510
+      },
       null,
       null,
       null,
+      {
+        "timestamp": "00:17:18",
+        "timestampSeconds": 1038
+      },
+      {
+        "timestamp": "01:48:57",
+        "timestampSeconds": 6537
+      },
       null,
       null,
       null,
+      {
+        "timestamp": "01:59:50",
+        "timestampSeconds": 7190
+      },
       null,
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null
+      {
+        "timestamp": "02:04:21",
+        "timestampSeconds": 7461
+      }
     ]
   },
-  "cachedAt": "2026-09-06T10:20:54.058Z",
+  "cachedAt": "2026-09-06T20:04:45.047Z",
   "inputTokens": 24593,
-  "outputTokens": 659
+  "outputTokens": 777
 }
