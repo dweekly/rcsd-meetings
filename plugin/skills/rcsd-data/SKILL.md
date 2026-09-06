@@ -39,19 +39,35 @@ When a user mentions a child by name, resolve their school and grade from this c
 
 Read these files from `data/` to answer questions. For field-by-field documentation, consult `references/data-schema.md`.
 
+**This document states no record counts, and you should not quote one from memory.** Every
+count here would go stale on the next pipeline run, so the tables below describe each file's
+*shape* — what one entry represents — and you read the current number from the data itself:
+
+| Where to read it | Files |
+|---|---|
+| `stats` (plus `generated`) | `meetings-data.json`, `document-index.json` |
+| `_metadata.counts` | `warrants-index.json`, `warrant-pdf-manifest.json` |
+| `_metadata` (provenance: source, method, retrieval date — no counts) | `charters.json`, `policies-index.json`, `policy-summaries.json`, `policy-titles-es.json`, `properties.json`, `trustees.json`, `school-clubs.json`, `site-presentations.json`, `spsa-budgets.json`, `ssc-meetings.json`, `ssc-membership.json`, `freshness.json`, `warrant-vendor-aliases.json`, everything under `cde/` |
+| Length of the top-level array or object | `youtube-index.json` (array), `schools.json` → `.schools`, `policies-index.json` → `.policies`, `meeting-summaries.json`, `timestamp-map.json`, `agenda-attachments.json` |
+
+`data/freshness.json` records when the district-fact probes last ran. The published mirror of
+every file is `https://data.rcsd.info/json/`, with the release pointer at
+`https://data.rcsd.info/json/releases/current.json` — note the host is `data.rcsd.info`; the
+site at `rcsd.info` does not serve `data/`.
+
 ### Schools & District
 
-| File | Size | Use For |
+| File | Shape | Use For |
 |------|------|---------|
-| `schools.json` | 609 lines | School profiles, bell schedules, addresses, principals, PTO/PTA info, parent links, CDS codes |
-| `school-clubs.json` | 12 schools | **Student clubs & extracurriculars per school** — `schools[<slug>].clubs[]` = `{name, category (environmental/arts/stem/sports/service/academic/social/other), evidence, lastMentioned, mentions[]}`. **AI-extracted from board site-presentation transcripts** (claude-sonnet-4-6) and labeled **best-effort / not authoritative**: it lists only clubs a principal named aloud on their presentation night, not a complete roster. Each club cites an evidence quote + the meeting date(s). Use for "what clubs does X have?" but state the caveat. Built by `extract-school-clubs.mjs`. |
-| `site-presentations.json` | 12 schools | Per-school index of the last 3 years of board **"site presentation" decks** (the annual data presentation each school gives the Board — LCAP goals, CAASPP/i-Ready, attendance, SEL). `schools[<slug>]` = array (newest school-year first) of `{schoolYear, meetingDate, title, pdfUrl, videoUrl, sourceUrl}`; every `pdfUrl` is mirrored to R2. Built by `build-site-presentations.mjs`. **Note:** these are *data decks*, not club/program rosters — they mention student clubs only incidentally. |
-| `charters.json` | 3 charters | RCSD-authorized charter schools: addresses, authorizer, enrollment, leaders, CDS codes (separate from district schools) |
-| `properties.json` | 6 properties | District-owned/leased real estate that is **not** an operating school — admin buildings, leased-out former campuses (Hawes at 909 Roosevelt: Rocketship charter + Building Kidz + Touchstone; Fair Oaks at 2950 Fair Oaks Ave: KIPP + Connect), storage. Each entry links its board-approved leases/use agreements (`documents[]`). Keyed by address; use to resolve a district site named only by street address. |
-| `district-calendar-2025-26.json` | ~17 events | "Is there school?" queries for 2025-26 year |
-| `district-calendar-2026-27.json` | ~17 events | "Is there school?" queries for 2026-27 year |
-| `governance-calendar.json` | ~12 events | Board meeting schedule |
-| `trustees.json` | 5 trustees + leadership | **Who is my board member / trustee?** Board roster keyed by trustee area (name, area, officer role, term years, school assignments, email), the superintendent (`superintendent.current` = Dr. Christian J. Rubalcaba, in office since 2026-07-01; predecessors under `superintendent.former[]`, currently Dr. John R. Baker through 2026-06-30), and district cabinet (Asst. Supt. of Human Resources Wendy Kelly, Asst. Supt. of Educational Services Anna Herrera, CBO Rick Edson) + 13 directors/coordinators (`directors[]`). Use for "who represents area N", "who is the board president", "who is the superintendent", "when does X's term end", "who is the director of special education / HR / technology". |
+| `schools.json` | One per school | School profiles, bell schedules, addresses, principals, PTO/PTA info, parent links, CDS codes |
+| `school-clubs.json` | One per school | **Student clubs & extracurriculars per school** — `schools[<slug>].clubs[]` = `{name, category (environmental/arts/stem/sports/service/academic/social/other), evidence, lastMentioned, mentions[]}`. **AI-extracted from board site-presentation transcripts** (claude-sonnet-4-6) and labeled **best-effort / not authoritative**: it lists only clubs a principal named aloud on their presentation night, not a complete roster. Each club cites an evidence quote + the meeting date(s). Use for "what clubs does X have?" but state the caveat. Built by `extract-school-clubs.mjs`. |
+| `site-presentations.json` | One per school | Per-school index of the last 3 years of board **"site presentation" decks** (the annual data presentation each school gives the Board — LCAP goals, CAASPP/i-Ready, attendance, SEL). `schools[<slug>]` = array (newest school-year first) of `{schoolYear, meetingDate, title, pdfUrl, videoUrl, sourceUrl}`; every `pdfUrl` is mirrored to R2. Built by `build-site-presentations.mjs`. **Note:** these are *data decks*, not club/program rosters — they mention student clubs only incidentally. |
+| `charters.json` | One per charter school | RCSD-authorized charter schools: addresses, authorizer, enrollment, leaders, CDS codes (separate from district schools) |
+| `properties.json` | One per property | District-owned/leased real estate that is **not** an operating school — admin buildings, leased-out former campuses (Hawes at 909 Roosevelt: Rocketship charter + Building Kidz + Touchstone; Fair Oaks at 2950 Fair Oaks Ave: KIPP + Connect), storage. Each entry links its board-approved leases/use agreements (`documents[]`). Keyed by address; use to resolve a district site named only by street address. |
+| `district-calendar-2025-26.json` | One per calendar event | "Is there school?" queries for 2025-26 year |
+| `district-calendar-2026-27.json` | One per calendar event | "Is there school?" queries for 2026-27 year |
+| `governance-calendar.json` | One per planned agenda topic | Board meeting schedule |
+| `trustees.json` | One per trustee, plus leadership | **Who is my board member / trustee?** Board roster keyed by trustee area (name, area, officer role, term years, school assignments, email), the superintendent (`superintendent.current` = Dr. Christian J. Rubalcaba, in office since 2026-07-01; predecessors under `superintendent.former[]`, currently Dr. John R. Baker through 2026-06-30), and district cabinet (Asst. Supt. of Human Resources Wendy Kelly, Asst. Supt. of Educational Services Anna Herrera, CBO Rick Edson) + 13 directors/coordinators (`directors[]`). Use for "who represents area N", "who is the board president", "who is the superintendent", "when does X's term end", "who is the director of special education / HR / technology". |
 | `freshness.json` | Source-drift observations | **Is the site's leadership data still current?** What rcsdk8.net said the last time it was probed: each school's principal, the sitting superintendent, and the cabinet roster, each with its `source` URL and `_metadata.scrapedAt`. Written by `verify-live-facts.mjs`, asserted by `check-freshness.mjs`. Records what the SOURCE says — it is not the published value, which lives in `schools.json` / `trustees.json`. Use to answer "when was this last checked" or to see a drift the build is failing on. |
 
 ### Demographics & Academics
@@ -70,20 +86,20 @@ Read these files from `data/` to answer questions. For field-by-field documentat
 | `ssc-membership.json` | School Site Council members, roles, chairperson per school (3 years from SPSA PDFs) |
 | `ssc-meetings.json` | Per-school SSC meeting agendas and minutes (PDFs on R2). Currently covers Orion 2025-26. |
 | `spsa-budgets.json` | SPSA budget summaries: funding by source per school (from 2025-26 SPSA PDFs) |
-| `committees/<id>.json` | One file per committee (CBOC, DELAC, …): name, scope, members, chair, email, homepage, and meetings (past/scheduled). CBOC includes 13 video recordings with transcripts (`transcripts/cboc-<date>.json`). Built by `build-committees.mjs`. |
+| `committees/<id>.json` | One file per committee (CBOC, DELAC, …): name, scope, members, chair, email, homepage, and meetings (past/scheduled). Recordings that exist are transcribed like board meetings (`transcripts/cboc-<date>.json`). Built by `build-committees.mjs`. |
 
-### Board Meetings (198 meetings, Aug 2020 - present)
+### Board Meetings (Aug 2020 - present)
 
-| File | Size | Use For |
+| File | Shape | Use For |
 |------|------|---------|
-| `meetings-data.json` | Largest file | Comprehensive: all meetings, agenda items, timestamps, topics, threads. **This is the source-of-truth for attachments — ALL 5,162 attachments across every meeting back to 2020 live here at `meetings[].items[].attachments[]` as `{title, href, size}`.** The `href` is a **directly downloadable PDF URL** (BoardDocs `go.boarddocs.com/.../$file/…pdf` for the 164 older meetings; Simbli `Attachment.aspx` for the 34 newest). To pull any historical deck/document, grep an item's `title` here and fetch its `href` — see "Finding a specific named board document" for the download caveat. `stats` block has the running totals (`totalItems`, `totalAttachments`, `simbli`/`boarddocs` counts). |
-| `meeting-summaries.json` | 194 entries | AI-generated 1-3 sentence summaries per meeting |
-| `meeting-summaries-es.json` | 194 entries | Spanish translations of summaries |
-| `school-board-summaries.json` | ~750 entries | Agenda items tagged to specific schools |
+| `meetings-data.json` | Largest file | Comprehensive: all meetings, agenda items, timestamps, topics, threads. **This is the source-of-truth for attachments — every attachment for every meeting back to 2020 lives here at `meetings[].items[].attachments[]` as `{title, href, size}`.** The `href` is a **directly downloadable PDF URL** (BoardDocs `go.boarddocs.com/.../$file/…pdf` for the older meetings; Simbli `Attachment.aspx` for those from June 2025 on — `stats.boarddocs` and `stats.simbli` give the current split). To pull any historical deck/document, grep an item's `title` here and fetch its `href` — see "Finding a specific named board document" for the download caveat. `stats` block has the running totals (`total`, `withVideo`, `withTranscript`, `withMinutes`, `totalItems`, `totalAttachments`, `simbli`, `boarddocs`) and `generated` carries the build date — read them rather than trusting any count written into prose. |
+| `meeting-summaries.json` | One per meeting | AI-generated 1-3 sentence summaries per meeting |
+| `meeting-summaries-es.json` | One per meeting | Spanish translations of summaries |
+| `school-board-summaries.json` | Keyed `date\|item title` | Agenda items tagged to specific schools |
 | `board-memos/{date}.json` | Per-meeting | Per-meeting agenda details and staff memo text (the narrative); does **not** carry attachment file URLs — use `meetings-data.json` → `items[].attachments[].href` for those |
-| `agenda-attachments.json` | Per-meeting, keyed by date | Raw attachment list `{aid, title, url, page}` per item — **but only for the Simbli era (June 2025 → present, ~27 meetings / 1,374 attachments).** Convenient when working a recent meeting, but it is **NOT the historical source** — for anything before June 2025 (and for a complete list any time), use `meetings-data.json` → `items[].attachments[]` instead. |
-| `youtube-index.json` | ~893 entries | YouTube video links for meeting recordings. Each entry has a `kind` field (`board` or a committee id like `cboc`); board consumers filter to `kind === 'board'`. |
-| `timestamp-map.json` | 694 offsets | Agenda item to video timestamp mapping |
+| `agenda-attachments.json` | Keyed by meeting date | Raw attachment list `{aid, title, url, page}` per item, for Simbli-era meetings only. Written by `npm run extract:links` (`scripts/extract-agenda-links.py`), which is a manual step and **not** a stage in `run-pipeline.mjs`, so its coverage ends wherever it was last run — read its own top-level date keys to see the range it actually holds. It carries no `_metadata`. Treat it as a convenience subset and **never as the historical source**: for any meeting before June 2025, and for a complete list at any time, use `meetings-data.json` → `items[].attachments[]`. |
+| `youtube-index.json` | Array, one per video | YouTube video links for meeting recordings. Each entry has a `kind` field (`board` or a committee id like `cboc`); board consumers filter to `kind === 'board'`. |
+| `timestamp-map.json` | Keyed by meeting date | Agenda item to video timestamp mapping |
 | `document-index.json` | Taxonomy | Attachments **classified** by type/subtype/school/year (`documents[]` with `meetingDate`, `itemLabel`, `aid`, `filename`). Good for "all SARCs" / "budget docs for school X". **Caveat: it is a curated taxonomy and omits unclassified item types — e.g. the superintendent employment contract is NOT in it. If a title search here is empty, fall back to `agenda-attachments.json` before concluding a document doesn't exist.** |
 
 ### Vendors & Warrant Registers (vendor payments, FY2014-15 – present)
@@ -106,15 +122,15 @@ node scripts/report-vendor-spend.mjs --top 25       # biggest vendors all-time
 ```
 The CLI already excludes cancelled checks + superseded registers and footnotes non-reconciled months. To reason without the DB, read `warrants-index.json` then the relevant `warrants/{YYYY-MM}.json` files and sum `amount` by normalized payee (skip `status` starting "Cancelled"/"Voided").
 
-### Board Policies (619 policies, bylaws, and regulations)
+### Board Policies (policies, bylaws, and regulations)
 
-| File/Directory | Size | Use For |
+| File/Directory | Shape | Use For |
 |------|------|---------|
-| `policies-index.json` | 619 entries | School board policies global catalog, including codes, titles, revision IDs, and revision dates |
-| `board-policies/` | 619 JSONs | Directory of individual files per policy (e.g. `0100-BP.json`) with full HTML content, sanitized text, footnotes (legal references), and cross-references |
-| `policy-titles-es.json` | 619 entries | Spanish translations of every policy title (Claude-translated, cached, provenance in `_metadata`); powers /politicas/ |
-| `board-policies-es/` | 618 JSONs | Spanish machine-translations of policy **bodies** — `{ code, type, titleEs, contentTextEs, _metadata }`, same filenames as `board-policies/`. One policy (`6174-E PDF(1)-AR`, a scanned PDF exhibit with no extractable text) intentionally has no file; its page falls back to English. The English Simbli version is the only official text |
-| `policy-summaries.json` | 618 entries | AI-generated one-sentence summaries, English AND Spanish, under `.summaries["{code}-{type}"]` = `{ title, en, es, sourceHash }`; powers the /policies/ + /politicas/ index pages. Same one intentional gap (no source text → no summary, never invented) |
+| `policies-index.json` | One per policy | School board policies global catalog, including codes, titles, revision IDs, and revision dates |
+| `board-policies/` | One file per policy | Directory of individual files per policy (e.g. `0100-BP.json`) with full HTML content, sanitized text, footnotes (legal references), and cross-references |
+| `policy-titles-es.json` | One per policy | Spanish translations of every policy title (Claude-translated, cached, provenance in `_metadata`); powers /politicas/ |
+| `board-policies-es/` | One file per policy, less the exception below | Spanish machine-translations of policy **bodies** — `{ code, type, titleEs, contentTextEs, _metadata }`, same filenames as `board-policies/`. One policy (`6174-E PDF(1)-AR`, a scanned PDF exhibit with no extractable text) intentionally has no file; its page falls back to English. The English Simbli version is the only official text |
+| `policy-summaries.json` | One per policy, less the same exception | AI-generated one-sentence summaries, English AND Spanish, under `.summaries["{code}-{type}"]` = `{ title, en, es, sourceHash }`; powers the /policies/ + /politicas/ index pages. Same one intentional gap (no source text → no summary, never invented) |
 
 ### Provenance Sidecars
 

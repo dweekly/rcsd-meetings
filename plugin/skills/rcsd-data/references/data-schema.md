@@ -1335,7 +1335,7 @@ Individual, structured detailed records of each board policy, regulation, and by
 
 ## data/board-policies-es/{code}-{type}.json
 
-Spanish machine-translations of policy **bodies**, one file per policy with the same `{code}-{type}.json` filename as `data/board-policies/`. 618 of the 619 policies have a file; the one gap (`6174-E PDF(1)-AR`) is a scanned PDF exhibit with no extractable English text, so there is nothing to translate — its page falls back to English. These are unofficial AI translations: the English version on Simbli is the only text with legal force.
+Spanish machine-translations of policy **bodies**, one file per policy with the same `{code}-{type}.json` filename as `data/board-policies/`. Every policy but one has a file; the one gap (`6174-E PDF(1)-AR`) is a scanned PDF exhibit with no extractable English text, so there is nothing to translate — its page falls back to English. These are unofficial AI translations: the English version on Simbli is the only text with legal force.
 
 ### Sample Record
 
@@ -1395,7 +1395,7 @@ sidecar until a deliberate translation run upgrades them.
 
 ## data/policy-summaries.json
 
-AI-generated one-sentence summaries of every board policy, English AND Spanish, for the `/policies/` and `/politicas/` index pages. 618 entries — the same single intentional gap as `board-policies-es/` (`6174-E PDF(1)-AR` has no source text, so no summary is invented for it).
+AI-generated one-sentence summaries of every board policy, English AND Spanish, for the `/policies/` and `/politicas/` index pages. One entry per policy, less the same single intentional gap as `board-policies-es/` (`6174-E PDF(1)-AR` has no source text, so no summary is invented for it).
 
 ### Sample
 
