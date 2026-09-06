@@ -387,12 +387,17 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Bilingual (EN/ES)
 
 ## Automation & Infrastructure
-- [ ] **Install PyMuPDF (`fitz`) on the pipeline runner.** `scripts/extract-agenda-links.py`
-  (`import fitz  # pymupdf`, which harvests hyperlink rectangles from agenda PDFs) fails
-  every scheduled run with `ModuleNotFoundError: No module named 'fitz'` — the self-hosted
-  runner (trogdor) has no `.venv` with PyMuPDF installed. The step is currently
-  soft-failing, so agenda-link extraction silently degrades. Add a `.venv` + `pip install
-  pymupdf` (latest) to the runner or a pipeline setup step, per the venv-always rule.
+- [ ] **Get `agenda-attachments.json` back on a schedule.** It is written by
+  `scripts/extract-agenda-links.py` (`import fitz  # pymupdf`, which harvests hyperlink
+  rectangles from agenda PDFs), reachable only as the manual `npm run extract:links`
+  (package.json:42) — it is not one of `run-pipeline.mjs`'s stages and appears in no
+  workflow, so the file only advances when someone runs it by hand, and today it ends at
+  the 2026-06-17 meeting. Two things to fix together: give the self-hosted runner
+  (trogdor) a `.venv` with PyMuPDF installed, per the venv-always rule, and decide whether
+  the extractor becomes a real pipeline stage or the file gets retired. Retiring is worth
+  weighing: `meetings-data.json` → `items[].attachments[]` is already the canonical
+  attachment index across the whole corpus, and `build-homepage.mjs`, `build-meetings.mjs`
+  and `build-schools.mjs` are the only consumers.
 - [ ] **Move the ingestion cron off GitHub's scheduler.** `.github/workflows/pipeline.yml`
   declares `schedule: '0 6,18 * * *'`, but GitHub delays queued scheduled runs: the
   Sep 4 2026 runs started at 10:34 and 20:15 UTC — 4h34m and 2h15m late. The freshness
