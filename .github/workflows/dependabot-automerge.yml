@@ -15,11 +15,44 @@ jobs:
         uses: dependabot/fetch-metadata@v2
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-      # Patch/minor bumps auto-merge once the required "validate" check
-      # passes; semver-major bumps stay open for a human look.
-      - name: Enable auto-merge for patch/minor updates
+      # Patch/minor bumps merge once the "validate" check passes; semver-major
+      # bumps stay open for a human look.
+      #
+      # This waits and then merges, rather than calling GitHub's auto-merge.
+      # Auto-merge only attaches to a pull request that has something to wait on —
+      # a required status check or a required review — and main carries no branch
+      # protection, so the auto-merge call returns "Branch does not have required
+      # protected branch rules (enablePullRequestAutoMerge)" and this job fails on
+      # every Dependabot PR. Protecting main is the other way to satisfy it, but
+      # the nightly pipeline pushes its scraped data straight to main
+      # (pipeline.yml), and a required check on the branch would reject those
+      # commits.
+      #
+      # "validate" is polled by name rather than watching every check, because
+      # this job is itself a check on the pull request: waiting for all of them
+      # would include waiting for this step to finish, which cannot happen.
+      # validate-scraper.yml runs on push to every branch, so the check is always
+      # present on a Dependabot branch.
+      - name: Merge patch/minor updates once validate passes
         if: steps.meta.outputs.update-type != 'version-update:semver-major'
-        run: gh pr merge --auto --merge "$PR_URL"
+        run: |
+          for _ in $(seq 1 60); do
+            state=$(gh pr checks "$PR_URL" --json name,state \
+              --jq '.[] | select(.name == "validate") | .state' || true)
+            case "$state" in
+              SUCCESS)
+                gh pr merge --merge "$PR_URL"
+                exit 0
+                ;;
+              FAILURE|ERROR|CANCELLED|TIMED_OUT|ACTION_REQUIRED|STARTUP_FAILURE)
+                echo "validate finished $state; leaving this PR open for a human."
+                exit 1
+                ;;
+            esac
+            sleep 15
+          done
+          echo "validate did not report within 15 minutes; leaving this PR open."
+          exit 1
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
