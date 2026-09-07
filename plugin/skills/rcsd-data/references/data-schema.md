@@ -548,39 +548,46 @@ Document types and counts:
 - `sarc/report` (42), `compliance/williams-ucp` (40), `budget/adopted-budget` (36)
 - `labor/csea` (30), `labor/rcta` (29), `tax/bond` (18)
 
-**Caveat:** this is a *curated taxonomy* and does not contain every attachment — unclassified item types are absent (e.g. the superintendent employment contract). When a title search here is empty, fall back to `agenda-attachments.json` (below) before concluding a document doesn't exist.
+**Caveat:** this is a *curated taxonomy* and does not contain every attachment — unclassified item types are absent (e.g. the superintendent employment contract). When a title search here is empty, fall back to `attachment-index.json` (below) before concluding a document doesn't exist.
 
 ---
 
-## data/agenda-attachments.json
+## data/attachment-index.json
 
-The **complete raw list** of every PDF attached to every agenda item — the authoritative source for finding a specific named document (resolutions, employment contracts, agreements, MOUs, change orders, warrant registers).
+Every attachment on every agenda item, flattened into one list — the place to look
+when you need to establish that a document does or does not exist.
 
-Shape: an object keyed by meeting date; each value is an array of attachment records.
+Derived from `data/meetings-data.json` by `scripts/build-attachment-index.mjs` as a
+pipeline stage, so it covers the whole corpus and its attribution matches the meeting
+record. `document-index.json` is a curated taxonomy over the same documents and omits
+item types it does not classify; this one omits nothing that has a resolvable URL.
+
+Shape: `_metadata` plus `documents[]`, one record per attachment.
 
 ```json
 {
-  "2026-01-21": [
+  "_metadata": {
+    "source": "data/meetings-data.json",
+    "script": "scripts/build-attachment-index.mjs",
+    "coverage": { "from": "2020-04-01", "to": "2026-09-09" },
+    "counts": { "documents": 5374, "withAid": 1821 }
+  },
+  "documents": [
     {
+      "title": "Superintendent's Employment Contract_Redwood City SD & Dr. Christian Rubalcaba 2026-2028",
       "aid": "1376174",
-      "title": "Superintendent's Employment Contract_Redwood City SD & Dr. Christian Rubalcaba 20206-2028",
-      "url": "https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?S=36030397&AID=1376174",
-      "page": 20
+      "url": "https://simbli.eboardsolutions.com//Meetings/Attachment.aspx?AID=1376174",
+      "meetingDate": "2026-01-21",
+      "itemLabel": "12.3",
+      "itemTitle": "Approval of the Superintendent's Employment Contract"
     }
   ]
 }
 ```
 
-| Field | Notes |
-|-------|-------|
-| `aid` | Simbli attachment id; also keys the R2 mirror `board-packets/{aid}.pdf` |
-| `title` | Attachment title — grep this to find a document by name |
-| `url` | Original Simbli `Attachment.aspx` link |
-| `page` | Page within the combined board packet |
+`aid` is null for BoardDocs-era attachments, which are addressed by `url` alone.
+Read the live counts from `_metadata.counts` rather than from this page.
 
-**Public PDF URL:** `https://data.rcsd.info/board-packets/{meetingDate}/{filename}`, where `filename` is the sanitized title (from `document-index.json`'s `filename` field, when classified). See the SKILL's "Finding a specific named board document" recipe.
-
----
 
 ## data/cde/absenteeism-2024-25.json
 

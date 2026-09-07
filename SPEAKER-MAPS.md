@@ -70,7 +70,7 @@ letters stay unnamed rather than guessed.
 
 1. Backfill `artifacts/minutes/` from archived board packets (existing
    extraction machinery; minutes live as pages inside the following meeting's
-   packet, see `data/minutes-aids.json` / `data/agenda-attachments.json`).
+   packet, see `data/minutes-aids.json` / `data/attachment-index.json`).
 2. `extract-minutes-roster.mjs`: pdftotext → attendance/roles/absences/motions
    per meeting (light LLM assist for irregular formats), emitting the
    interval-valued role table (splitting on reorganization items).

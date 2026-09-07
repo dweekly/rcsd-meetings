@@ -1021,7 +1021,7 @@ DATA FILES (<a href="https://data.rcsd.info/json/">data.rcsd.info/json/</a>):
   <a href="https://data.rcsd.info/json/district-calendar-2025-26.json">district-calendar-2025-26.json</a>  Key dates for 2025-26
   <a href="https://data.rcsd.info/json/district-calendar-2026-27.json">district-calendar-2026-27.json</a>  Key dates for 2026-27
   <a href="https://data.rcsd.info/json/youtube-index.json">youtube-index.json</a>       YouTube video metadata
-  <a href="https://data.rcsd.info/json/agenda-attachments.json">agenda-attachments.json</a>  Attachment metadata with R2 URLs
+  <a href="https://data.rcsd.info/json/attachment-index.json">attachment-index.json</a>  Every board attachment, with meeting and item
 
 R2 CDN DOCUMENT URLS:
   https://data.rcsd.info/agendas/{YYYY-MM-DD}-agenda.pdf
@@ -1212,7 +1212,7 @@ function parseMcpTools() {
 // to https://data.rcsd.info/json/ (see upload-to-r2.mjs), so any file NOT in
 // this map is still listed — plainly — rather than silently omitted.
 const DATA_FILE_DESCRIPTIONS = {
-  'agenda-attachments.json': 'Board meeting attachment metadata with R2 CDN URLs',
+  'attachment-index.json': 'Every board-meeting attachment with its meeting date, agenda item and URL',
   'agenda-titles-es.json': 'Spanish translations of board agenda item titles',
   'blog-posts.json': 'Index of rcsd.info blog posts (EN/ES slugs, dates)',
   'boarddocs-scraped.json': 'Legacy board meeting data scraped from the retired BoardDocs portal',

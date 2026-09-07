@@ -60,6 +60,9 @@ run('0b. Download board packets', 'download-board-packets.mjs');
 
 // Phase 1: Data assembly
 run('1. Build meetings data', 'build-meetings.mjs');
+// Flat, complete attachment list derived from the meeting record; the MCP
+// find-document tool searches it behind the curated document-index.
+run('1a. Build attachment index', 'build-attachment-index.mjs');
 // Enrich committee registries (recordings + transcript status) from the YouTube index.
 run('1a. Build committee registries', 'build-committees.mjs');
 

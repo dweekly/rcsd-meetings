@@ -310,69 +310,6 @@ const manualDurations = {
 
 // hasTranscript / getDurationFromTranscript are shared with build-committees.mjs (scripts/lib/aai.mjs).
 
-// ---- Replace Simbli attachments with authoritative agenda PDF data ----
-// For meetings that have board memos, attachments are already inline from parseSimbliAgenda.
-// For meetings with agenda-attachments.json data (extracted from PDF annotation layers),
-// overlay those onto items via keyword matching.
-
-const agendaAttPath = resolve(ROOT, 'data/agenda-attachments.json');
-if (existsSync(agendaAttPath)) {
-  const agendaAtt = JSON.parse(readFileSync(agendaAttPath, 'utf-8'));
-  let replaced = 0;
-  for (const m of simbliMeetings) {
-    const pdfData = agendaAtt[m.date];
-    if (!pdfData) continue;
-
-    // Check if this meeting already has board-memo attachments
-    const hasInlineAtts = m.items.some(it => it.attachments && it.attachments.length > 0);
-    if (hasInlineAtts) continue; // board memo attachments are more authoritative
-
-    // Build the real attachment list from agenda PDF links
-    const pdfLinks = pdfData.attachments.map(a => ({
-      title: a.title,
-      aid: a.aid,
-      url: a.url,
-      page: a.page,
-    }));
-
-    // Assign PDF attachments to items via keyword matching
-    for (const link of pdfLinks) {
-      const linkText = link.title.toLowerCase();
-      let bestItem = null;
-      let bestScore = 0;
-
-      for (const item of m.items) {
-        if (item.isSection) continue; // don't attach to section headers
-        const itemTitle = item.title.toLowerCase();
-        const itemWords = itemTitle.split(/\s+/).filter(w => w.length > 3);
-        let score = 0;
-        for (const w of itemWords) {
-          if (linkText.includes(w)) score++;
-        }
-        const itemNums = itemTitle.match(/\d{3,}/g) || [];
-        for (const n of itemNums) {
-          if (linkText.includes(n)) score += 3;
-        }
-        if (score > bestScore) {
-          bestScore = score;
-          bestItem = item;
-        }
-      }
-
-      if (bestItem && bestScore >= 2) {
-        if (!bestItem.attachments) bestItem.attachments = [];
-        bestItem.attachments.push({ title: link.title, aid: link.aid });
-      } else {
-        if (!m.extraAttachments) m.extraAttachments = [];
-        m.extraAttachments.push({ title: link.title, aid: link.aid });
-      }
-    }
-    replaced++;
-  }
-  console.log(`Replaced attachments for ${replaced} Simbli meetings from agenda PDFs (${Object.keys(agendaAtt).length} available)`);
-} else {
-  console.log('No agenda-attachments.json found (run extract-agenda-links.py first)');
-}
 
 // ---- Merge and sort ----
 

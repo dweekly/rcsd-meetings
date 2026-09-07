@@ -107,3 +107,32 @@ test('every count pointer the skill names resolves to something countable', asyn
   }
   assert.ok(checked >= 20, `expected to resolve the whole pointer table, only checked ${checked}`);
 });
+
+// Datasets that have been withdrawn. A retired file keeps getting cited long after
+// it stops being written, and a pointer to something that no longer exists is worse
+// than no pointer: an agent follows it, finds nothing, and reports the data missing.
+const RETIRED = [
+  {
+    name: 'agenda-attachments.json',
+    replacement: 'attachment-index.json',
+    why: 'manually generated, covered one 12-month window, and filed 173 attachments '
+      + 'under the wrong meeting',
+  },
+];
+
+test('the skill does not point at a retired dataset', async () => {
+  for (const { rel, text } of await skillDocs()) {
+    for (const { name, replacement, why } of RETIRED) {
+      assert.ok(!text.includes(name),
+        `${rel} references ${name}, which was retired (${why}). Use ${replacement}.`);
+    }
+  }
+});
+
+test('a retired dataset is actually gone from data/', async () => {
+  const { existsSync } = await import('node:fs');
+  for (const { name, replacement } of RETIRED) {
+    assert.ok(!existsSync(join(SKILL_DIR, '..', '..', '..', 'data', name)),
+      `data/${name} is retired but still present; ${replacement} replaces it`);
+  }
+});
