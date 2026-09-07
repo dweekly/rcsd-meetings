@@ -44,11 +44,18 @@ export const AUDIO_EXTENSIONS = ['webm', 'm4a', 'opus', 'ogg', 'mp3', 'mp4'];
  *                            AssemblyAI (see data/METHODOLOGY-transcription.md).
  *  2. bestaudio[ext=m4a]   — AAC 140, 44.1 kHz / ~129 kbps. Same speech content;
  *                            used only if the opus stream stays unreachable.
- *  3. bestaudio/best       — last resort, accepts the progressive 360p mux
+ *  3. b                    — last resort, accepts the progressive 360p mux
  *                            (format 18, 22 kHz audio) so a meeting still gets
  *                            transcribed rather than skipped entirely.
  */
-export const FORMAT_CHAIN = ['bestaudio', 'bestaudio[ext=m4a]', 'bestaudio/best'];
+// The last selector is `b` (yt-dlp's alias for `best`), never `bestaudio/best`.
+// yt-dlp's `/` operator chooses on format AVAILABILITY, not on download failure, so
+// `bestaudio/best` resolves to the same audio-only stream as selector 1 whenever that
+// stream is merely advertised — which it always is in the 403 state this chain exists
+// to escape. `b` also suppresses yt-dlp's pre-merged-format warning, which is its
+// documented way to say the progressive mux is the intended choice. Resolution is
+// verified against the installed yt-dlp by scripts/verify-format-selectors.mjs.
+export const FORMAT_CHAIN = ['bestaudio', 'bestaudio[ext=m4a]', 'b'];
 
 /**
  * Attempts per format selector. Three is enough that a single throttled

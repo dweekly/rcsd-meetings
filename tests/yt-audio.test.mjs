@@ -11,12 +11,12 @@ import test from 'node:test';
 
 import { AUDIO_EXTENSIONS, FORMAT_CHAIN, cachedAudioPath } from '../scripts/lib/yt-audio.mjs';
 
-// Containers each selector in FORMAT_CHAIN can hand back. `bestaudio/best` falls
-// through to the progressive format 18 mux, which yt-dlp writes as .mp4.
+// Containers each selector in FORMAT_CHAIN can hand back. `b` reaches the progressive
+// format 18 mux, which yt-dlp writes as .mp4.
 const CONTAINERS_BY_SELECTOR = {
   'bestaudio': ['webm', 'm4a'],
   'bestaudio[ext=m4a]': ['m4a'],
-  'bestaudio/best': ['webm', 'm4a', 'mp4'],
+  'b': ['mp4'],
 };
 
 test('every container a format selector can produce is recognized', () => {
@@ -48,4 +48,26 @@ test('probe order prefers the format the chain tries first', () => {
   // file an already-processed meeting resolves to.
   assert.equal(AUDIO_EXTENSIONS[0], 'webm');
   assert.equal(AUDIO_EXTENSIONS.at(-1), 'mp4', 'the last-resort container should probe last');
+});
+
+// The chain's whole purpose is that each attempt reaches something the previous one
+// did not. `bestaudio/best` silently broke that — the `/` operator picks on format
+// availability, so it re-selected the audio-only stream that had just failed. This
+// drives the real yt-dlp against a synthetic format list to prove the chain still
+// fans out. It skips loudly rather than passing when yt-dlp is absent.
+test('each selector in the chain reaches a distinct format', async (t) => {
+  const { execFileSync } = await import('node:child_process');
+  try {
+    execFileSync('yt-dlp', ['--version'], { stdio: 'ignore' });
+  } catch {
+    t.skip('yt-dlp not installed; run scripts/verify-format-selectors.mjs where it is');
+    return;
+  }
+  const { resolveSelectors } = await import('../scripts/verify-format-selectors.mjs');
+  const resolved = resolveSelectors();
+  const ids = resolved.map((r) => r.formatId);
+
+  assert.equal(new Set(ids).size, ids.length,
+    `selectors collapsed onto the same format: ${resolved.map((r) => `${r.selector}=${r.formatId}`).join(', ')}`);
+  assert.equal(ids.at(-1), '18', 'the last resort must reach the progressive mux');
 });
