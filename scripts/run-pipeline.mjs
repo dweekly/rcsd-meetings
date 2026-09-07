@@ -128,6 +128,22 @@ run(`${step++}. Candidate release manifest`, 'generate-release-manifest.mjs');
 
 console.log(`\n${'='.repeat(60)}`);
 console.log('  Pipeline complete!');
+
+// Surface, without failing: pulling attachments does not update the thematic
+// pages, and a scheduled run has no way to do that itself. The test suite is
+// what blocks; this is what makes it visible on the run that created the gap.
+try {
+  const { outstandingTriage } = await import('./check-triage.mjs');
+  const outstanding = outstandingTriage();
+  if (outstanding.length > 0) {
+    console.log('');
+    console.log(`  THEME TRIAGE OUTSTANDING: ${outstanding.join(', ')}`);
+    console.log('  New attachments have not been routed to the pages that own them.');
+    console.log('  See CLAUDE.md, "Agenda Pull -> Theme Triage"; write data/triage/<date>.md.');
+  }
+} catch (err) {
+  console.log(`  (triage check unavailable: ${err.message})`);
+}
 console.log('='.repeat(60));
 
 if (upload) {
