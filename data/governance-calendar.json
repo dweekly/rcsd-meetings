@@ -1,35 +1,683 @@
 {
-  "_source": "2026–27 School Board Meetings Calendar, from board packet attachment for 2026-05-27 meeting",
-  "_sourceFile": "artifacts/board-packets/2026-05-27/2026-27-School-Board-Meetings-Calendar.pdf",
-  "_generated": "2026-05-22",
+  "_source": "2026–27 Schedule of Agenda Items (last updated 9/03/2026), board-packet attachment for the 2026-09-09 meeting",
+  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceFile": "artifacts/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_generated": "2026-09-07",
+  "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept",
+  "_droppedStruckRows": 2,
   "provisionalTopics": {
-    "2026-04-01": {
-      "en": "School presentations & SPSA approvals; Personnel Report; Graduation/Promotion assignments discussion",
-      "es": "Presentaciones escolares y aprobaciones de SPSA; Informe de personal; Discusión de asignaciones de graduación/promoción"
+    "2026-07-16": {
+      "en": "Board Retreat",
+      "items": [
+        {
+          "department": "Governance",
+          "topic": "Board Retreat",
+          "administrator": "Board President",
+          "duration": "N/A"
+        }
+      ],
+      "es": "Retiro de la Mesa Directiva"
     },
-    "2026-04-22": {
-      "en": "Superintendent evaluation; School presentations & SPSA approvals; Quarterly Williams Report (Q3)",
-      "es": "Evaluación del superintendente; Presentaciones escolares y aprobaciones de SPSA; Informe trimestral Williams (T3)"
+    "2026-08-10": {
+      "en": "Quarterly Williams Report (Q4, 2025/26 SY); Enacted State Budget – 45-day revision; Teachers gaining permanent status",
+      "items": [
+        {
+          "department": "Governance",
+          "topic": "Closed Session",
+          "administrator": "Board President",
+          "duration": "30 min"
+        },
+        {
+          "department": "Superintendent",
+          "topic": "Quarterly Williams Report (Q4, 2025/26 SY)",
+          "administrator": "Christian Rubalcaba N/A"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Enacted State Budget – 45-day revision",
+          "administrator": "Rick Edson",
+          "duration": "25 min"
+        },
+        {
+          "department": "Human Resource",
+          "topic": "Teachers gaining permanent status",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "N/A",
+          "note": "Needs resolution; Action"
+        }
+      ],
+      "es": "Reporte Trimestral de Williams (Q4, ciclo escolar 2025/26); Presupuesto Estatal Promulgado – revisión de 45 días; Maestros que obtienen estatus permanente"
     },
-    "2026-05-13": {
-      "en": "Superintendent evaluation; Charter school second interim reviews (KIPP, Rocketship, Connect); Outdoor Ed agreement; Math report",
-      "es": "Evaluación del superintendente; Revisiones intermedias de escuelas chárter (KIPP, Rocketship, Connect); Acuerdo de educación al aire libre; Informe de matemáticas"
+    "2026-08-26": {
+      "en": "Public Hearing & Resolution: Sufficiency of Instructional Materials; Personnel Report; Education Protection Account (EPA) Resolution",
+      "items": [
+        {
+          "department": "Governance",
+          "topic": "Closed Session",
+          "administrator": "Board President",
+          "duration": "20 min"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Public Hearing & Resolution: Sufficiency of Instructional Materials",
+          "administrator": "Anna Herrera/ Carla Malattia",
+          "duration": "15 min"
+        },
+        {
+          "department": "Human Resource",
+          "topic": "Personnel Report",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "N/A"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Education Protection Account (EPA) Resolution",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Action"
+        }
+      ],
+      "es": "Audiencia Pública y Resolución: Suficiencia de Materiales Educativos; Reporte de Personal; Resolución de la Cuenta de Protección Educativa (EPA)"
     },
-    "2026-05-27": {
-      "en": "K-8 Math Program Update; Imagine Mathematics Implementation Plan; Proposition 28 Arts Funding Plan; RICHARD W. EDSON II Chief Business Official Contract; CSEA Initial Proposal",
-      "es": "Actualización del programa de matemáticas de K-8; Plan de implementación de Imagine Mathematics; Plan de financiamiento de artes de la Proposición 28; Contrato del director de negocios RICHARD W. EDSON II; Propuesta inicial de CSEA"
+    "2026-09-09": {
+      "en": "Connect – 26/27 Adopted Budget & Review Letter; Rocketship – 26/27 Adopted Budget & Review Letter; KIPP – 26/27 Adopted Budget & Review Letter",
+      "items": [
+        {
+          "topic": "Connect – 26/27 Adopted Budget & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Rocketship – 26/27 Adopted Budget & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "topic": "KIPP – 26/27 Adopted Budget & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        }
+      ],
+      "es": "Connect – Presupuesto Adoptado 26/27 y Carta de Revisión; Rocketship – Presupuesto Adoptado 26/27 y Carta de Revisión; KIPP – Presupuesto Adoptado 26/27 y Carta de Revisión"
     },
-    "2026-06-10": {
-      "en": "Year-End Budget Transfer Resolution",
-      "es": "Resolución de transferencia presupuestaria de fin de año"
+    "2026-09-23": {
+      "en": "MTSS: Attendance, Chronic Absenteeism; 2025/26 RCSD Unaudited Actuals; Gann Limit Resolution; Study Session; Board Study Session Re: Formative Assessment Data, PLCs, Multitudes",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "MTSS: Attendance, Chronic Absenteeism",
+          "administrator": "Brianna/Anna",
+          "duration": "20 min",
+          "note": "Report"
+        },
+        {
+          "department": "Business/",
+          "topic": "2025/26 RCSD Unaudited Actuals",
+          "administrator": "Rick Edson",
+          "duration": "25 min",
+          "note": "Action"
+        },
+        {
+          "department": "Finance",
+          "topic": "Gann Limit Resolution",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Action"
+        },
+        {
+          "department": "September 30, 2026 -",
+          "topic": "Study Session"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Board Study Session Re: Formative Assessment Data, PLCs, Multitudes",
+          "administrator": "Anna Herrera",
+          "duration": "(6:00 – 7:30 PM) 90 min",
+          "note": "Discussion"
+        }
+      ],
+      "es": "MTSS: Asistencia, Ausentismo Crónico; Cifras Reales No Auditadas del RCSD 2025/26; Resolución del Límite Gann; Sesión de Estudio; Sesión de Estudio de la Mesa Directiva sobre: Datos de Evaluación Formativa, PLCs, Multitudes"
     },
-    "2026-06-17": {
-      "en": "LCAP public hearing; iReady end-of-year data; 2026-27 Proposed Budget public hearing",
-      "es": "Audiencia pública de LCAP; Datos de fin de año de iReady; Audiencia pública del presupuesto propuesto 2026-27"
+    "2026-10-14": {
+      "en": "Wellness Update",
+      "items": [
+        {
+          "department": "Student Services",
+          "topic": "Wellness Update",
+          "administrator": "Patrinia Redd",
+          "duration": "20 min"
+        }
+      ],
+      "es": "Actualización de Bienestar"
     },
-    "2026-06-24": {
-      "en": "LCAP adoption; 2026/27 Budget adoption; EPA Resolution; ESSA Addendum; Local Indicators",
-      "es": "Adopción de LCAP; Adopción del presupuesto 2026/27; Resolución EPA; Adenda ESSA; Indicadores locales"
+    "2026-10-28": {
+      "en": "Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter; Review of Staffing Levels; Personnel Report; Quarterly Williams Report (Q1, 2026/27); Integrated/ Designated ELD",
+      "items": [
+        {
+          "topic": "Connect – 25/26 Unaudited Actuals & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Rocketship – 25/26 Unaudited Actuals & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "topic": "KIPP – 25/26 Unaudited Actuals & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Human Resource",
+          "topic": "Review of Staffing Levels",
+          "administrator": "Wendy Kelly/ Rick Edson",
+          "duration": "20 min",
+          "note": "Report"
+        },
+        {
+          "topic": "Personnel Report",
+          "administrator": "Wendy Kelly/ Patricia Perez"
+        },
+        {
+          "department": "Superintendent",
+          "topic": "Quarterly Williams Report (Q1, 2026/27)",
+          "administrator": "Christian Rubalcaba",
+          "duration": "N/A"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Integrated/ Designated ELD",
+          "administrator": "Anna Herrera/ Katherine",
+          "duration": "45 min"
+        }
+      ],
+      "es": "Connect – Cifras Reales No Auditadas 25/26 y Carta de Revisión; Rocketship – Cifras Reales No Auditadas 25/26 y Carta de Revisión; KIPP – Cifras Reales No Auditadas 25/26 y Carta de Revisión; Revisión de Niveles de Personal; Reporte de Personal; Reporte Trimestral de Williams (Q1, 2026/27); ELD Integrado/Designado"
+    },
+    "2026-11-04": {
+      "en": "CAASPP or CA Dashboard",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "CAASPP or CA Dashboard",
+          "administrator": "Anna Herrera/ Jenny",
+          "duration": "25 min"
+        }
+      ],
+      "es": "CAASPP o CA Dashboard"
+    },
+    "2026-11-18": {
+      "en": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program)",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program)",
+          "administrator": "Liz Calderon-Garcia, Enrique Calderon, & Ana Paula Garay",
+          "duration": "20 min"
+        }
+      ],
+      "es": "Reporte de la Escuela Comunitaria (Escuela Comunitaria, Programa de Aprendizaje Extendido, y Programa de Salud Mental)"
+    },
+    "2026-12-09": {
+      "en": "2025-26 Bond Committee Report",
+      "items": [
+        {
+          "department": "Business/ Finance",
+          "topic": "2025-26 Bond Committee Report",
+          "administrator": "Committee/ Rick Edson",
+          "duration": "25 min"
+        }
+      ],
+      "es": "Reporte del Comité de Bonos 2025-26"
+    },
+    "2026-12-16": {
+      "en": "Annual Developer Fee Report - FY ending 6/30/2026; 2026/27 First Interim Budget Report (Action); Annual Board Reorganization; Personnel Report; School and Committee Assignments for Trustees (Discussion)",
+      "items": [
+        {
+          "department": "Business/ Finance",
+          "topic": "Annual Developer Fee Report - FY ending 6/30/2026",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Consent"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "2026/27 First Interim Budget Report (Action)",
+          "administrator": "Rick Edson",
+          "duration": "25 min",
+          "note": "Action"
+        },
+        {
+          "department": "Governance",
+          "topic": "Annual Board Reorganization",
+          "administrator": "Christian Rubalcaba",
+          "duration": "15 min"
+        },
+        {
+          "department": "Human Resource",
+          "topic": "Personnel Report",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "N/A"
+        },
+        {
+          "department": "Governance",
+          "topic": "School and Committee Assignments for Trustees (Discussion)",
+          "administrator": "Board President",
+          "duration": "15 min"
+        }
+      ],
+      "es": "Reporte Anual de Cuotas de Desarrolladores - Año Fiscal que termina 6/30/2026; Reporte del Primer Interino de Presupuesto 2026/27 (Acción); Reorganización Anual de la Mesa Directiva; Reporte de Personal; Asignaciones Escolares y de Comités para los Miembros de la Mesa (Discusión)"
+    },
+    "2027-01-13": {
+      "en": "Quarterly Williams Report (Q2, 2026/27); School and Committee Assignments for Trustees (Action)",
+      "items": [
+        {
+          "department": "Superintendent",
+          "topic": "Quarterly Williams Report (Q2, 2026/27)",
+          "administrator": "Christian Rubalcaba  N/A"
+        },
+        {
+          "department": "Governance",
+          "topic": "School and Committee Assignments for Trustees (Action)",
+          "administrator": "Board President",
+          "duration": "N/A"
+        }
+      ],
+      "es": "Reporte Trimestral Williams (Q2, 2026/27); Asignaciones Escolares y de Comités para los Miembros de la Mesa (Acción)"
+    },
+    "2027-01-20": {
+      "en": "SARCs",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "SARCs",
+          "administrator": "Anna Herrera/ Jorge Quintana"
+        },
+        {
+          "department": "Declaration of Need Human Resource",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "N/A",
+          "note": "Must be approved as an action item."
+        }
+      ],
+      "es": "SARCs"
+    },
+    "2027-02-10": {
+      "en": "Connect – 26/27 First Interim & Review Letter; Rocketship – 26/27 First Interim & Review Letter; KIPP – 26/27 First Interim & Review Letter; Connect – 25/26 Audit Report & Review Letter; Rocketship – 25/26 Audit Report & Review Letter; KIPP – 25/26 Audit Report & Review Letter; 2025/26 RCSD Financial Audit Report",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "Closed Session - Comprehensive School Safety Plans (Internal/Non-Public)",
+          "administrator": "Patrinia Redd",
+          "duration": "35 min"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Connect – 26/27 First Interim & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Rocketship – 26/27 First Interim & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "KIPP – 26/27 First Interim & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Connect – 25/26 Audit Report & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Rocketship – 25/26 Audit Report & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "KIPP – 25/26 Audit Report & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "2025/26 RCSD Financial Audit Report",
+          "administrator": "Rick Edson/​ Eide Bailly",
+          "duration": "15 min",
+          "note": "Report"
+        }
+      ],
+      "es": "Connect – Primer Interino y Carta de Revisión 26/27; Rocketship – Primer Interino y Carta de Revisión 26/27; KIPP – Primer Interino y Carta de Revisión 26/27; Connect – Reporte de Auditoría y Carta de Revisión 25/26; Rocketship – Reporte de Auditoría y Carta de Revisión 25/26; KIPP – Reporte de Auditoría y Carta de Revisión 25/26; Reporte de Auditoría Financiera de RCSD 2025/26"
+    },
+    "2027-02-24": {
+      "en": "LCAP Mid-Year Report; CSBA Delegate Assembly Ballot; Non-Reelect, Temp Release, PKS Release & Reassignment of Classified/Certificated Employees",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "LCAP Mid-Year Report",
+          "administrator": "Anna Herrera",
+          "duration": "60 min",
+          "note": "Report"
+        },
+        {
+          "department": "Governance",
+          "topic": "CSBA Delegate Assembly Ballot",
+          "administrator": "Christian Rubalcaba/​ Evelyn Campos",
+          "duration": "5 min",
+          "note": "Action"
+        },
+        {
+          "department": "Personnel Report Human Resource",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "N/A"
+        },
+        {
+          "department": "Human Resource",
+          "topic": "Non-Reelect, Temp Release, PKS Release & Reassignment of Classified/Certificated Employees",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "5 min",
+          "note": "Must be approved as an action item"
+        }
+      ],
+      "es": "Reporte de Medio Año del LCAP; Boleta de la Asamblea de Delegados de CSBA; No Reelección, Liberación Temporal, Liberación PKS y Reasignación de Empleados Clasificados/Certificados"
+    },
+    "2027-03-10": {
+      "en": "3 School Site Presentation(s) & 3 SPSA approval; Multitudes; Non-Reelect, Temp Release, PKS Release & Reassignment of Classified/Certificated Employees (Tentative); 2026/27 Second Interim Budget Report (Action)",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "3 School Site Presentation(s) & 3 SPSA approval",
+          "administrator": "Anna Herrera",
+          "duration": "90 min",
+          "note": "Action"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Multitudes",
+          "administrator": "Anna Herrera/ Bronia",
+          "duration": "20 min",
+          "note": "Report"
+        },
+        {
+          "department": "Human Resource",
+          "topic": "Non-Reelect, Temp Release, PKS Release & Reassignment of Classified/Certificated Employees (Tentative)",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "5 min",
+          "note": "Must be approved as an action item"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "2026/27 Second Interim Budget Report (Action)",
+          "administrator": "Rick Edson",
+          "duration": "25 min",
+          "note": "Action"
+        }
+      ],
+      "es": "3 Presentación(es) de Sitios Escolares y aprobación de 3 SPSA; Multitudes; No Reelección, Liberación Temporal, Liberación PKS y Reasignación de Empleados Clasificados/Certificados (Tentativo); Reporte del Segundo Interino de Presupuesto 2026/27 (Acción)"
+    },
+    "2027-03-24": {
+      "en": "3 School Site Presentation(s) & 3 SPSA approval",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "3 School Site Presentation(s) & 3 SPSA approval",
+          "administrator": "Anna Herrera",
+          "duration": "90 min",
+          "note": "Action"
+        }
+      ],
+      "es": "3 Presentaciones de Sitio Escolar y aprobación de 3 SPSA"
+    },
+    "2027-04-07": {
+      "en": "3 School Site Presentation(s) & 3 SPSA approval",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "3 School Site Presentation(s) & 3 SPSA approval",
+          "administrator": "Anna Herrera",
+          "duration": "90 min",
+          "note": "Action"
+        }
+      ],
+      "es": "3 Presentaciones de Sitio Escolar y aprobación de 3 SPSA"
+    },
+    "2027-04-28": {
+      "en": "3 School Site Presentation(s) & 3 SPSA approval; Trustees' Graduation/Promotions Assignments for the 2026-27 School Year; 2027–28 Board Meeting Calendar; Quarterly Williams Report (Q3, 2026/27)",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "3 School Site Presentation(s) & 3 SPSA approval",
+          "administrator": "Anna Herrera",
+          "duration": "90 min",
+          "note": "Action"
+        },
+        {
+          "department": "Governance",
+          "topic": "Trustees' Graduation/Promotions Assignments for the 2026-27 School Year",
+          "administrator": "Evelyn Campos",
+          "duration": "15 min",
+          "note": "Discussion"
+        },
+        {
+          "department": "Governance",
+          "topic": "2027–28 Board Meeting Calendar",
+          "administrator": "Christian Rubalcaba 15 min",
+          "note": "Discussion"
+        },
+        {
+          "department": "Superintendent",
+          "topic": "Quarterly Williams Report (Q3, 2026/27)",
+          "administrator": "Christian Rubalcaba N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Personnel Report Human Resource",
+          "administrator": "Wendy Kelly/ Patricia Perez",
+          "duration": "N/A"
+        }
+      ],
+      "es": "3 Presentaciones de Sitio Escolar y aprobación de 3 SPSA; Asignaciones de los Trustees para Graduación/Promociones del año escolar 2026-27; Calendario de Juntas de la Mesa Directiva 2027–28; Reporte Trimestral de Williams (Q3, 2026/27)"
+    },
+    "2027-05-12": {
+      "en": "KIPP – 26/27 Second Interim & Review Letter; Rocketship – 26/27 Second Interim & Review Letter; Connect – 26/27 Second Interim & Review Letter; Outdoor Ed Agreement",
+      "items": [
+        {
+          "department": "Business/ Finance",
+          "topic": "KIPP – 26/27 Second Interim & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Rocketship – 26/27 Second Interim & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "Connect – 26/27 Second Interim & Review Letter",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Outdoor Ed Agreement",
+          "administrator": "Anna Herrera",
+          "duration": "N/A",
+          "note": "Consent"
+        }
+      ],
+      "es": "KIPP – Segundo Informe Interino 26/27 y Carta de Revisión; Rocketship – Segundo Informe Interino 26/27 y Carta de Revisión; Connect – Segundo Informe Interino 26/27 y Carta de Revisión; Acuerdo de Educación al Aire Libre"
+    },
+    "2027-05-20": {
+      "en": "Retirement Reception",
+      "items": [
+        {
+          "department": "Superintendent",
+          "topic": "Retirement Reception",
+          "administrator": "Christian Rubalcaba/ Evelyn Campos",
+          "duration": "N/A",
+          "note": "Time: 4:00 - 6:00 PM"
+        }
+      ],
+      "es": "Recepción de Jubilación"
+    },
+    "2027-05-26": {
+      "en": "ConApp Approval; Parent Engagement Report; Special Education Report",
+      "items": [
+        {
+          "department": "Governance",
+          "topic": "Closed session: Public Employee Performance Evaluation – Superintendent",
+          "administrator": "Board President (Yearly)",
+          "duration": "1 hr",
+          "note": "Time : 5:50 - 6:50 PM"
+        },
+        {
+          "department": "Education Services",
+          "topic": "ConApp Approval",
+          "administrator": "Katherine Rivera",
+          "duration": "N/A",
+          "note": "Consent"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Parent Engagement Report",
+          "administrator": "Anna Herrera/ Katherine Rivera",
+          "duration": "20 min",
+          "note": "Report"
+        },
+        {
+          "department": "Special Education",
+          "topic": "Special Education Report",
+          "administrator": "Tina Mercer",
+          "duration": "30 min"
+        }
+      ],
+      "es": "Aprobación del ConApp; Reporte de Participación de Padres; Reporte de Educación Especial"
+    },
+    "2027-06-09": {
+      "en": "Year-End Budget Transfer Resolution; CDC Update",
+      "items": [
+        {
+          "department": "Business/ Finance",
+          "topic": "Year-End Budget Transfer Resolution",
+          "administrator": "Rick Edson",
+          "duration": "N/A",
+          "note": "Action"
+        },
+        {
+          "department": "Education Services",
+          "topic": "CDC Update",
+          "administrator": "Jennifer Pare/ Anna Herrera",
+          "duration": "30 min",
+          "note": "Report"
+        }
+      ],
+      "es": "Resolución de Transferencia de Presupuesto de Fin de Año; Actualización del CDC"
+    },
+    "2027-06-16": {
+      "en": "LCAP- Public Hearing; iReady Report (EOY Data); 2027-28 Proposed Budget & Statement of Reasons for Excess Reserves - Public Hearing",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "LCAP- Public Hearing",
+          "administrator": "Anna Herrera",
+          "duration": "30 min",
+          "note": "Public Hearing"
+        },
+        {
+          "department": "Education Services",
+          "topic": "iReady Report (EOY Data)",
+          "administrator": "Anna Herrera/ Jenny Tran",
+          "duration": "20 min"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "2027-28 Proposed Budget & Statement of Reasons for Excess Reserves - Public Hearing",
+          "administrator": "Rick Edson",
+          "duration": "20 min",
+          "note": "Public Hearing"
+        }
+      ],
+      "es": "LCAP - Audiencia Pública; Reporte de i-Ready (Datos de Fin de Año); Presupuesto Propuesto 2027-28 y Declaración de Razones para Reservas Excesivas - Audiencia Pública"
+    },
+    "2027-06-23": {
+      "en": "2027–28 Budget Adoption & Statement of Reasons for Excess Reserves (Action); LCAP (Action) & Federal Addendum; ESSA Addendum Approval; Local Indicators (LCAP)",
+      "items": [
+        {
+          "department": "Business/ Finance",
+          "topic": "2027–28 Budget Adoption & Statement of Reasons for Excess Reserves (Action)",
+          "administrator": "Rick Edson",
+          "duration": "25 min",
+          "note": "Action"
+        },
+        {
+          "department": "Education Services",
+          "topic": "LCAP (Action) & Federal Addendum",
+          "administrator": "Anna Herrera"
+        },
+        {
+          "department": "Education Services",
+          "topic": "ESSA Addendum Approval",
+          "administrator": "Anna Herrera"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Local Indicators (LCAP)",
+          "administrator": "Anna Herrera"
+        },
+        {
+          "department": "Personnel Report Human Resource",
+          "administrator": "Wendy Kelly/ Patricia Perez"
+        },
+        {
+          "department": "Future Agenda Items/Suggestions:"
+        },
+        {
+          "department": "Discussion Re: Technology use/AI within the district",
+          "administrator": "Trustee Li",
+          "note": "8/26 Board Meeting"
+        },
+        {
+          "department": "*All Board Meetings at District Office Board Room unless otherwise noted",
+          "administrator": "p. 13"
+        }
+      ],
+      "es": "Adopción del Presupuesto 2027–28 y Declaración de Razones para Reservas en Exceso (Acción); LCAP (Acción) y Anexo Federal; Aprobación del Anexo ESSA; Indicadores Locales (LCAP)"
     }
+  },
+  "_translation": {
+    "provider": "anthropic",
+    "model": {
+      "requested": "claude-sonnet-5",
+      "resolved": "claude-sonnet-5"
+    },
+    "translated": "2026-09-07",
+    "note": "Machine translation of provisional agenda topics. The English Schedule of Agenda Items is the authoritative source."
   }
 }
