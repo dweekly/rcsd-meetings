@@ -17,10 +17,33 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { SARC_YEAR, priorSchoolYear } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const SARC_PDF_DIR = resolve(ROOT, '../../nanoclaw/groups/main/rcsd/sarc/2024-25/english');
+// SARC source PDFs. Default is the in-repo artifacts location; the historical
+// out-of-repo staging path (a sibling nanoclaw checkout) is still honoured as a
+// fallback so an existing operator setup keeps working, and either can be
+// overridden with --pdf-dir. Year comes from SARC_YEAR — bumping it there is
+// the whole February refresh for this script.
+const SARC_YEAR_ARG = process.argv.includes('--year')
+  ? process.argv[process.argv.indexOf('--year') + 1]
+  : SARC_YEAR;
+const SARC_PDF_DIR = (() => {
+  const i = process.argv.indexOf('--pdf-dir');
+  if (i !== -1) return resolve(process.cwd(), process.argv[i + 1]);
+  const inRepo = resolve(ROOT, `artifacts/documents/sarc/${SARC_YEAR_ARG}/english`);
+  if (existsSync(inRepo)) return inRepo;
+  const legacy = resolve(ROOT, `../../nanoclaw/groups/main/rcsd/sarc/${SARC_YEAR_ARG}/english`);
+  if (existsSync(legacy)) {
+    console.warn(`  Using legacy out-of-repo SARC staging dir: ${legacy}`);
+    return legacy;
+  }
+  throw new Error(
+    `No SARC PDFs for ${SARC_YEAR_ARG}. Looked in:\n    ${inRepo}\n    ${legacy}\n`
+    + '  Stage the PDFs, pass --pdf-dir <path>, or check SARC_YEAR in scripts/lib/school-year.mjs.',
+  );
+})();
 const OUTPUT_DIR = resolve(ROOT, 'data/sarc');
 
 // All 12 RCSD school slugs — PDF filenames match slugs exactly
@@ -247,6 +270,10 @@ async function extractSchool(slug) {
     console.warn(`  Warnings for ${slug}: ${issues.join('; ')}`);
   }
 
+  // Stamp which SARC edition this record came from. `dataYear` is the year the
+  // SARC reports ON (a 2024-25 SARC covers 2023-24), which is a different fact
+  // and cannot stand in for cache validation.
+  json.sarcYear = SARC_YEAR_ARG;
   writeFileSync(outputPath, JSON.stringify(json, null, 2) + '\n', 'utf-8');
   console.log(`  Wrote ${outputPath}`);
   return json;
@@ -273,9 +300,17 @@ async function main() {
   for (const slug of slugsToProcess) {
     const outputPath = resolve(OUTPUT_DIR, `${slug}.json`);
     if (!forceFlag && existsSync(outputPath)) {
-      console.log(`[${slug}] Already extracted, skipping (use --force to re-extract)`);
-      results[slug] = JSON.parse(readFileSync(outputPath, 'utf-8'));
-      continue;
+      // data/sarc/{slug}.json carries no year in its path, so a bumped
+      // SARC_YEAR would otherwise hit last year's extraction and report
+      // success while republishing the prior SARC. Records are stamped with
+      // sarcYear; anything without one predates the stamp and is re-extracted.
+      const cached = JSON.parse(readFileSync(outputPath, 'utf-8'));
+      if (cached.sarcYear === SARC_YEAR_ARG) {
+        console.log(`[${slug}] Already extracted, skipping (use --force to re-extract)`);
+        results[slug] = cached;
+        continue;
+      }
+      console.log(`[${slug}] Cache holds ${cached.sarcYear ?? 'an unstamped year'}, need ${SARC_YEAR_ARG} — re-extracting`);
     }
 
     console.log(`[${slug}] Extracting SARC data...`);
@@ -285,15 +320,29 @@ async function main() {
     }
   }
 
-  // If processing all schools, also load any previously extracted ones for the summary
+  // If processing all schools, also load any previously extracted ones for the
+  // summary — but ONLY for the year we are publishing. The cache check above
+  // correctly rejects a stale record, then extraction can still fail (missing
+  // PDF, unparseable response); without this year check the fallback reloaded
+  // that same stale file and the run wrote a summary labelled with the NEW
+  // SARC year over prior-year contents. Same defect as extract-spsa-budgets.
+  const staleSlugs = [];
   if (!singleSchool) {
     for (const slug of SCHOOL_SLUGS) {
       if (!results[slug]) {
         const path = resolve(OUTPUT_DIR, `${slug}.json`);
-        if (existsSync(path)) {
-          results[slug] = JSON.parse(readFileSync(path, 'utf-8'));
-        }
+        if (!existsSync(path)) continue;
+        const cached = JSON.parse(readFileSync(path, 'utf-8'));
+        if (cached.sarcYear === SARC_YEAR_ARG) results[slug] = cached;
+        else staleSlugs.push(`${slug} (has ${cached.sarcYear ?? 'no stamped year'})`);
       }
+    }
+    if (staleSlugs.length) {
+      console.error(
+        `\nFAILED: no ${SARC_YEAR_ARG} SARC for ${staleSlugs.length} school(s): ${staleSlugs.join(', ')}.\n`
+        + `  Refusing to write a ${SARC_YEAR_ARG} summary over prior-year records.`,
+      );
+      process.exit(1);
     }
   }
 
@@ -322,7 +371,10 @@ async function main() {
 
   const summary = {
     generated: new Date().toISOString().slice(0, 10),
-    source: '2024-25 SARCs (covering 2023-24 data)',
+    // Derived, not written out: a SARC edition reports on the PRIOR year, so
+    // both facts move together and neither may be hardcoded.
+    source: `${SARC_YEAR_ARG} SARCs (covering ${priorSchoolYear(SARC_YEAR_ARG)} data)`,
+    sarcYear: SARC_YEAR_ARG,
     schools: summarySchools,
   };
 

@@ -62,6 +62,49 @@ in commit messages, `CHANGELOG.md`, and the project blog.
   and fragmented multilingual publishing; use Oakland/Legistar as the later high-volume
   multi-body stress test, with Dixon available for Granicus coverage.
 
+## Annual Refresh — deferred items
+
+Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.md`.
+
+- [ ] **Committed `docs/` drifts from `data/`, and regenerating surfaces it in unrelated PRs.**
+  The pipeline rebuilds and deploys `docs/` but never commits it, so tracked HTML falls
+  behind whatever `data/` currently holds. Rebuilding on a pristine `origin/main` with no
+  source changes at all already produces diffs — verified 2026-08-19. Two concrete ones:
+  - Kennedy's 2025-06-25 section renders "HVAC Upgrade Projects Phase II" twice, the same
+    item with the same watch URL. Board-meeting items need de-duplication before render.
+  - Roosevelt's 2020-04-01 portable-rental item gets `t=258`, which lands on approval of
+    the agenda rather than the bond consent item (the regenerated cache puts the first
+    bond consent item at 313s). A confidently wrong video jump.
+
+  Both predate and are independent of the freshness work. Either commit rebuilt `docs/`
+  from CI so drift cannot accumulate, or stop tracking built HTML — the current halfway
+  state means any PR that rebuilds inherits unrelated churn.
+- [ ] **Principal headshots are not refreshed when a principal changes.** `docs/img/principals/{slug}.jpg`
+  is a hand-maintained asset, so the four principals corrected on 2026-08-19 briefly had
+  their predecessor's face under their name. Photos were replaced by hand from the school
+  leadership pages. The probe already reads those pages and could record the portrait URL,
+  making this checkable the same way the name is.
+- [ ] **Bind the ~50 hand-written school years in `build-schools.mjs` to their constants.**
+  `scripts/lib/school-year.mjs` now owns the years that drive URLs, file paths, and CDE
+  source notes, but headings, stat bubbles, and intro copy still write years out. Each one
+  needs identifying with the fact it belongs to (SPSA, LCAP, i-Ready presentation, SSC
+  roster, CSSP, SARC, or the year a SARC reports on) — several are NOT the same fact even
+  though they read the same today, and substituting one constant across them produced false
+  provenance once already. This is a careful reading pass, not a find-and-replace, which is
+  why it is its own task. A test bounds the current count so the debt cannot grow.
+- [ ] **Bell schedules, district calendars, and lunch URLs** rotate each August with no clean
+  machine source. Deliberately out of scope for the annual-refresh effort; verify
+  opportunistically until a source exists.
+- [ ] **The budget page is the densest concentration of stale facts in the repo.**
+  `scripts/build-budget.mjs` hardcodes the 2025-26 Second Interim narrative across ~40
+  sites, plus a 2026-27 proposed-budget banner that explicitly promises a post-adoption
+  refresh. Needs its own effort.
+- [ ] **CA Dashboard year `2024`** is hardcoded in `build-schools.mjs`, `build-homepage.mjs`,
+  and `build-budget.mjs`. Rolls each December.
+- [ ] **Surface "data as of" dates to readers.** `schools.json.lastUpdated`,
+  `trustees.json._metadata.retrieved`, `cde/*._metadata.downloadDate` and others all exist
+  and are never displayed. Near-zero cost, and it makes the refresh self-auditing.
+
 ## Calendars
 - [ ] Full district calendar page (not just homepage widget) with clearer visual treatment of multi-day windows (e.g. Spring Break shown as a block, not just start date)
 - [ ] Per-school calendars with school-specific events layered on top of district calendar
@@ -174,6 +217,7 @@ in commit messages, `CHANGELOG.md`, and the project blog.
 - [ ] Pre-April 2020 BoardDocs backfill (agenda-only, no video) — 2019-2020 school year meetings exist in BoardDocs but YouTube recordings only start April 2020 (first COVID virtual meeting)
 - [ ] Add "comprehensive from" statement on meetings page — clearly state April 2020 as start of full coverage (agenda + video + transcript), with agenda-only for earlier meetings if/when backfilled
 - [ ] Backfill board packet PDFs for pre-June 2025 meetings — currently only 22 recent meetings have downloaded attachments; 167 older meetings have metadata links but no archived PDFs. BoardDocs links may break; good candidate for trogdor batch job
+- [ ] **Snapshot external (non-Simbli) attachment links** — some agenda attachments are bare hrefs to third-party hosts rather than Simbli-hosted PDFs (e.g. 2026-08-10's county Investment/Compliance Reports on smcgov.org, and a bit.ly link to the NPS/NPA approved rate sheets), so `download-board-packets.mjs` correctly skips them and the packet archive isn't self-contained. Teach the downloader (or a sibling step) to capture these URLs too, clearly labeled as third-party captures with fetch date + source URL, so the archive survives link rot — bit.ly redirects especially can break or be repointed silently
 
 ## Board Meetings — Lifecycle States
 
@@ -198,6 +242,9 @@ The calendar widget and meeting pages should reflect which state each meeting is
 ## Board Meetings — Transcription & Chapters
 - [ ] Unified meeting page with tab selector: Transcript / Agenda / Minutes — all synced to video playback (click agenda item 9.3 → scrub video to that timestamp; agenda highlights current item during playback)
 - [ ] Spanish translation of transcripts
+- [x] **Alignment-shift repeat failures** (resolved 2026-08-18): all six 4.6-era failers (2020-04-22, 2020-06-17, 2020-07-22, 2020-09-09, 2020-09-30, 2021-02-10) passed the digit-alignment guard on claude-sonnet-5 in the full-corpus drain (run 32193943887: 146/147 translated, $113.69 accounted). One new straggler, 2021-08-11, failed once in the drain — expected to clear on a scheduled retry; if it repeats across several runs, retry with smaller batches (shift risk grows with batch length) and add a persistent skip-list/backoff.
+- [x] API spend guardrail in pipeline (2026-08-18): translate-transcripts now has a $10/run cost ceiling (MAX_RUN_COST) plus a stuck-drain detector (staleDeferred not shrinking for 4 saturated runs), recorded in committed data/translation-health.json and asserted by check-pipeline-health.mjs as the LAST workflow step — red run alerts via GitHub email without discarding paid work. Still open (operator): org-wide Console spend alert (per-key limits don't exist), and verify workflow-failure emails actually arrive for scheduled runs. Consider extending the cost ceiling to extract-chapter-markers. (Loop ledger: flatlined Jul 22–Aug 18, ~4 weeks, ~$1.1–1.2k waste.)
+- [ ] Audit `dweekly-key-1` API key usage ($81.72 month-to-date, last used Aug 14) — identify what's calling it, rotate/kill if orphaned.
 
 ## Board Meetings — Detailed summaries from transcripts
 Build a pipeline for rich per-meeting summaries (inputs already in place: AAI transcripts + formal agenda + minutes + chapter markers):
@@ -340,12 +387,34 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Bilingual (EN/ES)
 
 ## Automation & Infrastructure
-- [ ] **Install PyMuPDF (`fitz`) on the pipeline runner.** `scripts/extract-agenda-links.py`
-  (`import fitz  # pymupdf`, which harvests hyperlink rectangles from agenda PDFs) fails
-  every scheduled run with `ModuleNotFoundError: No module named 'fitz'` — the self-hosted
-  runner (trogdor) has no `.venv` with PyMuPDF installed. The step is currently
-  soft-failing, so agenda-link extraction silently degrades. Add a `.venv` + `pip install
-  pymupdf` (latest) to the runner or a pipeline setup step, per the venv-always rule.
+- [ ] **Get `agenda-attachments.json` back on a schedule.** It is written by
+  `scripts/extract-agenda-links.py` (`import fitz  # pymupdf`, which harvests hyperlink
+  rectangles from agenda PDFs), reachable only as the manual `npm run extract:links`
+  (package.json:42) — it is not one of `run-pipeline.mjs`'s stages and appears in no
+  workflow, so the file only advances when someone runs it by hand, and today it ends at
+  the 2026-06-17 meeting. Two things to fix together: give the self-hosted runner
+  (trogdor) a `.venv` with PyMuPDF installed, per the venv-always rule, and decide whether
+  the extractor becomes a real pipeline stage or the file gets retired. Retiring is worth
+  weighing: `meetings-data.json` → `items[].attachments[]` is already the canonical
+  attachment index across the whole corpus, and `build-homepage.mjs`, `build-meetings.mjs`
+  and `build-schools.mjs` are the only consumers.
+- [ ] **Move the ingestion cron off GitHub's scheduler.** `.github/workflows/pipeline.yml`
+  declares `schedule: '0 6,18 * * *'`, but GitHub delays queued scheduled runs: the
+  Sep 4 2026 runs started at 10:34 and 20:15 UTC — 4h34m and 2h15m late. The freshness
+  SLA is therefore being carried by `check-rcsd.sh` (trogdor crontab, 02/08/14/20 UTC),
+  which dispatches a full run whenever it spots an un-ingested Simbli MID; that is what
+  pulled the 2026-09-09 agenda, ~14h after RCSD posted it and ~2h after the watchdog saw
+  it. Either fire the pipeline from trogdor's crontab directly (it already runs the
+  watchdog and hosts the self-hosted runner) so it starts on time, or accept the
+  watchdog as the primary trigger and document it as such in docs/WATCHDOG.md.
+- [ ] **Simbli's listing returns only 50 rows and `discoverMeetings()` has no pagination.**
+  `scripts/scrape-simbli-agendas.mjs:135` takes whatever rows the listing page renders;
+  every observed run reports exactly "Found 50 meetings on Simbli listing." Harmless
+  today — the rows falling off the end are 2020-era meetings already in `data/` — but a
+  district backfill, or any burst of special meetings, would silently push meetings out
+  of discovery with no error. Confirm whether the page is server-paginated, and if so
+  page through it (or assert the row count against an expected floor so a shrinking
+  listing fails loudly rather than quietly).
 - [ ] **Screencap demo** — narrated screen recording showing: homepage, clicking into a meeting, transcript click-to-seek, Spanish toggle, chapter markers, MCP query. For embedding on the site and social sharing.
 
 ## Data Attribution (in progress)

@@ -53,7 +53,36 @@ const maxRefresh = args.includes('--max-refresh')
       ? parseInt(process.env.MAX_REFRESH, 10)
       : 25;
 
+// Per-run API spend ceiling (USD). A healthy incremental run (new meetings
+// only) costs under ~$2; the Aug 2026 runaway (see pipeline.yml) burned ~$15
+// per run for a month. When tripped, this script STOPS issuing API calls but
+// exits 0 and records the trip in the health file — the workflow's final
+// "Assert Pipeline Health Guards" step turns it into a red run AFTER
+// upload/commit, so already-paid work is preserved (failing the translate
+// step itself would discard the run's paid translations: checkout wipes
+// artifacts/ next run). Raise via MAX_RUN_COST env for deliberate
+// full-corpus drains (e.g. MAX_RUN_COST=150 with MAX_REFRESH=all).
+const maxRunCost = process.env.MAX_RUN_COST ? parseFloat(process.env.MAX_RUN_COST) : 10;
+
+// Committed health record read by scripts/check-pipeline-health.mjs in the
+// workflow's final assert step. Lives in data/ (committed each run) because
+// the runner workspace is wiped between runs.
+const HEALTH_PATH = resolve(ROOT, 'data/translation-health.json');
+// A drain that is making progress shrinks staleDeferred every run. This many
+// consecutive saturated-cap runs with no shrink means completed work is being
+// lost (the Aug 2026 failure mode: a poisoned cache re-marked everything
+// stale forever) — the assert step fails the run at this threshold.
+const STALE_STUCK_THRESHOLD = 4;
+
 const client = new Anthropic();
+
+// Live spend across ALL concurrent translateMeeting calls, updated the moment
+// each response settles and checked before each API request. The batch-level
+// guard in main() alone can't enforce the ceiling: with 10-way concurrency it
+// only sees cost after a whole wave settles, so a $10 ceiling could spend
+// ~$14–19 in-flight before stopping. This counter bounds overshoot to the
+// requests already in flight (~10 sub-batch requests, cents each).
+const runSpend = { total: 0 };
 
 /**
  * Validation gate: refuse to write or upload a Spanish transcript whose
@@ -149,6 +178,12 @@ async function translateMeeting(date) {
 
   const allTranslations = [];
   let totalInput = 0, totalOutput = 0;
+  // Billed spend so far for THIS meeting. Stamped onto any error thrown after
+  // tokens were bought (API failure mid-batch, alignment/validation reject) so
+  // main() can count discarded-but-paid work toward the run cost guard —
+  // otherwise repeated validation failures spend real money while the health
+  // record reports $0.
+  let billedCost = 0;
 
   for (let b = 0; b < batches.length; b++) {
     const batch = batches[b];
@@ -158,17 +193,36 @@ async function translateMeeting(date) {
     retry: while (true) {
     attempt++;
 
-    // Use streaming to handle long requests
-    const stream = await client.messages.stream({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 65536,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: batchJson }],
-    });
+    // Enforce the run ceiling per-request, not just per-wave (see runSpend).
+    if (runSpend.total >= maxRunCost) {
+      const err = new Error(`${date}: stopped mid-meeting — live run spend $${runSpend.total.toFixed(2)} reached MAX_RUN_COST $${maxRunCost.toFixed(2)}`);
+      err.billedCost = billedCost;
+      err.costGuardStop = true;
+      throw err;
+    }
 
-    const response = await stream.finalMessage();
+    // Use streaming to handle long requests
+    let response;
+    try {
+      const stream = await client.messages.stream({
+        model: 'claude-sonnet-5',
+        // Mechanical translation: Sonnet 5 runs adaptive thinking by default
+        // when `thinking` is omitted, which bills reasoning tokens this task
+        // doesn't need — disable it explicitly (claude-api skill, thinking QR).
+        thinking: { type: 'disabled' },
+        max_tokens: 65536,
+        system: SYSTEM_PROMPT,
+        messages: [{ role: 'user', content: batchJson }],
+      });
+      response = await stream.finalMessage();
+    } catch (err) {
+      err.billedCost = billedCost; // earlier batches' spend, lost with this meeting
+      throw err;
+    }
     totalInput += response.usage.input_tokens;
     totalOutput += response.usage.output_tokens;
+    billedCost = (totalInput * 3 + totalOutput * 15) / 1_000_000;
+    runSpend.total += (response.usage.input_tokens * 3 + response.usage.output_tokens * 15) / 1_000_000;
 
     const text = response.content[0].text;
     try {
@@ -283,12 +337,24 @@ async function translateMeeting(date) {
       if (!ds) continue;
       if (ds !== dig(en.utterances[i].text) && ds === dig(en.utterances[i + 1].text)) shifted++;
     }
-    if (shifted >= 3) throw new Error(`${date}-es: translation alignment shift detected (${shifted} shifted digit matches)`);
+    if (shifted >= 3) {
+      const err = new Error(`${date}-es: translation alignment shift detected (${shifted} shifted digit matches)`);
+      err.billedCost = billedCost;
+      throw err;
+    }
   }
 
-  assertValidTranslation(es, en.utterances.length, `${date}-es`);
+  try {
+    assertValidTranslation(es, en.utterances.length, `${date}-es`);
+  } catch (err) {
+    err.billedCost = billedCost;
+    throw err;
+  }
   writeFileSync(esPath, JSON.stringify(es));
 
+  // Pricing: claude-sonnet-5 standard $3 in / $15 out per MTok (claude-api
+  // skill, cached 2026-06-24). Intro pricing through 2026-08-31 is lower;
+  // deliberately not encoded — the cost guard uses standard rates.
   const cost = (totalInput * 3 + totalOutput * 15) / 1_000_000;
   return { utterances: en.utterances.length, inputTokens: totalInput, outputTokens: totalOutput, cost };
 }
@@ -424,7 +490,13 @@ async function main() {
 
   // Process in parallel batches of CONCURRENCY
   const CONCURRENCY = 10;
+  let guardTripped = false;
   for (let i = 0; i < needsWork.length; i += CONCURRENCY) {
+    if (totalCost >= maxRunCost) {
+      guardTripped = true;
+      console.error(`COST GUARD: $${totalCost.toFixed(2)} spent >= MAX_RUN_COST $${maxRunCost.toFixed(2)} — stopping API calls (${needsWork.length - i} meetings left undone). Completed work will still upload; the workflow's assert step will flag this run.`);
+      break;
+    }
     const batch = needsWork.slice(i, i + CONCURRENCY);
     const results = await Promise.allSettled(batch.map(date => translateMeeting(date)));
 
@@ -434,6 +506,11 @@ async function main() {
       if (r.status === 'rejected') {
         console.error(`${date}: ERROR ${r.reason?.message || r.reason}`);
         errors++;
+        // Discarded work was still billed — count it toward the cost guard.
+        totalCost += r.reason?.billedCost || 0;
+        // A mid-meeting per-request guard stop means the ceiling was hit
+        // while work was in flight — flag it for the health assert.
+        if (r.reason?.costGuardStop) guardTripped = true;
         continue;
       }
       const result = r.value;
@@ -447,9 +524,45 @@ async function main() {
     }
     console.log(`  [${Math.min(i + CONCURRENCY, needsWork.length)}/${needsWork.length}] $${totalCost.toFixed(2)} so far`);
   }
+  // Re-check after the loop: the pre-batch check can't see a ceiling crossed
+  // by the final batch, and the health assert must still flag that overrun.
+  if (!guardTripped && totalCost >= maxRunCost) {
+    guardTripped = true;
+    console.error(`COST GUARD: run total $${totalCost.toFixed(2)} reached MAX_RUN_COST $${maxRunCost.toFixed(2)} (crossed during the final batch). The workflow's assert step will flag this run.`);
+  }
 
   console.log(`\nDone: ${translated} translated, ${cached} cached, ${errors} errors`);
   console.log(`Total cost: $${totalCost.toFixed(2)}`);
+
+  // Update the committed health record (skip single-date invocations, whose
+  // partial counts would corrupt the stuck-drain comparison).
+  if (!dateFilter) {
+    let prev = {};
+    try { prev = JSON.parse(readFileSync(HEALTH_PATH, 'utf-8')); } catch { /* first run */ }
+    // Saturated cap + backlog not shrinking + work "completing" = completed
+    // work is being lost. Deliberate uncapped drains (maxRefresh=Infinity)
+    // never saturate, so they reset the counter via the healthy branch.
+    const saturated = Number.isFinite(maxRefresh) && staleQueued >= maxRefresh;
+    const prevDeferred = prev.lastRun?.staleDeferred;
+    const stuck = saturated && translated > 0
+      && typeof prevDeferred === 'number' && staleDeferred >= prevDeferred;
+    const staleStuckRuns = stuck ? (prev.staleStuckRuns || 0) + 1 : 0;
+    writeFileSync(HEALTH_PATH, JSON.stringify({
+      _metadata: {
+        source: 'scripts/translate-transcripts.mjs',
+        note: `Per-run translation health, asserted by scripts/check-pipeline-health.mjs after deploy. staleStuckRuns counts consecutive saturated-cap runs where staleDeferred did not shrink (threshold ${STALE_STUCK_THRESHOLD}).`,
+      },
+      lastRun: {
+        generatedAt: new Date().toISOString(),
+        translated, cached, errors, staleQueued, staleDeferred,
+        totalCost: Number(totalCost.toFixed(2)),
+        maxRunCost, guardTripped,
+      },
+      staleStuckRuns,
+      staleStuckThreshold: STALE_STUCK_THRESHOLD,
+    }, null, 2) + '\n');
+    if (stuck) console.warn(`Stale backlog not draining: ${staleStuckRuns} consecutive saturated runs without shrink (threshold ${STALE_STUCK_THRESHOLD}).`);
+  }
 
   // Upload if requested
   if (doUpload) {

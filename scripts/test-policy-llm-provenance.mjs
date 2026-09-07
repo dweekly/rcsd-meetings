@@ -74,7 +74,7 @@ async function testTitleAttempts() {
   assert.equal(invocation.effectiveAttempt, 2);
   assert.match(invocation.outputHash, /^sha256:[a-f0-9]{64}$/);
   assert.equal(invocation.client.version, '0.104.1');
-  assert.deepEqual(invocation.parameters.sent, { max_tokens: 4096 });
+  assert.deepEqual(invocation.parameters.sent, { max_tokens: 4096, thinking: { type: 'disabled' } });
   assertValidInvocation(invocation);
 }
 

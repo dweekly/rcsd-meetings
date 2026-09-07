@@ -12,6 +12,10 @@
  *   node scripts/pull-cde-data.mjs --dataset absenteeism    # single dataset
  *   node scripts/pull-cde-data.mjs --force                  # re-download cached files
  *   node scripts/pull-cde-data.mjs --force --dataset ltel   # re-download + process one
+ *   node scripts/pull-cde-data.mjs --dataset staff-ratios --year 2025-26
+ *                                                          # ingest a NEWER year than
+ *                                                          # the one in CDE_DATA_YEARS,
+ *                                                          # which you then bump
  *
  * Data sources:
  *   - Chronic Absenteeism: https://www.cde.ca.gov/ds/ad/filesabd.asp
@@ -21,9 +25,11 @@
  *   - Staff Ratios: https://www.cde.ca.gov/ds/ad/filessp.asp
  */
 
-import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, unlinkSync} from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { CDE_DATA_YEARS } from './lib/school-year.mjs';
+import { datasetFor, CDE_DATASET_NAMES } from './lib/cde-datasets.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -35,48 +41,9 @@ const SCHOOLS_PATH = resolve(ROOT, 'data/schools.json');
 const COUNTY_CODE = '41';
 const DISTRICT_CODE = '69005';
 
-const DATASETS = {
-  'absenteeism': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism25-v2.txt',
-    cacheFile: 'chronicabsenteeism25-v2.txt',
-    outputFile: 'absenteeism-2024-25.json',
-    year: '2024-25',
-    description: 'Chronic absenteeism rates by school and student group',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fsabd.asp',
-  },
-  'staff-ethnicity': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/staff/stre2425.txt',
-    cacheFile: 'stre2425.txt',
-    outputFile: 'staff-ethnicity-2024-25.json',
-    year: '2024-25',
-    description: 'Staff ethnicity/race counts by school (teachers)',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fsspre.asp',
-  },
-  'staff-experience': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/staff/stex2425.txt',
-    cacheFile: 'stex2425.txt',
-    outputFile: 'staff-experience-2024-25.json',
-    year: '2024-25',
-    description: 'Staff experience levels by school (teachers)',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fsspex.asp',
-  },
-  'ltel': {
-    url: 'https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25',
-    cacheFile: 'ltel-2024-25.txt',
-    outputFile: 'ltel-2024-25.json',
-    year: '2024-25',
-    description: 'Long-term English learner counts by school',
-    fileStructure: 'https://dq.cde.ca.gov/dataquest/longtermel/',
-  },
-  'staff-ratios': {
-    url: 'https://www3.cde.ca.gov/demo-downloads/staff/strat2425.txt',
-    cacheFile: 'strat2425.txt',
-    outputFile: 'staff-ratios-2024-25.json',
-    year: '2024-25',
-    description: 'Student-to-staff ratios by school',
-    fileStructure: 'https://www.cde.ca.gov/ds/ad/fssprat.asp',
-  },
-};
+const DATASETS = Object.fromEntries(
+  CDE_DATASET_NAMES.map((name) => [name, datasetFor(name, CDE_DATA_YEARS[name])]),
+);
 
 // ---------------------------------------------------------------------------
 // Column name maps for each CDE file format
@@ -315,7 +282,7 @@ function writeOutput(dataset, datasetName, data) {
       dataYear: dataset.year,
       downloadDate: new Date().toISOString().slice(0, 10),
       fileStructure: dataset.fileStructure,
-      pipeline: `scripts/pull-cde-data.mjs --dataset ${datasetName}`,
+      pipeline: `scripts/pull-cde-data.mjs --dataset ${datasetName} --year ${dataset.year}`,
     },
     ...data,
   };
@@ -742,10 +709,26 @@ async function main() {
   const force = args.includes('--force');
   const datasetIdx = args.indexOf('--dataset');
   const singleDataset = datasetIdx !== -1 ? args[datasetIdx + 1] : null;
+  // --year is what makes an annual refresh possible at all. Without it this
+  // script could only ever re-fetch the year already recorded in
+  // CDE_DATA_YEARS, so "pull the new release, then bump the constant" had no
+  // first step: the pull would fetch the OLD year and write the OLD filename.
+  const yearIdx = args.indexOf('--year');
+  const targetYear = yearIdx !== -1 ? args[yearIdx + 1] : null;
 
-  if (singleDataset && !DATASETS[singleDataset]) {
+  if (singleDataset && !CDE_DATASET_NAMES.includes(singleDataset)) {
     console.error(`Unknown dataset: ${singleDataset}`);
-    console.error(`Valid datasets: ${Object.keys(DATASETS).join(', ')}`);
+    console.error(`Valid datasets: ${CDE_DATASET_NAMES.join(', ')}`);
+    process.exit(1);
+  }
+  if (targetYear && !/^\d{4}-\d{2}$/.test(targetYear)) {
+    console.error(`--year must look like 2025-26, got: ${targetYear}`);
+    process.exit(1);
+  }
+  if (targetYear && !singleDataset) {
+    // CDE releases the five datasets separately, so a blanket --year would
+    // request years that do not exist for some of them.
+    console.error('--year requires --dataset: CDE publishes each dataset on its own schedule.');
     process.exit(1);
   }
 
@@ -755,8 +738,22 @@ async function main() {
   console.log(`Loaded ${slugCount} school code mappings from schools.json`);
 
   const datasetsToProcess = singleDataset
-    ? { [singleDataset]: DATASETS[singleDataset] }
+    ? { [singleDataset]: targetYear ? datasetFor(singleDataset, targetYear) : DATASETS[singleDataset] }
     : DATASETS;
+
+  if (targetYear) {
+    console.log(
+      `Pulling ${singleDataset} for ${targetYear} (currently ingested: ${CDE_DATA_YEARS[singleDataset]}).\n`
+      + `After this succeeds, set CDE_DATA_YEARS['${singleDataset}'] = '${targetYear}' in `
+      + 'scripts/lib/school-year.mjs, rebuild, and confirm the numbers moved.',
+    );
+  }
+
+  // A failed ingest must not exit 0: CDE sits behind bot protection that blocks
+  // downloads for stretches, and a caller (or an operator following the annual
+  // refresh steps) cannot otherwise tell a completed ingest from one that wrote
+  // nothing at all.
+  const failed = [];
 
   for (const [name, dataset] of Object.entries(datasetsToProcess)) {
     console.log(`\n=== ${name} (${dataset.year}) ===`);
@@ -767,12 +764,35 @@ async function main() {
       text = await ensureCached(dataset, force);
     } catch (err) {
       console.error(`  Download failed: ${err.message}`);
+      failed.push(name);
       continue;
     }
 
     // Parse TSV
     const { headers, rows } = parseTSV(text);
     console.log(`  Parsed ${rows.length} total rows, ${headers.length} columns`);
+    // A header-only body is how DataQuest says "that year has no data" — it
+    // answers HTTP 200 for ANY year, so this is a successful download of
+    // nothing. Writing it would produce a metadata-only JSON that reads like a
+    // completed ingest and lets an operator bump CDE_DATA_YEARS onto empty data.
+    if (rows.length === 0) {
+      console.error(
+        `  No data rows for ${name} ${dataset.year} — the source returned headers only, `
+        + 'which means that year is not published yet.',
+      );
+      // Discard the cached body. It is a valid HTTP 200 as far as ensureCached
+      // is concerned, so keeping it would poison every later attempt: once the
+      // year IS published, the next run would "use cached", find zero rows
+      // again, and fail without ever asking the server. Retrying must not need
+      // --force to escape a cache that was never data.
+      const stalePath = resolve(CACHE_DIR, dataset.cacheFile);
+      if (existsSync(stalePath)) {
+        unlinkSync(stalePath);
+        console.error(`  Discarded empty cached response ${stalePath}`);
+      }
+      failed.push(`${name} (${dataset.year}: no rows)`);
+      continue;
+    }
     if (headers.length > 0) {
       console.log(`  Columns: ${headers.slice(0, 8).join(', ')}${headers.length > 8 ? ', ...' : ''}`);
     }
@@ -783,6 +803,16 @@ async function main() {
 
     // Write output
     writeOutput(dataset, name, data);
+  }
+
+  if (failed.length) {
+    console.error(
+      `\nFAILED to ingest ${failed.length} dataset(s): ${failed.join(', ')}.\n`
+      + '  Nothing was written for them. CDE is behind bot protection that blocks\n'
+      + '  downloads for stretches — wait and retry before concluding the release\n'
+      + '  is unavailable. See docs/ANNUAL-REFRESH.md.',
+    );
+    process.exit(1);
   }
 
   console.log('\nDone.');

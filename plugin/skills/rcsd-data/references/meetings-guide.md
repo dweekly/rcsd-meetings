@@ -1,16 +1,23 @@
 # RCSD Board Meetings Data Guide
 
-Navigating the 190-meeting board corpus: data structure, timestamps, transcripts, and efficient search strategies.
+Navigating the board meeting corpus: data structure, timestamps, transcripts, and efficient search strategies.
 
 ## Corpus Overview
 
-- **190 meetings** from August 2020 to present
-- **7,868 agenda items** with action types, speakers, and attachments
-- **4,605 attachments** (PDFs: budgets, policies, resolutions, SARCs, contracts)
-- **155 meetings with video** (YouTube recordings)
-- **155 meetings with transcripts** (AssemblyAI diarized, word-level timestamps)
-- **694 video timestamp offsets** (agenda item to video position mapping)
-- **Two source systems**: BoardDocs (164 older meetings) and Simbli (26 recent meetings)
+Coverage runs from **August 2020 to present**. The corpus is assembled from **two source
+systems** — BoardDocs for the older meetings, Simbli from June 2025 on — and every meeting,
+agenda item and attachment lands in `data/meetings-data.json`.
+
+Do not quote corpus sizes from this guide or from memory; they change on every pipeline run.
+Read the current figures from that file's own `stats` block, alongside `generated` for the
+build date:
+
+```
+total  withVideo  withTranscript  withMinutes  totalItems  totalAttachments  simbli  boarddocs
+```
+
+Video timestamp offsets live in `data/timestamp-map.json`, keyed by meeting date; count them
+there if a question needs the number.
 
 ## File Map
 

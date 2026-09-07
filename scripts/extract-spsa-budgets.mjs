@@ -19,10 +19,11 @@ import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { SPSA_YEAR } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
-const SPSA_DIR = resolve(ROOT, 'artifacts/documents/spsa/2025-26');
+const SPSA_DIR = resolve(ROOT, `artifacts/documents/spsa/${SPSA_YEAR}`);
 const CACHE_DIR = resolve(ROOT, 'data/spsa-budget-cache');
 const OUTPUT_PATH = resolve(ROOT, 'data/spsa-budgets.json');
 
@@ -175,9 +176,17 @@ async function main() {
     const cachePath = resolve(CACHE_DIR, `${slug}.json`);
 
     if (!forceFlag && existsSync(cachePath)) {
-      console.log(`[${slug}] Cached, skipping (use --force to re-extract)`);
-      results[slug] = JSON.parse(readFileSync(cachePath, 'utf-8'));
-      continue;
+      // The cache filename has no year in it, so after SPSA_YEAR is bumped the
+      // prior year's extraction still matches this path. Without this check the
+      // annual refresh would silently republish last year's budgets and report
+      // success. Compare the year the record says it holds.
+      const cached = JSON.parse(readFileSync(cachePath, 'utf-8'));
+      if (cached.schoolYear === SPSA_YEAR) {
+        console.log(`[${slug}] Cached, skipping (use --force to re-extract)`);
+        results[slug] = cached;
+        continue;
+      }
+      console.log(`[${slug}] Cache holds ${cached.schoolYear}, need ${SPSA_YEAR} — re-extracting`);
     }
 
     console.log(`[${slug}] Extracting SPSA budget...`);
@@ -188,23 +197,38 @@ async function main() {
     }
   }
 
-  // Load any cached results we didn't process this run
+  // Load any cached results we didn't process this run — but ONLY if they are
+  // for the year we are publishing. Without the year check, a refresh where the
+  // new PDFs are missing or extraction fails would fall through to here, reload
+  // last year's records, and publish them under _metadata.schoolYear of the NEW
+  // year: a completed-looking run whose contents are the previous year's.
+  const staleSlugs = [];
   if (!singleSchool) {
     for (const slug of SCHOOL_SLUGS) {
       if (!results[slug]) {
         const cachePath = resolve(CACHE_DIR, `${slug}.json`);
-        if (existsSync(cachePath)) {
-          results[slug] = JSON.parse(readFileSync(cachePath, 'utf-8'));
-        }
+        if (!existsSync(cachePath)) continue;
+        const cached = JSON.parse(readFileSync(cachePath, 'utf-8'));
+        if (cached.schoolYear === SPSA_YEAR) results[slug] = cached;
+        else staleSlugs.push(`${slug} (has ${cached.schoolYear})`);
       }
     }
+  }
+  if (staleSlugs.length) {
+    console.error(
+      `\nFAILED: no ${SPSA_YEAR} SPSA budget for ${staleSlugs.length} school(s): ${staleSlugs.join(', ')}.\n`
+      + `  Refusing to publish a ${SPSA_YEAR} dataset containing prior-year records.\n`
+      + `  Stage the ${SPSA_YEAR} PDFs in artifacts/documents/spsa/${SPSA_YEAR}/ and re-run.`,
+    );
+    process.exit(1);
   }
 
   // Build output with categorized funding
   const output = {
     _metadata: {
-      description: 'SPSA budget summaries extracted from 2025-26 SPSA PDFs',
-      source: 'Budget Summary pages in artifacts/documents/spsa/2025-26/',
+      description: `SPSA budget summaries extracted from ${SPSA_YEAR} SPSA PDFs`,
+      source: `Budget Summary pages in artifacts/documents/spsa/${SPSA_YEAR}/`,
+      schoolYear: SPSA_YEAR,
       extractionMethod: 'Claude Haiku via document content block API',
       lastUpdated: new Date().toISOString().slice(0, 10),
     },

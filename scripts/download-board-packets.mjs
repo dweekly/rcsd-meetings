@@ -15,9 +15,16 @@
  * This step closes that gap: it runs headless inside the pipeline, is driven by
  * the memos on disk (not a hardcoded list), and is idempotent — an attachment
  * that already has a `filename` is skipped, so on the runner's fresh checkout
- * only genuinely-missing packets are (re)fetched. The committed memo is the
- * idempotency key: once filenames are committed, the PDFs are on R2 and this
- * step does nothing.
+ * only genuinely-missing packets are (re)fetched.
+ *
+ * A committed `filename` is a claim that the PDF is on R2, and the claim is
+ * verified rather than trusted: each one is checked with a HEAD against
+ * R2_PUBLIC_BASE, and a filename with no object behind it is cleared so the
+ * attachment re-enters the pending path and upload-to-r2.mjs ships it later in
+ * the same run. Without that check the claim can be false — writing filenames
+ * from a checkout with no rclone "r2" remote records an upload that never
+ * happened, and every later run then skips those packets forever. Verification
+ * fails open (see findMissingOnR2) and is skippable with --no-verify.
  *
  * Incapsula: reuses the same fresh-context-per-meeting approach as
  * scrape-simbli-agendas.mjs — a context that goes straight to a ViewMeeting
@@ -29,6 +36,7 @@
  *   node scripts/download-board-packets.mjs --date 2026-06-24
  *   node scripts/download-board-packets.mjs --limit 2       # cap downloads per meeting (testing)
  *   node scripts/download-board-packets.mjs --dry-run       # report only, no browser
+ *   node scripts/download-board-packets.mjs --no-verify     # trust committed filenames (offline)
  *
  * Exit code: non-zero if any attachment that should have downloaded failed, so
  * a broken packet fetch turns the pipeline red instead of shipping dead links.
@@ -36,8 +44,9 @@
 
 import { chromium } from 'playwright';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync, unlinkSync, readdirSync, openSync, readSync, closeSync } from 'fs';
+import { execFileSync } from 'child_process';
 import { resolve, dirname } from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -46,6 +55,12 @@ const SIMBLI_BASE = 'https://simbli.eboardsolutions.com';
 const SCHOOL_ID = '36030397';
 const MEMO_DIR = resolve(ROOT, 'data/board-memos');
 const PDF_BASE_DIR = resolve(ROOT, 'artifacts/board-packets');
+
+// Public read endpoint for the R2 bucket upload-to-r2.mjs writes to; the site
+// links packets here, so a HEAD against it is exactly what a reader would get.
+const R2_PUBLIC_BASE = 'https://data.rcsd.info/board-packets';
+const VERIFY_CONCURRENCY = 16;
+const VERIFY_TIMEOUT_MS = 15000;
 
 const INCAPSULA_WAIT_MS = 5000;
 const INCAPSULA_MAX_TRIES = 6;
@@ -136,16 +151,80 @@ async function downloadPdfViaBrowser(page, url, savePath) {
   return true;
 }
 
+// Whether this checkout can actually upload what it downloads. `rclone
+// listremotes` reports remotes defined by RCLONE_CONFIG_R2_* env vars as well
+// as by a config file, so this is true on the pipeline runner (env vars, no
+// config file) and false on a plain laptop. A missing rclone binary is simply
+// "not configured".
+function hasR2Remote() {
+  try {
+    const out = execFileSync('rclone', ['listremotes'], { encoding: 'utf-8', timeout: 15000, stdio: ['ignore', 'pipe', 'ignore'] });
+    return out.split('\n').some((line) => line.trim() === 'r2:');
+  } catch {
+    return false;
+  }
+}
+
+// HEAD every committed filename and return the set of "{date}/{filename}" keys
+// with no object behind them.
+//
+// Fails open: only a definitive 404 marks a packet missing. A timeout, 403,
+// 5xx or DNS failure leaves it alone, because treating an outage as "missing"
+// would re-download and re-upload the entire archive on one bad run.
+async function findMissingOnR2(memos) {
+  const targets = [];
+  for (const { memo } of memos) {
+    for (const item of memo.items || []) {
+      for (const att of item.attachments || []) {
+        if (att.filename) targets.push(`${memo.date}/${att.filename}`);
+      }
+    }
+  }
+  if (targets.length === 0) return { missing: new Set(), checked: 0, inconclusive: 0 };
+
+  const missing = new Set();
+  let inconclusive = 0;
+  let cursor = 0;
+
+  async function worker() {
+    while (cursor < targets.length) {
+      const key = targets[cursor++];
+      const [date, ...rest] = key.split('/');
+      const url = `${R2_PUBLIC_BASE}/${date}/${encodeURIComponent(rest.join('/'))}`;
+      try {
+        const resp = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(VERIFY_TIMEOUT_MS) });
+        if (resp.status === 404) missing.add(key);
+        else if (!resp.ok) inconclusive++;
+      } catch {
+        inconclusive++;
+      }
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(VERIFY_CONCURRENCY, targets.length) }, worker));
+  return { missing, checked: targets.length, inconclusive };
+}
+
 // Collect attachments needing a download: have an aid, lack a filename. Also
 // seed the in-use filename set with any filenames already present, so newly
 // downloaded packets don't collide with prior ones in the same meeting.
-function pendingFor(memo) {
+//
+// `missingOnR2` (from findMissingOnR2) demotes a filename whose object is gone:
+// the filename is cleared so the attachment is re-fetched under a freshly
+// assigned name, and is kept out of usedFilenames so that name is available.
+function pendingFor(memo, missingOnR2 = null) {
   const pending = [];
   const usedFilenames = new Set();
   for (const item of memo.items || []) {
     for (const att of item.attachments || []) {
-      if (att.filename) usedFilenames.add(att.filename);
-      else if (att.aid) pending.push(att);
+      if (att.filename) {
+        if (missingOnR2 && missingOnR2.has(`${memo.date}/${att.filename}`)) {
+          delete att.filename;
+          if (att.aid) pending.push(att);
+          continue;
+        }
+        usedFilenames.add(att.filename);
+      } else if (att.aid) pending.push(att);
     }
   }
   return { pending, usedFilenames };
@@ -225,6 +304,7 @@ async function processMeeting(browser, memoPath, memo, limit) {
 async function main() {
   const args = process.argv.slice(2);
   const dryRun = args.includes('--dry-run');
+  const noVerify = args.includes('--no-verify');
   const dateFilter = args[args.indexOf('--date') + 1] && args.includes('--date') ? args[args.indexOf('--date') + 1] : null;
   const limitArg = args.includes('--limit') ? parseInt(args[args.indexOf('--limit') + 1], 10) : 0;
 
@@ -238,14 +318,33 @@ async function main() {
     .filter((f) => !dateFilter || f === `${dateFilter}.json`)
     .sort();
 
-  // First pass: figure out which memos actually need work.
-  const work = [];
+  const memos = [];
   for (const f of memoFiles) {
     const memoPath = resolve(MEMO_DIR, f);
     let memo;
     try { memo = JSON.parse(readFileSync(memoPath, 'utf-8')); } catch { continue; }
     if (!memo.mid) continue;
-    const { pending } = pendingFor(memo);
+    memos.push({ memoPath, memo });
+  }
+
+  // Confirm each committed filename still has an object behind it before
+  // trusting it as the skip key.
+  let missingOnR2 = null;
+  if (!noVerify) {
+    const { missing, checked, inconclusive } = await findMissingOnR2(memos);
+    missingOnR2 = missing;
+    console.log(`R2 check: ${checked} committed filename(s), ${missing.size} missing${inconclusive ? `, ${inconclusive} inconclusive (left as-is)` : ''}.`);
+    if (missing.size > 0) {
+      console.warn(`  ${missing.size} packet(s) are referenced by a memo but absent from R2 — re-downloading so upload-to-r2.mjs can ship them:`);
+      for (const key of Array.from(missing).slice(0, 10)) console.warn(`    ${key}`);
+      if (missing.size > 10) console.warn(`    ... and ${missing.size - 10} more`);
+    }
+  }
+
+  // Second pass: figure out which memos actually need work.
+  const work = [];
+  for (const { memoPath, memo } of memos) {
+    const { pending } = pendingFor(memo, missingOnR2);
     if (pending.length > 0) work.push({ memoPath, memo, pending: pending.length });
   }
 
@@ -256,6 +355,27 @@ async function main() {
 
   console.log(`Board-packet download: ${work.length} meeting(s) with missing packets:`);
   for (const w of work) console.log(`  ${w.memo.date} (MID ${w.memo.mid}): ${w.pending} missing`);
+  // Recording a filename asserts the PDF is on R2, but the upload is a separate
+  // step (upload-to-r2.mjs) that needs an rclone "r2" remote. Without one the
+  // assertion is false the moment the memo is committed.
+  if (!hasR2Remote()) {
+    console.warn(`
+${'!'.repeat(60)}
+No rclone "r2" remote is configured, so nothing downloaded here can be
+uploaded. Filenames will still be recorded into the memos, but they will
+point at objects that do not exist on R2 yet.
+
+If you commit these memos, the packets are served as dead links until a
+pipeline run repairs them: the R2 check at the start of this script clears
+any filename with no object behind it and re-fetches it on the runner,
+which does have the remote.
+
+To avoid that entirely, let the pipeline run this step, or configure rclone
+(see the setup notes in scripts/upload-to-r2.mjs).
+${'!'.repeat(60)}
+`);
+  }
+
   if (dryRun) { console.log('\n(--dry-run: no downloads.)'); return; }
 
   const browser = await chromium.launch({ headless: true, args: ['--disable-blink-features=AutomationControlled'] });
@@ -285,7 +405,13 @@ async function main() {
   }
 }
 
-main().catch((e) => {
-  console.error('Fatal error:', e);
-  process.exit(1);
-});
+// Only run when invoked as the pipeline step (run-pipeline.mjs spawns this via
+// `node <abs path>`); importing it from a test must not start a scrape.
+if (process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url) {
+  main().catch((e) => {
+    console.error('Fatal error:', e);
+    process.exit(1);
+  });
+}
+
+export { pendingFor };

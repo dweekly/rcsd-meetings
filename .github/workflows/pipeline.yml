@@ -118,6 +118,11 @@ jobs:
           rclone copy r2:rcsd-meetings/transcripts-aai/ artifacts/transcripts-aai/ \
             --ignore-existing --progress
           # Sync other cache folders (excluding heavy media, json, and transcripts)
+          # transcripts-slim/ is a dead legacy bucket prefix (pre-July-2026, no
+          # _sourceHash in its -es files; canonical copies live at transcripts/,
+          # restored above). Without this exclude it overwrote the fresh restore
+          # every run, so every ES translation read as stale and the pipeline
+          # re-bought the same 25 translations twice a day (~$15/run, Aug 2026).
           rclone copy r2:rcsd-meetings/ artifacts/ \
             --exclude "audio/**" \
             --exclude "board-packets/**" \
@@ -125,6 +130,7 @@ jobs:
             --exclude "json/**" \
             --exclude "transcripts/**" \
             --exclude "transcripts-aai/**" \
+            --exclude "transcripts-slim/**" \
             --progress
 
       # Operator inbox for out-of-band (re-)transcriptions: anything staged in
@@ -164,6 +170,10 @@ jobs:
           # 'all' removes the per-run cap on stale-cache refreshes; unset uses
           # each script's default of 25 (see --max-refresh).
           MAX_REFRESH: ${{ github.event.inputs.refresh_all == 'true' && 'all' || '' }}
+          # A deliberate uncapped drain legitimately spends more than the $10
+          # default per-run cost guard in translate-transcripts.mjs allows;
+          # unset falls back to the script default.
+          MAX_RUN_COST: ${{ github.event.inputs.refresh_all == 'true' && '150' || '' }}
         run: |
           if [ "${{ github.event.inputs.quick }}" = "true" ]; then
             node scripts/run-pipeline.mjs --quick
@@ -171,6 +181,16 @@ jobs:
             # On scheduled cron triggers, run the full pipeline
             node scripts/run-pipeline.mjs
           fi
+
+      # Probes rcsdk8.net for facts the site publishes but nothing re-checks
+      # (principals, the sitting superintendent, the cabinet roster). Placed
+      # before the commit step so the observation record is committed with the
+      # run. Never fails the build here: a probe failure or a drift finding is
+      # reported by the guard in the final step, so an alert can't cost the
+      # run's paid API work. See scripts/verify-live-facts.mjs.
+      - name: Probe Live District Facts
+        continue-on-error: true
+        run: node scripts/verify-live-facts.mjs
 
       - name: Commit Scraped Agenda Metadata Changes (Incremental)
         run: |
@@ -187,6 +207,12 @@ jobs:
             data/timestamp-map.json data/llm-timestamp-cache/ 2>/dev/null || \
           git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md \
             data/meetings-data.json data/chapter-markers.json data/chapter-markers-cache/ data/timestamp-map.json
+          # Health record must persist across runs (runner workspace is wiped)
+          # for the stuck-drain streak counter to work; asserted post-deploy.
+          if [ -e data/translation-health.json ]; then git add data/translation-health.json; fi
+          # Freshness observations must persist too: check-freshness.mjs reads
+          # lastRun.probedAt to detect that probing itself has stopped.
+          if [ -e data/freshness.json ]; then git add data/freshness.json; fi
           # ES translation outputs only exist after a full run; add them only if
           # present so quick runs (which skip translation) don't fail on a
           # pathspec that matches nothing.
@@ -236,3 +262,24 @@ jobs:
 
       - name: Verify Promoted Release in Production
         run: npm run release:smoke
+
+      # LAST step by design: a tripped guard (runaway API spend, or completed
+      # translations being lost run-over-run) must alert via a red run WITHOUT
+      # skipping the upload/commit/deploy above — failing earlier would discard
+      # this run's paid API work (checkout wipes artifacts/ next run), which is
+      # the pay-and-discard failure mode itself. See check-pipeline-health.mjs.
+      - name: Assert Pipeline Health Guards
+        run: node scripts/check-pipeline-health.mjs
+
+      # Same final-step reasoning: published facts that no longer match their
+      # source (a rotated principal, a changed superintendent) alert via a red
+      # run without discarding the work above. See scripts/check-freshness.mjs.
+      # `!cancelled()` rather than the default `success()`: the health guard
+      # above exits nonzero on a tripped cost guard or a stuck drain, which
+      # would otherwise SKIP this step — so a run that is already red for one
+      # reason would silently stop checking whether the site's published facts
+      # still match their sources. The two guards are independent and both must
+      # report.
+      - name: Assert Published Facts Still Match Their Sources
+        if: ${{ !cancelled() }}
+        run: node scripts/check-freshness.mjs

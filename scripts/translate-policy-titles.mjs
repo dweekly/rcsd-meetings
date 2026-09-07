@@ -47,13 +47,15 @@ const FORCE = process.argv.includes('--force');
 
 // Task spec for this dataset names Sonnet explicitly; Claude model ids have
 // no date suffix (claude-api skill, models table cached 2026-05-26).
-const MODEL = 'claude-sonnet-4-6';
+const MODEL = 'claude-sonnet-5';
 // Titles are short; 50/request keeps each response well under max_tokens
 // while amortizing the (cached) system prompt.
 const BATCH_SIZE = 50;
 const MAX_TOKENS = 4096;
-// Pricing per million tokens for claude-sonnet-4-6, from the claude-api
-// skill's model table (cached 2026-05-26): $3 input / $15 output.
+// Pricing per million tokens for claude-sonnet-5, from the claude-api skill's
+// model table (cached 2026-06-24): $3 input / $15 output standard. Intro
+// pricing ($2/$10 through 2026-08-31) is deliberately not encoded; cost
+// estimates use standard rates.
 const INPUT_USD_PER_MTOK = 3.0;
 const OUTPUT_USD_PER_MTOK = 15.0;
 
@@ -98,7 +100,7 @@ const USER_TEMPLATE_ID = 'policy-title-translation-user-v1';
 const USER_TEMPLATE = 'Translate these policy titles to Spanish:\n{{itemsJson}}';
 const OUTPUT_SCHEMA_ID = 'policy-title-translations-v1';
 const GENERATION_PARAMETERS = {
-  sent: { max_tokens: MAX_TOKENS },
+  sent: { max_tokens: MAX_TOKENS, thinking: { type: 'disabled' } },
   providerDefaults: 'unknown',
   unsupported: ['seed'],
 };
@@ -218,6 +220,9 @@ export async function translateBatch(items, { apiClient = getClient() } = {}) {
     try {
       response = await apiClient.messages.create({
         model: MODEL,
+        // Disable Sonnet 5's default adaptive thinking — short mechanical
+        // translations don't need billed reasoning tokens.
+        thinking: { type: 'disabled' },
         max_tokens: MAX_TOKENS,
         // No cache_control: the prompt prefix is below the model's cacheable minimum.
         system: SYSTEM_PROMPT,

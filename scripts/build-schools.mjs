@@ -21,6 +21,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { charterSummaries } from './build-charters.mjs';
+import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, IREADY_YEAR, CA_DASHBOARD_YEAR, CDE_DATA_YEARS, priorSchoolYear } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -87,11 +88,17 @@ const SSC_DATA = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'da
 const SSC_MEETINGS = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/ssc-meetings.json'), 'utf-8')); } catch { return {}; } })();
 
 // ---- Load CDE data ----
-const CDE_ABSENT = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/absenteeism-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_LTEL = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/ltel-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_STAFF_ETH = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/staff-ethnicity-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_STAFF_EXP = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/staff-experience-2024-25.json'), 'utf-8')); } catch { return {}; } })();
-const CDE_RATIOS = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/cde/staff-ratios-2024-25.json'), 'utf-8')); } catch { return {}; } })();
+// Filenames carry the ingested year, so a year bump renames every one of these.
+// They are loaded strictly: previously each was wrapped in `try/catch -> {}`,
+// which turned a renamed file into school pages silently rendering without
+// absenteeism, LTEL, and staffing data. See scripts/lib/school-year.mjs.
+const cde = (dataset, what) =>
+  loadYearScopedJson(cdeDatasetPath(ROOT, dataset), { what });
+const CDE_ABSENT = cde('absenteeism', 'CDE chronic absenteeism');
+const CDE_LTEL = cde('ltel', 'CDE long-term English learners');
+const CDE_STAFF_ETH = cde('staff-ethnicity', 'CDE staff ethnicity');
+const CDE_STAFF_EXP = cde('staff-experience', 'CDE staff experience');
+const CDE_RATIOS = cde('staff-ratios', 'CDE staff ratios');
 
 
 // i-Ready Expected Growth data, extracted from each school's 25-26 Board of
@@ -1397,7 +1404,7 @@ const LABELS = {
     backToDistrict: 'All schools',
     disclaimer: '<strong>Draft document.</strong> Personally prepared by David Weekly; this is not a representation of the district or the Board of Trustees and may contain material factual errors. For official information, visit <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Leer en espa&ntilde;ol',
-    sourceNote: 'Sources: 2024-25 SARCs, 2025-26 SPSAs, 2025-26 LCAP, each school’s 2025-26 Board of Trustees data presentation. Proficiency from 2023-24 CAASPP. Growth from each school’s 2025-26 mid-year i-Ready diagnostic as reported to the Board.',
+    sourceNote: `Sources: ${SARC_YEAR} SARCs, ${SPSA_YEAR} SPSAs, ${LCAP_YEAR} LCAP, each school’s ${IREADY_YEAR} Board of Trustees data presentation. Proficiency from ${priorSchoolYear(SARC_YEAR)} CAASPP. Growth from each school’s ${IREADY_YEAR} mid-year i-Ready diagnostic as reported to the Board.`,
     chronicAbsentNote: 'reported as 0% -- likely a data error',
     address: 'Address',
     phone: 'Phone',
@@ -1411,7 +1418,7 @@ const LABELS = {
     viewFullMeeting: 'Full meeting',
     noBoardItems: 'No board meeting items found for this school.',
     cdeAbsenteeismBreakdown: 'Chronic Absenteeism by Subgroup',
-    cdeAbsenteeismNote: 'Chronic absenteeism rate by student subgroup. A student is chronically absent if they miss 10% or more of school days — about 18 days a year. Groups too small to report (fewer than 10 students) are not shown, to protect privacy. Source: California Dept. of Education, 2024-25.',
+    cdeAbsenteeismNote: `Chronic absenteeism rate by student subgroup. A student is chronically absent if they miss 10% or more of school days — about 18 days a year. Groups too small to report (fewer than 10 students) are not shown, to protect privacy. Source: California Dept. of Education, ${CDE_DATA_YEARS.absenteeism}.`,
     cdeLtelHeading: 'English Learners: A Closer Look',
     cdeElStudents: 'Learning English',
     cdeLtelCount: 'Long-Term (LTEL)',
@@ -1422,10 +1429,10 @@ const LABELS = {
     cdeReclassifiedNote: 'Tested out of English Learner status',
     cdeLtelExplainer: 'A "long-term English Learner" (LTEL) is a student who has been learning English for 6 or more years without yet reaching fluency; students at 4-5 years are counted as "at risk" of becoming long-term. Schools watch these numbers because the goal is for students to reach fluency well before the 6-year mark.',
     cdeLtelElementaryNote: 'California only starts counting students as long-term English Learners in grade 6, so elementary schools always show zero.',
-    cdeLtelSource: 'Source: <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">California Dept. of Education</a> English Learner data (ELAS/LTEL), 2024-25 school year.',
+    cdeLtelSource: `Source: <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">California Dept. of Education</a> English Learner data (ELAS/LTEL), ${CDE_DATA_YEARS.ltel} school year.`,
     cdeSuppressed: 'fewer than 10',
     cdeStaffDiversity: 'Teacher Race & Ethnicity',
-    cdeStaffDiversityNote: 'Counts classroom teachers only. Source: <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">California Dept. of Education</a> staff data, 2024-25 school year.',
+    cdeStaffDiversityNote: `Counts classroom teachers only. Source: <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">California Dept. of Education</a> staff data, ${CDE_DATA_YEARS['staff-ethnicity']} school year.`,
     cdeNotReported: 'Not reported',
     cdeTeachers: 'Teachers',
     cdeAvgYears: 'Avg Years Teaching',
@@ -1435,7 +1442,8 @@ const LABELS = {
     cdePupilCounselor: 'Students per Counselor',
     cdeCounselorNote: 'Counselors, psychologists, social workers & nurses',
     cdeCounselorSuppressed: 'CDE lists less than one full-time position here',
-    cdeStaffSource: 'Source: <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">California Dept. of Education</a> staffing data, 2024-25 school year.',
+    cdeStaffSource: `Source: <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">California Dept. of Education</a> staffing data, ${CDE_DATA_YEARS['staff-experience']} school year.`,
+    cdeRatiosSource: `Pupil ratios: <a href="https://www.cde.ca.gov/ds/ad/fssprat.asp" target="_blank">California Dept. of Education</a> staff ratio data, ${CDE_DATA_YEARS['staff-ratios']} school year.`,
   },
   es: {
     overview: 'Resumen',
@@ -1573,7 +1581,7 @@ const LABELS = {
     backToDistrict: 'Todas las escuelas',
     disclaimer: '<strong>Documento borrador.</strong> Preparado personalmente por David Weekly; esto no es una representación del distrito o de la Mesa Directiva y puede contener errores materiales. Para información oficial, visite <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Read in English',
-    sourceNote: 'Fuentes: SARCs 2024-25, SPSAs 2025-26, LCAP 2025-26, presentaciones 2025-26 de cada escuela a la Mesa Directiva. Competencia del CAASPP 2023-24. Crecimiento de la evaluación diagnóstica de medio año i-Ready 2025-26 reportada a la Mesa.',
+    sourceNote: `Fuentes: SARCs ${SARC_YEAR}, SPSAs ${SPSA_YEAR}, LCAP ${LCAP_YEAR}, presentaciones ${IREADY_YEAR} de cada escuela a la Mesa Directiva. Competencia del CAASPP ${priorSchoolYear(SARC_YEAR)}. Crecimiento de la evaluación diagnóstica de medio año i-Ready ${IREADY_YEAR} reportada a la Mesa.`,
     chronicAbsentNote: 'reportado como 0% -- probablemente un error de datos',
     address: 'Dirección',
     phone: 'Teléfono',
@@ -1587,7 +1595,7 @@ const LABELS = {
     viewFullMeeting: 'Reunión completa',
     noBoardItems: 'No se encontraron temas de reuniones de la mesa directiva para esta escuela.',
     cdeAbsenteeismBreakdown: 'Ausentismo Crónico por Subgrupo',
-    cdeAbsenteeismNote: 'Tasa de ausentismo crónico por subgrupo estudiantil. Un estudiante está crónicamente ausente si falta el 10% o más de los días de clases — como 18 días al año. Los grupos muy chicos (menos de 10 estudiantes) no se muestran, para proteger la privacidad. Fuente: Departamento de Educación de California, 2024-25.',
+    cdeAbsenteeismNote: `Tasa de ausentismo crónico por subgrupo estudiantil. Un estudiante está crónicamente ausente si falta el 10% o más de los días de clases — como 18 días al año. Los grupos muy chicos (menos de 10 estudiantes) no se muestran, para proteger la privacidad. Fuente: Departamento de Educación de California, ${CDE_DATA_YEARS.absenteeism}.`,
     cdeLtelHeading: 'Estudiantes de Inglés: una mirada más de cerca',
     cdeElStudents: 'Aprendiendo Inglés',
     cdeLtelCount: 'A Largo Plazo (LTEL)',
@@ -1598,10 +1606,10 @@ const LABELS = {
     cdeReclassifiedNote: 'Pasaron el examen y salieron del programa',
     cdeLtelExplainer: 'Un "Estudiante de Inglés a largo plazo" (LTEL) es un estudiante que lleva 6 años o más aprendiendo inglés sin llegar a dominarlo; los que llevan 4-5 años cuentan como "en riesgo" de volverse de largo plazo. Las escuelas vigilan estos números porque la meta es que los estudiantes dominen el inglés mucho antes de los 6 años.',
     cdeLtelElementaryNote: 'California empieza a contar a los estudiantes como LTEL hasta el 6º grado, así que las escuelas primarias siempre muestran cero.',
-    cdeLtelSource: 'Fuente: datos de Estudiantes de Inglés (ELAS/LTEL) del <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">Departamento de Educación de California</a>, año escolar 2024-25.',
+    cdeLtelSource: `Fuente: datos de Estudiantes de Inglés (ELAS/LTEL) del <a href="https://dq.cde.ca.gov/dataquest/longtermel/" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS.ltel}.`,
     cdeSuppressed: 'menos de 10',
     cdeStaffDiversity: 'Raza y Etnicidad de los Maestros',
-    cdeStaffDiversityNote: 'Cuenta solo a los maestros de salón. Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">Departamento de Educación de California</a>, año escolar 2024-25.',
+    cdeStaffDiversityNote: `Cuenta solo a los maestros de salón. Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspre.asp" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS['staff-ethnicity']}.`,
     cdeNotReported: 'No reportado',
     cdeTeachers: 'Maestros',
     cdeAvgYears: 'Años Promedio Enseñando',
@@ -1611,7 +1619,8 @@ const LABELS = {
     cdePupilCounselor: 'Estudiantes por Consejero',
     cdeCounselorNote: 'Consejeros, psicólogos, trabajadores sociales y enfermeras',
     cdeCounselorSuppressed: 'CDE reporta menos de un puesto de tiempo completo aquí',
-    cdeStaffSource: 'Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">Departamento de Educación de California</a>, año escolar 2024-25.',
+    cdeStaffSource: `Fuente: datos de personal del <a href="https://www.cde.ca.gov/ds/ad/fsspex.asp" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS['staff-experience']}.`,
+    cdeRatiosSource: `Proporciones por alumno: datos de proporciones de personal del <a href="https://www.cde.ca.gov/ds/ad/fssprat.asp" target="_blank">Departamento de Educación de California</a>, año escolar ${CDE_DATA_YEARS['staff-ratios']}.`,
   },
 };
 
@@ -1795,7 +1804,7 @@ function schoolJsonLd(school, data, lang) {
 
   const sameAs = [school.website];
   if (school.cdsCode) {
-    sameAs.push(`https://www.caschooldashboard.org/reports/${school.cdsCode}/2024`);
+    sameAs.push(`https://www.caschooldashboard.org/reports/${school.cdsCode}/${CA_DASHBOARD_YEAR}`);
   }
   if (school.greatSchools?.url) {
     sameAs.push(school.greatSchools.url);
@@ -1980,9 +1989,9 @@ function buildSchoolPage(school, data, lang) {
   const logoUrl = `https://data.rcsd.info/logos/${slug}.${logoExt}`;
 
   // Info bubble helper for source attribution
-  const sarcPdfUrl = `https://data.rcsd.info/documents/sarc/2024-25/english/${slug}.pdf`;
-  const spsaPdfUrl = `https://data.rcsd.info/documents/spsa/2025-26/${slug}.pdf`;
-  const dashboardUrl = `https://www.caschooldashboard.org/reports/${school.cdsCode}/2024`;
+  const sarcPdfUrl = `https://data.rcsd.info/documents/sarc/${SARC_YEAR}/english/${slug}.pdf`;
+  const spsaPdfUrl = `https://data.rcsd.info/documents/spsa/${SPSA_YEAR}/${slug}.pdf`;
+  const dashboardUrl = `https://www.caschooldashboard.org/reports/${school.cdsCode}/${CA_DASHBOARD_YEAR}`;
   const infoBubble = (text, url) => `<span class="info-bubble" tabindex="0"><span class="info-bubble-icon">i</span><span class="info-bubble-tip"><a href="${url}" target="_blank">${text}</a></span></span>`;
 
   return `<!DOCTYPE html>
@@ -2393,7 +2402,9 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       return `${intro ? `<p>${intro}</p>\n` : ''}
     <div class="stat-grid">${cards}
     </div>
-    <p class="source">${L.cdeStaffSource}</p>`;
+    <p class="source">${L.cdeStaffSource}</p>${
+      ratios && CDE_DATA_YEARS['staff-ratios'] !== CDE_DATA_YEARS['staff-experience']
+        ? `\n    <p class="source">${L.cdeRatiosSource}</p>` : ''}`;
     })()}
 
     <h3 style="margin-top:2rem">${L.credentialsHeading}</h3>
@@ -2477,12 +2488,12 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       <div class="resource-card">
         <h3>${L.sarc}</h3>
         <p>${L.sarcDesc}</p>
-        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/sarc/2024-25/english/${slug}.pdf" target="_blank">${L.viewSarc}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
+        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/sarc/${SARC_YEAR}/english/${slug}.pdf" target="_blank">${L.viewSarc}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
       </div>
       <div class="resource-card">
         <h3>${L.spsa}</h3>
         <p>${L.spsaDesc}</p>
-        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/2025-26/${slug}.pdf" target="_blank">${L.viewSpsa}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
+        <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/${SPSA_YEAR}/${slug}.pdf" target="_blank">${L.viewSpsa}${isEs ? ' (inglés)' : ''} &#8599;</a></p>
       </div>
       ${(() => {
         const decks = SITE_PRESENTATIONS[slug] || [];
@@ -2559,7 +2570,10 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       <div class="resource-card">
         <h3>${L.schoolSiteCouncil}</h3>
         ${(() => {
-          const ssc = SSC_DATA[slug]?.['2025-26'];
+          // Must track the SPSA we link to: the roster is the council that
+          // approved that plan, so a mismatched pair would show last year's
+          // members beside this year's document.
+          const ssc = SSC_DATA[slug]?.[SPSA_YEAR];
           if (!ssc?.members?.length) return `<p class="coming-soon">${L.comingSoon}</p>`;
           const roleLabel = { principal: L.sscRolePrincipal, classroomTeacher: L.sscRoleTeacher, otherStaff: L.sscRoleStaff, parentCommunity: L.sscRoleParent };
           const adoptedStr = ssc.adoptionDate ? new Date(ssc.adoptionDate + 'T12:00:00').toLocaleDateString(lang === 'es' ? 'es-US' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
@@ -2569,7 +2583,7 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
             const names = ssc.members.filter(m => m.role === role).map(m => m.name);
             return names.length ? `<span class="ssc-role">${label}:</span> ${names.join(', ')}` : '';
           }).filter(Boolean).join('<br>')}</div>
-          <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/2025-26/${slug}.pdf" target="_blank">${isEs ? 'Ver SPSA' : 'View SPSA'} &#8599;</a></p>
+          <p style="margin-top:0.5rem"><a href="https://data.rcsd.info/documents/spsa/${SPSA_YEAR}/${slug}.pdf" target="_blank">${isEs ? 'Ver SPSA' : 'View SPSA'} &#8599;</a></p>
           ${(() => {
             const meetings = SSC_MEETINGS[slug]?.['2025-26'] || [];
             if (!meetings.length) return '';

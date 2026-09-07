@@ -36,6 +36,12 @@ jobs:
           npm run test:policy-llm-provenance
           npm run test:release
           npm run test:release-smoke
+          # The freshness guard is what tells us a principal or the
+          # superintendent has drifted, and what enforces that year-scoped
+          # constants stay consistent. If its own tests never run on a push,
+          # a broken guard merges silently and is only noticed when the
+          # scheduled pipeline stops catching things.
+          npm run test:freshness
           npm run validate:provenance -- --metadata-only
 
       - name: Verify Fail-Closed Multi-District Lab Build
