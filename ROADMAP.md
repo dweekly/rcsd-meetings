@@ -232,7 +232,8 @@ A meeting progresses through distinct states, each with different data confidenc
 
 The calendar widget and meeting pages should reflect which state each meeting is in, and be clear about the confidence level of any summary shown.
 
-- [ ] **Slot governance-calendar topics into future dates before formal agendas post** (realizes state 1's "high-level preview if available"). The "Schedule of Board Agenda Items" (a.k.a. governance calendar) lists high-level planned topics per future meeting; it is attached to the **"Other Business / Future Topics"** agenda item and is already located by `findGovernanceCalendar()`. Extract its per-date topics into `data/governance-calendar.json` `provisionalTopics` so the **Approved Meeting Calendar** grid (topic dot + hover title), the **"Next meeting"** glance card, the homepage, and the ICS feed all show a high-level preview *before* the concrete agenda posts (~72h before each meeting). **Unblocked 2026-09-07:** the 2026‑27 Schedule of Board Agenda Items has posted and is attached to the Sept 9 2026 agenda — `https://data.rcsd.info/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf`. `data/governance-calendar.json` still stops at 2026-06-24 and is sourced from the 2026‑27 *Meetings Calendar*, a different document; the per-date topics have to come from this Schedule. (25‑26 reference PDF, most recent: `https://simbli.eboardsolutions.com/meetings/TempFolder/Meetings/25-26%20Schedule%20of%20Board%20Agenda%20Items_1585773rqjlb03ajnwipfdmziqkg0gu.pdf`)
+- [x] ~~**Slot governance-calendar topics into future dates before formal agendas post**~~ — done 2026-09-07. `scripts/extract-governance-calendar.py` reads the district's Schedule of Agenda Items and writes `data/governance-calendar.json`; `scripts/translate-governance-calendar.mjs` fills the Spanish. The 2026-27 Schedule yields planned topics for 25 meetings through 2027-06-23, which the **Approved Meeting Calendar** grid, the **"Next meeting"** card, the homepage and the ICS feed already read. The Schedule marks its own edits — additions in red, deletions struck through — and the extractor drops struck rows, which flattened text extraction cannot see.
+  - [ ] **Refresh it when a new Schedule posts.** The extraction is a manual `npm run extract:governance` against a board-packet PDF. `findGovernanceCalendar()` in `build-meetings-html.mjs` already locates the document on an agenda, so the pipeline could spot a newer Schedule and re-run the extractor and translation itself.
 
 ## Board Meetings — School Relevance
 - [ ] Better summarize school-relevant meetings: "What was discussed/approved in this board meeting (per the minutes) that could impact $SCHOOL?"
@@ -406,6 +407,18 @@ Filed by the per-meeting triage records in `data/triage/`. Each names the pull i
   machine-translated from that catalogue, so the translation passes must be re-run too or 26 policies
   render current English beside stale Spanish. Worth a post-adoption checklist step, or a check that
   flags a policy whose English `sourceHash` has moved ahead of its translation.
+
+- [ ] **Split PDF spans that cross a column boundary in the Schedule extractor.** PyMuPDF
+  sometimes emits one span covering both the administrator and duration cells, and
+  `extract-governance-calendar.py` assigns a whole span to the column it overlaps most —
+  so `items[].administrator` reads "Christian Rubalcaba 15 min" with `duration` empty, on
+  4 rows of the 2026-27 Schedule. The published `en`/`es` provisional topics are built
+  from the topic column and are unaffected; this is a data-quality defect in the
+  machine-readable `items` only, and it is labelled in the file's `_method`. The fix is to
+  split a crossing span using character coordinates from PyMuPDF's `rawdict` and assign
+  each fragment to its own column. Deferred rather than done because character-level
+  splitting is new machinery in a parser that has already needed three rounds of
+  correction, and nothing user-facing depends on those two fields yet.
 
 ## Automation & Infrastructure
 - [ ] **Get `agenda-attachments.json` back on a schedule.** It is written by

@@ -51,3 +51,7 @@ warrants.db-shm
 
 # Worker local dev secrets
 .dev.vars
+
+# Python bytecode from scripts/*.py
+__pycache__/
+*.pyc
