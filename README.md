@@ -282,6 +282,22 @@ npm run monitor:gsc -- --limit 50            # inspect a larger sample of sitema
 - `data/gsc-data.json` — raw API results
 - `data/gsc-monitoring-report.md` — human-readable Markdown SEO & crawl error dashboard
 
+## Theme Triage
+
+Pulling a new agenda archives its attachments to the meeting page. It does **not**
+update the pages that own those subjects — `/district/budget/`, the charter pages,
+`data/properties.json` — which are hand-authored from a source snapshot and go stale
+silently. Every pull is therefore followed by a triage: read the new attachments by
+theme, route what is salient to the owning page, and record what was done.
+
+- [`data/triage/2026-08-26.md`](data/triage/2026-08-26.md) — Aug 26 2026 regular meeting; the Creative Learning Center lease extension routed to `properties.json`, the Cumming Group bond contract history filed. Fresh as of 2026-09-07.
+- [`data/triage/2026-09-09.md`](data/triage/2026-09-09.md) — Sept 9 2026 regular meeting; 26 proposed policy revisions, and the 2026-27 Schedule of Board Agenda Items that unblocks the governance-calendar work. Fresh as of 2026-09-07.
+
+`scripts/check-triage.mjs` reports any pulled meeting with attachments and no triage
+record. `run-pipeline.mjs` prints outstanding meetings in its run summary, and
+`npm test` fails on them. Triage records begin with Aug 26 2026; earlier meetings are
+not backfilled.
+
 ## Document Ontology
 
 All meeting attachments are classified into a document index (`data/document-index.json`) using the following taxonomy. Each document is tagged with type, subtype, school(s), school year, and meeting provenance.

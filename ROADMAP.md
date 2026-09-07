@@ -387,6 +387,27 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Feeds into email subscription system — changelog entries become notification content
 - [ ] Bilingual (EN/ES)
 
+## Board Documents — routed from theme triage
+
+Filed by the per-meeting triage records in `data/triage/`. Each names the pull it came from.
+
+- [ ] **Index the bond program-management contract history.** The Aug 26 2026 agenda (item 3) carried
+  Amendment #8 with Cumming Group *plus the whole chain back to the 2022 RGM Kramer original* — ten
+  documents spanning 2022-2026 on one agenda item. That is the complete contractual history of bond
+  program management, and it currently exists only as an attachment list on one meeting page. Index it
+  so `/district/budget/`'s bond section can show the sequence and the cumulative amended value.
+- [ ] **Capture square footage for every leased-out property.** The Creative Learning Center amendment
+  (Aug 26 2026, consent item 11) states 17,932 sq ft and a monthly total; Hawes records a rate
+  ($3.50/sq ft/month with CPI escalation) but no area, so the two leases cannot be added together.
+  With area on file for each, the district's total rental income becomes a figure the site can state
+  rather than a set of unrelated rates.
+- [ ] **Re-scrape policies after a policy-heavy adoption.** The Sept 9 2026 agenda proposes 26 policy
+  revisions, nearly all Series 4000. `policies-index.json` mirrors Simbli's live catalogue, so the
+  English side self-heals on the next scrape — but titles and bodies in `/politicas/` are
+  machine-translated from that catalogue, so the translation passes must be re-run too or 26 policies
+  render current English beside stale Spanish. Worth a post-adoption checklist step, or a check that
+  flags a policy whose English `sourceHash` has moved ahead of its translation.
+
 - [ ] **Split PDF spans that cross a column boundary in the Schedule extractor.** PyMuPDF
   sometimes emits one span covering both the administrator and duration cells, and
   `extract-governance-calendar.py` assigns a whole span to the column it overlaps most —

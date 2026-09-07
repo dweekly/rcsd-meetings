@@ -1,9 +1,14 @@
 name: Dependabot auto-merge
 on: pull_request
 
+# An explicit permissions block sets every scope it does not name to none, so
+# `checks: read` has to be stated: without it the check-runs query returns an
+# authorization error rather than a status, and the job waits out its whole timeout
+# on a pull request whose validation actually passed.
 permissions:
   contents: write
   pull-requests: write
+  checks: read
 
 jobs:
   automerge:
@@ -15,11 +20,61 @@ jobs:
         uses: dependabot/fetch-metadata@v2
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
-      # Patch/minor bumps auto-merge once the required "validate" check
-      # passes; semver-major bumps stay open for a human look.
-      - name: Enable auto-merge for patch/minor updates
+      # Patch/minor bumps merge once the "validate" check passes; semver-major
+      # bumps stay open for a human look.
+      #
+      # This waits and then merges, rather than calling GitHub's auto-merge.
+      # Auto-merge only attaches to a pull request that has something to wait on —
+      # a required status check or a required review — and main carries no branch
+      # protection, so the auto-merge call returns "Branch does not have required
+      # protected branch rules (enablePullRequestAutoMerge)" and this job fails on
+      # every Dependabot PR. Protecting main is the other way to satisfy it, but
+      # the nightly pipeline pushes its scraped data straight to main
+      # (pipeline.yml), and a required check on the branch would reject those
+      # commits.
+      #
+      # "validate" is polled by name rather than watching every check, because
+      # this job is itself a check on the pull request: waiting for all of them
+      # would include waiting for this step to finish, which cannot happen.
+      # validate-scraper.yml runs on push to every branch, so the check is always
+      # present on a Dependabot branch.
+      # Validation and the merge are both pinned to HEAD_SHA, the commit this run was
+      # triggered for. Dependabot rebases its branches, so polling the pull request
+      # and then merging "the pull request" could merge a newer, unvalidated head —
+      # and with no branch protection on main, nothing downstream would catch it.
+      # --match-head-commit makes the merge fail instead; the run triggered by the
+      # new head does the merging.
+      - name: Merge patch/minor updates once validate passes
         if: steps.meta.outputs.update-type != 'version-update:semver-major'
-        run: gh pr merge --auto --merge "$PR_URL"
+        run: |
+          set -o pipefail
+          for _ in $(seq 1 60); do
+            # A re-run leaves more than one "validate" check run on the commit, and
+            # two output lines would match no case arm and spin to the timeout. They
+            # are collapsed by highest id, which is the newest: the API returns check
+            # runs newest-first, so `last` would take the OLDEST and could merge on a
+            # stale success that a later run has since failed.
+            if ! runs=$(gh api "repos/$REPO/commits/$HEAD_SHA/check-runs" \
+                  --jq '[.check_runs[] | select(.name == "validate")] | max_by(.id) | .conclusion // .status // "none"'); then
+              echo "could not read check runs for $HEAD_SHA (is checks:read granted?)"
+              exit 1
+            fi
+            case "$runs" in
+              success)
+                gh pr merge --merge --match-head-commit "$HEAD_SHA" "$PR_URL"
+                exit 0
+                ;;
+              failure|cancelled|timed_out|action_required|startup_failure|stale|neutral)
+                echo "validate concluded '$runs' for $HEAD_SHA; leaving this PR open for a human."
+                exit 1
+                ;;
+            esac
+            sleep 15
+          done
+          echo "validate did not conclude for $HEAD_SHA within 15 minutes; leaving this PR open."
+          exit 1
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
