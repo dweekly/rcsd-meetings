@@ -142,7 +142,6 @@ Scripts run in order. Most can be run independently. All cache aggressively — 
 
  Processing
  ──────────
- 6. extract:links         → data/agenda-attachments.json (requires pymupdf; reads
     artifacts/agendas/*.pdf — regenerate a missing/broken agenda PDF with
     scripts/generate-agenda-pdf.mjs, which drives Simbli's own PrintAgenda.aspx)
  7. map:timestamps:llm    → data/timestamp-map.json (requires ANTHROPIC_API_KEY)

@@ -48,7 +48,7 @@ count here would go stale on the next pipeline run, so the tables below describe
 | `stats` (plus `generated`) | `meetings-data.json`, `document-index.json` |
 | `_metadata.counts` | `warrants-index.json`, `warrant-pdf-manifest.json` |
 | `_metadata` (provenance: source, method, retrieval date — no counts) | `charters.json`, `policies-index.json`, `policy-summaries.json`, `policy-titles-es.json`, `properties.json`, `trustees.json`, `school-clubs.json`, `site-presentations.json`, `spsa-budgets.json`, `ssc-meetings.json`, `ssc-membership.json`, `freshness.json`, `warrant-vendor-aliases.json`, everything under `cde/` |
-| Length of the top-level array or object | `youtube-index.json` (array), `schools.json` → `.schools`, `policies-index.json` → `.policies`, `meeting-summaries.json`, `timestamp-map.json`, `agenda-attachments.json` |
+| Length of the top-level array or object | `youtube-index.json` (array), `schools.json` → `.schools`, `policies-index.json` → `.policies`, `meeting-summaries.json`, `timestamp-map.json`, `attachment-index.json` → `.documents` |
 
 `data/freshness.json` records when the district-fact probes last ran. The published mirror of
 every file is `https://data.rcsd.info/json/`, with the release pointer at
@@ -97,10 +97,10 @@ site at `rcsd.info` does not serve `data/`.
 | `meeting-summaries-es.json` | One per meeting | Spanish translations of summaries |
 | `school-board-summaries.json` | Keyed `date\|item title` | Agenda items tagged to specific schools |
 | `board-memos/{date}.json` | Per-meeting | Per-meeting agenda details and staff memo text (the narrative); does **not** carry attachment file URLs — use `meetings-data.json` → `items[].attachments[].href` for those |
-| `agenda-attachments.json` | Keyed by meeting date | Raw attachment list `{aid, title, url, page}` per item, for Simbli-era meetings only. Written by `npm run extract:links` (`scripts/extract-agenda-links.py`), which is a manual step and **not** a stage in `run-pipeline.mjs`, so its coverage ends wherever it was last run — read its own top-level date keys to see the range it actually holds. It carries no `_metadata`. Treat it as a convenience subset and **never as the historical source**: for any meeting before June 2025, and for a complete list at any time, use `meetings-data.json` → `items[].attachments[]`. |
+| `attachment-index.json` | One per attachment | Every attachment on every agenda item, flattened for search: `documents[]` = `{title, aid, url, meetingDate, itemLabel, itemTitle}`. Derived from `meetings-data.json` by `build-attachment-index.mjs` as a pipeline stage, so it covers the whole corpus and its attribution matches the meeting record. Use it to establish that a document does **not** exist, which `document-index.json` cannot do on its own — that one is a curated taxonomy and omits item types it does not classify. |
 | `youtube-index.json` | Array, one per video | YouTube video links for meeting recordings. Each entry has a `kind` field (`board` or a committee id like `cboc`); board consumers filter to `kind === 'board'`. |
 | `timestamp-map.json` | Keyed by meeting date | Agenda item to video timestamp mapping |
-| `document-index.json` | Taxonomy | Attachments **classified** by type/subtype/school/year (`documents[]` with `meetingDate`, `itemLabel`, `aid`, `filename`). Good for "all SARCs" / "budget docs for school X". **Caveat: it is a curated taxonomy and omits unclassified item types — e.g. the superintendent employment contract is NOT in it. If a title search here is empty, fall back to `agenda-attachments.json` before concluding a document doesn't exist.** |
+| `document-index.json` | Taxonomy | Attachments **classified** by type/subtype/school/year (`documents[]` with `meetingDate`, `itemLabel`, `aid`, `filename`). Good for "all SARCs" / "budget docs for school X". **Caveat: it is a curated taxonomy and omits unclassified item types — e.g. the superintendent employment contract is NOT in it. If a title search here is empty, fall back to `attachment-index.json` before concluding a document doesn't exist.** |
 
 ### Vendors & Warrant Registers (vendor payments, FY2014-15 – present)
 
@@ -177,7 +177,7 @@ Read multiple files and reason across them. Examples: "Which schools have high E
 ### Finding a specific named board document (resolution, contract, agreement, MOU, change order, warrant register)
 Don't conclude "it isn't in our data" from one empty grep. Follow this order:
 
-1. **grep `data/meetings-data.json`** by title keyword across `meetings[].items[].attachments[]`. This is the **complete, canonical index** — every attachment for every meeting back to 2020, each with a downloadable `href`. (`agenda-attachments.json` is a June-2025+ convenience subset; do not treat it as the historical source.)
+1. **grep `data/meetings-data.json`** by title keyword across `meetings[].items[].attachments[]`. This is the **complete, canonical index** — every attachment for every meeting back to 2020, each with a downloadable `href`. (`attachment-index.json` is the same set flattened for search, derived from this file.)
 2. Also grep `data/document-index.json` (classified) if you want to filter by type/school/year — but remember it omits unclassified items, so a miss here is **not** authoritative.
 3. **Download the PDF** from the attachment's `href` (works for any year). Two gotchas:
    - **BoardDocs `href`s (`go.boarddocs.com/.../$file/…pdf`, the 164 older meetings) 403 a bare request.** Send browser headers: `User-Agent: Mozilla/5.0 …` **and** `Referer: https://go.boarddocs.com/ca/redwood/Board.nsf/Public`. Then they return 200.

@@ -1145,12 +1145,15 @@ function createServer(): McpServer {
         .describe("Max documents to return (default 10)"),
     },
     async ({ query, limit }) => {
-      // document-index.json (~640 KB, 1000+ docs) and agenda-attachments.json
-      // (~165 KB) are small enough to fetch in-Worker; the 5-minute module cache
-      // means at most one refetch per file per isolate per TTL.
-      const [docIndex, agendaAtt] = await Promise.all([
+      // document-index.json (~780 KB, curated + typed) and attachment-index.json
+      // (~1.8 MB, every attachment in the corpus) are fetched together; the
+      // 5-minute module cache means at most one refetch per file per isolate per
+      // TTL. The second is the larger cost and the reason a "not found" answer can
+      // be trusted: document-index is a taxonomy and omits item types it does not
+      // classify, so it cannot on its own show that a document is absent.
+      const [docIndex, attIndex] = await Promise.all([
         fetchJSON("document-index.json"),
-        fetchJSON("agenda-attachments.json"),
+        fetchJSON("attachment-index.json"),
       ]);
       // Hand-curated off-portal docs (e.g. the adopted FMP); optional file.
       let linked: any = null;
@@ -1172,13 +1175,19 @@ function createServer(): McpServer {
         source: string;
       };
       const hits: Hit[] = [];
-      const seenAids = new Set<string>(); // same attachment appears in both indexes
+      // The same attachment appears in both indexes. AID identifies a Simbli
+      // attachment, but BoardDocs-era records carry no AID, so URL is what
+      // actually distinguishes a document across the whole corpus — matching on
+      // AID alone returns every classified BoardDocs document twice.
+      const seenAids = new Set<string>();
+      const seenUrls = new Set<string>();
 
       // 1. Classified document index (preferred: R2-hosted URLs, typed by kind)
       for (const doc of docIndex.documents || []) {
         const hay = `${doc.title} ${doc.itemTitle || ""} ${doc.type || ""} ${doc.subtype || ""}`.toLowerCase();
         if (!matchesTerms(hay)) continue;
-        if (doc.aid) seenAids.add(doc.aid);
+        if (doc.aid) seenAids.add(String(doc.aid));
+        if (doc.url) seenUrls.add(doc.url);
         hits.push({
           title: doc.title,
           meetingDate: doc.meetingDate || null,
@@ -1189,19 +1198,20 @@ function createServer(): McpServer {
         });
       }
 
-      // 2. Raw agenda attachments (Simbli-hosted; covers docs the classifier skipped)
-      for (const [date, mtg] of Object.entries(agendaAtt)) {
-        if (date.startsWith("_")) continue;
-        for (const att of (mtg as any).attachments || []) {
-          if (att.aid && seenAids.has(att.aid)) continue;
-          if (!matchesTerms((att.title || "").toLowerCase())) continue;
-          hits.push({
-            title: att.title,
-            meetingDate: date,
-            url: att.url,
-            source: "agenda-attachments",
-          });
-        }
+      // 2. Every remaining attachment, covering what the classifier skipped
+      for (const att of attIndex.documents || []) {
+        if (att.aid && seenAids.has(String(att.aid))) continue;
+        if (att.url && seenUrls.has(att.url)) continue;
+        const hay = `${att.title || ""} ${att.itemTitle || ""}`.toLowerCase();
+        if (!matchesTerms(hay)) continue;
+        hits.push({
+          title: att.title,
+          meetingDate: att.meetingDate || null,
+          itemLabel: att.itemLabel,
+          itemTitle: att.itemTitle,
+          url: att.url,
+          source: "attachment-index",
+        });
       }
 
       // 3. Curated off-portal documents (linked from agenda memos, hosted elsewhere)
@@ -1217,7 +1227,7 @@ function createServer(): McpServer {
         });
       }
 
-      const sources = `Sources: ${DATA_BASE}/document-index.json (as of ${docIndex.generated}), ${DATA_BASE}/agenda-attachments.json${linked ? `, ${DATA_BASE}/linked-documents.json` : ""}`;
+      const sources = `Sources: ${DATA_BASE}/document-index.json (as of ${docIndex.generated}), ${DATA_BASE}/attachment-index.json${linked ? `, ${DATA_BASE}/linked-documents.json` : ""}`;
 
       if (hits.length === 0) {
         return {

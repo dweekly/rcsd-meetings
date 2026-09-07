@@ -196,7 +196,7 @@ const BOARD_SUMMARIES = (() => { try { return JSON.parse(readFileSync(resolve(RO
 const R2_BASE = 'https://data.rcsd.info';
 const meetingsData = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
 const timestampMap = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/timestamp-map.json'), 'utf-8')); } catch { return {}; } })();
-const agendaAttachments = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/agenda-attachments.json'), 'utf-8')); } catch { return {}; } })();
+const attachmentIndex = (() => { try { return JSON.parse(readFileSync(resolve(ROOT, 'data/attachment-index.json'), 'utf-8')); } catch { return { documents: [] }; } })();
 
 // Build AID → R2 path lookup from board-memo JSON files
 const aidToR2Path = {};
@@ -215,15 +215,11 @@ try {
   }
 } catch {}
 
-// Build AID → Simbli URL lookup from agenda-attachments.json
+// Build AID → attachment URL lookup from the attachment index, which is derived
+// from meetings-data.json and so covers every meeting in the corpus.
 const aidToSimbliUrl = {};
-for (const [, entry] of Object.entries(agendaAttachments)) {
-  const atts = entry.attachments || entry;
-  if (Array.isArray(atts)) {
-    for (const att of atts) {
-      if (att.aid && att.url) aidToSimbliUrl[att.aid] = att.url;
-    }
-  }
+for (const doc of attachmentIndex.documents || []) {
+  if (doc.aid && doc.url) aidToSimbliUrl[doc.aid] = doc.url;
 }
 
 function attachmentUrl(aid) {
