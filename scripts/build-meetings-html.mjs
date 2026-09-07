@@ -2276,6 +2276,29 @@ ${siteFooter({ lang: L.lang })}
   var allRows = document.querySelectorAll('.meeting-row');
   var dividers = document.querySelectorAll('.rotation-divider');
 
+  // Which school-year sections are open before any filter runs, so clearing a
+  // filter restores that rather than leaving the archives hanging open.
+  var yearSections = [].slice.call(document.querySelectorAll('details.section-collapsible'));
+  yearSections.forEach(function(d) { d.dataset.defaultOpen = d.open ? '1' : ''; });
+
+  // A filter hides rows, and a matching row inside a closed year is a match the
+  // reader never sees — the filter looks like it returned nothing. Open every year
+  // that still has a visible row.
+  function syncYearSections(filtering) {
+    yearSections.forEach(function(d) {
+      if (!filtering) {
+        d.open = d.dataset.defaultOpen === '1';
+        return;
+      }
+      var rows = d.querySelectorAll('.meeting-row');
+      var hasMatch = false;
+      for (var i = 0; i < rows.length; i++) {
+        if (!rows[i].classList.contains('hidden')) { hasMatch = true; break; }
+      }
+      d.open = hasMatch;
+    });
+  }
+
   btns.forEach(function(btn) {
     btn.addEventListener('click', function() {
       var filter = btn.dataset.filter;
@@ -2290,6 +2313,7 @@ ${siteFooter({ lang: L.lang })}
           }
         });
         dividers.forEach(function(d) { d.classList.remove('hidden'); });
+        syncYearSections(false);
       } else {
         activeFilter = filter;
         activeType = type;
@@ -2310,6 +2334,7 @@ ${siteFooter({ lang: L.lang })}
           r.classList.toggle('hidden', !match);
         });
         dividers.forEach(function(d) { d.classList.add('hidden'); });
+        syncYearSections(true);
       }
     });
   });

@@ -62,3 +62,23 @@ test('a meeting with no planned topics still says so in both languages', () => {
   assert.match(block, /L\.lang === 'es'/,
     'the empty-topics fallback must be bilingual, not English on the Spanish page');
 });
+
+test('filtering opens the years that hold matches, and clearing restores the default', () => {
+  // Closing years that used to be permanently open put filter results inside
+  // collapsed sections: the budget filter matches 27 meetings across 7 school
+  // years, and without this the reader sees only the ones in the current year and
+  // concludes the filter found nothing.
+  assert.match(builder, /function syncYearSections\(filtering\)/,
+    'the filter handler must reconcile school-year sections with the filtered rows');
+  assert.match(builder, /d\.dataset\.defaultOpen = d\.open \? '1' : ''/,
+    'the default open state must be captured before filtering changes it');
+  assert.match(builder, /syncYearSections\(true\)/, 'applying a filter must open matching years');
+  assert.match(builder, /syncYearSections\(false\)/, 'clearing a filter must restore the default');
+
+  // The reconcile must key on whether a row is still visible, not on the filter
+  // itself — a year with no match should close rather than stay open.
+  const fn = builder.slice(builder.indexOf('function syncYearSections'));
+  const body = fn.slice(0, fn.indexOf('\n  }') + 4);
+  assert.match(body, /classList\.contains\('hidden'\)/,
+    'syncYearSections must decide from the rows it can see');
+});
