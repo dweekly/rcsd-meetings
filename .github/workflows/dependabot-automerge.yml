@@ -1,9 +1,14 @@
 name: Dependabot auto-merge
 on: pull_request
 
+# An explicit permissions block sets every scope it does not name to none, so
+# `checks: read` has to be stated: without it the check-runs query returns an
+# authorization error rather than a status, and the job waits out its whole timeout
+# on a pull request whose validation actually passed.
 permissions:
   contents: write
   pull-requests: write
+  checks: read
 
 jobs:
   automerge:
@@ -33,26 +38,41 @@ jobs:
       # would include waiting for this step to finish, which cannot happen.
       # validate-scraper.yml runs on push to every branch, so the check is always
       # present on a Dependabot branch.
+      # Validation and the merge are both pinned to HEAD_SHA, the commit this run was
+      # triggered for. Dependabot rebases its branches, so polling the pull request
+      # and then merging "the pull request" could merge a newer, unvalidated head —
+      # and with no branch protection on main, nothing downstream would catch it.
+      # --match-head-commit makes the merge fail instead; the run triggered by the
+      # new head does the merging.
       - name: Merge patch/minor updates once validate passes
         if: steps.meta.outputs.update-type != 'version-update:semver-major'
         run: |
+          set -o pipefail
           for _ in $(seq 1 60); do
-            state=$(gh pr checks "$PR_URL" --json name,state \
-              --jq '.[] | select(.name == "validate") | .state' || true)
-            case "$state" in
-              SUCCESS)
-                gh pr merge --merge "$PR_URL"
+            # `last` collapses re-runs to a single value: a re-run leaves two
+            # "validate" check runs on the commit, and two lines match no case arm,
+            # so the loop would spin to its timeout on a passing pull request.
+            if ! runs=$(gh api "repos/$REPO/commits/$HEAD_SHA/check-runs" \
+                  --jq '[.check_runs[] | select(.name == "validate")] | last | .conclusion // .status // "none"'); then
+              echo "could not read check runs for $HEAD_SHA (is checks:read granted?)"
+              exit 1
+            fi
+            case "$runs" in
+              success)
+                gh pr merge --merge --match-head-commit "$HEAD_SHA" "$PR_URL"
                 exit 0
                 ;;
-              FAILURE|ERROR|CANCELLED|TIMED_OUT|ACTION_REQUIRED|STARTUP_FAILURE)
-                echo "validate finished $state; leaving this PR open for a human."
+              failure|cancelled|timed_out|action_required|startup_failure|stale|neutral)
+                echo "validate concluded '$runs' for $HEAD_SHA; leaving this PR open for a human."
                 exit 1
                 ;;
             esac
             sleep 15
           done
-          echo "validate did not report within 15 minutes; leaving this PR open."
+          echo "validate did not conclude for $HEAD_SHA within 15 minutes; leaving this PR open."
           exit 1
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
