@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled; Item 9.3 moved from consent to action",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
+    "agenda_changes": "Item 10.1 pulled - to be discussed at a future meeting with further information. Item 9.3 moved from consent to action for discussion.",
+    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold 10.1.",
     "items": [
       {
         "item": 1,
@@ -28,7 +28,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
         "status": "found"
       },
       {
@@ -38,67 +38,62 @@
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be",
-        "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "not applicable - part of item 5",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make",
-        "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "not applicable - duplicate of item 7",
+        "intro_words": "Does somebody want to make a motion to approve? Yeah, I'll make a motion to approve",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "And do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Thank you.",
         "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "If you have a public comment related to a Closed Session item",
-        "status": "pulled"
       },
       {
         "item": 11,
         "intro_words": "Closed Session 5:30 p.m. (Closed to the Public)",
-        "status": "found"
+        "status": "not_found"
       },
       {
         "item": 12,
-        "intro_words": "moving on to item 12 for discussion. 12.1 being first reading",
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion of board",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And moving on to item 13, consent items. If there are no",
+        "intro_words": "Okay, great. Okay, great. Moving to item 13, consent items.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "And moving on to action items. 14.1 is adoption of resolution",
+        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five",
         "status": "found"
       },
       {
-        "item": 15,
-        "intro_words": "not present in transcript",
-        "status": "not found"
+        "item": 16,
+        "intro_words": "So moving on to item 16.1, information on San Mateo county investment fund.",
+        "status": "found"
       },
       {
-        "item": 16,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment",
+        "item": 18,
+        "intro_words": "Okay, so moving on to item 18. Other business possible other business suggested items",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "Okay, with that, moving on to board meeting calendar. Are there any changes",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "Okay, with that it is 9:15.",
         "status": "found"
       }
     ]
@@ -115,15 +110,18 @@
         "timestamp": "00:00:07",
         "timestampSeconds": 7
       },
-      null,
+      {
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
+      },
       {
         "timestamp": "01:10:10",
         "timestampSeconds": 4210
       },
       null,
       {
-        "timestamp": "01:10:54",
-        "timestampSeconds": 4254
+        "timestamp": "01:10:41",
+        "timestampSeconds": 4241
       },
       null,
       {
@@ -132,10 +130,13 @@
       },
       null,
       null,
-      null,
       {
-        "timestamp": "03:03:07",
-        "timestampSeconds": 10987
+        "timestamp": "02:38:15",
+        "timestampSeconds": 9495
+      },
+      {
+        "timestamp": "03:03:30",
+        "timestampSeconds": 11010
       },
       {
         "timestamp": "03:03:07",
@@ -143,7 +144,7 @@
       }
     ]
   },
-  "cachedAt": "2026-09-07T11:36:10.464Z",
+  "cachedAt": "2026-09-07T19:02:27.805Z",
   "inputTokens": 37863,
-  "outputTokens": 778
+  "outputTokens": 818
 }
