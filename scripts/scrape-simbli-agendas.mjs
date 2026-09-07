@@ -350,15 +350,18 @@ function loadKnownMids() {
   return known;
 }
 
+function typeFor(meeting) {
+  const t = (meeting.title || '').toLowerCase();
+  if (t.includes('special') && t.includes('closed')) return 'Special (Closed)';
+  if (t.includes('special')) return 'Special';
+  if (t.includes('study')) return 'Study Session';
+  if (t.includes('workshop')) return 'Workshop';
+  return 'Regular';
+}
+
 function indexRowFor(meeting) {
   const [yyyy, mm, dd] = meeting.date.split('-');
-  const t = (meeting.title || '').toLowerCase();
-  let type = 'Regular';
-  if (t.includes('special') && t.includes('closed')) type = 'Special (Closed)';
-  else if (t.includes('special')) type = 'Special';
-  else if (t.includes('study')) type = 'Study Session';
-  else if (t.includes('workshop')) type = 'Workshop';
-  return `| ${mm}/${dd}/${yyyy} | ${type} | ${meeting.mid} | — | (auto-discovered, fill in topics) |`;
+  return `| ${mm}/${dd}/${yyyy} | ${typeFor(meeting)} | ${meeting.mid} | — | (auto-discovered, fill in topics) |`;
 }
 
 // Insert newly-discovered meetings into the Meeting Index table of
@@ -437,8 +440,18 @@ async function main() {
       const inScope = dateFilter
         ? all.filter(m => m.date === dateFilter)
         : all.filter(m => m.date >= TRACKING_FROM);
+      // Dedupe on (date, type), not just MID. Simbli can carry a SECOND record
+      // for a meeting we already index under a different MID — in Aug 2026 it
+      // grew MIDs 80379/80380/80381 for the June 11/18/25 2025 meetings already
+      // indexed as 45272/45380/47153. Keying only on MID let those through as
+      // "new", which minted phantom `-regular-2` duplicate meetings on the
+      // site. Agenda JSON is keyed by date anyway, so a same-date/same-type
+      // record can never be a distinct meeting for us.
+      const knownDateTypes = new Set(
+        [...known.values()].map(k => `${k.date}|${k.type}`),
+      );
       const unknownToMd = inScope
-        .filter(m => !known.has(m.mid))
+        .filter(m => !known.has(m.mid) && !knownDateTypes.has(`${m.date}|${typeFor(m)}`))
         .sort((a, b) => b.date.localeCompare(a.date));
       // Auto-add newly-discovered meetings to the index so they publish on
       // their own. Skipped for --list-only (discovery-only callers like the
@@ -524,6 +537,18 @@ async function main() {
         items,
       };
       const outPath = resolve(MEMO_DIR, `${date}.json`);
+      // Agenda files are keyed by date, so a *different* Simbli MID landing on
+      // an already-scraped date silently replaces it. That is occasionally
+      // legitimate (Simbli re-posted the agenda under a new record) but it also
+      // destroys the previously-ingested version, so never do it quietly.
+      if (existsSync(outPath)) {
+        let prevMid = null;
+        try { prevMid = JSON.parse(readFileSync(outPath, 'utf-8')).mid; } catch { /* unreadable: fall through */ }
+        if (prevMid && String(prevMid) !== String(m.mid)) {
+          console.warn(`  WARNING: ${date}.json was scraped from MID ${prevMid}; `
+            + `overwriting with MID ${m.mid}. Confirm which record is authoritative.`);
+        }
+      }
       writeFileSync(outPath, JSON.stringify(out, null, 2) + '\n');
       console.log(`  wrote ${outPath} (${merged.items.length} items, ${totalAtts} attachments)`);
       ok++;

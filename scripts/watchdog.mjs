@@ -11,7 +11,9 @@
  * Checks (each gated on a grace window so fresh items don't flap):
  *   A. untranscribed   — a past meeting with a YouTube id but hasTranscript=false
  *   B. undiscovered    — a channel video whose id isn't in any meeting's `youtube`
- *   C. un-ingested     — a Simbli meeting (mid) absent from meetings-data.json
+ *   C. un-ingested     — a Simbli meeting (mid) absent from meetings-data.json,
+ *                        excluding second MIDs for a date we already ingested
+ *                        (Simbli re-posts happen; our store is keyed by date)
  *
  * Sources (all public except Simbli, which reuses the repo's scraper):
  *   - published index: https://data.rcsd.info/json/meetings-data.json
@@ -121,8 +123,17 @@ function fetchSimbliMeetings() {
 // ---- gap detection ----
 const olderThanGrace = (date) => date && (NOW - Date.parse(`${date}T23:59:59Z`)) > GRACE_MS;
 
+// Simbli's listing reaches further back than our Simbli-sourced ingestion does;
+// pre-June-2025 meetings came from other sources and have no `mid`, so checking
+// them would report every one as un-ingested. Floor check C at the first month
+// we ingest agendas from Simbli.
+const SIMBLI_FLOOR_DATE = '2025-06-01';
+
+// Returns { gaps, dupes }: `gaps` drive alerts + pipeline dispatch, `dupes` are
+// logged only (see check C).
 function findGaps(meetings, videos, simbli) {
   const gaps = [];
+  const dupes = [];
   const ytIds = new Set(meetings.map(m => m.youtube).filter(Boolean));
   const mids = new Set(meetings.map(m => String(m.mid)).filter(Boolean));
 
@@ -145,14 +156,29 @@ function findGaps(meetings, videos, simbli) {
   // C. Simbli meeting (agenda) we haven't ingested. Past or future — a newly
   //    posted agenda is worth surfacing even before the meeting happens.
   if (simbli) {
+    // Dates we already ingested *from Simbli*. Our agenda store is keyed by
+    // DATE (data/board-memos/{date}.json), not by MID, so a second Simbli
+    // record for an already-ingested date cannot be "ingested" as a separate
+    // meeting — it would overwrite the first. Treat it as a duplicate, not a
+    // gap. Observed 2026-08-13: Simbli grew MIDs 80379/80380/80381 for the
+    // June 11/18/25 2025 meetings already held as MIDs 45272/45380/47153,
+    // which pinned the watchdog into alerting (and dispatching a full pipeline
+    // run that can never clear it) every cooldown window.
+    const ingestedSimbliDates = new Set(
+      meetings.filter(m => m.mid).map(m => m.date),
+    );
     for (const s of simbli) {
-      if (s.date >= '2025-06-01' && !mids.has(String(s.mid))) {
-        gaps.push({ key: `uningested:${s.mid}`, kind: 'uningested',
-          detail: `Simbli MID ${s.mid} (${s.date}) "${(s.title || '').slice(0, 60)}" not ingested` });
+      if (s.date < SIMBLI_FLOOR_DATE || mids.has(String(s.mid))) continue;
+      if (ingestedSimbliDates.has(s.date)) {
+        dupes.push(`Simbli MID ${s.mid} (${s.date}) "${(s.title || '').slice(0, 60)}" `
+          + 'duplicates an already-ingested meeting on that date — ignoring');
+        continue;
       }
+      gaps.push({ key: `uningested:${s.mid}`, kind: 'uningested',
+        detail: `Simbli MID ${s.mid} (${s.date}) "${(s.title || '').slice(0, 60)}" not ingested` });
     }
   }
-  return gaps;
+  return { gaps, dupes };
 }
 
 // ---- GitHub: in-flight check + dispatch ----
@@ -213,7 +239,8 @@ async function main() {
   const simbli = fetchSimbliMeetings();
   log(`meetings=${meetings.length} videos=${videos ? videos.length : 'n/a'} simbli=${simbli ? simbli.length : 'n/a'}`);
 
-  const gaps = findGaps(meetings, videos, simbli);
+  const { gaps, dupes } = findGaps(meetings, videos, simbli);
+  for (const d of dupes) log(`  DUPE ${d}`);
   if (gaps.length === 0) { log('No drift. All clear.'); return; }
 
   const state = loadState();
