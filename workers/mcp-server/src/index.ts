@@ -1175,13 +1175,19 @@ function createServer(): McpServer {
         source: string;
       };
       const hits: Hit[] = [];
-      const seenAids = new Set<string>(); // same attachment appears in both indexes
+      // The same attachment appears in both indexes. AID identifies a Simbli
+      // attachment, but BoardDocs-era records carry no AID, so URL is what
+      // actually distinguishes a document across the whole corpus — matching on
+      // AID alone returns every classified BoardDocs document twice.
+      const seenAids = new Set<string>();
+      const seenUrls = new Set<string>();
 
       // 1. Classified document index (preferred: R2-hosted URLs, typed by kind)
       for (const doc of docIndex.documents || []) {
         const hay = `${doc.title} ${doc.itemTitle || ""} ${doc.type || ""} ${doc.subtype || ""}`.toLowerCase();
         if (!matchesTerms(hay)) continue;
-        if (doc.aid) seenAids.add(doc.aid);
+        if (doc.aid) seenAids.add(String(doc.aid));
+        if (doc.url) seenUrls.add(doc.url);
         hits.push({
           title: doc.title,
           meetingDate: doc.meetingDate || null,
@@ -1194,7 +1200,8 @@ function createServer(): McpServer {
 
       // 2. Every remaining attachment, covering what the classifier skipped
       for (const att of attIndex.documents || []) {
-        if (att.aid && seenAids.has(att.aid)) continue;
+        if (att.aid && seenAids.has(String(att.aid))) continue;
+        if (att.url && seenUrls.has(att.url)) continue;
         const hay = `${att.title || ""} ${att.itemTitle || ""}`.toLowerCase();
         if (!matchesTerms(hay)) continue;
         hits.push({

@@ -29,7 +29,12 @@ const simbliUrl = (aid) =>
 const meetings = JSON.parse(readFileSync(MEETINGS, 'utf-8'));
 
 const documents = [];
+// meetings-data.json lists a few attachments twice on the same agenda item (six of
+// them, all on 2021-06-23). Restating them here would surface the same document
+// twice in every search that matched it.
+const seen = new Set();
 let skipped = 0;
+let deduped = 0;
 for (const meeting of meetings.meetings) {
   for (const item of meeting.items ?? []) {
     for (const attachment of item.attachments ?? []) {
@@ -39,6 +44,12 @@ for (const meeting of meetings.meetings) {
         skipped += 1;
         continue;
       }
+      const key = `${meeting.date}|${item.itemLabel}|${url}`;
+      if (seen.has(key)) {
+        deduped += 1;
+        continue;
+      }
+      seen.add(key);
       documents.push({
         title: attachment.title ?? null,
         aid: attachment.aid != null ? String(attachment.aid) : null,
@@ -81,4 +92,4 @@ writeFileSync(OUT, `${JSON.stringify(payload, null, 2)}\n`);
 const kb = Math.round(Buffer.byteLength(JSON.stringify(payload)) / 1024);
 console.log(`  Wrote ${documents.length} attachments (${kb} KB) to data/attachment-index.json`);
 console.log(`  Coverage ${payload._metadata.coverage?.from} .. ${payload._metadata.coverage?.to}`
-  + `; ${skipped} attachment(s) had neither href nor AID and were omitted.`);
+  + `; ${skipped} had neither href nor AID, ${deduped} were repeats of the same item.`);
