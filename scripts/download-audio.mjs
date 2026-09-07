@@ -1,16 +1,17 @@
 #!/usr/bin/env node
 /**
  * Batch download audio from YouTube for board meeting videos.
- * Downloads bestaudio via yt-dlp for each video in youtube-index.json
- * that doesn't already have a cached audio file.
+ * Downloads bestaudio via yt-dlp (see lib/yt-audio.mjs for the retry and
+ * format-fallback policy) for each video in youtube-index.json that doesn't
+ * already have a cached audio file.
  *
  * Usage: node scripts/download-audio.mjs
  */
 
-import { execFileSync } from 'child_process';
 import { readFileSync, existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { downloadAudio, AUDIO_EXTENSIONS } from './lib/yt-audio.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -33,7 +34,7 @@ if (process.env.RUNNER_ENVIRONMENT === 'github-hosted') {
 const videos = JSON.parse(readFileSync(resolve(ROOT, 'data/youtube-index.json'), 'utf-8'));
 
 function hasAudio(videoId) {
-  for (const ext of ['webm', 'm4a', 'opus', 'ogg', 'mp3']) {
+  for (const ext of AUDIO_EXTENSIONS) {
     if (existsSync(resolve(AUDIO_DIR, `${videoId}.${ext}`))) return true;
   }
   return false;
@@ -52,17 +53,13 @@ let failed = 0;
 for (const v of needed) {
   const i = downloaded + failed + 1;
   console.log(`[${i}/${needed.length}] ${v.date} — ${v.title.slice(0, 60)}...`);
-  const outTemplate = resolve(AUDIO_DIR, `${v.id}.%(ext)s`);
   try {
-    execFileSync('yt-dlp', [
-      '-f', 'bestaudio',
-      '--no-warnings',
-      '-o', outTemplate,
-      `https://www.youtube.com/watch?v=${v.id}`,
-    ], { encoding: 'utf-8', timeout: 600_000, stdio: 'pipe' });
+    // Retries + format fallback are in lib/yt-audio.mjs; the full stderr is
+    // preserved so a CI failure is diagnosable without a local repro.
+    downloadAudio(v.id, { audioDir: AUDIO_DIR, log: (msg) => console.log(msg) });
     downloaded++;
   } catch (err) {
-    console.error(`  FAILED: ${err.message.slice(0, 100)}`);
+    console.error(`  FAILED: ${err.message}`);
     failed++;
   }
 }

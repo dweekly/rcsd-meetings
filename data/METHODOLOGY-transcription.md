@@ -20,6 +20,8 @@ New transcriptions use Universal-3.5 Pro, but the cached corpus is mixed — eac
 
   We chose format 251 (Opus) because it provides the highest sample rate (48 kHz vs 44 kHz), Opus is specifically designed for speech fidelity, and AssemblyAI natively decodes Opus without transcoding. The raw WebM container is uploaded directly to AssemblyAI with no intermediate processing (no ffmpeg, no format conversion) to avoid any generation loss.
 - **Download command:** `yt-dlp -f bestaudio --no-warnings -o <output> <youtube-url>`
+- **Retry and fallback policy:** YouTube's media hosts intermittently answer a valid signed URL with `HTTP 403: Forbidden`. `scripts/lib/yt-audio.mjs` therefore retries each format selector up to 3 times (5s then 20s backoff) before falling back to `bestaudio[ext=m4a]` (format 140) and finally `bestaudio/best`. Retry, not fallback, resolves the observed failures — reproduce with `node scripts/diagnose-yt-audio.mjs <videoId>`.
+- **Known deviation:** the 2026-08-10 board meeting (`7ShPhkVjFDQ`) was transcribed from format 140 (AAC-LC, 129 kbps, 44.1 kHz) rather than 251, because it was fetched by hand on 2026-08-14 while the 403 loop was still being diagnosed. Every other meeting in the corpus used format 251. The transcript was not regenerated: re-running it would also invalidate the downstream chapter markers, timestamp map, and summaries already built from it, at greater cost than the sample-rate difference warrants.
 - **Cache:** `artifacts/audio/{videoId}.webm` — permanent local cache, never re-downloaded
 - **Published:** `https://data.rcsd.info/audio/{videoId}.webm`
 
