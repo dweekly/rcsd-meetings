@@ -26,11 +26,14 @@ import { existsSync, mkdirSync } from 'fs';
 import { resolve } from 'path';
 
 /**
- * Extensions yt-dlp may produce for an audio-only stream, in the order we probe
- * for an already-cached file. webm (opus) first because that is what the
- * preferred format selector yields; m4a is the documented fallback below.
+ * Extensions yt-dlp may produce, in the order we probe for an already-cached
+ * file. webm (opus) first because that is what the preferred format selector
+ * yields; m4a is the documented fallback below. mp4 is last because only the
+ * final `bestaudio/best` selector reaches it, via the progressive format 18
+ * mux — it must be listed, or a completed fallback download is not found by
+ * either caller and a successful fetch reports as failure.
  */
-export const AUDIO_EXTENSIONS = ['webm', 'm4a', 'opus', 'ogg', 'mp3'];
+export const AUDIO_EXTENSIONS = ['webm', 'm4a', 'opus', 'ogg', 'mp3', 'mp4'];
 
 /**
  * yt-dlp format selectors, tried in order. Every meeting in the cached corpus
