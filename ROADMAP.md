@@ -232,7 +232,7 @@ A meeting progresses through distinct states, each with different data confidenc
 
 The calendar widget and meeting pages should reflect which state each meeting is in, and be clear about the confidence level of any summary shown.
 
-- [ ] **Slot governance-calendar topics into future dates before formal agendas post** (realizes state 1's "high-level preview if available"). The "Schedule of Board Agenda Items" (a.k.a. governance calendar) lists high-level planned topics per future meeting; it is attached to the **"Other Business / Future Topics"** agenda item and is already located by `findGovernanceCalendar()`. Extract its per-date topics into `data/governance-calendar.json` `provisionalTopics` so the **Approved Meeting Calendar** grid (topic dot + hover title), the **"Next meeting"** glance card, the homepage, and the ICS feed all show a high-level preview *before* the concrete agenda posts (~72h before each meeting). **Blocked:** the 2026‑27 Schedule of Board Agenda Items has not posted yet — expected on/after the **Aug 10, 2026** agenda; this becomes a live TODO once it posts. (25‑26 reference PDF, most recent: `https://simbli.eboardsolutions.com/meetings/TempFolder/Meetings/25-26%20Schedule%20of%20Board%20Agenda%20Items_1585773rqjlb03ajnwipfdmziqkg0gu.pdf`)
+- [ ] **Slot governance-calendar topics into future dates before formal agendas post** (realizes state 1's "high-level preview if available"). The "Schedule of Board Agenda Items" (a.k.a. governance calendar) lists high-level planned topics per future meeting; it is attached to the **"Other Business / Future Topics"** agenda item and is already located by `findGovernanceCalendar()`. Extract its per-date topics into `data/governance-calendar.json` `provisionalTopics` so the **Approved Meeting Calendar** grid (topic dot + hover title), the **"Next meeting"** glance card, the homepage, and the ICS feed all show a high-level preview *before* the concrete agenda posts (~72h before each meeting). **Unblocked 2026-09-07:** the 2026‑27 Schedule of Board Agenda Items has posted and is attached to the Sept 9 2026 agenda — `https://data.rcsd.info/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf`. `data/governance-calendar.json` still stops at 2026-06-24 and is sourced from the 2026‑27 *Meetings Calendar*, a different document; the per-date topics have to come from this Schedule. (25‑26 reference PDF, most recent: `https://simbli.eboardsolutions.com/meetings/TempFolder/Meetings/25-26%20Schedule%20of%20Board%20Agenda%20Items_1585773rqjlb03ajnwipfdmziqkg0gu.pdf`)
 
 ## Board Meetings — School Relevance
 - [ ] Better summarize school-relevant meetings: "What was discussed/approved in this board meeting (per the minutes) that could impact $SCHOOL?"
@@ -385,6 +385,27 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] **`/changelog` page** — human-readable feed of data ingestion events ("March 31: Added March 11 & 25 YouTube videos and transcripts")
 - [ ] Feeds into email subscription system — changelog entries become notification content
 - [ ] Bilingual (EN/ES)
+
+## Board Documents — routed from theme triage
+
+Filed by the per-meeting triage records in `data/triage/`. Each names the pull it came from.
+
+- [ ] **Index the bond program-management contract history.** The Aug 26 2026 agenda (item 3) carried
+  Amendment #8 with Cumming Group *plus the whole chain back to the 2022 RGM Kramer original* — ten
+  documents spanning 2022-2026 on one agenda item. That is the complete contractual history of bond
+  program management, and it currently exists only as an attachment list on one meeting page. Index it
+  so `/district/budget/`'s bond section can show the sequence and the cumulative amended value.
+- [ ] **Capture square footage for every leased-out property.** The Creative Learning Center amendment
+  (Aug 26 2026, consent item 11) states 17,932 sq ft and a monthly total; Hawes records a rate
+  ($3.50/sq ft/month with CPI escalation) but no area, so the two leases cannot be added together.
+  With area on file for each, the district's total rental income becomes a figure the site can state
+  rather than a set of unrelated rates.
+- [ ] **Re-scrape policies after a policy-heavy adoption.** The Sept 9 2026 agenda proposes 26 policy
+  revisions, nearly all Series 4000. `policies-index.json` mirrors Simbli's live catalogue, so the
+  English side self-heals on the next scrape — but titles and bodies in `/politicas/` are
+  machine-translated from that catalogue, so the translation passes must be re-run too or 26 policies
+  render current English beside stale Spanish. Worth a post-adoption checklist step, or a check that
+  flags a policy whose English `sourceHash` has moved ahead of its translation.
 
 ## Automation & Infrastructure
 - [ ] **Get `agenda-attachments.json` back on a schedule.** It is written by
