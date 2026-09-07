@@ -10,6 +10,7 @@ import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { prettySchool } from './document-inventory.mjs';
 import { isSubstantiveItem, formatDate } from './meeting-utils.mjs';
+import { currentSchoolYear } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -26,6 +27,10 @@ for (const suffix of ['2025-26', '2026-27']) {
     districtCalendars.push(JSON.parse(readFileSync(p, 'utf-8')));
   }
 }
+
+// The school year in progress, from the one definition of it in the repo.
+// '2026-27' -> '202627', the key school-year sections are built with.
+const CURRENT_SY_KEY = currentSchoolYear().replace(/(\d{4})-(\d{2})/, '$1$2');
 
 // Load governance calendar for provisional topic descriptions
 const govCalPath = resolve(ROOT, 'data/governance-calendar.json');
@@ -914,15 +919,26 @@ function renderUpcomingSection() {
 
       const topics = govCalTopics[dateStr];
       const topicText = topics ? topics[L.lang] || topics.en : null;
-      const titleAttr = topicText ? ` title="${escapeHtml(topicText)}"` : '';
-      const topicMark = topicText ? '<span class="cal-cell-dot" aria-hidden="true">•</span>' : '';
+      // Planned topics are rendered, not hung off a title attribute. A tooltip is
+      // unreachable on a touch device, which is most of this audience, and the whole
+      // point of the entry is to say what the meeting will cover.
+      const pending = L.lang === 'es'
+        ? 'Los temas se publican más cerca de la fecha.'
+        : 'Topics are posted closer to the date.';
+      const topicHtml = topicText
+        ? `<span class="cal-cell-topics">${escapeHtml(topicText)}</span>`
+        : `<span class="cal-cell-topics cal-cell-topics--pending">${pending}</span>`;
 
-      return `        <li class="cal-cell"${titleAttr}>${dateLabel}${topicMark}</li>`;
+      return `        <li class="cal-cell">
+          <span class="cal-cell-date">${dateLabel}</span>
+          ${topicHtml}
+        </li>`;
     }).join('\n');
 
+    const syLabel = `${CURRENT_SY_KEY.slice(0, 4)}\u2013${CURRENT_SY_KEY.slice(4)}`;
     const noteText = L.lang === 'es'
-      ? 'Reuniones ordinarias de la Junta adoptadas para 2026–27. Las agendas se publican unas 72 horas antes de cada reunión.'
-      : 'Regular Board meetings adopted for 2026–27. Agendas post about 72 hours before each meeting.';
+      ? `Reuniones ordinarias de la Junta adoptadas para ${syLabel}. Los temas provienen del Calendario de Temas de la Junta del distrito y pueden cambiar; la agenda oficial se publica unas 72 horas antes de cada reunión.`
+      : `Regular Board meetings adopted for ${syLabel}. Topics come from the district's Schedule of Agenda Items and may change; the official agenda posts about 72 hours before each meeting.`;
 
     provisionalHtml = `
     <div class="upcoming-provisional-section">
@@ -945,7 +961,9 @@ ${cards}
 </section>`;
 }
 
-// Render a school year section
+// Render a school year section. Every year is the same collapsible control, so a
+// reader can close the current year as readily as open an older one; `collapsed`
+// only decides which starts open.
 function renderSchoolYear(id, title, meetings, subtitle, collapsed = false) {
   const meetingRows = [];
   for (const m of meetings) {
@@ -958,8 +976,7 @@ function renderSchoolYear(id, title, meetings, subtitle, collapsed = false) {
     meetingRows.push(renderMeeting(m));
   }
 
-  if (collapsed) {
-    return `<details class="section section-collapsible" id="${id}">
+  return `<details class="section section-collapsible" id="${id}"${collapsed ? '' : ' open'}>
   <div class="section-rule"></div>
   <summary><h2>${title}</h2></summary>
   ${subtitle ? `<p class="section-subtitle">${subtitle}</p>` : ''}
@@ -967,16 +984,6 @@ function renderSchoolYear(id, title, meetings, subtitle, collapsed = false) {
 ${meetingRows.join('\n')}
   </div>
 </details>`;
-  }
-
-  return `<section class="section" id="${id}">
-  <div class="section-rule"></div>
-  <h2>${title}</h2>
-  ${subtitle ? `<p class="section-subtitle">${subtitle}</p>` : ''}
-  <div class="meeting-list">
-${meetingRows.join('\n')}
-  </div>
-</section>`;
 }
 
 // ---- JSON-LD: ItemList of Event entries for the index page ----
@@ -2041,31 +2048,49 @@ const pageCSS = `
     max-width: 46rem;
   }
 
+  /* Each cell now carries the meeting's planned topics, so the grid is sized for
+     wrapping prose rather than a bare date: one column on a phone, wider columns
+     as space allows. */
   .cal-grid {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(116px, 1fr));
-    gap: 0.4rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+    gap: 0.5rem;
+    /* Size each cell to its own topics; without this a short entry stretches to
+       match the longest one beside it and shows a block of empty card. */
+    align-items: start;
   }
 
   .cal-cell {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.74rem;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     color: var(--green-deep);
     background: rgba(255, 255, 255, 0.65);
     border: 1px solid rgba(0, 128, 0, 0.14);
     border-radius: 5px;
-    padding: 0.4rem 0.55rem;
-    text-align: center;
+    padding: 0.55rem 0.7rem;
+    text-align: left;
+  }
+
+  .cal-cell-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 600;
     white-space: nowrap;
   }
 
-  .cal-cell-dot {
-    color: var(--green-mid);
-    margin-left: 0.25rem;
+  .cal-cell-topics {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--ink, #24321f);
+  }
+
+  .cal-cell-topics--pending {
+    font-style: italic;
+    opacity: 0.72;
   }
 
   /* ---- AT A GLANCE (latest + next meeting) ---- */
@@ -2115,8 +2140,10 @@ const pageCSS = `
   }
 
   @media (max-width: 640px) {
+    /* One meeting per row on a phone: the cells carry wrapping topic text now,
+       and two narrow columns leave it unreadable. */
     .cal-grid {
-      grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+      grid-template-columns: 1fr;
     }
   }
 
@@ -2228,7 +2255,11 @@ ${schoolYears.map(([sy, meetings]) => {
   // Filter out meetings that appear in the Upcoming section to avoid duplication
   const filtered = meetings.filter(m => !upcomingDates.has(m.date));
   if (filtered.length === 0) return '';
-  const expanded = sy === '202526' || sy === '202425';
+  // Open the school year we are actually in; everything else starts closed. This
+  // was two hard-coded years, which meant that on the roll into 2026-27 the current
+  // year rendered collapsed while two past years were permanently expanded with no
+  // way to close them.
+  const expanded = sy === CURRENT_SY_KEY;
   return renderSchoolYear(`sy${sy}`, L.schoolYearTitle(sy), filtered, L.schoolYearSubtitle(sy, filtered.length), !expanded);
 }).filter(Boolean).join('\n\n')}
 
