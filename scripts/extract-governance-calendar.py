@@ -47,22 +47,29 @@ OUT_PATH = ROOT / "data" / "governance-calendar.json"
 RED = 0xFF0000
 BLACK = 0x000000
 
-# Column boundaries in PDF points, read off the table header on every page. The
-# table is a fixed five-column grid; a span is assigned to the column its left
-# edge falls in.
-COLUMNS = [
-    ("department", 0, 118),
-    ("topic", 118, 345),
-    ("administrator", 345, 460),
-    ("duration", 460, 566),
-    ("note", 566, 1000),
-]
+# The five columns, in order. Their x boundaries are NOT fixed: each table in the
+# Schedule draws its own header row, and the Department column is narrower on some
+# tables than others. Boundaries are therefore read from the header cells of the
+# table a row belongs to, and a span is assigned to the column it overlaps most
+# rather than the one its left edge lands in — cell text can start a few points
+# outside its own border ("Declaration of Need" begins 7pt left of the boundary,
+# and a left-edge test files it under Department, where summarise() drops it).
+COLUMN_ORDER = ["department", "topic", "administrator", "duration", "note"]
 
+# A heading may carry a qualifier after the date — "September 30, 2026 - Study
+# Session" is one of them, and requiring the line to end at the year dropped that
+# meeting entirely, filing its topics under the meeting before it.
 DATE_RE = re.compile(
     r"^(?:(?:Mon|Tues|Wednes|Thurs|Fri|Satur|Sun)day,\s*)?"
     r"(January|February|March|April|May|June|July|August|September|October|November|December)"
-    r"\s+(\d{1,2}),\s*(\d{4})$"
+    r"\s+(\d{1,2}),\s*(\d{4})"
+    r"(?:\s*[-–—]\s*(?P<label>.+?))?\s*$"
 )
+
+# The Schedule ends with an undated "Future Agenda Items/Suggestions:" table —
+# ideas trustees have raised that are not scheduled for any meeting. Everything
+# from that heading on belongs to no date.
+END_OF_MEETINGS_RE = re.compile(r"Future Agenda Items\s*/\s*Suggestions", re.I)
 MONTHS = {m: i for i, m in enumerate(
     "January February March April May June July August September October November December".split(), 1)}
 
@@ -85,6 +92,7 @@ class Row:
 @dataclass
 class Meeting:
     iso: str
+    label: str = ""
     rows: list[Row] = field(default_factory=list)
     dropped: list[str] = field(default_factory=list)
 
@@ -121,11 +129,36 @@ def is_struck(span: dict, rules: list[tuple[float, float, float]]) -> bool:
     )
 
 
-def column_for(x: float) -> str | None:
-    for name, lo, hi in COLUMNS:
-        if lo <= x < hi:
-            return name
-    return None
+def header_columns(page: pymupdf.Page) -> list[tuple[float, list[tuple[float, float]]]]:
+    """Column x-ranges for each table on the page, as (header_y, [(x0, x1), ...]).
+
+    Every table repeats the green header row, and that row is drawn as one filled
+    rectangle per column, so it states the table's own geometry exactly.
+    """
+    rows: dict[float, set[tuple[float, float]]] = {}
+    for drawing in page.get_drawings():
+        for item in drawing["items"]:
+            if item[0] != "re":
+                continue
+            rect = item[1]
+            if rect.width > 40 and 20 < rect.height < 60:
+                rows.setdefault(round(rect.y0, 1), set()).add((round(rect.x0, 1), round(rect.x1, 1)))
+    return [
+        (y, sorted(cols))
+        for y, cols in sorted(rows.items())
+        if len(cols) == len(COLUMN_ORDER)
+    ]
+
+
+def column_for(span: dict, columns: list[tuple[float, float]]) -> str | None:
+    """The column this span sits in, by greatest horizontal overlap."""
+    x0, x1 = span["bbox"][0], span["bbox"][2]
+    best, best_overlap = None, 0.0
+    for name, (cx0, cx1) in zip(COLUMN_ORDER, columns):
+        overlap = min(x1, cx1) - max(x0, cx0)
+        if overlap > best_overlap:
+            best, best_overlap = name, overlap
+    return best
 
 
 def row_bands(page: pymupdf.Page) -> list[float]:
@@ -164,10 +197,14 @@ def parse(pdf_path: Path) -> tuple[list[Meeting], str | None]:
     current: Meeting | None = None
     last_update: str | None = None
 
+    ended = False
     for page in doc:
+        if ended:
+            break
         rules = horizontal_rules(page)
         bands = row_bands(page)
-        if len(bands) < 2:
+        tables = header_columns(page)
+        if len(bands) < 2 or not tables:
             continue
 
         # Bucket every span into the row band its vertical centre falls in.
@@ -196,10 +233,19 @@ def parse(pdf_path: Path) -> tuple[list[Meeting], str | None]:
                 if m:
                     last_update = m.group(1)
 
+            if END_OF_MEETINGS_RE.search(flat):
+                # Undated suggestions from here on: they belong to no meeting, and
+                # attaching them to the last date would publish an unscheduled item
+                # as planned and file the trustee who raised it as an administrator.
+                current = None
+                ended = True
+                break
+
             m = DATE_RE.match(flat)
             if m:
                 month, day, year = MONTHS[m.group(1)], int(m.group(2)), int(m.group(3))
-                current = Meeting(iso=f"{year:04d}-{month:02d}-{day:02d}")
+                current = Meeting(iso=f"{year:04d}-{month:02d}-{day:02d}",
+                                  label=(m.group("label") or "").strip())
                 meetings.append(current)
                 continue
 
@@ -210,10 +256,14 @@ def parse(pdf_path: Path) -> tuple[list[Meeting], str | None]:
             if re.fullmatch(r"p\.\s*\d+", flat):
                 continue
 
+            row_top = min(s["bbox"][1] for s in spans)
+            above = [t for t in tables if t[0] <= row_top]
+            columns = (above[-1] if above else tables[0])[1]
+
             row = Row()
             struck_topic = False
             for span in spans:
-                col = column_for(span["bbox"][0])
+                col = column_for(span, columns)
                 if col is None:
                     continue
                 piece = span["text"].strip()
