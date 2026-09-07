@@ -3,7 +3,7 @@
   "_sourceUrl": "https://data.rcsd.info/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf",
   "_sourceFile": "artifacts/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf",
   "_generated": "2026-09-07",
-  "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept",
+  "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept. The `en`/`es` summaries are built from the topic column only. Within `items`, `administrator` and `duration` are approximate: PyMuPDF sometimes emits one span across both cells, and such a span is assigned whole to the column it overlaps most, so a duration can appear appended to the administrator (4 of the rows in this extraction).",
   "_droppedStruckRows": 2,
   "provisionalTopics": {
     "2026-07-16": {

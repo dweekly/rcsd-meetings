@@ -112,3 +112,15 @@ test('undated suggestions are not attached to a meeting', () => {
     }
   }
 });
+
+test('retained Spanish keeps its translation provenance', () => {
+  // The extractor rewrites this file wholesale and carries cached Spanish forward.
+  // If it dropped _translation, the translator would skip those entries (they already
+  // have es) and the provider, model and date behind them would be unrecoverable.
+  const translated = Object.values(topics).filter((v) => v.es?.trim()).length;
+  if (translated === 0) return;
+  assert.ok(doc._translation, 'entries carry Spanish but no _translation provenance block');
+  for (const field of ['provider', 'model', 'translated']) {
+    assert.ok(doc._translation[field], `_translation.${field} is missing`);
+  }
+});

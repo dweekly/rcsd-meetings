@@ -322,8 +322,11 @@ def main() -> int:
         return 1
 
     existing = {}
+    prior_translation = None
     if args.out.exists():
-        existing = json.loads(args.out.read_text(encoding="utf-8")).get("provisionalTopics", {})
+        prior = json.loads(args.out.read_text(encoding="utf-8"))
+        existing = prior.get("provisionalTopics", {})
+        prior_translation = prior.get("_translation")
 
     provisional = {}
     dropped_total = 0
@@ -357,10 +360,20 @@ def main() -> int:
         "_generated": date.today().isoformat(),
         "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and "
                    "horizontal rules; rows struck through in the Schedule are deletions and "
-                   "are excluded, rows in red are additions and are kept",
+                   "are excluded, rows in red are additions and are kept. The `en`/`es` "
+                   "summaries are built from the topic column only. Within `items`, "
+                   "`administrator` and `duration` are approximate: PyMuPDF sometimes emits "
+                   "one span across both cells, and such a span is assigned whole to the "
+                   "column it overlaps most, so a duration can appear appended to the "
+                   "administrator (4 of the rows in this extraction).",
         "_droppedStruckRows": dropped_total,
         "provisionalTopics": provisional,
     }
+    # Spanish carried over from the previous file keeps its provenance: dropping
+    # _translation here would strand translations whose provider, model and date are
+    # then unrecoverable, because the translator skips entries that already have es.
+    if prior_translation and any(v.get("es") for v in provisional.values()):
+        payload["_translation"] = prior_translation
     args.out.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
     translated = sum(1 for v in provisional.values() if v.get("es"))

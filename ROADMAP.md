@@ -387,6 +387,18 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
 - [ ] Feeds into email subscription system — changelog entries become notification content
 - [ ] Bilingual (EN/ES)
 
+- [ ] **Split PDF spans that cross a column boundary in the Schedule extractor.** PyMuPDF
+  sometimes emits one span covering both the administrator and duration cells, and
+  `extract-governance-calendar.py` assigns a whole span to the column it overlaps most —
+  so `items[].administrator` reads "Christian Rubalcaba 15 min" with `duration` empty, on
+  4 rows of the 2026-27 Schedule. The published `en`/`es` provisional topics are built
+  from the topic column and are unaffected; this is a data-quality defect in the
+  machine-readable `items` only, and it is labelled in the file's `_method`. The fix is to
+  split a crossing span using character coordinates from PyMuPDF's `rawdict` and assign
+  each fragment to its own column. Deferred rather than done because character-level
+  splitting is new machinery in a parser that has already needed three rounds of
+  correction, and nothing user-facing depends on those two fields yet.
+
 ## Automation & Infrastructure
 - [ ] **Get `agenda-attachments.json` back on a schedule.** It is written by
   `scripts/extract-agenda-links.py` (`import fitz  # pymupdf`, which harvests hyperlink
