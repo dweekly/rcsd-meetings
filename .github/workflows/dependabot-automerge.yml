@@ -49,11 +49,13 @@ jobs:
         run: |
           set -o pipefail
           for _ in $(seq 1 60); do
-            # `last` collapses re-runs to a single value: a re-run leaves two
-            # "validate" check runs on the commit, and two lines match no case arm,
-            # so the loop would spin to its timeout on a passing pull request.
+            # A re-run leaves more than one "validate" check run on the commit, and
+            # two output lines would match no case arm and spin to the timeout. They
+            # are collapsed by highest id, which is the newest: the API returns check
+            # runs newest-first, so `last` would take the OLDEST and could merge on a
+            # stale success that a later run has since failed.
             if ! runs=$(gh api "repos/$REPO/commits/$HEAD_SHA/check-runs" \
-                  --jq '[.check_runs[] | select(.name == "validate")] | last | .conclusion // .status // "none"'); then
+                  --jq '[.check_runs[] | select(.name == "validate")] | max_by(.id) | .conclusion // .status // "none"'); then
               echo "could not read check runs for $HEAD_SHA (is checks:read granted?)"
               exit 1
             fi
