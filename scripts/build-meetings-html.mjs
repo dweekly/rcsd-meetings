@@ -558,9 +558,13 @@ function generateSummary(m) {
   // AI-written summary first
   if (manualSummaries[m.date]) return { text: manualSummaries[m.date], ai: true };
 
-  // Use topics (already curated for Simbli, auto-extracted for BoardDocs)
-  if (m.topics && m.topics.length > 0 && m.topics[0]) {
-    return { text: m.topics.join('; '), ai: false };
+  // Use topics (already curated for Simbli, auto-extracted for BoardDocs).
+  // A newly discovered meeting gets a placeholder topic in sources/rcsd-meetings.md
+  // until someone fills it in; that is an editorial note to us, not a description of
+  // the meeting, so it must never be shown as one.
+  const realTopics = (m.topics || []).filter(t => t && !/auto-discovered/i.test(t));
+  if (realTopics.length > 0) {
+    return { text: realTopics.join('; '), ai: false };
   }
 
   // Fallback: generate from substantive items
@@ -768,64 +772,6 @@ function renderRotationDivider(rotation) {
     </div>`;
 }
 
-// "At a glance" — surface the two things people come for (what happened at the
-// last meeting, and when the next one is / what it covers) at the very top,
-// above the topic filters and the archive.
-function renderAtAGlance() {
-  const past = data.meetings
-    .filter(m => m.date <= todayStr)
-    .sort((a, b) => b.date.localeCompare(a.date));
-  const last = past[0];
-  const nextDate = futureBoardMeetingDates[0];
-  const nextMeeting = nextDate ? data.meetings.find(m => m.date === nextDate) : null;
-  if (!last && !nextDate) return '';
-
-  const cards = [];
-
-  if (last) {
-    cards.push(`    <div class="glance-card">
-      <div class="glance-label">${L.lang === 'es' ? 'Última reunión' : 'Latest meeting'}</div>
-${renderMeeting(last)}
-    </div>`);
-  }
-
-  if (nextDate) {
-    let body;
-    if (nextMeeting) {
-      body = renderMeeting(nextMeeting);
-    } else {
-      const { month, day, year } = formatDateBadge(nextDate);
-      const topics = govCalTopics[nextDate];
-      const topicText = topics ? topics[L.lang] || topics.en : null;
-      const noAgenda = L.lang === 'es'
-        ? 'La agenda se publica unas 72 horas antes de la reunión.'
-        : 'Agenda is posted about 72 hours before the meeting.';
-      body = `    <div class="meeting-row">
-      <div class="meeting-date meeting-date--static">
-        <span class="meeting-date-month">${month}</span>
-        <span class="meeting-date-day">${day}</span>
-        <span class="meeting-date-year">${year}</span>
-      </div>
-      <div class="meeting-body">
-        <div class="meeting-header">
-          <span class="meeting-type">${escapeHtml(L.meetingTypes['Board Meeting'] || 'Board Meeting')}</span>
-        </div>
-        <p class="meeting-summary">${topicText ? escapeHtml(topicText) + ' ' : ''}${noAgenda}</p>
-      </div>
-    </div>`;
-    }
-    cards.push(`    <div class="glance-card">
-      <div class="glance-label">${L.lang === 'es' ? 'Próxima reunión' : 'Next meeting'}</div>
-${body}
-    </div>`);
-  }
-
-  return `<section class="glance-section" id="glance">
-  <div class="glance-grid">
-${cards.join('\n')}
-  </div>
-</section>`;
-}
 
 // Render the "Upcoming Meetings" section with two tiers
 function renderUpcomingSection() {
@@ -835,8 +781,12 @@ function renderUpcomingSection() {
 
   let cards = '';
 
+  // The whole page reads newest-first, so the upcoming tiers run the same way:
+  // furthest-out first, the next meeting last and therefore adjacent to the most
+  // recent past meeting at the top of the archive. That makes one continuous
+  // descending timeline instead of a run forward followed by a run backward.
   // Tier 1: Published meetings (agenda available) — render like regular meeting cards with badge
-  for (const m of upcomingPublished) {
+  for (const m of [...upcomingPublished].reverse()) {
     const { month, day, year } = formatDateBadge(m.date);
     const threadAttrs = m.threads.length ? ` data-threads="${m.threads.join(' ')}"` : '';
     const mSchools = meetingSchools[m.date] || new Set();
@@ -909,7 +859,11 @@ function renderUpcomingSection() {
   // specific planned topic surfaces it on hover.
   let provisionalHtml = '';
   if (upcomingProvisional.length > 0) {
-    const cells = upcomingProvisional.map(dateStr => {
+    // Meetings close to today carry their planned topics in full; the rest of the
+    // school year is real but not yet actionable, so it collapses into one control
+    // rather than running on for most of a screen.
+    const NEAR_TERM = 3;
+    const renderCell = (dateStr) => {
       const [yStr, mStr, dStr] = dateStr.split('-');
       const monthIdx = parseInt(mStr, 10) - 1;
       const dayVal = parseInt(dStr, 10);
@@ -933,7 +887,25 @@ function renderUpcomingSection() {
           <span class="cal-cell-date">${dateLabel}</span>
           ${topicHtml}
         </li>`;
-    }).join('\n');
+    };
+
+    // Descending, so the near-term meetings sit at the bottom of the block, next to
+    // the published meeting and the archive below it.
+    const near = upcomingProvisional.slice(0, NEAR_TERM);
+    const later = upcomingProvisional.slice(NEAR_TERM);
+    const nearCells = [...near].reverse().map(renderCell).join('\n');
+    const laterCells = [...later].reverse().map(renderCell).join('\n');
+    const laterLabel = L.lang === 'es'
+      ? `Resto del a\u00f1o escolar (${later.length} reuniones)`
+      : `Rest of the school year (${later.length} meetings)`;
+    const laterHtml = later.length > 0
+      ? `      <details class="cal-later">
+        <summary>${laterLabel}</summary>
+        <ul class="cal-grid">
+${laterCells}
+        </ul>
+      </details>`
+      : '';
 
     const syLabel = `${CURRENT_SY_KEY.slice(0, 4)}\u2013${CURRENT_SY_KEY.slice(4)}`;
     const noteText = L.lang === 'es'
@@ -944,8 +916,9 @@ function renderUpcomingSection() {
     <div class="upcoming-provisional-section">
       <h3 class="upcoming-provisional-title">${L.lang === 'es' ? 'Calendario de Reuniones Aprobado' : 'Approved Meeting Calendar'}</h3>
       <p class="upcoming-provisional-note">${noteText}</p>
+${laterHtml}
       <ul class="cal-grid">
-${cells}
+${nearCells}
       </ul>
     </div>`;
   }
@@ -954,10 +927,10 @@ ${cells}
   <div class="section-rule"></div>
   <h2>${L.upcomingTitle}</h2>
   <p class="section-subtitle">${L.upcomingSubtitle}</p>
+  ${provisionalHtml}
   <div class="meeting-list">
 ${cards}
   </div>
-  ${provisionalHtml}
 </section>`;
 }
 
@@ -2088,55 +2061,44 @@ const pageCSS = `
     color: var(--ink, #24321f);
   }
 
+  /* The rest of the school year: present but compressed, since it is further from
+     today than anything a reader is likely to act on. */
+  .cal-later {
+    margin: 0 0 0.6rem;
+  }
+
+  .cal-later > summary {
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    padding: 0.45rem 0.2rem;
+    list-style: none;
+  }
+
+  .cal-later > summary::-webkit-details-marker { display: none; }
+
+  .cal-later > summary::before {
+    content: '\\25B8';
+    display: inline-block;
+    margin-right: 0.45rem;
+    transition: transform 0.15s ease;
+  }
+
+  .cal-later[open] > summary::before { transform: rotate(90deg); }
+
+  .cal-later > summary:hover { text-decoration: underline; }
+
+  .cal-later .cal-grid { margin-bottom: 0.6rem; }
+
   .cal-cell-topics--pending {
     font-style: italic;
     opacity: 0.72;
   }
 
-  /* ---- AT A GLANCE (latest + next meeting) ---- */
-  .glance-section {
-    margin-top: 1.75rem;
-  }
-
-  .glance-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    align-items: start;
-  }
-
-  .glance-card {
-    border: 1px solid var(--rule-light);
-    border-radius: 8px;
-    padding: 0.55rem 1.1rem 0.35rem;
-    background: rgba(255, 255, 255, 0.5);
-  }
-
-  .glance-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--green-mid);
-    margin: 0.15rem 0 0.15rem;
-  }
-
-  /* Meeting rows sit flush inside the glance cards (no list separators). */
-  .glance-card .meeting-row {
-    border-bottom: none;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .meeting-date--static {
-    cursor: default;
-    text-decoration: none;
-  }
 
   @media (max-width: 720px) {
-    .glance-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   @media (max-width: 640px) {
@@ -2234,7 +2196,6 @@ ${siteNav({ activePage: 'meetings', lang: L.lang, altLangHref: L.altLangHref })}
 </nav>
 
 <main class="content">
-${renderAtAGlance()}
 
 ${renderUpcomingSection()}
 
@@ -2308,7 +2269,7 @@ ${siteFooter({ lang: L.lang })}
         activeType = null;
         btns.forEach(function(b) { b.classList.remove('active'); });
         allRows.forEach(function(r) {
-          if (!r.closest('#upcoming, #glance')) {
+          if (!r.closest('#upcoming')) {
             r.classList.remove('hidden');
           }
         });
@@ -2319,7 +2280,7 @@ ${siteFooter({ lang: L.lang })}
         activeType = type;
         btns.forEach(function(b) { b.classList.toggle('active', b.dataset.filter === filter && b.dataset.filterType === type); });
         allRows.forEach(function(r) {
-          if (r.closest('#upcoming, #glance')) return;
+          if (r.closest('#upcoming')) return;
           var match = false;
           if (type === 'thread') {
             var threads = r.dataset.threads || '';

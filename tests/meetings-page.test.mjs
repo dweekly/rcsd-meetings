@@ -82,3 +82,37 @@ test('filtering opens the years that hold matches, and clearing restores the def
   assert.match(body, /classList\.contains\('hidden'\)/,
     'syncYearSections must decide from the rows it can see');
 });
+
+test('the At a glance section is gone, and nothing still references it', () => {
+  // Both its cards restated a meeting rendered again below — the next meeting also
+  // opens Upcoming, and the latest also opens the current school year.
+  assert.doesNotMatch(builder, /glance/i,
+    'a reference to the removed At-a-glance section survives (markup, CSS or the filter handler)');
+});
+
+test('the upcoming tiers render newest-first, like the archive below them', () => {
+  // The page is one descending timeline: the furthest-out meeting first, the next
+  // meeting last and so adjacent to the most recent past meeting.
+  assert.match(builder, /for \(const m of \[\.\.\.upcomingPublished\]\.reverse\(\)\)/,
+    'published upcoming meetings must render in reverse order');
+  assert.match(builder, /\[\.\.\.near\]\.reverse\(\)/, 'near-term calendar cells must render in reverse order');
+  assert.match(builder, /\[\.\.\.later\]\.reverse\(\)/, 'later calendar cells must render in reverse order');
+
+  // The provisional block must precede the published one, or the next meeting sorts
+  // above the far-future dates and breaks the descending run.
+  const section = builder.slice(builder.indexOf('<section class="section upcoming-section"'));
+  const block = section.slice(0, section.indexOf('</section>'));
+  assert.ok(block.indexOf('${provisionalHtml}') < block.indexOf('${cards}'),
+    'the provisional calendar must render above the published meetings');
+});
+
+test('an internal placeholder topic is never shown as a summary', () => {
+  // sources/rcsd-meetings.md marks a newly discovered meeting "(auto-discovered,
+  // fill in topics)". That is a note to us; rendering it describes the meeting to
+  // the public as an unfinished task.
+  assert.match(builder, /auto-discovered/i,
+    'generateSummary must filter the placeholder topic');
+  const fn = builder.slice(builder.indexOf('function generateSummary'));
+  const body = fn.slice(0, fn.indexOf('\n}'));
+  assert.match(body, /realTopics/, 'the placeholder filter must sit in the summary fallback');
+});
