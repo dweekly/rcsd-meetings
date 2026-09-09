@@ -26,6 +26,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { AssemblyAI } from 'assemblyai';
 import { downloadAudio as fetchAudio } from './lib/yt-audio.mjs';
+import { loadRetiredVideos } from './lib/audio-retirement.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -265,10 +266,19 @@ async function main() {
   // session preceding the regular meeting, or a re-noticed agenda) that all
   // link the evening's one public video; transcribe each video only once.
   const seenVids = new Set();
+  // Videos retired in data/audio-unavailable.json are gone from YouTube, so
+  // queueing them here would re-run the full retry-and-fallback chain on every
+  // pass with no possible outcome but failure. Same list the batch downloader
+  // reads — see lib/audio-retirement.mjs.
+  const retired = loadRetiredVideos(ROOT);
   for (const m of meetings) {
     if (filterDate && m.date !== filterDate) continue;
     if (seenVids.has(m.youtube)) continue;
     seenVids.add(m.youtube);
+    if (Object.hasOwn(retired, m.youtube)) {
+      console.log(`  SKIP ${m.youtube} (${m.date}) — retired in audio-unavailable.json: ${retired[m.youtube]}`);
+      continue;
+    }
     if (await hasCachedOrRestored(m.youtube, m.date)) continue;
     toProcess.push(m);
   }

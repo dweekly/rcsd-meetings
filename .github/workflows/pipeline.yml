@@ -86,11 +86,30 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y rclone
 
+      # yt-dlp must be current on EVERY runner, not just hosted ones. YouTube
+      # changes its player periodically and an older extractor answers with
+      # `HTTP Error 403: Forbidden` on the media fetch for every format, which
+      # reads exactly like the transient CDN throttling documented in
+      # lib/yt-audio.mjs. Install into $HOME/.local/bin so the self-hosted
+      # runner (no passwordless sudo, /usr/local/bin owned by root) gets the
+      # same refresh, and put it ahead of any system copy on PATH.
       - name: Install yt-dlp (YouTube downloader)
-        if: runner.os == 'Linux' && runner.environment == 'github-hosted'
+        if: runner.os == 'Linux'
         run: |
-          sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/local/bin/yt-dlp
-          sudo chmod a+rx /usr/local/bin/yt-dlp
+          mkdir -p "$HOME/.local/bin"
+          # Keep the previous binary if the fetch fails: a GitHub outage must not
+          # take the pipeline down when the copy already on disk still works.
+          if curl -fsSL --retry 3 -o "$HOME/.local/bin/yt-dlp.new" \
+               https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp; then
+            chmod a+rx "$HOME/.local/bin/yt-dlp.new"
+            mv "$HOME/.local/bin/yt-dlp.new" "$HOME/.local/bin/yt-dlp"
+          else
+            rm -f "$HOME/.local/bin/yt-dlp.new"
+            echo "WARNING: could not fetch latest yt-dlp; using whatever is already installed."
+          fi
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          # Record what actually ran, so a future 403 can be read against a version.
+          "$HOME/.local/bin/yt-dlp" --version || yt-dlp --version
 
       - name: Install Project Dependencies
         run: npm ci || npm install
@@ -202,17 +221,28 @@ jobs:
           # production (June 24 regression, twice), and uncommitted marker/
           # timestamp caches were wiped by checkout each run, re-spending API
           # calls nightly on work already done.
+          # meeting-summaries*.json are staged here for the same reason as every
+          # other LLM output above: they are generated once and reused. Left
+          # unstaged they were regenerated and re-billed on every run while the
+          # committed copy stayed frozen, because the runner workspace is wiped
+          # between runs and the checkout restored the stale file.
           git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md \
             data/meetings-data.json data/chapter-markers.json data/chapter-markers-cache/ \
+            data/meeting-summaries.json data/meeting-summaries-es.json \
             data/timestamp-map.json data/llm-timestamp-cache/ 2>/dev/null || \
           git add data/board-memos/ data/youtube-index.json data/provenance/ sources/rcsd-meetings.md \
-            data/meetings-data.json data/chapter-markers.json data/chapter-markers-cache/ data/timestamp-map.json
+            data/meetings-data.json data/chapter-markers.json data/chapter-markers-cache/ \
+            data/meeting-summaries.json data/meeting-summaries-es.json data/timestamp-map.json
           # Health record must persist across runs (runner workspace is wiped)
           # for the stuck-drain streak counter to work; asserted post-deploy.
           if [ -e data/translation-health.json ]; then git add data/translation-health.json; fi
           # Freshness observations must persist too: check-freshness.mjs reads
           # lastRun.probedAt to detect that probing itself has stopped.
           if [ -e data/freshness.json ]; then git add data/freshness.json; fi
+          # Audio-fetch record must persist across runs (runner workspace is
+          # wiped) for the consecutive-failure streak to mean anything;
+          # asserted post-deploy by check-pipeline-health.mjs.
+          if [ -e data/audio-health.json ]; then git add data/audio-health.json; fi
           # ES translation outputs only exist after a full run; add them only if
           # present so quick runs (which skip translation) don't fail on a
           # pathspec that matches nothing.

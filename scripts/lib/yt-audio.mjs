@@ -2,23 +2,33 @@
  * Shared YouTube audio fetcher for the transcription pipeline.
  *
  * Why this exists: both `download-audio.mjs` (batch pre-fetch) and
- * `transcribe-assemblyai.mjs` (on-demand fetch) shelled out to
- * `yt-dlp -f bestaudio` with no retry and truncated the error to 100 chars.
- * On 2026-08-14 the August 10 board meeting (video 7ShPhkVjFDQ) failed the
- * whole pipeline's transcription step with `ERROR: u` — the truncated tail of
- * `unable to download video data: HTTP Error 403: Forbidden`.
+ * `transcribe-assemblyai.mjs` (on-demand fetch) shell out to yt-dlp, and both
+ * need the same retry, format-fallback, and error-reporting policy. A fetch
+ * that fails here means a board meeting never gets a transcript, so the
+ * failure must be both survivable and diagnosable.
  *
- * The 403 was reproduced on two independent networks (macOS residential and
- * the trogdor self-hosted runner) and on both the opus (251) and m4a (140)
- * streams, then a plain re-run of the *same* command downloaded all 48 MiB at
- * full speed. That rules out format availability, player-client selection, and
- * yt-dlp version, and leaves transient throttling on YouTube's media hosts as
- * the working hypothesis: the media URL is signed and valid, the CDN just
- * refuses some requests. Not a documented upstream bug — no yt-dlp issue is
- * cited here because the failure is server-side and intermittent.
+ * `unable to download video data: HTTP Error 403: Forbidden` on the media
+ * fetch has two distinct causes, and they are told apart by whether a retry
+ * helps:
+ *
+ *  1. Transient throttling on YouTube's media hosts. The signed media URL is
+ *     valid and the CDN simply refuses some requests; a repeat of the very
+ *     same command succeeds. Observed across formats (opus 251 and m4a 140)
+ *     and across networks. This is what the retry and backoff below exist for,
+ *     and it self-heals within a run.
+ *  2. A yt-dlp too old for YouTube's current player. Every attempt on every
+ *     format fails identically and no amount of retrying helps. Measured
+ *     directly: on 2026-09-08 video Y0WtwaJ_3VI failed 9/9 attempts under
+ *     yt-dlp 2026.06.09 and downloaded on the first attempt under 2026.08.19,
+ *     on the same host and network. This does NOT self-heal — the workflow
+ *     installs the current yt-dlp on every run so it cannot recur silently,
+ *     and check-pipeline-health.mjs reddens the run if a video stays unfetched
+ *     across runs.
  *
  * So: retry with backoff first, then fall back across formats, and always
- * surface the real stderr so the next failure is diagnosable from CI logs.
+ * surface the real stderr so the next failure is diagnosable from CI logs —
+ * a truncated error (this code once cut stderr to 100 chars, yielding
+ * `ERROR: u`) makes cause 1 and cause 2 indistinguishable.
  */
 
 import { execFileSync } from 'child_process';
