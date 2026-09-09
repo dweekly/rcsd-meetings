@@ -1,0 +1,8 @@
+{
+  "_metadata": {
+    "description": "YouTube videos that will never be fetched again, keyed by video id with the reason they were retired. scripts/download-audio.mjs skips these and scripts/check-pipeline-health.mjs excludes them from the unfetched-audio guard, so a video that is genuinely gone from YouTube does not red every run forever.",
+    "usage": "Add an entry ONLY when the video is confirmed unavailable at its source (deleted, made private, or never recorded). A fetch that fails for any other reason is a bug to fix, not an entry here.",
+    "consumers": ["scripts/download-audio.mjs", "scripts/check-pipeline-health.mjs"]
+  },
+  "videos": {}
+}
