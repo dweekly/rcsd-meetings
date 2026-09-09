@@ -21,28 +21,28 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action, and items 6.2 and 6.3 were also moved to action. Superintendent also added a staff recognition for Wendy Kelly.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from later in the agenda to immediately before oral communication. Additionally, a staff recognition item was added under 13.1. Bond program consent items (6.1) were moved to action items (6.2 and 6.3), with public comment added.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn.",
-        "status": "found"
+        "intro_words": "not explicitly marked in transcript",
+        "status": "procedural"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present. Trustee",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "President Marquez? Here. Thank you. Next item is 1.2",
-        "status": "found"
+        "intro_words": "not explicitly marked in transcript",
+        "status": "procedural"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Márquez",
-        "status": "found"
+        "intro_words": "Welcome by the School Board President",
+        "status": "procedural"
       },
       {
         "item": 5,
@@ -51,77 +51,102 @@
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
-        "status": "found"
+        "intro_words": "not separately marked",
+        "status": "combined_with_5"
       },
       {
         "item": 7,
-        "intro_words": "With that, if there's no other changes to the agenda, can",
+        "intro_words": "can I please get a motion to approve it? So moved",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "With that, if there's no other changes to the agenda, can",
-        "status": "found"
+        "intro_words": "not explicitly marked",
+        "status": "procedural"
       },
       {
         "item": 9,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And",
-        "status": "found"
+        "intro_words": "not marked as separate oral communication",
+        "status": "merged_with_moved_items"
       },
       {
         "item": 10,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And",
-        "status": "found"
+        "intro_words": "not applicable",
+        "status": "not_found"
       },
       {
         "item": 11,
-        "intro_words": "Good. Well, it's a special evening tonight. We have in our",
-        "status": "found"
+        "intro_words": "not applicable - closed session agenda item",
+        "status": "not_found"
       },
       {
         "item": 12,
-        "intro_words": "So I'm hoping if you are here representing our ground specialists,",
-        "status": "found"
+        "intro_words": "Approval of Comprehensive School Safety Plans",
+        "status": "pulled"
       },
       {
         "item": 13,
-        "intro_words": "I had one other recognition that I would like to do. We",
-        "status": "found"
+        "intro_words": "not reached in transcript",
+        "status": "not_found"
       },
       {
         "item": 14,
-        "intro_words": "So I just realized that we do have. So I don't know",
-        "status": "found"
+        "intro_words": "not reached in transcript",
+        "status": "not_found"
       },
       {
         "item": 15,
-        "intro_words": "6.1. The approval of bond program consent items. So we'll move",
-        "status": "found"
+        "intro_words": "not reached in transcript",
+        "status": "not_found"
       },
       {
         "item": 16,
-        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond",
+        "intro_words": "not reached in transcript",
+        "status": "not_found"
+      },
+      {
+        "item": "13.1_moved",
+        "intro_words": "item 13.1 has been moved up to oral communication. And this is recognition",
         "status": "found"
       },
       {
-        "item": 17,
-        "intro_words": "And then bond program action items 7.1, approval of measure T",
+        "item": "6.2",
+        "intro_words": "Item 6.2, Approval of Measure T bond program tracking list of",
         "status": "found"
       },
       {
-        "item": 18,
+        "item": "6.3",
+        "intro_words": "6.3, approval of proposal for the furnishing and installation of the",
+        "status": "found"
+      },
+      {
+        "item": "7.1",
+        "intro_words": "bond program action items 7.1, approval of measure T final projects",
+        "status": "found"
+      },
+      {
+        "item": "7.2",
         "intro_words": "7.2. Approval of amendment number two to the Program Management Services",
         "status": "found"
       },
       {
-        "item": 19,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1. School plans",
+        "item": "8.1",
+        "intro_words": "item 8, school and community reports. 8.1. School plans for student",
         "status": "found"
       },
       {
-        "item": 20,
-        "intro_words": "Go ahead, Liz. Yeah, so it's with great enthusiasm that we",
+        "item": "Garfield_SPSA",
+        "intro_words": "Good evening. Dr. Baker, President Marquez, Vice President Lawson, Trustees,",
+        "status": "found"
+      },
+      {
+        "item": "Henry_Ford_SPSA",
+        "intro_words": "Good evening Superintendent, Dr. Baker, President Marquez, cabinet members and community",
+        "status": "found"
+      },
+      {
+        "item": "Mental_Health_Report",
+        "intro_words": "My name is Ana Paula Garay. I am the lead mental health counselor.",
         "status": "found"
       }
     ]
@@ -129,74 +154,35 @@
   "result": {
     "videoId": "inuwqFycW2Q",
     "items": [
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
+      null,
       {
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
       null,
+      null,
       {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
-      {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
-      },
+      null,
       {
         "timestamp": "00:02:43",
         "timestampSeconds": 163
       },
-      {
-        "timestamp": "00:02:43",
-        "timestampSeconds": 163
-      },
-      {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
-      },
-      {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
-      },
-      {
-        "timestamp": "00:02:58",
-        "timestampSeconds": 178
-      },
-      {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168
-      },
-      {
-        "timestamp": "00:02:02",
-        "timestampSeconds": 122
-      },
-      {
-        "timestamp": "00:09:44",
-        "timestampSeconds": 584
-      },
-      {
-        "timestamp": "00:09:59",
-        "timestampSeconds": 599
-      },
-      {
-        "timestamp": "00:12:58",
-        "timestampSeconds": 778
-      },
-      {
-        "timestamp": "00:12:48",
-        "timestampSeconds": 768
-      }
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-09-08T23:31:36.918Z",
+  "cachedAt": "2026-09-09T10:48:04.138Z",
   "inputTokens": 43596,
-  "outputTokens": 1065
+  "outputTokens": 1205
 }
