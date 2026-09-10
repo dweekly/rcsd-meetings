@@ -61,7 +61,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # trogdor's apt rclone is v1.60.1 (2022): its R2 uploads to existing keys
       # fail with empty-request-id 501 NotImplemented and the retry then reports
@@ -73,7 +73,7 @@ jobs:
         run: echo "/mnt/data/actions-runner/tools" >> "$GITHUB_PATH"
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: 'npm'

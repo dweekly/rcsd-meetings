@@ -46,6 +46,13 @@ const INCAPSULA_WAIT_MS = 5000;
 const INCAPSULA_MAX_TRIES = 6;
 const TREE_WAIT_MS = 30000;
 
+// Simbli sits behind Imperva and its response time is not ours to control. A
+// single un-retried navigation is the whole pipeline's first step, so one slow
+// page load discards the entire scheduled run. Budget generously and retry.
+const NAV_TIMEOUT_MS = 60000;
+const NAV_MAX_TRIES = 3;
+const NAV_RETRY_BASE_MS = 10000;
+
 function meetingUrl(mid) {
   return `${SIMBLI_BASE}/SB_Meetings/ViewMeeting.aspx?S=${SCHOOL_ID}&MID=${mid}`;
 }
@@ -103,7 +110,8 @@ function parseItemContents(detail) {
 // incap_ses cookie and serves an "incident" block on every subsequent
 // ViewMeeting request in the same session. A context that goes straight to a
 // ViewMeeting (no listing history) is let through. So discovery and each
-// per-meeting agenda scrape must run in their own contexts — see main().
+// per-meeting agenda scrape must run in their own contexts — see
+// discoverMeetingsWithRetry() and the per-meeting loop in main().
 async function newSimbliContext(browser) {
   const context = await browser.newContext({
     userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
@@ -114,13 +122,13 @@ async function newSimbliContext(browser) {
   return context;
 }
 
+// Returns the browser only: every Simbli navigation builds its own context, so
+// there is no shared session for a caller to accidentally reuse.
 async function newSimbliBrowser() {
-  const browser = await chromium.launch({
+  return chromium.launch({
     headless: true,
     args: ['--disable-blink-features=AutomationControlled'],
   });
-  const context = await newSimbliContext(browser);
-  return { browser, context };
 }
 
 async function waitForIncapsula(page) {
@@ -132,8 +140,50 @@ async function waitForIncapsula(page) {
   return false;
 }
 
+// Retries `fn` with linear backoff. Each attempt is expected to be independent:
+// callers that depend on a clean Incapsula session build a fresh context per
+// attempt (see discoverMeetingsWithRetry).
+async function withRetry(label, fn) {
+  let lastErr;
+  for (let attempt = 1; attempt <= NAV_MAX_TRIES; attempt++) {
+    try {
+      return await fn(attempt);
+    } catch (err) {
+      lastErr = err;
+      if (attempt === NAV_MAX_TRIES) break;
+      const waitMs = NAV_RETRY_BASE_MS * attempt;
+      console.error(
+        `  ${label} attempt ${attempt}/${NAV_MAX_TRIES} failed (${err.message.split('\n')[0]}); ` +
+        `retrying in ${waitMs / 1000}s`,
+      );
+      await delay(waitMs);
+    }
+  }
+  throw lastErr;
+}
+
+async function gotoWithRetry(page, url, label) {
+  return withRetry(label, () =>
+    page.goto(url, { waitUntil: 'domcontentloaded', timeout: NAV_TIMEOUT_MS }),
+  );
+}
+
+// Discovery gets a fresh context per attempt: a half-loaded listing page leaves
+// the session's incap_ses cookie in a state we cannot inspect, and a clean
+// session is the one thing known to navigate through.
+async function discoverMeetingsWithRetry(browser) {
+  return withRetry('Simbli listing', async () => {
+    const context = await newSimbliContext(browser);
+    try {
+      return await discoverMeetings(await context.newPage());
+    } finally {
+      await context.close();
+    }
+  });
+}
+
 async function discoverMeetings(page) {
-  await page.goto(LISTING_URL, { waitUntil: 'domcontentloaded', timeout: 30000 });
+  await page.goto(LISTING_URL, { waitUntil: 'domcontentloaded', timeout: NAV_TIMEOUT_MS });
   if (!(await waitForIncapsula(page))) {
     throw new Error('Incapsula challenge did not clear on listing page');
   }
@@ -188,7 +238,7 @@ async function scrapeMeetingAPI(page, mid) {
   page.on('response', onResponse);
 
   try {
-    await page.goto(meetingUrl(mid), { waitUntil: 'domcontentloaded', timeout: 30000 });
+    await gotoWithRetry(page, meetingUrl(mid), `ViewMeeting MID ${mid} navigation`);
     if (!(await waitForIncapsula(page))) {
       console.error(`  Incapsula challenge did not clear on ViewMeeting for MID ${mid}`);
       return null;
@@ -416,12 +466,11 @@ async function main() {
 
   mkdirSync(MEMO_DIR, { recursive: true });
 
-  const { browser, context } = await newSimbliBrowser();
-  const page = await context.newPage();
+  const browser = await newSimbliBrowser();
 
   try {
     if (jsonOut) {
-      const all = await discoverMeetings(page);
+      const all = await discoverMeetingsWithRetry(browser);
       process.stdout.write(JSON.stringify(all));
       return;
     }
@@ -431,7 +480,7 @@ async function main() {
       meetings = [{ mid: midFilter, date: dateFilter || null, title: '', rawType: null }];
     } else {
       console.log('Discovering meetings from Simbli listing...');
-      const all = await discoverMeetings(page);
+      const all = await discoverMeetingsWithRetry(browser);
       console.log(`Found ${all.length} meetings on Simbli listing.`);
       const known = loadKnownMids();
       // Simbli's listing extends back into 2020; we only track the
@@ -496,9 +545,9 @@ async function main() {
     for (const m of meetings) {
       const label = `${m.date || '????-??-??'} MID ${m.mid}`;
       console.log(`-> ${label}`);
-      // Fresh context per meeting: the discovery context above visited the
-      // listing page, which poisons its Incapsula session for ViewMeeting
-      // requests (see newSimbliContext). A clean session navigates through.
+      // Fresh context per meeting: a session that has loaded the listing page
+      // is poisoned for ViewMeeting requests, and a session is single-use for
+      // Incapsula's purposes either way (see newSimbliContext).
       const mctx = await newSimbliContext(browser);
       const mpage = await mctx.newPage();
       let fresh, date;
