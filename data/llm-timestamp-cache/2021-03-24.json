@@ -49,67 +49,82 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Add vision and mission equity carryover discussion to after 9.1 (becomes 9.1B). Move items 11.1 and 11.2 to consent agenda.",
-    "consent_vote_words": "Do I have a motion to approve? Oh, and just as a reminder, this includes 11.1 and 11.2 to, as well as all the tens.",
+    "agenda_changes": "Add vision/mission equity carryover discussion between items 9.1 and 9.2 (to become 9.1B). Move items 11.1 and 11.2 to consent agenda.",
+    "consent_vote_words": "Do I have a motion to approve? So moved. All right, Maria, Second. Mike, is a second. Roll call vote, please.",
     "items": [
       {
         "item": 1,
-        "intro_words": "not found - meeting opened with roll call",
+        "intro_words": "Well, welcome, everyone. Let's see if you require Spanish interpretation",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "not found - roll call portion of meeting",
+        "intro_words": "Trustee lawson. Here. Trustee marquez. Here. President dio.",
+        "status": "found"
+      },
+      {
+        "item": 5,
+        "intro_words": "And do I have changes to the agenda? So at our 6",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "Do I have a motion to approve? Well, before we do that",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "I don't see any comments under oral communication. So we will",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "So we will go to the school and community reports",
+        "intro_words": "So we will go to the school and community reports, and I",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "and I believe that we have Ms. Sarah Shackle from Northstar",
+        "intro_words": "So we will go to the school and community reports, and I believe",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "so we will move to our next agenda item, which are the bond program consent items",
+        "intro_words": "So we will move to our next agenda item, which are the bond",
         "status": "found"
       },
       {
-        "item": 14,
-        "intro_words": "and now we have our bond program action item. Welcome. Will Robertson.",
+        "item": 18,
+        "intro_words": "And now we have our bond program action item. Welcome. Will Robertson.",
         "status": "found"
       },
       {
-        "item": 19,
-        "intro_words": "not located in bond program action items section",
+        "item": 20,
+        "intro_words": "Okay, on to discussion items. So 9.1, spring expansion of the school",
         "status": "found"
       },
       {
         "item": 21,
-        "intro_words": "Okay, on to discussion items. So 9.1, spring expansion of the school district, January reopening.",
-        "status": "found"
-      },
-      {
-        "item": "9.1B",
-        "intro_words": "So we are on to 9.1 B, which is the vision and mission.",
+        "intro_words": "Okay, on to discussion items. So 9.1, spring expansion of the school",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "All right, so we're on to consent items. Do I have a motion to approve?",
-        "status": "consent_bundle"
+        "intro_words": "So we will agendize this at a future meeting and work it",
+        "status": "found"
       },
       {
-        "item": 26,
-        "intro_words": "consent_bundle - approved with items 11.1, 11.2 and tens",
+        "item": 23,
+        "intro_words": "All right, so we're on to consent items. Do I have a motion",
+        "status": "found"
+      },
+      {
+        "item": 25,
+        "intro_words": "All right, so we're on to consent items. Do I have a motion",
         "status": "consent_bundle"
       },
       {
         "item": 34,
-        "intro_words": "All right, so we're on to the report from board members and superintendent.",
+        "intro_words": "Okay, we're to the report from board members and superintendent. Who would",
         "status": "found"
       },
       {
@@ -122,49 +137,68 @@
   "result": {
     "videoId": "sJQNqQu1Jfs",
     "items": [
+      {
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
+      },
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
       null,
       null,
+      {
+        "timestamp": "00:00:58",
+        "timestampSeconds": 58
+      },
       null,
+      {
+        "timestamp": "00:02:16",
+        "timestampSeconds": 136
+      },
       null,
-      null,
-      null,
-      null,
-      null,
-      null,
+      {
+        "timestamp": "00:05:17",
+        "timestampSeconds": 317
+      },
       null,
       {
         "timestamp": "00:05:32",
         "timestampSeconds": 332
       },
       {
-        "timestamp": "00:05:38",
-        "timestampSeconds": 338
+        "timestamp": "00:05:32",
+        "timestampSeconds": 332
       },
       {
         "timestamp": "00:18:01",
         "timestampSeconds": 1081
       },
+      null,
+      null,
+      null,
+      null,
       {
         "timestamp": "00:18:56",
         "timestampSeconds": 1136
       },
-      null,
-      null,
-      null,
-      null,
-      null,
       null,
       {
         "timestamp": "00:20:11",
         "timestampSeconds": 1211
       },
       {
-        "timestamp": "02:08:22",
-        "timestampSeconds": 7702,
-        "consent": true
+        "timestamp": "00:20:11",
+        "timestampSeconds": 1211
       },
-      null,
-      null,
+      {
+        "timestamp": "00:22:40",
+        "timestampSeconds": 1360
+      },
+      {
+        "timestamp": "00:33:16",
+        "timestampSeconds": 1996
+      },
       null,
       {
         "timestamp": "02:08:22",
@@ -178,9 +212,10 @@
       null,
       null,
       null,
+      null,
       {
-        "timestamp": "00:40:39",
-        "timestampSeconds": 2439
+        "timestamp": "02:09:05",
+        "timestampSeconds": 7745
       },
       null,
       null,
@@ -198,7 +233,7 @@
       null
     ]
   },
-  "cachedAt": "2026-09-11T10:39:57.403Z",
+  "cachedAt": "2026-09-11T20:30:17.710Z",
   "inputTokens": 28769,
-  "outputTokens": 715
+  "outputTokens": 853
 }
