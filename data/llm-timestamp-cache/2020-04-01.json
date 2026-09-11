@@ -37,8 +37,8 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item pulled from agenda: Staff recognition was added after item 5 (Oral Communication). Board President announced: 'I'd like to add staff recognition. I need to pull it up my after oral communication. Wherever you'd like it. We'll move it after item five.'",
-    "consent_vote_words": "So we are on to item six, the bond program consent items to approve. Mrs. Dennis so moved. Second. Cecilia. Okay, Cecilia was second. And a roll call vote, please.",
+    "agenda_changes": "Item on staff recognition was added after item 5 (oral communication). This was announced during the 'Changes to the Agenda' section when Dennis requested to 'add staff recognition' after oral communication.",
+    "consent_vote_words": "So moved. Second. Cecilia. Okay, Cecilia was second. And a roll call vote, please.",
     "items": [
       {
         "item": 1,
@@ -48,12 +48,12 @@
       {
         "item": 2,
         "intro_words": "Roll Call",
-        "status": "not_found_explicitly_marked"
+        "status": "not_found_in_transcript"
       },
       {
         "item": 3,
         "intro_words": "Welcome",
-        "status": "not_found_explicitly_marked"
+        "status": "not_found_in_transcript"
       },
       {
         "item": 4,
@@ -62,7 +62,7 @@
       },
       {
         "item": 5,
-        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School. Please join me",
+        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
         "status": "found"
       },
       {
@@ -71,13 +71,13 @@
         "status": "found"
       },
       {
-        "item": 8,
-        "intro_words": "Do we have a motion to approve the agenda? So moved. Is that Elisa?",
+        "item": 7,
+        "intro_words": "Do we have a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": "staff_recognition_added",
-        "intro_words": "So we will move on to the staff recognition. Stanley, thank you.",
+        "intro_words": "Stanley, thank you. And I'm sure I speak for everybody.",
         "status": "found"
       },
       {
@@ -87,27 +87,42 @@
       },
       {
         "item": 19,
-        "intro_words": "Moving on to 7.1, which is a bond action item. Do we know we have Will",
+        "intro_words": "All right, moving on to 7.1, which is a bond action item.",
         "status": "found"
       },
       {
-        "item": "8.1_covid",
-        "intro_words": "So, John, did you want to go ahead and start? Oh, you're muted.",
+        "item": 22,
+        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want to go ahead and start?",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "We are on 11.1. Action item. This is the resolution of emergency relating to COVID",
+        "intro_words": "We are on 11.1. Action item. This is the resolution of emergency relating to COVID 19.",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have anything",
+        "intro_words": "Let's see. We are on 11.1. Report from board members and superintendent.",
+        "status": "found"
+      },
+      {
+        "item": 28,
+        "intro_words": "We have no information items, correspondence to share, Just email we've been getting.",
+        "status": "found"
+      },
+      {
+        "item": 30,
+        "intro_words": "Other business suggested items for future agenda. Anybody have anything else?",
+        "status": "found"
+      },
+      {
+        "item": 31,
+        "intro_words": "And then changes to the agenda, the board agenda, schedule.",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard a first",
+        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard a first and a second from all four.",
         "status": "found"
       }
     ]
@@ -133,16 +148,16 @@
         "timestamp": "00:03:28",
         "timestampSeconds": 208
       },
-      null,
       {
         "timestamp": "00:03:46",
         "timestampSeconds": 226
       },
       null,
       null,
+      null,
       {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
+        "timestamp": "00:05:43",
+        "timestampSeconds": 343,
         "consent": true
       },
       null,
@@ -153,12 +168,15 @@
       null,
       null,
       {
-        "timestamp": "00:06:12",
-        "timestampSeconds": 372
+        "timestamp": "00:05:53",
+        "timestampSeconds": 353
       },
       null,
       null,
-      null,
+      {
+        "timestamp": "00:08:30",
+        "timestampSeconds": 510
+      },
       null,
       null,
       {
@@ -170,10 +188,19 @@
         "timestampSeconds": 6537
       },
       null,
+      {
+        "timestamp": "01:59:55",
+        "timestampSeconds": 7195
+      },
       null,
-      null,
-      null,
-      null,
+      {
+        "timestamp": "02:00:00",
+        "timestampSeconds": 7200
+      },
+      {
+        "timestamp": "02:00:00",
+        "timestampSeconds": 7200
+      },
       null,
       {
         "timestamp": "02:04:16",
@@ -181,7 +208,7 @@
       }
     ]
   },
-  "cachedAt": "2026-09-10T20:34:02.253Z",
+  "cachedAt": "2026-09-11T10:40:15.593Z",
   "inputTokens": 24593,
-  "outputTokens": 805
+  "outputTokens": 901
 }

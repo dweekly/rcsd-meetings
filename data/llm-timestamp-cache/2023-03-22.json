@@ -18,12 +18,12 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced at the beginning of the meeting. The board proceeded through the posted agenda.",
-    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No agenda changes announced. The meeting proceeded with posted agenda items.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program",
     "items": [
       {
         "item": 1,
-        "intro_words": "At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
@@ -33,12 +33,12 @@
       },
       {
         "item": 3,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
@@ -53,16 +53,21 @@
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 9,
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "status": "found"
+      },
+      {
+        "item": 10,
         "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
@@ -78,12 +83,12 @@
       },
       {
         "item": 13,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "intro_words": "And I just want to say thank you in gratitude for those",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "And I just want to say thank you in gratitude for those",
         "status": "found"
       }
     ]
@@ -127,7 +132,10 @@
         "timestamp": "00:01:14",
         "timestampSeconds": 74
       },
-      null,
+      {
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
+      },
       {
         "timestamp": "00:01:33",
         "timestampSeconds": 93
@@ -138,16 +146,16 @@
         "consent": true
       },
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "00:32:21",
+        "timestampSeconds": 1941
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:32:21",
+        "timestampSeconds": 1941
       }
     ]
   },
-  "cachedAt": "2026-09-10T20:31:36.057Z",
+  "cachedAt": "2026-09-11T10:38:20.158Z",
   "inputTokens": 27924,
-  "outputTokens": 680
+  "outputTokens": 691
 }
