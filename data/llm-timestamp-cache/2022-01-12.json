@@ -17,8 +17,8 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced: moved items 10.5, 10.6, 10.7 to consent; moved items 10.3 and 10.4 to consent.",
-    "consent_vote_words": "Do I have a motion to approve all those three?",
+    "agenda_changes": "At the start of the meeting, the President announced changes to the agenda: moved items 10.5, 10.6, 10.7 (three measure U's) to consent; moved items 10.3 and 10.4 to consent. These changes were approved by motion.",
+    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
         "item": 1,
@@ -41,8 +41,13 @@
         "status": "found"
       },
       {
+        "item": 7,
+        "intro_words": "So moved. Second. That was Mike and Cecilia. All those in favor?",
+        "status": "found"
+      },
+      {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards, but they are for our discussion item 8.1.",
+        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards,",
         "status": "found"
       },
       {
@@ -52,72 +57,7 @@
       },
       {
         "item": 12,
-        "intro_words": "Moving on to 8.1. COVID 19. Update for January 2022. Again, good evening, everyone and also community",
-        "status": "found"
-      },
-      {
-        "item": 13,
-        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240 Volunteer Assistance. Thank you.",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "Moving on to 8.3. First reading and discussion of board policy 3555. Nutrition program compliance and Accountability.",
-        "status": "found"
-      },
-      {
-        "item": 15,
-        "intro_words": "8.4. First reading and discussion of board policy 0460 local control and accountability Plan.",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "Along to 8.5. First reading and discussion of board policy 5141.31. Yes.",
-        "status": "found"
-      },
-      {
-        "item": 17,
-        "intro_words": "Okay, can I have a motion to move the consent items, which include action items 10.3, 10.4, 5, 6, and 7?",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school board's March 11, 2020 vote on interdistrict transfers.",
-        "status": "found"
-      },
-      {
-        "item": 19,
-        "intro_words": "Moving on to 10.2. Recommendation. Adoption of Resolution 22, authorizing electronic meeting of the board of trustees during state of emergency",
-        "status": "found"
-      },
-      {
-        "item": 20,
-        "intro_words": "So let's start with Cecilia. The only thing I have to report is that again, I did meet",
-        "status": "found"
-      },
-      {
-        "item": 21,
-        "intro_words": "12.1. The quarterly Williams Report. Do we have any questions or comments on that?",
-        "status": "found"
-      },
-      {
-        "item": 22,
-        "intro_words": "Correspondence. We did have a email from a parent about North Star and schools of choice.",
-        "status": "found"
-      },
-      {
-        "item": 23,
-        "intro_words": "14.1 possible other business suggested items for future agendas. None. It says jot.",
-        "status": "found"
-      },
-      {
-        "item": 24,
-        "intro_words": "15.1. Changes to the board agenda schedule. None this evening. Great. Okay.",
-        "status": "found"
-      },
-      {
-        "item": 25,
-        "intro_words": "Can we have a motion to adjourn? So moved. Second. All in favor?",
+        "intro_words": "Okay, on to eight discussion items. The first one is 8.1. COVID 19. Update for January 2022.",
         "status": "found"
       }
     ]
@@ -143,7 +83,10 @@
         "timestampSeconds": 46
       },
       null,
-      null,
+      {
+        "timestamp": "00:01:42",
+        "timestampSeconds": 102
+      },
       null,
       {
         "timestamp": "00:01:42",
@@ -155,16 +98,13 @@
         "timestampSeconds": 142
       },
       {
-        "timestamp": "00:04:36",
-        "timestampSeconds": 276
+        "timestamp": "00:04:15",
+        "timestampSeconds": 255
       },
-      {
-        "timestamp": "00:50:20",
-        "timestampSeconds": 3020
-      }
+      null
     ]
   },
-  "cachedAt": "2026-09-12T10:07:50.528Z",
+  "cachedAt": "2026-09-12T20:13:41.958Z",
   "inputTokens": 18781,
-  "outputTokens": 1173
+  "outputTokens": 533
 }
