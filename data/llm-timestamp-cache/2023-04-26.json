@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action due to public comments received. Items 6.2 and 6.3 (Bond program items) were moved to action.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication. Additionally, consent bond items (6.1) were moved to action items, with 6.2 and 6.3 also moved to action due to public comments.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -46,47 +46,67 @@
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping that we could move 13.1",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Okay. With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
+        "intro_words": "So item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
+        "intro_words": "And this is recognition of classified employees. Thank you.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "So item 8, school and community reports. 8.1. School plans for student achievement reports for Garfield Community School and Henry Ford.",
+        "intro_words": "So item 8, school and community reports. 8.1.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "So we're on to item nine, discussion items. So board of trustees graduation and promotion assignments for this.",
+        "intro_words": "moving on to item 9, discussion items. So board of trustees graduation",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle school, special education and bilingual teacher positions.",
+        "intro_words": "So moving on to consent items, can I please get a motion",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
+        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Okay. So information Items. We move 13.1.",
+        "intro_words": "More super and superintendent reports. Wait, I'll go.",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "Okay, so information Items. We move 13.1.",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "Correspondence. Continue to get public records. That's true.",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Any possible other business or suggested items.",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "And then any changes to the board meeting calendar?",
         "status": "found"
       }
     ]
@@ -111,24 +131,28 @@
         "timestampSeconds": 30
       },
       {
-        "timestamp": "00:01:30",
-        "timestampSeconds": 90
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
       },
       {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
+        "timestamp": "00:02:18",
+        "timestampSeconds": 138
       },
       {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
+        "timestamp": "00:02:58",
+        "timestampSeconds": 178
       },
       {
         "timestamp": "00:20:22",
         "timestampSeconds": 1222
       },
       {
-        "timestamp": "03:10:21",
-        "timestampSeconds": 11421
+        "timestamp": "03:10:34",
+        "timestampSeconds": 11434
+      },
+      {
+        "timestamp": "03:16:26",
+        "timestampSeconds": 11786
       },
       {
         "timestamp": "03:16:36",
@@ -146,13 +170,21 @@
         "timestamp": "03:26:42",
         "timestampSeconds": 12402
       },
-      null,
-      null,
-      null,
-      null
+      {
+        "timestamp": "03:27:22",
+        "timestampSeconds": 12442
+      },
+      {
+        "timestamp": "03:27:27",
+        "timestampSeconds": 12447
+      },
+      {
+        "timestamp": "03:29:57",
+        "timestampSeconds": 12597
+      }
     ]
   },
-  "cachedAt": "2026-09-12T20:12:47.269Z",
+  "cachedAt": "2026-09-13T11:07:00.113Z",
   "inputTokens": 43596,
-  "outputTokens": 782
+  "outputTokens": 859
 }
