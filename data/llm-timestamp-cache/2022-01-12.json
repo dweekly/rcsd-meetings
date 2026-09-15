@@ -17,7 +17,7 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "At the start of the meeting, President DS Locum announced changes to the agenda: moving three Measure U items (10.5, 10.6, 10.7) to consent, and moving items 10.3 and 10.4 to consent. The board voted to approve these changes.",
+    "agenda_changes": "Multiple items moved to consent: Measure U items (10.5, 10.6, 10.7) and items 10.3 and 10.4 moved to consent agenda. Three bond program items approved as consent bundle.",
     "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
     "items": [
       {
@@ -27,16 +27,11 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy.",
+        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's great to see you in person",
-        "status": "found"
-      },
-      {
-        "item": 4,
         "intro_words": "Welcome, everybody. It's great to see you in person",
         "status": "found"
       },
@@ -46,28 +41,13 @@
         "status": "found"
       },
       {
-        "item": 6,
-        "intro_words": "Are there any changes to the agenda this evening?",
-        "status": "found"
-      },
-      {
         "item": 7,
-        "intro_words": "Are there any changes to the agenda this evening?",
-        "status": "found"
-      },
-      {
-        "item": 8,
-        "intro_words": "Are there any changes to the agenda this evening?",
+        "intro_words": "So that was Mike and Cecilia. All those in favor?",
         "status": "found"
       },
       {
         "item": 9,
         "intro_words": "Ali, do we have any oral communication this Evening?",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "If you have public comment related to a study session",
         "status": "found"
       },
       {
@@ -77,12 +57,77 @@
       },
       {
         "item": 12,
-        "intro_words": "Update on Workforce Housing at 750 Bradford Street",
-        "status": "not_found"
+        "intro_words": "Moving on to bond program action items. The first one is 7.1.",
+        "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Thank you, everybody. It's been great to see you all.",
+        "intro_words": "Okay, 7.2. Recommendation of adoption of resolution 21.",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "Okay, on to eight discussion items. The first one is 8.1.",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Okay. Moving on to 8.3. First reading and discussion of board policy",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "8.4. First reading and discussion of board policy 0460 local control",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "Along to 8.5. First reading and discussion of board policy 5141.31.",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "Okay, can I have a motion to move the consent items",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 20,
+        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school board's",
+        "status": "found"
+      },
+      {
+        "item": 21,
+        "intro_words": "Moving on to 10.2. Recommendation. Adoption of Resolution 22, authorizing",
+        "status": "found"
+      },
+      {
+        "item": 22,
+        "intro_words": "12.1. The quarterly Williams Report. Do we have any questions",
+        "status": "found"
+      },
+      {
+        "item": 23,
+        "intro_words": "Correspondence. We did have a email from a parent about",
+        "status": "found"
+      },
+      {
+        "item": 24,
+        "intro_words": "14.1 possible other business suggested items for future agendas.",
+        "status": "found"
+      },
+      {
+        "item": 25,
+        "intro_words": "15.1. Changes to the board agenda schedule. None this evening.",
+        "status": "found"
+      },
+      {
+        "item": 26,
+        "intro_words": "Can we have a motion to adjourn? So moved.",
         "status": "found"
       }
     ]
@@ -99,22 +144,7 @@
         "timestamp": "01:38:09",
         "timestampSeconds": 5889
       },
-      {
-        "timestamp": "01:38:09",
-        "timestampSeconds": 5889
-      },
-      {
-        "timestamp": "01:37:19",
-        "timestampSeconds": 5839
-      },
-      {
-        "timestamp": "01:37:19",
-        "timestampSeconds": 5839
-      },
-      {
-        "timestamp": "01:37:19",
-        "timestampSeconds": 5839
-      },
+      null,
       {
         "timestamp": "01:37:19",
         "timestampSeconds": 5839
@@ -123,13 +153,13 @@
       null,
       null,
       null,
-      {
-        "timestamp": "01:38:09",
-        "timestampSeconds": 5889
-      }
+      null,
+      null,
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-09-14T21:31:26.932Z",
+  "cachedAt": "2026-09-15T11:07:21.097Z",
   "inputTokens": 18781,
-  "outputTokens": 669
+  "outputTokens": 1104
 }
