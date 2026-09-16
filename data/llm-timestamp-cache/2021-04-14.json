@@ -74,57 +74,77 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two changes to the agenda were announced: (1) Addition of a closed session after item 19 to continue CSEA and RCTA negotiations that were not finished in the earlier closed session; (2) Movement of item 16.1 (Information on Financial Audit Report) to after item 11 (Report Out on Closed Session) to allow the presenter to leave earlier rather than wait through the entire meeting.",
+    "agenda_changes": "Two changes announced: (1) Added closed session after item 19 to continue CSEA and RCTA negotiations; (2) Moved item 16.1 (Information on Financial Audit Report) to after item 11 (before Discussion Items)",
     "consent_vote_words": "Do I have a motion to approve? So moved. Second. Maria Cecilia seconds roll call vote.",
     "items": [
       {
         "item": 1,
-        "intro_words": "To order roll call, please. Trustee wells. Here.",
+        "intro_words": "To order roll call, please. Trustee wells.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee lawson. Here. Trustee marquez. Here.",
+        "intro_words": "To order roll call, please. Trustee wells.",
+        "status": "found"
+      },
+      {
+        "item": 3,
+        "intro_words": "Communication and closed session. Full Internet connection tonight.",
+        "status": "found"
+      },
+      {
+        "item": 5,
+        "intro_words": "Communication and closed session. Full Internet connection tonight.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "All right, number nine. 9.1. Showcase of student projects in Redwood City.",
+        "intro_words": "All right, so we're on to. Oh, thank you, Maria.",
+        "status": "found"
+      },
+      {
+        "item": 12,
+        "intro_words": "Hi. Welcome. Welcome to our board meeting.",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "All right, so we're on to the bond program consent items.",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "All right, okay, so we're on to the audit report.",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "All right, we're on to the bond program consent items. Do I have a motion to approve?",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 16,
-        "intro_words": "All right, so we're on to the audit report. Dr. Baker and Priscilla, would you like to introduce this item?",
+        "intro_words": "Okay, we're on to 12.1. Spring expansion of school district January reopening.",
         "status": "found"
       },
       {
         "item": 44,
-        "intro_words": "All right, we will do that. All right, so we are on to 12.1. Spring expansion of school district January reopening.",
+        "intro_words": "All right, so we are on to the consent items.",
         "status": "found"
       },
       {
-        "item": 46,
-        "intro_words": "All right, so we are on to the consent items. Do I have a motion to approve?",
-        "status": "consent_bundle"
+        "item": 56,
+        "intro_words": "Okay, onto the action Items. We have 14.1.",
+        "status": "found"
       },
       {
         "item": 57,
-        "intro_words": "All right. 14.1. Adoption of resolution 20, reduction of certain classified services.",
+        "intro_words": "HR department is bringing forward to tonight a reduction of certain classified services.",
         "status": "found"
       },
       {
         "item": 58,
-        "intro_words": "All right. 14.2. Approval of additional personnel needed for 2021.",
+        "intro_words": "14.2. Approval of additional personnel needed for 2021.",
         "status": "found"
       },
       {
         "item": 59,
-        "intro_words": "All right. 14.3. Recommendation regarding the approval of classified general leave requests.",
+        "intro_words": "14.3. Recommendation regarding the approval of classified general leave requests.",
         "status": "found"
       },
       {
@@ -134,7 +154,17 @@
       },
       {
         "item": 64,
-        "intro_words": "Any correspondence? We're still getting a few emails, but they've really tapered off.",
+        "intro_words": "Any correspondence? We're still getting a few emails, but they've",
+        "status": "found"
+      },
+      {
+        "item": 66,
+        "intro_words": "Other business items for future agenda. So, Ellie, board agenda.",
+        "status": "found"
+      },
+      {
+        "item": 69,
+        "intro_words": "All right, great. Okay. Anything else on the calendar?",
         "status": "found"
       }
     ]
@@ -150,66 +180,71 @@
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
       null,
-      null,
-      null,
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
       null,
       null,
       null,
       {
-        "timestamp": "00:11:22",
-        "timestampSeconds": 682
+        "timestamp": "00:11:12",
+        "timestampSeconds": 672
+      },
+      null,
+      null,
+      {
+        "timestamp": "00:12:04",
+        "timestampSeconds": 724
       },
       null,
       null,
       null,
       null,
       null,
-      null,
       {
-        "timestamp": "00:30:59",
-        "timestampSeconds": 1859
+        "timestamp": "00:30:15",
+        "timestampSeconds": 1815
       },
       null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "02:01:43",
-        "timestampSeconds": 7303,
-        "consent": true
+        "timestamp": "00:30:49",
+        "timestampSeconds": 1849
       },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
       null,
       {
         "timestamp": "00:44:09",
         "timestampSeconds": 2649
       },
       null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       {
-        "timestamp": "02:01:43",
-        "timestampSeconds": 7303,
-        "consent": true
+        "timestamp": "00:44:43",
+        "timestampSeconds": 2683
       },
       null,
       null,
@@ -221,13 +256,18 @@
       null,
       null,
       null,
+      null,
       {
-        "timestamp": "02:02:18",
-        "timestampSeconds": 7338
+        "timestamp": "02:01:53",
+        "timestampSeconds": 7313
       },
       {
-        "timestamp": "02:03:25",
-        "timestampSeconds": 7405
+        "timestamp": "02:02:40",
+        "timestampSeconds": 7360
+      },
+      {
+        "timestamp": "02:03:45",
+        "timestampSeconds": 7425
       },
       {
         "timestamp": "02:05:36",
@@ -245,14 +285,20 @@
         "timestampSeconds": 7884
       },
       null,
+      {
+        "timestamp": "02:12:21",
+        "timestampSeconds": 7941
+      },
       null,
       null,
-      null,
-      null,
+      {
+        "timestamp": "02:17:36",
+        "timestampSeconds": 8256
+      },
       null
     ]
   },
-  "cachedAt": "2026-09-15T20:55:45.977Z",
+  "cachedAt": "2026-09-16T10:54:01.045Z",
   "inputTokens": 26473,
-  "outputTokens": 766
+  "outputTokens": 913
 }
