@@ -1,0 +1,919 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://rcsd.info/.well-known/api-catalog",
+      "item": [
+        {
+          "href": "https://mcp.rcsd.info/mcp"
+        },
+        {
+          "href": "https://data.rcsd.info/json/schools.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/charters.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/properties.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/trustees.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/freshness.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/district-calendar-2025-26.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/district-calendar-2026-27.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/governance-calendar.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/meetings-data.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/attachment-index.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/document-index.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/meeting-summaries.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/meeting-summaries-es.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/school-board-summaries.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/youtube-index.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/timestamp-map.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/policies-index.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/policy-summaries.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/policy-titles-es.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sped-enrollment.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sped-categories.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/adelante-selby.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/clifford.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/garfield.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/henry-ford.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/hoover.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/kennedy.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/mckinley-mit.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/north-star.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/orion.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/roosevelt.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/roy-cloud.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/sarc-summary.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/sarc/taft.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/cde/absenteeism-2024-25.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/cde/ltel-2024-25.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/cde/staff-ethnicity-2024-25.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/cde/staff-experience-2024-25.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/cde/staff-ratios-2024-25.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/spsa-budgets.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/ssc-membership.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/ssc-meetings.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/site-presentations.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/school-clubs.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/committees/cboc.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/committees/delac.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/warrants-index.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/warrant-vendor-aliases.json"
+        },
+        {
+          "href": "https://data.rcsd.info/json/warrant-pdf-manifest.json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://mcp.rcsd.info/mcp",
+      "service-desc": [
+        {
+          "href": "https://rcsd.info/.well-known/server-card.json",
+          "type": "application/mcp-server-card+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/mcp/",
+          "type": "text/html",
+          "hreflang": [
+            "en"
+          ]
+        },
+        {
+          "href": "https://rcsd.info/mcp/es/",
+          "type": "text/html",
+          "hreflang": [
+            "es"
+          ]
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/schools.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#schools",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/charters.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#charters",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/properties.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#properties",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/trustees.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#leadership",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/freshness.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#leadership",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/district-calendar-2025-26.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#calendars",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/district-calendar-2026-27.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#calendars",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/governance-calendar.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#governance",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/meetings-data.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#meetings",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/attachment-index.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#meetings",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/document-index.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#meetings",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/meeting-summaries.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#summaries",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/meeting-summaries-es.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#summaries",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/school-board-summaries.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#summaries",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/youtube-index.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#recordings",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/timestamp-map.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#recordings",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/policies-index.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#policies",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/policy-summaries.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#policies",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/policy-titles-es.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#policies",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sped-enrollment.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#special-education",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sped-categories.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#special-education",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/adelante-selby.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/clifford.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/garfield.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/henry-ford.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/hoover.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/kennedy.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/mckinley-mit.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/north-star.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/orion.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/roosevelt.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/roy-cloud.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/sarc-summary.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/sarc/taft.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#sarc",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/cde/absenteeism-2024-25.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#cde",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/cde/ltel-2024-25.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#cde",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/cde/staff-ethnicity-2024-25.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#cde",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/cde/staff-experience-2024-25.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#cde",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/cde/staff-ratios-2024-25.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#cde",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/spsa-budgets.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#school-plans",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/ssc-membership.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#school-plans",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/ssc-meetings.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#school-plans",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/site-presentations.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#school-presentations",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/school-clubs.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#school-presentations",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/committees/cboc.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#committees",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/committees/delac.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#committees",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/warrants-index.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#vendor-payments",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/warrant-vendor-aliases.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#vendor-payments",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://data.rcsd.info/json/warrant-pdf-manifest.json",
+      "service-doc": [
+        {
+          "href": "https://rcsd.info/catalog/#vendor-payments",
+          "type": "text/html"
+        }
+      ],
+      "service-meta": [
+        {
+          "href": "https://rcsd.info/catalog.json",
+          "type": "application/ld+json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,870 @@
+{
+  "@context": "https://schema.org",
+  "@type": "DataCatalog",
+  "@id": "https://rcsd.info/catalog/#catalog",
+  "name": "RCSD Open Data catalog",
+  "alternateName": "Catálogo de datos abiertos de RCSD",
+  "description": "Independent public-records catalog for Redwood City School District, California. English and Spanish research entry points with official-source provenance in the linked datasets.",
+  "_metadata": {
+    "source": "https://github.com/dweekly/rcsd-meetings/blob/main/scripts/lib/discovery-datasets.mjs",
+    "scrapedAt": null,
+    "method": "Generated from the curated dataset inventory and local JSON files. Distribution metadata is copied from each file; null means not recorded. This catalog does not independently verify source freshness."
+  },
+  "url": "https://rcsd.info/catalog/",
+  "inLanguage": [
+    "en",
+    "es"
+  ],
+  "publisher": {
+    "@type": "Person",
+    "name": "David Weekly",
+    "url": "https://david.weekly.org"
+  },
+  "dataset": [
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#schools",
+      "name": "School directory",
+      "alternateName": "Directorio de escuelas",
+      "description": "School directory. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#schools",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "schools.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/schools.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#charters",
+      "name": "District-authorized charter schools",
+      "alternateName": "Escuelas chárter autorizadas por el distrito",
+      "description": "District-authorized charter schools. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#charters",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "charters.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/charters.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#properties",
+      "name": "District property and leases",
+      "alternateName": "Propiedades y arrendamientos del distrito",
+      "description": "District property and leases. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#properties",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "properties.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/properties.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#leadership",
+      "name": "Trustees and district leadership",
+      "alternateName": "Mesa directiva y liderazgo del distrito",
+      "description": "Trustees and district leadership. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#leadership",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "trustees.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/trustees.json",
+          "_metadata": {
+            "source": "https://www.rcsdk8.net/our-district/our-board-of-trustees/meet-the-trustees",
+            "scrapedAt": null,
+            "method": "Manually extracted from the official RCSD 'Meet the Trustees' page and district news releases. Officer roles, trustee-area numbers, school/area assignments, emails, and term-expiration years are stated verbatim on the source page. Superintendent succession is complete: Dr. Baker retired 2026-06-30 and Dr. Rubalcaba, appointed 2026-01-21, took office 2026-07-01 and is the sitting superintendent named on the Office of the Superintendent page. Baker is retained under superintendent.former for history and is not rendered. Cabinet and director names/titles are taken from the Office of the Superintendent page, which lists each person as a Name-pipe-Title heading. Headshots mirrored from the RCSD Finalsite CDN to R2 (data.rcsd.info/trustees/)."
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "freshness.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/freshness.json",
+          "_metadata": {
+            "source": "https://www.rcsdk8.net/our-programs-and-services/our-superintendent",
+            "scrapedAt": "2026-09-17T21:03:45.742Z",
+            "method": "Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. People are extracted structurally from \"<h2>Name | Title</h2>\" headings; the person titled exactly \"Principal\" (or \"Superintendent\") is taken as the officeholder. Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; earned doctorates are preserved. A source that 404s or whose markup no longer matches is recorded in lastRun.failures and fails the run rather than being silently skipped. CDE year availability is a range-limited GET per candidate year, judged on whether the response carries rows beneath its header (DataQuest answers 200 for any year)."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#calendars",
+      "name": "School calendars",
+      "alternateName": "Calendarios escolares",
+      "description": "School calendars. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#calendars",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "district-calendar-2025-26.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/district-calendar-2025-26.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "district-calendar-2026-27.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/district-calendar-2026-27.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#governance",
+      "name": "Planned board agenda topics",
+      "alternateName": "Temas previstos para la mesa directiva",
+      "description": "Planned board agenda topics. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#governance",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "governance-calendar.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/governance-calendar.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#meetings",
+      "name": "Board meetings, agendas and attachments",
+      "alternateName": "Reuniones, agendas y documentos de la mesa directiva",
+      "description": "Board meetings, agendas and attachments. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#meetings",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "meetings-data.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/meetings-data.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "attachment-index.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/attachment-index.json",
+          "_metadata": {
+            "source": "data/meetings-data.json",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "document-index.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/document-index.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#summaries",
+      "name": "AI-generated meeting summaries and translations",
+      "alternateName": "Resúmenes de reuniones y traducciones generados con IA",
+      "description": "AI-generated meeting summaries and translations. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#summaries",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "meeting-summaries.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/meeting-summaries.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "meeting-summaries-es.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/meeting-summaries-es.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "school-board-summaries.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/school-board-summaries.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#recordings",
+      "name": "Meeting recordings and agenda timestamps",
+      "alternateName": "Grabaciones y marcas de tiempo de las agendas",
+      "description": "Meeting recordings and agenda timestamps. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#recordings",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "youtube-index.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/youtube-index.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "timestamp-map.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/timestamp-map.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#policies",
+      "name": "Board policy index and AI summaries; fetch individual policies on demand",
+      "alternateName": "Índice de políticas y resúmenes con IA; consulte cada política según sea necesario",
+      "description": "Board policy index and AI summaries; fetch individual policies on demand. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#policies",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "policies-index.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/policies-index.json",
+          "_metadata": {
+            "source": "https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36030397",
+            "scrapedAt": "2026-05-24T15:24:42.991Z",
+            "method": "Playwright + Simbli ViewPolicy API scraper"
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "policy-summaries.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/policy-summaries.json",
+          "_metadata": {
+            "source": "data/board-policies/*.json (scraped from https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36030397 by scrape-board-policies.mjs)",
+            "scrapedAt": null,
+            "method": "AI-generated one-sentence summaries via the Claude API (scripts/generate-policy-summaries.mjs); one request per policy returning English and Spanish together as structured JSON; policy text truncated to the first 8000 chars as a cost/quality tradeoff; sourceHash is the sha256 of the full (untruncated) contentText for cache invalidation"
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "policy-titles-es.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/policy-titles-es.json",
+          "_metadata": {
+            "source": "data/policies-index.json (scraped from https://simbli.eboardsolutions.com/Policy/PolicyListing.aspx?S=36030397)",
+            "scrapedAt": null,
+            "method": "AI translation of policy titles and section names via the Claude API (scripts/translate-policy-titles.mjs); batched 50/request with structured JSON output; duplicate English titles translated once for consistency"
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#special-education",
+      "name": "Special education enrollment and disability categories",
+      "alternateName": "Matrícula de educación especial y categorías de discapacidad",
+      "description": "Special education enrollment and disability categories. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#special-education",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "sped-enrollment.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sped-enrollment.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sped-categories.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sped-categories.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#sarc",
+      "name": "School accountability reports: academics, demographics and spending",
+      "alternateName": "Informes de responsabilidad escolar: resultados, demografía y gastos",
+      "description": "School accountability reports: academics, demographics and spending. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#sarc",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "sarc/adelante-selby.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/adelante-selby.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/clifford.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/clifford.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/garfield.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/garfield.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/henry-ford.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/henry-ford.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/hoover.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/hoover.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/kennedy.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/kennedy.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/mckinley-mit.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/mckinley-mit.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/north-star.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/north-star.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/orion.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/orion.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/roosevelt.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/roosevelt.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/roy-cloud.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/roy-cloud.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/sarc-summary.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/sarc-summary.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "sarc/taft.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/sarc/taft.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#cde",
+      "name": "State education data: absenteeism, English learners and staffing",
+      "alternateName": "Datos estatales: ausentismo, estudiantes de inglés y personal",
+      "description": "State education data: absenteeism, English learners and staffing. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#cde",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "cde/absenteeism-2024-25.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/absenteeism-2024-25.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism25-v2.txt",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "cde/ltel-2024-25.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/ltel-2024-25.json",
+          "_metadata": {
+            "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "cde/staff-ethnicity-2024-25.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/staff-ethnicity-2024-25.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2425.txt",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "cde/staff-experience-2024-25.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/staff-experience-2024-25.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2425.txt",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "cde/staff-ratios-2024-25.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/staff-ratios-2024-25.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2425.txt",
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#school-plans",
+      "name": "School plan budgets and site councils",
+      "alternateName": "Presupuestos de planes escolares y consejos escolares",
+      "description": "School plan budgets and site councils. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#school-plans",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "spsa-budgets.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/spsa-budgets.json",
+          "_metadata": {
+            "source": "Budget Summary pages in artifacts/documents/spsa/2025-26/",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "ssc-membership.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/ssc-membership.json",
+          "_metadata": {
+            "source": "SPSA documents at artifacts/documents/spsa/",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "ssc-meetings.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/ssc-meetings.json",
+          "_metadata": {
+            "source": "Materials shared publicly by each school's SSC. Orion 2025-26: Google Drive folder https://drive.google.com/drive/folders/1ZM8gRkBjer18QwlvNG_pEKOYmgFmwRZa",
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#school-presentations",
+      "name": "School presentations and AI-extracted club mentions",
+      "alternateName": "Presentaciones escolares y menciones de clubes extraídas con IA",
+      "description": "School presentations and AI-extracted club mentions. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#school-presentations",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "site-presentations.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/site-presentations.json",
+          "_metadata": {
+            "source": "data/document-index.json (attachments classified school-report/presentation)",
+            "scrapedAt": null,
+            "method": "build-site-presentations.mjs: one deck per school per school-year for the 3 most recent years; BoardDocs-only decks mirrored to R2 board-packets/. These are official district presentation decks republished verbatim."
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "school-clubs.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/school-clubs.json",
+          "_metadata": {
+            "source": "AssemblyAI transcripts of RCSD board school-site-presentation meetings (last 3 school years)",
+            "scrapedAt": null,
+            "method": "AI-extracted from board-presentation transcripts via claude-sonnet-4-6. BEST-EFFORT, NOT AUTHORITATIVE: reflects only clubs a principal named aloud on their presentation night, not a complete school club roster. Every club carries an evidence quote and the meeting date(s) it was mentioned."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#committees",
+      "name": "Committee membership and meetings",
+      "alternateName": "Miembros y reuniones de comités",
+      "description": "Committee membership and meetings. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#committees",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "committees/cboc.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/committees/cboc.json",
+          "_metadata": {
+            "source": "Authoritative: https://www.rcsdk8.net/our-programs-and-services/school-modernization-and-construction/phase-i-measure-t/measure-t-oversight-committee (members, annual reports, agendas, handouts, minutes, bylaws). Recordings from the RCSD YouTube channel.",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "committees/delac.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/committees/delac.json",
+          "_metadata": {
+            "source": "Redwood City School District BoardDocs and LCAP documentation.",
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://rcsd.info/catalog/#vendor-payments",
+      "name": "Vendor payment coverage and aliases; fetch monthly registers on demand",
+      "alternateName": "Cobertura de pagos y alias de proveedores; consulte los registros mensuales según sea necesario",
+      "description": "Vendor payment coverage and aliases; fetch monthly registers on demand. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "url": "https://rcsd.info/catalog/#vendor-payments",
+      "isAccessibleForFree": true,
+      "spatialCoverage": {
+        "@type": "Place",
+        "name": "Redwood City, California, United States"
+      },
+      "includedInDataCatalog": {
+        "@id": "https://rcsd.info/catalog/#catalog"
+      },
+      "distribution": [
+        {
+          "@type": "DataDownload",
+          "name": "warrants-index.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/warrants-index.json",
+          "_metadata": {
+            "source": null,
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "warrant-vendor-aliases.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/warrant-vendor-aliases.json",
+          "_metadata": {
+            "source": "Hand-curated from the top payees in data/warrants/*.json; extend as queries surface new variants.",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "warrant-pdf-manifest.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/warrant-pdf-manifest.json",
+          "_metadata": {
+            "source": "data/meetings-data.json warrant attachments (go.boarddocs.com $file URLs)",
+            "scrapedAt": null,
+            "method": null
+          }
+        }
+      ]
+    }
+  ]
+}

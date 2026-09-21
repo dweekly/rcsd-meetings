@@ -55,6 +55,12 @@ every file is `https://data.rcsd.info/json/`, with the release pointer at
 `https://data.rcsd.info/json/releases/current.json` — note the host is `data.rcsd.info`; the
 site at `rcsd.info` does not serve `data/`.
 
+For agents working without a checkout, start with the public dataset catalog at
+`https://rcsd.info/catalog.json` or the concise HTTP research skill at
+`https://rcsd.info/.well-known/agent-skills/rcsd-data-web/SKILL.md`.
+`https://rcsd.info/.well-known/api-catalog` lists the actual download and MCP
+endpoints. The catalog is navigation metadata, not an independent freshness check.
+
 ### Schools & District
 
 | File | Shape | Use For |

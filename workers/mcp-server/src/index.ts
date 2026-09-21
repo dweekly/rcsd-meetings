@@ -22,6 +22,7 @@
  */
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import serverCard from "../server-card.json";
 import { createMcpHandler } from "agents/mcp";
 import { z } from "zod";
 
@@ -200,9 +201,10 @@ function parseMenuId(lunchUrl: string): number | null {
 
 function createServer(): McpServer {
   const server = new McpServer({
-    name: "RCSD Open Data",
-    version: "1.0.0",
-    description: "Public data for the Redwood City School District — schools, calendars, lunch menus, board meetings, demographics, and special education",
+    name: serverCard.name,
+    title: serverCard.title,
+    version: serverCard.version,
+    description: serverCard.description,
     icons: [
       {
         src: "https://data.rcsd.info/logos/district.jpg",
@@ -1539,6 +1541,28 @@ function createServer(): McpServer {
 export default {
   async fetch(request: Request, env: any, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    // Experimental SEP-2127 discovery, before the /mcp/* protocol handler.
+    if (url.pathname === "/mcp/server-card" || url.pathname === "/.well-known/server-card.json") {
+      const headers = {
+        "Content-Type": "application/mcp-server-card+json",
+        "Access-Control-Allow-Origin": "*",
+        "Cache-Control": "public, max-age=300",
+        "Link": '<https://rcsd.info/.well-known/api-catalog>; rel="api-catalog"',
+      };
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return new Response(null, { status: 405, headers: { ...headers, Allow: "GET, HEAD" } });
+      }
+      return new Response(request.method === "HEAD" ? null : JSON.stringify(serverCard), { headers });
+    }
+
+    if (url.pathname === "/.well-known/api-catalog" || url.pathname === "/.well-known/ai-catalog.json") {
+      return new Response(null, { status: 302, headers: {
+        Location: `https://rcsd.info${url.pathname}`,
+        Link: '<https://rcsd.info/.well-known/api-catalog>; rel="api-catalog"',
+        "Access-Control-Allow-Origin": "*",
+      } });
+    }
 
     // Serve MCP at /mcp
     if (url.pathname === "/mcp" || url.pathname.startsWith("/mcp/")) {

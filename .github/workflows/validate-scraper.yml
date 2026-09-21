@@ -32,6 +32,7 @@ jobs:
 
       - name: Run Provenance Contract Tests
         run: |
+          npm run test:discovery
           npm run test:provenance
           npm run test:policy-llm-provenance
           npm run test:release

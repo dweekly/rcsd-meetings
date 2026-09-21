@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "info.rcsd/open-data",
+  "title": "RCSD Open Data",
+  "version": "1.0.0",
+  "description": "Public Redwood City School District data: schools, calendars, board meetings and policies",
+  "websiteUrl": "https://rcsd.info/mcp/",
+  "repository": {
+    "url": "https://github.com/dweekly/rcsd-meetings",
+    "source": "github",
+    "subfolder": "workers/mcp-server"
+  },
+  "remotes": [
+    { "type": "streamable-http", "url": "https://mcp.rcsd.info/mcp" }
+  ]
+}
