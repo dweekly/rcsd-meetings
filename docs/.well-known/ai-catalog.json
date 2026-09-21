@@ -1,0 +1,15 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:rcsd.info:mcp:open-data",
+      "type": "application/mcp-server-card+json",
+      "url": "https://rcsd.info/.well-known/server-card.json"
+    },
+    {
+      "identifier": "urn:air:rcsd.info:dataset:catalog",
+      "type": "application/ld+json",
+      "url": "https://rcsd.info/catalog.json"
+    }
+  ]
+}

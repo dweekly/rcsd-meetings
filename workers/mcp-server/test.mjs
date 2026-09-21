@@ -7,7 +7,9 @@
  *   node test.mjs http://localhost:8799    # test local dev server
  */
 
-const BASE = process.argv[2] || "https://mcp.rcsd.info";
+import { readFileSync } from 'node:fs';
+const SERVER_CARD = JSON.parse(readFileSync(new URL('./server-card.json', import.meta.url), 'utf8'));
+const BASE = process.argv.slice(2).find(arg => !arg.startsWith('--')) || "https://mcp.rcsd.info";
 const MCP = `${BASE}/mcp`;
 const HEADERS = {
   "Content-Type": "application/json",
@@ -73,14 +75,26 @@ console.log(`\nTesting MCP server at ${MCP}\n`);
 
 // Protocol
 console.log("Protocol:");
+await test("discovery card supports GET and HEAD and matches server configuration", async () => {
+  for (const path of ['/mcp/server-card', '/.well-known/server-card.json']) {
+    const get = await fetch(`${BASE}${path}`);
+    assert(get.ok, `card GET failed: ${get.status}`);
+    assert(get.headers.get('Content-Type').includes('application/mcp-server-card+json'), 'wrong card MIME type');
+    assert(JSON.stringify(await get.json()) === JSON.stringify(SERVER_CARD), 'card drift');
+    const head = await fetch(`${BASE}${path}`, { method: 'HEAD' });
+    assert(head.ok && await head.text() === '', 'card HEAD failed');
+    assert(head.headers.get('Link').includes('rel="api-catalog"'), 'missing catalog discovery');
+  }
+});
 await test("initialize returns server info", async () => {
   const r = await mcpCall(1, "initialize", {
     protocolVersion: "2025-03-26",
     capabilities: {},
     clientInfo: { name: "rcsd-test", version: "1.0.0" },
   });
-  assert(r.result.serverInfo.name === "RCSD Open Data", "wrong server name");
-  assert(r.result.serverInfo.version === "1.0.0", "wrong version");
+  assert(r.result.serverInfo.name === SERVER_CARD.name, "wrong server name");
+  assert(r.result.serverInfo.title === SERVER_CARD.title, "wrong server title");
+  assert(r.result.serverInfo.version === SERVER_CARD.version, "wrong version");
   assert(r.result.capabilities.tools, "missing tools capability");
 });
 
@@ -109,6 +123,10 @@ await test("tools/list returns 14 tools", async () => {
 });
 
 // Tools
+if (process.argv.includes('--protocol-only')) {
+  console.log(`Protocol: ${passed} passed, ${failed} failed`);
+  process.exit(failed ? 1 : 0);
+}
 console.log("\nTools:");
 
 await test("list-schools returns 12 schools", async () => {

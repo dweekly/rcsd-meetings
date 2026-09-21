@@ -312,10 +312,19 @@ export default {
     const corsHeaders = {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, HEAD, OPTIONS',
+      'Access-Control-Expose-Headers': 'Link, Content-Signal',
+      'Link': '<https://rcsd.info/.well-known/api-catalog>; rel="api-catalog", <https://rcsd.info/catalog.json>; rel="describedby"; type="application/ld+json"',
+      'Content-Signal': 'search=yes, ai-input=yes',
     };
 
     if (request.method === 'OPTIONS') {
       return new Response(null, { headers: corsHeaders });
+    }
+
+    if (key === '.well-known/api-catalog' || key === '.well-known/ai-catalog.json') {
+      return new Response(null, { status: 302, headers: {
+        ...corsHeaders, Location: `https://rcsd.info/${key}`,
+      } });
     }
 
     // Synthesized JSON directory listing (e.g. /index.json, /json/index.json).

@@ -1,5 +1,48 @@
 # Cloudflare Pages custom response headers.
 # Format: https://developers.cloudflare.com/pages/configuration/headers/
+
+# Discovery applies to GET and HEAD, including the API catalog itself.
+# Search and agent input are welcomed; this makes no training-policy assertion.
+/*
+  Link: <https://rcsd.info/.well-known/api-catalog>; rel="api-catalog", <https://rcsd.info/llms.txt>; rel="describedby"; type="text/markdown", <https://rcsd.info/.well-known/agent-skills/index.json>; rel="https://agentskills.io/discovery"
+  Content-Signal: search=yes, ai-input=yes
+
+/.well-known/*
+  Access-Control-Allow-Origin: *
+  Access-Control-Expose-Headers: Link, Content-Signal
+  Cache-Control: public, max-age=300
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"
+
+/.well-known/ai-catalog.json
+  Content-Type: application/ai-catalog+json
+
+/.well-known/server-card.json
+  Content-Type: application/mcp-server-card+json
+
+/.well-known/agent-skills/rcsd-data-web/SKILL.md
+  Content-Type: text/markdown; charset=utf-8
+
+/catalog.json
+  Content-Type: application/ld+json
+  Access-Control-Allow-Origin: *
+
+/catalog/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/catalogo/index.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/agents/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/llms.txt
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
 #
 # Font binaries are content-stable: a changed font ships under a new
 # filename, so browsers may cache them for a year and never revalidate.

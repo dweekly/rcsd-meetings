@@ -10,6 +10,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { policySlug } from './lib/policy-slug.mjs';
+import { buildAgentDiscovery } from './build-agent-discovery.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -771,7 +772,7 @@ ${headMeta({
     { lang: 'es', href: 'https://rcsd.info/' },
   ],
   jsonLd: jsonLdBlocks,
-  extraHead: '<meta property="og:locale:alternate" content="es_US">\n<link rel="describedby" href="/llms.txt" type="text/markdown">',
+  extraHead: '<meta property="og:locale:alternate" content="es_US">\n<link rel="api-catalog" href="/.well-known/api-catalog" type="application/linkset+json">',
   pageCSS: homepageCSS,
 })}
 </head>
@@ -1012,6 +1013,7 @@ GitHub:  <code><a href="https://github.com/dweekly/rcsd-meetings">https://github
 Website: <code><a href="https://rcsd.info">https://rcsd.info</a></code>
 CDN:     <code><a href="https://data.rcsd.info">https://data.rcsd.info</a></code>
 MCP:     <code>https://mcp.rcsd.info/mcp</code>  <a href="/mcp/">Setup instructions &#8599;</a>
+Catalog: <a href="/catalog/">Data catalog &amp; agent guide</a> · <a href="/catalogo/" lang="es">Catálogo de datos y guía para agentes</a>
 
 DATA FILES (<a href="https://data.rcsd.info/json/">data.rcsd.info/json/</a>):
   <a href="https://data.rcsd.info/json/meetings-data.json">meetings-data.json</a>       All meetings with agendas, items, attachments, timestamps
@@ -1270,6 +1272,10 @@ This site publishes structured JSON data files covering school directory informa
 
 ## Data Files
 
+Start with the [dataset catalog](https://rcsd.info/catalog/) ([español](https://rcsd.info/catalogo/)), [JSON-LD catalog](https://rcsd.info/catalog.json), or [research skill](https://rcsd.info/.well-known/agent-skills/rcsd-data-web/SKILL.md). The catalog includes CDE, SARC and committee files in subdirectories. [Field schemas](https://rcsd.info/agents/data-schema.md) explain how to join and interpret them. Discover endpoints through the [API catalog](https://rcsd.info/.well-known/api-catalog).
+
+Cite official sources and source-check dates from each dataset; do not infer freshness from build dates. Suppressed cells are unknown, not zero. AI summaries, translations and transcripts are not official records. Read counts and coverage from the current JSON. Prefer small indexes before fetching complete corpora.
+
 All data is available as JSON at [data.rcsd.info/json/](https://data.rcsd.info/json/).
 
 ${dataLines.join('\n')}
@@ -1341,6 +1347,7 @@ The plugin provides school info, live lunch menus, calendars, board meetings, de
 
 writeFileSync(resolve(ROOT, 'docs/llms.txt'), buildLlmsTxt());
 console.log('Wrote docs/llms.txt');
+buildAgentDiscovery();
 
 // ---- sitemap.xml ----
 // Google best practices: use xhtml:link hreflang for bilingual pages,
@@ -1463,6 +1470,7 @@ ${bilingualUrl('/budget/', '/presupuesto/', sitemapDate)}
 ${bilingualUrl('/policies/', '/politicas/', sitemapDate)}
 ${policyUrls}
 ${bilingualUrl('/mcp/', '/mcp/es/', sitemapDate)}
+${bilingualUrl('/catalog/', '/catalogo/', sitemapDate)}
 ${bilingualUrl('/blog/', '/blog/es/', sitemapDate)}
 ${blogPosts.map(p => bilingualUrl(`/blog/${p.slug}/`, `/blog/${p.slugEs}/`, p.date)).join('\n')}
 ${meetingUrls}

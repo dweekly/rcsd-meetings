@@ -6,6 +6,8 @@ Independently compiled public records for the [Redwood City School District](htt
 **Data API:** [data.rcsd.info](https://data.rcsd.info)
 **Source:** [github.com/dweekly/rcsd-meetings](https://github.com/dweekly/rcsd-meetings)
 
+**Agent discovery:** [Implementation and rollout](docs/AGENT-DISCOVERY.md) — dataset catalog, Markdown, API and skill discovery, MCP cards, content signals, and DNS-AID evaluation.
+
 ## What's here
 
 - **192 board meetings** (April 2020 – present) from BoardDocs and Simbli/GAMUT
