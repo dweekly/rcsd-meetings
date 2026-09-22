@@ -16,6 +16,7 @@ import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
 import { config } from 'dotenv';
 import { rankItems } from './lib/agenda-weight.mjs';
+import { getSummaryKey } from './lib/meeting-summary-key.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -69,16 +70,6 @@ function isProceduralItem(title) {
   return SKIP_PATTERNS.some(p => p.test(title.trim()));
 }
 
-// Find meetings that need summaries
-// Summaries are keyed by date string (e.g., "2024-03-06")
-// When multiple meetings share a date, we use the slug as key
-function getSummaryKey(meeting, allMeetings) {
-  const sameDateMeetings = allMeetings.filter(m => m.date === meeting.date);
-  if (sameDateMeetings.length > 1) {
-    return meeting.slug;
-  }
-  return meeting.date;
-}
 
 const args = process.argv.slice(2);
 const refreshNoMinutes = args.includes('--refresh-no-minutes') || args.includes('--refresh');
