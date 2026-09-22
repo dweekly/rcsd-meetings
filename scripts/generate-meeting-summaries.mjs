@@ -17,6 +17,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { config } from 'dotenv';
 import { rankItems } from './lib/agenda-weight.mjs';
 import { getSummaryKey } from './lib/meeting-summary-key.mjs';
+import { readProvenance, isTranscriptDerived } from './lib/summary-provenance.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -35,6 +36,12 @@ const client = new Anthropic();
 const meetingsData = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
 const enPath = resolve(ROOT, 'data/meeting-summaries.json');
 const esPath = resolve(ROOT, 'data/meeting-summaries-es.json');
+
+// A summary written from a meeting's transcript says what the board actually did.
+// This generator can only say what the agenda listed, so it must never replace one
+// — not even under --refresh. Without this the nightly pipeline would quietly walk
+// every transcript-derived summary back to agenda prose.
+const provenance = readProvenance(ROOT);
 const enSummaries = JSON.parse(readFileSync(enPath, 'utf-8'));
 const esSummaries = JSON.parse(readFileSync(esPath, 'utf-8'));
 
@@ -87,6 +94,11 @@ for (const meeting of allMeetings) {
     targetDates.includes(meeting.date) ||
     targetDates.includes(meeting.slug) ||
     targetDates.includes(key);
+
+  if (shouldRefresh && isTranscriptDerived(provenance, key)) {
+    console.log(`  ${key}: keeping transcript-derived summary (refresh does not apply)`);
+    continue;
+  }
 
   if (shouldRefresh) {
     delete enSummaries[key];

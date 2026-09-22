@@ -40,6 +40,7 @@ import { config } from 'dotenv';
 
 import { rankItems } from './lib/agenda-weight.mjs';
 import { getSummaryKey } from './lib/meeting-summary-key.mjs';
+import { readProvenance, PROVENANCE_FILENAME, summaryHash, matchesRecordedSummary } from './lib/summary-provenance.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -48,7 +49,7 @@ config({ path: resolve(ROOT, '.env') });
 const SLIM_DIR = resolve(ROOT, 'artifacts/transcripts-slim');
 const EN_PATH = resolve(ROOT, 'data/meeting-summaries.json');
 const ES_PATH = resolve(ROOT, 'data/meeting-summaries-es.json');
-const PROV_PATH = resolve(ROOT, 'data/meeting-summaries-provenance.json');
+const PROV_PATH = resolve(ROOT, PROVENANCE_FILENAME);
 
 // Reading a three-hour meeting and telling a decision from a discussion of one
 // is the whole task here, so this path uses a reasoning model. The agenda-title
@@ -103,7 +104,7 @@ const meetingsData = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.j
 const allMeetings = meetingsData.meetings;
 const enSummaries = JSON.parse(readFileSync(EN_PATH, 'utf-8'));
 const esSummaries = JSON.parse(readFileSync(ES_PATH, 'utf-8'));
-const provenance = existsSync(PROV_PATH) ? JSON.parse(readFileSync(PROV_PATH, 'utf-8')) : {};
+const provenance = readProvenance(ROOT);
 
 /** Procedural lines carry a time allocation but no business; they are not the meeting. */
 const SKIP_PATTERNS = [
@@ -216,16 +217,30 @@ const stamp = new Date().toISOString().slice(0, 10);
 let generated = 0;
 let skipped = 0;
 let noTranscript = [];
+let protectedExisting = [];
 let errors = 0;
 
 console.log(`Meetings selected: ${selected.length}`);
 
 for (const meeting of selected) {
   const key = getSummaryKey(meeting, allMeetings);
-  const existing = provenance[key];
-
-  if (existing?.source === 'transcript' && !force) {
+  // Skip on the strength of the text that is actually there, not on the flag
+  // alone: the sidecar and the summary files can be restored independently.
+  if (matchesRecordedSummary(provenance, key, enSummaries[key]) && !force) {
     skipped++;
+    continue;
+  }
+
+  // Never overwrite a summary this script did not write, unless a run names that
+  // meeting outright. A summary with text but no provenance record is one of the
+  // hand-written ones carried since the initial release: they cite figures out of
+  // the board packets that nobody says aloud, so a transcript cannot reproduce
+  // them and regenerating one is a straight loss. --range is a bulk instrument
+  // and must not be able to reach them.
+  const namedExplicitly = targetDates.includes(meeting.date) || targetDates.includes(meeting.slug)
+    || targetDates.includes(key);
+  if (enSummaries[key] && !provenance[key] && !namedExplicitly) {
+    protectedExisting.push(meeting.date);
     continue;
   }
 
@@ -278,6 +293,7 @@ for (const meeting of selected) {
       transcriptKey: transcript.key,
       model: MODEL,
       generatedAt: stamp,
+      enHash: summaryHash(parsed.en),
     };
     generated++;
     console.log(`[${generated}] ${key} — ${parsed.en.replace(/<[^>]+>/g, '').slice(0, 90)}…`);
@@ -306,5 +322,8 @@ if (!dryRun) save();
 console.log(`\nDone. Generated: ${generated}, already transcript-derived: ${skipped}, errors: ${errors}`);
 if (noTranscript.length > 0) {
   console.log(`No transcript (keeping agenda-derived summary): ${noTranscript.join(', ')}`);
+}
+if (protectedExisting.length > 0) {
+  console.log(`Kept existing summary, not written by this script (name the date to override): ${protectedExisting.join(', ')}`);
 }
 if (errors > 0) process.exit(1);
