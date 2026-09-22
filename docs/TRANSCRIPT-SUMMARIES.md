@@ -118,7 +118,21 @@ there is nothing to reason about. Model ids in this project carry no date suffix
 
 ### Accuracy guardrails
 
-In the prompt, and checked by reading:
+The agenda states how many consent items were **scheduled**, never how many
+passed: boards pull items at the top of the evening (three on 2026-09-09, three
+on 2026-08-10), so presenting the scheduled count as an outcome publishes a
+number wrong by exactly the withdrawn items. The outline says "SCHEDULED" and
+sends the model to the transcript for the disposition.
+
+Spanish house style is enforced rather than requested. The existing 196 Spanish
+summaries call the board "la junta" or "la mesa directiva" and never
+"los fideicomisarios"; asking in the prompt got it right seven times in nine,
+twice over. `houseStyleViolation()` now checks the output and retries with a
+correction, failing the meeting rather than publishing off-register Spanish. The
+check is case-sensitive and matches only the collective — "Trustee King" is that
+person's title and must survive into the Spanish.
+
+Also in the prompt, and checked by reading:
 
 - Name a figure, vote count or resolution number only where the transcript or
   agenda states it.

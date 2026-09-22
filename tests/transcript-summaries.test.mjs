@@ -155,3 +155,66 @@ test('every transcript-derived record fingerprints both languages', () => {
     assert.equal(record.esHash, summaryHash(es[key]), `${key}: Spanish summary does not match its record`);
   }
 });
+
+test('the agenda hands the model a scheduled consent count, never an outcome', () => {
+  // Boards pull items before the consent vote — three on 2026-09-09, three on
+  // 2026-08-10. Presenting the scheduled count as "passed together in one vote"
+  // published a number that was wrong by exactly the pulled items.
+  const src = readFileSync(resolve(ROOT, 'scripts/generate-transcript-summaries.mjs'), 'utf-8');
+  assert.match(src, /SCHEDULED/,
+    'the consent block must be labelled as scheduled, not as approved');
+  assert.doesNotMatch(src, /item(?:s)?\$\{[^}]*\}, ' \+\s*'passed together in one vote/,
+    'the outline must not assert that every scheduled consent item passed');
+  assert.match(src, /how many were actually approved is in the transcript/,
+    'the prompt must send the model to the transcript for the disposition');
+});
+
+test('no generated summary asserts a consent count the agenda cannot support', () => {
+  // The failure this guards is specific: "passed a 43-item consent calendar" when
+  // two of the 43 were withdrawn. A count is allowed only alongside evidence of
+  // what was pulled, which is why this checks the bare form.
+  const en = read('data/meeting-summaries.json');
+  const provenance = existsSync(resolve(ROOT, PROVENANCE_FILENAME)) ? readProvenance(ROOT) : {};
+  const generated = Object.keys(provenance).filter((k) => provenance[k].source === 'transcript');
+  for (const key of generated) {
+    const text = (en[key] ?? '').replace(/<[^>]+>/g, '');
+    const claim = text.match(/\b(\d+)[- ]item consent calendar\b/i);
+    if (!claim) continue;
+    assert.match(text, /pull|withdraw|defer|remaining|except/i,
+      `${key}: claims a ${claim[1]}-item consent calendar without accounting for pulled items`);
+  }
+});
+
+test('the house-style check tells a collective from a person\'s title', () => {
+  // "Trustee King" is that person's title and belongs in the Spanish exactly as in
+  // the English; a blanket ban on the word removed a recorded absence from the
+  // 2026-08-26 summary. The pattern is deliberately case-sensitive — with /i the
+  // capital-letter lookahead also matches the lowercase verb after a collective.
+  const collective = /\b[Ll]os\s+[Tt]rustees\b|\b[Ll]as\s+[Tt]rustees\b|\b[Tt]rustees\b(?!\s+[A-ZÁÉÍÓÚÑ])/;
+  for (const [text, flagged] of [
+    ['Trustee King ausente', false],
+    ['Trustee Li recibió', false],
+    ['Trustees Ángel y Li', false],
+    ['Los trustees aprobaron', true],
+    ['trustees aprobaron el plan', true],
+    ['Trustees reconocieron', true],
+  ]) {
+    assert.equal(collective.test(text), flagged, `house style on: ${text}`);
+  }
+});
+
+test('Spanish summaries use the board term the rest of the site uses', () => {
+  // 147 of the existing Spanish summaries say "junta" and 45 "mesa directiva";
+  // none say "fideicomisarios". A generator that invents a register makes the
+  // Spanish side read as machine output beside its neighbours.
+  const es = read('data/meeting-summaries-es.json');
+  const provenance = existsSync(resolve(ROOT, PROVENANCE_FILENAME)) ? readProvenance(ROOT) : {};
+  for (const key of Object.keys(provenance)) {
+    if (provenance[key].source !== 'transcript') continue;
+    const text = es[key] ?? '';
+    assert.doesNotMatch(text, /fideicomisari/i, `${key}: "fideicomisarios" appears nowhere else on the site`);
+    assert.doesNotMatch(text, /\b[Ll]os\s+[Tt]rustees\b|\b[Tt]rustees\b(?!\s+[A-ZÁÉÍÓÚÑ])/,
+      `${key}: "trustees" as a collective — the site says "la junta"`);
+    assert.match(text, /\bjunta\b|mesa directiva/i, `${key}: does not name the board the way the site does`);
+  }
+});

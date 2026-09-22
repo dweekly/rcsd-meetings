@@ -115,6 +115,11 @@ const esKeys = new Set(Object.keys(esSummaries));
 
 const needsSummary = allMeetings.filter(m => {
   const key = getSummaryKey(m, allMeetings);
+  // A transcript-derived summary is never repaired from the agenda. If one of its
+  // two languages is missing, the fix is to re-run the transcript generator, not
+  // to overwrite both with what the agenda listed — which is what this filter
+  // would otherwise do the moment either file is restored without the other.
+  if (isTranscriptDerived(provenance, key)) return false;
   // Also check both date and slug in case existing summaries use either
   return !(enKeys.has(key) || enKeys.has(m.date) || enKeys.has(m.slug))
       || !(esKeys.has(key) || esKeys.has(m.date) || esKeys.has(m.slug));

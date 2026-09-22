@@ -66,6 +66,11 @@ const MODEL = 'claude-sonnet-4-6';
 // accept a summary built from a partial meeting.
 const TRANSCRIPT_CHAR_LIMIT = 600000;
 
+// How many times to ask for a Spanish summary that follows house style before
+// giving up on a meeting. Two retries is enough in practice; failing loudly beats
+// publishing off-register Spanish.
+const MAX_ATTEMPTS = 3;
+
 const args = process.argv.slice(2);
 const force = args.includes('--force');
 const dryRun = args.includes('--dry-run');
@@ -165,11 +170,42 @@ function agendaOutline(meeting) {
       unranked.map(u => `- ${describe(u.item)}`).join('\n'));
   }
   if (consent.length > 0) {
-    blocks.push(`Consent calendar — ${consent.length} item${consent.length === 1 ? '' : 's'}, ` +
-      'passed together in one vote without discussion:\n' +
+    // What the agenda can say is how many items were SCHEDULED. Whether they all
+    // passed is a fact about the meeting, and boards routinely pull items at the
+    // top of the evening — three on 2026-09-09, three on 2026-08-10. Asserting the
+    // scheduled count as an outcome publishes a wrong number.
+    blocks.push(`Consent calendar — ${consent.length} item${consent.length === 1 ? '' : 's'} ` +
+      'SCHEDULED, normally taken together in one vote without discussion. Items are often ' +
+      'pulled before the vote; how many were actually approved is in the transcript, not here:\n' +
       consent.map(c => `- ${c.title}`).join('\n'));
   }
   return blocks.join('\n\n');
+}
+
+// Spanish house style, enforced rather than requested. The existing 196 Spanish
+// summaries call the board "la junta" (147) or "la mesa directiva" (45) and never
+// "los fideicomisarios" or "los trustees"; a generated summary that invents its own
+// register reads as machine output beside its neighbours. Asking in the prompt got
+// it right seven times in nine, twice — which is what a retry loop is for.
+const ES_HOUSE_STYLE = [
+  { pattern: /fideicomisari/i, instead: 'la junta / la mesa directiva' },
+  // Plural/collective only. "Trustee King" is that person's title and belongs in
+  // Spanish exactly as in English — banning it outright cost a recorded absence
+  // from the 2026-08-26 summary.
+  // No /i flag: the lookahead has to tell a capitalised surname from a lowercase
+  // verb, and case-insensitivity would make [A-Z] match both.
+  { pattern: /\b[Ll]os\s+[Tt]rustees\b|\b[Ll]as\s+[Tt]rustees\b|\b[Tt]rustees\b(?!\s+[A-ZÁÉÍÓÚÑ])/,
+    instead: 'la junta / los miembros de la junta (but keep "Trustee Apellido" as a person\'s title)' },
+  { pattern: /(ingl[eé]s)\s+learners?/i, instead: 'English learners OR estudiantes de inglés, not a hybrid' },
+];
+
+/** @returns {string|null} what is wrong with this Spanish summary, or null if nothing is. */
+function houseStyleViolation(es) {
+  for (const rule of ES_HOUSE_STYLE) {
+    const hit = String(es).match(rule.pattern);
+    if (hit) return `"${hit[0]}" — use ${rule.instead}`;
+  }
+  return null;
 }
 
 function buildPrompt(meeting, outline, text) {
@@ -185,7 +221,7 @@ Instructions:
 2. Lead with the most substantive business. The agenda ordering above is a strong guide to what mattered, but the transcript is the authority — if the board spent the evening on something the agenda gave five minutes, say so.
 3. Be concrete. Name dollar figures, vote counts, resolution numbers, school names, and programs — but ONLY where the transcript states them. Never infer a vote count or a dollar amount that was not said aloud.
 4. If the transcript does not record the outcome of an item, say the board discussed or heard it. Do NOT write that it was approved. A missing outcome means the recording did not capture it, not that nothing happened.
-5. The consent calendar is routine business passed in one vote. Give it at most one short trailing clause with the count and theme; never itemize it and never lead with it.
+5. The consent calendar is routine business taken in one vote. Give it at most one short trailing clause naming the theme; never itemize it and never lead with it. The count beside the consent calendar in the agenda above is what was SCHEDULED, not what passed — boards pull items before the vote. Quote a number of approved items only if the transcript supports it (for example by recording which items were pulled, letting you subtract); otherwise write it without a count, and mention any pulled items and where they went.
 6. These meetings have happened, so write in plain past tense ("The Board approved...", "Trustees heard...").
 7. Use <strong> tags around important terms — school names, dollar amounts, resolution and policy numbers, program names. No other HTML, no links, no lists.
 8. Stay inside the word budget. If everything will not fit, drop the least consequential item rather than compressing all of them into a list.
@@ -194,7 +230,7 @@ Instructions:
 Respond with exactly this JSON and nothing else (no markdown fences):
 {
   "en": "English summary here",
-  "es": "Spanish summary here — sixth-grade Californian Spanish, simple and colloquial, keeping the English terms families actually use (LCAP, Measure S, charter, bond, consent calendar). Keep each term wholly in one language: write \"English learners\" or \"estudiantes de inglés\", never a hybrid like \"inglés learners\""
+  "es": "Spanish summary here — sixth-grade Californian Spanish, simple and colloquial, keeping the English terms families actually use (LCAP, Measure S, charter, bond, consent calendar). Keep each term wholly in one language: write \"English learners\" or \"estudiantes de inglés\", never a hybrid like \"inglés learners\". Call the board \"la junta\" or \"la mesa directiva\", which is what the rest of this site and RCSD families use — never \"los fideicomisarios\" or \"los trustees\""
 }
 
 TRANSCRIPT
@@ -267,15 +303,17 @@ for (const meeting of selected) {
   }
 
   try {
+    let correction = '';
+    let parsed = null;
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     const response = await client.messages.create({
       model: MODEL,
       max_tokens: 1200,
-      messages: [{ role: 'user', content: prompt }],
+      messages: [{ role: 'user', content: prompt + correction }],
     });
 
     let raw = response.content[0].text.trim();
     raw = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '');
-    let parsed;
     try {
       parsed = JSON.parse(raw);
     } catch {
@@ -285,6 +323,19 @@ for (const meeting of selected) {
     }
     if (!parsed.en || !parsed.es) {
       throw new Error(`missing en or es: ${JSON.stringify(parsed).slice(0, 200)}`);
+    }
+
+    const violation = houseStyleViolation(parsed.es);
+    if (violation) {
+      if (attempt < MAX_ATTEMPTS) {
+        console.warn(`  ${key}: Spanish house style — ${violation}; retrying`);
+        correction = `\n\nYour previous Spanish summary used ${violation}. Rewrite it without that wording. Everything else about the task is unchanged.`;
+        continue;
+      }
+      throw new Error(`Spanish house style after ${MAX_ATTEMPTS} attempts: ${violation}`);
+    }
+
+      break;
     }
 
     enSummaries[key] = parsed.en;
