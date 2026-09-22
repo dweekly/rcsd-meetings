@@ -92,8 +92,12 @@ export function rankItems(items, isProcedural = () => false) {
     }
 
     if (substantive.length === 0) {
-      // Section header with no sub-items: the section line is the item.
-      if (group.section && group.minutes != null && !isProcedural(group.section)) {
+      // Section header with no sub-items: the section line is the item. It is
+      // scored even when the agenda states no time for it — a standalone line
+      // like "Public Hearing Regarding Proposed Education Parcel Tax" is exactly
+      // the kind of item a summary must not lose, and a null here means unranked,
+      // not unimportant.
+      if (group.section && !isProcedural(group.section)) {
         scored.push({ item: group.section, section: group.section, minutes: group.minutes });
       }
       continue;
@@ -110,4 +114,36 @@ export function rankItems(items, isProcedural = () => false) {
   const unranked = scored.filter((s) => s.minutes == null);
 
   return { ranked, consent, consentMinutes, unranked };
+}
+
+/**
+ * Total time an agenda allocates to a meeting.
+ *
+ * Sections and sub-items can both state an allocation, and a sub-item's time is
+ * carved OUT of its section's rather than added to it — the 2025-11-12 agenda
+ * gives School/Community Reports 120 minutes and then names two 60-minute reports
+ * inside it. Summing every plannedMinutes field double-counts those, so a section
+ * with its own allocation contributes only that, and a section without one
+ * contributes whatever its children state.
+ *
+ * @param {Array} items - meeting.items from meetings-data.json
+ * @returns {number|null} total minutes, or null when the agenda states no times
+ */
+export function totalPlannedMinutes(items) {
+  let total = 0;
+  let sawAny = false;
+  for (const group of groupBySection(items)) {
+    if (group.minutes != null) {
+      total += group.minutes;
+      sawAny = true;
+      continue;
+    }
+    for (const child of group.children) {
+      if (child.plannedMinutes != null) {
+        total += child.plannedMinutes;
+        sawAny = true;
+      }
+    }
+  }
+  return sawAny ? total : null;
 }

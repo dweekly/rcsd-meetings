@@ -30,6 +30,7 @@ import { Resvg } from '@resvg/resvg-js';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, statSync, readdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { totalPlannedMinutes } from './lib/agenda-weight.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -410,7 +411,7 @@ function loadMeetingsCatalog() {
       type: m.type,
       topics: m.topics || [],
       items: (m.items || []).filter(it => !it.isSection).length,
-      planned: (m.items || []).reduce((s, it) => s + (it.plannedMinutes || 0), 0) || null,
+      planned: totalPlannedMinutes(m.items || []),
       hasVideo: !!m.youtube,
       hasZoom: !!m.zoom,
       hasTranscript: m.hasTranscript,

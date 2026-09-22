@@ -93,3 +93,45 @@ test('items under a section with no stated time are reported as unranked, not as
   assert.equal(ranked.length, 0);
   assert.deepEqual(unranked.map((u) => u.item.itemLabel), ['7.1']);
 });
+
+test('a standalone section with no stated time still reaches the summary', () => {
+  // The shape of the 2026-02-26 agenda: a timed item elsewhere switches the
+  // summarizer to the ranked prompt, and a childless, untimed public hearing must
+  // not fall out of it on the way.
+  const { ranked, unranked } = rankItems([
+    { itemLabel: '6', title: 'School/Community Reports', isSection: true, plannedMinutes: 30, actionType: 'Information' },
+    { itemLabel: '6.1', title: 'Roy Cloud Site Presentation', isSection: false, plannedMinutes: null, actionType: 'Information' },
+    { itemLabel: '7', title: 'Public Hearing Regarding Proposed Education Parcel Tax', isSection: true, plannedMinutes: null, actionType: 'Information' },
+  ], isProcedural);
+
+  const everything = [...ranked, ...unranked].map((e) => e.item.title);
+  assert.ok(everything.some((t) => /Public Hearing/.test(t)),
+    'an untimed standalone item is unranked, never dropped — absent time is not absent importance');
+  assert.equal(ranked[0].item.itemLabel, '6.1');
+});
+
+test('a meeting total counts each allocation once', async () => {
+  // The 2025-11-12 agenda gives School/Community Reports 120 minutes and then
+  // names two 60-minute reports inside it. The children's time is carved out of
+  // the section's, not added to it, so the total is 130 and not 250.
+  const { totalPlannedMinutes } = await import('../scripts/lib/agenda-weight.mjs');
+  const total = totalPlannedMinutes([
+    { itemLabel: '8', title: 'School/Community Reports', isSection: true, plannedMinutes: 120 },
+    { itemLabel: '8.1', title: 'Community Schools Board Report', isSection: false, plannedMinutes: 60 },
+    { itemLabel: '8.2', title: 'Mental Health Program Board Report', isSection: false, plannedMinutes: 60 },
+    { itemLabel: '9', title: 'Discussion Items', isSection: true, plannedMinutes: 10 },
+  ]);
+  assert.equal(total, 130);
+});
+
+test('a meeting total falls back to sub-item times when a section states none', async () => {
+  const { totalPlannedMinutes } = await import('../scripts/lib/agenda-weight.mjs');
+  assert.equal(totalPlannedMinutes([
+    { itemLabel: '4', title: 'Closed Session', isSection: true, plannedMinutes: null },
+    { itemLabel: '4.1', title: 'Anticipated Litigation', isSection: false, plannedMinutes: 20 },
+    { itemLabel: '4.2', title: 'Labor Negotiators', isSection: false, plannedMinutes: 35 },
+  ]), 55);
+  assert.equal(totalPlannedMinutes([
+    { itemLabel: '1', title: 'Call to Order', isSection: true, plannedMinutes: null },
+  ]), null, 'an agenda that states no times has no total, rather than a total of zero');
+});
