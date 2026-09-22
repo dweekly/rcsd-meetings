@@ -6,6 +6,26 @@ Highest priority appears first. This list is intentionally not numbered: reorder
 bullets when priorities change. Keep only forward work here; completed work belongs
 in commit messages, `CHANGELOG.md`, and the project blog.
 
+- [ ] **Summarize meetings from the board packets as well as the transcript.** The
+  figures readers care about — `$6.4M` in budget reductions, `$2.29M` returned on solar
+  change orders — are written in the packet PDFs and never said aloud: measured across
+  the 17 meetings since July 2025 whose summaries cite figures, 6 of 37 dollar amounts
+  appear anywhere in the transcript. That is why the hand-written summaries still beat
+  generated ones on their own ground, and why `generate-transcript-summaries.mjs`
+  deliberately refuses to overwrite them. Pairing each transcript with the attachments of
+  its highest-ranked agenda items is what would close the gap, and the time-ranking makes
+  it affordable: on 2026-02-04 the top six items carry 10 attachments out of the meeting's
+  69. Needs PDF text extraction and a selection rule; see `docs/TRANSCRIPT-SUMMARIES.md`.
+- [ ] **Stop truncating committee transcripts mid-meeting.**
+  `generate-committee-summaries.mjs` caps transcript text at 120,000 characters. A board
+  meeting votes its action items at the end, so a cap removes exactly the outcomes a
+  summary is for; nine board transcripts since July 2025 exceed it. The board path now
+  sends the whole transcript (the largest is ~52,000 tokens, well within context). Apply
+  the same to committees, or state per-committee why a cap is safe there.
+- [ ] **Meeting detail pages drop the summary when two meetings share a date.**
+  `scripts/build-meeting-pages.mjs` reads `summaries[m.date]`, but summaries for such
+  meetings are keyed by slug (see `scripts/lib/meeting-summary-key.mjs`), so those pages
+  render no summary at all. Use the shared lookup rather than the raw date.
 - [ ] **Make generated-site changes small and reviewable before the next bulk
   regeneration.** Extract the remaining shared policy CSS and stable page chrome into
   release-managed assets or partials, keep authored sources distinct from generated

@@ -16,6 +16,8 @@ import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
 import { config } from 'dotenv';
 import { rankItems } from './lib/agenda-weight.mjs';
+import { getSummaryKey } from './lib/meeting-summary-key.mjs';
+import { readProvenance, isTranscriptDerived } from './lib/summary-provenance.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -34,6 +36,12 @@ const client = new Anthropic();
 const meetingsData = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
 const enPath = resolve(ROOT, 'data/meeting-summaries.json');
 const esPath = resolve(ROOT, 'data/meeting-summaries-es.json');
+
+// A summary written from a meeting's transcript says what the board actually did.
+// This generator can only say what the agenda listed, so it must never replace one
+// — not even under --refresh. Without this the nightly pipeline would quietly walk
+// every transcript-derived summary back to agenda prose.
+const provenance = readProvenance(ROOT);
 const enSummaries = JSON.parse(readFileSync(enPath, 'utf-8'));
 const esSummaries = JSON.parse(readFileSync(esPath, 'utf-8'));
 
@@ -69,16 +77,6 @@ function isProceduralItem(title) {
   return SKIP_PATTERNS.some(p => p.test(title.trim()));
 }
 
-// Find meetings that need summaries
-// Summaries are keyed by date string (e.g., "2024-03-06")
-// When multiple meetings share a date, we use the slug as key
-function getSummaryKey(meeting, allMeetings) {
-  const sameDateMeetings = allMeetings.filter(m => m.date === meeting.date);
-  if (sameDateMeetings.length > 1) {
-    return meeting.slug;
-  }
-  return meeting.date;
-}
 
 const args = process.argv.slice(2);
 const refreshNoMinutes = args.includes('--refresh-no-minutes') || args.includes('--refresh');
@@ -97,6 +95,11 @@ for (const meeting of allMeetings) {
     targetDates.includes(meeting.slug) ||
     targetDates.includes(key);
 
+  if (shouldRefresh && isTranscriptDerived(provenance, key)) {
+    console.log(`  ${key}: keeping transcript-derived summary (refresh does not apply)`);
+    continue;
+  }
+
   if (shouldRefresh) {
     delete enSummaries[key];
     delete enSummaries[meeting.date];
@@ -112,6 +115,11 @@ const esKeys = new Set(Object.keys(esSummaries));
 
 const needsSummary = allMeetings.filter(m => {
   const key = getSummaryKey(m, allMeetings);
+  // A transcript-derived summary is never repaired from the agenda. If one of its
+  // two languages is missing, the fix is to re-run the transcript generator, not
+  // to overwrite both with what the agenda listed — which is what this filter
+  // would otherwise do the moment either file is restored without the other.
+  if (isTranscriptDerived(provenance, key)) return false;
   // Also check both date and slug in case existing summaries use either
   return !(enKeys.has(key) || enKeys.has(m.date) || enKeys.has(m.slug))
       || !(esKeys.has(key) || esKeys.has(m.date) || esKeys.has(m.slug));
