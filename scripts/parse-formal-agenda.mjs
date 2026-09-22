@@ -1,3 +1,5 @@
+import { parseDuration } from './lib/agenda-duration.mjs';
+
 /**
  * Shared formal agenda parsing for Simbli board memos and BoardDocs scraped data.
  *
@@ -90,7 +92,11 @@ export function parseSimbliAgenda(memoItems) {
     const prefixNum = parseInt(prefixMatch[1]);
     let titleBody = raw.slice(prefixMatch[0].length).trim();
 
-    // Parse time suffix
+    // Parse time suffix. TIME_SUFFIX_RE is the narrow form ("- 30 min") that also
+    // marks a line as a section header, so it runs first and alone decides
+    // hasTimeSuffix. parseDuration then catches the forms it does not cover
+    // ("- 1 hr 20 min", "1.5 hrs", "(20 min)") for the minutes only, which keeps
+    // section detection identical to what it was before durations got richer.
     let plannedMinutes = null;
     const timeSuffix = titleBody.match(TIME_SUFFIX_RE);
     if (timeSuffix) {
@@ -98,6 +104,12 @@ export function parseSimbliAgenda(memoItems) {
       plannedMinutes = timeSuffix[2].toLowerCase().startsWith('hr') || timeSuffix[2].toLowerCase().startsWith('hour')
         ? val * 60 : val;
       titleBody = titleBody.slice(0, -timeSuffix[0].length).trim();
+    } else {
+      const parsed = parseDuration(titleBody);
+      if (parsed.minutes != null) {
+        plannedMinutes = parsed.minutes;
+        titleBody = parsed.title;
+      }
     }
 
     const hasTimeSuffix = timeSuffix != null;
@@ -157,7 +169,9 @@ export function parseSimbliAgenda(memoItems) {
         itemLabel,
         title: titleBody,
         isSection: false,
-        plannedMinutes: null,
+        // Sub-items rarely state a time, but when one does it is that item's own
+        // allocation rather than a share of its section's.
+        plannedMinutes,
         actionType: itemActionType,
         speaker: item.memo?.Speaker || null,
         attachments: (item.attachments || []).map(a => ({
@@ -196,15 +210,10 @@ export function parseBoarddocsAgenda(scrapedMeeting) {
     const sectionNum = cat.order ? cat.order.replace(/\.$/, '') : null;
 
     // Parse planned minutes from category name
-    let plannedMinutes = null;
     let catName = decodeEntities(cat.name || '');
-    const timeSuffix = catName.match(/\s*-\s*(\d+)\s*(min|hr|hour)s?\s*$/i);
-    if (timeSuffix) {
-      const val = parseInt(timeSuffix[1]);
-      plannedMinutes = timeSuffix[2].toLowerCase().startsWith('hr') || timeSuffix[2].toLowerCase().startsWith('hour')
-        ? val * 60 : val;
-      catName = catName.slice(0, -timeSuffix[0].length).trim();
-    }
+    const parsedCat = parseDuration(catName);
+    const plannedMinutes = parsedCat.minutes;
+    catName = parsedCat.title;
 
     // Emit section header
     result.push({
@@ -220,11 +229,12 @@ export function parseBoarddocsAgenda(scrapedMeeting) {
     // Emit sub-items under this category
     const catItems = itemsByCategory.get(cat.name) || [];
     for (const item of catItems) {
+      const parsedItem = parseDuration(decodeEntities(item.title));
       result.push({
         itemLabel: item.order || '?',
-        title: decodeEntities(item.title),
+        title: parsedItem.title,
         isSection: false,
-        plannedMinutes: null,
+        plannedMinutes: parsedItem.minutes,
         actionType: item.actionType || null,
         speaker: null,
         attachments: (item.attachments || []).map(a => ({
