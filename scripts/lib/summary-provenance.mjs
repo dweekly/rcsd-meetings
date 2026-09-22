@@ -48,14 +48,22 @@ export function summaryHash(text) {
 }
 
 /**
- * True when this key holds the transcript-derived summary the record describes.
+ * True when this key holds the transcript-derived summaries the record describes.
  *
- * Records written before hashing carry no `enHash`; those are trusted on the flag
+ * Both languages are checked. Every page on this site ships in English and
+ * Spanish, and the two files are restored from git independently — an English
+ * summary that matches its record while the Spanish one has reverted is exactly
+ * the state a regeneration exists to repair, and checking only English would skip
+ * it forever.
+ *
+ * Records written before hashing carry no hashes; those are trusted on the flag
  * alone rather than needlessly regenerated.
  */
-export function matchesRecordedSummary(provenance, key, enText) {
+export function matchesRecordedSummary(provenance, key, enText, esText) {
   const record = provenance?.[key];
   if (record?.source !== 'transcript') return false;
-  if (!record.enHash) return true;
-  return record.enHash === summaryHash(enText);
+  if (!record.enHash && !record.esHash) return true;
+  if (record.enHash && record.enHash !== summaryHash(enText)) return false;
+  if (record.esHash && record.esHash !== summaryHash(esText)) return false;
+  return true;
 }

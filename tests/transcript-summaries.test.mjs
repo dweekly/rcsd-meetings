@@ -8,7 +8,9 @@ import { resolve } from 'node:path';
 import test from 'node:test';
 
 import { getSummaryKey, lookupSummary } from '../scripts/lib/meeting-summary-key.mjs';
-import { readProvenance, isTranscriptDerived, PROVENANCE_FILENAME } from '../scripts/lib/summary-provenance.mjs';
+import {
+  readProvenance, isTranscriptDerived, matchesRecordedSummary, summaryHash, PROVENANCE_FILENAME,
+} from '../scripts/lib/summary-provenance.mjs';
 
 const ROOT = new URL('..', import.meta.url).pathname;
 const read = (p) => JSON.parse(readFileSync(resolve(ROOT, p), 'utf-8'));
@@ -108,5 +110,48 @@ test('the hand-written summaries are still intact', () => {
   for (const [date, pattern] of Object.entries(expected)) {
     assert.match(en[date] ?? '', pattern,
       `${date}: hand-written detail is gone — a generator overwrote a summary it should not have`);
+  }
+});
+
+test('a summary is re-generated when either language has drifted from its record', () => {
+  // The English and Spanish files are restored from git independently, so English
+  // matching its record says nothing about Spanish. Checking only English would
+  // skip a meeting whose Spanish had reverted, permanently.
+  const en = 'The Board approved a substitute classified management position.';
+  const es = 'La Junta aprobó un puesto administrativo clasificado sustituto.';
+  const provenance = {
+    '2026-09-09': {
+      source: 'transcript',
+      enHash: summaryHash(en),
+      esHash: summaryHash(es),
+    },
+  };
+
+  assert.equal(matchesRecordedSummary(provenance, '2026-09-09', en, es), true,
+    'both languages match the record — nothing to do');
+  assert.equal(matchesRecordedSummary(provenance, '2026-09-09', en, 'texto viejo'), false,
+    'stale Spanish must trigger a regeneration even when English is current');
+  assert.equal(matchesRecordedSummary(provenance, '2026-09-09', 'stale english', es), false,
+    'and the same the other way round');
+  assert.equal(matchesRecordedSummary(provenance, '2026-09-09', en, undefined), false,
+    'a missing Spanish summary is drift, not a match');
+});
+
+test('a record written before hashing is trusted on its flag', () => {
+  const legacy = { '2025-01-01': { source: 'transcript' } };
+  assert.equal(matchesRecordedSummary(legacy, '2025-01-01', 'anything', 'cualquiera'), true,
+    'older records carry no hashes and must not be regenerated needlessly');
+});
+
+test('every transcript-derived record fingerprints both languages', () => {
+  if (!existsSync(resolve(ROOT, PROVENANCE_FILENAME))) return;
+  const provenance = readProvenance(ROOT);
+  const en = read('data/meeting-summaries.json');
+  const es = read('data/meeting-summaries-es.json');
+  for (const [key, record] of Object.entries(provenance)) {
+    if (record.source !== 'transcript' || !record.enHash) continue;
+    assert.equal(record.enHash, summaryHash(en[key]), `${key}: English summary does not match its record`);
+    assert.ok(record.esHash, `${key}: no Spanish fingerprint — bilingual parity is not optional here`);
+    assert.equal(record.esHash, summaryHash(es[key]), `${key}: Spanish summary does not match its record`);
   }
 });

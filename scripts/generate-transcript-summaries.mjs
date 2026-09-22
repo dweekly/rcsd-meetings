@@ -175,7 +175,7 @@ function agendaOutline(meeting) {
 function buildPrompt(meeting, outline, text) {
   return `You are writing the summary that appears on a board meeting card on rcsd.info, a public website about the Redwood City School District. Below is the agenda for the ${meeting.type || 'board meeting'} of ${meeting.date}, followed by the transcript of the meeting itself.
 
-Write a 2-3 sentence summary of what the board actually did.
+Write a summary of what the board actually did, in 70 to 100 words. This is preview text on a meeting card sitting beside others, so the budget is firm: pick the two or three things that mattered and leave the rest out. A complete list of everything the board touched is worse than a short account of what the evening was about.
 
 AGENDA
 ${outline}
@@ -188,13 +188,13 @@ Instructions:
 5. The consent calendar is routine business passed in one vote. Give it at most one short trailing clause with the count and theme; never itemize it and never lead with it.
 6. These meetings have happened, so write in plain past tense ("The Board approved...", "Trustees heard...").
 7. Use <strong> tags around important terms — school names, dollar amounts, resolution and policy numbers, program names. No other HTML, no links, no lists.
-8. Keep it scannable. This is preview text on a card, not minutes.
+8. Stay inside the word budget. If everything will not fit, drop the least consequential item rather than compressing all of them into a list.
 9. Do not mention the transcript, the recording, or the agenda as such. Write about the meeting.
 
 Respond with exactly this JSON and nothing else (no markdown fences):
 {
   "en": "English summary here",
-  "es": "Spanish summary here — sixth-grade Californian Spanish, simple and colloquial, keeping the English terms families actually use (LCAP, Measure S, charter, bond)"
+  "es": "Spanish summary here — sixth-grade Californian Spanish, simple and colloquial, keeping the English terms families actually use (LCAP, Measure S, charter, bond, consent calendar). Keep each term wholly in one language: write \"English learners\" or \"estudiantes de inglés\", never a hybrid like \"inglés learners\""
 }
 
 TRANSCRIPT
@@ -224,9 +224,10 @@ console.log(`Meetings selected: ${selected.length}`);
 
 for (const meeting of selected) {
   const key = getSummaryKey(meeting, allMeetings);
-  // Skip on the strength of the text that is actually there, not on the flag
-  // alone: the sidecar and the summary files can be restored independently.
-  if (matchesRecordedSummary(provenance, key, enSummaries[key]) && !force) {
+  // Skip on the strength of the text that is actually there, in both languages,
+  // not on the flag alone: the sidecar and the two summary files can each be
+  // restored independently.
+  if (matchesRecordedSummary(provenance, key, enSummaries[key], esSummaries[key]) && !force) {
     skipped++;
     continue;
   }
@@ -294,6 +295,7 @@ for (const meeting of selected) {
       model: MODEL,
       generatedAt: stamp,
       enHash: summaryHash(parsed.en),
+      esHash: summaryHash(parsed.es),
     };
     generated++;
     console.log(`[${generated}] ${key} — ${parsed.en.replace(/<[^>]+>/g, '').slice(0, 90)}…`);
