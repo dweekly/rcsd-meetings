@@ -15,6 +15,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
 import { config } from 'dotenv';
+import { rankItems } from './lib/agenda-weight.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -55,6 +56,13 @@ const SKIP_PATTERNS = [
   /^board member reports/i,
   /^superintendent.*report$/i,
   /^future (agenda|board)/i,
+  // Standing housekeeping lines. Each carries an agenda time allocation, so
+  // without this they outrank real business that the agenda gives less time to.
+  /^notification of /i,
+  /^correspondence$/i,
+  /^other business/i,
+  /^board of trustees meeting (calendar|reflection)$/i,
+  /^board and superintendent reports$/i,
 ];
 
 function isProceduralItem(title) {
@@ -148,17 +156,73 @@ for (const meeting of needsSummary) {
     continue;
   }
 
-  // Build item list for the prompt
-  const itemList = items.map((it, i) => {
-    let line = `${i + 1}. ${it.title}`;
-    if (it.category && it.category !== it.title) {
-      line += ` [${it.category}]`;
-    }
-    if (it.actionType && it.actionType !== 'Procedural') {
-      line += ` (${it.actionType})`;
-    }
+  // Build the item list for the prompt.
+  //
+  // A flat list makes a sixteen-contract consent block look like the meeting and
+  // buries the one report the board will actually spend half an hour on. The
+  // agenda already ranks itself: it allocates minutes per section. So where the
+  // agenda states times, hand the model that ranking; where it states none, fall
+  // back to the flat list rather than inventing an order.
+  const { ranked, consent, consentMinutes, unranked } = rankItems(meeting.items || [], (it) => isProceduralItem(it.title));
+  const hasTimeSignal = ranked.length > 0;
+
+  // The model is given the ORDER the allocations imply, never the minutes
+  // themselves: told "35 min", Haiku writes "a 35-minute update on..." into public
+  // preview text, and no instruction stopped it. Ranking is the signal we want;
+  // the scheduling minutiae are not.
+  //
+  // Anything at or under this many minutes is a standing housekeeping line rather
+  // than business — a one-minute "Correspondence" slot, or one filing of four
+  // sharing a single minute. Listed, but never as the lead.
+  const BRIEF_MINUTES = 2;
+
+  const describe = (it) => {
+    let line = it.title;
+    if (it.category && it.category !== it.title) line += ` [${it.category}]`;
+    if (it.actionType && it.actionType !== 'Procedural') line += ` (${it.actionType})`;
     return line;
-  }).join('\n');
+  };
+
+  let itemList;
+  if (hasTimeSignal) {
+    const substantial = ranked.filter(r => r.minutes > BRIEF_MINUTES);
+    const brief = ranked.filter(r => r.minutes <= BRIEF_MINUTES);
+
+    const blocks = [];
+    blocks.push(
+      'SUBSTANTIVE ITEMS, in order of the time the agenda allocates to them (most first):\n' +
+      (substantial.length > 0 ? substantial : ranked).map(r => `- ${describe(r.item)}`).join('\n'),
+    );
+    if (substantial.length > 0 && brief.length > 0) {
+      blocks.push(
+        'BRIEF ITEMS (the agenda gives each a minute or less):\n' +
+        brief.map(r => `- ${describe(r.item)}`).join('\n'),
+      );
+    }
+    if (unranked.length > 0) {
+      blocks.push(
+        'ITEMS WITH NO STATED TIME ALLOCATION (rank these on substance):\n' +
+        unranked.map(u => `- ${describe(u.item)}`).join('\n'),
+      );
+    }
+    if (consent.length > 0) {
+      const mins = consentMinutes != null ? `${consentMinutes} min total` : 'no separate discussion time';
+      blocks.push(
+        `CONSENT CALENDAR — ${consent.length} item${consent.length === 1 ? '' : 's'}, ${mins}, ` +
+        'approved together in one vote without discussion:\n' +
+        consent.map(c => `- ${describe(c)}`).join('\n'),
+      );
+    }
+    itemList = blocks.join('\n\n');
+  } else {
+    itemList = items.map((it, i) => `${i + 1}. ${describe(it)}`).join('\n');
+  }
+
+  const weightingInstruction = hasTimeSignal
+    ? `2. The order above is the district's own ranking of what this meeting is about, taken from the time its agenda allocates to each item. Lead with the first item and cover the rest in that order. A scheduled discussion or staff report outranks any number of consent items. Do not mention scheduling or how long anything is set to take — the ordering is for you, not for the reader.
+3. Do not characterize an item's importance beyond what the agenda text itself says. The consent calendar is routine business approved in a single vote. Never open with a consent item and never itemize the block. Mention it, at most, in one short trailing clause naming the theme and the count (e.g. "alongside ${consent.length} routine consent items covering contracts and field trips"). Name an individual consent item only if it is genuinely remarkable — an unusually large dollar amount, or a change in policy.`
+    : `2. This agenda states no time allocations, so rank the items on substance: policy decisions, money, and items affecting students or families come before routine approvals, contracts, and field trips.
+3. Never open with a consent item or a routine contract approval, and never itemize a run of them. Mention routine approvals, if at all, in one short trailing clause naming the theme rather than the individual items.`;
 
   const dateStr = meeting.date;
   const typeStr = meeting.type || 'Board Meeting';
@@ -177,14 +241,15 @@ Agenda items:
 ${itemList}
 
 Instructions:
-1. Write a 1-2 sentence summary highlighting the most notable/interesting agenda items discussed. Skip routine procedural items.
-2. Be specific about topics — include school names, dollar amounts, policy numbers, program names, and resolution numbers when they appear in the items.
-3. Use <strong> tags around important terms (school names, dollar amounts, policy numbers, program names) for emphasis.
-4. Keep it concise — this appears as preview text on a meeting card.
-5. Do NOT include HTML other than <strong> tags. No links, no lists.
-6. For closed sessions: note the general topics discussed (e.g., "personnel matters", "litigation", "property negotiations") without revealing confidential details.
-7. For retreats/study sessions: describe the focus topic.
-8. ${tenseInstruction}
+1. Write a 1-2 sentence summary leading with the most substantive business of the meeting. Skip routine procedural items.
+${weightingInstruction}
+4. Be specific about topics — include school names, dollar amounts, policy numbers, program names, and resolution numbers when they appear in the items.
+5. Use <strong> tags around important terms (school names, dollar amounts, policy numbers, program names) for emphasis.
+6. Keep it concise — this appears as preview text on a meeting card.
+7. Do NOT include HTML other than <strong> tags. No links, no lists.
+8. For closed sessions: note the general topics discussed (e.g., "personnel matters", "litigation", "property negotiations") without revealing confidential details.
+9. For retreats/study sessions: describe the focus topic.
+10. ${tenseInstruction}
 
 Respond with exactly this JSON format (no markdown code fences, just raw JSON):
 {
