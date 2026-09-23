@@ -18,12 +18,12 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced during the early transcript section. The president asked 'are there any changes to the agenda having here?' and received no response.",
+    "agenda_changes": "No changes to agenda announced. Item was pulled from agenda: Item 7 (which would have been an action item) - board president states 'Item seven, we don't have any action items.'",
     "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
@@ -53,17 +53,17 @@
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
-        "status": "found"
+        "intro_words": "Item seven, we don't have any action items.",
+        "status": "pulled"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Eight, community reports. 8.1. Discussion of the school plan for student achievement",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
@@ -74,7 +74,7 @@
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 12,
@@ -83,12 +83,37 @@
       },
       {
         "item": 13,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "intro_words": "I know we're always telling your kids, get up, move around, stretch your bodies",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "I know we're always telling your kids, get up, move around, stretch your bodies",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "the agenda, item seven discussion items. 9.1 is first reading and discussion",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "can I please get a motion to approve the consent items? I'll move",
+        "status": "consent_bundle"
+      },
+      {
+        "item": 11,
+        "intro_words": "Action items 11.1, adoption of resolution 31, establishing fund 35 county",
+        "status": "found"
+      },
+      {
+        "item": 12,
+        "intro_words": "Moving on to 11.2 approval of Redwood City School District. 20, 22,",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Board and superintendent report 12.1. So I don't have any reports",
         "status": "found"
       }
     ]
@@ -120,9 +145,10 @@
         "timestamp": "00:01:09",
         "timestampSeconds": 69
       },
+      null,
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79
+        "timestamp": "00:02:09",
+        "timestampSeconds": 129
       },
       {
         "timestamp": "00:01:19",
@@ -131,14 +157,6 @@
       {
         "timestamp": "00:01:14",
         "timestampSeconds": 74
-      },
-      {
-        "timestamp": "00:01:14",
-        "timestampSeconds": 74
-      },
-      {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
       },
       {
         "timestamp": "00:01:19",
@@ -146,16 +164,21 @@
         "consent": true
       },
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:41:40",
+        "timestampSeconds": 2500
+      },
+      {
+        "timestamp": "00:41:40",
+        "timestampSeconds": 2500
       }
     ]
   },
-  "cachedAt": "2026-09-22T20:58:09.600Z",
+  "cachedAt": "2026-09-23T10:49:39.672Z",
   "inputTokens": 27924,
-  "outputTokens": 732
+  "outputTokens": 1006
 }
