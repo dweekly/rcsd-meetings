@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication at the request of a board member. Additionally, items 6.2 and 6.3 (bond program items) were moved from consent to action due to public comment received on item 6.1.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to after oral communication, then moved again to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action due to public comments received. Items 6.2 and 6.3 were also moved to action.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -31,57 +31,37 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Thank you. Next item is 1.2 reported on closed session.",
-        "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
+        "intro_words": "President Marquez? Here. Thank you. Next item is 1.2",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "intro_words": "And are there any changes to the agenda?",
         "status": "found"
       },
       {
-        "item": 13.1,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "item": 7,
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion",
         "status": "found"
       },
       {
-        "item": 6.1,
-        "intro_words": "So I just realized that we do have. So I don't know how",
+        "item": 13,
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication",
         "status": "found"
       },
       {
-        "item": 6.2,
-        "intro_words": "6.2 approval of measure T bond program tracking list of items",
+        "item": 6,
+        "intro_words": "So I'm reading that as item 6.2, Approval of Measure T bond program tracking",
         "status": "found"
       },
       {
-        "item": 6.3,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation of",
-        "status": "found"
-      },
-      {
-        "item": 7.1,
-        "intro_words": "And then bond program action items 7.1, approval of measure T",
-        "status": "found"
-      },
-      {
-        "item": 7.2,
-        "intro_words": "7.2. Approval of amendment number two to the Program Management Services",
-        "status": "found"
-      },
-      {
-        "item": 8.1,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1. School plans",
+        "item": 8,
+        "intro_words": "Okay, so item 8, school and community reports. 8.1.",
         "status": "found"
       },
       {
@@ -90,59 +70,9 @@
         "status": "found"
       },
       {
-        "item": 10,
-        "intro_words": "Okay. So I mentioned that I went to the progress seminar",
-        "status": "found"
-      },
-      {
-        "item": 11.1,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard",
-        "status": "found"
-      },
-      {
-        "item": 11.2,
-        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment of",
-        "status": "found"
-      },
-      {
-        "item": 12,
-        "intro_words": "More super and superintendent reports. Wait, I'll go.",
-        "status": "found"
-      },
-      {
-        "item": 13.2,
-        "intro_words": "Okay, so information Items. We move 13.1. So 13.2 is contract",
-        "status": "found"
-      },
-      {
-        "item": 13.3,
-        "intro_words": "And then 13.3 information on San Mateo county investment fund for",
-        "status": "found"
-      },
-      {
-        "item": 13.4,
-        "intro_words": "And then 13.4 information, the SEO county for March.",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "Correspondence. Continue to get public records. That's true.",
-        "status": "found"
-      },
-      {
-        "item": 15,
-        "intro_words": "Any possible other business or suggested items. Just a quick note",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "And then any changes to the board meeting calendar? Are there",
-        "status": "found"
-      },
-      {
-        "item": 17,
-        "intro_words": "Okay, so does somebody want to make a motion to adjourn",
-        "status": "found"
+        "item": 11,
+        "intro_words": "moving on to consent items, can I please get a motion",
+        "status": "consent_bundle"
       }
     ]
   },
@@ -161,47 +91,42 @@
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
-      },
+      null,
       {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
-      null,
-      null,
-      null,
+      {
+        "timestamp": "00:12:48",
+        "timestampSeconds": 768
+      },
+      {
+        "timestamp": "00:17:25",
+        "timestampSeconds": 1045
+      },
+      {
+        "timestamp": "00:20:22",
+        "timestampSeconds": 1222
+      },
       {
         "timestamp": "03:10:21",
         "timestampSeconds": 11421
       },
+      null,
       {
-        "timestamp": "03:22:41",
-        "timestampSeconds": 12161
+        "timestamp": "03:17:00",
+        "timestampSeconds": 11820,
+        "consent": true
       },
       null,
       null,
       null,
-      {
-        "timestamp": "03:27:22",
-        "timestampSeconds": 12442
-      },
-      {
-        "timestamp": "03:27:27",
-        "timestampSeconds": 12447
-      },
-      {
-        "timestamp": "03:29:57",
-        "timestampSeconds": 12597
-      },
-      {
-        "timestamp": "03:29:52",
-        "timestampSeconds": 12592
-      }
+      null,
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-09-27T20:54:59.943Z",
+  "cachedAt": "2026-09-28T12:55:57.400Z",
   "inputTokens": 43596,
-  "outputTokens": 1246
+  "outputTokens": 590
 }

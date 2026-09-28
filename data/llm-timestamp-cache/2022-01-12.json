@@ -17,8 +17,8 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced: (1) Move three Measure U items (10.5, 10.6, 10.7) to consent; (2) Move items 10.3 and 10.4 to consent. Motion made and approved.",
-    "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
+    "agenda_changes": "Items 10.5, 10.6, 10.7 (three Measure U items) moved to consent. Items 10.3 and 10.4 moved to consent.",
+    "consent_vote_words": "Do I have a motion to approve all those three?",
     "items": [
       {
         "item": 1,
@@ -27,11 +27,16 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
+        "intro_words": "Roll call, please. Trustee McAvoy. Present. Trustee",
         "status": "found"
       },
       {
         "item": 3,
+        "intro_words": "Welcome, everybody. It's great to see you in person",
+        "status": "found"
+      },
+      {
+        "item": 4,
         "intro_words": "Welcome, everybody. It's great to see you in person",
         "status": "found"
       },
@@ -41,7 +46,17 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda this evening?",
+        "status": "found"
+      },
+      {
         "item": 7,
+        "intro_words": "All those in favor? Aye. Ali, do we have",
+        "status": "found"
+      },
+      {
+        "item": 8,
         "intro_words": "All those in favor? Aye. Ali, do we have",
         "status": "found"
       },
@@ -51,18 +66,23 @@
         "status": "found"
       },
       {
+        "item": 10,
+        "intro_words": "If you have public comment related to a study session",
+        "status": "found"
+      },
+      {
         "item": 11,
         "intro_words": "Moving right along to the bond program consent items.",
-        "status": "consent_bundle"
+        "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Update on Workforce Housing at 750 Bradford Street",
+        "intro_words": "Moving on to 10.1 recommendation regarding revisiting the school",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Okay, on to eight discussion items. The first one",
+        "intro_words": "Okay, Moving on to 10.2. Recommendation. Adoption of Resolution",
         "status": "found"
       }
     ]
@@ -82,35 +102,46 @@
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
-      null,
+      {
+        "timestamp": "00:00:46",
+        "timestampSeconds": 46
+      },
       {
         "timestamp": "00:01:27",
         "timestampSeconds": 87
       },
-      null,
+      {
+        "timestamp": "00:01:27",
+        "timestampSeconds": 87
+      },
       {
         "timestamp": "00:01:48",
         "timestampSeconds": 108
       },
-      null,
+      {
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
+      },
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
       },
       null,
       {
-        "timestamp": "00:03:28",
-        "timestampSeconds": 208,
-        "consent": true
+        "timestamp": "00:02:53",
+        "timestampSeconds": 173
       },
-      null,
       {
-        "timestamp": "00:02:22",
-        "timestampSeconds": 142
+        "timestamp": "00:03:38",
+        "timestampSeconds": 218
+      },
+      {
+        "timestamp": "00:03:38",
+        "timestampSeconds": 218
       }
     ]
   },
-  "cachedAt": "2026-09-27T20:56:01.071Z",
+  "cachedAt": "2026-09-28T12:56:50.754Z",
   "inputTokens": 18781,
-  "outputTokens": 506
+  "outputTokens": 662
 }
