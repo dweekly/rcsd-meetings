@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - will not be discussed tonight, deferred to future meeting. Item 9.3 moved from consent to action for separate discussion and vote.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Item 10.1 pulled from agenda to be discussed at a future meeting when more information available. Item 9.3 moved from consent to action for individual discussion and vote.",
+    "consent_vote_words": null,
     "items": [
       {
         "item": 1,
@@ -28,57 +28,127 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Roll Call",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City",
+        "intro_words": "Welcome",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Good evening everyone. Welcome to another Redwood City School District study session",
+        "intro_words": "Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
+        "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make a motion",
+        "intro_words": "does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "And do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Thank you.",
         "status": "found"
       },
       {
-        "item": 10,
-        "intro_words": "moved to item 10.1 pulled till we get further information",
-        "status": "pulled"
-      },
-      {
         "item": 11,
-        "intro_words": "And with that, moving on to bond program consent Items, again with 9.3",
+        "intro_words": "moving on to our study session discussion on dyslexia. So, good evening, everyone",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two video",
+        "intro_words": "Thank you everybody. Evelyn, can you please do roll call? Trustee weekly. Present.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for",
+        "intro_words": "And with that, moving on to bond program consent Items, again with 9.3.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "moving on to study session discussion on dyslexia. So, good evening",
+        "intro_words": "And item 11. School.. So 9.3. Approval of proposal for the infrastructure of two video",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "So again, moving to 11.11.1 being Hoover and Henry Ford school presentations for the 2324 school year.",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Good. Good afternoon. Good evening, everyone. Trustee, please. Dr. Baker, cabinet. Thank you very much for having us here today.",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "All right, so next we have Henry 14, Ms. Knopf, and Hema. All right, so good evening.",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "So moving to item 12 for discussion. 12.1 being first reading and discussion of board policy",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "moving on to 12.2. Again, First Reading and Discussion of Foreign Policy and Administrative Regulation 6173.1",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
+        "status": "found"
+      },
+      {
+        "item": 21,
+        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171 Title 1 programs.",
+        "status": "found"
+      },
+      {
+        "item": 22,
+        "intro_words": "moving on to 12.5 first reading of BP 6163.4 student use of technology.",
+        "status": "found"
+      },
+      {
+        "item": 23,
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension and expulsion due process.",
+        "status": "found"
+      },
+      {
+        "item": 24,
+        "intro_words": "Okay, so now on to board and superintendent report. I can go.",
+        "status": "found"
+      },
+      {
+        "item": 25,
+        "intro_words": "Okay, so moving on to item 16.1, information on San Mateo county investment fund.",
+        "status": "found"
+      },
+      {
+        "item": 26,
+        "intro_words": "moving on to corresponding correspondence. Yeah, I got a correspondence from.",
+        "status": "found"
+      },
+      {
+        "item": 27,
+        "intro_words": "moving on to item 18. Other business possible other business suggested items for future agendas.",
+        "status": "found"
+      },
+      {
+        "item": 28,
+        "intro_words": "Okay, so moving on to board meeting calendar. Are there any changes to the board meeting calendar?",
         "status": "found"
       }
     ]
@@ -87,14 +157,8 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
+      null,
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
@@ -103,7 +167,10 @@
         "timestamp": "01:10:10",
         "timestampSeconds": 4210
       },
-      null,
+      {
+        "timestamp": "01:10:10",
+        "timestampSeconds": 4210
+      },
       {
         "timestamp": "01:10:41",
         "timestampSeconds": 4241
@@ -114,22 +181,19 @@
         "timestampSeconds": 4275
       },
       null,
+      null,
+      null,
       {
         "timestamp": "01:11:15",
         "timestampSeconds": 4275
       },
       {
-        "timestamp": "01:11:36",
-        "timestampSeconds": 4296
-      },
-      {
         "timestamp": "01:11:26",
         "timestampSeconds": 4286
-      },
-      null
+      }
     ]
   },
-  "cachedAt": "2026-09-29T12:08:56.398Z",
+  "cachedAt": "2026-09-29T21:53:38.625Z",
   "inputTokens": 37863,
-  "outputTokens": 652
+  "outputTokens": 1382
 }
