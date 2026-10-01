@@ -37,137 +37,82 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item pulled and reordered: Staff recognition was pulled from its original position and moved to after item 5 (Oral Communication), as announced during 'Changes to the Agenda' section.",
+    "agenda_changes": "Staff Recognition was pulled from consent agenda and moved to after item 5 (Oral Communication). Bond Program Consent Items (item 11) were voted on as a bundle. Bond Program Action Items (item 7.1) were taken up next.",
     "consent_vote_words": "Okay, Cecilia was second. And a roll call vote, please.",
     "items": [
       {
         "item": 1,
-        "intro_words": "not found in transcript - ceremonial item",
-        "status": "found"
+        "intro_words": "not found in transcript",
+        "status": "not discussed"
       },
       {
         "item": 2,
-        "intro_words": "not found in transcript - ceremonial item",
-        "status": "found"
+        "intro_words": "not found in transcript",
+        "status": "not discussed"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's good to see some familiar faces again.",
-        "status": "found"
+        "intro_words": "not found in transcript",
+        "status": "not discussed"
       },
       {
         "item": 4,
-        "intro_words": "not found in transcript - subsumed in Welcome",
-        "status": "found"
+        "intro_words": "not found in transcript",
+        "status": "not discussed"
       },
       {
         "item": 5,
-        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
-        "status": "found"
+        "intro_words": "not found in transcript",
+        "status": "not discussed"
       },
       {
         "item": 6,
-        "intro_words": "Moving on. Are there any changes to the agenda?",
+        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis.",
         "status": "found"
-      },
-      {
-        "item": 7,
-        "intro_words": "not found - appears to be duplicate of item 6",
-        "status": "not_found"
       },
       {
         "item": 8,
-        "intro_words": "Do we have a motion to approve the agenda?",
+        "intro_words": "Do we have a motion to approve the agenda? So moved.",
         "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "not found - appears to be duplicate of item 8",
-        "status": "not_found"
       },
       {
         "item": 10,
-        "intro_words": "Oral Communication - If you have public comment",
-        "status": "not_found"
+        "intro_words": "Okay, at this point, I believe we only have one speaker's card and I think",
+        "status": "found"
       },
       {
-        "item": "Staff Recognition (pulled and reordered)",
+        "item": "staff_recognition",
         "intro_words": "So we will move on to the staff recognition. Stanley, thank you.",
-        "status": "found"
+        "status": "pulled"
       },
       {
         "item": 11,
         "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "found"
-      },
-      {
-        "item": 12,
-        "intro_words": "consent_bundle",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 13,
-        "intro_words": "consent_bundle",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 14,
-        "intro_words": "consent_bundle",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 15,
-        "intro_words": "consent_bundle",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 16,
-        "intro_words": "consent_bundle",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 17,
-        "intro_words": "consent_bundle",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 18,
-        "intro_words": "consent_bundle",
         "status": "consent_bundle"
       },
       {
         "item": 19,
-        "intro_words": "moving on to 7.1, which is a bond action item.",
-        "status": "found"
-      },
-      {
-        "item": 20,
-        "intro_words": "Does anyone have any questions about the TAF construction agreement?",
-        "status": "found"
-      },
-      {
-        "item": 21,
-        "intro_words": "So, John, did you want to go ahead and start?",
+        "intro_words": "All right, moving on to 7.1, which is a bond action item.",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "Discussion on COVID-19 - So good evening. So before I start",
+        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "We are on 11.1. This is the resolution of emergency relating to COVID 19.",
+        "intro_words": "So we're going to move on from the public. Okay, so the last, the last",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "Report from board members and superintendent. Does anybody have anything",
+        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have anything",
         "status": "found"
       },
       {
         "item": 33,
-        "intro_words": "Is there a motion to adjourn. In unison?",
+        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard a first",
         "status": "found"
       }
     ]
@@ -177,15 +122,9 @@
     "items": [
       null,
       null,
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
       null,
-      {
-        "timestamp": "00:03:01",
-        "timestampSeconds": 181
-      },
+      null,
+      null,
       {
         "timestamp": "00:03:28",
         "timestampSeconds": 208
@@ -196,67 +135,37 @@
         "timestampSeconds": 226
       },
       null,
+      {
+        "timestamp": "00:04:41",
+        "timestampSeconds": 281
+      },
+      {
+        "timestamp": "00:04:18",
+        "timestampSeconds": 258,
+        "consent": true
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
       null,
       {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313
+        "timestamp": "00:05:53",
+        "timestampSeconds": 353
       },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
-      },
-      {
-        "timestamp": "00:06:12",
-        "timestampSeconds": 372
-      },
-      {
-        "timestamp": "00:06:22",
-        "timestampSeconds": 382
-      },
+      null,
+      null,
       {
         "timestamp": "00:08:30",
         "timestampSeconds": 510
       },
-      {
-        "timestamp": "00:08:24",
-        "timestampSeconds": 504
-      },
       null,
       null,
       {
-        "timestamp": "01:47:14",
-        "timestampSeconds": 6434
+        "timestamp": "01:45:54",
+        "timestampSeconds": 6354
       },
       {
         "timestamp": "01:48:57",
@@ -269,12 +178,12 @@
       null,
       null,
       {
-        "timestamp": "01:48:14",
-        "timestampSeconds": 6494
+        "timestamp": "02:04:16",
+        "timestampSeconds": 7456
       }
     ]
   },
-  "cachedAt": "2026-09-30T21:56:37.275Z",
+  "cachedAt": "2026-10-01T12:29:42.587Z",
   "inputTokens": 24593,
-  "outputTokens": 1183
+  "outputTokens": 774
 }
