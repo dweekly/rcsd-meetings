@@ -86,7 +86,7 @@
   },
   "//overrides": "undici: miniflare (via wrangler) pins undici@7.28.0 exactly, below the patched 7.29.0. Dependabot cannot open a PR for it \u2014 the only unforced path to 7.29.0 downgrades wrangler \u2014 so this override is the fix. Remove once wrangler ships a miniflare with undici >= 7.29.0. fast-uri: pins the patched 3.1.5. Remove once the tree resolves at or above 3.1.5 unaided.",
   "overrides": {
-    "undici": "^7.29.0",
+    "undici": "^7.30.0",
     "fast-uri": "^3.1.7"
   }
 }
