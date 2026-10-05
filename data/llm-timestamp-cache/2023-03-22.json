@@ -18,12 +18,12 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced. The meeting proceeded in order with the posted agenda items.",
-    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No changes to agenda announced. The meeting proceeded in posted order with one consent item (Bond Program Action Items) approved as a bundle.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
@@ -63,27 +63,27 @@
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication. Great.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "intro_words": "can I please get a motion to approve the consent bond program",
         "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "And I just want to make sure it didn't get lost in the weeds",
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
         "status": "found"
       },
       {
@@ -137,8 +137,9 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "00:01:19",
@@ -146,8 +147,8 @@
         "consent": true
       },
       {
-        "timestamp": "01:41:14",
-        "timestampSeconds": 6074
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       },
       {
         "timestamp": "02:17:50",
@@ -155,7 +156,7 @@
       }
     ]
   },
-  "cachedAt": "2026-10-05T13:37:36.553Z",
+  "cachedAt": "2026-10-05T23:46:06.627Z",
   "inputTokens": 27924,
-  "outputTokens": 719
+  "outputTokens": 705
 }
