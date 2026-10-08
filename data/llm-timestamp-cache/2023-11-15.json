@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled (to be discussed at a future meeting). Item 9.3 moved from consent to action for individual discussion.",
-    "consent_vote_words": null,
+    "agenda_changes": "Item 10.1 pulled and will not be discussed tonight; Item 9.3 moved to action items (was in consent/bond program items)",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
     "items": [
       {
         "item": 1,
@@ -32,18 +32,13 @@
         "status": "found"
       },
       {
-        "item": 3,
-        "intro_words": "Welcome",
-        "status": "not_found"
-      },
-      {
-        "item": 4,
-        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood",
+        "item": 5,
+        "intro_words": "Are there any changes to the agenda? Yes, It is",
         "status": "found"
       },
       {
-        "item": 5,
-        "intro_words": "Are there any changes to the agenda?",
+        "item": 7,
+        "intro_words": "does somebody want to make a motion to approve?",
         "status": "found"
       },
       {
@@ -53,22 +48,12 @@
       },
       {
         "item": 9.3,
-        "intro_words": "Approval of proposal for the infrastructure of two video intercom",
+        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two",
         "status": "found"
       },
       {
         "item": 11.1,
         "intro_words": "moving to 11.11.1 being Hoover and Henry Ford school presentations",
-        "status": "found"
-      },
-      {
-        "item": "Hoover_presentation",
-        "intro_words": "Good afternoon. Good evening, everyone. Trustee, please.",
-        "status": "found"
-      },
-      {
-        "item": "Henry_Ford_presentation",
-        "intro_words": "Good evening. President Marquez, Superintendent, Dr. Baker, board",
         "status": "found"
       },
       {
@@ -93,7 +78,7 @@
       },
       {
         "item": 12.5,
-        "intro_words": "moving on to 12.5 first reading of BP 6163.4 student use of technology",
+        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use",
         "status": "found"
       },
       {
@@ -103,22 +88,22 @@
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items. If there are no questions",
+        "intro_words": "moving to item 13, consent items. If there are no",
         "status": "found"
       },
       {
         "item": 14.1,
-        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five",
+        "intro_words": "moving on to action items. 14.1 is adoption of resolution",
         "status": "found"
       },
       {
         "item": 14.2,
-        "intro_words": "14.2 Adoption of annual organizational meeting date set for December",
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for",
         "status": "found"
       },
       {
         "item": 16.1,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund",
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment",
         "status": "found"
       }
     ]
@@ -129,16 +114,16 @@
       null,
       null,
       null,
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
       {
         "timestamp": "00:01:04",
         "timestampSeconds": 64
       },
       null,
-      null,
+      {
+        "timestamp": "01:10:54",
+        "timestampSeconds": 4254
+      },
       null,
       null,
       null,
@@ -154,7 +139,7 @@
       null
     ]
   },
-  "cachedAt": "2026-10-07T22:43:40.660Z",
+  "cachedAt": "2026-10-08T12:49:47.195Z",
   "inputTokens": 37863,
-  "outputTokens": 993
+  "outputTokens": 881
 }
