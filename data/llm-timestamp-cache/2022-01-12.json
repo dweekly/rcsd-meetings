@@ -17,63 +17,53 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "At the start of the meeting, President DS Locum announced: 'I'd propose that we move the three measure U's. So that's 10.5, 10.6, 10.7 to consent. I was also wondering if it could move 10.3 and 10.4.' These items were moved to consent agenda. The board voted to approve this change.",
-    "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
+    "agenda_changes": "Items moved to consent: Measure U's (10.5, 10.6, 10.7) and items 10.3 and 10.4",
+    "consent_vote_words": "Do I have a motion to approve all those three?",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay, let's get started. Once again, for those of you that are just joining us, welcome.",
+        "intro_words": "Okay, let's get started. Once again, for those of you",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee McAvoy. Present. Trustee Wells.",
+        "intro_words": "Roll call, please. Trustee McAvoy. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's great to see you in person, although we're six feet apart, being cautious",
+        "intro_words": "Welcome, everybody. It's great to see you in person",
         "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "Welcome, everybody. It's great to see you in person, although we're six feet apart, being cautious",
-        "status": "consent_bundle"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move the three measure U's.",
+        "intro_words": "Are there any changes to the agenda this evening?",
         "status": "found"
-      },
-      {
-        "item": 6,
-        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move the three measure U's.",
-        "status": "consent_bundle"
       },
       {
         "item": 7,
-        "intro_words": "So moved. Second. That was Mike and Cecilia. All those in favor?",
+        "intro_words": "All those in favor? Aye. Ali, do we have any",
         "status": "found"
       },
       {
-        "item": 8,
-        "intro_words": "So moved. Second. That was Mike and Cecilia. All those in favor?",
-        "status": "consent_bundle"
-      },
-      {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards, but they are for our discussion item",
+        "intro_words": "Ali, do we have any oral communication this Evening?",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
-        "status": "found"
+        "intro_words": "Moving right along to the bond program consent items.",
+        "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "Update on Workforce Housing at 750 Bradford Street",
-        "status": "not_found"
+        "intro_words": "Moving on to bond program action items. The first one",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Okay, on to eight discussion items. The first one is",
+        "status": "found"
       }
     ]
   },
@@ -89,46 +79,41 @@
         "timestampSeconds": 16
       },
       {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
-      {
-        "timestamp": "00:03:28",
-        "timestampSeconds": 208,
-        "consent": true
-      },
-      {
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
+      null,
       {
-        "timestamp": "00:03:28",
-        "timestampSeconds": 208,
-        "consent": true
+        "timestamp": "00:01:27",
+        "timestampSeconds": 87
       },
+      null,
       {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
       },
-      {
-        "timestamp": "00:03:28",
-        "timestampSeconds": 208,
-        "consent": true
-      },
+      null,
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
       },
       null,
+      {
+        "timestamp": "00:01:42",
+        "timestampSeconds": 102,
+        "consent": true
+      },
+      {
+        "timestamp": "00:02:45",
+        "timestampSeconds": 165
+      },
       {
         "timestamp": "00:02:22",
         "timestampSeconds": 142
-      },
-      null,
-      null
+      }
     ]
   },
-  "cachedAt": "2026-10-10T02:11:35.840Z",
+  "cachedAt": "2026-10-10T11:57:46.054Z",
   "inputTokens": 18781,
-  "outputTokens": 714
+  "outputTokens": 477
 }
