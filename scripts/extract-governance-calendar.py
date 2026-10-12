@@ -20,10 +20,23 @@ yields a "Communications Update" topic for September 9 that the district has
 already removed. This reads spans with their colour and matches them against the
 horizontal rules drawn on the page, so a struck row is dropped and counted.
 
-Usage:
+Staff re-post the Schedule with most board packets, so the source is always the
+copy attached to the newest packet. Download it from the public R2 mirror (the
+board-packet scraper puts the same file under artifacts/board-packets/<date>/) and
+point the extractor at it:
+
+    D=2026-10-14
+    URL=https://data.rcsd.info/board-packets/$D/26-27-Schedule-of-Board-Agenda-Items.pdf
+    mkdir -p artifacts/board-packets/$D
+    curl -sSfL -o artifacts/board-packets/$D/26-27-Schedule-of-Board-Agenda-Items.pdf "$URL"
     .venv/bin/python scripts/extract-governance-calendar.py \
-        --pdf artifacts/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf \
-        --source-url https://data.rcsd.info/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf
+        --pdf artifacts/board-packets/$D/26-27-Schedule-of-Board-Agenda-Items.pdf \
+        --source-url "$URL" --retrieved "$(date +%F)"
+    node scripts/translate-governance-calendar.mjs
+
+The packet date in `_source` is read from the /board-packets/<date>/ segment of
+--source-url (or given with --packet-date), and the PDF's SHA-256 is recorded so a
+reader can confirm which posting of the Schedule the file was built from.
 
 Writes data/governance-calendar.json. English only: `es` is filled by
 scripts/translate-governance-calendar.mjs, which preserves any translation already
@@ -32,6 +45,7 @@ present so a re-extraction does not re-buy the whole file.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -303,12 +317,42 @@ def summarise(rows: list[Row]) -> str:
     return "; ".join(topics)
 
 
+PACKET_DATE_RE = re.compile(r"/board-packets/(\d{4}-\d{2}-\d{2})/")
+
+# A span PyMuPDF emits across both the Administrator and Presentation Duration
+# cells lands whole in Administrator, leaving the duration empty. Such a row is
+# recognisable by an administrator ending in what the Duration column holds:
+# "N/A", or a figure in minutes or hours ("15 min", "1 hr").
+MERGED_DURATION_RE = re.compile(r"(?:N/A|\d+\s*(?:min|hr)s?)\s*$", re.I)
+
+
+def iso_date(value: str) -> str:
+    try:
+        return date.fromisoformat(value).isoformat()
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"not a YYYY-MM-DD date: {value}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--pdf", required=True, type=Path)
-    ap.add_argument("--source-url", required=True)
+    ap.add_argument("--source-url", required=True,
+                    help="public URL of the same PDF (data.rcsd.info/board-packets/<date>/...)")
+    ap.add_argument("--packet-date", type=iso_date,
+                    help="meeting whose packet carried the Schedule; default: read from --source-url")
+    ap.add_argument("--retrieved", type=iso_date, default=date.today().isoformat(),
+                    help="date the PDF was downloaded from --source-url (default: today)")
     ap.add_argument("--out", type=Path, default=OUT_PATH)
     args = ap.parse_args()
+
+    packet_date = args.packet_date
+    if packet_date is None:
+        m = PACKET_DATE_RE.search(args.source_url)
+        if not m:
+            print("error: --source-url has no /board-packets/<date>/ segment; "
+                  "pass --packet-date", file=sys.stderr)
+            return 1
+        packet_date = m.group(1)
 
     if not args.pdf.exists():
         print(f"error: {args.pdf} not found", file=sys.stderr)
@@ -352,11 +396,18 @@ def main() -> int:
             entry["es"] = prior["es"]
         provisional[meeting.iso] = entry
 
+    merged = sum(
+        1 for meeting in meetings for r in meeting.rows
+        if not r.duration and MERGED_DURATION_RE.search(r.administrator)
+    )
     payload = {
         "_source": f"2026–27 Schedule of Agenda Items (last updated {last_update or 'unknown'}), "
-                   "board-packet attachment for the 2026-09-09 meeting",
+                   f"board-packet attachment for the {packet_date} meeting",
         "_sourceUrl": args.source_url,
         "_sourceFile": str(args.pdf).replace(str(ROOT) + "/", ""),
+        "_sourceSha256": hashlib.sha256(args.pdf.read_bytes()).hexdigest(),
+        "_sourceLastUpdate": last_update,
+        "_retrieved": args.retrieved,
         "_generated": date.today().isoformat(),
         "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and "
                    "horizontal rules; rows struck through in the Schedule are deletions and "
@@ -365,7 +416,10 @@ def main() -> int:
                    "`administrator` and `duration` are approximate: PyMuPDF sometimes emits "
                    "one span across both cells, and such a span is assigned whole to the "
                    "column it overlaps most, so a duration can appear appended to the "
-                   "administrator (4 of the rows in this extraction).",
+                   f"administrator ({merged} of the rows in this extraction). `department` "
+                   "is a cell the Schedule merges across consecutive rows, so it is "
+                   "attached to whichever row its label is vertically centred on and is "
+                   "absent from the others in the group.",
         "_droppedStruckRows": dropped_total,
         "provisionalTopics": provisional,
     }

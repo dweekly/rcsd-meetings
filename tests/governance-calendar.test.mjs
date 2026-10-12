@@ -32,28 +32,47 @@ test('the English and Spanish lines list the same number of topics', () => {
 });
 
 test('rows struck through in the Schedule are not published as planned topics', () => {
-  // Both known deletions in the 2026-27 Schedule, confirmed against the rendered
-  // pages: "Communications Update" struck from Sept 9 2026, and "Parent Engagement
-  // Report" struck from Dec 9 2026 (it moved to May 26 2027, where it is a red
-  // addition and must still be present).
-  assert.ok(doc._droppedStruckRows >= 2,
+  // The 10/06/2026 Schedule carries one struck row: "Communications Update" on
+  // Sept 9 2026. "Parent Engagement Report" was struck from Dec 9 2026 in earlier
+  // postings and has since been removed outright; it now sits on May 26 2027, where
+  // it must still be present.
+  assert.ok(doc._droppedStruckRows >= 1,
     `expected the extractor to report the struck rows it dropped, got ${doc._droppedStruckRows}`);
 
   assert.doesNotMatch(topics['2026-09-09']?.en ?? '', /Communications Update/i,
     'Sept 9 2026 is publishing a topic the district struck from the Schedule');
   assert.doesNotMatch(topics['2026-12-09']?.en ?? '', /Parent Engagement/i,
-    'Dec 9 2026 is publishing a topic the district struck from the Schedule');
+    'Dec 9 2026 is publishing a topic the district removed from the Schedule');
   assert.match(topics['2027-05-26']?.en ?? '', /Parent Engagement/i,
-    'May 26 2027 should keep Parent Engagement Report — it is a red addition, not a deletion');
+    'May 26 2027 should keep Parent Engagement Report');
+});
+
+test('rows added in red are published', () => {
+  // The 10/06/2026 Schedule adds the KIPP Excelencia charter renewal public hearing
+  // to Oct 14 2026 in red. A red row is current; losing it would hide a public
+  // hearing from families before its agenda posts.
+  assert.match(topics['2026-10-14']?.en ?? '', /KIPP Charter Renewal - Public Hearing/,
+    'Oct 14 2026 should carry the KIPP charter renewal public hearing');
+  assert.match(topics['2026-09-23']?.en ?? '', /Enrollment Presentation/,
+    'Sept 23 2026 should carry the enrollment presentation');
 });
 
 test('dates are ISO and provenance names its source document', () => {
   for (const date of Object.keys(topics)) {
     assert.match(date, /^\d{4}-\d{2}-\d{2}$/, `not an ISO date: ${date}`);
   }
-  for (const field of ['_source', '_sourceUrl', '_generated', '_method']) {
+  for (const field of ['_source', '_sourceUrl', '_sourceSha256', '_retrieved', '_generated', '_method']) {
     assert.ok(doc[field], `provenance field ${field} is missing`);
   }
+  // The posted PDF is a public record on the R2 mirror, and _source names the packet
+  // it came with. Both must name the same meeting: a stale label beside a fresh URL
+  // misstates which posting of the Schedule the topics were read from.
+  const urlPacket = doc._sourceUrl.match(/\/board-packets\/(\d{4}-\d{2}-\d{2})\//)?.[1];
+  assert.ok(urlPacket, `_sourceUrl is not a board-packet URL: ${doc._sourceUrl}`);
+  assert.ok(doc._source.includes(`for the ${urlPacket} meeting`),
+    `_source names a different packet than _sourceUrl (${urlPacket}): ${doc._source}`);
+  assert.match(doc._sourceSha256, /^[0-9a-f]{64}$/, '_sourceSha256 is not a SHA-256 hex digest');
+  assert.match(doc._retrieved, /^\d{4}-\d{2}-\d{2}$/, '_retrieved is not an ISO date');
 });
 
 // The three tests below exist because the first version of the extractor passed
