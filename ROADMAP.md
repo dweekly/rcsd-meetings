@@ -470,6 +470,14 @@ Filed by the per-meeting triage records in `data/triage/`. Each names the pull i
   of discovery with no error. Confirm whether the page is server-paginated, and if so
   page through it (or assert the row count against an expected floor so a shrinking
   listing fails loudly rather than quietly).
+- [ ] **Preview deploy per PR.** Production already deploys from CI (the scheduled
+  `pipeline.yml` release tail, `npm run release:deploy-pages`), but a PR gets no rendered
+  preview, so reviewing a layout change means building and serving `docs/` by hand. Add a
+  workflow that builds the PR branch and runs `wrangler pages deploy docs
+  --project-name=rcsd-meetings --branch=<pr-branch>` (a non-`main` branch yields a preview
+  URL on `rcsd-meetings.pages.dev` and leaves rcsd.info untouched), then comments the URL on
+  the PR. Needs the transcript cache synced first, as `pipeline.yml` does, or the preview
+  shows every meeting without its transcript.
 - [ ] **Screencap demo** — narrated screen recording showing: homepage, clicking into a meeting, transcript click-to-seek, Spanish toggle, chapter markers, MCP query. For embedding on the site and social sharing.
 
 ## Data Attribution (in progress)

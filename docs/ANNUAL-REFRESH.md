@@ -101,7 +101,10 @@ went on naming a retired superintendent for seven weeks.
 | Board officer rotation | `scripts/extract-chapter-markers.mjs` `OFFICER_ROTATIONS` | `scripts/build-meetings-html.mjs` (~line 714, carries a TODO) |
 
 The board-officer rotation needs a new entry after **each December board reorganization**,
-in both places. It is not yet probed.
+in both places. It is not yet probed. The authoritative source for who held which office
+at a given meeting is the attendance section of that meeting's approved minutes, which lists
+each trustee as President, Vice President, Clerk or Member; use it to verify a rotation entry
+or to catch a mid-year change, rather than inferring roles from agenda items or news.
 
 ## Still manual
 

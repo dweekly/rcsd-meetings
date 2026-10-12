@@ -59,6 +59,26 @@ npm test                    # 15 checks: signatures, canned paths, caps, ack lat
 node spike-mcp-connector.mjs "When is the next board meeting?"   # live API spike
 ```
 
+### Answer-quality eval
+
+Run this after any prompt or MCP-tool change, before deploying. It makes live
+API calls (needs `ANTHROPIC_API_KEY`, or reads it from the repo-root `.env`).
+
+```sh
+node eval/run-eval.mjs [--only 27,63] [--concurrency 6]   # 104 questions through the production answer path → eval/results/latest.json
+node eval/judge-eval.mjs [--only 27,63]                    # judge re-checks each answer's facts with the same MCP tools → eval/results/judged.json + summary
+```
+
+`run-eval.mjs` bundles `src/agent.ts` + `src/prompts.ts` and calls
+`generateReply()` exactly as the worker does, so the eval cannot drift from
+production; each question runs as a fresh first contact (no Twilio, no KV).
+The target is zero FAIL verdicts.
+
+Counting questions ("how many middle schools are there?") are answered from
+the pre-computed totals in the MCP server's `list-schools` output
+(`workers/mcp-server/src/index.ts`), because models miscount grade spans when
+left to tally them. Fix a wrong count there, not in the prompt.
+
 ## Deploy
 
 ```sh
