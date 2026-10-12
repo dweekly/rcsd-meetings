@@ -1,10 +1,13 @@
 {
-  "_source": "2026–27 Schedule of Agenda Items (last updated 9/03/2026), board-packet attachment for the 2026-09-09 meeting",
-  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_sourceFile": "artifacts/board-packets/2026-09-09/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_generated": "2026-09-07",
-  "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept. The `en`/`es` summaries are built from the topic column only. Within `items`, `administrator` and `duration` are approximate: PyMuPDF sometimes emits one span across both cells, and such a span is assigned whole to the column it overlaps most, so a duration can appear appended to the administrator (4 of the rows in this extraction).",
-  "_droppedStruckRows": 2,
+  "_source": "2026–27 Schedule of Agenda Items (last updated 10/06/2026), board-packet attachment for the 2026-10-14 meeting",
+  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-10-14/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceFile": "artifacts/board-packets/2026-10-14/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceSha256": "39c7ea24b1425980bbe607d24a31496c8ff78ad9dd432abfae1271d9f1416b16",
+  "_sourceLastUpdate": "10/06/2026",
+  "_retrieved": "2026-10-11",
+  "_generated": "2026-10-11",
+  "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept. The `en`/`es` summaries are built from the topic column only. Within `items`, `administrator` and `duration` are approximate: PyMuPDF sometimes emits one span across both cells, and such a span is assigned whole to the column it overlaps most, so a duration can appear appended to the administrator (4 of the rows in this extraction). `department` is a cell the Schedule merges across consecutive rows, so it is attached to whichever row its label is vertically centred on and is absent from the others in the group.",
+  "_droppedStruckRows": 1,
   "provisionalTopics": {
     "2026-07-16": {
       "en": "Board Retreat",
@@ -105,13 +108,20 @@
       "es": "Connect – Presupuesto Adoptado 26/27 y Carta de Revisión; Rocketship – Presupuesto Adoptado 26/27 y Carta de Revisión; KIPP – Presupuesto Adoptado 26/27 y Carta de Revisión"
     },
     "2026-09-23": {
-      "en": "MTSS: Attendance, Chronic Absenteeism; 2025/26 RCSD Unaudited Actuals; Gann Limit Resolution",
+      "en": "MTSS: Attendance, Chronic Absenteeism; Enrollment Presentation; 2025/26 RCSD Unaudited Actuals; Gann Limit Resolution",
       "items": [
         {
           "department": "Education Services",
           "topic": "MTSS: Attendance, Chronic Absenteeism",
           "administrator": "Brianna/Anna",
-          "duration": "20 min",
+          "duration": "15 min",
+          "note": "Report"
+        },
+        {
+          "department": "Superintendent",
+          "topic": "Enrollment Presentation",
+          "administrator": "Dr. Rubalcaba",
+          "duration": "15 min",
           "note": "Report"
         },
         {
@@ -129,7 +139,7 @@
           "note": "Action"
         }
       ],
-      "es": "MTSS: Asistencia, Absentismo Crónico; Estados Financieros Reales No Auditados del RCSD 2025/26; Resolución del Límite Gann"
+      "es": "MTSS: Asistencia, Ausentismo Crónico; Presentación de Inscripción; Cifras Reales Sin Auditar 2025/26 del RCSD; Resolución del Límite Gann"
     },
     "2026-09-30": {
       "en": "Board Study Session Re: Formative Assessment Data, PLCs, Multitudes",
@@ -145,16 +155,23 @@
       "es": "Sesión de Estudio de la Mesa Directiva sobre Datos de Evaluación Formativa, PLCs, Multitudes"
     },
     "2026-10-14": {
-      "en": "Wellness Update",
+      "en": "Wellness Update; KIPP Charter Renewal - Public Hearing",
       "items": [
         {
           "department": "Student Services",
           "topic": "Wellness Update",
           "administrator": "Patrinia Redd",
-          "duration": "20 min"
+          "duration": "15 min"
+        },
+        {
+          "department": "Business/ Finance",
+          "topic": "KIPP Charter Renewal - Public Hearing",
+          "administrator": "Rick Edson",
+          "duration": "10 min",
+          "note": "Jenny Shaw, Associate Director of Policy and Advocacy KIPP Public Schools: Northern California"
         }
       ],
-      "es": "Actualización de Bienestar"
+      "es": "Actualización de Bienestar; Renovación del Charter KIPP - Audiencia Pública"
     },
     "2026-10-28": {
       "en": "Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter; Review of Staffing Levels; Personnel Report; Quarterly Williams Report (Q1, 2026/27); Integrated/ Designated ELD",
@@ -179,13 +196,13 @@
           "note": "Information Only"
         },
         {
-          "department": "Human Resource",
           "topic": "Review of Staffing Levels",
           "administrator": "Wendy Kelly/ Rick Edson",
           "duration": "20 min",
           "note": "Report"
         },
         {
+          "department": "Human Resource",
           "topic": "Personnel Report",
           "administrator": "Wendy Kelly/ Patricia Perez"
         },
@@ -671,7 +688,7 @@
       "requested": "claude-sonnet-5",
       "resolved": "claude-sonnet-5"
     },
-    "translated": "2026-09-07",
+    "translated": "2026-10-12",
     "note": "Machine translation of provisional agenda topics. The English Schedule of Agenda Items is the authoritative source."
   }
 }

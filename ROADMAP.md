@@ -6,6 +6,14 @@ Highest priority appears first. This list is intentionally not numbered: reorder
 bullets when priorities change. Keep only forward work here; completed work belongs
 in commit messages, `CHANGELOG.md`, and the project blog.
 
+- [ ] **Write theme-triage records for 2026-09-23, 2026-09-30, 2026-10-14.** A triage
+  record is a short `data/triage/<date>.md` file, written after each agenda pull, that
+  lists every attachment relevant to a site-wide theme page (budget, LCAP, SPSA,
+  charters, facilities) and what was done with it, so pages such as `/district/budget/`
+  do not silently go stale (see CLAUDE.md, "Agenda Pull → Theme Triage", and
+  `data/triage/2026-09-09.md` for the shape). `npm run check:triage` and `npm test` fail
+  while any of the three are missing. The 2026-10-14 KIPP Excelencia charter renewal
+  packet (public hearing that night) routes to the charter pages (`build-charters.mjs`).
 - [ ] **Summarize meetings from the board packets as well as the transcript.** The
   figures readers care about — `$6.4M` in budget reductions, `$2.29M` returned on solar
   change orders — are written in the packet PDFs and never said aloud: measured across
