@@ -37,32 +37,32 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item pulled from posted agenda and reordered: Staff Recognition was pulled and moved to after item 5 (Oral Communication), per superintendent Dennis's request at start of meeting.",
+    "agenda_changes": "Staff recognition was added after item 5 (Oral Communication). No items were pulled from the agenda.",
     "consent_vote_words": "And a roll call vote, please. Trustee McBride. Aye. Trustee Marquez. Aye. Trustee Diaz Locum. Aye. Trustee McAvoy. Aye. Trustee Lawson. Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Here. Trustee Marquez. Here. Trustee Diaz locum.",
-        "status": "found"
+        "intro_words": "not found in transcript",
+        "status": "skipped"
       },
       {
         "item": 2,
-        "intro_words": "Here. Trustee McAvoy. Present. Tracy Lawson.",
-        "status": "found"
+        "intro_words": "not found in transcript",
+        "status": "skipped"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's good to see some familiar",
+        "intro_words": "Welcome, everybody. It's good to see some familiar faces again.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "So to everyone, please bear with us as we",
-        "status": "found"
+        "intro_words": "not explicitly marked in transcript",
+        "status": "skipped"
       },
       {
         "item": 5,
-        "intro_words": "My name is Jude. I am in the second",
+        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
         "status": "found"
       },
       {
@@ -76,28 +76,28 @@
         "status": "found"
       },
       {
-        "item": "Staff Recognition (pulled and reordered)",
+        "item": 8,
         "intro_words": "So we will move on to the staff recognition.",
-        "status": "pulled"
+        "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "So we are on to item six, the bond program",
+        "intro_words": "So we are on to item six, the bond program consent items to approve.",
         "status": "consent_bundle"
       },
       {
         "item": 19,
-        "intro_words": "All right, moving on to 7.1, which is a bond",
+        "intro_words": "moving on to 7.1, which is a bond action item.",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "Okay, item 8.1, which I think is here for.",
+        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want to go ahead and start?",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "Moving on to item 10.1. Action item. This is the",
+        "intro_words": "We are on 11.1. Action item. This is the resolution of emergency relating to COVID 19.",
         "status": "found"
       },
       {
@@ -107,7 +107,7 @@
       },
       {
         "item": 33,
-        "intro_words": "Is there a motion to adjourn. In unison? Okay,",
+        "intro_words": "Is there a motion to adjourn. In unison?",
         "status": "found"
       }
     ]
@@ -115,22 +115,13 @@
   "result": {
     "videoId": "0cWwZ9lGR0U",
     "items": [
+      null,
+      null,
       {
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
+      null,
       {
         "timestamp": "00:03:01",
         "timestampSeconds": 181
@@ -143,7 +134,10 @@
         "timestamp": "00:03:46",
         "timestampSeconds": 226
       },
-      null,
+      {
+        "timestamp": "00:03:23",
+        "timestampSeconds": 203
+      },
       null,
       null,
       {
@@ -159,8 +153,8 @@
       null,
       null,
       {
-        "timestamp": "00:05:53",
-        "timestampSeconds": 353
+        "timestamp": "00:06:12",
+        "timestampSeconds": 372
       },
       null,
       null,
@@ -185,12 +179,12 @@
       null,
       null,
       {
-        "timestamp": "02:04:16",
-        "timestampSeconds": 7456
+        "timestamp": "01:48:14",
+        "timestampSeconds": 6494
       }
     ]
   },
-  "cachedAt": "2026-10-14T11:15:46.448Z",
+  "cachedAt": "2026-10-14T21:23:15.350Z",
   "inputTokens": 24593,
-  "outputTokens": 766
+  "outputTokens": 744
 }
