@@ -18,63 +18,73 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 was pulled (deferred to future meeting for further information). Item 9.3 was moved from consent to action for discussion of infrastructure proposal for video intercom buzzers at Haas School.",
+    "agenda_changes": "Item 10.1 was pulled from the agenda per announcement at start of meeting; Item 9.3 was moved from consent to action items per announcement at start of meeting",
     "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
-        "status": "found"
-      },
-      {
-        "item": 2,
-        "intro_words": "Roll Call",
-        "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "Welcome",
-        "status": "found"
-      },
-      {
-        "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to be",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Does somebody want to make a motion to approve? Yeah, I'll make a motion",
+        "intro_words": "And with that, does somebody want to make a motion to approve?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Thank you.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two video intercom",
+        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two video",
         "status": "found"
       },
       {
         "item": 11.1,
-        "intro_words": "So again, moving to 11.11.1 being Hoover and Henry Ford school presentations",
+        "intro_words": "moving on to 11.11.1 being Hoover and Henry Ford school presentations for",
         "status": "found"
       },
       {
-        "item": 12,
-        "intro_words": "So moving to item 12 for discussion. 12.1 being first reading and discussion",
+        "item": 12.1,
+        "intro_words": "So moving to item 12 for discussion. 12.1 being first reading and",
+        "status": "found"
+      },
+      {
+        "item": 12.2,
+        "intro_words": "Moving on to 12.2. Again, First Reading and Discussion of Foreign Policy",
+        "status": "found"
+      },
+      {
+        "item": 12.3,
+        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
+        "status": "found"
+      },
+      {
+        "item": 12.4,
+        "intro_words": "And moving on to 12.4, first reading and discussion of BP and AR6171",
+        "status": "found"
+      },
+      {
+        "item": 12.5,
+        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use of technology.",
+        "status": "found"
+      },
+      {
+        "item": 12.6,
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And moving on to item 13, consent items. If there are no questions",
-        "status": "consent_bundle"
+        "intro_words": "Okay, great. Thank you. Yeah. And so moving to item 13, consent items.",
+        "status": "found"
       },
       {
         "item": 14.1,
@@ -87,13 +97,23 @@
         "status": "found"
       },
       {
+        "item": 15,
+        "intro_words": "Okay, so now on to board and superintendent report. I can go.",
+        "status": "found"
+      },
+      {
         "item": 16.1,
-        "intro_words": "So moving on to item 16.1, information on San Mateo county investment fund.",
+        "intro_words": "Okay, so moving on to item 16.1, information on San Mateo county investment",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "moving on to corresponding correspondence. Yeah, I got a correspondence from.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "Okay, so moving on to item 18. Other business possible other business suggested items",
+        "intro_words": "Okay. With that, moving on to item 18. Other business possible other business",
         "status": "found"
       }
     ]
@@ -101,7 +121,10 @@
   "result": {
     "videoId": "LPmyvuhgudA",
     "items": [
-      null,
+      {
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
+      },
       null,
       null,
       null,
@@ -124,19 +147,15 @@
         "timestamp": "01:11:36",
         "timestampSeconds": 4296
       },
+      null,
       {
-        "timestamp": "02:38:10",
-        "timestampSeconds": 9490
-      },
-      {
-        "timestamp": "03:03:12",
-        "timestampSeconds": 10992,
-        "consent": true
+        "timestamp": "03:03:30",
+        "timestampSeconds": 11010
       },
       null
     ]
   },
-  "cachedAt": "2026-10-14T21:20:15.221Z",
+  "cachedAt": "2026-10-15T10:53:27.952Z",
   "inputTokens": 37863,
-  "outputTokens": 796
+  "outputTokens": 1044
 }
