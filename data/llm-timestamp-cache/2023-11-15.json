@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - will not be discussed tonight, board member requested further information. Item 9.3 moved from consent to action for elaboration on infrastructure proposal costs.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Item 10.1 pulled until further information is available. Item 9.3 moved from consent to action.",
+    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1.",
     "items": [
       {
         "item": 1,
@@ -28,12 +28,12 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome to another Redwood City School District study session.",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District",
         "status": "found"
       },
       {
@@ -47,44 +47,44 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "And with that, does somebody want to make a motion to approve?",
+        "status": "found"
+      },
+      {
         "item": 7,
-        "intro_words": "moving on to bond program consent Items, again with 9.3.",
+        "intro_words": "Approval of the Agenda (Action required)",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "All those in favor? Aye. Thank you. And do we have any oral communication?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "moving on to our study session discussion on dyslexia. So, good evening, everyone,",
+        "intro_words": "moving on to our study session discussion on dyslexia. So, good evening, everyone",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "moving on to item 11.11.1 being Hoover and Henry Ford school presentations",
+        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two video intercom",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion",
+        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for the infrastructure",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items. If there are no questions,",
-        "status": "found"
+        "intro_words": "Adjournment",
+        "status": "not_found"
       },
       {
         "item": 14,
-        "intro_words": "moving on to action items. 14.1 is adoption of resolution number five",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund.",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "moving on to item 18. Other business possible other business suggested items",
-        "status": "found"
+        "intro_words": "Adjourn the Meeting",
+        "status": "not_found"
       }
     ]
   },
@@ -105,6 +105,10 @@
         "timestamp": "01:10:10",
         "timestampSeconds": 4210
       },
+      {
+        "timestamp": "01:10:41",
+        "timestampSeconds": 4241
+      },
       null,
       {
         "timestamp": "01:11:21",
@@ -112,26 +116,19 @@
       },
       null,
       null,
+      {
+        "timestamp": "01:11:36",
+        "timestampSeconds": 4296
+      },
+      {
+        "timestamp": "01:11:26",
+        "timestampSeconds": 4286
+      },
       null,
-      {
-        "timestamp": "01:13:41",
-        "timestampSeconds": 4421
-      },
-      {
-        "timestamp": "02:38:15",
-        "timestampSeconds": 9495
-      },
-      {
-        "timestamp": "03:03:35",
-        "timestampSeconds": 11015
-      },
-      {
-        "timestamp": "03:03:12",
-        "timestampSeconds": 10992
-      }
+      null
     ]
   },
-  "cachedAt": "2026-10-15T20:59:24.058Z",
+  "cachedAt": "2026-10-16T10:42:54.325Z",
   "inputTokens": 37863,
-  "outputTokens": 709
+  "outputTokens": 689
 }
