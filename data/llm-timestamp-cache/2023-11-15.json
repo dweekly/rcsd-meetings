@@ -18,12 +18,12 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled (to be discussed at future meeting with more information). Item 9.3 moved from consent to action for discussion.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
+    "agenda_changes": "Two changes announced: Item 10.1 pulled/not discussed; Item 9.3 moved from consent to action for discussion",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
+        "intro_words": "Call to Order",
         "status": "found"
       },
       {
@@ -33,52 +33,52 @@
       },
       {
         "item": 3,
-        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School",
+        "intro_words": "Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome to another Redwood City School District study session. And I'm just",
+        "intro_words": "Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
+        "intro_words": "Are there any changes to the agenda? Yes, it is going to be 10.1.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1.",
-        "status": "found"
+        "intro_words": "Are there any changes to the agenda? Yes, it is going to be 10.1.",
+        "status": "consent_bundle"
       },
       {
         "item": 7,
-        "intro_words": "And with that, does somebody want to make a motion to approve?",
+        "intro_words": "I'll make a motion to approve the agenda with the changes that we move 9.3",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "And with that, does somebody want to make a motion to approve?",
-        "status": "found"
+        "intro_words": "I'll make a motion to approve the agenda with the changes that we move 9.3",
+        "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Thank you.",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "moved 9.3 to action and that we, I guess, do not hold.",
-        "status": "pulled"
-      },
-      {
-        "item": 11,
-        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
+        "item": 11,
+        "intro_words": "Do we have any oral communication? No oral communication.",
+        "status": "pulled"
+      },
+      {
         "item": 12,
-        "intro_words": "And then I'll ask one more question on the academic slide.",
+        "intro_words": "moving on to bond program consent Items, again with 9.3.",
         "status": "found"
       },
       {
@@ -96,10 +96,7 @@
   "result": {
     "videoId": "LPmyvuhgudA",
     "items": [
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
@@ -117,16 +114,22 @@
         "timestampSeconds": 4210
       },
       {
-        "timestamp": "01:10:10",
-        "timestampSeconds": 4210
+        "timestamp": "01:10:59",
+        "timestampSeconds": 4259,
+        "consent": true
       },
       {
-        "timestamp": "01:10:41",
-        "timestampSeconds": 4241
+        "timestamp": "01:09:40",
+        "timestampSeconds": 4180
       },
       {
-        "timestamp": "01:10:41",
-        "timestampSeconds": 4241
+        "timestamp": "01:10:59",
+        "timestampSeconds": 4259,
+        "consent": true
+      },
+      {
+        "timestamp": "01:11:15",
+        "timestampSeconds": 4275
       },
       {
         "timestamp": "01:11:15",
@@ -134,18 +137,14 @@
       },
       null,
       {
-        "timestamp": "01:11:26",
-        "timestampSeconds": 4286
-      },
-      {
-        "timestamp": "01:37:40",
-        "timestampSeconds": 5860
+        "timestamp": "01:11:21",
+        "timestampSeconds": 4281
       },
       null,
       null
     ]
   },
-  "cachedAt": "2026-10-17T10:09:51.173Z",
+  "cachedAt": "2026-10-17T20:07:52.202Z",
   "inputTokens": 37863,
-  "outputTokens": 739
+  "outputTokens": 710
 }
