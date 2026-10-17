@@ -17,12 +17,12 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Items 10.5, 10.6, 10.7 moved to consent. Items 10.3 and 10.4 moved to consent.",
-    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
+    "agenda_changes": "At the beginning of the meeting, President DS Locum asked: 'Are there any changes to the agenda this evening?' A trustee (appears to be Cecilia based on context) proposed moving measure U items 10.5, 10.6, 10.7 to consent, and also moving items 10.3 and 10.4 to consent. This was motioned and seconded (Mike and Cecilia), and approved unanimously.",
+    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items. Recommendation of approval measure T, bond program tracking list of items, and recommendation of approval of the MUB transfer switch installation proposal for various sites. Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay, let's get started. Once again, for those of you that are just joining us, welcome.",
+        "intro_words": "Okay, let's get started. Once again, for those of you that are",
         "status": "found"
       },
       {
@@ -32,32 +32,57 @@
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's great to see you in person, although we're six feet apart",
+        "intro_words": "Welcome, everybody. It's great to see you in person, although",
         "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "Welcome, everybody. It's great to see you in person, although",
+        "status": "consent_bundle"
       },
       {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move",
+        "intro_words": "Are there any changes to the agenda this evening? I'd",
         "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda this evening? I'd",
+        "status": "consent_bundle"
       },
       {
         "item": 7,
-        "intro_words": "So that was Mike and Cecilia. All those in favor? Aye. Ali, do we have",
+        "intro_words": "All those in favor? Aye. Ali, do we have any",
         "status": "found"
       },
       {
+        "item": 8,
+        "intro_words": "All those in favor? Aye. Ali, do we have any",
+        "status": "consent_bundle"
+      },
+      {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards",
+        "intro_words": "We have three speakers cards, but they are for our",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "If you have public comment related to a study session",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving on to bond program action items. The first one is 7.1. Recommendation regarding adoption",
+        "intro_words": "8.1. COVID 19. Update for January 2022. Again, good evening,",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Okay, on to eight discussion items. The first one is 8.1. COVID 19. Update for January 2022.",
+        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240 Volunteer",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Moving on to 8.3. First reading and discussion of board",
         "status": "found"
       }
     ]
@@ -77,34 +102,49 @@
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
-      null,
       {
-        "timestamp": "00:01:22",
-        "timestampSeconds": 82
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
+      },
+      {
+        "timestamp": "00:01:27",
+        "timestampSeconds": 87
+      },
+      {
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
+      },
+      {
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
+      },
+      {
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
+      },
+      {
+        "timestamp": "00:01:53",
+        "timestampSeconds": 113
       },
       null,
       {
-        "timestamp": "00:01:22",
-        "timestampSeconds": 82
-      },
-      null,
-      {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
-      },
-      null,
-      {
-        "timestamp": "00:02:45",
-        "timestampSeconds": 165
+        "timestamp": "00:05:06",
+        "timestampSeconds": 306
       },
       {
-        "timestamp": "00:04:15",
-        "timestampSeconds": 255
+        "timestamp": "00:50:20",
+        "timestampSeconds": 3020
       },
-      null
+      {
+        "timestamp": "00:50:15",
+        "timestampSeconds": 3015
+      }
     ]
   },
-  "cachedAt": "2026-10-16T20:33:34.661Z",
+  "cachedAt": "2026-10-17T10:11:19.663Z",
   "inputTokens": 18781,
-  "outputTokens": 505
+  "outputTokens": 812
 }
