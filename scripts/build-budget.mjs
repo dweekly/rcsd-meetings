@@ -388,6 +388,11 @@ const budgetCSS = `
     .glossary { columns: 1; }
     .toc a { padding: 0.8rem 0.6rem; font-size: 0.6rem; }
     .proposed-banner { margin: 1.5rem 1rem 0; }
+    /* Actual-vs-adopted tables carry two full-dollar columns; tighten them so the
+       adopted column isn't hidden off the right edge on a phone. */
+    thead th, tbody td { padding: 0.5rem 0.4rem; }
+    thead th:first-child, tbody td:first-child { padding-left: 0; }
+    tbody td.num { font-size: 0.7rem; letter-spacing: -0.02em; }
   }
   .site-footer { font-size: 0.8rem; text-align: left; }
   .footer-nav { margin-top: 1rem; }
@@ -1000,7 +1005,8 @@ function sectionParcelTaxEN() {
       <thead><tr><th>Detail</th><th>Measure U</th></tr></thead>
       <tbody>
         <tr><td>Amount</td><td class="num">$85 per parcel per year</td></tr>
-        <tr><td>Annual Revenue</td><td class="num">${usd(REVENUE_ROWS[8][2])} (${ACTUALS_SOURCE.fiscalYear} actual); ${usd(REVENUE_ROWS[8][3])} (${BUDGET_SOURCE.fiscalYear} budget)</td></tr>
+        <tr><td>Revenue, ${ACTUALS_SOURCE.fiscalYear} actual</td><td class="num">${usd(REVENUE_ROWS[8][2])}</td></tr>
+        <tr><td>Revenue, ${BUDGET_SOURCE.fiscalYear} budget</td><td class="num">${usd(REVENUE_ROWS[8][3])}</td></tr>
         <tr><td>Voter Approval</td><td class="num">79.8% Yes</td></tr>
         <tr><td>Duration</td><td>14 years (July 2017 &ndash; June 2030)</td></tr>
         <tr><td>Election Date</td><td>November 8, 2016</td></tr>
@@ -1541,7 +1547,8 @@ function sectionParcelTaxES() {
       <thead><tr><th>Detalle</th><th>Medida U</th></tr></thead>
       <tbody>
         <tr><td>Monto</td><td class="num">$85 por parcela por año</td></tr>
-        <tr><td>Ingresos Anuales</td><td class="num">${usd(REVENUE_ROWS[8][2])} (real ${ACTUALS_SOURCE.fiscalYear}); ${usd(REVENUE_ROWS[8][3])} (presupuesto ${BUDGET_SOURCE.fiscalYear})</td></tr>
+        <tr><td>Ingresos, real ${ACTUALS_SOURCE.fiscalYear}</td><td class="num">${usd(REVENUE_ROWS[8][2])}</td></tr>
+        <tr><td>Ingresos, presupuesto ${BUDGET_SOURCE.fiscalYear}</td><td class="num">${usd(REVENUE_ROWS[8][3])}</td></tr>
         <tr><td>Aprobación de Votantes</td><td class="num">79.8% Sí</td></tr>
         <tr><td>Duración</td><td>14 años (julio 2017 &ndash; junio 2030)</td></tr>
       </tbody>
