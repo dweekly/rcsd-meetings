@@ -6,14 +6,6 @@ Highest priority appears first. This list is intentionally not numbered: reorder
 bullets when priorities change. Keep only forward work here; completed work belongs
 in commit messages, `CHANGELOG.md`, and the project blog.
 
-- [ ] **Write theme-triage records for 2026-09-23, 2026-09-30, 2026-10-14.** A triage
-  record is a short `data/triage/<date>.md` file, written after each agenda pull, that
-  lists every attachment relevant to a site-wide theme page (budget, LCAP, SPSA,
-  charters, facilities) and what was done with it, so pages such as `/district/budget/`
-  do not silently go stale (see CLAUDE.md, "Agenda Pull → Theme Triage", and
-  `data/triage/2026-09-09.md` for the shape). `npm run check:triage` and `npm test` fail
-  while any of the three are missing. The 2026-10-14 KIPP Excelencia charter renewal
-  packet (public hearing that night) routes to the charter pages (`build-charters.mjs`).
 - [ ] **Summarize meetings from the board packets as well as the transcript.** The
   figures readers care about — `$6.4M` in budget reductions, `$2.29M` returned on solar
   change orders — are written in the packet PDFs and never said aloud: measured across
@@ -363,6 +355,26 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
   - Link from district page + surface in board meeting summaries when charter items are discussed
 - [ ] Consider same treatment for the KIPP Excelencia Fair Oaks site given the ongoing Prop 2 CSFP funding workstream (Res 11 Sept 2025, Res 23 April 2026)
 - [x] ~~**Verify + record Fair Oaks campus ownership in `properties.json`.**~~ Done 2026-07-21: ownership confirmed by Board President; entry added with the Connect facilities-use amendment + Prop 39 extension (2021-10-06) linked. Board-approved lease/JUA PDFs are now linked from the /schools/ properties table for Harper (Wagner Schoolhouse LLC), Hawes (Building Kidz + Touchstone), Fair Oaks (Connect), and the warehouse.
+- [ ] **Charter pages: add the 2026-27 adopted budgets, LCAPs and oversight letters.** The
+  2026-09-23 agenda (information items 11.1-11.3) carried each charter's 2026-27 Adopted Budget,
+  LCAP, and RCSD's fiscal-oversight review letter. `build-charters.mjs` reads
+  `data/document-index.json`, which stops at 2026-06-10, so none of these reach the charter pages
+  on their own. The letters are the most useful part: Rocketship's reserve is already below
+  the 5% MOU minimum (4.79% budgeted for 2026-27), and Connect's projections fall below it by
+  2028-29 (3.69%). The 2026-10-14 public hearing added KIPP Excelencia's 2027-2032 renewal
+  petition, which the board must grant or deny by about 2026-12-20 (90 days from the 9/21
+  submission; see `data/triage/2026-10-14.md`). Sources:
+  - Connect: [review letter](https://data.rcsd.info/board-packets/2026-09-23/Connect-FY-2026-27-Adopted-Budget-Review-Letter.pdf),
+    [adopted budget](https://data.rcsd.info/board-packets/2026-09-23/Connect-2026-27-Adopted-Budget-Board.pdf),
+    [LCAP](https://data.rcsd.info/board-packets/2026-09-23/Connect-LCAP-2026-27-Adopted-Budget.pdf)
+  - KIPP Excelencia: [review letter](https://data.rcsd.info/board-packets/2026-09-23/KIPP-FY-2026-27-Adopted-Budget-Review-Letter.pdf),
+    [adopted budget](https://data.rcsd.info/board-packets/2026-09-23/KIPP-Excelencia-2026-27-Adopted-Budget-Board.pdf),
+    [LCAP](https://data.rcsd.info/board-packets/2026-09-23/KIPP-Excelencia-LCAP-2026-27-Adopted-Budget.pdf),
+    [renewal petition](https://data.rcsd.info/board-packets/2026-10-14/KIPP-Excelencia-Charter-Renewal-Packet.pdf),
+    [hearing deck](https://data.rcsd.info/board-packets/2026-10-14/KIPP-Excelencia-Community-Prep_-Public-Hearing-26.10.14-updated.pdf)
+  - Rocketship: [review letter](https://data.rcsd.info/board-packets/2026-09-23/Rocketship-FY-2026-27-Adopted-Budget-Review-Letter.pdf),
+    [adopted budget](https://data.rcsd.info/board-packets/2026-09-23/Rocketship-RC-2026-27-Adopted-Budget-Board.pdf),
+    [LCAP](https://data.rcsd.info/board-packets/2026-09-23/Rocketship-RC-LCAP-2026-27-Adopted-Budget.pdf)
 - [ ] **Mirror BoardDocs-era lease/JUA PDFs to R2** (`board-packets/`). The property `documents[]` links for 2020-2025 BoardDocs items point at go.boarddocs.com, which blocks non-browser clients and could disappear; the Touchstone 2025 renewal already uses the R2 mirror.
 
 ## Vendors / Warrant Registers
@@ -460,6 +472,15 @@ Filed by the per-meeting triage records in `data/triage/`. Each names the pull i
   machine-translated from that catalogue, so the translation passes must be re-run too or 26 policies
   render current English beside stale Spanish. Worth a post-adoption checklist step, or a check that
   flags a policy whose English `sourceHash` has moved ahead of its translation.
+
+- [ ] **Record the annual Enrollment & Capacity Review per school.** The 2026-09-23 agenda
+  (action item 9.1, [deck](https://data.rcsd.info/board-packets/2026-09-23/2026-27-Enrollment-Capacity-Review-26.09.23.-updated.pdf)) gives
+  day-10 enrollment, facility capacity and utilization for every district school. District-wide
+  it is 6,199 students against 12,362 seats, about 50%; Garfield is at 18% and North Star at 90%.
+  The site has no capacity figures anywhere, yet capacity is what the planned Bayside
+  and Orion studies (board action Dec 2027 / Jan 2028) will be argued from. Store it as dated
+  data with per-cell source, show it on school pages (EN + ES), and add each year's review as
+  it is presented.
 
 - [ ] **Split PDF spans that cross a column boundary in the Schedule extractor.** PyMuPDF
   sometimes emits one span covering both the administrator and duration cells, and
