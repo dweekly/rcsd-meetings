@@ -261,8 +261,29 @@ jobs:
             # --autostash is load-bearing: the pipeline leaves worktree files
             # this step does not stage, and `pull --rebase` refuses to start
             # while unstaged changes are present.
-            git pull --rebase --autostash origin main || true
-            git push || (git pull --rebase --autostash origin main && git push)
+            # When the run ahead of this one regenerated the same files (two runs
+            # overlapped: freshness.json, a board-memos file), the rebase stops on
+            # a conflict. Everything this step commits is regenerated wholesale by
+            # this run, which is the newer one, so keep this run's copy of each
+            # conflicted file. If the rebase still can't finish, abort it: a
+            # half-applied rebase leaves conflict markers in the worktree, and the
+            # later steps (release manifest, freshness guard) read them as data.
+            # In a rebase, --theirs is the commit being replayed, i.e. this run's.
+            sync_with_remote() {
+              git pull --rebase --autostash origin main && return 0
+              local conflicted
+              while conflicted=$(git diff --name-only --diff-filter=U) && [ -n "$conflicted" ]; do
+                echo "Overlapping run touched the same files; keeping this run's copy of:"
+                echo "$conflicted"
+                echo "$conflicted" | xargs git checkout --theirs --
+                echo "$conflicted" | xargs git add --
+                GIT_EDITOR=true git rebase --continue && return 0
+              done
+              git rebase --abort 2>/dev/null || true
+              return 1
+            }
+            sync_with_remote || true
+            git push || (sync_with_remote && git push)
           else
             echo "No incremental data updates to commit."
           fi
