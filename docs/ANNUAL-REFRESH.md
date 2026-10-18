@@ -106,6 +106,38 @@ at a given meeting is the attendance section of that meeting's approved minutes,
 each trustee as President, Vice President, Clerk or Member; use it to verify a rotation entry
 or to catch a mid-year change, rather than inferring roles from agenda items or news.
 
+## Refresh schedule (the tickler)
+
+Each fact below has a known release date. `scripts/lib/refresh-schedule.mjs` holds the
+calendar, and `check-freshness.mjs` checks it on every scheduled run, so a fact left past
+its date turns the run red and the GitHub failure email is the reminder. The steps a
+script can't do also have recurring Todoist tasks in the RCSD project.
+
+| Fact | Due (then 30 days' grace) | Must be at least | Todoist |
+|---|---|---|---|
+| `CA_DASHBOARD_YEAR` | Jan 5 | last calendar year | — |
+| `BUDGET_SOURCE` | Jan 15 / Apr 15 / Jul 15 | First Interim / Second Interim / next year's Adopted | — |
+| `ACTUALS_SOURCE` | Oct 15 | last fiscal year's Unaudited Actuals | — |
+| Officer rotation (both arrays) | Jan 15 | a December rotation | every Dec 20 |
+| `SARC_YEAR` | Mar 1 | the school year two back | — |
+| `CDE_DATA_YEARS.ltel` | May 15 | the school year just ending | every Apr 20 (CAPTCHA: browser download) |
+| `SPSA_YEAR` | Jun 1 | the school year just ending | — |
+| `IREADY_YEAR` | Jul 1 | the school year just ended | — |
+| `LCAP_YEAR` | Jul 15 | the school year starting | — |
+| Trustee roster | not machine-checked | — | every two years, Dec 20 (2026, 2028, …) |
+
+How it behaves:
+- From the due date a stale fact is an **advisory**; 30 days later it **fails the build**.
+  The grace belongs to the release, so it doesn't restart on New Year: an overdue fact
+  stays red until it's fixed.
+- A newer value always satisfies an older requirement.
+- A source that is genuinely late gets a **deferral** in `DEFERRALS`: the rule id, the
+  occurrence's due date, an `until` date and a reason. When the deferral expires there is
+  no new grace period.
+- To see what the guard will say on any date: `node scripts/check-freshness.mjs --today 2027-02-20`.
+- The CDE staff and absenteeism datasets aren't on this calendar; the availability probe
+  still reaches them and flags new years directly.
+
 ## Still manual
 
 ### Each December, after the board reorganization
@@ -117,10 +149,13 @@ or to catch a mid-year change, rather than inferring roles from agenda items or 
 - CA Dashboard release: bump `CA_DASHBOARD_YEAR` in `scripts/lib/school-year.mjs`. Every
   Dashboard link goes through `caDashboardUrl()` there, so that one bump moves them all.
 
+### Each spring
+- SPSA year — school plans are approved school by school through about April, so bump
+  `SPSA_YEAR` in `scripts/lib/school-year.mjs` once every school's plan is posted (the
+  refresh schedule expects it by June 1). It drives both `extract-spsa-budgets.mjs` and the
+  SPSA links on school pages. (`build-homepage.mjs` still has its own copy — see ROADMAP.)
+
 ### Each fall
-- SPSA year — bump `SPSA_YEAR` in `scripts/lib/school-year.mjs`; it drives both
-  `extract-spsa-budgets.mjs` and the SPSA links on school pages. (`build-homepage.mjs`
-  still has its own copy — see ROADMAP.)
 - SSC membership — append the new year to `SSC_YEARS` in `scripts/lib/school-year.mjs`.
   Note SSC rosters are point-in-time records of an adopted SPSA and legitimately name
   people who have since moved on; they render with their adoption date.
