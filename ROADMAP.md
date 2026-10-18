@@ -94,6 +94,24 @@ in commit messages, `CHANGELOG.md`, and the project blog.
 
 Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.md`.
 
+- [ ] **`npm test` rewrites tracked files under `docs/`.** `test:discovery` regenerates
+  `docs/catalog*`, `docs/.well-known/api-catalog` and `docs/agents/data-schema.md`, so a
+  test run leaves a dirty tree, and a careless `git checkout -- docs/` to clean it also
+  reverts hand-written runbooks (happened 2026-10-18). Have the test build into a temp dir.
+- [ ] **Prove year constants match the ingested data.** Several constants only move labels:
+  i-Ready rows keep fields like `y2_25_26_midyear`, which `IREADY_YEAR` does not touch. A
+  test should assert each constant agrees with the data it labels. (Codex plan review,
+  2026-10-18.)
+- [ ] **Monitor the monitor.** The freshness guard and refresh schedule only alert if the
+  scheduled pipeline actually runs. Add an external heartbeat that notices when it
+  hasn't (self-hosted runner down, workflow disabled).
+- [ ] **Event-driven invalidation.** The refresh schedule covers annual releases. Election
+  certifications, policy adoptions, calendars and safety plans change on events, not
+  dates, and nothing checks them yet.
+- [ ] **Validate every triage record's structure.** `tests/triage.test.mjs` checks only
+  the 2026-08-26 and 2026-09-09 records in depth; it should enumerate them all and require
+  each "Filed" action to name a ROADMAP entry or issue.
+
 - [ ] **The LTEL freshness probe is blind while CDE serves a CAPTCHA.** Since 2026-10-15
   DataQuest answers scripted requests with a Radware CAPTCHA page, which the probe now
   records as unknown (PR #134), so a new LTEL year will not raise an advisory. Today this is
@@ -136,8 +154,6 @@ Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.
   `scripts/build-budget.mjs` hardcodes the 2025-26 Second Interim narrative across ~40
   sites, plus a 2026-27 proposed-budget banner that explicitly promises a post-adoption
   refresh. Needs its own effort.
-- [ ] **CA Dashboard year `2024`** is hardcoded in `build-schools.mjs`, `build-homepage.mjs`,
-  and `build-budget.mjs`. Rolls each December.
 - [ ] **Surface "data as of" dates to readers.** `schools.json.lastUpdated`,
   `trustees.json._metadata.retrieved`, `cde/*._metadata.downloadDate` and others all exist
   and are never displayed. Near-zero cost, and it makes the refresh self-auditing.

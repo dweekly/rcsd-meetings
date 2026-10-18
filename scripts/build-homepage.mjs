@@ -11,6 +11,7 @@ import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { policySlug } from './lib/policy-slug.mjs';
 import { buildAgentDiscovery } from './build-agent-discovery.mjs';
+import { caDashboardUrl, RCSD_DISTRICT_CDS } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -65,7 +66,7 @@ function schoolCard(s) {
   const communityBadge = s.communitySchool ? '<span class="school-badge school-badge--community" title="Community School · Escuela Comunitaria">🏫 Community</span>' : '';
 
   const detailUrl = `/schools/${s.slug}/`;
-  const dashboardUrl = `https://www.caschooldashboard.org/reports/${s.cdsCode}/2024`;
+  const dashboardUrl = caDashboardUrl(s.cdsCode);
   const spsaUrl = `https://data.rcsd.info/documents/spsa/2025-26/${s.slug}.pdf`;
   const el = Math.round(DEMO[s.slug]?.el || 0);
   const frl = Math.round(DEMO[s.slug]?.sed || 0);
@@ -950,7 +951,7 @@ ${upcoming.map(e => eventRow(e, 'es')).join('\n')}
       <div class="resource-item">
         <h3>CA School Dashboard</h3>
         <p>State performance data and accountability metrics.</p>
-        <a class="resource-url" href="https://www.caschooldashboard.org/reports/41690050000000/2024" target="_blank" rel="noopener">caschooldashboard.org &#8599;</a>
+        <a class="resource-url" href="${caDashboardUrl(RCSD_DISTRICT_CDS)}" target="_blank" rel="noopener">caschooldashboard.org &#8599;</a>
       </div>
     </div>
     <div class="bi-es" lang="es">
@@ -972,7 +973,7 @@ ${upcoming.map(e => eventRow(e, 'es')).join('\n')}
       <div class="resource-item">
         <h3>Panel Escolar de CA</h3>
         <p>Datos de rendimiento estatal y métricas de rendición de cuentas.</p>
-        <a class="resource-url" href="https://www.caschooldashboard.org/reports/41690050000000/2024" target="_blank" rel="noopener">caschooldashboard.org &#8599;</a>
+        <a class="resource-url" href="${caDashboardUrl(RCSD_DISTRICT_CDS)}" target="_blank" rel="noopener">caschooldashboard.org &#8599;</a>
       </div>
     </div>
   </div>
