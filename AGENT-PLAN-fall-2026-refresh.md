@@ -103,7 +103,7 @@ Sources (all already on R2 under `data.rcsd.info/board-packets/`):
 3. After each merge, a Quick pipeline run is dispatched immediately and is green.
 4. Production checks after each PR's Quick run (`curl -fsS`, so an HTTP error fails), each
    requiring the old content gone **and** the new content present:
-   - D: on `/`, `/es/`, `/budget/`, `/presupuesto/` and every school route in both
+   - D: on `/` (one bilingual homepage; there is no `/es/`), `/budget/`, `/presupuesto/` and every school route in both
      languages, no `caschooldashboard.org/reports/…/2024` and no `41689660000000`; at least
      one `/2025` link on each.
    - B: `/budget/` has no `Adoption scheduled`, and `/presupuesto/` has no
