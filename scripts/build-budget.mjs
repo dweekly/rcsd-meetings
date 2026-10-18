@@ -8,6 +8,7 @@ import { writeFileSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
+import { caDashboardUrl, RCSD_DISTRICT_CDS } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -929,7 +930,7 @@ function sectionDocumentsEN() {
   <h3>LCAP &amp; Accountability</h3>
   <ul style="margin-bottom:1.5rem">
     <li><a href="https://www.rcsdk8.net">2025-26 Adopted LCAP</a> &mdash; Local Control and Accountability Plan</li>
-    <li><a href="https://www.caschooldashboard.org/reports/41689660000000/2024">California School Dashboard &mdash; RCSD</a></li>
+    <li><a href="${caDashboardUrl(RCSD_DISTRICT_CDS)}">California School Dashboard &mdash; RCSD</a></li>
   </ul>
 
   <h3>Board Meetings</h3>
@@ -1486,7 +1487,7 @@ function sectionDocumentsES() {
   <h3>LCAP y Rendici\u00f3n de Cuentas</h3>
   <ul style="margin-bottom:1.5rem">
     <li><a href="https://www.rcsdk8.net">LCAP Adoptado 2025-26</a></li>
-    <li><a href="https://www.caschooldashboard.org/reports/41689660000000/2024">Panel de Control Escolar de California &mdash; RCSD</a></li>
+    <li><a href="${caDashboardUrl(RCSD_DISTRICT_CDS)}">Panel de Control Escolar de California &mdash; RCSD</a></li>
   </ul>
 
   <h3>Reuniones de la Mesa Directiva</h3>

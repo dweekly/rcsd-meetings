@@ -114,8 +114,8 @@ or to catch a mid-year change, rather than inferring roles from agenda items or 
   `https://www.rcsdk8.net/our-district/our-board-of-trustees/meet-the-trustees`. Not probed
   (trustee areas, terms, and assignments are structured differently from the leadership
   pages). Then `scripts/fetch-leadership-photos.mjs` and `scripts/build-district.mjs`.
-- CA Dashboard release: bump `CA_DASHBOARD_YEAR` in `scripts/lib/school-year.mjs`.
-  (`build-homepage.mjs` and `build-budget.mjs` still hold their own copies — see ROADMAP.)
+- CA Dashboard release: bump `CA_DASHBOARD_YEAR` in `scripts/lib/school-year.mjs`. Every
+  Dashboard link goes through `caDashboardUrl()` there, so that one bump moves them all.
 
 ### Each fall
 - SPSA year — bump `SPSA_YEAR` in `scripts/lib/school-year.mjs`; it drives both

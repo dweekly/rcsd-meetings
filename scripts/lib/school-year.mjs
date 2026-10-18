@@ -104,7 +104,15 @@ export const IREADY_YEAR = '2025-26';
  * California School Dashboard reporting year, used in caschooldashboard.org
  * report URLs. Released each December.
  */
-export const CA_DASHBOARD_YEAR = '2024';
+export const CA_DASHBOARD_YEAR = '2025';
+
+/** RCSD's district-level CDS code, as the Dashboard keys its district report. */
+export const RCSD_DISTRICT_CDS = '41690050000000';
+
+/** caschooldashboard.org report for a school or district CDS code, current year. */
+export function caDashboardUrl(cdsCode) {
+  return `https://www.caschooldashboard.org/reports/${cdsCode}/${CA_DASHBOARD_YEAR}`;
+}
 
 /** Path to an ingested CDE dataset for the year we actually hold. */
 export function cdeDatasetPath(rootDir, dataset) {
