@@ -219,6 +219,15 @@ test('a 200 carrying only a header is NOT a published year', () => {
   assert.equal(hasDataRows(''), false);
 });
 
+test('a bot-protection HTML page is NOT a published year', () => {
+  // From 2026-10-15 DataQuest 302'd LTEL requests to a Radware CAPTCHA page
+  // that answers 200 with many lines of HTML; line-counting read it as data and
+  // failed every scheduled run with "LTEL is 2 release cycles behind".
+  const CAPTCHA = '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <title>Radware Captcha Page</title>\n';
+  assert.equal(classifyAvailability(200, CAPTCHA), 'unknown');
+  assert.equal(classifyAvailability(200, '<html><body>\nblocked\n</body></html>'), 'unknown');
+});
+
 test('one cycle behind advises; two cycles behind fails the build', () => {
   const freshness = baseFreshness();
   freshness.observations.push({
