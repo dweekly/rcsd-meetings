@@ -361,7 +361,7 @@ test('the years build-schools still writes out by hand are a known, bounded set'
 
   // Baseline taken 2026-08-20. Lower these as years are bound to constants;
   // raising one means a new hand-written year was introduced — don't.
-  const BASELINE = { '2022-23': 2, '2023-24': 2, '2024-25': 23, '2025-26': 30 };
+  const BASELINE = { '2022-23': 2, '2023-24': 2, '2024-25': 21, '2025-26': 30 };
   for (const [year, max] of Object.entries(BASELINE)) {
     assert.ok((counts[year] ?? 0) <= max,
       `build-schools.mjs now writes "${year}" ${counts[year]} times (was ${max}). `
