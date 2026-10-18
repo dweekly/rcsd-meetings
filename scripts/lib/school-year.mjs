@@ -57,7 +57,7 @@ export function currentSchoolYear(now = new Date()) {
  */
 export const CDE_DATA_YEARS = {
   absenteeism: '2024-25',
-  ltel: '2024-25',
+  ltel: '2025-26',
   'staff-ethnicity': '2024-25',
   'staff-experience': '2024-25',
   'staff-ratios': '2024-25',

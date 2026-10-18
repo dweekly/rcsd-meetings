@@ -672,7 +672,7 @@ CDE Chronic Absenteeism data — disaggregated by reporting category (student su
 
 ---
 
-## data/cde/ltel-2024-25.json
+## data/cde/ltel-2025-26.json
 
 CDE Long-Term English Learner (LTEL) and English Learner Academic Status (ELAS) data per school.
 
@@ -682,11 +682,12 @@ CDE Long-Term English Learner (LTEL) and English Learner Academic Status (ELAS) 
 {
   "_metadata": {
     "description": "Long-term English learner counts by school",
-    "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2025-26",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://dq.cde.ca.gov/dataquest/longtermel/",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset ltel"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset ltel --year 2025-26",
+    "retrieval": "Downloaded by the operator in a browser ... (present only when the file was not fetched by script)"
   },
   "district": {
     "totalEnrollment": 7523,

@@ -94,6 +94,15 @@ in commit messages, `CHANGELOG.md`, and the project blog.
 
 Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.md`.
 
+- [ ] **The LTEL freshness probe is blind while CDE serves a CAPTCHA.** Since 2026-10-15
+  DataQuest answers scripted requests with a Radware CAPTCHA page, which the probe now
+  records as unknown (PR #134), so a new LTEL year will not raise an advisory. Today this is
+  a by-hand spring check (see ANNUAL-REFRESH.md). A fix would read the year list on
+  `www.cde.ca.gov/ds/ad/filesltel.asp` instead, if that page stays reachable by script.
+- [ ] **The MCP worker hard-codes each CDE dataset's year** (`cde/<dataset>-<year>.json` in
+  `workers/mcp-server/src/index.ts`), so every bump of `CDE_DATA_YEARS` needs a matching
+  edit and a worker deploy. It could read the year from a published index instead.
+
 - [ ] **Committed `docs/` drifts from `data/`, and regenerating surfaces it in unrelated PRs.**
   The pipeline rebuilds and deploys `docs/` but never commits it, so tracked HTML falls
   behind whatever `data/` currently holds. Rebuilding on a pristine `origin/main` with no

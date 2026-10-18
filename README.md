@@ -109,7 +109,7 @@ AI-generated content (meeting summaries, timestamp mappings) is always labeled a
 | Claude Haiku | Agenda item → video timestamp mapping | LLM transcript analysis | `map-timestamps-llm.mjs` |
 | [CDE DataQuest](https://data1.cde.ca.gov/dataquest/) | Enrollment, demographics, test scores, SpEd | Public data files | `data/sped-enrollment.json`, `data/sped-categories.json` |
 | [CDE Chronic Absenteeism](https://www.cde.ca.gov/ds/ad/fsabd.asp) | Chronic absenteeism by subgroup | CDE bulk download | `data/cde/absenteeism-2024-25.json` |
-| [CDE LTEL/ELAS](https://dq.cde.ca.gov/dataquest/longtermel/) | Long-term English Learner status | CDE bulk download | `data/cde/ltel-2024-25.json` |
+| [CDE LTEL/ELAS](https://dq.cde.ca.gov/dataquest/longtermel/) | Long-term English Learner status | CDE bulk download | `data/cde/ltel-2025-26.json` |
 | [CDE Staff Demographics](https://www.cde.ca.gov/ds/ad/fsspre.asp) | Teacher race/ethnicity | CDE bulk download | `data/cde/staff-ethnicity-2024-25.json` |
 | [CDE Staff Experience](https://www.cde.ca.gov/ds/ad/fsspex.asp) | Teacher experience levels | CDE bulk download | `data/cde/staff-experience-2024-25.json` |
 | [CDE Staff Ratios](https://www.cde.ca.gov/ds/ad/fssprat.asp) | Student-staff ratios | CDE bulk download | `data/cde/staff-ratios-2024-25.json` |

@@ -2229,8 +2229,8 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       // LTEL status only exists for grades 6-12, so TK-5 schools always show 0.
       const maxGrade = parseInt(String(school.grades).split('-').pop(), 10);
       const intro = isEs
-        ? `En 2024-25, ${fmt(ltel.el)} de los ${fmt(ltel.totalEnrollment)} estudiantes de esta escuela${elPct !== null ? ` (${elPct}%)` : ''} eran Estudiantes de Inglés — estudiantes que todavía están aprendiendo inglés. Otros ${supp(ltel.rfep)} ya lo dominan: pasaron el examen del estado y fueron "reclasificados" (RFEP).`
-        : `In 2024-25, ${fmt(ltel.el)} of this school's ${fmt(ltel.totalEnrollment)} students${elPct !== null ? ` (${elPct}%)` : ''} were English Learners — students who are still learning English. Another ${supp(ltel.rfep)} used to be English Learners and are now fluent: they passed the state's English test and were "reclassified" (RFEP).`;
+        ? `En ${CDE_DATA_YEARS.ltel}, ${fmt(ltel.el)} de los ${fmt(ltel.totalEnrollment)} estudiantes de esta escuela${elPct !== null ? ` (${elPct}%)` : ''} eran Estudiantes de Inglés — estudiantes que todavía están aprendiendo inglés. Otros ${supp(ltel.rfep)} ya lo dominan: pasaron el examen del estado y fueron "reclasificados" (RFEP).`
+        : `In ${CDE_DATA_YEARS.ltel}, ${fmt(ltel.el)} of this school's ${fmt(ltel.totalEnrollment)} students${elPct !== null ? ` (${elPct}%)` : ''} were English Learners — students who are still learning English. Another ${supp(ltel.rfep)} used to be English Learners and are now fluent: they passed the state's English test and were "reclassified" (RFEP).`;
       return `
         <h3 style="margin-top:2rem">${L.cdeLtelHeading}</h3>
         <p>${intro}</p>

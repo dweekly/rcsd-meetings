@@ -302,13 +302,13 @@ function createServer(): McpServer {
       try {
         const [absenteeism, ltel, staffEthnicity, staffExperience, staffRatios] = await Promise.all([
           fetchJSON("cde/absenteeism-2024-25.json"),
-          fetchJSON("cde/ltel-2024-25.json"),
+          fetchJSON("cde/ltel-2025-26.json"),
           fetchJSON("cde/staff-ethnicity-2024-25.json"),
           fetchJSON("cde/staff-experience-2024-25.json"),
           fetchJSON("cde/staff-ratios-2024-25.json"),
         ]);
         const slug = found.slug;
-        const cdeLines: string[] = ["\n  CDE Data (2024-25):"];
+        const cdeLines: string[] = ["\n  CDE Data (2024-25 unless noted):"];
 
         // Chronic absenteeism
         const abs = absenteeism[slug];
@@ -329,7 +329,7 @@ function createServer(): McpServer {
           if (el.ltel != null) parts.push(`${el.ltel} LTEL`);
           if (el.atRisk != null) parts.push(`${el.atRisk} At-Risk`);
           if (el.rfep != null) parts.push(`${el.rfep} Reclassified`);
-          if (parts.length) cdeLines.push(`    English Learners: ${parts.join(", ")}`);
+          if (parts.length) cdeLines.push(`    English Learners (2025-26): ${parts.join(", ")}`);
         }
 
         // Teacher diversity (ethnicity)
