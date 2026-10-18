@@ -99,6 +99,12 @@ export function nextSchoolYear(year) {
  * CDE also sits behind Radware bot protection that answers 303/403 under load,
  * and "I could not tell" must not read as either answer.
  *
+ * That protection can also 302 to a Radware CAPTCHA page on
+ * validate.perfdrive.com, which fetch follows and which answers 200 with a
+ * multi-line HTML body (seen from 2026-10-15 for LTEL 2025-26 and 2026-27).
+ * Counting lines would read that page as published data, so an HTML body is
+ * `'unknown'`: the files CDE publishes are tab-delimited text, never HTML.
+ *
  * @param status HTTP status.
  * @param bodySample First few KB of the body, or null if it could not be read.
  */
@@ -106,6 +112,7 @@ export function classifyAvailability(status, bodySample = null) {
   if (status === 404) return false;
   if (status !== 200 && status !== 206) return 'unknown';
   if (bodySample == null) return 'unknown';
+  if (/^\s*<(!doctype html|html)\b/i.test(bodySample)) return 'unknown';
   return hasDataRows(bodySample);
 }
 
