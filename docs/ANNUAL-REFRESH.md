@@ -161,6 +161,20 @@ or to catch a mid-year change, rather than inferring roles from agenda items or 
   on a school page. CDE releases the five datasets **separately** — verified 2026-08-19,
   when the three staff files had published 2025-26 and chronic absenteeism had not.
 
+### Budget page: four reports a year
+`/budget/` and `/presupuesto/` (`scripts/build-budget.mjs`) describe the current fiscal
+year's budget report (`BUDGET_SOURCE` in `school-year.mjs`: adopted in late June, First
+Interim in December, Second Interim in March) and the latest Unaudited Actuals
+(`ACTUALS_SOURCE`, each September). The figures live in one block at the top of
+`build-budget.mjs`, next to the report and page each came from. To refresh: copy the new
+report's figures into that block, update `FIGURES_FROM` and the dates, then bump the
+constant. **The build fails if the constant and `FIGURES_FROM` disagree**, so bumping
+the constant alone cannot relabel old numbers as new ones; it also fails if a table's
+rows stop adding up to its total (a rounding gap in the source itself is declared and
+explained on the page). Any sentence kept from an older report names that report and its
+date. The district's books are mostly scanned images: render the pages and read them, or
+OCR them, rather than trusting `pdftotext`.
+
 ### Not covered, deliberately
 Bell schedules, district calendars, and lunch URLs rotate each August and have no clean
 machine source. They are not probed and not on this checklist as a hard requirement —
