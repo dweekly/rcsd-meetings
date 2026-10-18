@@ -143,7 +143,17 @@ or to catch a mid-year change, rather than inferring roles from agenda items or 
   DataQuest serves LTEL from `?year=…` and returns **HTTP 200 for any year you ask**
   (2030-31 included), with a header-only body when there is no data — so availability is
   decided by whether rows came back, not by the status code. And CDE's bot protection
-  answers 303 for stretches, which reports as unknown rather than as either answer.
+  answers 303 for stretches, or 302s to a Radware CAPTCHA page (seen from 2026-10-15),
+  which reports as unknown rather than as either answer.
+
+  **LTEL usually needs a hand download.** While Radware is serving the CAPTCHA, scripts
+  cannot fetch LTEL at all, and the probe cannot tell a new year is out. Check
+  https://www.cde.ca.gov/ds/ad/filesltel.asp each spring (2025-26 posted 16 Apr 2026),
+  download the new year in a browser, save it as `artifacts/cde/ltel-<year>.txt`, and run
+  the pull below: it parses the cached file without fetching. Add a `retrieval` note to
+  the output's `_metadata` saying it was a browser download. Also update the year in
+  `workers/mcp-server/src/index.ts` and deploy the worker after the next pipeline run has
+  uploaded the new JSON to R2.
 
   To ingest: `node scripts/pull-cde-data.mjs --dataset <name> --year <new-year>`
   (`--year` is required to fetch a year newer than the one recorded), confirm the output, bump
