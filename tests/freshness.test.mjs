@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url';
 
 import { nameKey, sameName, displayName, decodeEntities } from '../scripts/lib/person-name.mjs';
 import { classifyAvailability, cyclesBehind, nextSchoolYear, datasetFor, hasDataRows } from '../scripts/lib/cde-datasets.mjs';
-import { currentSchoolYear, loadYearScopedJson, cdeDatasetPath, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, IREADY_YEAR, CDE_DATA_YEARS, priorSchoolYear } from '../scripts/lib/school-year.mjs';
+import { currentSchoolYear, loadYearScopedJson, cdeDatasetPath, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, LCAP_PDF_URL, IREADY_YEAR, CDE_DATA_YEARS, priorSchoolYear } from '../scripts/lib/school-year.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GUARD = resolve(ROOT, 'scripts/check-freshness.mjs');
@@ -315,6 +315,15 @@ test('year-scoped labels and paths are derived, not written out again', () => {
     'SARC/SPSA document URLs must come from SARC_YEAR / SPSA_YEAR');
 });
 
+test('the linked LCAP is the one LCAP_YEAR names', () => {
+  // The school-page source note prints LCAP_YEAR and links LCAP_PDF_URL. A plan
+  // for year Y-(Y+1) is adopted at a late-spring Board meeting in year Y, so a
+  // bump of one without the other shows up as a mismatched meeting date.
+  const startYear = LCAP_YEAR.slice(0, 4);
+  assert.match(LCAP_PDF_URL, new RegExp(`^https://data\\.rcsd\\.info/board-packets/${startYear}-0[5-6]-\\d{2}/`),
+    `LCAP_PDF_URL should be a ${startYear} May/June board-packet attachment for the ${LCAP_YEAR} LCAP`);
+});
+
 test('extractor provenance reports the year it actually used', () => {
   // sarc-summary.json once hardcoded "2024-25 SARCs (covering 2023-24 data)",
   // which would have kept claiming 2024-25 after a bump.
@@ -361,7 +370,7 @@ test('the years build-schools still writes out by hand are a known, bounded set'
 
   // Baseline taken 2026-08-20. Lower these as years are bound to constants;
   // raising one means a new hand-written year was introduced — don't.
-  const BASELINE = { '2022-23': 2, '2023-24': 2, '2024-25': 21, '2025-26': 30 };
+  const BASELINE = { '2022-23': 2, '2023-24': 2, '2024-25': 21, '2025-26': 28 };
   for (const [year, max] of Object.entries(BASELINE)) {
     assert.ok((counts[year] ?? 0) <= max,
       `build-schools.mjs now writes "${year}" ${counts[year]} times (was ${max}). `

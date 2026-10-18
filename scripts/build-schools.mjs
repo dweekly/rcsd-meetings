@@ -7,7 +7,7 @@
  *   - data/schools.json (directory info)
  *   - 2024-25 SARCs (CAASPP proficiency, demographics, staffing credentials)
  *   - 2025-26 SPSAs (site budgets, funding sources)
- *   - 2025-26 LCAP and school-level board presentations (student outcomes)
+ *   - the adopted LCAP named by LCAP_YEAR / LCAP_PDF_URL, and school-level board presentations (student outcomes)
  *
  * NOTE (2026-04-22): the `growth` field on each school is currently unverified.
  * The original numbers were copied from a local working doc that was never
@@ -21,7 +21,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { charterSummaries } from './build-charters.mjs';
-import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, IREADY_YEAR, CA_DASHBOARD_YEAR, CDE_DATA_YEARS, priorSchoolYear } from './lib/school-year.mjs';
+import { cdeDatasetPath, loadYearScopedJson, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, LCAP_PDF_URL, IREADY_YEAR, CA_DASHBOARD_YEAR, CDE_DATA_YEARS, priorSchoolYear } from './lib/school-year.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -116,13 +116,25 @@ const IREADYU_DATA = (() => {
   return out;
 })();
 
-// District-wide i-Ready Expected Growth from 2025-26 LCAP Mid-Year Report
-// (data.rcsd.info/board-packets/2026-02-11/Mid-year-LCAP-2025-2026-1.pdf, p.22-23).
+// District-wide % of students meeting i-Ready Expected Growth, winter (January
+// 2026) diagnostic. Source: the LCAP adopted by the Board 2026-06-24 (pdfUrl below), Goal 3
+// metrics 3.1 (Reading) and 3.2 (Math), "Year 2 Outcome: Winter 2026 (Jan.)",
+// PDF p.57. The same figures first appeared in the 2025-26 LCAP Mid-Year Report
+// (board-packets/2026-02-11/Mid-year-LCAP-2025-2026-1.pdf, p.22-23).
+//
+// That LCAP has no newer district measurement: its Year 3 column is the
+// Spring 2027 target. Keep this on the winter window while the school figures it
+// is compared against (data/ireadyu-growth/*.json `y2_25_26_midyear`) are the
+// schools' mid-year diagnostics; a spring/end-of-year district figure must not be
+// paired with them.
 const DISTRICT_IREADYU = {
   reading: 60.7,
   math: 56.4,
-  year: '2025-26 Winter',
-  pdfUrl: 'https://data.rcsd.info/board-packets/2026-02-11/Mid-year-LCAP-2025-2026-1.pdf',
+  schoolYear: '2025-26',   // winter (January 2026) diagnostic of this school year
+  // Literal, not LCAP_PDF_URL: these figures stay tied to the document they came
+  // from even after LCAP_YEAR moves on.
+  pdfUrl: 'https://data.rcsd.info/board-packets/2026-06-24/Final-2026_Local_Control_and_Accountability_Plan_Redwood_City_Elementary_School_.pdf',
+  pdfPage: 57,
 };
 
 const ABSENT_LABELS = {
@@ -298,8 +310,8 @@ for (const slug of Object.keys(SCHOOL_BOARD_ITEMS)) {
 console.log(`Tagged ${Object.values(SCHOOL_BOARD_ITEMS).reduce((s, arr) => s + arr.length, 0)} board items across ${Object.keys(SCHOOL_BOARD_ITEMS).length} schools`);
 
 // ---- Per-school enrichment data ----
-// Primary sources: 2024-25 SARCs (data/sarc/), 2025-26 SPSAs, 2025-26 LCAP,
-// and each school's 2025-26 Board of Trustees data presentation.
+// Primary sources: 2024-25 SARCs (data/sarc/), 2025-26 SPSAs, the adopted LCAP
+// (LCAP_YEAR / LCAP_PDF_URL), and each school's 2025-26 Board of Trustees data presentation.
 // The `growth` field is currently unverified (see file header note).
 
 const SCHOOL_DATA = {
@@ -1286,6 +1298,8 @@ const LABELS = {
     program: 'Special program',
     studentGrowth: 'Student Growth',
     growthNote: 'Growth measures how much students are learning each year, regardless of their starting point. A school with low proficiency but high growth is accelerating learning. Proficiency measures how many students are at or above grade level right now.',
+    // "4 percentage points each year": adopted LCAP (LCAP_PDF_URL) Goal 3, PDF p.56: "increase the
+    // percentage of students meeting annual expected growth by at least 4% each year".
     growthFinePrint: 'Growth = % of students meeting their annual i-Ready Expected Growth target on the mid-year diagnostic. i-Ready is the district\u2019s local K\u20138 literacy and math assessment; the LCAP goal is to raise this by 4 percentage points each year. Proficiency = % meeting or exceeding grade-level standards on the CAASPP (the California state test, given in spring of grades 3\u20138).',
     elaGrowth: 'English growth',
     mathGrowth: 'Math growth',
@@ -1339,6 +1353,9 @@ const LABELS = {
     fullyCredentialed: 'Fully Credentialed',
     misassigned: 'Misassigned',
     elMisassigned: 'EL Misassigned',
+    // 75% and the 100% target both appear in the adopted LCAP (LCAP_PDF_URL), metric
+    // 3.6, PDF p.58: Year 1 outcome = 75% (the LCAP cites the SARC; no Year 2 value is
+    // reported), target for Spring 2027 = 100% fully credentialed.
     districtAvgCredentialed: 'District avg: 75%',
     districtTarget: 'District target: 100% by 2027',
     misassignedExplainer: '"Misassigned" means a teacher was placed in a class they are not credentialed for — most often classes with students learning English (EL).',
@@ -1400,7 +1417,7 @@ const LABELS = {
     backToDistrict: 'All schools',
     disclaimer: '<strong>Draft document.</strong> Personally prepared by David Weekly; this is not a representation of the district or the Board of Trustees and may contain material factual errors. For official information, visit <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Leer en espa&ntilde;ol',
-    sourceNote: `Sources: ${SARC_YEAR} SARCs, ${SPSA_YEAR} SPSAs, ${LCAP_YEAR} LCAP, each school’s ${IREADY_YEAR} Board of Trustees data presentation. Proficiency from ${priorSchoolYear(SARC_YEAR)} CAASPP. Growth from each school’s ${IREADY_YEAR} mid-year i-Ready diagnostic as reported to the Board.`,
+    sourceNote: `Sources: ${SARC_YEAR} SARCs, ${SPSA_YEAR} SPSAs, <a href="${LCAP_PDF_URL}" target="_blank" rel="noopener">${LCAP_YEAR} LCAP</a> (district-wide i-Ready growth from the ${DISTRICT_IREADYU.schoolYear} winter diagnostic, the 4-point growth goal, and the district average and target for fully credentialed teachers), each school’s ${IREADY_YEAR} Board of Trustees data presentation. Proficiency from ${priorSchoolYear(SARC_YEAR)} CAASPP. Growth from each school’s ${IREADY_YEAR} mid-year i-Ready diagnostic as reported to the Board.`,
     chronicAbsentNote: 'reported as 0% -- likely a data error',
     address: 'Address',
     phone: 'Phone',
@@ -1463,6 +1480,7 @@ const LABELS = {
     program: 'Programa especial',
     studentGrowth: 'Crecimiento Estudiantil',
     growthNote: 'El crecimiento mide cuánto aprenden los estudiantes cada año, sin importar su punto de partida. Una escuela con baja competencia pero alto crecimiento está acelerando el aprendizaje. La competencia mide cuántos estudiantes están al nivel de grado o por encima en este momento.',
+    // Meta de 4 puntos: LCAP adoptado (LCAP_PDF_URL), Meta 3, PDF p.56; ver la versión en inglés.
     growthFinePrint: 'Crecimiento = % de estudiantes que alcanzaron su meta anual de Crecimiento Esperado en i-Ready en la evaluación diagnóstica de medio año. i-Ready es la evaluación local del distrito en lectura y matemáticas para K\u20138; la meta del LCAP es aumentar este porcentaje 4 puntos cada año. Competencia = % que cumplen o superan los estándares de grado en el CAASPP (examen estatal de California, administrado en primavera a los grados 3\u20138).',
     elaGrowth: 'Crecimiento en inglés',
     mathGrowth: 'Crecimiento en matemáticas',
@@ -1516,6 +1534,7 @@ const LABELS = {
     fullyCredentialed: 'Con Credencial Completa',
     misassigned: 'Asignación Incorrecta',
     elMisassigned: 'Asignación Incorrecta EL',
+    // Fuente: LCAP adoptado (LCAP_PDF_URL), métrica 3.6, PDF p.58; ver la versión en inglés.
     districtAvgCredentialed: 'Promedio del distrito: 75%',
     districtTarget: 'Meta del distrito: 100% para 2027',
     misassignedExplainer: '"Asignación incorrecta" significa que pusieron a un maestro en una clase para la que no tiene credencial — más seguido en clases con estudiantes que están aprendiendo inglés (EL).',
@@ -1577,7 +1596,7 @@ const LABELS = {
     backToDistrict: 'Todas las escuelas',
     disclaimer: '<strong>Documento borrador.</strong> Preparado personalmente por David Weekly; esto no es una representación del distrito o de la Mesa Directiva y puede contener errores materiales. Para información oficial, visite <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Read in English',
-    sourceNote: `Fuentes: SARCs ${SARC_YEAR}, SPSAs ${SPSA_YEAR}, LCAP ${LCAP_YEAR}, presentaciones ${IREADY_YEAR} de cada escuela a la Mesa Directiva. Competencia del CAASPP ${priorSchoolYear(SARC_YEAR)}. Crecimiento de la evaluación diagnóstica de medio año i-Ready ${IREADY_YEAR} reportada a la Mesa.`,
+    sourceNote: `Fuentes: SARCs ${SARC_YEAR}, SPSAs ${SPSA_YEAR}, <a href="${LCAP_PDF_URL}" target="_blank" rel="noopener">LCAP ${LCAP_YEAR}</a> (crecimiento i-Ready de todo el distrito en la evaluación de invierno ${DISTRICT_IREADYU.schoolYear}, la meta de crecimiento de 4 puntos, y el promedio y la meta del distrito de maestros con credencial completa), presentaciones ${IREADY_YEAR} de cada escuela a la Mesa Directiva. Competencia del CAASPP ${priorSchoolYear(SARC_YEAR)}. Crecimiento de la evaluación diagnóstica de medio año i-Ready ${IREADY_YEAR} reportada a la Mesa.`,
     chronicAbsentNote: 'reportado como 0% -- probablemente un error de datos',
     address: 'Dirección',
     phone: 'Teléfono',
@@ -2712,7 +2731,7 @@ function buildSchoolsIndex(lang) {
     thNetwork: 'Red', thOpened: 'Inauguraci\u00f3n',
     thProperty: 'Propiedad', thAddress: 'Direcci\u00f3n', thDetails: 'Detalles',
     networkIndep: 'Independiente',
-    growthExplainer: '<strong>% alta necesidad</strong> = porcentaje de estudiantes socioeconómicamente desfavorecidos o aprendices de inglés. <strong>Crecimiento</strong> = % de estudiantes que alcanzaron su meta anual de Crecimiento Esperado en i-Ready en la evaluación diagnóstica de medio año 2025-26. La meta del LCAP es aumentar este número 4 puntos cada año. Una escuela con baja competencia pero alto crecimiento está acelerando el aprendizaje.',
+    growthExplainer: `<strong>% alta necesidad</strong> = porcentaje de estudiantes socioeconómicamente desfavorecidos o aprendices de inglés. <strong>Crecimiento</strong> = % de estudiantes que alcanzaron su meta anual de Crecimiento Esperado en i-Ready en la evaluación diagnóstica de medio año 2025-26. La meta del LCAP es aumentar este número 4 puntos cada año. Una escuela con baja competencia pero alto crecimiento está acelerando el aprendizaje. Los colores de las barras comparan cada escuela con el resultado de medio año de todo el distrito, según el LCAP ${LCAP_YEAR} (Lectura ${DISTRICT_IREADYU.reading}%, Matemáticas ${DISTRICT_IREADYU.math}%). Las escuelas sin barra todavía no han presentado sus datos ${IREADY_YEAR} a la Mesa Directiva.`,
     pathPrefix: '/escuelas/',
     charterPathKey: 'esPath',
   } : {
@@ -2730,7 +2749,7 @@ function buildSchoolsIndex(lang) {
     thNetwork: 'Network', thOpened: 'Opened',
     thProperty: 'Property', thAddress: 'Address', thDetails: 'Details',
     networkIndep: 'Independent',
-    growthExplainer: '<strong>% high-need</strong> = share of students who are socioeconomically disadvantaged or English learners. <strong>Growth</strong> = % of students who met their annual i-Ready Expected Growth target on the 2025-26 mid-year diagnostic. The district\u2019s LCAP goal is to raise this by 4 percentage points each year. A school with low proficiency but high growth is accelerating learning. Bar colors compare each school to the district-wide mid-year result (Reading 60.7%, Math 56.4%). Schools without a bar have not yet presented 2025-26 data to the Board.',
+    growthExplainer: `<strong>% high-need</strong> = share of students who are socioeconomically disadvantaged or English learners. <strong>Growth</strong> = % of students who met their annual i-Ready Expected Growth target on the 2025-26 mid-year diagnostic. The district\u2019s LCAP goal is to raise this by 4 percentage points each year. A school with low proficiency but high growth is accelerating learning. Bar colors compare each school to the district-wide mid-year result from the ${LCAP_YEAR} LCAP (Reading ${DISTRICT_IREADYU.reading}%, Math ${DISTRICT_IREADYU.math}%). Schools without a bar have not yet presented 2025-26 data to the Board.`,
     pathPrefix: '/schools/',
     charterPathKey: 'enPath',
   };

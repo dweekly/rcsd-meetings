@@ -89,8 +89,20 @@ export const SSC_YEARS = ['2023-24', '2024-25', '2025-26'];
  * they are adopted on different schedules by different bodies. Collapsing
  * independent facts onto one constant is the same defect as writing the year
  * out by hand — it just fails less visibly.
+ *
+ * The year here is a claim that every LCAP-sourced figure on the school pages
+ * appears in that year's adopted LCAP. Bumping it is NOT a relabel: first check
+ * each LCAP-derived constant in scripts/build-schools.mjs (DISTRICT_IREADYU,
+ * the 4-point growth goal, the credentialing target) against the new plan, then
+ * move LCAP_YEAR and LCAP_PDF_URL together.
+ *
+ * 2026-27: adopted by the Board 2026-06-24 (agenda attachment listed in
+ * data/board-memos/2026-06-24.json).
  */
-export const LCAP_YEAR = '2025-26';
+export const LCAP_YEAR = '2026-27';
+
+/** The adopted LCAP document for LCAP_YEAR, linked from the school-page source note. */
+export const LCAP_PDF_URL = 'https://data.rcsd.info/board-packets/2026-06-24/Final-2026_Local_Control_and_Accountability_Plan_Redwood_City_Elementary_School_.pdf';
 
 /**
  * The year of the per-school Board of Trustees data presentations that supply
