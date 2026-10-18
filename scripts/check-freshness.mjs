@@ -31,6 +31,7 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { sameName, nameKey } from './lib/person-name.mjs';
 import { cyclesBehind } from './lib/cde-datasets.mjs';
+import { currentValues, evaluateSchedule, todayInLA } from './lib/refresh-schedule.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const FRESHNESS_PATH = resolve(ROOT, 'data/freshness.json');
@@ -39,16 +40,11 @@ const TRUSTEES_PATH = resolve(ROOT, 'data/trustees.json');
 
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
 
-if (!existsSync(FRESHNESS_PATH)) {
-  console.log('No freshness record yet — passing (first run, or the probe has never completed).');
-  process.exit(0);
-}
+// --today YYYY-MM-DD moves only the refresh schedule's clock (to exercise it on
+// any date); --values <json> replaces the values it reads (tests use fixtures).
+const args = process.argv.slice(2);
+const argValue = (flag) => { const i = args.indexOf(flag); return i >= 0 ? args[i + 1] : undefined; };
 
-const freshness = JSON.parse(readFileSync(FRESHNESS_PATH, 'utf-8'));
-const schools = JSON.parse(readFileSync(SCHOOLS_PATH, 'utf-8')).schools;
-const trustees = JSON.parse(readFileSync(TRUSTEES_PATH, 'utf-8'));
-
-const { observations = [], lastRun = {}, maxObservationAgeDays = 7 } = freshness;
 const problems = [];
 // ADVISORY findings are printed but do NOT fail the build. The cabinet /
 // director roster on the district page churns (people are added, retitled, and
@@ -59,9 +55,31 @@ const problems = [];
 // — those stay fatal.
 const advisories = [];
 
+// --- Is any year-scoped fact past its release date? -------------------------
+// Runs before, and independently of, the observation record: a missing
+// freshness.json must not switch the calendar off. See lib/refresh-schedule.mjs.
+const scheduleToday = argValue('--today') ?? todayInLA();
+const scheduleValues = argValue('--values')
+  ? JSON.parse(readFileSync(argValue('--values'), 'utf-8'))
+  : await currentValues(ROOT);
+const schedule = evaluateSchedule({ today: scheduleToday, values: scheduleValues });
+problems.push(...schedule.problems);
+advisories.push(...schedule.advisories);
+
+const hasRecord = existsSync(FRESHNESS_PATH);
+if (!hasRecord) {
+  console.log('No freshness record yet — observation checks skipped (first run, or the probe has never completed).');
+}
+const freshness = hasRecord ? JSON.parse(readFileSync(FRESHNESS_PATH, 'utf-8')) : {};
+const schools = hasRecord ? JSON.parse(readFileSync(SCHOOLS_PATH, 'utf-8')).schools : [];
+const trustees = hasRecord ? JSON.parse(readFileSync(TRUSTEES_PATH, 'utf-8')) : {};
+const { observations = [], lastRun = {}, maxObservationAgeDays = 7 } = freshness;
+
 // --- Is the probe itself still running? ------------------------------------
 // A probe that quietly stopped would otherwise read as "no drift found".
-if (!lastRun.probedAt) {
+if (!hasRecord) {
+  // Nothing to check; the schedule above still ran.
+} else if (!lastRun.probedAt) {
   problems.push('data/freshness.json has no lastRun.probedAt — the probe has never completed a run.');
 } else {
   const ageDays = (Date.now() - Date.parse(lastRun.probedAt)) / MS_PER_DAY;
@@ -77,7 +95,7 @@ if (!lastRun.probedAt) {
 for (const failure of lastRun.failures ?? []) {
   problems.push(`Source could not be probed: ${failure}`);
 }
-if (observations.length === 0) {
+if (hasRecord && observations.length === 0) {
   problems.push('data/freshness.json contains no observations — nothing was checked.');
 }
 
@@ -178,4 +196,5 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log(`Freshness OK (${observations.length} observations, ${advisories.length} advisories, probed ${lastRun.probedAt}).`);
+console.log(`Freshness OK (${observations.length} observations, ${advisories.length} advisories, `
+  + `refresh schedule checked for ${scheduleToday}, probed ${lastRun.probedAt ?? 'never'}).`);

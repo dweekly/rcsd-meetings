@@ -21,27 +21,47 @@ import { fileURLToPath } from 'node:url';
 
 import { nameKey, sameName, displayName, decodeEntities } from '../scripts/lib/person-name.mjs';
 import { classifyAvailability, cyclesBehind, nextSchoolYear, datasetFor, hasDataRows } from '../scripts/lib/cde-datasets.mjs';
+import { evaluateSchedule, currentValues, todayInLA } from '../scripts/lib/refresh-schedule.mjs';
 import { currentSchoolYear, loadYearScopedJson, cdeDatasetPath, SARC_YEAR, SPSA_YEAR, LCAP_YEAR, LCAP_PDF_URL, IREADY_YEAR, CDE_DATA_YEARS, priorSchoolYear } from '../scripts/lib/school-year.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GUARD = resolve(ROOT, 'scripts/check-freshness.mjs');
 
+// Refresh-schedule values that satisfy every rule on SCHEDULE_DAY. Each CLI
+// test runs the schedule against these unless it overrides them, so the
+// observation tests are unaffected by today's real calendar.
+const SCHEDULE_DAY = '2027-02-20';
+const SATISFIED = {
+  'ca-dashboard': 2026,   // 2026 Dashboard, due 2027-01-05
+  lcap: 2026,             // 2026-27 LCAP, due 2026-07-15
+  budget: 20262,          // 2026-27 First Interim, due 2027-01-15
+  actuals: 2025,          // 2025-26 Unaudited Actuals, due 2026-10-15
+  sarc: 2024, iready: 2025, spsa: 2025, ltel: 2025,
+  officers: 20261216,     // December 2026 reorganization, due 2027-01-15
+};
+
 /**
- * Build a throwaway repo root holding just the three files the guard reads,
- * and run the guard against it. Returns { code, stdout, stderr }.
+ * Build a throwaway repo root holding just the files the guard reads, and run
+ * the guard against it. Returns { code, stdout, stderr }. A null `freshness`
+ * leaves data/freshness.json out entirely.
  */
-function runGuard({ freshness, schools, trustees }) {
+function runGuard({ freshness, schools, trustees, values = SATISFIED, today = SCHEDULE_DAY }) {
   const dir = mkdtempSync(join(tmpdir(), 'freshness-'));
   mkdirSync(join(dir, 'data'), { recursive: true });
   mkdirSync(join(dir, 'scripts', 'lib'), { recursive: true });
-  writeFileSync(join(dir, 'data/freshness.json'), JSON.stringify(freshness, null, 2));
+  if (freshness) writeFileSync(join(dir, 'data/freshness.json'), JSON.stringify(freshness, null, 2));
   writeFileSync(join(dir, 'data/schools.json'), JSON.stringify(schools, null, 2));
   writeFileSync(join(dir, 'data/trustees.json'), JSON.stringify(trustees, null, 2));
+  writeFileSync(join(dir, 'schedule-values.json'), JSON.stringify(values));
   cpSync(GUARD, join(dir, 'scripts/check-freshness.mjs'));
-  cpSync(resolve(ROOT, 'scripts/lib/person-name.mjs'), join(dir, 'scripts/lib/person-name.mjs'));
-  cpSync(resolve(ROOT, 'scripts/lib/cde-datasets.mjs'), join(dir, 'scripts/lib/cde-datasets.mjs'));
+  for (const lib of ['person-name.mjs', 'cde-datasets.mjs', 'refresh-schedule.mjs']) {
+    cpSync(resolve(ROOT, 'scripts/lib', lib), join(dir, 'scripts/lib', lib));
+  }
   try {
-    const stdout = execFileSync(process.execPath, [join(dir, 'scripts/check-freshness.mjs')], {
+    const stdout = execFileSync(process.execPath, [
+      join(dir, 'scripts/check-freshness.mjs'),
+      '--today', today, '--values', join(dir, 'schedule-values.json'),
+    ], {
       encoding: 'utf-8', stdio: ['ignore', 'pipe', 'pipe'],
     });
     return { code: 0, stdout, stderr: '' };
@@ -150,16 +170,110 @@ test('cabinet roster drift is reported but does not fail the build', () => {
 });
 
 test('a missing freshness record passes, so a first run is not a failure', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'freshness-empty-'));
-  mkdirSync(join(dir, 'data'), { recursive: true });
+  const r = runGuard({ freshness: null, schools: baseSchools, trustees: baseTrustees });
+  assert.equal(r.code, 0, r.stderr);
+  assert.match(r.stdout, /No freshness record yet/);
+});
+
+// --- refresh schedule ---------------------------------------------------------
+
+test('the refresh schedule passes when every fact is current, and fails naming the one that is not', () => {
+  const ok = runGuard({ freshness: baseFreshness(), schools: baseSchools, trustees: baseTrustees });
+  assert.equal(ok.code, 0, ok.stderr);
+  const stale = runGuard({
+    freshness: baseFreshness(), schools: baseSchools, trustees: baseTrustees,
+    values: { ...SATISFIED, 'ca-dashboard': 2025 },
+  });
+  assert.equal(stale.code, 1);
+  assert.match(stale.stderr, /CA_DASHBOARD_YEAR/);
+  assert.doesNotMatch(stale.stderr, /LCAP_YEAR|BUDGET_SOURCE|OFFICER/);
+});
+
+test('a missing freshness record does not switch the refresh schedule off', () => {
+  const r = runGuard({
+    freshness: null, schools: baseSchools, trustees: baseTrustees,
+    values: { ...SATISFIED, lcap: 2024 },
+  });
+  assert.equal(r.code, 1);
+  assert.match(r.stdout, /No freshness record yet/);
+  assert.match(r.stderr, /LCAP_YEAR/);
+});
+
+const dashboard = (today, value = 2025, extra = {}) =>
+  evaluateSchedule({ today, values: { ...SATISFIED, 'ca-dashboard': value }, ...extra });
+
+test('a due date turns into an advisory on the day, and a failure after the grace period', () => {
+  // The 2026 Dashboard is due 2027-01-05; with 30 days' grace it fails from 2027-02-04.
+  // Other rules are held at values that satisfy every date used here.
+  const quiet = { ...SATISFIED, budget: 20263, officers: 20261216 };
+  const at = (today) => evaluateSchedule({ today, values: { ...quiet, 'ca-dashboard': 2025 } });
+  assert.deepEqual(at('2027-01-04'), { problems: [], advisories: [] });
+  assert.equal(at('2027-01-05').advisories.length, 1);
+  assert.equal(at('2027-01-05').problems.length, 0);
+  assert.equal(at('2027-02-03').problems.length, 0, 'last grace day is still an advisory');
+  assert.match(at('2027-02-04').problems[0], /CA_DASHBOARD_YEAR/);
+});
+
+test('an overdue fact stays overdue across New Year', () => {
+  // The 2026-27 LCAP was due 2026-07-15. On Jan 2 the only occurrence for the
+  // new calendar year is still months away, so a check of this year alone would
+  // go quiet until July.
+  const r = evaluateSchedule({ today: '2027-01-02', values: { ...SATISFIED, lcap: 2025 } });
+  assert.match(r.problems.join('\n'), /LCAP_YEAR\) is 2025-26; 2026-27 was due 2026-07-15/);
+});
+
+test('a newer edition satisfies an older requirement', () => {
+  assert.deepEqual(dashboard(SCHEDULE_DAY, 2027).problems, []);
+  // A later fiscal year's Adopted Budget outranks this year's Second Interim.
+  const r = evaluateSchedule({ today: '2027-05-01', values: { ...SATISFIED, budget: 20271, sarc: 2025 } });
+  assert.deepEqual(r.problems, []);
+});
+
+test('budget reports are ranked within a fiscal year', () => {
+  // The 2026-27 Second Interim is due 2027-04-15; holding the First Interim is behind it.
+  const r = evaluateSchedule({ today: '2027-04-20', values: { ...SATISFIED, budget: 20262 } });
+  assert.match(r.advisories.join('\n'), /2026-27 First Interim; 2026-27 Second Interim was due 2027-04-15/);
+});
+
+test('bad input fails loudly instead of passing', () => {
+  assert.match(evaluateSchedule({ today: '2027-13-01', values: SATISFIED }).problems[0], /not a valid/);
+  assert.match(
+    evaluateSchedule({ today: SCHEDULE_DAY, values: { ...SATISFIED, budget: null } }).problems[0],
+    /could not read .*BUDGET_SOURCE/,
+  );
+});
+
+test('a deferral snoozes one occurrence until it expires, with no fresh grace after', () => {
+  const deferral = { id: 'ca-dashboard', due: '2027-01-05', until: '2027-03-01', reason: 'CDE delayed the release' };
+  const active = dashboard('2027-02-20', 2025, { deferrals: [deferral] });
+  assert.equal(active.problems.length, 0);
+  assert.match(active.advisories.join('\n'), /Deferred until 2027-03-01: CDE delayed the release/);
+  const expired = dashboard('2027-03-01', 2025, { deferrals: [deferral] });
+  assert.match(expired.problems.join('\n'), /CA_DASHBOARD_YEAR/);
+  const malformed = dashboard(SCHEDULE_DAY, 2026, { deferrals: [{ ...deferral, reason: ' ' }] });
+  assert.match(malformed.problems.join('\n'), /malformed deferral/);
+});
+
+test('the schedule reads both officer-rotation arrays, and the older one counts', async () => {
+  const dir = mkdtempSync(join(tmpdir(), 'schedule-'));
   mkdirSync(join(dir, 'scripts', 'lib'), { recursive: true });
-  writeFileSync(join(dir, 'data/schools.json'), JSON.stringify(baseSchools));
-  writeFileSync(join(dir, 'data/trustees.json'), JSON.stringify(baseTrustees));
-  cpSync(GUARD, join(dir, 'scripts/check-freshness.mjs'));
-  cpSync(resolve(ROOT, 'scripts/lib/person-name.mjs'), join(dir, 'scripts/lib/person-name.mjs'));
-  cpSync(resolve(ROOT, 'scripts/lib/cde-datasets.mjs'), join(dir, 'scripts/lib/cde-datasets.mjs'));
-  const out = execFileSync(process.execPath, [join(dir, 'scripts/check-freshness.mjs')], { encoding: 'utf-8' });
-  assert.match(out, /No freshness record yet/);
+  cpSync(resolve(ROOT, 'scripts/lib/school-year.mjs'), join(dir, 'scripts/lib/school-year.mjs'));
+  const rotations = (...dates) => `const OFFICER_ROTATIONS = [\n${dates.map(d => `  { afterDate: '${d}' },`).join('\n')}\n];\n`;
+  writeFileSync(join(dir, 'scripts/extract-chapter-markers.mjs'), rotations('2026-12-16', '2025-12-17'));
+  writeFileSync(join(dir, 'scripts/build-meetings-html.mjs'), rotations('2025-12-17', '2024-12-17'));
+  assert.equal((await currentValues(dir)).officers, 20251217);
+});
+
+test('every schedule value is readable from the real repo', async () => {
+  const values = await currentValues(ROOT);
+  for (const [id, v] of Object.entries(values)) {
+    assert.equal(typeof v, 'number', `refresh-schedule value "${id}" could not be read`);
+  }
+});
+
+test('the schedule clock is Pacific time', () => {
+  // 2027-01-05T07:30Z is still the evening of Jan 4 in Redwood City.
+  assert.equal(todayInLA(new Date('2027-01-05T07:30:00Z')), '2027-01-04');
 });
 
 // --- name normalization -----------------------------------------------------
