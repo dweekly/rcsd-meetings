@@ -533,6 +533,8 @@ Filed by the per-meeting triage records in `data/triage/`. Each names the pull i
   - [ ] Rewrite the growth stat cards to show the metric honestly: "% meeting i-Ready annual growth target, <year>" with a source link that opens the actual PDF slide (not the CDE growth-model page, which is unrelated).
   - [ ] Rewrite the tooltip/fine-print text in both EN and ES (scripts/build-schools.mjs:1273-1274 and :1418-1419) to describe i-Ready, not CAASPP.
 - [ ] **Provenance tagging across all hardcoded data.** Every value in the `SCHOOL_DATA` object (CAASPP, demographics, funding, staffing) should carry a `source` attribute pointing to the specific document and page/row it came from, so readers (and future us) can audit each claim. Design a lightweight schema (e.g. `{ value: 11.4, source: "2025-26 SPSA, p.12" }`) and migrate existing fields.
+- [ ] **Source the school pages' district CAASPP averages.** `districtAvgEla`/`districtAvgMath` ("District avg: 42%" / "35%", under "CA State Testing (2023-24)") have no recorded source, and the 2026-27 LCAP's 2023-24 Dashboard baseline for the same years reads 45.2% / 37.2% (metrics 3.3/3.4, p.57). Find the SARC/CDE figure they came from, cite it, and fix whichever is wrong. (Found during the LCAP refresh, 2026-10-18.)
+- [ ] **Check the credentialing comparison is one year.** "District avg: 75%" fully credentialed is the LCAP's 2024-25 Year 1 figure (metric 3.6, p.58); each school's figure comes from its SARC teacher table. Confirm both sides describe the same school year, or label each. (Found during the LCAP refresh, 2026-10-18.)
 - [ ] Pull CDE growth model spreadsheet (growthmodeldownload2025.xlsx) to check for useful RCSD data not yet represented
 
 ## Targeted Repairs
