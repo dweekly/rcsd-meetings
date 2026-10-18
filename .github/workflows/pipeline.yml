@@ -261,29 +261,47 @@ jobs:
             # --autostash is load-bearing: the pipeline leaves worktree files
             # this step does not stage, and `pull --rebase` refuses to start
             # while unstaged changes are present.
-            # When the run ahead of this one regenerated the same files (two runs
-            # overlapped: freshness.json, a board-memos file), the rebase stops on
-            # a conflict. Everything this step commits is regenerated wholesale by
-            # this run, which is the newer one, so keep this run's copy of each
-            # conflicted file. If the rebase still can't finish, abort it: a
-            # half-applied rebase leaves conflict markers in the worktree, and the
-            # later steps (release manifest, freshness guard) read them as data.
-            # In a rebase, --theirs is the commit being replayed, i.e. this run's.
+            # When the run ahead of this one touched the same files (two runs
+            # overlapped), the rebase stops on a conflict. data/freshness.json is a
+            # snapshot that every probe recomputes in full, so this run's (newer)
+            # copy wins. Every other file here is an incremental cache, where
+            # upstream may hold entries this run never saw, so upstream's copy wins
+            # and this run's change to that file is redone on the next run.
+            # In a rebase, --theirs is the commit being replayed (this run's) and
+            # --ours is upstream.
             sync_with_remote() {
               git pull --rebase --autostash origin main && return 0
-              local conflicted
+              local conflicted f
               while conflicted=$(git diff --name-only --diff-filter=U) && [ -n "$conflicted" ]; do
-                echo "Overlapping run touched the same files; keeping this run's copy of:"
-                echo "$conflicted"
-                echo "$conflicted" | xargs git checkout --theirs --
-                echo "$conflicted" | xargs git add --
+                for f in $conflicted; do
+                  if [ "$f" = data/freshness.json ]; then
+                    git checkout --theirs -- "$f" || { git rebase --abort; return 1; }
+                  else
+                    echo "Overlapping run also changed $f; keeping upstream's copy (this run's change is redone next run)."
+                    git checkout --ours -- "$f" || { git rebase --abort; return 1; }
+                  fi
+                  git add -- "$f"
+                done
                 GIT_EDITOR=true git rebase --continue && return 0
               done
               git rebase --abort 2>/dev/null || true
               return 1
             }
+            # Anything still unmerged (e.g. the autostash of an unstaged rebuilt
+            # page colliding with upstream) would ship conflict markers to the
+            # deploy steps. Stop here instead, before pushing.
+            stop_if_unmerged() {
+              local left
+              left=$(git diff --name-only --diff-filter=U)
+              if [ -n "$left" ]; then
+                echo "::error::Unresolved conflicts after syncing with main; stopping before deploy:"
+                echo "$left"
+                exit 1
+              fi
+            }
             sync_with_remote || true
-            git push || (sync_with_remote && git push)
+            stop_if_unmerged
+            git push || (sync_with_remote && stop_if_unmerged && git push)
           else
             echo "No incremental data updates to commit."
           fi
