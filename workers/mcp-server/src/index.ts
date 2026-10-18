@@ -303,12 +303,12 @@ function createServer(): McpServer {
         const [absenteeism, ltel, staffEthnicity, staffExperience, staffRatios] = await Promise.all([
           fetchJSON("cde/absenteeism-2024-25.json"),
           fetchJSON("cde/ltel-2025-26.json"),
-          fetchJSON("cde/staff-ethnicity-2024-25.json"),
-          fetchJSON("cde/staff-experience-2024-25.json"),
-          fetchJSON("cde/staff-ratios-2024-25.json"),
+          fetchJSON("cde/staff-ethnicity-2025-26.json"),
+          fetchJSON("cde/staff-experience-2025-26.json"),
+          fetchJSON("cde/staff-ratios-2025-26.json"),
         ]);
         const slug = found.slug;
-        const cdeLines: string[] = ["\n  CDE Data (2024-25 unless noted):"];
+        const cdeLines: string[] = ["\n  CDE Data (2025-26 unless noted):"];
 
         // Chronic absenteeism
         const abs = absenteeism[slug];
@@ -318,7 +318,7 @@ function createServer(): McpServer {
           if (abs.RH?.rate != null) parts.push(`Hispanic ${abs.RH.rate}%`);
           if (abs.SE?.rate != null) parts.push(`EL ${abs.SE.rate}%`);
           if (abs.SS?.rate != null) parts.push(`SED ${abs.SS.rate}%`);
-          if (parts.length) cdeLines.push(`    Chronic Absenteeism: ${parts.join(" | ")}`);
+          if (parts.length) cdeLines.push(`    Chronic Absenteeism (2024-25): ${parts.join(" | ")}`);
         }
 
         // English learners / LTEL
@@ -329,7 +329,7 @@ function createServer(): McpServer {
           if (el.ltel != null) parts.push(`${el.ltel} LTEL`);
           if (el.atRisk != null) parts.push(`${el.atRisk} At-Risk`);
           if (el.rfep != null) parts.push(`${el.rfep} Reclassified`);
-          if (parts.length) cdeLines.push(`    English Learners (2025-26): ${parts.join(", ")}`);
+          if (parts.length) cdeLines.push(`    English Learners: ${parts.join(", ")}`);
         }
 
         // Teacher diversity (ethnicity)

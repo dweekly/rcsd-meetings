@@ -1,0 +1,127 @@
+{
+  "_metadata": {
+    "description": "Student-to-staff ratios by school",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
+    "fileStructure": "https://www.cde.ca.gov/ds/ad/fssprat.asp",
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ratios --year 2025-26"
+  },
+  "district": {
+    "enrollment": 7418,
+    "teacherFTE": 362.1,
+    "adminFTE": 37.7,
+    "pupilServicesFTE": 29.6,
+    "studentTeacherRatio": 20.5,
+    "studentAdminRatio": 196.8,
+    "studentPupilServicesRatio": 250.6
+  },
+  "clifford": {
+    "enrollment": 664,
+    "teacherFTE": 33.4,
+    "adminFTE": 1,
+    "pupilServicesFTE": 2.9,
+    "studentTeacherRatio": 19.9,
+    "studentAdminRatio": 664,
+    "studentPupilServicesRatio": 229
+  },
+  "roy-cloud": {
+    "enrollment": 665,
+    "teacherFTE": 33.1,
+    "adminFTE": 1.9,
+    "pupilServicesFTE": 3.2,
+    "studentTeacherRatio": 20.1,
+    "studentAdminRatio": 350,
+    "studentPupilServicesRatio": 207.8
+  },
+  "garfield": {
+    "enrollment": 260,
+    "teacherFTE": 14,
+    "adminFTE": 1,
+    "pupilServicesFTE": 0.8,
+    "studentTeacherRatio": 18.6,
+    "studentAdminRatio": 260,
+    "studentPupilServicesRatio": null
+  },
+  "henry-ford": {
+    "enrollment": 461,
+    "teacherFTE": 22.6,
+    "adminFTE": 2,
+    "pupilServicesFTE": 2,
+    "studentTeacherRatio": 20.4,
+    "studentAdminRatio": 230.5,
+    "studentPupilServicesRatio": 230.5
+  },
+  "hoover": {
+    "enrollment": 659,
+    "teacherFTE": 34.6,
+    "adminFTE": 0.9,
+    "pupilServicesFTE": 0,
+    "studentTeacherRatio": 19,
+    "studentAdminRatio": null,
+    "studentPupilServicesRatio": null
+  },
+  "kennedy": {
+    "enrollment": 788,
+    "teacherFTE": 43.9,
+    "adminFTE": 2.9,
+    "pupilServicesFTE": 3.2,
+    "studentTeacherRatio": 17.9,
+    "studentAdminRatio": 271.7,
+    "studentPupilServicesRatio": 246.3
+  },
+  "mckinley-mit": {
+    "enrollment": 401,
+    "teacherFTE": 23,
+    "adminFTE": 1,
+    "pupilServicesFTE": 0.5,
+    "studentTeacherRatio": 17.4,
+    "studentAdminRatio": 401,
+    "studentPupilServicesRatio": null
+  },
+  "roosevelt": {
+    "enrollment": 344,
+    "teacherFTE": 16,
+    "adminFTE": 1,
+    "pupilServicesFTE": 3.6,
+    "studentTeacherRatio": 21.5,
+    "studentAdminRatio": 344,
+    "studentPupilServicesRatio": 95.6
+  },
+  "adelante-selby": {
+    "enrollment": 630,
+    "teacherFTE": 24,
+    "adminFTE": 1,
+    "pupilServicesFTE": 0.5,
+    "studentTeacherRatio": 26.3,
+    "studentAdminRatio": 630,
+    "studentPupilServicesRatio": null
+  },
+  "taft": {
+    "enrollment": 325,
+    "teacherFTE": 17,
+    "adminFTE": 1,
+    "pupilServicesFTE": 2,
+    "studentTeacherRatio": 19.1,
+    "studentAdminRatio": 325,
+    "studentPupilServicesRatio": 162.5
+  },
+  "orion": {
+    "enrollment": 549,
+    "teacherFTE": 23,
+    "adminFTE": 2,
+    "pupilServicesFTE": 0.6,
+    "studentTeacherRatio": 23.9,
+    "studentAdminRatio": 274.5,
+    "studentPupilServicesRatio": null
+  },
+  "north-star": {
+    "enrollment": 553,
+    "teacherFTE": 19.5,
+    "adminFTE": 1,
+    "pupilServicesFTE": 0.3,
+    "studentTeacherRatio": 28.4,
+    "studentAdminRatio": 553,
+    "studentPupilServicesRatio": null
+  }
+}

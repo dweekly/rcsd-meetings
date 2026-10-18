@@ -741,7 +741,7 @@ CDE Long-Term English Learner (LTEL) and English Learner Academic Status (ELAS) 
 
 ---
 
-## data/cde/staff-ethnicity-2024-25.json
+## data/cde/staff-ethnicity-2025-26.json
 
 CDE Staff Demographics — teacher race/ethnicity counts per school.
 
@@ -751,11 +751,11 @@ CDE Staff Demographics — teacher race/ethnicity counts per school.
 {
   "_metadata": {
     "description": "Staff ethnicity/race counts by school (teachers)",
-    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2425.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fsspre.asp",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ethnicity"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ethnicity --year 2025-26"
   },
   "district": {
     "total": 364,
@@ -810,7 +810,7 @@ CDE Staff Demographics — teacher race/ethnicity counts per school.
 
 ---
 
-## data/cde/staff-experience-2024-25.json
+## data/cde/staff-experience-2025-26.json
 
 CDE Staff Experience — teacher experience levels per school.
 
@@ -820,11 +820,11 @@ CDE Staff Experience — teacher experience levels per school.
 {
   "_metadata": {
     "description": "Staff experience levels by school (teachers)",
-    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2425.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fsspex.asp",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-experience"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-experience --year 2025-26"
   },
   "district": {
     "total": 364,
@@ -872,7 +872,7 @@ CDE Staff Experience — teacher experience levels per school.
 
 ---
 
-## data/cde/staff-ratios-2024-25.json
+## data/cde/staff-ratios-2025-26.json
 
 CDE Student-Staff Ratios — student-to-teacher, student-to-admin, and student-to-pupil-services ratios per school.
 
@@ -882,11 +882,11 @@ CDE Student-Staff Ratios — student-to-teacher, student-to-admin, and student-t
 {
   "_metadata": {
     "description": "Student-to-staff ratios by school",
-    "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2425.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fssprat.asp",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ratios"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ratios --year 2025-26"
   },
   "district": {
     "enrollment": 7507,

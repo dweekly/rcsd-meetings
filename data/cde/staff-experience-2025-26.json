@@ -1,0 +1,127 @@
+{
+  "_metadata": {
+    "description": "Staff experience levels by school (teachers)",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
+    "fileStructure": "https://www.cde.ca.gov/ds/ad/fsspex.asp",
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-experience --year 2025-26"
+  },
+  "district": {
+    "total": 367,
+    "avgYearsTotal": 11.4,
+    "avgYearsDistrict": 9.3,
+    "experienced": 298,
+    "inexperienced": 69,
+    "firstYear": 32,
+    "secondYear": 37
+  },
+  "adelante-selby": {
+    "total": 24,
+    "avgYearsTotal": 18.4,
+    "avgYearsDistrict": 16.8,
+    "experienced": 24,
+    "inexperienced": 0,
+    "firstYear": 0,
+    "secondYear": 0
+  },
+  "clifford": {
+    "total": 34,
+    "avgYearsTotal": 13,
+    "avgYearsDistrict": 11.5,
+    "experienced": 29,
+    "inexperienced": 5,
+    "firstYear": 4,
+    "secondYear": 1
+  },
+  "garfield": {
+    "total": 14,
+    "avgYearsTotal": 6,
+    "avgYearsDistrict": 3.6,
+    "experienced": 9,
+    "inexperienced": 5,
+    "firstYear": 2,
+    "secondYear": 3
+  },
+  "henry-ford": {
+    "total": 23,
+    "avgYearsTotal": 15.3,
+    "avgYearsDistrict": 14,
+    "experienced": 19,
+    "inexperienced": 4,
+    "firstYear": 1,
+    "secondYear": 3
+  },
+  "hoover": {
+    "total": 36,
+    "avgYearsTotal": 9.4,
+    "avgYearsDistrict": 7.9,
+    "experienced": 30,
+    "inexperienced": 6,
+    "firstYear": 4,
+    "secondYear": 2
+  },
+  "kennedy": {
+    "total": 45,
+    "avgYearsTotal": 13.7,
+    "avgYearsDistrict": 9.9,
+    "experienced": 37,
+    "inexperienced": 8,
+    "firstYear": 6,
+    "secondYear": 2
+  },
+  "mckinley-mit": {
+    "total": 23,
+    "avgYearsTotal": 11.7,
+    "avgYearsDistrict": 5.9,
+    "experienced": 20,
+    "inexperienced": 3,
+    "firstYear": 2,
+    "secondYear": 1
+  },
+  "north-star": {
+    "total": 20,
+    "avgYearsTotal": 15.6,
+    "avgYearsDistrict": 14.9,
+    "experienced": 17,
+    "inexperienced": 3,
+    "firstYear": 1,
+    "secondYear": 2
+  },
+  "orion": {
+    "total": 23,
+    "avgYearsTotal": 7.2,
+    "avgYearsDistrict": 5.7,
+    "experienced": 15,
+    "inexperienced": 8,
+    "firstYear": 3,
+    "secondYear": 5
+  },
+  "roosevelt": {
+    "total": 16,
+    "avgYearsTotal": 9.3,
+    "avgYearsDistrict": 8.3,
+    "experienced": 13,
+    "inexperienced": 3,
+    "firstYear": 2,
+    "secondYear": 1
+  },
+  "roy-cloud": {
+    "total": 35,
+    "avgYearsTotal": 15,
+    "avgYearsDistrict": 13.6,
+    "experienced": 33,
+    "inexperienced": 2,
+    "firstYear": 0,
+    "secondYear": 2
+  },
+  "taft": {
+    "total": 17,
+    "avgYearsTotal": 14.9,
+    "avgYearsDistrict": 10.9,
+    "experienced": 17,
+    "inexperienced": 0,
+    "firstYear": 0,
+    "secondYear": 0
+  }
+}
