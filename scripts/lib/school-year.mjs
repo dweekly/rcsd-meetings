@@ -105,6 +105,33 @@ export const LCAP_YEAR = '2026-27';
 export const LCAP_PDF_URL = 'https://data.rcsd.info/board-packets/2026-06-24/Final-2026_Local_Control_and_Accountability_Plan_Redwood_City_Elementary_School_.pdf';
 
 /**
+ * The district budget report that /budget/ and /presupuesto/ describe for the
+ * current fiscal year. RCSD files three a year: the Adopted Budget (late June,
+ * for the year about to start), then the First Interim (December) and Second
+ * Interim (March) for that same year. Precedence within one fiscal year is
+ * adopted < first-interim < second-interim; a later fiscal year supersedes all
+ * three. `report` is one of 'adopted' | 'first-interim' | 'second-interim'.
+ *
+ * 2026-27 adopted: approved by the Board 2026-06-24, 4-0 (minutes approved
+ * 2026-08-10); book at board-packets/2026-06-24/2026-27-Proposed-Adopted-Budget-Book.pdf.
+ *
+ * Bumping this does NOT refresh the page's figures: build-budget.mjs keeps the
+ * figures together with the report they came from and refuses to build when the
+ * two disagree, so a bump without a refresh fails instead of relabeling old
+ * numbers.
+ */
+export const BUDGET_SOURCE = { fiscalYear: '2026-27', report: 'adopted' };
+
+/**
+ * The latest Unaudited Actuals the budget page uses for the prior year's
+ * results. Presented to the Board each September for the year that closed
+ * June 30. 2025-26: approved 2026-09-23; book at
+ * board-packets/2026-09-23/25.26-Unaudited-Actuals-Book.pdf. Same guard as
+ * BUDGET_SOURCE: build-budget.mjs fails if this moves without its figures.
+ */
+export const ACTUALS_SOURCE = { fiscalYear: '2025-26' };
+
+/**
  * The year of the per-school Board of Trustees data presentations that supply
  * i-Ready growth figures (see scripts/extract-ireadyu-growth.mjs). Schools
  * present on a rolling schedule through the spring, so this moves when those

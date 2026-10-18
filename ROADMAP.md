@@ -142,10 +142,22 @@ Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.
 - [ ] **Bell schedules, district calendars, and lunch URLs** rotate each August with no clean
   machine source. Deliberately out of scope for the annual-refresh effort; verify
   opportunistically until a source exists.
-- [ ] **The budget page is the densest concentration of stale facts in the repo.**
-  `scripts/build-budget.mjs` hardcodes the 2025-26 Second Interim narrative across ~40
-  sites, plus a 2026-27 proposed-budget banner that explicitly promises a post-adoption
-  refresh. Needs its own effort.
+- [ ] **Budget page: read the next report into it each December, March, June and
+  September.** `/budget/` now describes the 2026-27 Adopted Budget and the 2025-26
+  Unaudited Actuals (`BUDGET_SOURCE`, `ACTUALS_SOURCE` in `school-year.mjs`), and
+  `build-budget.mjs` refuses to build if a constant moves without its figures. The
+  figures are still hand-copied from scanned PDFs into the `REVENUE_ROWS` /
+  `EXPENDITURE_ROWS` / `MYP` blocks. Next: the 2026-27 First Interim (December 2026).
+- [ ] **Budget page: what is "LCFF State Aid"?** Both the adopted 2026-27 book and the
+  2025-26 Unaudited Actuals record ~$12.9-13.1M under SACS object 8011 ("State Aid -
+  Current Year") for a community-funded district, and neither explains it. The page
+  reports it under the books' label with a note, beside copy that says RCSD keeps its
+  property taxes "rather than receiving a state check." Ask the CBO what the line is
+  (e.g. charter in-lieu backfill) and reword both the note and the basic-aid copy to
+  match, in both languages.
+- [ ] **Budget page: copy kept from before the 2026 refresh without a fresh source.**
+  The "$15,000-$16,000 per lost student" estimate, the Measure S "~$16 million/year" and
+  the CBOC membership details carry no citation. Source or drop each.
 - [ ] **Surface "data as of" dates to readers.** `schools.json.lastUpdated`,
   `trustees.json._metadata.retrieved`, `cde/*._metadata.downloadDate` and others all exist
   and are never displayed. Near-zero cost, and it makes the refresh self-auditing.
