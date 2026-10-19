@@ -447,10 +447,30 @@ const DOCS = {
   uaPresentation: `${PACKETS}/2026-09-23/25-26-UA-Presentation.pdf`,
   gann: `${PACKETS}/2026-09-23/Gann-Limit-Resolution-10-26.27.pdf`,
   lcap: LCAP_PDF_URL,
+  cdeExhibit: 'https://ias.cde.ca.gov/apportionment/PrincipalApportionmentWebExhibit',
   districtBudget: 'https://www.rcsdk8.net/our-programs-and-services/business-services/district-budget',
   measureCResults: 'https://smcacre.gov/elections/june-2-2026-election-results',
   measureCSummary: 'https://smcacre.gov/system/files/2026-06/51_ElectionSummaryReportFINAL.pdf',
 };
+
+// RCSD's LCFF funding as the state computes it: CDE Principal Apportionment Web
+// Exhibits (DOCS.cdeExhibit), 2025-26 P-2, School District, "School District LCFF
+// Calculation", San Mateo / Redwood City Elementary. Read 2026-10-18. The books'
+// "LCFF State Aid" line is line J-9 here, Categorical Minimum State Aid under
+// EC 42238.03(e), not formula state aid: Gross State Aid (I-2) is $0 because local
+// revenue exceeds the entitlement (L-1, basic aid = TRUE; margin L-2). The adopted
+// 2026-27 book budgets the same $12,863,512.
+const STATE_LCFF = {
+  period: { en: '2025-26 P-2', es: '2025-26 P-2' },
+  entitlement: 82575924,  // H-3
+  localRevenue: 85148208, // I-1
+  excess: 2572284,        // L-2
+  epa: 1198570,           // I-3
+  minStateAid: 12863512,  // J-9 / K-2
+};
+if (STATE_LCFF.localRevenue - STATE_LCFF.entitlement !== STATE_LCFF.excess) {
+  throw new Error('STATE_LCFF: local revenue minus entitlement must equal the excess (CDE line L-2).');
+}
 
 const DATES = {
   adopted: { en: 'June 24, 2026', es: '24 de junio de 2026' },
@@ -477,7 +497,7 @@ function actualsName(lang) {
 // General Fund (Fund 01) revenue, by the categories both books use.
 // [en label, es label, 2025-26 actual, 2026-27 adopted]
 const REVENUE_ROWS = [
-  ['LCFF State Aid (as labeled; see note)', 'Ayuda Estatal LCFF (así la llama el libro; ver nota)', 13077781, 12863512],
+  ['LCFF Minimum State Aid (see note)', 'Ayuda Estatal Mínima LCFF (ver nota)', 13077781, 12863512],
   ['LCFF Education Protection Account', 'Cuenta de Protección Educativa LCFF', 1198570, 1192530],
   ['LCFF Property Taxes (net of in-lieu)', 'Impuestos a la Propiedad LCFF (netos de pagos a charters)', 85060778, 89320674],
   ['Special Education Property Taxes', 'Impuestos a la Propiedad de Educación Especial', 5737822, 8216514],
@@ -848,7 +868,7 @@ function sectionOverviewEN() {
   <p>The Redwood City School District (RCSD) runs 12 TK-8 schools. Its ${budgetName('en')}, adopted by the Board on ${DATES.adopted.en}, plans <strong>${mil(EXPENDITURE_TOTAL.adopted)}</strong> in General Fund spending against ${mil(REVENUE_TOTAL.adopted)} in revenue, for a planned deficit of about ${mil(-adoptedNet)}. It assumes ${ADOPTED_ENROLLMENT.toLocaleString('en-US')} students, down from ${ACTUALS.enrollment.toLocaleString('en-US')} in 2025-26.</p>
 
   <h3>Community-Funded (Basic Aid) Status</h3>
-  <p>RCSD is one of roughly 100 "community-funded" (formerly "Basic Aid") districts in California. This means local property tax revenue <em>exceeds</em> what the state would otherwise provide through the Local Control Funding Formula (LCFF). The district keeps all of its local property tax revenue rather than receiving a state check.</p>
+  <p>RCSD is one of roughly 100 "community-funded" (formerly "Basic Aid") districts in California. This means local property tax revenue <em>exceeds</em> what the state would otherwise provide through the Local Control Funding Formula (LCFF). The district keeps all of its local property tax revenue. In the state's ${STATE_LCFF.period.en} calculation, RCSD's local revenue came in ${mil(STATE_LCFF.excess, 1)} above its LCFF entitlement of ${mil(STATE_LCFF.entitlement, 1)}, so the formula owes it no state aid. RCSD does still get two LCFF payments from the state: ${mil(STATE_LCFF.epa, 1)} from the Education Protection Account, which every district receives, and a <em>minimum state aid</em> guarantee of ${mil(STATE_LCFF.minStateAid, 1)} (see Revenue below).</p>
 
   <div class="callout">
     <p><strong>What does Basic Aid mean in practice?</strong> RCSD's funding rises and falls with local property values, not with state budget decisions. When property values grow, so does district revenue. But unlike state-funded districts, RCSD does not receive automatic cost-of-living adjustments from Sacramento. RCSD still has an LCFF Supplemental and Concentration entitlement, projected at ${mil(LCAP.scEntitlement, 2)} for ${LCAP_YEAR} in the adopted LCAP, based on its share of unduplicated pupils (low-income, English Learner, foster, and homeless students; ${ASSUMPTIONS[2][3]} in the adopted budget's assumptions). In a community-funded district that entitlement is funded from the district's own property tax revenue rather than as a separate state check. Its main effect is to set the LCAP minimum-proportionality spending floor for those students.</p>
@@ -907,7 +927,7 @@ function sectionRevenueEN() {
   <p>The ${budgetName('en')} expects <strong>${mil(REVENUE_TOTAL.adopted)}</strong> in General Fund revenue from local property taxes, state and federal funds, and local sources. Because RCSD is a community-funded district, local property taxes are the single largest source. The ${ACTUALS_SOURCE.fiscalYear} column shows what actually came in last year.</p>
 
   ${compareTable('en', REVENUE_ROWS, REVENUE_TOTAL, 'Total Revenue and Transfers In')}
-  <p class="source">Sources: ${docLink(DOCS.adoptedBook, budgetName('en'))}, General Fund Sources of Revenue (p. 11); ${docLink(DOCS.uaBook, actualsName('en'))}, General Fund Sources of Revenue (p. 9). Both books' revenue tables use these categories; the ${ACTUALS_SOURCE.fiscalYear} total includes the ${mil(ACTUALS.transferIn)} transfer, so it is ${mil(ACTUALS.transferIn)} higher than the ${usd(ACTUALS.revenue)} in the Unaudited Actuals' executive summary. Percentages are rounded. The ${ACTUALS_SOURCE.fiscalYear} rows add to $${ACTUAL_REVENUE_ROUNDING} more than the book's printed total, a rounding difference in the book. <strong>Note on "LCFF State Aid":</strong> this is the books' own label for the line (SACS object 8011, "State Aid &ndash; Current Year"). The budget books do not explain it, and it is a different figure from the Supplemental &amp; Concentration entitlement described below.</p>
+  <p class="source">Sources: ${docLink(DOCS.adoptedBook, budgetName('en'))}, General Fund Sources of Revenue (p. 11); ${docLink(DOCS.uaBook, actualsName('en'))}, General Fund Sources of Revenue (p. 9). Both books' revenue tables use these categories; the ${ACTUALS_SOURCE.fiscalYear} total includes the ${mil(ACTUALS.transferIn)} transfer, so it is ${mil(ACTUALS.transferIn)} higher than the ${usd(ACTUALS.revenue)} in the Unaudited Actuals' executive summary. Percentages are rounded. The ${ACTUALS_SOURCE.fiscalYear} rows add to $${ACTUAL_REVENUE_ROUNDING} more than the book's printed total, a rounding difference in the book. <strong>Note on minimum state aid:</strong> the books call this line "LCFF State Aid". The state's ${docLink(DOCS.cdeExhibit, 'Principal Apportionment exhibit')} (${STATE_LCFF.period.en}, School District LCFF Calculation) shows what it is: not formula aid, which is $0 for RCSD, but <em>Categorical Minimum State Aid</em> (${usd(STATE_LCFF.minStateAid)}, line J-9). When LCFF replaced the old funding system in 2013, the law (Education Code 42238.03(e)) guaranteed every district at least the state aid it had been getting; for a community-funded district that is the state money it got for special programs in 2012-13. It is a different figure from the Supplemental &amp; Concentration entitlement described below.</p>
 
   <h3>Property Taxes &mdash; The Foundation</h3>
   <p>Local property taxes (LCFF property taxes plus Special Education property taxes) are budgeted at ${mil(propTaxAdopted)}, or ${pct(propTaxAdopted, REVENUE_TOTAL.adopted)} of ${BUDGET_SOURCE.fiscalYear} General Fund revenue. San Mateo County collects property taxes and distributes the district's share. Because RCSD is community-funded, it keeps all allocated property tax revenue rather than returning a portion to the state. The LCFF property-tax line is shown net of the "in-lieu" property taxes the district passes to charter schools.</p>
@@ -1395,7 +1415,7 @@ function sectionOverviewES() {
   <p>El Distrito Escolar de Redwood City (RCSD) tiene 12 escuelas de TK a 8.º grado. Su ${budgetName('es')}, que la Junta aprobó el ${DATES.adopted.es}, planea gastar <strong>${mil(EXPENDITURE_TOTAL.adopted)}</strong> del Fondo General con ${mil(REVENUE_TOTAL.adopted)} de ingresos, o sea un déficit planeado de unos ${mil(-adoptedNet)}. Cuenta con ${ADOPTED_ENROLLMENT.toLocaleString('en-US')} estudiantes, menos que los ${ACTUALS.enrollment.toLocaleString('en-US')} de 2025-26.</p>
 
   <h3>Estatus de Distrito Financiado por la Comunidad (Basic Aid)</h3>
-  <p>RCSD es uno de aproximadamente 100 distritos "financiados por la comunidad" (anteriormente "Basic Aid") en California. Esto significa que los ingresos locales por impuestos a la propiedad <em>superan</em> lo que el estado proporcionaría a través de la Fórmula de Financiamiento de Control Local (LCFF). El distrito retiene todos sus ingresos por impuestos a la propiedad en lugar de recibir un cheque del estado.</p>
+  <p>RCSD es uno de aproximadamente 100 distritos "financiados por la comunidad" (anteriormente "Basic Aid") en California. Esto significa que los ingresos locales por impuestos a la propiedad <em>superan</em> lo que el estado proporcionaría a través de la Fórmula de Financiamiento de Control Local (LCFF). El distrito retiene todos sus ingresos por impuestos a la propiedad. En el cálculo estatal ${STATE_LCFF.period.es}, los ingresos locales de RCSD quedaron ${mil(STATE_LCFF.excess, 1)} arriba de su derecho LCFF de ${mil(STATE_LCFF.entitlement, 1)}, así que la fórmula no le debe ayuda estatal. Aun así, RCSD sí recibe dos pagos LCFF del estado: ${mil(STATE_LCFF.epa, 1)} de la Cuenta de Protección Educativa, que reciben todos los distritos, y una garantía de <em>ayuda estatal mínima</em> de ${mil(STATE_LCFF.minStateAid, 1)} (vea Ingresos abajo).</p>
 
   <div class="callout">
     <p><strong>¿Qué significa Basic Aid en la práctica?</strong> El financiamiento de RCSD sube y baja con los valores de las propiedades locales, no con las decisiones del presupuesto estatal. Cuando los valores de las propiedades crecen, también lo hacen los ingresos del distrito. Pero a diferencia de los distritos financiados por el estado, RCSD no recibe ajustes automáticos por costo de vida de Sacramento. RCSD tiene un derecho ("entitlement") de Suplementario y Concentración LCFF, que el LCAP adoptado calcula en ${mil(LCAP.scEntitlement, 2)} para ${LCAP_YEAR}, basado en su porcentaje de alumnos no duplicados (de bajos ingresos, estudiantes de inglés, en cuidado temporal o sin hogar; ${ASSUMPTIONS[2][3]} según los supuestos del presupuesto adoptado). En un distrito financiado por la comunidad este derecho se paga de los propios impuestos a la propiedad del distrito y no como un cheque aparte del estado. Su efecto principal es establecer el piso mínimo de gasto proporcional que el LCAP debe destinar a esos estudiantes.</p>
@@ -1454,7 +1474,7 @@ function sectionRevenueES() {
   <p>El ${budgetName('es')} espera <strong>${mil(REVENUE_TOTAL.adopted)}</strong> de ingresos del Fondo General, que vienen de impuestos locales a la propiedad, fondos estatales y federales, y fuentes locales. Como RCSD es un distrito financiado por la comunidad, los impuestos locales a la propiedad son la fuente más grande. La columna ${ACTUALS_SOURCE.fiscalYear} muestra lo que de verdad entró el año pasado.</p>
 
   ${compareTable('es', REVENUE_ROWS, REVENUE_TOTAL, 'Total de Ingresos y Transferencias')}
-  <p class="source">Fuentes: ${docLink(DOCS.adoptedBook, budgetName('es'))}, Fuentes de Ingresos del Fondo General (pág. 11); ${docLink(DOCS.uaBook, actualsName('es'))}, Fuentes de Ingresos del Fondo General (pág. 9). Las dos tablas de los libros usan estas categorías; el total de ${ACTUALS_SOURCE.fiscalYear} incluye la transferencia de ${mil(ACTUALS.transferIn)}, por eso es ${mil(ACTUALS.transferIn)} más alto que los ${usd(ACTUALS.revenue)} del resumen ejecutivo del cierre no auditado. Los porcentajes están redondeados. Las líneas de ${ACTUALS_SOURCE.fiscalYear} suman $${ACTUAL_REVENUE_ROUNDING} más que el total impreso en el libro, por redondeo en el propio libro. <strong>Nota sobre "Ayuda Estatal LCFF":</strong> así llaman los libros a esta línea ("LCFF State Aid", objeto SACS 8011, "State Aid &ndash; Current Year"). Los libros no la explican, y es una cifra distinta al derecho Suplementario y de Concentración que se describe abajo.</p>
+  <p class="source">Fuentes: ${docLink(DOCS.adoptedBook, budgetName('es'))}, Fuentes de Ingresos del Fondo General (pág. 11); ${docLink(DOCS.uaBook, actualsName('es'))}, Fuentes de Ingresos del Fondo General (pág. 9). Las dos tablas de los libros usan estas categorías; el total de ${ACTUALS_SOURCE.fiscalYear} incluye la transferencia de ${mil(ACTUALS.transferIn)}, por eso es ${mil(ACTUALS.transferIn)} más alto que los ${usd(ACTUALS.revenue)} del resumen ejecutivo del cierre no auditado. Los porcentajes están redondeados. Las líneas de ${ACTUALS_SOURCE.fiscalYear} suman $${ACTUAL_REVENUE_ROUNDING} más que el total impreso en el libro, por redondeo en el propio libro. <strong>Nota sobre la ayuda estatal mínima:</strong> los libros llaman a esta línea "LCFF State Aid". La ${docLink(DOCS.cdeExhibit, 'hoja de distribución de fondos del estado')} (${STATE_LCFF.period.es}, School District LCFF Calculation) muestra qué es: no es ayuda de la fórmula, que para RCSD es $0, sino la <em>ayuda estatal mínima</em> ("Categorical Minimum State Aid", ${usd(STATE_LCFF.minStateAid)}, línea J-9). Cuando LCFF reemplazó el sistema anterior en 2013, la ley (Código de Educación 42238.03(e)) le garantizó a cada distrito por lo menos la ayuda estatal que ya recibía; para un distrito financiado por la comunidad, eso es el dinero estatal que recibía en 2012-13 para programas especiales. Es una cifra distinta al derecho Suplementario y de Concentración que se describe abajo.</p>
 
   <h3>Impuestos a la Propiedad &mdash; La Base</h3>
   <p>Los impuestos locales a la propiedad (impuestos LCFF más los de Educación Especial) están presupuestados en ${mil(propTaxAdopted)}, o el ${pct(propTaxAdopted, REVENUE_TOTAL.adopted)} de los ingresos del Fondo General en ${BUDGET_SOURCE.fiscalYear}. El Condado de San Mateo cobra los impuestos y le pasa al distrito su parte. La línea de impuestos LCFF aparece después de restar los impuestos "in-lieu" que el distrito le pasa a las escuelas charter. El distrito supone un crecimiento de ${ASSUMPTIONS[7][3]} al año en el impuesto a la propiedad.</p>
