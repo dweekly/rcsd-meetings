@@ -148,13 +148,11 @@ Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.
   `build-budget.mjs` refuses to build if a constant moves without its figures. The
   figures are still hand-copied from scanned PDFs into the `REVENUE_ROWS` /
   `EXPENDITURE_ROWS` / `MYP` blocks. Next: the 2026-27 First Interim (December 2026).
-- [ ] **Budget page: what is "LCFF State Aid"?** Both the adopted 2026-27 book and the
-  2025-26 Unaudited Actuals record ~$12.9-13.1M under SACS object 8011 ("State Aid -
-  Current Year") for a community-funded district, and neither explains it. The page
-  reports it under the books' label with a note, beside copy that says RCSD keeps its
-  property taxes "rather than receiving a state check." Ask the CBO what the line is
-  (e.g. charter in-lieu backfill) and reword both the note and the basic-aid copy to
-  match, in both languages.
+- [ ] **Budget page: 2025-26 minimum state aid, $13.08M actual vs $12.86M at P-2.** The
+  Unaudited Actuals book's "LCFF State Aid" ($13,077,781) is $214,269 above CDE's 2025-26
+  P-2 Categorical Minimum State Aid ($12,863,512, `STATE_LCFF` in `build-budget.mjs`).
+  Likely a prior-year adjustment or the Annual recertification; check the 2025-26 Annual
+  exhibit when CDE posts it (about February) and say so in the revenue note if it explains it.
 - [ ] **Budget page: copy kept from before the 2026 refresh without a fresh source.**
   The "$15,000-$16,000 per lost student" estimate, the Measure S "~$16 million/year" and
   the CBOC membership details carry no citation. Source or drop each.
