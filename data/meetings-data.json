@@ -1,9 +1,9 @@
 {
-  "generated": "2026-10-20",
+  "generated": "2026-10-21",
   "stats": {
     "total": 204,
-    "withVideo": 170,
-    "withTranscript": 170,
+    "withVideo": 171,
+    "withTranscript": 171,
     "withMinutes": 200,
     "totalItems": 8674,
     "totalAttachments": 5441,
@@ -17,7 +17,7 @@
       "source": "simbli",
       "mid": "77696",
       "slug": "2026-10-14-regular",
-      "youtube": null,
+      "youtube": "6eRAjFYrWOk",
       "simbli": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=77696",
       "boarddocs": null,
       "zoom": "https://rcsdk8-net.zoom.us/s/89521908594",
@@ -33,7 +33,18 @@
           "plannedMinutes": 1,
           "actionType": "Procedural",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "00:00:10",
+          "timestampSeconds": 10,
+          "phases": {
+            "opened": 10,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "1.1",
@@ -51,7 +62,18 @@
           "plannedMinutes": 1,
           "actionType": "Procedural",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "00:02:42",
+          "timestampSeconds": 162,
+          "phases": {
+            "opened": 162,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "2.1",
@@ -78,7 +100,18 @@
           "plannedMinutes": 1,
           "actionType": "Procedural",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "00:03:47",
+          "timestampSeconds": 227,
+          "phases": {
+            "opened": 227,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": 227,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "4",
@@ -87,7 +120,22 @@
           "plannedMinutes": 1,
           "actionType": "Action",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "00:04:23",
+          "timestampSeconds": 263,
+          "phases": {
+            "opened": 263,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": {
+              "seconds": 269,
+              "type": "voice vote",
+              "result": "approved"
+            }
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "5",
@@ -96,7 +144,26 @@
           "plannedMinutes": null,
           "actionType": "Information",
           "speaker": "Evelyn Campos, Administrative Assistant to the Superintendent",
-          "attachments": []
+          "attachments": [],
+          "timestamp": "00:04:49",
+          "timestampSeconds": 289,
+          "phases": {
+            "opened": 289,
+            "presentation": 304,
+            "publicComment": 304,
+            "discussion": null,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false,
+          "publicComments": [
+            {
+              "name": "Shawna Ingersoll",
+              "startSeconds": 304,
+              "endSeconds": 354,
+              "summary": "CSEA Chapter 5 president reported successful negotiations completed in two meetings with upcoming member ratification vote, praised student-led Pledge of Allegiance, and announced plans for upcoming member events."
+            }
+          ]
         },
         {
           "itemLabel": "5.1",
@@ -114,7 +181,22 @@
           "plannedMinutes": 1,
           "actionType": "Action (Consent)",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "00:05:55",
+          "timestampSeconds": 355,
+          "phases": {
+            "opened": 355,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": {
+              "seconds": 384,
+              "type": "voice vote",
+              "result": "approved"
+            }
+          },
+          "consent": true,
+          "pulled": false
         },
         {
           "itemLabel": "6.1",
@@ -182,6 +264,73 @@
               "aid": "1759818",
               "filename": "KIPP-Excelencia-Charter-Renewal-Packet.pdf"
             }
+          ],
+          "timestamp": "00:37:48",
+          "timestampSeconds": 2268,
+          "phases": {
+            "opened": 2268,
+            "presentation": 2298,
+            "publicComment": 2813,
+            "discussion": 3977,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false,
+          "publicComments": [
+            {
+              "name": "Sawyer Dean",
+              "startSeconds": 2848,
+              "endSeconds": 2929,
+              "summary": "A 2nd grade teacher described her 12 years teaching and her role mentoring resident teachers, urging charter renewal."
+            },
+            {
+              "name": "Julian Martinez",
+              "startSeconds": 2949,
+              "endSeconds": 3038,
+              "summary": "A 5th grader described how teachers helped him understand math and shared his love of music and the after-school program, asking for charter renewal."
+            },
+            {
+              "name": "Carla Carranza",
+              "startSeconds": 3053,
+              "endSeconds": 3119,
+              "summary": "A parent described her two sons' growth, including support for a son with an IEP, and thanked staff for their help."
+            },
+            {
+              "name": "Andrea Torres Ruiz",
+              "startSeconds": 3193,
+              "endSeconds": 3294,
+              "summary": "A 4th grade student praised her teachers, favorite subjects, and friendships, asking the board to approve the charter renewal."
+            },
+            {
+              "name": "Cynthia Morphin",
+              "startSeconds": 3302,
+              "endSeconds": 3392,
+              "summary": "The business operations manager and longtime parent shared her personal connection to the school and praised staff dedication."
+            },
+            {
+              "name": "Julian Navarro",
+              "startSeconds": 3399,
+              "endSeconds": 3478,
+              "summary": "An 8th grade student described his positive experiences with teachers and school events, asking for charter renewal."
+            },
+            {
+              "name": "Lindsay Parmet",
+              "startSeconds": 3485,
+              "endSeconds": 3573,
+              "summary": "A 6th grade science teacher described the school's caring culture and a student success story, asking for renewal."
+            },
+            {
+              "name": "Alma Valdez",
+              "startSeconds": 3590,
+              "endSeconds": 3711,
+              "summary": "A parent (interpreted from Spanish) described support her children received, including IEP services, and asked for charter renewal."
+            },
+            {
+              "name": "Anna Jones",
+              "startSeconds": 3852,
+              "endSeconds": 3954,
+              "summary": "The Director of School Operations shared her personal and professional connection to the school and asked for charter renewal."
+            }
           ]
         },
         {
@@ -206,7 +355,18 @@
               "aid": "1755583",
               "filename": "26.10.14-Health-and-Wellness-Board-Report.pdf"
             }
-          ]
+          ],
+          "timestamp": "00:06:25",
+          "timestampSeconds": 385,
+          "phases": {
+            "opened": 385,
+            "presentation": 411,
+            "publicComment": null,
+            "discussion": 1373,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "10",
@@ -215,7 +375,18 @@
           "plannedMinutes": null,
           "actionType": "Discussion",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "01:10:05",
+          "timestampSeconds": 4205,
+          "phases": {
+            "opened": 4205,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "11",
@@ -224,7 +395,22 @@
           "plannedMinutes": 1,
           "actionType": "Action (Consent)",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "01:10:05",
+          "timestampSeconds": 4205,
+          "phases": {
+            "opened": 4205,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": {
+              "seconds": 4251,
+              "type": "voice vote",
+              "result": "approved"
+            }
+          },
+          "consent": true,
+          "pulled": false
         },
         {
           "itemLabel": "11.1",
@@ -418,7 +604,22 @@
               "aid": "1749397",
               "filename": "RCSD_Director_of_Fiscal_Services_JD_2026.docx.pdf"
             }
-          ]
+          ],
+          "timestamp": "01:10:58",
+          "timestampSeconds": 4258,
+          "phases": {
+            "opened": 4258,
+            "presentation": 4260,
+            "publicComment": null,
+            "discussion": 4283,
+            "vote": {
+              "seconds": 4309,
+              "type": "voice vote",
+              "result": "approved"
+            }
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "12.2",
@@ -438,7 +639,22 @@
               "aid": "1764801",
               "filename": "Murphy-Kathleen-Teacher-Consent-Form-Kennedy.pdf"
             }
-          ]
+          ],
+          "timestamp": "01:11:55",
+          "timestampSeconds": 4315,
+          "phases": {
+            "opened": 4315,
+            "presentation": 4323,
+            "publicComment": null,
+            "discussion": 4339,
+            "vote": {
+              "seconds": 4343,
+              "type": "voice vote",
+              "result": "approved"
+            }
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "13",
@@ -447,7 +663,18 @@
           "plannedMinutes": 10,
           "actionType": "Information",
           "speaker": "Evelyn Campos, Administrative Assistant to the Superintendent",
-          "attachments": []
+          "attachments": [],
+          "timestamp": "01:12:32",
+          "timestampSeconds": 4352,
+          "phases": {
+            "opened": 4352,
+            "presentation": 4360,
+            "publicComment": null,
+            "discussion": null,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "14",
@@ -456,7 +683,18 @@
           "plannedMinutes": null,
           "actionType": "Information",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "01:22:01",
+          "timestampSeconds": 4921,
+          "phases": {
+            "opened": 4921,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "15",
@@ -465,7 +703,18 @@
           "plannedMinutes": 1,
           "actionType": "Information",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "01:22:09",
+          "timestampSeconds": 4929,
+          "phases": {
+            "opened": 4929,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": 4929,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "16",
@@ -485,7 +734,18 @@
               "aid": "1755741",
               "filename": "26-27-Schedule-of-Board-Agenda-Items.pdf"
             }
-          ]
+          ],
+          "timestamp": "01:22:10",
+          "timestampSeconds": 4930,
+          "phases": {
+            "opened": 4930,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": 4976,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "17",
@@ -494,7 +754,18 @@
           "plannedMinutes": 10,
           "actionType": "Information",
           "speaker": "Dr. Christian J. Rubalcaba, Superintendent",
-          "attachments": []
+          "attachments": [],
+          "timestamp": "01:24:08",
+          "timestampSeconds": 5048,
+          "phases": {
+            "opened": 5048,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": 5056,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "18",
@@ -509,7 +780,18 @@
               "aid": "1756817",
               "filename": "2026-27-Board-Meeting-Calendar.pdf"
             }
-          ]
+          ],
+          "timestamp": "01:28:29",
+          "timestampSeconds": 5309,
+          "phases": {
+            "opened": 5309,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": 5326,
+            "vote": null
+          },
+          "consent": false,
+          "pulled": false
         },
         {
           "itemLabel": "19",
@@ -518,10 +800,543 @@
           "plannedMinutes": null,
           "actionType": "Action",
           "speaker": null,
-          "attachments": []
+          "attachments": [],
+          "timestamp": "01:28:47",
+          "timestampSeconds": 5327,
+          "phases": {
+            "opened": 5327,
+            "presentation": null,
+            "publicComment": null,
+            "discussion": null,
+            "vote": {
+              "seconds": 5331,
+              "type": "voice vote",
+              "result": "approved"
+            }
+          },
+          "consent": false,
+          "pulled": false
         }
       ],
-      "hasTranscript": false
+      "hasTranscript": true,
+      "duration": "1h 29m",
+      "durationSeconds": 5345,
+      "chapterMarkers": {
+        "videoId": "6eRAjFYrWOk",
+        "speakers": {
+          "A": {
+            "name": "David Weekly",
+            "role": "President"
+          },
+          "B": {
+            "name": "Mike Wells / Liz Coughenour / Will Cook",
+            "role": "varies by context"
+          },
+          "C": {
+            "name": "David Li / Lisa Cox / Julian Navarro(voice)",
+            "role": "varies by context"
+          },
+          "D": {
+            "name": "Evelyn Sanchez / various",
+            "role": "Executive Assistant to Superintendent / board secretary, roll call voice"
+          },
+          "E": {
+            "name": "Jennifer Ng Kwing King / misc",
+            "role": "Trustee/Clerk"
+          },
+          "F": {
+            "name": "Cecilia I. Márquez / misc",
+            "role": "Vice President"
+          },
+          "G": {
+            "name": "Cecilia I. Márquez / Enrique Pina / misc",
+            "role": "varies by context"
+          },
+          "H": {
+            "name": "Interpreter",
+            "role": "Zoom interpreter"
+          },
+          "I": {
+            "name": "Sawyer Dean / misc",
+            "role": "2nd grade teacher at KIPP Excelencia"
+          },
+          "J": {
+            "name": "Patrinia Redd",
+            "role": "Director of Health and Wellness"
+          },
+          "K": {
+            "name": "Andrea Torres Ruiz / misc",
+            "role": "student speaker"
+          },
+          "L": {
+            "name": "Mike Wells / misc",
+            "role": "Trustee"
+          },
+          "M": {
+            "name": "Mike Wells / misc",
+            "role": "Trustee"
+          },
+          "N": {
+            "name": "Jennifer Ng Kwing King / Shawna Ingersoll",
+            "role": "varies by context"
+          },
+          "O": {
+            "name": "Phoebe Reid-Chambers / misc",
+            "role": "District Lead Nurse"
+          },
+          "P": {
+            "name": "Will Cook / misc",
+            "role": "student advisor"
+          },
+          "Q": {
+            "name": "Hannah Stewart / misc",
+            "role": "student advisor"
+          },
+          "R": {
+            "name": "Iliana Álvarez / misc",
+            "role": "School Leader KIPP Excelencia Community Prep"
+          },
+          "S": {
+            "name": "Lindsay Parmet / misc",
+            "role": "6th grade science teacher"
+          },
+          "T": {
+            "name": "Christian Rubalcaba",
+            "role": "Superintendent"
+          },
+          "U": {
+            "name": "Julian Martinez / misc",
+            "role": "student speaker"
+          },
+          "V": {
+            "name": "Kenzie",
+            "role": "KIPP finance/regional office staff"
+          },
+          "W": {
+            "name": "Carla Carranza",
+            "role": "parent speaker"
+          },
+          "X": {
+            "name": "Julian Navarro",
+            "role": "8th grade student"
+          },
+          "Y": {
+            "name": "Anna Jones",
+            "role": "Director of School Operations, KIPP Excelencia"
+          }
+        },
+        "agendaChanges": "Item 9.1 (Health and Wellness Department update) was moved up to occur immediately after the Bond Program Consent Items (Section 6), ahead of the Bond Program Action Items and Public Hearing sections, per motion approved during Changes to the Agenda.",
+        "items": [
+          {
+            "itemLabel": "1",
+            "title": "Call to Order",
+            "phases": {
+              "opened": 4,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "1",
+            "title": "Roll Call",
+            "phases": {
+              "opened": 10,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "2",
+            "title": "Welcome",
+            "phases": {
+              "opened": 20,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "2",
+            "title": "Notification of Meeting Recording",
+            "phases": {
+              "opened": 83,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "2",
+            "title": "Pledge of Allegiance",
+            "phases": {
+              "opened": 162,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "3",
+            "title": "Changes to the Agenda",
+            "phases": {
+              "opened": 227,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": 227,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "4",
+            "title": "Approval of the Agenda",
+            "phases": {
+              "opened": 263,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": {
+                "seconds": 269,
+                "type": "voice vote",
+                "result": "approved"
+              }
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "5",
+            "title": "Public Comment",
+            "phases": {
+              "opened": 270,
+              "presentation": null,
+              "publicComment": 270,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "5",
+            "title": "Labor Association Comments",
+            "phases": {
+              "opened": 289,
+              "presentation": 304,
+              "publicComment": 304,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [
+              {
+                "name": "Shawna Ingersoll",
+                "startSeconds": 304,
+                "endSeconds": 354,
+                "summary": "CSEA Chapter 5 president reported successful negotiations completed in two meetings with upcoming member ratification vote, praised student-led Pledge of Allegiance, and announced plans for upcoming member events."
+              }
+            ],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "6",
+            "title": "Approval of the Bond Program Consent Items",
+            "phases": {
+              "opened": 355,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": {
+                "seconds": 384,
+                "type": "voice vote",
+                "result": "approved"
+              }
+            },
+            "publicComments": [],
+            "consent": true,
+            "pulled": false
+          },
+          {
+            "itemLabel": "9.1",
+            "title": "Update on the Redwood City School District Health and Wellness Department",
+            "phases": {
+              "opened": 385,
+              "presentation": 411,
+              "publicComment": null,
+              "discussion": 1373,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "8.1",
+            "title": "Public Hearing: KIPP Excelencia Charter Renewal Petition 2027-2032",
+            "phases": {
+              "opened": 2268,
+              "presentation": 2298,
+              "publicComment": 2813,
+              "discussion": 3977,
+              "vote": null
+            },
+            "publicComments": [
+              {
+                "name": "Sawyer Dean",
+                "startSeconds": 2848,
+                "endSeconds": 2929,
+                "summary": "A 2nd grade teacher described her 12 years teaching and her role mentoring resident teachers, urging charter renewal."
+              },
+              {
+                "name": "Julian Martinez",
+                "startSeconds": 2949,
+                "endSeconds": 3038,
+                "summary": "A 5th grader described how teachers helped him understand math and shared his love of music and the after-school program, asking for charter renewal."
+              },
+              {
+                "name": "Carla Carranza",
+                "startSeconds": 3053,
+                "endSeconds": 3119,
+                "summary": "A parent described her two sons' growth, including support for a son with an IEP, and thanked staff for their help."
+              },
+              {
+                "name": "Andrea Torres Ruiz",
+                "startSeconds": 3193,
+                "endSeconds": 3294,
+                "summary": "A 4th grade student praised her teachers, favorite subjects, and friendships, asking the board to approve the charter renewal."
+              },
+              {
+                "name": "Cynthia Morphin",
+                "startSeconds": 3302,
+                "endSeconds": 3392,
+                "summary": "The business operations manager and longtime parent shared her personal connection to the school and praised staff dedication."
+              },
+              {
+                "name": "Julian Navarro",
+                "startSeconds": 3399,
+                "endSeconds": 3478,
+                "summary": "An 8th grade student described his positive experiences with teachers and school events, asking for charter renewal."
+              },
+              {
+                "name": "Lindsay Parmet",
+                "startSeconds": 3485,
+                "endSeconds": 3573,
+                "summary": "A 6th grade science teacher described the school's caring culture and a student success story, asking for renewal."
+              },
+              {
+                "name": "Alma Valdez",
+                "startSeconds": 3590,
+                "endSeconds": 3711,
+                "summary": "A parent (interpreted from Spanish) described support her children received, including IEP services, and asked for charter renewal."
+              },
+              {
+                "name": "Anna Jones",
+                "startSeconds": 3852,
+                "endSeconds": 3954,
+                "summary": "The Director of School Operations shared her personal and professional connection to the school and asked for charter renewal."
+              }
+            ],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "10",
+            "title": "Discussion Items",
+            "phases": {
+              "opened": 4205,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "11",
+            "title": "Approval of Consent Items",
+            "phases": {
+              "opened": 4205,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": {
+                "seconds": 4251,
+                "type": "voice vote",
+                "result": "approved"
+              }
+            },
+            "publicComments": [],
+            "consent": true,
+            "pulled": false
+          },
+          {
+            "itemLabel": "12.1",
+            "title": "Approval of Personnel Changes for the 2026-2027 School Year",
+            "phases": {
+              "opened": 4258,
+              "presentation": 4260,
+              "publicComment": null,
+              "discussion": 4283,
+              "vote": {
+                "seconds": 4309,
+                "type": "voice vote",
+                "result": "approved"
+              }
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "12.2",
+            "title": "Approval of Resolution No. 11, Approval of Education Code Option for Teaching Assignments 2026–2027 School Year",
+            "phases": {
+              "opened": 4315,
+              "presentation": 4323,
+              "publicComment": null,
+              "discussion": 4339,
+              "vote": {
+                "seconds": 4343,
+                "type": "voice vote",
+                "result": "approved"
+              }
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "13",
+            "title": "Board and Superintendent Reports",
+            "phases": {
+              "opened": 4352,
+              "presentation": 4360,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "14",
+            "title": "Information",
+            "phases": {
+              "opened": 4921,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "15",
+            "title": "Correspondence",
+            "phases": {
+              "opened": 4929,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": 4929,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "16",
+            "title": "Other Business/Suggested Items for Future Agenda",
+            "phases": {
+              "opened": 4930,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": 4976,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "17",
+            "title": "Board of Trustees Meeting Reflection",
+            "phases": {
+              "opened": 5048,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": 5056,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "18",
+            "title": "Board of Trustees Meeting Calendar",
+            "phases": {
+              "opened": 5309,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": 5326,
+              "vote": null
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          },
+          {
+            "itemLabel": "19",
+            "title": "Adjournment",
+            "phases": {
+              "opened": 5327,
+              "presentation": null,
+              "publicComment": null,
+              "discussion": null,
+              "vote": {
+                "seconds": 5331,
+                "type": "voice vote",
+                "result": "approved"
+              }
+            },
+            "publicComments": [],
+            "consent": false,
+            "pulled": false
+          }
+        ]
+      }
     },
     {
       "date": "2026-09-30",
