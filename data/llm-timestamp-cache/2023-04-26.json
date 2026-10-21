@@ -21,23 +21,23 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its posted position to before oral communication. Additionally, items 6.2 and 6.3 (bond program consent items) were moved from consent to action due to public comments received. Item 6.1 (Approval of Comprehensive School Safety Plans) was approved in closed session and moved to action.",
-    "consent_vote_words": "All those in favor? Aye.",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved up to occur before oral communication instead of its posted position. Item 6.1 (Approval of bond program consent items) was moved from consent to action. Items 6.2 and 6.3 were also moved to action.",
+    "consent_vote_words": null,
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please. Evelyn.",
+        "intro_words": "Great. Good evening, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McEvoy. Present. Trustee Wells.",
-        "status": "found"
+        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "status": "consent_bundle"
       },
       {
         "item": 3,
-        "intro_words": "Thank you. Next item is 1.2 reported on closed session.",
-        "status": "found"
+        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "status": "consent_bundle"
       },
       {
         "item": 4,
@@ -51,63 +51,53 @@
       },
       {
         "item": 6,
-        "intro_words": "Yes, I was hoping that we could move 13.1, which is",
-        "status": "found"
+        "intro_words": "And are there any changes to the agenda?",
+        "status": "consent_bundle"
       },
       {
         "item": 7,
-        "intro_words": "Okay, with that, if there's no other changes to the agenda",
-        "status": "found"
-      },
-      {
-        "item": 13,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "So item 8, school and community reports. 8.1. School",
-        "status": "found"
+        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion to approve it?",
+        "status": "consent_bundle"
       },
       {
         "item": 9,
-        "intro_words": "So moving along then, we're on to item nine, discussion items.",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Okay, so I mentioned that I went to the progress seminar",
-        "status": "found"
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "status": "consent_bundle"
       },
       {
         "item": 11,
-        "intro_words": "Next. Item 11.1, approval of recruitment incentive stipend for",
-        "status": "found"
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 12,
-        "intro_words": "Item 11.2, Adoption of Resolution 32 authorizing the establishment",
-        "status": "found"
+        "intro_words": "pulled",
+        "status": "pulled"
+      },
+      {
+        "item": 13,
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 14,
-        "intro_words": "More super and superintendent reports. Wait, I'll go.",
-        "status": "found"
+        "intro_words": "pulled",
+        "status": "pulled"
       },
       {
         "item": 15,
-        "intro_words": "Correspondence. Continue to get public records.",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "Any possible other business or suggested items.",
-        "status": "found"
-      },
-      {
-        "item": 17,
-        "intro_words": "And then any changes to the board meeting calendar?",
-        "status": "found"
+        "intro_words": "pulled",
+        "status": "pulled"
       }
     ]
   },
@@ -118,14 +108,8 @@
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
+      null,
+      null,
       {
         "timestamp": "00:00:30",
         "timestampSeconds": 30
@@ -134,45 +118,27 @@
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
+      null,
       {
-        "timestamp": "00:01:40",
-        "timestampSeconds": 100
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
       },
+      null,
       {
-        "timestamp": "00:02:38",
-        "timestampSeconds": 158
-      },
-      {
-        "timestamp": "00:20:22",
-        "timestampSeconds": 1222
-      },
-      {
-        "timestamp": "03:10:21",
-        "timestampSeconds": 11421
-      },
-      {
-        "timestamp": "03:22:41",
-        "timestampSeconds": 12161
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
       },
       null,
       null,
       null,
       null,
-      {
-        "timestamp": "03:27:22",
-        "timestampSeconds": 12442
-      },
-      {
-        "timestamp": "03:27:27",
-        "timestampSeconds": 12447
-      },
-      {
-        "timestamp": "03:29:57",
-        "timestampSeconds": 12597
-      }
+      null,
+      null,
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-10-21T11:18:36.817Z",
+  "cachedAt": "2026-10-21T21:17:24.098Z",
   "inputTokens": 43596,
-  "outputTokens": 893
+  "outputTokens": 730
 }
