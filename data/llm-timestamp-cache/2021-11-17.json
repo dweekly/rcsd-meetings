@@ -18,7 +18,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced at start of meeting: Items 7.1, 7.2, 7.3 moved to consent (section 6); Item 10.1 (grand jury response) moved to consent; continuation of study session conversation added after 8.2 as new item 8.2A/8.3",
+    "agenda_changes": "Multiple changes announced: Items 7.1, 7.2, and 7.3 moved to consent; 10.1 (grand jury response) moved to consent; continuation of study session discussion scheduled after 8.2",
     "consent_vote_words": "Do I have a motion to approve? So moved. Second. All right, Maria, and then Mike, roll called out, please.",
     "items": [
       {
@@ -28,7 +28,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Let's see. I didn't mute myself, did I?",
+        "intro_words": "Let's see. I didn't mute myself, did I? Just a minute.",
         "status": "found"
       },
       {
@@ -43,17 +43,17 @@
       },
       {
         "item": 5,
-        "intro_words": "All right, do I have any changes to the agenda?",
+        "intro_words": "All right, do I have any changes to the agenda? I have one three proposed changes.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Do I have a motion to approve? So moved. Second.",
+        "intro_words": "Do I have a motion to approve? So moved. Second. All right,",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "All right, so we're on to the bond program consent items.",
+        "intro_words": "Do I have a motion to approve? As a reminder, we move 7.1, 2 and 3 up to consent.",
         "status": "consent_bundle"
       },
       {
@@ -63,7 +63,7 @@
       },
       {
         "item": 9,
-        "intro_words": "All right, I do not see any oral communication comments. All right,",
+        "intro_words": "All right, I do not see any oral communication comments. All right, so",
         "status": "found"
       },
       {
@@ -73,17 +73,12 @@
       },
       {
         "item": 12,
-        "intro_words": "So right, so this is an initial review at the Board meeting",
+        "intro_words": "Okay, 8.2. We're on to the presentation regarding potential trustee area revision.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "All right, so let's see. We are on to our 8.2 A or B",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "All right, well, thank you everyone. Anything else? Any other comments before we move on?",
+        "intro_words": "All right, so let's see. We are on to our 8.2 A or B or",
         "status": "found"
       }
     ]
@@ -108,8 +103,8 @@
         "timestampSeconds": 152
       },
       {
-        "timestamp": "00:02:12",
-        "timestampSeconds": 132
+        "timestamp": "00:03:53",
+        "timestampSeconds": 233
       },
       {
         "timestamp": "00:04:36",
@@ -134,20 +129,17 @@
         "timestampSeconds": 437
       },
       {
-        "timestamp": "01:13:55",
-        "timestampSeconds": 4435
+        "timestamp": "01:00:26",
+        "timestampSeconds": 3626
       },
       {
-        "timestamp": "01:37:17",
-        "timestampSeconds": 5837
+        "timestamp": "01:01:16",
+        "timestampSeconds": 3676
       },
-      {
-        "timestamp": "01:59:53",
-        "timestampSeconds": 7193
-      }
+      null
     ]
   },
-  "cachedAt": "2026-10-21T21:18:32.997Z",
+  "cachedAt": "2026-10-22T11:12:25.002Z",
   "inputTokens": 25018,
-  "outputTokens": 761
+  "outputTokens": 726
 }
