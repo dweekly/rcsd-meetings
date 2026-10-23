@@ -37,8 +37,8 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Staff Recognition item was added after Oral Communication (item 5). This change was announced during the 'Changes to the Agenda' section when Dennis requested to add staff recognition after oral communication.",
-    "consent_vote_words": "So we are on to item six, the bond program consent items to approve. Mrs. Dennis so moved. Second. Cecilia. Okay, Cecilia was second. And a roll call vote, please.",
+    "agenda_changes": "Staff Recognition was added after item 5 (Oral Communication). No other changes announced.",
+    "consent_vote_words": "So moved. Second. Cecilia. Okay, Cecilia was second. And a roll call vote, please.",
     "items": [
       {
         "item": 1,
@@ -47,32 +47,32 @@
       },
       {
         "item": 2,
-        "intro_words": "Roll Call - Here. Trustee Marquez. Here. Trustee Diaz locum.",
+        "intro_words": "Roll Call - Trustee McBride. Here. Trustee Marquez. Here. Trustee Diaz",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's good to see some familiar faces again.",
+        "intro_words": "Welcome - Welcome, everybody. It's good to see some familiar faces",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President - not explicitly separated",
+        "intro_words": "Welcome by School Board President - not separately marked",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "Pledge of Allegiance. My name is Jude. I am in the second grade at Henry Ford School.",
+        "intro_words": "Pledge of Allegiance - My name is Jude. I am in the second",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis.",
+        "intro_words": "Moving on. Are there any changes to the agenda? This is",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Changes to the Agenda - covered under item 6",
+        "intro_words": "Changes to the Agenda - duplicate item, covered in item 6",
         "status": "found"
       },
       {
@@ -82,127 +82,97 @@
       },
       {
         "item": 9,
-        "intro_words": "Approval of Agenda - covered under item 8",
+        "intro_words": "Approval of Agenda - duplicate item, covered in item 8",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Oral Communication - not explicitly called out separately in early transcript",
+        "intro_words": "Oral Communication - If you have public comment related to a",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Staff Recognition - added per agenda change announcement",
-        "status": "found"
+        "intro_words": "Staff Recognition - So we will move on to the staff recognition.",
+        "status": "added"
       },
       {
         "item": 12,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
+        "intro_words": "So we are on to item six, the bond program consent items",
         "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "Approval of Agreement for a Modernization Project - included in bond program consent bundle",
-        "status": "consent_bundle"
+        "intro_words": "moving on to 7.1, which is a bond action item. Do we",
+        "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Approval of Additional Legacy Closeout Support - included in bond program consent bundle",
-        "status": "consent_bundle"
+        "intro_words": "Okay, item 8.1, which I think is here for. So, John,",
+        "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "Approval of Tracking List for Measure T Bond Program - included in bond program consent bundle",
-        "status": "consent_bundle"
+        "intro_words": "Discussion Items - covered under item 8.1 discussion on COVID-19",
+        "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "Approval of Utility Fees with the City of Redwood City - included in bond program consent bundle",
-        "status": "consent_bundle"
+        "intro_words": "Discussion on COVID-19 - So, John, did you want to go ahead",
+        "status": "found"
       },
       {
         "item": 17,
-        "intro_words": "Approval of Motorized Gate Proposal with A&D Auto Gate - included in bond program consent bundle",
-        "status": "consent_bundle"
+        "intro_words": "Consent Items - No items listed under this section",
+        "status": "not_found"
       },
       {
         "item": 18,
-        "intro_words": "Approval of Portable Rental Agreement with Mobile Modular - included in bond program consent bundle",
-        "status": "consent_bundle"
+        "intro_words": "Action Items - We have no items on consent. Moving on to",
+        "status": "found"
       },
       {
         "item": 19,
-        "intro_words": "Approval of Library Moving Services with Chipman for Taft School - included in bond program consent bundle",
-        "status": "consent_bundle"
+        "intro_words": "Adoption of Resolution 21, Resolution of Emergency Relating to Coronavirus",
+        "status": "found"
       },
       {
         "item": 20,
-        "intro_words": "moving on to 7.1, which is a bond action item. Do we know we have Will here?",
+        "intro_words": "Board and Superintendent Report - We are on 11.1. Report from board",
         "status": "found"
       },
       {
         "item": 21,
-        "intro_words": "Discussion Items - not explicitly called",
+        "intro_words": "Report from Board Members and Superintendent - Does anybody have anything",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "Discussion on COVID-19 - So, John, did you want to go ahead and start?",
+        "intro_words": "Information - We have no information items, correspondence to share, Just",
         "status": "found"
       },
       {
         "item": 23,
-        "intro_words": "Consent Items - not explicitly called as separate from bond consent",
+        "intro_words": "Correspondence - We have no information items, correspondence to share, Just",
         "status": "found"
       },
       {
         "item": 24,
-        "intro_words": "Action Items - not explicitly called separately",
+        "intro_words": "Other Business/Suggested Items for Future Agenda - Other business suggested items",
         "status": "found"
       },
       {
         "item": 25,
-        "intro_words": "Adoption of Resolution 21, Resolution of Emergency Relating to Coronavirus. We are on 11.1.",
+        "intro_words": "Board Agenda Calendar - And then changes to the agenda, the",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "Board and Superintendent Report - covered under Report from Board Members",
+        "intro_words": "Changes to the Board Agenda Schedule - And then changes to the",
         "status": "found"
       },
       {
         "item": 27,
-        "intro_words": "Report from Board Members and Superintendent. Does anybody have anything they would like to.",
-        "status": "found"
-      },
-      {
-        "item": 28,
-        "intro_words": "Information - no information items, correspondence to share",
-        "status": "found"
-      },
-      {
-        "item": 29,
-        "intro_words": "Correspondence - Just email we've been getting",
-        "status": "found"
-      },
-      {
-        "item": 30,
-        "intro_words": "Other Business/Suggested Items for Future Agenda. Anybody have anything else?",
-        "status": "found"
-      },
-      {
-        "item": 31,
-        "intro_words": "Board Agenda Calendar - no items on the 15th then April",
-        "status": "found"
-      },
-      {
-        "item": 32,
-        "intro_words": "Changes to the Board Agenda Schedule. No.",
-        "status": "found"
-      },
-      {
-        "item": 33,
-        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard a first and a second.",
+        "intro_words": "Adjournment - Is there a motion to adjourn. In unison? Okay,",
         "status": "found"
       }
     ]
@@ -212,13 +182,10 @@
     "items": [
       null,
       {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
+        "timestamp": "00:04:18",
+        "timestampSeconds": 258
       },
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
+      null,
       null,
       {
         "timestamp": "00:03:01",
@@ -235,50 +202,22 @@
       },
       null,
       null,
-      null,
       {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
-        "consent": true
+        "timestamp": "00:04:41",
+        "timestampSeconds": 281
       },
       {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
-        "consent": true
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
-        "consent": true
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
-        "consent": true
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
-        "consent": true
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
-        "consent": true
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
-        "consent": true
-      },
-      {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313,
+        "timestamp": "00:05:43",
+        "timestampSeconds": 343,
         "consent": true
       },
       {
         "timestamp": "00:06:12",
         "timestampSeconds": 372
+      },
+      {
+        "timestamp": "00:08:30",
+        "timestampSeconds": 510
       },
       null,
       {
@@ -286,40 +225,46 @@
         "timestampSeconds": 504
       },
       null,
-      null,
+      {
+        "timestamp": "01:47:09",
+        "timestampSeconds": 6429
+      },
       null,
       null,
       {
-        "timestamp": "01:48:52",
-        "timestampSeconds": 6532
+        "timestamp": "01:48:57",
+        "timestampSeconds": 6537
       },
       {
         "timestamp": "01:59:55",
         "timestampSeconds": 7195
       },
       {
-        "timestamp": "02:00:00",
-        "timestampSeconds": 7200
+        "timestamp": "01:59:55",
+        "timestampSeconds": 7195
       },
-      {
-        "timestamp": "02:00:00",
-        "timestampSeconds": 7200
-      },
+      null,
       {
         "timestamp": "02:03:20",
         "timestampSeconds": 7400
       },
       {
-        "timestamp": "02:03:47",
-        "timestampSeconds": 7427
+        "timestamp": "02:03:09",
+        "timestampSeconds": 7389
       },
       {
         "timestamp": "02:04:16",
         "timestampSeconds": 7456
-      }
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-10-22T21:16:17.547Z",
+  "cachedAt": "2026-10-23T11:04:44.829Z",
   "inputTokens": 24593,
-  "outputTokens": 1660
+  "outputTokens": 1317
 }
