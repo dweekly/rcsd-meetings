@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before oral communication at the beginning of the meeting. Additionally, bond program consent items (6.1) were moved to action items to allow for public comment.",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved from its posted position to immediately before oral communication. Additionally, items 6.2, 6.3, and 6.4 were moved from closed session to action items due to public comments received. Item 6.1 (Approval of bond program consent items) was separated and moved to action.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -35,38 +35,88 @@
         "status": "found"
       },
       {
-        "item": 13,
-        "intro_words": "Recognition of classified employees. Thank you. Well, it's a special evening",
+        "item": 3,
+        "intro_words": "President Marquez? Here. Thank you. Next item is 1.2",
+        "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "Next item is 1.2 reported on closed session.",
+        "status": "found"
+      },
+      {
+        "item": 5,
+        "intro_words": "And so are there any changes to the agenda? Yes, I was hoping",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "item 6.1. We do have public comments, so it will have to be moved under action.",
+        "intro_words": "And so are there any changes to the agenda? Yes, I was hoping",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "With that, if there's no other changes to the agenda, can I",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "item 8, school and community reports. 8.1. School plans for student achievement",
-        "status": "found"
-      },
-      {
-        "item": 9,
-        "intro_words": "moving along then, we're on to item nine, discussion items.",
-        "status": "found"
-      },
-      {
-        "item": 11,
-        "intro_words": "moving on to consent items, can I please get a motion to approve?",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 12,
-        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill",
+        "intro_words": "With that, if there's no other changes to the agenda, can I",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "superintendent reports. Wait, I'll go. Let's see. We had a bond",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "Well, it's a special evening tonight. We have in our audience",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "And then also I was wondering if we could do one other",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Okay, so with oral communication do we. Chris Roble. Hi.",
+        "status": "found"
+      },
+      {
+        "item": 6.1,
+        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond program",
+        "status": "found"
+      },
+      {
+        "item": 6.2,
+        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond program",
+        "status": "found"
+      },
+      {
+        "item": 6.3,
+        "intro_words": "All those in favor? Aye. 6.3, approval of proposal for the furnishing",
+        "status": "found"
+      },
+      {
+        "item": 7.1,
+        "intro_words": "Thank you. And then bond program action items 7.1, approval of measure",
+        "status": "found"
+      },
+      {
+        "item": 7.2,
+        "intro_words": "Thank you. 7.2. Approval of amendment number two to the Program",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Great. Thank you, guys. Thank you. Thank you, Will. Okay, so item",
+        "status": "found"
+      },
+      {
+        "item": 8.1,
+        "intro_words": "Great. Thank you, guys. Thank you. Thank you, Will. Okay, so item 8, school and community reports. 8.1.",
         "status": "found"
       }
     ]
@@ -82,40 +132,54 @@
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
+      {
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
+      },
+      {
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
+      },
+      {
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
+      },
+      {
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
+      },
+      {
+        "timestamp": "00:02:43",
+        "timestampSeconds": 163
+      },
+      {
+        "timestamp": "00:02:43",
+        "timestampSeconds": 163
+      },
+      null,
       null,
       null,
       null,
       {
-        "timestamp": "00:09:54",
-        "timestampSeconds": 594
-      },
-      null,
-      {
-        "timestamp": "00:20:32",
-        "timestampSeconds": 1232
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
       },
       {
-        "timestamp": "03:10:26",
-        "timestampSeconds": 11426
-      },
-      null,
-      {
-        "timestamp": "03:17:00",
-        "timestampSeconds": 11820,
-        "consent": true
+        "timestamp": "00:02:58",
+        "timestampSeconds": 178
       },
       {
-        "timestamp": "03:16:36",
-        "timestampSeconds": 11796
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
       },
-      null,
-      null,
-      null,
-      null,
+      {
+        "timestamp": "00:10:35",
+        "timestampSeconds": 635
+      },
       null
     ]
   },
-  "cachedAt": "2026-10-23T11:02:12.525Z",
+  "cachedAt": "2026-10-23T21:01:32.354Z",
   "inputTokens": 43596,
-  "outputTokens": 529
+  "outputTokens": 1048
 }
