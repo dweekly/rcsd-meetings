@@ -212,14 +212,19 @@ def parse(pdf_path: Path) -> tuple[list[Meeting], str | None]:
     last_update: str | None = None
 
     ended = False
+    last_tables: list = []
     for page in doc:
         if ended:
             break
         rules = horizontal_rules(page)
         bands = row_bands(page)
-        tables = header_columns(page)
+        # A meeting's table can run onto a page that repeats no column header
+        # (the 10/22/2026 revision splits June 23 across pp. 12-13). Such a page
+        # keeps the previous page's columns; skipping it drops those rows silently.
+        tables = header_columns(page) or last_tables
         if len(bands) < 2 or not tables:
             continue
+        last_tables = tables
 
         # Bucket every span into the row band its vertical centre falls in.
         buckets: dict[int, list[dict]] = {}

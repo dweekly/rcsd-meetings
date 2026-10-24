@@ -148,6 +148,13 @@ Found while building the freshness guard (2026-08-19). See `docs/ANNUAL-REFRESH.
   `build-budget.mjs` refuses to build if a constant moves without its figures. The
   figures are still hand-copied from scanned PDFs into the `REVENUE_ROWS` /
   `EXPENDITURE_ROWS` / `MYP` blocks. Next: the 2026-27 First Interim (December 2026).
+- [ ] **Budget page: add the staffing trend from the 2026-10-28 HR deck.** The
+  [HR and Staffing Levels Update](https://data.rcsd.info/board-packets/2026-10-28/HR-Staffing-Levels-Presentation.pdf)
+  gives budgeted General Fund FTE for four years by bargaining unit (870.76 in 2023-24 to
+  785.26 in 2026-27, −9.8%) next to salaries and benefits ($113.53M to $123.59M budgeted,
+  before the pending settlements), plus Fund 12 and 13 personnel costs. That pairing is the
+  clearest answer to "fewer staff, higher costs" and belongs beside "Rising Personnel Costs".
+  The preliminary enrollment figure from the same deck is already on the page (`CENSUS_PRELIM`).
 - [ ] **Budget page: 2025-26 minimum state aid, $13.08M actual vs $12.86M at P-2.** The
   Unaudited Actuals book's "LCFF State Aid" ($13,077,781) is $214,269 above CDE's 2025-26
   P-2 Categorical Minimum State Aid ($12,863,512, `STATE_LCFF` in `build-budget.mjs`).
@@ -373,7 +380,9 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
   the 5% MOU minimum (4.79% budgeted for 2026-27), and Connect's projections fall below it by
   2028-29 (3.69%). The 2026-10-14 public hearing added KIPP Excelencia's 2027-2032 renewal
   petition, which the board must grant or deny by about 2026-12-20 (90 days from the 9/21
-  submission; see `data/triage/2026-10-14.md`). Sources:
+  submission; see `data/triage/2026-10-14.md`). The 10/22 Schedule still lists no decision
+  date. The 2026-10-28 consent agenda adds KIPP's 2026-27 Measure U application ($156,326 for
+  1.36 FTE of math leadership; [scan](https://data.rcsd.info/board-packets/2026-10-28/2026.27-Measure-U-KIPP-Excelencia.pdf)). Sources:
   - Connect: [review letter](https://data.rcsd.info/board-packets/2026-09-23/Connect-FY-2026-27-Adopted-Budget-Review-Letter.pdf),
     [adopted budget](https://data.rcsd.info/board-packets/2026-09-23/Connect-2026-27-Adopted-Budget-Board.pdf),
     [LCAP](https://data.rcsd.info/board-packets/2026-09-23/Connect-LCAP-2026-27-Adopted-Budget.pdf)

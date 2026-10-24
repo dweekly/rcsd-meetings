@@ -1,13 +1,13 @@
 {
-  "_source": "2026–27 Schedule of Agenda Items (last updated 10/06/2026), board-packet attachment for the 2026-10-14 meeting",
-  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-10-14/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_sourceFile": "artifacts/board-packets/2026-10-14/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_sourceSha256": "39c7ea24b1425980bbe607d24a31496c8ff78ad9dd432abfae1271d9f1416b16",
-  "_sourceLastUpdate": "10/06/2026",
-  "_retrieved": "2026-10-11",
-  "_generated": "2026-10-11",
+  "_source": "2026–27 Schedule of Agenda Items (last updated 10/22/2026), board-packet attachment for the 2026-10-28 meeting",
+  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-10-28/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceFile": "artifacts/board-packets/2026-10-28/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceSha256": "92ef07c37cf49ddcffc0ab64d9572f4feeda2e61c6e6e9921d682458aae49bb8",
+  "_sourceLastUpdate": "10/22/2026",
+  "_retrieved": "2026-10-23",
+  "_generated": "2026-10-23",
   "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept. The `en`/`es` summaries are built from the topic column only. Within `items`, `administrator` and `duration` are approximate: PyMuPDF sometimes emits one span across both cells, and such a span is assigned whole to the column it overlaps most, so a duration can appear appended to the administrator (4 of the rows in this extraction). `department` is a cell the Schedule merges across consecutive rows, so it is attached to whichever row its label is vertically centred on and is absent from the others in the group.",
-  "_droppedStruckRows": 1,
+  "_droppedStruckRows": 5,
   "provisionalTopics": {
     "2026-07-16": {
       "en": "Board Retreat",
@@ -174,8 +174,45 @@
       "es": "Actualización de Bienestar; Renovación del Charter KIPP - Audiencia Pública"
     },
     "2026-10-28": {
-      "en": "Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter; Review of Staffing Levels; Personnel Report; Quarterly Williams Report (Q1, 2026/27); Integrated/ Designated ELD",
+      "en": "Review of Staffing Levels; Personnel Report; Quarterly Williams Report (Q1, 2026/27); Integrated/Designated ELD",
       "items": [
+        {
+          "topic": "Review of Staffing Levels",
+          "administrator": "Wendy Kelly/ Rick Edson",
+          "duration": "20 min",
+          "note": "Report"
+        },
+        {
+          "department": "Human Resource",
+          "topic": "Personnel Report",
+          "administrator": "Wendy Kelly/ Patricia Perez"
+        },
+        {
+          "department": "Superintendent",
+          "topic": "Quarterly Williams Report (Q1, 2026/27)",
+          "administrator": "Christian Rubalcaba",
+          "duration": "N/A",
+          "note": "Information Only"
+        },
+        {
+          "department": "Education Services",
+          "topic": "Integrated/Designated ELD",
+          "administrator": "Anna Herrera/ Katherine",
+          "duration": "15 min",
+          "note": "Report"
+        }
+      ],
+      "es": "Revisión de los Niveles de Personal; Reporte de Personal; Reporte Trimestral Williams (Q1, 2026/27); ELD Integrado/Designado"
+    },
+    "2026-11-04": {
+      "en": "CAASPP or CA Dashboard; Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "CAASPP or CA Dashboard",
+          "administrator": "Anna Herrera/ Jenny",
+          "duration": "25 min"
+        },
         {
           "topic": "Connect – 25/26 Unaudited Actuals & Review Letter",
           "administrator": "Rick Edson",
@@ -194,44 +231,9 @@
           "administrator": "Rick Edson",
           "duration": "N/A",
           "note": "Information Only"
-        },
-        {
-          "topic": "Review of Staffing Levels",
-          "administrator": "Wendy Kelly/ Rick Edson",
-          "duration": "20 min",
-          "note": "Report"
-        },
-        {
-          "department": "Human Resource",
-          "topic": "Personnel Report",
-          "administrator": "Wendy Kelly/ Patricia Perez"
-        },
-        {
-          "department": "Superintendent",
-          "topic": "Quarterly Williams Report (Q1, 2026/27)",
-          "administrator": "Christian Rubalcaba",
-          "duration": "N/A"
-        },
-        {
-          "department": "Education Services",
-          "topic": "Integrated/ Designated ELD",
-          "administrator": "Anna Herrera/ Katherine",
-          "duration": "45 min"
         }
       ],
-      "es": "Connect – Cifras Reales No Auditadas 25/26 y Carta de Revisión; Rocketship – Cifras Reales No Auditadas 25/26 y Carta de Revisión; KIPP – Cifras Reales No Auditadas 25/26 y Carta de Revisión; Revisión de Niveles de Personal; Reporte de Personal; Reporte Trimestral de Williams (Q1, 2026/27); ELD Integrado/Designado"
-    },
-    "2026-11-04": {
-      "en": "CAASPP or CA Dashboard",
-      "items": [
-        {
-          "department": "Education Services",
-          "topic": "CAASPP or CA Dashboard",
-          "administrator": "Anna Herrera/ Jenny",
-          "duration": "25 min"
-        }
-      ],
-      "es": "CAASPP o CA Dashboard"
+      "es": "CAASPP o el Dashboard de CA; Connect – Cifras Reales Sin Auditar y Carta de Revisión 25/26; Rocketship – Cifras Reales Sin Auditar y Carta de Revisión 25/26; KIPP – Cifras Reales Sin Auditar y Carta de Revisión 25/26"
     },
     "2026-11-18": {
       "en": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program)",
@@ -313,13 +315,8 @@
       "es": "Reporte Trimestral Williams (Q2, 2026/27); Asignaciones Escolares y de Comités para los Miembros de la Mesa (Acción)"
     },
     "2027-01-20": {
-      "en": "SARCs; Declaration of Need",
+      "en": "Declaration of Need",
       "items": [
-        {
-          "department": "Education Services",
-          "topic": "SARCs",
-          "administrator": "Anna Herrera/ Jorge Quintana"
-        },
         {
           "department": "Human Resource",
           "topic": "Declaration of Need",
@@ -328,10 +325,10 @@
           "note": "Must be approved as an action item."
         }
       ],
-      "es": "SARCs; Declaración de Necesidad"
+      "es": "Declaración de Necesidad"
     },
     "2027-02-10": {
-      "en": "Connect – 26/27 First Interim & Review Letter; Rocketship – 26/27 First Interim & Review Letter; KIPP – 26/27 First Interim & Review Letter; Connect – 25/26 Audit Report & Review Letter; Rocketship – 25/26 Audit Report & Review Letter; KIPP – 25/26 Audit Report & Review Letter; 2025/26 RCSD Financial Audit Report",
+      "en": "Connect – 26/27 First Interim & Review Letter; Rocketship – 26/27 First Interim & Review Letter; KIPP – 26/27 First Interim & Review Letter; Connect – 25/26 Audit Report & Review Letter; Rocketship – 25/26 Audit Report & Review Letter; KIPP – 25/26 Audit Report & Review Letter; 2025/26 RCSD Financial Audit Report; SARCs",
       "items": [
         {
           "department": "Education Services",
@@ -387,9 +384,14 @@
           "administrator": "Rick Edson/​ Eide Bailly",
           "duration": "15 min",
           "note": "Report"
+        },
+        {
+          "department": "Education Services",
+          "topic": "SARCs",
+          "administrator": "Anna Herrera/ Jorge Quintana"
         }
       ],
-      "es": "Connect – Primer Interino y Carta de Revisión 26/27; Rocketship – Primer Interino y Carta de Revisión 26/27; KIPP – Primer Interino y Carta de Revisión 26/27; Connect – Reporte de Auditoría y Carta de Revisión 25/26; Rocketship – Reporte de Auditoría y Carta de Revisión 25/26; KIPP – Reporte de Auditoría y Carta de Revisión 25/26; Reporte de Auditoría Financiera de RCSD 2025/26"
+      "es": "Connect – Primer Informe Interino y Carta de Revisión 26/27; Rocketship – Primer Informe Interino y Carta de Revisión 26/27; KIPP – Primer Informe Interino y Carta de Revisión 26/27; Connect – Reporte de Auditoría y Carta de Revisión 25/26; Rocketship – Reporte de Auditoría y Carta de Revisión 25/26; KIPP – Reporte de Auditoría y Carta de Revisión 25/26; Reporte de Auditoría Financiera del RCSD 2025/26; SARCs"
     },
     "2027-02-24": {
       "en": "LCAP Mid-Year Report; CSBA Delegate Assembly Ballot; Personnel Report; Non-Reelect, Temp Release, PKS Release & Reassignment of Classified/Certificated Employees",
@@ -688,7 +690,7 @@
       "requested": "claude-sonnet-5",
       "resolved": "claude-sonnet-5"
     },
-    "translated": "2026-10-12",
+    "translated": "2026-10-24",
     "note": "Machine translation of provisional agenda topics. The English Schedule of Agenda Items is the authoritative source."
   }
 }

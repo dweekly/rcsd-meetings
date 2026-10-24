@@ -107,6 +107,15 @@ test('topics whose text starts outside their cell are still topics', () => {
   }
 });
 
+test('a meeting continued onto a page with no column header keeps its rows', () => {
+  // The 10/22/2026 Schedule starts June 23 2027 at the foot of p. 12 and runs the
+  // LCAP adoption rows onto p. 13, which repeats no header. Skipping that page
+  // publishes budget adoption without the LCAP the law requires adopting with it.
+  assert.match(topics['2027-06-23']?.en ?? '', /LCAP \(Action\)/,
+    'June 23 2027 lost its LCAP adoption row — check pages without a header');
+  assert.match(topics['2027-06-23']?.en ?? '', /ESSA Addendum/);
+});
+
 test('undated suggestions are not attached to a meeting', () => {
   // The Schedule closes with "Future Agenda Items/Suggestions:", an undated table of
   // ideas trustees have raised — currently one entry, "Discussion Re: Technology

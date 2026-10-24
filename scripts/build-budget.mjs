@@ -446,6 +446,7 @@ const DOCS = {
   uaBook: `${PACKETS}/2026-09-23/25.26-Unaudited-Actuals-Book.pdf`,
   uaPresentation: `${PACKETS}/2026-09-23/25-26-UA-Presentation.pdf`,
   gann: `${PACKETS}/2026-09-23/Gann-Limit-Resolution-10-26.27.pdf`,
+  staffing1028: `${PACKETS}/2026-10-28/HR-Staffing-Levels-Presentation.pdf`,
   lcap: LCAP_PDF_URL,
   cdeExhibit: 'https://ias.cde.ca.gov/apportionment/PrincipalApportionmentWebExhibit',
   districtBudget: 'https://www.rcsdk8.net/our-programs-and-services/business-services/district-budget',
@@ -460,6 +461,13 @@ const DOCS = {
 // EC 42238.03(e), not formula state aid: Gross State Aid (I-2) is $0 because local
 // revenue exceeds the entitlement (L-1, basic aid = TRUE; margin L-2). The adopted
 // 2026-27 book budgets the same $12,863,512.
+// Preliminary, uncertified 2026-27 Census Day count (non-charter), from the HR &
+// Staffing Levels Update in the 2026-10-28 packet (DOCS.staffing1028), slide
+// "Enrollment: Actuals and Preliminary Census Day". `prior` is the same slide's
+// 2025-26 figure, so the change compares like with like (CALPADS certified 6,310).
+// Replace with the certified figure at First Interim.
+const CENSUS_PRELIM = { total: 6399, tk: 412, k8: 5987, prior: 6309, priorTk: 350, priorK8: 5959 };
+
 const STATE_LCFF = {
   period: { en: '2025-26 P-2', es: '2025-26 P-2' },
   entitlement: 82575924,  // H-3
@@ -1138,6 +1146,7 @@ function sectionOutlookEN() {
   <div class="trend-item">
     <div class="trend-label trend-down">Declining Enrollment</div>
     <p>The adopted budget assumes enrollment keeps falling &mdash; from ${ASSUMPTIONS[0][2]} in 2025-26 to ${ASSUMPTIONS[0][3]} in 2026-27 and ${ASSUMPTIONS[0][5]} by 2028-29. Each lost student represents roughly $15,000-$16,000 in LCFF-equivalent funding. Fixed costs (facilities, administration, transportation) do not decline proportionally.</p>
+    <p><strong>Preliminary 2026-27 count:</strong> the district's preliminary, uncertified Census Day count is ${CENSUS_PRELIM.total.toLocaleString('en-US')} students, ${(CENSUS_PRELIM.total - ADOPTED_ENROLLMENT).toLocaleString('en-US')} more than the budget assumed and ${(CENSUS_PRELIM.total - CENSUS_PRELIM.prior).toLocaleString('en-US')} more than the same count a year earlier. Most of the growth is transitional kindergarten (${CENSUS_PRELIM.priorTk} to ${CENSUS_PRELIM.tk}); K-8 went from ${CENSUS_PRELIM.priorK8.toLocaleString('en-US')} to ${CENSUS_PRELIM.k8.toLocaleString('en-US')}. Source: ${docLink(DOCS.staffing1028, 'HR &amp; Staffing Levels Update, October 28, 2026')}. The certified figure arrives with the First Interim report.</p>
   </div>
   <div class="trend-item">
     <div class="trend-label trend-down">Rising Personnel Costs</div>
@@ -1666,6 +1675,7 @@ function sectionOutlookES() {
   <div class="trend-item">
     <div class="trend-label trend-down">Inscripción en Descenso</div>
     <p>El presupuesto adoptado supone que la inscripción sigue bajando &mdash; de ${ASSUMPTIONS[0][2]} en 2025-26 a ${ASSUMPTIONS[0][3]} en 2026-27 y ${ASSUMPTIONS[0][5]} para 2028-29. Cada estudiante perdido representa ~$15,000-$16,000 en financiamiento equivalente a LCFF. Los costos fijos (instalaciones, administración, transporte) no bajan en la misma proporción.</p>
+    <p><strong>Conteo preliminar 2026-27:</strong> el conteo preliminar del Census Day, todavía sin certificar, es de ${CENSUS_PRELIM.total.toLocaleString('en-US')} estudiantes: ${(CENSUS_PRELIM.total - ADOPTED_ENROLLMENT).toLocaleString('en-US')} más de lo que suponía el presupuesto y ${(CENSUS_PRELIM.total - CENSUS_PRELIM.prior).toLocaleString('en-US')} más que el mismo conteo del año pasado. La mayor parte del aumento viene de TK (de ${CENSUS_PRELIM.priorTk} a ${CENSUS_PRELIM.tk}); de K a 8.º pasó de ${CENSUS_PRELIM.priorK8.toLocaleString('en-US')} a ${CENSUS_PRELIM.k8.toLocaleString('en-US')}. Fuente: ${docLink(DOCS.staffing1028, 'Informe de Recursos Humanos y Niveles de Personal, 28 de octubre de 2026 (en inglés)')}. La cifra certificada llega con el Primer Informe Interino.</p>
   </div>
   <div class="trend-item">
     <div class="trend-label trend-down">Costos de Personal en Aumento</div>
