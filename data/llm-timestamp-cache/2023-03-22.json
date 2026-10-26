@@ -18,17 +18,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced at meeting start. All items followed posted order.",
-    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No changes to the agenda announced during early portion of transcript. Meeting proceeded as posted.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
+        "intro_words": "Roll call, please. Trustee Weekley? Present.",
         "status": "found"
       },
       {
@@ -73,22 +73,22 @@
       },
       {
         "item": 11,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "intro_words": "Moving along to board program consent items 6.1.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Can I please get a motion to approve the consent bond program?",
-        "status": "consent_bundle"
+        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "Great. Thank you. And then I think moving on to obviously, adjournment.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "Great. Thank you. And then I think moving on to obviously, adjournment.",
         "status": "found"
       }
     ]
@@ -141,21 +141,20 @@
         "timestampSeconds": 93
       },
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79,
-        "consent": true
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "01:19:21",
+        "timestampSeconds": 4761
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "01:19:21",
+        "timestampSeconds": 4761
       }
     ]
   },
-  "cachedAt": "2026-10-25T20:25:57.068Z",
+  "cachedAt": "2026-10-26T12:18:16.082Z",
   "inputTokens": 27924,
-  "outputTokens": 707
+  "outputTokens": 687
 }
