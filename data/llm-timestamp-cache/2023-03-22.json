@@ -18,27 +18,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No agenda changes announced. The posted agenda listed duplicate items (items 7 and 8 both listed as \"Approval of Agenda\"), but no formal changes were announced during the early portion of the meeting.",
-    "consent_vote_words": "can I please get a motion to approve the consent bond program",
+    "agenda_changes": "No changes to agenda announced at meeting start. However, items were taken in different order than posted: Items 1-10 were covered in posted order, then Item 12 (Board and Superintendent Report) was taken before Item 11 (Action Items). Item 8 (Community Reports) included two presentations (Roy Cloud SPSA and North Star SPSA) that consumed most of the meeting time.",
+    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
+        "intro_words": "Roll call, please. Trustee Weekley? Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Welcome, everyone, to another Redwood City School District board meeting.",
         "status": "found"
       },
       {
@@ -74,21 +74,21 @@
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
-      },
-      {
-        "item": 12,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
         "status": "consent_bundle"
       },
       {
+        "item": 12,
+        "intro_words": "8.1. Discussion of the school plan for student achievement for Roy Cloud and North Star Academy.",
+        "status": "found"
+      },
+      {
         "item": 13,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "intro_words": "So I don't have any reports from the. Between the last board meeting and this one",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "Item 13, information on San Mateo county investment fund.",
         "status": "found"
       }
     ]
@@ -137,10 +137,6 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
-      },
-      {
         "timestamp": "00:01:19",
         "timestampSeconds": 79,
         "consent": true
@@ -150,12 +146,16 @@
         "timestampSeconds": 123
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:01:53",
+        "timestampSeconds": 113
+      },
+      {
+        "timestamp": "02:15:40",
+        "timestampSeconds": 8140
       }
     ]
   },
-  "cachedAt": "2026-10-28T12:11:40.446Z",
+  "cachedAt": "2026-10-28T22:15:43.928Z",
   "inputTokens": 27924,
-  "outputTokens": 726
+  "outputTokens": 771
 }
