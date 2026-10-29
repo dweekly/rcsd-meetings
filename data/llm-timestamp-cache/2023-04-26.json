@@ -21,22 +21,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) moved from later in agenda to before oral communication at President Márquez's request; Item 6.1 (Approval of Bond Program Consent Items) moved from consent to action items due to public comments received",
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved from its posted position to after oral communication, then moved again to before oral communication. Item 6.1 (Approval of bond program consent items) was moved from consent to action. Items 6.2 and 6.3 were moved to action. All bond program items (6.2, 6.3, 7.1, 7.2) were taken as action items rather than consent.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
-        "status": "found"
+        "intro_words": "not found - Call to Order is procedural",
+        "status": "procedural"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McEvoy. Present.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "President Marquez? Here. Thank you. Next item is 1.2",
+        "intro_words": "not found - Welcome item not explicitly introduced",
+        "status": "procedural"
+      },
+      {
+        "item": 4,
+        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
         "status": "found"
       },
       {
@@ -45,148 +50,133 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "not found - merged with item 5",
+        "status": "merged"
+      },
+      {
         "item": 7,
         "intro_words": "With that, if there's no other changes to the agenda, can I please",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
-        "status": "found"
+        "intro_words": "not found - Approval of Agenda covered in item 7",
+        "status": "merged"
       },
       {
         "item": 9,
-        "intro_words": "Thank you. Okay, so I had one other recognition that I would like",
-        "status": "found"
+        "intro_words": "not found - Oral Communication on Closed Session Items Only",
+        "status": "procedural"
       },
       {
         "item": 10,
-        "intro_words": "So I just realized that we do have. So I don't know how",
-        "status": "found"
+        "intro_words": "not found - informational text only",
+        "status": "procedural"
       },
       {
         "item": 11,
-        "intro_words": "Okay, well, I made the. The amendment of the motion. Does somebody",
-        "status": "found"
+        "intro_words": "not found - Closed Session was announced but not transcribed",
+        "status": "not_reached"
       },
       {
         "item": 12,
-        "intro_words": "So we. Chris, do you have a public comment for 6.1",
+        "intro_words": "Next item is 1.2 reported on closed session. We took staff recommendation",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond",
-        "status": "found"
+        "intro_words": "not found - part of closed session report",
+        "status": "merged"
       },
       {
         "item": 14,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation of",
-        "status": "found"
+        "intro_words": "not found - part of closed session report",
+        "status": "merged"
       },
       {
         "item": 15,
-        "intro_words": "Thank you. And then bond program action items 7.1, approval of",
-        "status": "found"
+        "intro_words": "not found - part of closed session report",
+        "status": "merged"
       },
       {
         "item": 16,
-        "intro_words": "Thank you. 7.2. Approval of amendment number two to the Program",
-        "status": "found"
+        "intro_words": "not found - Adjournment item not yet reached in transcript",
+        "status": "not_reached"
       },
       {
         "item": 17,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1. School plans",
+        "intro_words": "not found - Adjourn the Meeting not yet reached",
+        "status": "not_reached"
+      },
+      {
+        "item": "13.1 (moved)",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition",
         "status": "found"
       },
       {
-        "item": 18,
-        "intro_words": "Go ahead, Liz. Yeah, so it's with great enthusiasm that we",
+        "item": "6.1 (action)",
+        "intro_words": "Everything under the bond program consent items was moved under action. So item 6.2",
         "status": "found"
       },
       {
-        "item": 19,
-        "intro_words": "Good evening. Good evening. Dr. Baker, President Marquez, Vice President",
+        "item": "6.2",
+        "intro_words": "6.2 approval of measure T bond program tracking list of items under 20,000",
         "status": "found"
       },
       {
-        "item": 20,
-        "intro_words": "So goal one is designed to ensure our students social emotional",
+        "item": "6.3",
+        "intro_words": "6.3, approval of proposal for the furnishing and installation of the water pump",
         "status": "found"
       },
       {
-        "item": 21,
-        "intro_words": "Hi everybody. I'm so excited to be here to talk about",
+        "item": "7.1",
+        "intro_words": "And then bond program action items 7.1, approval of measure T final projects",
         "status": "found"
       },
       {
-        "item": 22,
-        "intro_words": "Thank you. I'm Nicole Crawford. I'm the assistant principal at Henry",
+        "item": "7.2",
+        "intro_words": "7.2. Approval of amendment number two to the Program Management Services Agreement",
         "status": "found"
       },
       {
-        "item": 23,
-        "intro_words": "I'm Lisette Hernandez. I'm the community school coordinator at Garfield.",
+        "item": "8",
+        "intro_words": "Okay, so item 8, school and community reports. 8.1. School plans for student",
         "status": "found"
       },
       {
-        "item": 24,
-        "intro_words": "Good evening Superintendent, Dr. Baker, President Marquez, cabinet members and",
+        "item": "8.1",
+        "intro_words": "Go ahead, Liz. Yeah, so it's with great enthusiasm that we present our final",
         "status": "found"
       },
       {
-        "item": 25,
-        "intro_words": "Right. I know I'm like, I don't mind actually being up",
+        "item": "Garfield presentation",
+        "intro_words": "Good evening. Dr. Baker, President Marquez, Vice President Lawson, Trustees, Redwood City",
         "status": "found"
       },
       {
-        "item": 26,
-        "intro_words": "My name is Ana Paula Garay. I am the lead mental",
+        "item": "Henry Ford presentation",
+        "intro_words": "Good evening Superintendent, Dr. Baker, President Marquez, cabinet members and community",
         "status": "found"
       },
       {
-        "item": 27,
-        "intro_words": "So I'm going to present information that's kind of August through",
+        "item": "Mental Health Report",
+        "intro_words": "So I'm going to present information that's kind of August through December. So the first",
         "status": "found"
       },
       {
-        "item": 28,
-        "intro_words": "So starting off this year, we had some kind of additional",
+        "item": "9",
+        "intro_words": "So moving along then, we're on to item nine, discussion items. So board of trustees",
         "status": "found"
       },
       {
-        "item": 29,
-        "intro_words": "So tier one with check ins, so far, as of December,",
+        "item": "11.1",
+        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle",
         "status": "found"
       },
       {
-        "item": 30,
-        "intro_words": "So the percentage of students who have at least had one",
-        "status": "found"
-      },
-      {
-        "item": 31,
-        "intro_words": "All right. I want to say they did a great. It",
-        "status": "found"
-      },
-      {
-        "item": 32,
-        "intro_words": "Okay, so information Items. We move 13.1. So 13.2 is contract",
-        "status": "found"
-      },
-      {
-        "item": 33,
-        "intro_words": "Correspondence. Continue to get public records. That's true. And okay.",
-        "status": "found"
-      },
-      {
-        "item": 34,
-        "intro_words": "Any possible other business or suggested items. Just a quick note",
-        "status": "found"
-      },
-      {
-        "item": 35,
-        "intro_words": "So does somebody want to make a motion to adjourn them?",
+        "item": "11.2",
+        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank",
         "status": "found"
       }
     ]
@@ -194,19 +184,16 @@
   "result": {
     "videoId": "inuwqFycW2Q",
     "items": [
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
-      {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
-      },
+      null,
       {
         "timestamp": "00:00:05",
         "timestampSeconds": 5
       },
       null,
+      {
+        "timestamp": "00:00:30",
+        "timestampSeconds": 30
+      },
       {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
@@ -216,49 +203,19 @@
         "timestamp": "00:02:28",
         "timestampSeconds": 148
       },
-      {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
-      },
-      {
-        "timestamp": "00:07:13",
-        "timestampSeconds": 433
-      },
-      {
-        "timestamp": "00:09:44",
-        "timestampSeconds": 584
-      },
-      {
-        "timestamp": "00:10:35",
-        "timestampSeconds": 635
-      },
-      {
-        "timestamp": "00:09:34",
-        "timestampSeconds": 574
-      },
-      {
-        "timestamp": "00:12:58",
-        "timestampSeconds": 778
-      },
-      {
-        "timestamp": "00:15:58",
-        "timestampSeconds": 958
-      },
-      {
-        "timestamp": "00:16:30",
-        "timestampSeconds": 990
-      },
-      {
-        "timestamp": "00:17:30",
-        "timestampSeconds": 1050
-      },
-      {
-        "timestamp": "00:20:22",
-        "timestampSeconds": 1222
-      }
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-10-29T12:21:51.127Z",
+  "cachedAt": "2026-10-29T22:42:29.914Z",
   "inputTokens": 43596,
-  "outputTokens": 1633
+  "outputTokens": 1621
 }
