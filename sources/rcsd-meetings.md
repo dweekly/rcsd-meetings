@@ -12,6 +12,7 @@ Last updated: June 22, 2026
 
 | Date | Type | MID | YouTube | Key Topics |
 |------|------|-----|---------|------------|
+| 11/04/2026 | Regular | 77702 | — | (auto-discovered, fill in topics) |
 | 10/28/2026 | Regular | 77699 | — | (auto-discovered, fill in topics) |
 | 10/14/2026 | Regular | 77696 | — | (auto-discovered, fill in topics) |
 | 09/30/2026 | Special | 81100 | — | (auto-discovered, fill in topics) |
