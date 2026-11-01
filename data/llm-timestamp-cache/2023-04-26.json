@@ -4,70 +4,39 @@
   "items": [
     "Call to Order",
     "Roll Call",
-    "Report Out on Closed Session from April 26, 2023",
     "Welcome",
     "Welcome by the School Board President, Cecilia Márquez",
     "Changes to the Agenda",
-    "Additions, Deletions, or Modifications to the Agenda",
+    "Additions, Deletions or Modifications to the Agenda",
+    "Approval of the Agenda (Action Required)",
     "Approval of Agenda",
-    "Approval of Agenda",
-    "Oral Communication",
-    "If you have public comment related to a Regular Board Meeting item, please post it on the links available under Public Content prior to the Regular Board Meeting or immediately upon the meeting opening.",
-    "Bond Program Consent Items",
-    "Approval of Bond Program Consent Items",
-    "Approval of Measure T Bond Program Tracking List of Items Under $20k",
-    "Approval of Proposal for the Furnishing and Installation of a Water Pump with Scapes, Inc. for Orion Alternative School (Formerly John Gill School)",
-    "Bond Program Action Items",
-    "Approval of Measure T Final Projects List",
-    "Approval of Amendment #2 to the Program Management Services Agreement with RGMK",
-    "School/Community Reports",
-    "School Plan for Student Achievement: Reports from Garfield Community School and Henry Ford",
-    "Mental Health Report",
-    "Discussion Items",
-    "Board of Trustees Graduation/Promotions Assignments for 2022-23 SY",
-    "Consent Items",
-    "Approval of Consent Items",
-    "Approval of Amendment No. 1 to the agreement between the Redwood City School District and City of Redwood City Parks and Recreation (REACH) for the 2022-2023 School Year",
-    "Approval of Comprehensive School Safety Plans (Public) 2022-2023",
-    "Approval of the Tentative Agreement between the Redwood City Teachers Association and the Redwood City School District",
-    "Ratification of Warrant Register, March 1, 2023 - March 31, 2023",
-    "Rejection of Claim",
-    "Action Items",
-    "Approval of Recruitment Incentive Stipend for hard to fill middle school, special education, and bilingual teacher positions",
-    "Adoption of Resolution #32 - Authorizing the Establishment of a Bank Clearing Account",
-    "Board and Superintendent Reports",
-    "Report from Board Members and Superintendent",
-    "Information",
-    "Recognition of Classified Employee(s)",
-    "Contract Update Information and Credit Card Summary",
-    "Information on San Mateo County Investment Fund - February, 2023",
-    "Information on San Mateo County Investment Fund - March, 2023",
-    "Correspondence",
-    "Correspondence",
-    "Other Business/Suggested Items For Future Agenda",
-    "Possible Other Business/Suggested Items for Future Agenda",
-    "Board Meetings Calendar",
-    "Changes to the Board Meetings Calendar",
-    "Adjournment",
+    "Oral Communication on Closed Session Items Only",
+    "If you have a public comment related to a Closed Session item, please post it on the links available under Public Content prior to the Closed Session Meeting or immediately upon the meeting opening.",
+    "Closed Session – 5:20 PM",
+    "Approval of Comprehensive School Safety Plans (Tactical / Non-Public) 2022-2023",
+    "Conference with Labor Negotiators (§54957.6) Agency designated representative: Wendy Kelly Employee organization: RCTA",
+    "Conference with Labor Negotiators (§54957.6) Agency designated representative: Wendy Kelly Employee organization: CSEA",
+    "RCAA Negotiations Update with District Representative, Superintendent Baker, (§54957.6)",
+    "Adjournment (Action Required)",
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) moved from after oral communication to before oral communication. Item 6.1 (Approval of Bond Program Consent Items) moved from consent to action. Items 6.2 and 6.3 moved from consent to action.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before Oral Communication. Additionally, a staff recognition for Wendy Kelly was added. Later, items 6.2 and 6.3 (bond program items) were moved from Consent to Action due to public comments received.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. Good evening, everyone. Roll call, please.",
+        "intro_words": "Good evening, everyone. Roll call, please. Evelyn.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McEvoy. Present.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Next item is 1.2 reported on closed session.",
+        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
         "status": "found"
       },
       {
@@ -77,167 +46,67 @@
       },
       {
         "item": 5,
-        "intro_words": "Welcome by the School Board President, Cecilia Márquez",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda?",
+        "intro_words": "And are there any changes to the agenda? Yes, I was hoping",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "With that, if there's no other changes to the agenda, can I",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "With that, if there's no other changes to the agenda, can I",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "So item 13.1 has been moved up to oral communication.",
+        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
         "status": "found"
       },
       {
-        "item": 13,
-        "intro_words": "So item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
-        "status": "found"
-      },
-      {
-        "item": 14,
-        "intro_words": "All right, so I had one other recognition that I would like to do.",
+        "item": 11,
+        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "So I just realized that we do have. So I don't know how this works",
+        "intro_words": "So I know it's been a long day, but I just",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Great. So I know it's been a long day, but I just",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "Great. So I know it's been a long day, but I just",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond program",
+        "intro_words": "Great. So I know it's been a long day, but I just",
         "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "6.3, approval of proposal for the furnishing and installation",
+        "intro_words": "moved 13.1. So 13.2 is contract update information and credit",
         "status": "found"
       },
       {
         "item": 17,
-        "intro_words": "And then bond program action items 7.1, approval of measure T final",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "7.2. Approval of amendment number two to the Program Management",
-        "status": "found"
-      },
-      {
-        "item": 20,
-        "intro_words": "Okay, so item 8, school and community reports. 8.1.",
-        "status": "found"
-      },
-      {
-        "item": 21,
-        "intro_words": "Go ahead, Liz. Yeah, so it's with great enthusiasm",
-        "status": "found"
-      },
-      {
-        "item": 22,
-        "intro_words": "Great. So I know it's been a long day, but I just want to say",
-        "status": "found"
-      },
-      {
-        "item": 23,
-        "intro_words": "Good evening Superintendent, Dr. Baker, President Marquez",
-        "status": "found"
-      },
-      {
-        "item": 24,
-        "intro_words": "So goal one is designed to ensure our students social emotional",
-        "status": "consent_bundle"
-      },
-      {
-        "item": 25,
-        "intro_words": "can I please get a motion to approve",
-        "status": "found"
-      },
-      {
-        "item": 26,
-        "intro_words": "I'll make a motion to approve. I'll second.",
-        "status": "found"
-      },
-      {
-        "item": 27,
-        "intro_words": "Approval of Amendment No. 1 to the agreement between",
-        "status": "found"
-      },
-      {
-        "item": 28,
-        "intro_words": "Approval of Comprehensive School Safety Plans (Public)",
-        "status": "found"
-      },
-      {
-        "item": 29,
-        "intro_words": "Approval of the Tentative Agreement between the Redwood",
-        "status": "found"
-      },
-      {
-        "item": 30,
-        "intro_words": "Ratification of Warrant Register, March 1, 2023",
-        "status": "found"
-      },
-      {
-        "item": 31,
-        "intro_words": "Rejection of Claim",
-        "status": "found"
-      },
-      {
-        "item": 32,
-        "intro_words": "Approval of Recruitment Incentive Stipend for hard to fill",
-        "status": "found"
-      },
-      {
-        "item": 33,
-        "intro_words": "Adoption of Resolution #32 - Authorizing the Establishment",
-        "status": "found"
-      },
-      {
-        "item": 34,
-        "intro_words": "Report from Board Members and Superintendent",
-        "status": "found"
-      },
-      {
-        "item": 37,
-        "intro_words": "Recognition of Classified Employee(s)",
-        "status": "found"
-      },
-      {
-        "item": 38,
-        "intro_words": "Contract Update Information and Credit Card Summary",
-        "status": "found"
-      },
-      {
-        "item": 39,
-        "intro_words": "Information on San Mateo County Investment Fund - February",
-        "status": "found"
-      },
-      {
-        "item": 40,
-        "intro_words": "Information on San Mateo County Investment Fund - March",
-        "status": "found"
-      },
-      {
-        "item": 42,
-        "intro_words": "Correspondence",
-        "status": "found"
-      },
-      {
-        "item": 43,
-        "intro_words": "Possible Other Business/Suggested Items for Future Agenda",
-        "status": "found"
-      },
-      {
-        "item": 45,
-        "intro_words": "Changes to the Board Meetings Calendar",
-        "status": "found"
-      },
-      {
-        "item": 48,
-        "intro_words": "I move to adjourn the meeting.",
+        "intro_words": "moved 13.1. So 13.2 is contract update information and credit",
         "status": "found"
       }
     ]
@@ -254,101 +123,56 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
+        "timestamp": "00:00:30",
+        "timestampSeconds": 30
       },
       {
         "timestamp": "00:00:30",
         "timestampSeconds": 30
       },
-      null,
       {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
       },
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:02:18",
-        "timestampSeconds": 138
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
       },
-      null,
       {
-        "timestamp": "00:09:44",
-        "timestampSeconds": 584
+        "timestamp": "00:02:43",
+        "timestampSeconds": 163
       },
-      null,
       {
-        "timestamp": "00:09:09",
-        "timestampSeconds": 549
+        "timestamp": "00:02:43",
+        "timestampSeconds": 163
+      },
+      {
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
+      },
+      {
+        "timestamp": "00:02:23",
+        "timestampSeconds": 143
       },
       {
         "timestamp": "00:12:58",
         "timestampSeconds": 778
       },
       {
-        "timestamp": "00:15:58",
-        "timestampSeconds": 958
+        "timestamp": "01:03:53",
+        "timestampSeconds": 3833
       },
       {
-        "timestamp": "00:16:30",
-        "timestampSeconds": 990
+        "timestamp": "01:03:53",
+        "timestampSeconds": 3833
       },
       {
-        "timestamp": "00:17:44",
-        "timestampSeconds": 1064
-      },
-      null,
-      {
-        "timestamp": "00:20:22",
-        "timestampSeconds": 1222
+        "timestamp": "01:03:53",
+        "timestampSeconds": 3833
       },
       {
-        "timestamp": "00:20:52",
-        "timestampSeconds": 1252
-      },
-      {
-        "timestamp": "01:20:05",
-        "timestampSeconds": 4805
-      },
-      {
-        "timestamp": "01:32:32",
-        "timestampSeconds": 5552
-      },
-      {
-        "timestamp": "03:17:00",
-        "timestampSeconds": 11820,
-        "consent": true
-      },
-      {
-        "timestamp": "03:16:55",
-        "timestampSeconds": 11815
-      },
-      {
-        "timestamp": "03:16:50",
-        "timestampSeconds": 11810
-      },
-      null,
-      null,
-      null,
-      null,
-      null,
-      {
-        "timestamp": "03:17:05",
-        "timestampSeconds": 11825
-      },
-      {
-        "timestamp": "03:18:06",
-        "timestampSeconds": 11886
-      },
-      null,
-      null,
-      null,
-      null,
-      {
-        "timestamp": "03:26:47",
-        "timestampSeconds": 12407
+        "timestamp": "01:03:53",
+        "timestampSeconds": 3833
       },
       {
         "timestamp": "03:26:47",
@@ -357,24 +181,10 @@
       {
         "timestamp": "03:26:47",
         "timestampSeconds": 12407
-      },
-      null,
-      null,
-      null,
-      null,
-      {
-        "timestamp": "03:30:07",
-        "timestampSeconds": 12607
-      },
-      null,
-      null,
-      {
-        "timestamp": "03:30:02",
-        "timestampSeconds": 12602
       }
     ]
   },
-  "cachedAt": "2026-11-01T12:42:48.384Z",
-  "inputTokens": 43992,
-  "outputTokens": 1715
+  "cachedAt": "2026-11-01T21:44:05.608Z",
+  "inputTokens": 43596,
+  "outputTokens": 907
 }

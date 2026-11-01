@@ -18,17 +18,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced at meeting start",
-    "consent_vote_words": "can I please get a motion to approve the consent bond program",
+    "agenda_changes": "No changes to agenda announced",
+    "consent_vote_words": "Can I please get a motion to approve the consent bond program",
     "items": [
       {
         "item": 1,
-        "intro_words": "At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present.",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
@@ -48,7 +48,7 @@
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda having here?",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
@@ -58,7 +58,7 @@
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "Do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
@@ -78,17 +78,17 @@
       },
       {
         "item": 12,
-        "intro_words": "can I please get a motion to approve the consent bond program?",
-        "status": "consent_bundle"
+        "intro_words": "8.1. Discussion of the school plan for student achievement for Roy Cloud and North Star Academy.",
+        "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "And I just want to say thank you in gratitude for those of you who do that.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "And I just want to say thank you in gratitude for those of you who do that.",
         "status": "found"
       }
     ]
@@ -117,16 +117,16 @@
         "timestampSeconds": 69
       },
       {
-        "timestamp": "00:01:09",
-        "timestampSeconds": 69
-      },
-      {
         "timestamp": "00:01:19",
         "timestampSeconds": 79
       },
       {
         "timestamp": "00:01:19",
         "timestampSeconds": 79
+      },
+      {
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
       },
       {
         "timestamp": "00:01:14",
@@ -141,21 +141,20 @@
         "timestampSeconds": 93
       },
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79,
-        "consent": true
+        "timestamp": "00:02:03",
+        "timestampSeconds": 123
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:33:37",
+        "timestampSeconds": 2017
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "00:33:37",
+        "timestampSeconds": 2017
       }
     ]
   },
-  "cachedAt": "2026-11-01T12:44:15.911Z",
+  "cachedAt": "2026-11-01T21:44:29.923Z",
   "inputTokens": 27924,
-  "outputTokens": 679
+  "outputTokens": 695
 }
