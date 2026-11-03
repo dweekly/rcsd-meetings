@@ -566,3 +566,7 @@ Filed by the per-meeting triage records in `data/triage/`. Each names the pull i
 - [ ] **Generate dedicated OG cards for /policies/ + /politicas/** (currently reuse the homepage cards; ES uses page-home-es as a stopgap).
 - [ ] **`DATA_BASE` env var for the MCP worker** so `wrangler dev` can point at local `data/` instead of production R2 — today, data-dependent fixes can't be verified end-to-end before upload.
 - [ ] **Drop `build-transcript-viewer.mjs`** — legacy, not in run-pipeline, and overwrites bilingual pages with EN-only if run manually (header now warns).
+
+## Hardening
+
+- [ ] **Move Playwright off the 1.65 alpha.** `playwright` is pinned to `1.65.0-alpha-2026-11-02` because it is the first build bundling a Chromium (158.0.8127.2) that contains the fixes for CVE-2026-118306, -118331, -118344 and -118348 (fixed in Chrome 156.0.8078.73); stable 1.64.1 still bundles 156.0.8078.4. Switch to stable `1.65.0` once it ships, checking that its `browsers.json` lists Chromium 158 or later.
