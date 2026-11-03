@@ -1549,8 +1549,9 @@ Bilingual (English and Spanish) pre-meeting packet digests and 100% Consent Cale
 | `qualityState` | string | `"human-reviewed"` or `"machine-checked"` |
 | `overviewEn`, `overviewEs` | string | High-level bilingual packet digest |
 | `scheduleChangesNoteEn`, `scheduleChangesNoteEs` | string\|null | Live agenda reorders or Governance Calendar schedule shifts |
-| `topItems[]` | array | Top time-weighted Open Session items (`itemLabel`, `titleEn`, `titleEs`, `actionType`, `allocatedMinutes`, `proposalStatusBadgeEn`/`Es`, `whatIsProposedEn`/`Es`, `whyItMattersEn`/`Es`, `baselineContext`, `citations[]`) |
-| `consentScreening` | object | 100% Consent Calendar screening: `totalConsentItems`, `thresholdUsd` (`50000`), `spotlightItems[]` (each with `itemLabel`, `titleEn`/`Es`, `amountDisplay`, `fundingSourceEn`/`Es`, `flags[]`, `summaryEn`/`Es`, `citations[]`), `routineSummaryEn`/`Es`, and `extractionNotes[]` |
+| `topItems[]` | array | Top time-weighted Open Session items, ordered by `allocatedMinutes` descending (the agenda's stated presentation + discussion time; a shared section's time is split evenly) (`itemLabel`, `titleEn`, `titleEs`, `actionType`, `allocatedMinutes`, `proposalStatusBadgeEn`/`Es`, `whatIsProposedEn`/`Es`, `whyItMattersEn`/`Es`, `baselineContext`, `citations[]`) |
+| `consentScreening` | object | 100% Consent Calendar screening: `totalConsentItems`, `thresholdUsd` (`50000`), `automatedFlaggedCount`, `spotlightItems[]` (each with `itemLabel` (may be a range such as `10.12–10.22`), `titleEn`/`Es`, `amountDisplay`, `fundingSourceEn`/`Es`, `flags[]`, `summaryEn`/`Es`, `citations[]`), `reviewedExceptions[]` (`itemLabel`, `reasonEn`, `reasonEs`: automated flags deliberately not spotlighted), `routineSummaryEn`/`Es`, and `extractionNotes[]` |
+| `citations[]` | array | On top items and spotlights: `labelEn`/`Es`, `filename` (must be an archived attachment in `data/board-memos/{date}.json`) and/or `url`, `r2Url`, `pageRange`, `extractionStatus` (`text-extracted`, `ocr-extracted`, `scanned-memo-fallback`), plus `sha256`/`bytes`/`localPath` when the PDF was present locally at generation. Generation fails if a filename is not in the meeting's inventory, a Simbli URL carries another meeting's MID, or an automated consent flag is neither spotlighted nor a reviewed exception. |
 
 ---
 

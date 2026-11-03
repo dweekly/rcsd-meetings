@@ -16,7 +16,10 @@ import {
 } from '../scripts/lib/meeting-participation.mjs';
 
 import {
+  attachmentInventory,
+  expandItemLabels,
   extractDollarAmounts,
+  readMemoField,
   screenConsentCalendar,
   validateDocketBrief,
 } from '../scripts/lib/docket-brief.mjs';
@@ -238,6 +241,23 @@ describe('Stage 2 — Pre-Meeting Packet Digest & 100% Consent Calendar Screenin
       const brief = JSON.parse(readFileSync(resolve(ROOT, entry.path), 'utf-8'));
       const result = validateDocketBrief(brief);
       assert.equal(result.valid, true, `Docket brief ${entry.date} failed validation: ${JSON.stringify(result.errors)}`);
+
+      // Grounded validation: citations resolve to archived attachments, Simbli MIDs match,
+      // and every automated consent flag is spotlighted or explicitly excepted.
+      const memo = participationCtx.memosByDate[entry.date];
+      assert.ok(memo, `board memo for ${entry.date} should load`);
+      const meeting = meetingsByDate.get(entry.date);
+      const screen = screenConsentCalendar(meeting, memo, participationCtx.memosEsByDate[entry.date]);
+      const grounded = validateDocketBrief(brief, {
+        attachmentFilenames: attachmentInventory(memo),
+        meetingMid: memo.mid,
+        automatedFlags: screen.flaggedItems,
+      });
+      assert.equal(
+        grounded.valid,
+        true,
+        `Docket brief ${entry.date} failed grounded validation: ${JSON.stringify(grounded.errors)}`,
+      );
     }
 
     const htmlEn = readFileSync(resolve(ROOT, 'docs/meetings/2026-10-28/index.html'), 'utf-8');
@@ -248,6 +268,84 @@ describe('Stage 2 — Pre-Meeting Packet Digest & 100% Consent Calendar Screenin
     assert.match(htmlEs, /id="packet-digest"/);
     assert.match(htmlEs, /Resumen Verificado del Paquete de la Junta y Calendario de Consentimiento/);
     assert.match(htmlEs, /Revisión del 100% del Calendario de Consentimiento \(8 de 23 puntos destacados/);
+  });
+
+  it('rejects citations outside the meeting attachment inventory, foreign Simbli MIDs, uncovered consent flags, and mis-ordered top items', () => {
+    const date = '2026-10-14';
+    const memo = participationCtx.memosByDate[date];
+    const meeting = meetingsByDate.get(date);
+    const screen = screenConsentCalendar(meeting, memo, participationCtx.memosEsByDate[date]);
+    const brief = JSON.parse(readFileSync(resolve(ROOT, `data/docket-briefs/${date}.json`), 'utf-8'));
+    const ctx = {
+      attachmentFilenames: attachmentInventory(memo),
+      meetingMid: memo.mid,
+      automatedFlags: screen.flaggedItems,
+    };
+    assert.equal(validateDocketBrief(brief, ctx).valid, true, 'baseline brief should pass grounded validation');
+    const clone = () => JSON.parse(JSON.stringify(brief));
+    const messages = (doc) => validateDocketBrief(doc, ctx).errors.map((e) => e.message).join(' | ');
+
+    // 1. A plausible-looking but non-archived filename fails, on topItems and on spotlights.
+    const badFile = clone();
+    badFile.topItems[0].citations[0].filename = 'Health-and-Wellness-Board-Presentation-10.14.26.pdf';
+    assert.match(messages(badFile), /not an archived attachment of the 2026-10-14 meeting/);
+    const badSpot = clone();
+    badSpot.consentScreening.spotlightItems[0].citations[0].filename = 'MIT-Solar-Project-Phase-2-CO-3.pdf';
+    assert.match(messages(badSpot), /MIT-Solar-Project-Phase-2-CO-3\.pdf" is not an archived attachment/);
+
+    // 2. An R2 board-packet URL for a file that is not archived fails even without a filename.
+    const badUrl = clone();
+    delete badUrl.topItems[0].citations[0].filename;
+    badUrl.topItems[0].citations[0].r2Url = 'https://data.rcsd.info/board-packets/2026-10-14/Not-A-Real-File.pdf';
+    assert.match(messages(badUrl), /Board-packet URL file "Not-A-Real-File\.pdf"/);
+
+    // 3. A Simbli URL carrying another meeting's MID fails.
+    const badMid = clone();
+    badMid.consentScreening.spotlightItems[0].citations.push({
+      labelEn: 'x',
+      url: 'https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=51864',
+      extractionStatus: 'text-extracted',
+    });
+    assert.match(messages(badMid), /MID 51864 does not match this meeting's MID 77696/);
+
+    // 4. Dropping the spotlight for an automated flag (11.6, $218,880) fails unless it is a reviewed exception.
+    assert.ok(screen.flaggedItems.some((f) => f.itemLabel === '11.6'), 'screener should flag 11.6');
+    const uncovered = clone();
+    uncovered.consentScreening.spotlightItems = uncovered.consentScreening.spotlightItems.filter((s) => s.itemLabel !== '11.6');
+    assert.match(messages(uncovered), /flagged consent item 11\.6 .* neither spotlighted nor listed in reviewedExceptions/);
+    uncovered.consentScreening.reviewedExceptions = [{ itemLabel: '11.6', reasonEn: 'Reviewed.', reasonEs: 'Revisado.' }];
+    assert.equal(validateDocketBrief(uncovered, ctx).valid, true, 'a bilingual reviewed exception covers the flag');
+    uncovered.consentScreening.reviewedExceptions = [{ itemLabel: '11.6', reasonEn: 'Reviewed.' }];
+    assert.match(messages(uncovered), /Both reasonEn and reasonEs are required/);
+
+    // 5. Ranges in spotlight labels cover each item; top items must be time-ordered.
+    assert.deepEqual(expandItemLabels('10.12–10.22').length, 11);
+    assert.deepEqual(expandItemLabels('6.1 & 11.1–11.3'), ['6.1', '11.1', '11.2', '11.3']);
+    const misordered = clone();
+    misordered.topItems.reverse();
+    assert.match(messages(misordered), /ordered by allocatedMinutes/);
+  });
+
+  it('reads Spanish memo section names (with English fallback) for consent screening', () => {
+    assert.equal(readMemoField({ 'Impacto Financiero': 'Ninguno.' }, 'financialImpact', 'es'), 'Ninguno.');
+    assert.equal(readMemoField({ 'Impacto financiero': 'Ninguno.' }, 'financialImpact', 'es'), 'Ninguno.');
+    assert.equal(readMemoField({ 'Resumen ejecutivo / Extracto': 'Resumen.' }, 'summary', 'es'), 'Resumen.');
+    assert.equal(readMemoField({ 'Financial Impact': 'None.' }, 'financialImpact', 'es'), 'None.');
+
+    const date = '2026-10-28';
+    const screen = screenConsentCalendar(
+      meetingsByDate.get(date),
+      participationCtx.memosByDate[date],
+      participationCtx.memosEsByDate[date],
+    );
+    const items = [...screen.flaggedItems, ...screen.routineItems];
+    assert.equal(items.length, 23);
+    for (const it of items) {
+      assert.ok(it.summaryEs, `${it.itemLabel} should have a Spanish summary`);
+      assert.ok(it.financialImpactEs, `${it.itemLabel} should have a Spanish financial impact`);
+    }
+    const kipp = items.find((it) => it.itemLabel === '10.4');
+    assert.match(kipp.financialImpactEs, /\$156,326\.00/);
   });
 });
 

@@ -53,6 +53,80 @@ export function extractDollarAmounts(text) {
 }
 
 /**
+ * Memo section names. English memos (data/board-memos) use the Simbli labels;
+ * the translated memos (data/board-memos-es) use several Spanish spellings of
+ * the same sections (e.g. "Impacto Financiero" / "Impacto financiero",
+ * "Resumen Ejecutivo / Abstracto" / "Resumen ejecutivo / Extracto" /
+ * "Resumen Ejecutivo / Resumen"). Keys are matched case-insensitively; a
+ * RegExp matches a key prefix family.
+ */
+const MEMO_FIELD_KEYS = {
+  financialImpact: { en: ['Financial Impact'], es: ['Impacto Financiero'] },
+  summary: { en: ['Quick Summary / Abstract'], es: [/^resumen ejecutivo\b/i] },
+  recommendation: { en: ['Recommendation'], es: ['Recomendación'] },
+  rationale: { en: ['Rationale'], es: ['Justificación', 'Fundamento'] },
+};
+
+function lookupMemoKey(memoFields, candidates) {
+  const keys = Object.keys(memoFields || {});
+  for (const cand of candidates) {
+    const key = keys.find((k) =>
+      cand instanceof RegExp ? cand.test(k.trim()) : k.trim().toLowerCase() === cand.toLowerCase()
+    );
+    if (key && String(memoFields[key] || '').trim()) return String(memoFields[key]).trim();
+  }
+  return '';
+}
+
+/**
+ * Read one memo section. For lang 'es', Spanish section names are tried first,
+ * then the English names (some translated records keep English keys).
+ */
+export function readMemoField(memoFields, field, lang = 'en') {
+  const spec = MEMO_FIELD_KEYS[field];
+  if (!spec) throw new Error(`Unknown memo field: ${field}`);
+  const candidates = lang === 'es' ? [...spec.es, ...spec.en] : spec.en;
+  return lookupMemoKey(memoFields, candidates);
+}
+
+/**
+ * Set of archived attachment filenames for a meeting's board memo
+ * (data/board-memos/{date}.json items[].attachments[].filename). These are the
+ * only names that exist under https://data.rcsd.info/board-packets/{date}/.
+ */
+export function attachmentInventory(memo) {
+  const names = new Set();
+  for (const it of memo?.items || []) {
+    for (const att of it.attachments || []) {
+      if (att?.filename) names.add(att.filename);
+    }
+  }
+  return names;
+}
+
+/**
+ * Expand a curated item label into the agenda labels it covers:
+ * "10.12–10.22" -> 10.12 … 10.22, "6.1 & 11.1–11.3" -> 6.1, 11.1, 11.2, 11.3.
+ * Ranges expand only within one agenda section (same prefix).
+ */
+export function expandItemLabels(label) {
+  const out = [];
+  for (const part of String(label || '').split(/\s*(?:&|,|\band\b)\s*/)) {
+    const p = part.trim();
+    if (!p) continue;
+    const range = p.match(/^(\d+)\.(\d+)\s*[–—-]\s*(?:(\d+)\.)?(\d+)$/);
+    if (range && (!range[3] || range[3] === range[1])) {
+      const lo = Number(range[2]);
+      const hi = Number(range[4]);
+      for (let n = lo; n <= hi; n++) out.push(`${range[1]}.${n}`);
+    } else {
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+/**
  * Screen all Consent Calendar items (both Bond Program Consent and General Consent)
  * from a meeting and its board memo.
  */
@@ -79,10 +153,11 @@ export function screenConsentCalendar(meeting, memo, memoEs = null, aidToR2Path 
     const rawEs = idx != null && rawItemsEs ? rawItemsEs[idx] : null;
 
     const memoFields = raw?.memo || {};
-    const financialImpact = String(memoFields['Financial Impact'] || '').trim();
-    const abstract = String(memoFields['Quick Summary / Abstract'] || '').trim();
-    const rationale = String(memoFields.Rationale || '').trim();
-    const recommendation = String(memoFields.Recommendation || '').trim();
+    const financialImpact = readMemoField(memoFields, 'financialImpact');
+    const abstract = readMemoField(memoFields, 'summary');
+    const rationale = readMemoField(memoFields, 'rationale');
+    const recommendation = readMemoField(memoFields, 'recommendation');
+    const memoFieldsEs = rawEs?.memo || {};
     const combinedText = [financialImpact, abstract, rationale, recommendation].join(' ');
 
     const amounts = extractDollarAmounts(combinedText);
@@ -147,9 +222,10 @@ export function screenConsentCalendar(meeting, memo, memoEs = null, aidToR2Path 
       maxAmount,
       maxAmountDisplay: maxAmountRaw,
       financialImpactEn: financialImpact || null,
-      financialImpactEs: rawEs?.memo?.['Financial Impact'] || null,
+      financialImpactEs: readMemoField(memoFieldsEs, 'financialImpact', 'es') || null,
       summaryEn: abstract || recommendation || null,
-      summaryEs: rawEs?.memo?.['Quick Summary / Abstract'] || rawEs?.memo?.Recommendation || null,
+      summaryEs:
+        readMemoField(memoFieldsEs, 'summary', 'es') || readMemoField(memoFieldsEs, 'recommendation', 'es') || null,
       attachments,
       isWarrantRegister,
       isMinutes,
@@ -196,10 +272,63 @@ export async function enrichCitationArtifacts(rootDir, meetingDate, citations = 
   return enriched;
 }
 
+const SIMBLI_MID_RE = /simbli\.eboardsolutions\.com\/[^\s"]*[?&]MID=(\d+)/i;
+
+/**
+ * Source-grounding checks for one citation against the meeting it belongs to.
+ * - a `filename` must be one of the meeting's archived attachments;
+ * - an R2 board-packet URL must point at this meeting's folder and an archived file;
+ * - a Simbli URL must carry this meeting's MID.
+ */
+function checkCitationSource(cit, path, doc, context, pushErr) {
+  const inventory = context.attachmentFilenames
+    ? context.attachmentFilenames instanceof Set
+      ? context.attachmentFilenames
+      : new Set(context.attachmentFilenames)
+    : null;
+  if (cit.filename && inventory && !inventory.has(cit.filename)) {
+    pushErr(`${path}/filename`, `Citation filename "${cit.filename}" is not an archived attachment of the ${doc.date} meeting`);
+  }
+  const packetPrefix = `${R2_BASE}/board-packets/`;
+  for (const key of ['r2Url', 'url']) {
+    const u = cit[key];
+    if (!u || typeof u !== 'string') continue;
+    if (u.startsWith(packetPrefix)) {
+      const rest = u.slice(packetPrefix.length);
+      const slash = rest.indexOf('/');
+      const folder = slash >= 0 ? rest.slice(0, slash) : rest;
+      let file = slash >= 0 ? rest.slice(slash + 1) : '';
+      try {
+        file = decodeURIComponent(file);
+      } catch {
+        // keep raw
+      }
+      if (folder !== doc.date) {
+        pushErr(`${path}/${key}`, `Board-packet URL points at ${folder}, not this meeting (${doc.date})`);
+      } else if (inventory && !inventory.has(file)) {
+        pushErr(`${path}/${key}`, `Board-packet URL file "${file}" is not an archived attachment of the ${doc.date} meeting`);
+      }
+    }
+    const mid = u.match(SIMBLI_MID_RE);
+    if (mid && context.meetingMid != null && String(mid[1]) !== String(context.meetingMid)) {
+      pushErr(`${path}/${key}`, `Simbli URL MID ${mid[1]} does not match this meeting's MID ${context.meetingMid}`);
+    }
+  }
+}
+
 /**
  * Validate a Docket Brief JSON document for schema and provenance invariants.
+ *
+ * `context` (optional, supplied by the generator and the test suite) grounds the
+ * brief in its meeting's source files:
+ *   - attachmentFilenames: Set/array of archived attachment filenames
+ *     (attachmentInventory(memo)); every citation must resolve to one of them.
+ *   - meetingMid: the meeting's Simbli MID; any Simbli citation URL must match.
+ *   - automatedFlags: screenConsentCalendar(...).flaggedItems; every flagged
+ *     consent item must appear in spotlightItems (by expanded itemLabel) or in
+ *     consentScreening.reviewedExceptions with a bilingual reason.
  */
-export function validateDocketBrief(doc) {
+export function validateDocketBrief(doc, context = {}) {
   const errors = [];
   const pushErr = (path, message) => errors.push({ path, message });
 
@@ -259,8 +388,26 @@ export function validateDocketBrief(doc) {
           if (!cit.extractionStatus) {
             pushErr(`${p}/citations/${j}/extractionStatus`, 'Citation must declare extractionStatus');
           }
+          checkCitationSource(cit, `${p}/citations/${j}`, doc, context, pushErr);
         });
       }
+    });
+
+    // topItems are time-weighted: each item's agenda allocation must not exceed the previous one's.
+    let prevMinutes = Infinity;
+    doc.topItems.forEach((item, i) => {
+      if (item.allocatedMinutes == null) return;
+      if (typeof item.allocatedMinutes !== 'number' || !(item.allocatedMinutes >= 0)) {
+        pushErr(`/topItems/${i}/allocatedMinutes`, 'allocatedMinutes must be a non-negative number');
+        return;
+      }
+      if (item.allocatedMinutes > prevMinutes) {
+        pushErr(
+          `/topItems/${i}/allocatedMinutes`,
+          `topItems must be ordered by allocatedMinutes (descending); ${item.allocatedMinutes} follows ${prevMinutes}`
+        );
+      }
+      prevMinutes = item.allocatedMinutes;
     });
   }
 
@@ -284,8 +431,42 @@ export function validateDocketBrief(doc) {
         }
         if (!Array.isArray(sp.citations) || sp.citations.length === 0) {
           pushErr(`${p}/citations`, 'Spotlight item must have at least one source citation');
+        } else {
+          sp.citations.forEach((cit, j) => {
+            if (!cit.url && !cit.r2Url) {
+              pushErr(`${p}/citations/${j}`, 'Citation must include url or r2Url');
+            }
+            checkCitationSource(cit, `${p}/citations/${j}`, doc, context, pushErr);
+          });
         }
       });
+    }
+
+    const exceptions = cs.reviewedExceptions == null ? [] : cs.reviewedExceptions;
+    if (!Array.isArray(exceptions)) {
+      pushErr('/consentScreening/reviewedExceptions', 'reviewedExceptions must be an array when present');
+    } else {
+      exceptions.forEach((ex, i) => {
+        const p = `/consentScreening/reviewedExceptions/${i}`;
+        if (!ex?.itemLabel) pushErr(`${p}/itemLabel`, 'Missing itemLabel');
+        if (!ex?.reasonEn || !ex?.reasonEs) pushErr(`${p}/reason`, 'Both reasonEn and reasonEs are required');
+      });
+    }
+
+    // Every automatically flagged consent item must be either spotlighted or explicitly excepted.
+    if (Array.isArray(context.automatedFlags) && Array.isArray(cs.spotlightItems) && Array.isArray(exceptions)) {
+      const covered = new Set();
+      for (const sp of cs.spotlightItems) for (const l of expandItemLabels(sp.itemLabel)) covered.add(l);
+      for (const ex of exceptions) for (const l of expandItemLabels(ex?.itemLabel)) covered.add(l);
+      for (const flagged of context.automatedFlags) {
+        const label = flagged?.itemLabel;
+        if (label && !covered.has(label)) {
+          pushErr(
+            '/consentScreening/spotlightItems',
+            `Automated screen flagged consent item ${label} (${(flagged.flags || []).join(', ')}) but it is neither spotlighted nor listed in reviewedExceptions`
+          );
+        }
+      }
     }
     if (!cs.routineSummaryEn || !cs.routineSummaryEs) {
       pushErr('/consentScreening/routineSummary', 'Both routineSummaryEn and routineSummaryEs are required');
