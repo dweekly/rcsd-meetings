@@ -1,0 +1,150 @@
+{
+  "$schema": "https://rcsd.info/schemas/provenance/v1/dataset-provenance.schema.json",
+  "schemaVersion": "1.0.0",
+  "datasetId": "rcsd.docket-briefs",
+  "districtId": "ca.cde.district.4169005",
+  "kind": "derived",
+  "artifacts": [
+    {
+      "path": "data/docket-briefs/2026-10-28.json",
+      "mediaType": "application/json",
+      "hash": "sha256:230259240c9ac08aa3dc495e160ac15bc227f627c5dc06e9b8e1780fe003b7ca",
+      "bytes": 28631
+    },
+    {
+      "path": "data/docket-briefs/2026-10-14.json",
+      "mediaType": "application/json",
+      "hash": "sha256:912095f2c90330c3bd8a36800e84fa35b6adc9fe27fab8a62b93201a3c084c37",
+      "bytes": 15605
+    },
+    {
+      "path": "data/docket-briefs/2026-09-30.json",
+      "mediaType": "application/json",
+      "hash": "sha256:408136434f071003fcbba2ea2ea5dd3767d9679d2a83f9bff7eb90e42fa277df",
+      "bytes": 6035
+    },
+    {
+      "path": "data/docket-briefs/2026-09-23.json",
+      "mediaType": "application/json",
+      "hash": "sha256:9b3bae989a5324d18d4ac2e9cfe7b3b3b6ffc02ae6d7059960f7f5a236dffb75",
+      "bytes": 21454
+    },
+    {
+      "path": "data/docket-briefs/index.json",
+      "mediaType": "application/json",
+      "hash": "sha256:7b777274c8b78b54a8cc3665574ee10f09a386fd3f2a8b3af8f12ef270bbbd0a",
+      "bytes": 1476
+    }
+  ],
+  "authority": {
+    "status": "derived",
+    "officialLanguage": "en-US",
+    "notes": "Bilingual (EN/ES) pre-meeting packet digests and 100% consent-calendar screenings derived from official Simbli board memos and board packet PDFs."
+  },
+  "reportingPeriod": {
+    "from": "2026-09-23",
+    "to": "2026-10-28",
+    "label": "2026-27 RCSD Board Meetings"
+  },
+  "sources": [
+    {
+      "sourceId": "rcsd.simbli.memo.2026-10-28",
+      "title": "RCSD Board Packet & Agenda Memo (2026-10-28)",
+      "publisher": "Redwood City School District (Simbli / GAMUT)",
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=77699",
+      "acquiredAt": "2026-10-29T20:45:00Z",
+      "effectiveAt": "2026-10-28",
+      "hash": "sha256:fdfc6db99d2ab1da49515ced9e7b3ed603ae64b45a3f48096f523c83a1f16d43",
+      "snapshot": {
+        "path": "data/board-memos/2026-10-28.json",
+        "mediaType": "application/json",
+        "hash": "sha256:fdfc6db99d2ab1da49515ced9e7b3ed603ae64b45a3f48096f523c83a1f16d43",
+        "bytes": 77948
+      }
+    },
+    {
+      "sourceId": "rcsd.simbli.memo.2026-10-14",
+      "title": "RCSD Board Packet & Agenda Memo (2026-10-14)",
+      "publisher": "Redwood City School District (Simbli / GAMUT)",
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=77696",
+      "acquiredAt": "2026-10-29T20:45:00Z",
+      "effectiveAt": "2026-10-14",
+      "hash": "sha256:2b0be8d37215601340159655debf54dab5dcff5267318a56b12cfc40b952408e",
+      "snapshot": {
+        "path": "data/board-memos/2026-10-14.json",
+        "mediaType": "application/json",
+        "hash": "sha256:2b0be8d37215601340159655debf54dab5dcff5267318a56b12cfc40b952408e",
+        "bytes": 56450
+      }
+    },
+    {
+      "sourceId": "rcsd.simbli.memo.2026-09-30",
+      "title": "RCSD Board Packet & Agenda Memo (2026-09-30)",
+      "publisher": "Redwood City School District (Simbli / GAMUT)",
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=81100",
+      "acquiredAt": "2026-10-29T20:45:00Z",
+      "effectiveAt": "2026-09-30",
+      "hash": "sha256:98ae547e5c535a7ddaebe3a315584bef494a94844b8daeb22e2cced867f8dc38",
+      "snapshot": {
+        "path": "data/board-memos/2026-09-30.json",
+        "mediaType": "application/json",
+        "hash": "sha256:98ae547e5c535a7ddaebe3a315584bef494a94844b8daeb22e2cced867f8dc38",
+        "bytes": 11637
+      }
+    },
+    {
+      "sourceId": "rcsd.simbli.memo.2026-09-23",
+      "title": "RCSD Board Packet & Agenda Memo (2026-09-23)",
+      "publisher": "Redwood City School District (Simbli / GAMUT)",
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=75747",
+      "acquiredAt": "2026-10-29T20:45:00Z",
+      "effectiveAt": "2026-09-23",
+      "hash": "sha256:29869a834c881712e6d35b297876bd35a289cea368ee9f0123badb55fab5344b",
+      "snapshot": {
+        "path": "data/board-memos/2026-09-23.json",
+        "mediaType": "application/json",
+        "hash": "sha256:29869a834c881712e6d35b297876bd35a289cea368ee9f0123badb55fab5344b",
+        "bytes": 70373
+      }
+    }
+  ],
+  "lineage": {
+    "generatedAt": "2026-10-29T20:45:00Z",
+    "generator": {
+      "script": "scripts/generate-docket-brief.mjs",
+      "version": "sha256:eff9da765b936625492e85c0ef16cfb5e7bb7db21f847bfa7c62fc4914391110"
+    },
+    "inputs": [
+      {
+        "sourceId": "rcsd.simbli.memo.2026-10-28",
+        "artifactPath": "data/board-memos/2026-10-28.json",
+        "hash": "sha256:fdfc6db99d2ab1da49515ced9e7b3ed603ae64b45a3f48096f523c83a1f16d43"
+      },
+      {
+        "sourceId": "rcsd.simbli.memo.2026-10-14",
+        "artifactPath": "data/board-memos/2026-10-14.json",
+        "hash": "sha256:2b0be8d37215601340159655debf54dab5dcff5267318a56b12cfc40b952408e"
+      },
+      {
+        "sourceId": "rcsd.simbli.memo.2026-09-30",
+        "artifactPath": "data/board-memos/2026-09-30.json",
+        "hash": "sha256:98ae547e5c535a7ddaebe3a315584bef494a94844b8daeb22e2cced867f8dc38"
+      },
+      {
+        "sourceId": "rcsd.simbli.memo.2026-09-23",
+        "artifactPath": "data/board-memos/2026-09-23.json",
+        "hash": "sha256:29869a834c881712e6d35b297876bd35a289cea368ee9f0123badb55fab5344b"
+      }
+    ]
+  },
+  "quality": {
+    "state": "human-reviewed",
+    "checkedAt": "2026-10-29T20:45:00Z",
+    "exceptions": [
+      {
+        "code": "scanned-pdf-memo-fallback",
+        "message": "On 2026-10-28, Item 6.1 DSA/PG&E fee receipts and Item 10.4 KIPP Measure U application are image scans; dollar figures ($69,089.12 and $156,326.00) are verified from the structured Simbli memo."
+      }
+    ]
+  }
+}

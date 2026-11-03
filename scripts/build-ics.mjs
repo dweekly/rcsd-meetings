@@ -14,6 +14,11 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import {
+  loadParticipationContext,
+  extractMeetingTimes,
+  extractPublicCommentInfo,
+} from './lib/meeting-participation.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -123,26 +128,94 @@ function buildCalendar(name, timezone, events) {
 
 // ---- Calendar Generators ----
 
+function addHoursToTime24(time24, hoursToAdd = 3) {
+  const [hStr, mStr] = String(time24 || '19:00').split(':');
+  const h = parseInt(hStr, 10);
+  const m = parseInt(mStr || '0', 10);
+  if (Number.isNaN(h) || Number.isNaN(m)) return '22:00';
+  const endH = Math.min(23, h + hoursToAdd);
+  const endM = h + hoursToAdd > 23 ? 59 : m;
+  return `${String(endH).padStart(2, '0')}:${String(endM).padStart(2, '0')}`;
+}
+
 /**
  * Generates events for Board Meetings (past + upcoming).
  */
 function generateBoardMeetings(lang, context) {
-  const { data, districtCalendars, provisionalTopics, summariesEn, summariesEs } = context;
+  const {
+    data,
+    districtCalendars,
+    provisionalTopics,
+    summariesEn,
+    summariesEs,
+    participationCtx,
+  } = context;
   const events = [];
   const processedMeetings = new Set();
+  const seenPrimaryDateUid = new Set();
 
-  // A. Past Meetings (with summaries)
+  // A. Published Meetings (with agendas/summaries)
   for (const m of data.meetings) {
     processedMeetings.add(m.date);
+    const isPrimaryForDate = !seenPrimaryDateUid.has(m.date);
+    seenPrimaryDateUid.add(m.date);
+
     const summaryEn = summariesEn[m.date] || summariesEn[m.slug] || '';
     const summaryEs = summariesEs[m.date] || summariesEs[m.slug] || '';
 
-    const isStudy = m.type.toLowerCase().includes('study') || m.type.toLowerCase().includes('workshop');
-    const startHour = isStudy ? '18:00' : '19:00';
-    const endHour = isStudy ? '21:00' : '22:00';
+    const memo = participationCtx?.memosByDate?.[m.date] || null;
+    const times = extractMeetingTimes(m, memo, participationCtx?.announcedIndex || {});
+    const publicComment = extractPublicCommentInfo(m, memo);
 
-    const uid = `board-meeting-${m.slug}@rcsd.info`;
+    const startHour = times.primaryStart?.time24 || '19:00';
+    const endHour = addHoursToTime24(startHour, 3);
+
+    // Unify primary meeting UID with provisional date UID so calendar clients
+    // update the existing event in place when an agenda is published.
+    const uid = isPrimaryForDate
+      ? `board-meeting-${m.date}@rcsd.info`
+      : `board-meeting-${m.slug}@rcsd.info`;
     const dtstamp = m.scrapedAt ? toCalDate(m.scrapedAt.slice(0, 10)) + 'T200000Z' : '20260522T200000Z';
+
+    const descLines = [];
+    const baseSummary = lang === 'en' ? summaryEn : summaryEs;
+    if (baseSummary) descLines.push(baseSummary);
+
+    if (times.closedSession && times.openSession) {
+      descLines.push(
+        lang === 'en'
+          ? `Schedule: Closed Session at ${times.closedSession.displayEn}; Open Session at ${times.openSession.displayEn}.`
+          : `Horario: Sesión cerrada a las ${times.closedSession.displayEs}; Sesión pública a las ${times.openSession.displayEs}.`
+      );
+    } else if (times.primaryStart) {
+      descLines.push(
+        lang === 'en'
+          ? `Start time: ${times.primaryStart.displayEn}.`
+          : `Hora de inicio: ${times.primaryStart.displayEs}.`
+      );
+    }
+
+    if (m.zoom) {
+      descLines.push(`Zoom: ${m.zoom}`);
+    }
+
+    const pc = publicComment?.generalComment || publicComment?.closedSessionComment;
+    if (pc) {
+      const formUrl = lang === 'en' ? (pc.formUrlEn || pc.formUrlEs) : (pc.formUrlEs || pc.formUrlEn);
+      if (formUrl) {
+        descLines.push(
+          lang === 'en'
+            ? `Public Comment (Item ${pc.sectionLabel}) sign-up form: ${formUrl}`
+            : `Formulario de Comentario Público (Punto ${pc.sectionLabel}): ${formUrl}`
+        );
+      }
+    }
+
+    descLines.push(
+      lang === 'en'
+        ? `Full agenda and recordings: https://rcsd.info/meetings/${m.date}/`
+        : `Agenda completa y grabaciones: https://rcsd.info/reuniones/${m.date}/`
+    );
 
     events.push({
       uid,
@@ -151,9 +224,7 @@ function generateBoardMeetings(lang, context) {
       dtstart: formatTime(m.date, startHour),
       dtend: formatTime(m.date, endHour),
       summary: lang === 'en' ? `RCSD Board Meeting (${m.type})` : `Reunión de la Junta de RCSD (${m.type === 'Regular' ? 'Regular' : m.type === 'Special' ? 'Especial' : 'Estudio'})`,
-      description: lang === 'en' 
-        ? `${summaryEn}\n\nFull agenda and recordings: https://rcsd.info/meetings/${m.date}/`
-        : `${summaryEs}\n\nAgenda completa y grabaciones: https://rcsd.info/reuniones/${m.date}/`,
+      description: descLines.join('\n\n'),
       url: lang === 'en' ? `https://rcsd.info/meetings/${m.date}/` : `https://rcsd.info/reuniones/${m.date}/`,
       location: lang === 'en' ? 'District Office, 750 Bradford St, Redwood City, CA 94063' : 'Oficina del Distrito, 750 Bradford St, Redwood City, CA 94063',
     });
@@ -176,13 +247,22 @@ function generateBoardMeetings(lang, context) {
     const topicEn = topicEntry ? topicEntry.en : 'Scheduled Board Meeting';
     const topicEs = topicEntry ? topicEntry.es : 'Reunión de la Junta Programada';
 
-    const uid = `provisional-board-meeting-${dateStr}@rcsd.info`;
+    const times = extractMeetingTimes(
+      { date: dateStr, type: 'Regular' },
+      null,
+      participationCtx?.announcedIndex || {}
+    );
+    const startHour = times.primaryStart?.time24 || '19:00';
+    const endHour = addHoursToTime24(startHour, 3);
+
+    // Unified UID matches the primary published meeting UID for this date
+    const uid = `board-meeting-${dateStr}@rcsd.info`;
 
     events.push({
       uid,
       isAllDay: false,
-      dtstart: formatTime(dateStr, '19:00'),
-      dtend: formatTime(dateStr, '22:00'),
+      dtstart: formatTime(dateStr, startHour),
+      dtend: formatTime(dateStr, endHour),
       summary: lang === 'en' ? 'RCSD Board Meeting' : 'Reunión de la Junta de RCSD',
       description: lang === 'en'
         ? `Planned topics:\n${topicEn}\n\nAgendas are posted 72 hours before meetings at https://rcsd.info/meetings/`
@@ -358,6 +438,7 @@ function main() {
     summariesEs: {},
     sscData: {},
     schools: {},
+    participationCtx: loadParticipationContext(ROOT),
   };
 
   // Load calendars

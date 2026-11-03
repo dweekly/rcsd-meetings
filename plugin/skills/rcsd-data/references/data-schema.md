@@ -1534,3 +1534,34 @@ Curated rollup of normalized payee keys → canonical display name, for names no
 ## warrants.db (built locally, not committed)
 
 `scripts/build-warrants-db.mjs` assembles the above into a SQLite DB: tables `registers` and `payments` (one row per line item, with `canonical`, `fiscal_year`, and an `excluded` flag = cancelled/voided OR superseded register). Query via `scripts/report-vendor-spend.mjs`.
+
+---
+
+## data/docket-briefs/{date}.json & data/docket-briefs/index.json
+
+Bilingual (English and Spanish) pre-meeting packet digests and 100% Consent Calendar screenings built by `scripts/generate-docket-brief.mjs` and validated by `scripts/lib/docket-brief.mjs`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_metadata` | object | Provenance: `source` (Simbli URL), `triageSource`, `memoSource`, `scrapedAt`, `generatedAt`, `method`, `reviewStatus` |
+| `date`, `meetingSlug` | string | Meeting date (`YYYY-MM-DD`) and canonical slug |
+| `meetingStage` | string | `"proposed"` (pre-meeting) or `"completed"` |
+| `qualityState` | string | `"human-reviewed"` or `"machine-checked"` |
+| `overviewEn`, `overviewEs` | string | High-level bilingual packet digest |
+| `scheduleChangesNoteEn`, `scheduleChangesNoteEs` | string\|null | Live agenda reorders or Governance Calendar schedule shifts |
+| `topItems[]` | array | Top time-weighted Open Session items (`itemLabel`, `titleEn`, `titleEs`, `actionType`, `allocatedMinutes`, `proposalStatusBadgeEn`/`Es`, `whatIsProposedEn`/`Es`, `whyItMattersEn`/`Es`, `baselineContext`, `citations[]`) |
+| `consentScreening` | object | 100% Consent Calendar screening: `totalConsentItems`, `thresholdUsd` (`50000`), `spotlightItems[]` (each with `itemLabel`, `titleEn`/`Es`, `amountDisplay`, `fundingSourceEn`/`Es`, `flags[]`, `summaryEn`/`Es`, `citations[]`), `routineSummaryEn`/`Es`, and `extractionNotes[]` |
+
+---
+
+## data/deliberation-recaps/{date}.json & data/deliberation-recaps/index.json
+
+Bilingual (English and Spanish), evidence-typed post-meeting deliberation recaps built by `scripts/generate-deliberation-recap.mjs` and validated by `scripts/lib/deliberation-recap.mjs`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_metadata` | object | Provenance: `source`, `videoSource`, `transcriptSource`, `chapterMarkersSource`, `triageSource`, `scrapedAt`, `method`, `reviewStatus` |
+| `date`, `meetingSlug`, `videoId` | string | Meeting date, slug, and YouTube video ID |
+| `overviewEn`, `overviewEs` | string | Bilingual overview of what occurred at the meeting |
+| `corrections[]` | array | Public corrections log (`[]` when none filed) |
+| `items[]` | array | Deliberated items, each containing 4 mandatory evidence blocks: `proposal` (`textEn`/`Es`, `citations[]`), `discussion` (`summaryEn`/`Es`, `highlights[]` with `speakerLabelEn`/`Es`, `attributionScope`, `startSeconds`, `endSeconds`, `timestampDisplay`, `textEn`/`Es`), `motion_recorded` (`status`, `voteType`, `tally`, `startSeconds`, `timestampDisplay`, `textEn`/`Es`), and `minutes_reconciled` (`status`, `approvedAtDate`, `minutesUrl`, `textEn`/`Es`) |

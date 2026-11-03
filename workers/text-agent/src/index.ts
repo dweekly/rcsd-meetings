@@ -10,8 +10,9 @@
 import { generateReply, type Turn } from "./agent";
 import { ES_LINE, promptsForLine } from "./prompts";
 import {
-  bumpDailyCounter, conversationKey, GLOBAL_DAILY_CAP, loadContext, saveContext,
-  SENDER_DAILY_CAP, senderCounterScope, type StoreEnv,
+  bumpDailyCounter, clearSuppressed, conversationKey, GLOBAL_DAILY_CAP,
+  isSuppressed, loadContext, saveContext, SENDER_DAILY_CAP, senderCounterScope,
+  setSuppressed, type StoreEnv,
 } from "./store";
 import {
   emptyTwiml, messageTwiml, sendMessage, validateTwilioSignature, type TwilioEnv,
@@ -32,9 +33,22 @@ export interface Env extends TwilioEnv, StoreEnv {
 
 // Carrier-standard opt-out keywords (Twilio Advanced Opt-Out intercepts these on
 // SMS before we ever see them; handling them here is defense-in-depth and covers
-// WhatsApp, which has no carrier opt-out layer).
-const STOP_WORDS = new Set(["STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END", "QUIT"]);
+// WhatsApp, which has no carrier opt-out layer, plus Spanish opt-out keywords).
+const STOP_WORDS = new Set([
+  "STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END", "QUIT",
+  "PARAR", "BAJA", "CANCELAR",
+]);
+const START_WORDS = new Set(["START", "UNSTOP", "YES", "ALTA", "INICIAR"]);
 const HELP_WORDS = new Set(["HELP", "INFO", "AYUDA"]);
+
+const STOP_CONFIRM_EN =
+  "You have been unsubscribed from rcsd.info messages on this number. No further messages will be sent. Reply START at any time to opt back in.";
+const STOP_CONFIRM_ES =
+  "Se ha cancelado su suscripción a los mensajes de rcsd.info en este número. No recibirá más mensajes. Responda ALTA o START en cualquier momento para volver a activarlos.";
+const START_CONFIRM_EN =
+  "You have opted back in to the rcsd.info info line. Text any question about Redwood City School District, or reply STOP to opt out.";
+const START_CONFIRM_ES =
+  "Ha vuelto a activar la línea de información de rcsd.info. Envíe cualquier pregunta sobre el Distrito Escolar de Redwood City, o responda STOP/PARAR para cancelar.";
 
 // Canned texts (no LLM). Rates line must stay verbatim per A2P registration.
 const HELP_EN =
@@ -107,7 +121,23 @@ async function handleInbound(request: Request, env: Env, ctx: ExecutionContext):
   const isSpanish = line === ES_LINE;
 
   const keyword = body.toUpperCase();
-  if (STOP_WORDS.has(keyword)) return emptyTwiml(); // carrier layer owns the confirmation
+  if (STOP_WORDS.has(keyword)) {
+    await setSuppressed(env, user, line, keyword);
+    await env.TEXT_AGENT_KV.delete(await conversationKey(channel, user, line));
+    // On SMS, the carrier layer sends the standard opt-out confirmation; on WhatsApp,
+    // there is no carrier opt-out layer, so we confirm the opt-out directly.
+    return channel === "whatsapp"
+      ? messageTwiml(isSpanish ? STOP_CONFIRM_ES : STOP_CONFIRM_EN)
+      : emptyTwiml();
+  }
+  if (await isSuppressed(env, user, line)) {
+    // Honor durable opt-out suppression until explicit START/ALTA. Opt-in words act
+    // only here, for a suppressed number: "yes" from anyone else is a conversational
+    // reply and goes to the agent like any other message.
+    if (!START_WORDS.has(keyword)) return emptyTwiml();
+    await clearSuppressed(env, user, line);
+    return messageTwiml(isSpanish ? START_CONFIRM_ES : START_CONFIRM_EN);
+  }
   if (HELP_WORDS.has(keyword)) return messageTwiml(isSpanish ? HELP_ES : HELP_EN);
   if (!body) return messageTwiml(isSpanish ? TEXT_ONLY_ES : TEXT_ONLY_EN);
 
@@ -147,6 +177,7 @@ interface InboundMsg {
 }
 
 async function answerAsync(env: Env, msg: InboundMsg): Promise<void> {
+  if (await isSuppressed(env, msg.user, msg.line)) return;
   const { system, disclosure } = promptsForLine(msg.line);
   const key = await conversationKey(msg.channel, msg.user, msg.line);
   try {

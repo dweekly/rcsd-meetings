@@ -75,3 +75,50 @@ export async function bumpDailyCounter(
 export async function senderCounterScope(user: string): Promise<string> {
   return "sender:" + (await sha256Hex(user)).slice(0, 16);
 }
+
+/**
+ * Pseudonymous opt-out suppression key: durable (no TTL) so STOP/PARAR/BAJA
+ * opt-outs on WhatsApp or SMS persist indefinitely until START/ALTA.
+ */
+export async function suppressionKey(user: string, line: string): Promise<string> {
+  return "optout:" + (await sha256Hex(`${user}|${line}`));
+}
+
+export interface SuppressionRecord {
+  suppressedAt: string;
+  reason: string;
+}
+
+export async function setSuppressed(
+  env: StoreEnv,
+  user: string,
+  line: string,
+  reason: string,
+): Promise<void> {
+  const key = await suppressionKey(user, line);
+  const record: SuppressionRecord = {
+    suppressedAt: new Date().toISOString(),
+    reason,
+  };
+  // Stored without expirationTtl so opt-out is permanent until explicit re-subscribe.
+  await env.TEXT_AGENT_KV.put(key, JSON.stringify(record));
+}
+
+export async function clearSuppressed(
+  env: StoreEnv,
+  user: string,
+  line: string,
+): Promise<void> {
+  const key = await suppressionKey(user, line);
+  await env.TEXT_AGENT_KV.delete(key);
+}
+
+export async function isSuppressed(
+  env: StoreEnv,
+  user: string,
+  line: string,
+): Promise<boolean> {
+  const key = await suppressionKey(user, line);
+  const raw = await env.TEXT_AGENT_KV.get(key);
+  return raw !== null;
+}
