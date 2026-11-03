@@ -958,8 +958,8 @@ ${nearCells}
     }</h3>
     <p style="font-size:0.96rem;line-height:1.55;margin-bottom:0.65rem">${
       L.lang === 'es'
-        ? 'Suscríbase al calendario automático para que cada reunión (con su hora verificada, enlace de Zoom y formulario de comentario público) aparezca en su teléfono, o envíe un mensaje de texto/WhatsApp a nuestra línea gratuita en español al <strong>(650) 399-7203</strong> (responda <code>PARAR</code> en cualquier momento para cancelar).'
-        : 'Subscribe to the automatic calendar feed so every Board meeting (with verified start time, Zoom link, and public-comment sign-up form) appears on your phone, or text/WhatsApp our free bilingual info lines at <strong>(650) 482-8912</strong> (English) or <strong>(650) 399-7203</strong> (Español — reply <code>STOP</code> anytime to opt out).'
+        ? 'Suscríbase al calendario automático para que cada reunión (con su hora verificada, enlace de Zoom y formulario de comentario público) aparezca en su teléfono. ¿Tiene una pregunta? Envíe un mensaje de texto o WhatsApp a nuestra línea gratuita en español, <strong>(650) 399-7203</strong>, y le respondemos (la línea contesta preguntas; no envía recordatorios).'
+        : 'Subscribe to the automatic calendar feed so every Board meeting (with verified start time, Zoom link, and public-comment sign-up form) appears on your phone. Have a question? Text or WhatsApp our free info lines, <strong>(650) 482-8912</strong> (English) or <strong>(650) 399-7203</strong> (Español), for an answer (the lines answer questions; they don’t send reminders).'
     }</p>
     <div class="calendar-links">
       <a href="webcal://rcsd.info/${L.lang === 'en' ? 'board-meetings' : 'reuniones-junta'}.ics" class="calendar-btn" style="min-height:44px;display:inline-flex;align-items:center">&#128197; ${L.lang === 'es' ? 'Suscribir en Apple / Outlook' : 'Subscribe in Apple / Outlook'}</a>

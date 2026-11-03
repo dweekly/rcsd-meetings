@@ -80,6 +80,22 @@ export function parseTimeToken(raw) {
 }
 
 /**
+ * The start-time token in an agenda title. A range is read first, so
+ * "Closed Session - 5:30 - 6:00 PM" starts at 5:30 PM (the start borrows the end's
+ * AM/PM when it has none), and "8 AM - 5 PM" at 8 AM. Otherwise the first single
+ * time, hour-only allowed ("6:40 PM", "8 AM"). Durations like "15 min" never match.
+ */
+export function sessionStartToken(title) {
+  const MER = '(a\\.?m\\.?|p\\.?m\\.?)';
+  const range = String(title).match(
+    new RegExp(`(\\d{1,2}(?::\\d{2})?)\\s*${MER}?\\s*[-–—]\\s*\\d{1,2}(?::\\d{2})?\\s*${MER}`, 'i'),
+  );
+  if (range) return `${range[1]} ${range[2] || range[3]}`;
+  const single = String(title).match(new RegExp(`(\\d{1,2}(?::\\d{2})?\\s*${MER})`, 'i'));
+  return single ? single[1] : null;
+}
+
+/**
  * Scan "Board of Trustees Meeting Calendar" items across all board memos to build
  * a lookup of official announced start times by YYYY-MM-DD date.
  *
@@ -156,10 +172,8 @@ export function extractMeetingTimes(meeting, memo, announcedIndex = {}) {
   for (const it of items) {
     const title = String(it.title || '');
     if (/closed session/i.test(title) && !/public comment|announcement|report out/i.test(title)) {
-      const m = title.match(/(\d{1,2}:\d{2}\s*(?:AM|PM|a\.m\.|p\.m\.))/i)
-        || title.match(/(\d{1,2}:\d{2})\s*-\s*\d{1,2}:\d{2}\s*(AM|PM)/i);
-      if (m) {
-        const token = m[2] ? `${m[1]} ${m[2]}` : m[1];
+      const token = sessionStartToken(title);
+      if (token) {
         const parsed = parseTimeToken(token);
         if (parsed) {
           closedSession = parsed;
@@ -260,8 +274,10 @@ export function extractPublicCommentInfo(meeting, memo) {
     let formUrlEn = null;
     let formUrlEs = null;
 
-    const enMatch = rationale.match(/Comment in English:\s*(https?:\/\/[^\s<"]+)/i);
-    const esMatch = rationale.match(/Comentario en Espa(?:ñ|&ntilde;)ol:\s*(https?:\/\/[^\s<"]+)/i);
+    // Zero-width characters (U+200B-U+200D, U+FEFF) end a URL: memos sometimes carry one
+    // right after the link, and String.trim() does not remove it.
+    const enMatch = rationale.match(/Comment in English:\s*(https?:\/\/[^\s<"\u200B-\u200D\uFEFF]+)/i);
+    const esMatch = rationale.match(/Comentario en Espa(?:ñ|&ntilde;)ol:\s*(https?:\/\/[^\s<"\u200B-\u200D\uFEFF]+)/i);
     if (enMatch) formUrlEn = enMatch[1].trim();
     if (esMatch) formUrlEs = esMatch[1].trim();
 
