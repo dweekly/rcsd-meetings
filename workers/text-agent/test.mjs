@@ -67,8 +67,18 @@ function inboundParams(overrides = {}) {
 
 // ---- canned handling (valid signatures from here on) ----
 {
+  const stopTw = await post('/twilio/inbound', inboundParams({ From: '+14155550195', Body: 'STOP', OptOutType: 'STOP' }));
+  check('STOP handled by Twilio (OptOutType=STOP) → empty TwiML, Twilio confirms',
+    stopTw.status === 200 && !stopTw.text.includes('<Message>'), stopTw.text);
+
   const stop = await post('/twilio/inbound', inboundParams({ From: '+14155550199', Body: 'STOP' }));
-  check('STOP (SMS) → 200 empty TwiML', stop.status === 200 && !stop.text.includes('<Message>'), stop.text);
+  check('STOP (SMS, no OptOutType) → our confirmation', stop.status === 200 && stop.text.includes('<Message>'), stop.text);
+
+  const pararSms = await post('/twilio/inbound', inboundParams({ From: '+14155550194', To: '+16503997203', Body: 'PARAR' }));
+  check('PARAR (SMS ES, Twilio not configured for it) → Spanish confirmation',
+    pararSms.text.includes('<Message>') && pararSms.text.includes('ALTA'), pararSms.text);
+  const ayudaOut = await post('/twilio/inbound', inboundParams({ From: '+14155550194', To: '+16503997203', Body: 'AYUDA' }));
+  check('AYUDA while opted out → still answered', ayudaOut.text.includes('<Message>'), ayudaOut.text);
 
   const startSms = await post('/twilio/inbound', inboundParams({ From: '+14155550199', Body: 'START' }));
   check('START (SMS) → 200 re-opt-in confirmation', startSms.status === 200 && startSms.text.includes('<Message>'), startSms.text);

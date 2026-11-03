@@ -121,15 +121,23 @@ async function handleInbound(request: Request, env: Env, ctx: ExecutionContext):
   const isSpanish = line === ES_LINE;
 
   const keyword = body.toUpperCase();
-  if (STOP_WORDS.has(keyword)) {
+  // Twilio Advanced Opt-Out sets OptOutType when it has itself handled (and replied
+  // to) an opt-out or opt-in keyword. Only then do we stay quiet; otherwise (WhatsApp,
+  // or a keyword Twilio isn't configured for, such as PARAR) we confirm it ourselves.
+  const optOutType = (params.get("OptOutType") ?? "").toUpperCase();
+  if (STOP_WORDS.has(keyword) || optOutType === "STOP") {
     await setSuppressed(env, user, line, keyword);
     await env.TEXT_AGENT_KV.delete(await conversationKey(channel, user, line));
-    // On SMS, the carrier layer sends the standard opt-out confirmation; on WhatsApp,
-    // there is no carrier opt-out layer, so we confirm the opt-out directly.
-    return channel === "whatsapp"
-      ? messageTwiml(isSpanish ? STOP_CONFIRM_ES : STOP_CONFIRM_EN)
-      : emptyTwiml();
+    return optOutType === "STOP"
+      ? emptyTwiml()
+      : messageTwiml(isSpanish ? STOP_CONFIRM_ES : STOP_CONFIRM_EN);
   }
+  if (optOutType === "START") {
+    await clearSuppressed(env, user, line);
+    return emptyTwiml();
+  }
+  // HELP is always answered, opted out or not.
+  if (HELP_WORDS.has(keyword)) return messageTwiml(isSpanish ? HELP_ES : HELP_EN);
   if (await isSuppressed(env, user, line)) {
     // Honor durable opt-out suppression until explicit START/ALTA. Opt-in words act
     // only here, for a suppressed number: "yes" from anyone else is a conversational
@@ -138,7 +146,6 @@ async function handleInbound(request: Request, env: Env, ctx: ExecutionContext):
     await clearSuppressed(env, user, line);
     return messageTwiml(isSpanish ? START_CONFIRM_ES : START_CONFIRM_EN);
   }
-  if (HELP_WORDS.has(keyword)) return messageTwiml(isSpanish ? HELP_ES : HELP_EN);
   if (!body) return messageTwiml(isSpanish ? TEXT_ONLY_ES : TEXT_ONLY_EN);
 
   // Rate guards: notify exactly once at the boundary, then go silent (a chatty
@@ -189,11 +196,14 @@ async function answerAsync(env: Env, msg: InboundMsg): Promise<void> {
     if (!reply) reply = msg.isSpanish ? ERROR_ES : ERROR_EN;
     if (isFirstContact) reply = disclosure + reply;
 
+    // The sender may have opted out while the reply was being generated.
+    if (await isSuppressed(env, msg.user, msg.line)) return;
     await sendMessage(env, msg.rawTo, msg.rawFrom, reply);
     await saveContext(env, key, [...turns, { role: "assistant", content: reply }]);
   } catch (err) {
     console.error("answerAsync failed", { channel: msg.channel, line: msg.line, err: String(err) });
     try {
+      if (await isSuppressed(env, msg.user, msg.line)) return;
       await sendMessage(env, msg.rawTo, msg.rawFrom, msg.isSpanish ? ERROR_ES : ERROR_EN);
     } catch (sendErr) {
       console.error("error-reply send failed", String(sendErr));
