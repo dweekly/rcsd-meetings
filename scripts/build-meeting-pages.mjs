@@ -19,6 +19,15 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
+import { expandItemLabels } from './lib/docket-brief.mjs';
+
+// Agenda items covered by spotlight cards: one card can cover a range such as
+// "10.12–10.22", so count distinct item labels, not cards.
+function spotlightedCount(cs) {
+  const labels = new Set();
+  for (const s of cs.spotlightItems || []) for (const l of expandItemLabels(String(s.itemLabel || ''))) labels.add(l);
+  return labels.size;
+}
 import { escapeHtml, formatSec, formatDate, R2_BASE, buildAidToR2Path } from './meeting-utils.mjs';
 import {
   loadParticipationContext,
@@ -1678,8 +1687,8 @@ function buildDocketBriefHtml(m, L) {
       <details class="tv-digest-details" open>
         <summary>${
           isEs
-            ? `Revisión del 100% del Calendario de Consentimiento (${cs.spotlightItems.length} de ${cs.totalConsentItems} puntos destacados ≥ $50K, Políticas o Medida U)`
-            : `100% Consent Calendar Screening (${cs.spotlightItems.length} of ${cs.totalConsentItems} items spotlighted ≥ $50K, Policy Revisions, or Measure U)`
+            ? `Revisión del 100% del Calendario de Consentimiento (${spotlightedCount(cs)} de ${cs.totalConsentItems} puntos destacados ≥ $50K, Políticas o Medida U)`
+            : `100% Consent Calendar Screening (${spotlightedCount(cs)} of ${cs.totalConsentItems} items spotlighted ≥ $50K, Policy Revisions, or Measure U)`
         }</summary>
         <div style="margin-top:0.75rem">
           ${spotlightCards}

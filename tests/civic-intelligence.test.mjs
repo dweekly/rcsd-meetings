@@ -264,10 +264,10 @@ describe('Stage 2 — Pre-Meeting Packet Digest & 100% Consent Calendar Screenin
     const htmlEs = readFileSync(resolve(ROOT, 'docs/reuniones/2026-10-28/index.html'), 'utf-8');
     assert.match(htmlEn, /id="packet-digest"/);
     assert.match(htmlEn, /Reviewed Board Packet Digest & Consent Calendar Spotlight/);
-    assert.match(htmlEn, /100% Consent Calendar Screening \(8 of 23 items spotlighted/);
+    assert.match(htmlEn, /100% Consent Calendar Screening \(18 of 23 items spotlighted/);
     assert.match(htmlEs, /id="packet-digest"/);
     assert.match(htmlEs, /Resumen Verificado del Paquete de la Junta y Calendario de Consentimiento/);
-    assert.match(htmlEs, /Revisión del 100% del Calendario de Consentimiento \(8 de 23 puntos destacados/);
+    assert.match(htmlEs, /Revisión del 100% del Calendario de Consentimiento \(18 de 23 puntos destacados/);
   });
 
   it('rejects citations outside the meeting attachment inventory, foreign Simbli MIDs, uncovered consent flags, and mis-ordered top items', () => {
