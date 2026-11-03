@@ -3,6 +3,7 @@ import { readFileSync, existsSync, rmSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { describe, it } from 'node:test';
 
 import {
@@ -24,6 +25,7 @@ import {
   isAmbiguousDiarizationLabel,
   validateDeliberationRecap,
   formatTimestamp,
+  findUnresolvedEvidenceFiles,
 } from '../scripts/lib/deliberation-recap.mjs';
 
 import {
@@ -282,6 +284,63 @@ describe('Stage 3 — Evidence-Typed Post-Meeting Deliberation Recap & Diarizati
     assert.match(item61.discussion.highlights[0].speakerLabelEn, /Assistant Superintendent Anna Herrera/);
   });
 
+  it('resolves every recap citation and minutes URL to a real archived board-memo attachment', () => {
+    const loadMemos = (date) => {
+      const p = resolve(ROOT, `data/board-memos/${date}.json`);
+      return existsSync(p) ? JSON.parse(readFileSync(p, 'utf-8')) : null;
+    };
+    const index = JSON.parse(readFileSync(resolve(ROOT, 'data/deliberation-recaps/index.json'), 'utf-8'));
+    for (const entry of index.recaps) {
+      const recap = JSON.parse(readFileSync(resolve(ROOT, entry.path), 'utf-8'));
+      assert.deepEqual(findUnresolvedEvidenceFiles(recap, loadMemos), [], `${entry.date} has unresolved evidence files`);
+    }
+
+    // An invented filename (the one the 10/14 recap first cited for the KIPP petition) is caught
+    const recapOct14 = JSON.parse(readFileSync(resolve(ROOT, 'data/deliberation-recaps/2026-10-14.json'), 'utf-8'));
+    const kipp = recapOct14.items.find((i) => i.itemLabel === '8.1');
+    assert.equal(kipp.proposal.citations[0].filename, 'KIPP-Excelencia-Charter-Renewal-Packet.pdf');
+    const broken = structuredClone(recapOct14);
+    broken.items.find((i) => i.itemLabel === '8.1').proposal.citations[0].filename =
+      'KIPP-Excelencia-Charter-Renewal-Petition-2027-2032.pdf';
+    broken.items[0].minutes_reconciled.minutesUrl = 'https://data.rcsd.info/board-packets/2026-10-14/Made-Up-Minutes.pdf';
+    const unresolved = findUnresolvedEvidenceFiles(broken, loadMemos);
+    assert.deepEqual(
+      unresolved.map((u) => u.filename).sort(),
+      ['KIPP-Excelencia-Charter-Renewal-Petition-2027-2032.pdf', 'Made-Up-Minutes.pdf'],
+    );
+
+    // A meeting with no archived memo manifest cannot resolve anything
+    assert.equal(findUnresolvedEvidenceFiles({ ...broken, date: '1999-01-01' }, loadMemos)[0].reason, 'no data/board-memos/1999-01-01.json');
+  });
+
+  it('declares transcript, packet and minutes as separately hashed provenance sources', () => {
+    const prov = JSON.parse(readFileSync(resolve(ROOT, 'data/provenance/rcsd.deliberation-recaps.json'), 'utf-8'));
+    const byId = new Map(prov.sources.map((s) => [s.sourceId, s]));
+    for (const date of ['2026-09-23', '2026-09-30', '2026-10-14']) {
+      const transcript = byId.get(`rcsd.transcript.${date}`);
+      assert.equal(transcript?.snapshot.path, `artifacts/transcripts-slim/${date}.json`);
+      assert.equal(transcript.url, `https://data.rcsd.info/transcripts/${date}.json`);
+      const packet = byId.get(`rcsd.simbli.board-memos.${date}`);
+      assert.equal(packet?.snapshot.path, `data/board-memos/${date}.json`);
+      assert.notEqual(transcript.hash, packet.hash);
+      // The recording itself is not archived, so it must not claim a hash
+      assert.equal(byId.get(`rcsd.youtube.recording.${date}`)?.hash, undefined);
+    }
+    assert.equal(byId.get('rcsd.simbli.minutes.2026-09-23')?.snapshot.path, 'artifacts/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf');
+    assert.equal(byId.get('rcsd.simbli.minutes.2026-09-30')?.snapshot.path, 'artifacts/board-packets/2026-10-14/2026.09.30-Minutes-DRAFT.pdf');
+    assert.equal(byId.has('rcsd.simbli.minutes.2026-10-14'), false, '10/14 minutes are not yet published');
+
+    // Committed board memos are hashed as they stand
+    for (const s of prov.sources.filter((x) => x.snapshot?.path.startsWith('data/'))) {
+      const actual = 'sha256:' + createHash('sha256').update(readFileSync(resolve(ROOT, s.snapshot.path))).digest('hex');
+      assert.equal(s.hash, actual, `${s.sourceId} hash must match ${s.snapshot.path}`);
+    }
+    // Every hashed source is a lineage input with the same hash
+    for (const s of prov.sources.filter((x) => x.hash)) {
+      assert.ok(prov.lineage.inputs.some((i) => i.sourceId === s.sourceId && i.hash === s.hash), `${s.sourceId} lineage input`);
+    }
+  });
+
   it('renders Deliberation Recap with clickable video seek buttons and preserves template-literal regex backslashes', () => {
     const htmlEn = readFileSync(resolve(ROOT, 'docs/meetings/2026-10-14/index.html'), 'utf-8');
     const htmlEs = readFileSync(resolve(ROOT, 'docs/reuniones/2026-10-14/index.html'), 'utf-8');
@@ -395,6 +454,110 @@ describe('Stage 4 — Durable Opt-In Alert State Machine & Workers Text-Agent KV
     });
     assert.equal(suppressedEval.dispatch, false);
     assert.equal(suppressedEval.reason, 'subscriber-suppressed');
+  });
+
+  it('rejects confirmation tokens revoked by unsubscribe or superseded by a newer request', () => {
+    const store = createSubscriptionStore();
+    const first = requestSubscription(store, { recipient: 'a@example.org', nowIso: '2026-10-25T18:00:00.000Z' });
+    const second = requestSubscription(store, { recipient: 'a@example.org', nowIso: '2026-10-25T18:05:00.000Z' });
+    assert.notEqual(first.verifyToken, second.verifyToken);
+    assert.equal(store.tokens[`verify:${first.verifyToken}`], undefined, 'superseded token lookup must be deleted');
+    assert.equal(confirmSubscription(store, first.verifyToken).ok, false, 'superseded token must not confirm');
+    assert.equal(store.subscribers[second.subscriberId].status, 'pending');
+
+    // request -> unsubscribe -> confirm(old token) must not lift the suppression
+    const unsub = unsubscribeByToken(store, second.unsubscribeToken, 'sms-stop');
+    assert.equal(unsub.status, 'unsubscribed');
+    assert.equal(store.tokens[`verify:${second.verifyToken}`], undefined, 'unsubscribe must delete the verify token lookup');
+    assert.equal(confirmSubscription(store, second.verifyToken).ok, false);
+    assert.equal(store.subscribers[second.subscriberId].status, 'unsubscribed');
+    const blocked = evaluateAndRecordDispatch(store, {
+      subscriberId: second.subscriberId,
+      meetingSlug: '2026-11-04-regular',
+      meetingDate: '2026-11-04',
+      digestHash: 'sha256:x',
+      todayDate: '2026-11-02',
+    });
+    assert.equal(blocked.reason, 'subscriber-suppressed');
+
+    // Even a stale lookup entry that points at the record cannot confirm a token the record no longer holds
+    store.tokens[`verify:${first.verifyToken}`] = first.subscriberId;
+    assert.equal(confirmSubscription(store, first.verifyToken).ok, false);
+
+    // A fresh opt-in after unsubscribing works only with the newest token
+    const fresh = requestSubscription(store, { recipient: 'a@example.org', nowIso: '2026-10-26T18:00:00.000Z' });
+    assert.equal(fresh.status, 'pending');
+    assert.equal(confirmSubscription(store, fresh.verifyToken).ok, true);
+    assert.equal(store.subscribers[fresh.subscriberId].status, 'active');
+    assert.equal(confirmSubscription(store, fresh.verifyToken).ok, false, 'a token is single-use');
+  });
+
+  it('keeps an active subscription active through a repeat signup until the new settings are confirmed', () => {
+    const store = createSubscriptionStore();
+    const req = requestSubscription(store, { recipient: 'b@example.org', lang: 'en', nowIso: '2026-10-25T18:00:00.000Z' });
+    confirmSubscription(store, req.verifyToken, '2026-10-25T18:10:00.000Z');
+
+    const repeat = requestSubscription(store, { recipient: 'b@example.org', lang: 'es', channel: 'sms', nowIso: '2026-10-27T09:00:00.000Z' });
+    assert.equal(repeat.status, 'active');
+    assert.equal(repeat.pendingChange, true);
+    assert.equal(repeat.unsubscribeToken, req.unsubscribeToken);
+    const sub = store.subscribers[req.subscriberId];
+    assert.equal(sub.status, 'active');
+    assert.equal(sub.lang, 'en');
+    assert.equal(sub.channel, 'email');
+    assert.equal(sub.confirmedAt, '2026-10-25T18:10:00.000Z');
+
+    const dispatch = evaluateAndRecordDispatch(store, {
+      subscriberId: req.subscriberId,
+      meetingSlug: '2026-11-04-regular',
+      meetingDate: '2026-11-04',
+      digestHash: 'sha256:y',
+      todayDate: '2026-11-02',
+    });
+    assert.equal(dispatch.dispatch, true, 'repeat signup must not demote an active subscriber');
+
+    assert.equal(confirmSubscription(store, repeat.verifyToken, '2026-10-27T09:05:00.000Z').ok, true);
+    assert.equal(sub.status, 'active');
+    assert.equal(sub.lang, 'es');
+    assert.equal(sub.channel, 'sms');
+    assert.equal(sub.pendingChange, null);
+  });
+
+  it('changes the digest when an attachment or financial impact is amended, but not for scrape-only metadata', () => {
+    const memos = JSON.parse(readFileSync(resolve(ROOT, 'data/board-memos/2026-11-04.json'), 'utf-8'));
+    const meeting = meetingsByDate.get('2026-11-04');
+    assert.ok(meeting, '2026-11-04 meeting should exist');
+    const base = computeMeetingDigestHash(meeting, null, memos);
+    const qkaIndex = memos.items.findIndex((i) => /QKA/.test(i.title));
+    assert.ok(qkaIndex >= 0);
+
+    // Revised QKA agreement attachment, same item title
+    const amendedAttachment = structuredClone(memos);
+    const qkaAtt = amendedAttachment.items[qkaIndex].attachments.find((a) => /Agreement-for-Facilities-Master-Plan/.test(a.filename));
+    qkaAtt.filename = qkaAtt.filename.replace('4680227.1', '4680227.2');
+    assert.notEqual(computeMeetingDigestHash(meeting, null, amendedAttachment), base);
+
+    // Changed financial impact
+    const amendedFinance = structuredClone(memos);
+    amendedFinance.items[qkaIndex].memo['Financial Impact'] = 'Revised: not to exceed $250,000.';
+    assert.notEqual(computeMeetingDigestHash(meeting, null, amendedFinance), base);
+
+    // Changed recommendation
+    const amendedRec = structuredClone(memos);
+    amendedRec.items[qkaIndex].memo.Recommendation += ' (revised)';
+    assert.notEqual(computeMeetingDigestHash(meeting, null, amendedRec), base);
+
+    // Re-scrape of the same agenda: new scrapedAt and editor stamps only
+    const rescraped = structuredClone(memos);
+    rescraped.scrapedAt = '2026-11-03T12:00:00.000Z';
+    rescraped.items[qkaIndex].provenance = { ...rescraped.items[qkaIndex].provenance, modifiedOn: '11:59 PM' };
+    assert.equal(computeMeetingDigestHash(meeting, null, rescraped), base);
+
+    // A meetings-data attachment swap is also material
+    const meetingAmended = structuredClone(meeting);
+    const item = meetingAmended.items.find((i) => /QKA/.test(i.title));
+    item.attachments[1].aid = '9999999';
+    assert.notEqual(computeMeetingDigestHash(meetingAmended), computeMeetingDigestHash(meeting));
   });
 
   it('executes workers/text-agent/src/index.ts end-to-end with bundled TypeScript worker and mock KV store', () => {
@@ -528,6 +691,8 @@ describe('Stage 5 — Multi-District Pilot (SMFCSD) Cross-Regime Reconciliation'
 
     const regime2026 = resolveSourceRegime(smfcsdManifest, '2026-05-14');
     assert.equal(regime2026?.id, 'governance-simbli-observed-current');
+    // The July 2022 gap between the two known bounds belongs to neither regime
+    assert.equal(resolveSourceRegime(smfcsdManifest, '2022-07-15'), null);
 
     const dataset = buildReconciledMeetingDataset(smfcsdManifest, [
       {
@@ -680,5 +845,17 @@ describe('Stage 5 — Multi-District Pilot (SMFCSD) Cross-Regime Reconciliation'
     assert.equal(dataset.records[1].discrepancies.length, 1);
     assert.equal(dataset.records[1].discrepancies[0].field, 'minutes.state');
     assert.equal(dataset.records[2].recording.state, 'not-applicable');
+  });
+
+  it('does not pick the first regime when null (unknown) bounds leave several possible', () => {
+    const rcsdManifest = JSON.parse(readFileSync(resolve(ROOT, 'districts/rcsd/manifest.json'), 'utf-8'));
+    // Both RCSD governance regimes have null bounds; 10/14/2026 is past both observation windows
+    assert.equal(resolveSourceRegime(rcsdManifest, '2026-10-14'), null);
+    // Inside exactly one observation window, that regime is supported
+    assert.equal(resolveSourceRegime(rcsdManifest, '2026-03-11')?.id, 'governance-simbli-observed');
+    assert.equal(resolveSourceRegime(rcsdManifest, '2024-05-01')?.id, 'governance-boarddocs-observed');
+    // Between the windows (BoardDocs last seen 2025-05-28, Simbli first seen 2025-06-11): ambiguous
+    assert.equal(resolveSourceRegime(rcsdManifest, '2025-06-05'), null);
+    assert.equal(resolveSourceRegime(rcsdManifest, 'not-a-date'), null);
   });
 });

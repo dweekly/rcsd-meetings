@@ -25,13 +25,52 @@ export function subscriberHashId(recipient) {
   return 'sub:' + createHash('sha256').update(normalized).digest('hex');
 }
 
-export function computeMeetingDigestHash(meeting, docketBrief = null) {
+/**
+ * Stable identity of an attachment: Simbli's attachment id plus the archived
+ * filename and display name. A revised upload gets a new aid and usually a new
+ * filename, so either change yields a new digest.
+ */
+function attachmentIdentity(att) {
+  return {
+    aid: att?.aid ?? null,
+    filename: att?.filename ?? null,
+    name: att?.name ?? att?.title ?? null,
+    href: att?.href ?? null,
+  };
+}
+
+/**
+ * Digest of everything about a meeting's agenda that a subscriber would want to
+ * be re-notified about. Inputs:
+ *   - `meeting`: a `data/meetings-data.json` meeting (item labels, titles,
+ *     action types, presenters, attachment identities)
+ *   - `docketBrief` (optional): reviewed docket-brief top items
+ *   - `boardMemos` (optional): `data/board-memos/{date}.json`; every memo field
+ *     (abstract, recommendation, rationale, financial impact, speaker) and each
+ *     item's attachment identities are included.
+ * Scrape-only metadata (`scrapedAt`, per-item `provenance` editor stamps,
+ * `plannedMinutes`) and derived fields (`memoLinks`) are excluded, so a re-scrape
+ * of an unchanged agenda keeps the same digest.
+ */
+export function computeMeetingDigestHash(meeting, docketBrief = null, boardMemos = null) {
   const payload = {
     date: meeting?.date || null,
     slug: meeting?.slug || null,
     type: meeting?.type || null,
     zoom: meeting?.zoom || null,
-    itemTitles: (meeting?.items || []).map((i) => i.title),
+    items: (meeting?.items || []).map((i) => ({
+      itemLabel: i.itemLabel ?? null,
+      title: i.title ?? null,
+      actionType: i.actionType ?? null,
+      speaker: i.speaker ?? null,
+      attachments: (i.attachments || []).map(attachmentIdentity),
+    })),
+    memoItems: (boardMemos?.items || []).map((i) => ({
+      order: i.order ?? null,
+      title: i.title ?? null,
+      memo: i.memo || null,
+      attachments: (i.attachments || []).map(attachmentIdentity),
+    })),
     briefTopItems: (docketBrief?.topItems || []).map((t) => ({
       itemLabel: t.itemLabel,
       titleEn: t.titleEn,
@@ -65,8 +104,21 @@ export function createSubscriptionStore(initialState = {}) {
   };
 }
 
+/** Remove a record's outstanding verification token from the lookup table. */
+function revokeVerifyToken(store, sub) {
+  if (sub?.verifyToken) delete store.tokens[`verify:${sub.verifyToken}`];
+  if (sub) sub.verifyToken = null;
+}
+
 /**
- * Initiate a subscription request (Double Opt-In Step 1: status = "pending").
+ * Initiate a subscription request (Double Opt-In Step 1).
+ *
+ * - New, pending or unsubscribed recipient: the record becomes `pending` and
+ *   any earlier verification token is revoked, so only the newest link works.
+ * - Already-active recipient: the active record and its confirmed settings are
+ *   left untouched. The requested settings are held in `pendingChange` and only
+ *   applied when the new verification token is confirmed; until then alerts keep
+ *   flowing under the confirmed settings.
  */
 export function requestSubscription(
   store,
@@ -79,12 +131,27 @@ export function requestSubscription(
 ) {
   const id = subscriberHashId(recipient);
   const verifyToken = randomBytes(24).toString('hex');
-  const unsubscribeToken = randomBytes(24).toString('hex');
+  const requestedLang = lang === 'es' ? 'es' : 'en';
 
   const existing = store.subscribers[id];
+  if (existing) revokeVerifyToken(store, existing);
+
+  if (existing?.status === 'active') {
+    existing.verifyToken = verifyToken;
+    existing.pendingChange = { lang: requestedLang, channel, requestedAt: nowIso };
+    store.tokens[`verify:${verifyToken}`] = id;
+    return {
+      subscriberId: id,
+      status: existing.status,
+      pendingChange: true,
+      verifyToken,
+      unsubscribeToken: existing.unsubscribeToken,
+    };
+  }
+
   const record = {
     id,
-    lang: lang === 'es' ? 'es' : 'en',
+    lang: requestedLang,
     channel,
     status: 'pending',
     requestedAt: nowIso,
@@ -92,7 +159,8 @@ export function requestSubscription(
     unsubscribedAt: existing?.unsubscribedAt || null,
     unsubscribeReason: existing?.unsubscribeReason || null,
     verifyToken,
-    unsubscribeToken: existing?.unsubscribeToken || unsubscribeToken,
+    pendingChange: null,
+    unsubscribeToken: existing?.unsubscribeToken || randomBytes(24).toString('hex'),
   };
 
   store.subscribers[id] = record;
@@ -102,31 +170,49 @@ export function requestSubscription(
   return {
     subscriberId: id,
     status: record.status,
+    pendingChange: false,
     verifyToken,
     unsubscribeToken: record.unsubscribeToken,
   };
 }
 
 /**
- * Confirm double opt-in token (Step 2: transitions `pending` -> `active`).
+ * Confirm a double opt-in token (Step 2).
+ *
+ * The token must be the record's *current* verification token, and the record
+ * must be awaiting it: `pending` (transitions to `active`) or `active` with a
+ * `pendingChange` (the change is applied). A token revoked by a later request
+ * or by an unsubscribe is rejected, so an old confirmation link can never lift
+ * a suppression.
  */
 export function confirmSubscription(store, verifyToken, nowIso = new Date().toISOString()) {
-  const id = store.tokens[`verify:${verifyToken}`];
-  if (!id || !store.subscribers[id]) {
+  const key = `verify:${verifyToken}`;
+  const id = store.tokens[key];
+  const sub = id ? store.subscribers[id] : null;
+  const awaiting =
+    sub && (sub.status === 'pending' || (sub.status === 'active' && sub.pendingChange));
+  if (!sub || !verifyToken || sub.verifyToken !== verifyToken || !awaiting) {
+    if (id) delete store.tokens[key];
     return { ok: false, error: 'invalid-verify-token' };
   }
-  const sub = store.subscribers[id];
-  sub.status = 'active';
+
+  if (sub.status === 'active') {
+    sub.lang = sub.pendingChange.lang;
+    sub.channel = sub.pendingChange.channel;
+  } else {
+    sub.status = 'active';
+    sub.unsubscribedAt = null;
+    sub.unsubscribeReason = null;
+  }
   sub.confirmedAt = nowIso;
-  sub.unsubscribedAt = null;
-  sub.unsubscribeReason = null;
-  delete store.tokens[`verify:${verifyToken}`];
-  sub.verifyToken = null;
+  sub.pendingChange = null;
+  revokeVerifyToken(store, sub);
   return { ok: true, subscriberId: id, status: sub.status };
 }
 
 /**
  * Permanently unsubscribe a recipient via their RFC 8058 one-click token or STOP command.
+ * Any outstanding verification token (and pending settings change) is revoked.
  */
 export function unsubscribeByToken(
   store,
@@ -142,7 +228,8 @@ export function unsubscribeByToken(
   sub.status = 'unsubscribed';
   sub.unsubscribedAt = nowIso;
   sub.unsubscribeReason = reason;
-  sub.verifyToken = null;
+  sub.pendingChange = null;
+  revokeVerifyToken(store, sub);
   return { ok: true, subscriberId: id, status: sub.status };
 }
 

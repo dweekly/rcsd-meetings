@@ -19,26 +19,57 @@
 
 import { validateMeetingDataset } from './validate-meetings.mjs';
 
+const BOUND_RE = /^\d{4}-\d{2}(-\d{2})?$/;
+
 /**
- * Determine which source regime in `manifest.sourceRegimes` covers a given `YYYY-MM` date prefix.
+ * Compare an ISO date against a `YYYY-MM` or `YYYY-MM-DD` bound at the bound's
+ * own precision (a month bound compares months). Returns -1, 0 or 1, or null
+ * when the bound is absent or not a calendar date (e.g. a school year "2019-20").
+ */
+function compareToBound(date, bound) {
+  if (typeof bound !== 'string' || !BOUND_RE.test(bound)) return null;
+  const n = Math.min(bound.length, date.length);
+  const a = date.slice(0, n);
+  const b = bound.slice(0, n);
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+
+/**
+ * Determine which governance source regime in `manifest.sourceRegimes` covers a date.
+ *
+ * Per districts/README.md, `null` bounds mean **unknown**, not unlimited. So:
+ *   1. A regime is ruled out only by a known bound (`fromInclusive`/`toExclusive`).
+ *   2. If exactly one regime remains, it is returned.
+ *   3. If several remain, the regimes whose observation window
+ *      (`observedFrom`..`observedThrough`, inclusive) contains the date are
+ *      preferred; exactly one such regime is returned.
+ *   4. Otherwise the date is ambiguous and `null` is returned rather than
+ *      guessing by array order.
  *
  * @param {object} manifest - District reconnaissance manifest (`districts/<slug>/manifest.json`)
- * @param {string} dateStr - ISO date (`YYYY-MM-DD`) or timestamp
- * @returns {object|null} Matching sourceRegime entry or null
+ * @param {string} dateStr - ISO date (`YYYY-MM-DD`), month (`YYYY-MM`) or timestamp
+ * @returns {object|null} The one regime the manifest supports for this date, or null
  */
 export function resolveSourceRegime(manifest, dateStr) {
-  const yearMonth = String(dateStr || '').slice(0, 7);
-  if (!/^\d{4}-\d{2}$/.test(yearMonth)) return null;
+  const date = String(dateStr || '').slice(0, 10);
+  if (!/^\d{4}-\d{2}(-\d{2})?$/.test(date)) return null;
 
-  for (const regime of manifest?.sourceRegimes || []) {
-    if (regime.domain !== 'governance') continue;
-    const afterStart = !regime.fromInclusive || yearMonth >= regime.fromInclusive;
-    const beforeEnd = !regime.toExclusive || yearMonth < regime.toExclusive;
-    if (afterStart && beforeEnd) {
-      return regime;
-    }
-  }
-  return null;
+  const possible = (manifest?.sourceRegimes || []).filter((regime) => {
+    if (regime.domain !== 'governance') return false;
+    const fromCmp = compareToBound(date, regime.fromInclusive);
+    const toCmp = compareToBound(date, regime.toExclusive);
+    if (fromCmp !== null && fromCmp < 0) return false;
+    if (toCmp !== null && toCmp >= 0) return false;
+    return true;
+  });
+  if (possible.length <= 1) return possible[0] || null;
+
+  const observed = possible.filter((regime) => {
+    const fromCmp = compareToBound(date, regime.observedFrom);
+    const throughCmp = compareToBound(date, regime.observedThrough);
+    return fromCmp !== null && throughCmp !== null && fromCmp >= 0 && throughCmp <= 0;
+  });
+  return observed.length === 1 ? observed[0] : null;
 }
 
 /**
