@@ -447,13 +447,13 @@ const REVIEWED_RECAPS = {
             'La moción para aprobar los próximos pasos recomendados por el Superintendente para la planificación de instalaciones y programas fue aprobada 5–0 en votación nominal en [92:32] (A favor: Wells, Li, Ng Kwing King, Márquez, Weekly).',
         },
         minutes_reconciled: {
-          status: 'draft-in-subsequent-packet',
-          approvedAtDate: null,
+          status: 'reconciled',
+          approvedAtDate: '2026-10-28',
           minutesUrl: `${R2_BASE}/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf`,
           textEn:
-            'Draft minutes published in the October 28, 2026 board packet (Consent Item 10.1) confirm unanimous 5–0 approval of Item 9.1.',
+            'Draft minutes published in the October 28, 2026 board packet (Consent Item 10.1) confirm unanimous 5–0 approval of Item 9.1. The Board approved these minutes without amendment on the October 28, 2026 Consent Calendar (voice vote at [1:46:51] on the October 28 recording; only Item 10.21 was pulled); the October 28 minutes that record that approval are not yet published.',
           textEs:
-            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto de Consentimiento 10.1) confirma la aprobación unánime 5–0 del Punto 9.1.',
+            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto de Consentimiento 10.1) confirma la aprobación unánime 5–0 del Punto 9.1. La Junta aprobó estas actas sin cambios en el Calendario de Consentimiento del 28 de octubre de 2026 (votación de viva voz en [1:46:51] de la grabación del 28 de octubre; solo se retiró el Punto 10.21); las actas del 28 de octubre que registran esa aprobación aún no se publican.',
         },
       },
       {
@@ -521,13 +521,13 @@ const REVIEWED_RECAPS = {
             'El Punto 9.4 (Resultados No Auditados) se aprobó 5–0 en votación nominal en [113:26] (A favor: Wells, Li, Ng Kwing King, Márquez, Weekly). El Punto 9.5 (Resolución N.º 10, Límite Gann) se aprobó 4–0 en votación nominal en [114:34] (A favor: Li, Ng Kwing King, Márquez, Weekly).',
         },
         minutes_reconciled: {
-          status: 'draft-in-subsequent-packet',
-          approvedAtDate: null,
+          status: 'reconciled',
+          approvedAtDate: '2026-10-28',
           minutesUrl: `${R2_BASE}/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf`,
           textEn:
-            'Draft minutes published in the October 28, 2026 packet (Consent Item 10.1) record 5–0 approval of both the 2025-26 Unaudited Actuals (9.4) and Resolution No. 10 Gann Limit (9.5); the 9.5 tally differs from the video roll call, in which Trustee Wells was not called (4–0).',
+            'Draft minutes published in the October 28, 2026 packet (Consent Item 10.1) record 5–0 approval of both the 2025-26 Unaudited Actuals (9.4) and Resolution No. 10 Gann Limit (9.5); the 9.5 tally differs from the video roll call, in which Trustee Wells was not called (4–0). The Board approved these minutes without amendment on the October 28, 2026 Consent Calendar (voice vote at [1:46:51] on the October 28 recording; only Item 10.21 was pulled); the October 28 minutes that record that approval are not yet published.',
           textEs:
-            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto de Consentimiento 10.1) registra la aprobación 5–0 de los Resultados No Auditados 2025-26 (9.4) y de la Resolución N.º 10 sobre el Límite Gann (9.5); el resultado del 9.5 difiere de la votación nominal en video, en la que no se llamó al miembro Wells (4–0).',
+            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto de Consentimiento 10.1) registra la aprobación 5–0 de los Resultados No Auditados 2025-26 (9.4) y de la Resolución N.º 10 sobre el Límite Gann (9.5); el resultado del 9.5 difiere de la votación nominal en video, en la que no se llamó al miembro Wells (4–0). La Junta aprobó estas actas sin cambios en el Calendario de Consentimiento del 28 de octubre de 2026 (votación de viva voz en [1:46:51] de la grabación del 28 de octubre; solo se retiró el Punto 10.21); las actas del 28 de octubre que registran esa aprobación aún no se publican.',
         },
       },
       {
@@ -595,13 +595,13 @@ const REVIEWED_RECAPS = {
             'El Punto 6.1 fue un informe sin votación. El Calendario de Consentimiento de la Sección 8 (Puntos 8.1–8.16) se aprobó 5–0 en votación nominal en [50:55].',
         },
         minutes_reconciled: {
-          status: 'draft-in-subsequent-packet',
-          approvedAtDate: null,
+          status: 'reconciled',
+          approvedAtDate: '2026-10-28',
           minutesUrl: `${R2_BASE}/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf`,
           textEn:
-            'Draft minutes published in the October 28, 2026 packet (Consent Item 10.1) confirm 5–0 adoption of the Section 8 Consent Calendar.',
+            'Draft minutes published in the October 28, 2026 packet (Consent Item 10.1) confirm 5–0 adoption of the Section 8 Consent Calendar. The Board approved these minutes without amendment on the October 28, 2026 Consent Calendar (voice vote at [1:46:51] on the October 28 recording; only Item 10.21 was pulled); the October 28 minutes that record that approval are not yet published.',
           textEs:
-            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto 10.1) confirma la adopción 5–0 del Calendario de Consentimiento de la Sección 8.',
+            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto 10.1) confirma la adopción 5–0 del Calendario de Consentimiento de la Sección 8. La Junta aprobó estas actas sin cambios en el Calendario de Consentimiento del 28 de octubre de 2026 (votación de viva voz en [1:46:51] de la grabación del 28 de octubre; solo se retiró el Punto 10.21); las actas del 28 de octubre que registran esa aprobación aún no se publican.',
         },
       },
     ],
