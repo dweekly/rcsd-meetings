@@ -1,0 +1,684 @@
+import assert from 'node:assert/strict';
+import { readFileSync, existsSync, rmSync } from 'node:fs';
+import { resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+import { describe, it } from 'node:test';
+
+import {
+  extractPublicCommentInfo,
+  extractMeetingTimes,
+  extractTopHeadlines,
+  isClosedSessionAgendaItem,
+  buildWhatsAppNotice,
+  loadParticipationContext,
+} from '../scripts/lib/meeting-participation.mjs';
+
+import {
+  extractDollarAmounts,
+  screenConsentCalendar,
+  validateDocketBrief,
+} from '../scripts/lib/docket-brief.mjs';
+
+import {
+  isAmbiguousDiarizationLabel,
+  validateDeliberationRecap,
+  formatTimestamp,
+} from '../scripts/lib/deliberation-recap.mjs';
+
+import {
+  subscriberHashId,
+  computeMeetingDigestHash,
+  buildRfc8058Headers,
+  createSubscriptionStore,
+  requestSubscription,
+  confirmSubscription,
+  unsubscribeByToken,
+  evaluateAndRecordDispatch,
+} from '../scripts/lib/alert-subscriptions.mjs';
+
+import {
+  resolveSourceRegime,
+  buildReconciledMeetingDataset,
+} from '../platform/lib/reconcile-meetings.mjs';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(__dirname, '..');
+
+const meetingsData = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
+const meetingsByDate = new Map(meetingsData.meetings.map((m) => [m.date, m]));
+const participationCtx = loadParticipationContext(ROOT);
+
+describe('Stage 1 — Immediate RCSD Participation Utility & Unified ICS', () => {
+  it('dynamically detects Public Comment section across historical and modern agendas and disambiguates EN/ES Google Forms', () => {
+    const m20261028 = meetingsByDate.get('2026-10-28');
+    const m20260624 = meetingsByDate.get('2026-06-24');
+    assert.ok(m20261028, '2026-10-28 meeting should exist');
+    assert.ok(m20260624, '2026-06-24 meeting should exist');
+
+    const rulesOct = extractPublicCommentInfo(m20261028, participationCtx.memosByDate['2026-10-28']);
+    assert.ok(rulesOct.generalComment, 'Public comment rules extracted for 2026-10-28');
+    assert.equal(rulesOct.generalComment.sectionLabel, '5');
+    assert.equal(rulesOct.generalComment.formUrlEn, 'https://forms.gle/8T3u7KA7xJurWakB7');
+    assert.equal(rulesOct.generalComment.formUrlEs, 'https://forms.gle/FAXi2G9mBDBRWxsi7');
+    assert.equal(rulesOct.generalComment.minutesPerSpeaker, 3);
+
+    const rulesJun = extractPublicCommentInfo(m20260624, participationCtx.memosByDate['2026-06-24']);
+    assert.ok(rulesJun.generalComment, 'Public comment rules extracted for 2026-06-24 (Section 9)');
+    assert.equal(rulesJun.generalComment.sectionLabel, '9');
+    assert.equal(rulesJun.generalComment.formUrlEn, 'https://forms.gle/gMSiytW1abM9n33e8');
+    assert.equal(rulesJun.generalComment.formUrlEs, 'https://forms.gle/CYDWUEU2nKHPDS8Y7');
+  });
+
+  it('distinguishes Closed Session vs Open Session start times across regular and study session meetings', () => {
+    const m20260810 = meetingsByDate.get('2026-08-10');
+    const m20261028 = meetingsByDate.get('2026-10-28');
+    const m20260930 = meetingsByDate.get('2026-09-30');
+
+    const timesAug10 = extractMeetingTimes(
+      m20260810,
+      participationCtx.memosByDate['2026-08-10'],
+      participationCtx.announcedIndex,
+    );
+    assert.equal(timesAug10.closedSession?.time24, '18:20');
+    assert.equal(timesAug10.openSession?.time24, '19:00');
+    assert.equal(timesAug10.primaryStart?.time24, '19:00');
+
+    const timesOct = extractMeetingTimes(
+      m20261028,
+      participationCtx.memosByDate['2026-10-28'],
+      participationCtx.announcedIndex,
+    );
+    assert.equal(timesOct.openSession?.time24, '19:00');
+    assert.equal(timesOct.primaryStart?.time24, '19:00');
+
+    const timesSep30 = extractMeetingTimes(
+      m20260930,
+      participationCtx.memosByDate['2026-09-30'],
+      participationCtx.announcedIndex,
+    );
+    assert.equal(timesSep30.primaryStart?.time24, '18:00');
+  });
+
+  it('excludes Closed Session items from extractTopHeadlines() and WhatsApp share copy', () => {
+    assert.equal(
+      isClosedSessionAgendaItem({ title: '2.1 Public Employee Discipline/Dismissal/Release (Gov. Code §54957)' }),
+      true,
+    );
+    assert.equal(
+      isClosedSessionAgendaItem({ title: '9.1 Human Resources and Staffing Levels Update' }),
+      false,
+    );
+
+    const m20261028 = meetingsByDate.get('2026-10-28');
+    const topHeadlines = extractTopHeadlines(
+      m20261028,
+      participationCtx.memosEsByDate['2026-10-28'],
+      participationCtx.agendaTitlesEs,
+      3,
+    );
+    assert.equal(topHeadlines.headlines.length, 3);
+    for (const h of topHeadlines.headlines) {
+      assert.equal(
+        isClosedSessionAgendaItem({ title: h.titleEn }),
+        false,
+        `Closed session item leaked into headlines: ${h.titleEn}`,
+      );
+    }
+
+    const timesOct = extractMeetingTimes(
+      m20261028,
+      participationCtx.memosByDate['2026-10-28'],
+      participationCtx.announcedIndex,
+    );
+    const pcOct = extractPublicCommentInfo(m20261028, participationCtx.memosByDate['2026-10-28']);
+
+    const waEn = buildWhatsAppNotice({
+      meeting: m20261028,
+      dateFormattedEn: 'Wednesday, October 28, 2026',
+      dateFormattedEs: 'miércoles, 28 de octubre de 2026',
+      localTypeEn: 'Regular Meeting',
+      localTypeEs: 'Reunión Ordinaria',
+      canonicalUrlEn: 'https://rcsd.info/meetings/2026-10-28/',
+      canonicalUrlEs: 'https://rcsd.info/reuniones/2026-10-28/',
+      times: timesOct,
+      publicComment: pcOct,
+      topHeadlines,
+      lang: 'en',
+    });
+    const waEs = buildWhatsAppNotice({
+      meeting: m20261028,
+      dateFormattedEn: 'Wednesday, October 28, 2026',
+      dateFormattedEs: 'miércoles, 28 de octubre de 2026',
+      localTypeEn: 'Regular Meeting',
+      localTypeEs: 'Reunión Ordinaria',
+      canonicalUrlEn: 'https://rcsd.info/meetings/2026-10-28/',
+      canonicalUrlEs: 'https://rcsd.info/reuniones/2026-10-28/',
+      times: timesOct,
+      publicComment: pcOct,
+      topHeadlines,
+      lang: 'es',
+    });
+
+    assert.doesNotMatch(waEn.text, /Public Employee Discipline/i);
+    assert.match(waEn.text, /Human Resources and Staffing Levels Update/);
+    assert.match(waEs.text, /Recursos Humanos|Dotaci[óo]n de Personal/i);
+  });
+
+  it('emits unified UIDs and verified start times in docs/board-meetings.ics and docs/reuniones-junta.ics', () => {
+    const icsEn = readFileSync(resolve(ROOT, 'docs/board-meetings.ics'), 'utf-8');
+    const icsEs = readFileSync(resolve(ROOT, 'docs/reuniones-junta.ics'), 'utf-8');
+
+    // Unified UID format across published (2026-10-28) and provisional (2026-11-18) meetings
+    assert.match(icsEn, /UID:board-meeting-2026-10-28@rcsd\.info/);
+    assert.match(icsEn, /UID:board-meeting-2026-11-18@rcsd\.info/);
+    assert.doesNotMatch(icsEn, /UID:provisional-/);
+
+    // Verified start times: 18:00 for 2026-09-30 Study Session, 19:00 for 2026-10-28 Open Session
+    assert.match(icsEn, /UID:board-meeting-2026-09-30@rcsd\.info[\s\S]*?DTSTART;TZID=America\/Los_Angeles:20260930T180000/);
+    assert.match(icsEn, /UID:board-meeting-2026-10-28@rcsd\.info[\s\S]*?DTSTART;TZID=America\/Los_Angeles:20261028T190000/);
+    assert.match(icsEs, /UID:board-meeting-2026-10-28@rcsd\.info[\s\S]*?DTSTART;TZID=America\/Los_Angeles:20261028T190000/);
+  });
+
+  it('renders bilingual Participation Banner and Meetings Index Calendar Callout in docs/', () => {
+    const htmlEn = readFileSync(resolve(ROOT, 'docs/meetings/2026-10-28/index.html'), 'utf-8');
+    const htmlEs = readFileSync(resolve(ROOT, 'docs/reuniones/2026-10-28/index.html'), 'utf-8');
+
+    assert.match(htmlEn, /id="participation-heading"/);
+    assert.match(htmlEn, /How to Attend, Speak & Share This Meeting/);
+    assert.match(htmlEn, /https:\/\/forms\.gle\/8T3u7KA7xJurWakB7/);
+    assert.match(htmlEn, /Copy Notice Text/);
+
+    assert.match(htmlEs, /id="participation-heading"/);
+    assert.match(htmlEs, /Cómo asistir, hablar y compartir esta reunión/);
+    assert.match(htmlEs, /https:\/\/forms\.gle\/FAXi2G9mBDBRWxsi7/);
+    assert.match(htmlEs, /Copiar texto del aviso/);
+
+    const indexEn = readFileSync(resolve(ROOT, 'docs/meetings/index.html'), 'utf-8');
+    const indexEs = readFileSync(resolve(ROOT, 'docs/reuniones/index.html'), 'utf-8');
+    assert.match(indexEn, /Get Meeting Reminders & Bilingual Pre-Meeting Notices/);
+    assert.match(indexEs, /Reciba recordatorios de reuniones y avisos en español o inglés/);
+  });
+});
+
+describe('Stage 2 — Pre-Meeting Packet Digest & 100% Consent Calendar Screening', () => {
+  it('screens 100% of consent items and flags dollar thresholds, policy revisions, and charter/parcel tax items', () => {
+    const m20261028 = meetingsByDate.get('2026-10-28');
+    const m20260923 = meetingsByDate.get('2026-09-23');
+
+    const amounts = extractDollarAmounts('Total of $3,625,840.29 and $295,000');
+    assert.deepEqual(amounts.map((a) => a.amount), [3625840.29, 295000]);
+
+    const screenOct = screenConsentCalendar(
+      m20261028,
+      participationCtx.memosByDate['2026-10-28'],
+      participationCtx.memosEsByDate['2026-10-28'],
+    );
+    assert.equal(screenOct.totalConsentItems, 23);
+    assert.equal(screenOct.flaggedItems.length + screenOct.routineItems.length, 23);
+    assert.ok(screenOct.flaggedItems.length >= 6, 'Should flag policy, charter, and contract items on 2026-10-28');
+
+    const screenSep = screenConsentCalendar(
+      m20260923,
+      participationCtx.memosByDate['2026-09-23'],
+      participationCtx.memosEsByDate['2026-09-23'],
+    );
+    assert.equal(screenSep.totalConsentItems, 16);
+    assert.equal(screenSep.flaggedItems.length + screenSep.routineItems.length, 16);
+    assert.ok(screenSep.flaggedItems.length >= 4, 'Should flag high-value contracts on 2026-09-23');
+  });
+
+  it('validates all generated data/docket-briefs/*.json files and renders Packet Digest in EN & ES', () => {
+    const index = JSON.parse(readFileSync(resolve(ROOT, 'data/docket-briefs/index.json'), 'utf-8'));
+    assert.ok(index.briefs.length >= 4);
+
+    for (const entry of index.briefs) {
+      const brief = JSON.parse(readFileSync(resolve(ROOT, entry.path), 'utf-8'));
+      const result = validateDocketBrief(brief);
+      assert.equal(result.valid, true, `Docket brief ${entry.date} failed validation: ${JSON.stringify(result.errors)}`);
+    }
+
+    const htmlEn = readFileSync(resolve(ROOT, 'docs/meetings/2026-10-28/index.html'), 'utf-8');
+    const htmlEs = readFileSync(resolve(ROOT, 'docs/reuniones/2026-10-28/index.html'), 'utf-8');
+    assert.match(htmlEn, /id="packet-digest"/);
+    assert.match(htmlEn, /Reviewed Board Packet Digest & Consent Calendar Spotlight/);
+    assert.match(htmlEn, /100% Consent Calendar Screening \(8 of 23 items spotlighted/);
+    assert.match(htmlEs, /id="packet-digest"/);
+    assert.match(htmlEs, /Resumen Verificado del Paquete de la Junta y Calendario de Consentimiento/);
+    assert.match(htmlEs, /Revisión del 100% del Calendario de Consentimiento \(8 de 23 puntos destacados/);
+  });
+});
+
+describe('Stage 3 — Evidence-Typed Post-Meeting Deliberation Recap & Diarization Hygiene', () => {
+  it('blocks ambiguous, generic, or slash-delimited speaker labels and enforces interval-verified attribution', () => {
+    assert.equal(isAmbiguousDiarizationLabel('Speaker A'), true);
+    assert.equal(isAmbiguousDiarizationLabel('UNKNOWN'), true);
+    assert.equal(isAmbiguousDiarizationLabel('Speaker A / Speaker B'), true);
+    assert.equal(isAmbiguousDiarizationLabel('President David Weekly / Finance Staff'), true);
+    assert.equal(isAmbiguousDiarizationLabel('CBO Rick Edson'), false);
+    assert.equal(isAmbiguousDiarizationLabel('Assistant Superintendent Anna Herrera'), false);
+    assert.equal(formatTimestamp(6484), '1:48:04');
+    assert.equal(formatTimestamp(308), '5:08');
+
+    const index = JSON.parse(readFileSync(resolve(ROOT, 'data/deliberation-recaps/index.json'), 'utf-8'));
+    assert.ok(index.recaps.length >= 3);
+
+    for (const entry of index.recaps) {
+      const recap = JSON.parse(readFileSync(resolve(ROOT, entry.path), 'utf-8'));
+      const result = validateDeliberationRecap(recap);
+      assert.equal(result.valid, true, `Deliberation recap ${entry.date} failed validation: ${JSON.stringify(result.errors)}`);
+    }
+
+    // Verify 2026-09-23 attributes Unaudited Actuals (6450s) to CBO Rick Edson, not top-level Speaker D collision ("David Li")
+    const recapSep23 = JSON.parse(readFileSync(resolve(ROOT, 'data/deliberation-recaps/2026-09-23.json'), 'utf-8'));
+    const item94 = recapSep23.items.find((i) => i.itemLabel === '9.4 & 9.5');
+    assert.ok(item94);
+    assert.match(item94.discussion.highlights[1].speakerLabelEn, /Chief Business Official Rick Edson/);
+
+    // Verify 2026-09-30 attributes K-5 Assessment presentation (2467s) to Assistant Superintendent Anna Herrera, not Speaker B collision ("Evelyn Sanchez")
+    const recapSep30 = JSON.parse(readFileSync(resolve(ROOT, 'data/deliberation-recaps/2026-09-30.json'), 'utf-8'));
+    const item61 = recapSep30.items.find((i) => i.itemLabel === '6.1');
+    assert.ok(item61);
+    assert.match(item61.discussion.highlights[0].speakerLabelEn, /Assistant Superintendent Anna Herrera/);
+  });
+
+  it('renders Deliberation Recap with clickable video seek buttons and preserves template-literal regex backslashes', () => {
+    const htmlEn = readFileSync(resolve(ROOT, 'docs/meetings/2026-10-14/index.html'), 'utf-8');
+    const htmlEs = readFileSync(resolve(ROOT, 'docs/reuniones/2026-10-14/index.html'), 'utf-8');
+
+    assert.match(htmlEn, /id="deliberation-recap"/);
+    assert.match(htmlEn, /Evidence-Typed Post-Meeting Deliberation Recap/);
+    assert.match(htmlEn, /class="tv-seek-btn" data-seek-sec="2848"/);
+    assert.match(htmlEs, /id="deliberation-recap"/);
+    assert.match(htmlEs, /Recapitulación Post-Reunión con Evidencia Separada/);
+
+    // AGENTS.md rule: verify client JS emitted from template literal preserves \s+ regex backslashes
+    assert.ok(
+      htmlEn.includes('var sentences = text.match(/[^.!?]*[.!?]+(?:\\s+|$)/g)'),
+      'Emitted client JS must preserve \\s+ backslash in sentence regex',
+    );
+  });
+});
+
+describe('Stage 4 — Durable Opt-In Alert State Machine & Workers Text-Agent KV Suppression', () => {
+  it('enforces double opt-in, RFC 8058 headers, stale-meeting expiry, and (meetingSlug, digestHash) idempotency', () => {
+    const store = createSubscriptionStore();
+    const req = requestSubscription(store, {
+      recipient: 'Parent@Example.org ',
+      lang: 'es',
+      channel: 'email',
+      nowIso: '2026-10-25T18:00:00.000Z',
+    });
+    assert.equal(req.status, 'pending');
+    assert.equal(req.subscriberId, subscriberHashId('parent@example.org'));
+
+    // Pending subscriber cannot receive alerts before confirming double opt-in
+    const m20261028 = meetingsByDate.get('2026-10-28');
+    const digestHash = computeMeetingDigestHash(m20261028);
+    const pendingEval = evaluateAndRecordDispatch(store, {
+      subscriberId: req.subscriberId,
+      meetingSlug: '2026-10-28-regular',
+      meetingDate: '2026-10-28',
+      digestHash,
+      todayDate: '2026-10-27',
+    });
+    assert.equal(pendingEval.dispatch, false);
+    assert.equal(pendingEval.reason, 'subscriber-pending-confirmation');
+
+    // Wrong token rejected
+    assert.equal(confirmSubscription(store, 'wrong-token').ok, false);
+
+    // Valid confirmation transitions pending -> active
+    const confirmed = confirmSubscription(store, req.verifyToken, '2026-10-25T18:30:00.000Z');
+    assert.equal(confirmed.ok, true);
+    assert.equal(confirmed.status, 'active');
+
+    // RFC 8058 one-click headers
+    const headers = buildRfc8058Headers(`https://rcsd.info/api/alerts/unsubscribe?token=${req.unsubscribeToken}`);
+    assert.match(headers['List-Unsubscribe'], /^<https:\/\/rcsd\.info\/api\/alerts\/unsubscribe\?token=/);
+    assert.equal(headers['List-Unsubscribe-Post'], 'List-Unsubscribe=One-Click');
+
+    // Stale meeting guard blocks alerts when meetingDate < todayDate
+    const staleEval = evaluateAndRecordDispatch(store, {
+      subscriberId: req.subscriberId,
+      meetingSlug: '2026-10-28-regular',
+      meetingDate: '2026-10-28',
+      digestHash,
+      todayDate: '2026-10-29',
+    });
+    assert.equal(staleEval.dispatch, false);
+    assert.equal(staleEval.reason, 'stale-meeting-expired');
+
+    // Fresh pre-meeting alert allowed once, then deduplicated on (meetingSlug, digestHash)
+    const freshEval = evaluateAndRecordDispatch(store, {
+      subscriberId: req.subscriberId,
+      meetingSlug: '2026-10-28-regular',
+      meetingDate: '2026-10-28',
+      digestHash,
+      todayDate: '2026-10-27',
+    });
+    assert.equal(freshEval.dispatch, true);
+    assert.equal(freshEval.reason, 'initial-notice');
+
+    const dupEval = evaluateAndRecordDispatch(store, {
+      subscriberId: req.subscriberId,
+      meetingSlug: '2026-10-28-regular',
+      meetingDate: '2026-10-28',
+      digestHash,
+      todayDate: '2026-10-27',
+    });
+    assert.equal(dupEval.dispatch, false);
+    assert.equal(dupEval.reason, 'duplicate-digest-suppressed');
+
+    // Material addendum (different digestHash) triggers material-addendum-update
+    const addendumEval = evaluateAndRecordDispatch(store, {
+      subscriberId: req.subscriberId,
+      meetingSlug: '2026-10-28-regular',
+      meetingDate: '2026-10-28',
+      digestHash: 'sha256:new-addendum-hash',
+      todayDate: '2026-10-27',
+    });
+    assert.equal(addendumEval.dispatch, true);
+    assert.equal(addendumEval.reason, 'material-addendum-update');
+
+    // Unsubscribe blocks future dispatches
+    const unsubbed = unsubscribeByToken(store, req.unsubscribeToken, 'rfc8058-one-click');
+    assert.equal(unsubbed.ok, true);
+    assert.equal(unsubbed.status, 'unsubscribed');
+
+    const suppressedEval = evaluateAndRecordDispatch(store, {
+      subscriberId: req.subscriberId,
+      meetingSlug: '2026-11-18-regular',
+      meetingDate: '2026-11-18',
+      digestHash: 'sha256:nov-hash',
+      todayDate: '2026-11-16',
+    });
+    assert.equal(suppressedEval.dispatch, false);
+    assert.equal(suppressedEval.reason, 'subscriber-suppressed');
+  });
+
+  it('executes workers/text-agent/src/index.ts end-to-end with bundled TypeScript worker and mock KV store', () => {
+    const bundlePath = '/tmp/rcsd-text-agent-test-bundle.mjs';
+    execFileSync(
+      resolve(ROOT, 'node_modules/.bin/esbuild'),
+      [
+        resolve(ROOT, 'workers/text-agent/src/index.ts'),
+        '--bundle',
+        '--format=esm',
+        `--outfile=${bundlePath}`,
+      ],
+      { stdio: 'pipe' },
+    );
+    assert.equal(existsSync(bundlePath), true, 'esbuild should bundle workers/text-agent/src/index.ts');
+
+    // Run the text-agent test suite against the bundled worker
+    const output = execFileSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '-e',
+        `
+          import assert from 'node:assert/strict';
+          import worker from '${bundlePath}';
+
+          function createMockKV() {
+            const map = new Map();
+            return {
+              map,
+              async get(key, type) {
+                const raw = map.get(key) ?? null;
+                if (raw === null) return null;
+                return type === 'json' ? JSON.parse(raw) : raw;
+              },
+              async put(key, value) { map.set(key, value); },
+              async delete(key) { map.delete(key); },
+            };
+          }
+
+          async function signTwilio(authToken, url, params) {
+            const sortedKeys = Object.keys(params).sort();
+            let data = url;
+            for (const k of sortedKeys) data += k + params[k];
+            const enc = new TextEncoder();
+            const key = await crypto.subtle.importKey('raw', enc.encode(authToken), { name: 'HMAC', hash: 'SHA-1' }, false, ['sign']);
+            const sig = await crypto.subtle.sign('HMAC', key, enc.encode(data));
+            return btoa(String.fromCharCode(...new Uint8Array(sig)));
+          }
+
+          const kv = createMockKV();
+          const env = {
+            ANTHROPIC_API_KEY: 'test-key',
+            TWILIO_AUTH_TOKEN: 'secret-token',
+            PUBLIC_BASE_URL: 'https://text.rcsd.info',
+            DRY_RUN: '1',
+            TEXT_AGENT_KV: kv,
+          };
+          const url = 'https://text.rcsd.info/twilio/inbound';
+          const esLine = 'whatsapp:+16503997203';
+          const parentFrom = 'whatsapp:+16505550199';
+
+          // 1. Send PARAR from Spanish-speaking parent on WhatsApp
+          const stopParams = { From: parentFrom, To: esLine, Body: 'PARAR' };
+          const stopSig = await signTwilio(env.TWILIO_AUTH_TOKEN, url, stopParams);
+          const stopRes = await worker.fetch(new Request(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'X-Twilio-Signature': stopSig,
+            },
+            body: new URLSearchParams(stopParams).toString(),
+          }), env, { waitUntil() {} });
+
+          assert.equal(stopRes.status, 200);
+          const stopXml = await stopRes.text();
+          assert.match(stopXml, /Se ha cancelado su suscripción/);
+
+          // Verify durable optout:<sha256> key written in KV
+          const optOutKeys = [...kv.map.keys()].filter((k) => k.startsWith('optout:'));
+          assert.equal(optOutKeys.length, 1);
+
+          // 2. Subsequent message while opted out is suppressed before Claude API call (returns empty TwiML)
+          const msgParams = { From: parentFrom, To: esLine, Body: 'When is the next meeting?' };
+          const msgSig = await signTwilio(env.TWILIO_AUTH_TOKEN, url, msgParams);
+          const msgRes = await worker.fetch(new Request(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'X-Twilio-Signature': msgSig,
+            },
+            body: new URLSearchParams(msgParams).toString(),
+          }), env, { waitUntil() {} });
+          const msgXml = await msgRes.text();
+          assert.equal(msgXml, '<?xml version="1.0" encoding="UTF-8"?><Response></Response>');
+
+          // 3. Send ALTA to re-subscribe and verify optout:<sha256> is cleared
+          const startParams = { From: parentFrom, To: esLine, Body: 'ALTA' };
+          const startSig = await signTwilio(env.TWILIO_AUTH_TOKEN, url, startParams);
+          const startRes = await worker.fetch(new Request(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'X-Twilio-Signature': startSig,
+            },
+            body: new URLSearchParams(startParams).toString(),
+          }), env, { waitUntil() {} });
+          const startXml = await startRes.text();
+          assert.match(startXml, /Ha vuelto a activar la línea de información/);
+          assert.equal([...kv.map.keys()].filter((k) => k.startsWith('optout:')).length, 0);
+        `,
+      ],
+      { encoding: 'utf-8' },
+    );
+    rmSync(bundlePath, { force: true });
+    assert.equal(output, '');
+  });
+});
+
+describe('Stage 5 — Multi-District Pilot (SMFCSD) Cross-Regime Reconciliation', () => {
+  it('reconciles SMFCSD Agenda Online (2019-2022) and Simbli (2022-present) regimes with 4-axis provenance while keeping districts/active.json empty', () => {
+    const activeConfig = JSON.parse(readFileSync(resolve(ROOT, 'districts/active.json'), 'utf-8'));
+    assert.deepEqual(activeConfig.districtSlugs, [], 'districts/active.json must remain empty');
+
+    const smfcsdManifest = JSON.parse(
+      readFileSync(resolve(ROOT, 'districts/san-mateo-foster-city-sd/manifest.json'), 'utf-8'),
+    );
+
+    const regime2021 = resolveSourceRegime(smfcsdManifest, '2021-11-18');
+    assert.equal(regime2021?.id, 'governance-agenda-online-observed');
+
+    const regime2026 = resolveSourceRegime(smfcsdManifest, '2026-05-14');
+    assert.equal(regime2026?.id, 'governance-simbli-observed-current');
+
+    const dataset = buildReconciledMeetingDataset(smfcsdManifest, [
+      {
+        id: 'ca.cde.district.4169039.meeting.20211118',
+        title: { text: 'Regular Board of Trustees Meeting (Agenda Online Archive)', locale: 'en-US' },
+        startsAt: '2021-11-18T19:00:00-08:00',
+        occurrence: {
+          state: 'held',
+          evidence: [
+            {
+              sourceId: 'governance-agenda-online',
+              url: 'https://www.smfcsd.net/board-of-trustees/board-agendas-minutes#2021-11-18',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        agenda: {
+          state: 'published',
+          evidence: [
+            {
+              sourceId: 'governance-agenda-online',
+              url: 'https://www.smfcsd.net/board-of-trustees/board-agendas-minutes#2021-11-18-agenda',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        minutes: {
+          state: 'approved',
+          evidence: [
+            {
+              sourceId: 'governance-landing',
+              url: 'https://www.smfcsd.net/board-of-trustees/board-agendas-minutes#2021-11-18-minutes',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        recording: {
+          state: 'published',
+          evidence: [
+            {
+              sourceId: 'meeting-video',
+              url: 'https://www.youtube.com/channel/UCV5QW3IqM4iKzZEiOrAWc5Q',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+      },
+      {
+        id: 'ca.cde.district.4169039.meeting.20260514',
+        title: { text: 'Regular Board of Trustees Meeting (Simbli Regime)', locale: 'en-US' },
+        startsAt: '2026-05-14T19:00:00-07:00',
+        occurrence: {
+          state: 'held',
+          evidence: [
+            {
+              sourceId: 'governance-simbli',
+              url: 'https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030428',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        agenda: {
+          state: 'published',
+          evidence: [
+            {
+              sourceId: 'governance-simbli',
+              url: 'https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030428#2026-05-14',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        minutes: {
+          state: 'absent',
+          vendorState: 'absent',
+          cmsState: 'approved',
+          evidence: [
+            {
+              sourceId: 'governance-simbli',
+              url: 'https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030428#2026-05-14-minutes',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+            {
+              sourceId: 'governance-landing',
+              url: 'https://www.smfcsd.net/board-of-trustees/board-agendas-minutes#2026-05-14-minutes-pdf',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        recording: {
+          state: 'published',
+          evidence: [
+            {
+              sourceId: 'meeting-video',
+              url: 'https://www.youtube.com/channel/UCV5QW3IqM4iKzZEiOrAWc5Q',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+      },
+      {
+        id: 'ca.cde.district.4169039.meeting.20260409.visitation',
+        meetingSubtype: 'school-visitation',
+        title: { text: 'Special Meeting — School Visitation', locale: 'en-US' },
+        startsAt: '2026-04-09T08:30:00-07:00',
+        occurrence: {
+          state: 'held',
+          evidence: [
+            {
+              sourceId: 'governance-landing',
+              url: 'https://www.smfcsd.net/board-of-trustees/board-agendas-minutes#2026-04-09-visitation',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        agenda: {
+          state: 'published',
+          evidence: [
+            {
+              sourceId: 'governance-simbli',
+              url: 'https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030428#2026-04-09',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        minutes: {
+          state: 'absent',
+          evidence: [
+            {
+              sourceId: 'governance-landing',
+              url: 'https://www.smfcsd.net/board-of-trustees/board-agendas-minutes#2026-04-09',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+        recording: {
+          state: 'not-applicable',
+          evidence: [
+            {
+              sourceId: 'governance-landing',
+              url: 'https://www.smfcsd.net/board-of-trustees/board-agendas-minutes#2026-04-09-no-video',
+              checkedAt: '2026-07-09T18:00:00.000Z',
+            },
+          ],
+        },
+      },
+    ]);
+
+    assert.equal(dataset.records.length, 3);
+    assert.equal(dataset.records[1].minutes.state, 'approved');
+    assert.equal(dataset.records[1].discrepancies.length, 1);
+    assert.equal(dataset.records[1].discrepancies[0].field, 'minutes.state');
+    assert.equal(dataset.records[2].recording.state, 'not-applicable');
+  });
+});

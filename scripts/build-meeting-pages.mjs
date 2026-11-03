@@ -20,11 +20,43 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { escapeHtml, formatSec, formatDate, R2_BASE, buildAidToR2Path } from './meeting-utils.mjs';
+import {
+  loadParticipationContext,
+  extractMeetingTimes,
+  extractPublicCommentInfo,
+  extractTopHeadlines,
+  buildWhatsAppNotice,
+} from './lib/meeting-participation.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
 const data = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
+const participationCtx = loadParticipationContext(ROOT);
+
+// Load Pre-Meeting Packet Digests (data/docket-briefs/*.json)
+const docketBriefsByDate = {};
+const docketBriefsDir = resolve(ROOT, 'data/docket-briefs');
+if (existsSync(docketBriefsDir)) {
+  for (const f of readdirSync(docketBriefsDir).filter((file) => file.endsWith('.json') && file !== 'index.json')) {
+    try {
+      const b = JSON.parse(readFileSync(resolve(docketBriefsDir, f), 'utf-8'));
+      if (b.date) docketBriefsByDate[b.date] = b;
+    } catch {}
+  }
+}
+
+// Load Evidence-Typed Post-Meeting Deliberation Recaps (data/deliberation-recaps/*.json)
+const deliberationRecapsByDate = {};
+const deliberationRecapsDir = resolve(ROOT, 'data/deliberation-recaps');
+if (existsSync(deliberationRecapsDir)) {
+  for (const f of readdirSync(deliberationRecapsDir).filter((file) => file.endsWith('.json') && file !== 'index.json')) {
+    try {
+      const r = JSON.parse(readFileSync(resolve(deliberationRecapsDir, f), 'utf-8'));
+      if (r.date) deliberationRecapsByDate[r.date] = r;
+    } catch {}
+  }
+}
 
 // Build AID -> R2 path lookup for attachment links
 const memoDir = resolve(ROOT, 'data/board-memos');
@@ -390,8 +422,15 @@ function meetingJsonLd(m, lang) {
   const summary = summaries[m.date] || '';
   const cleanSummary = stripTags(summary);
 
-  const startTime = '19:00:00-07:00';
-  const endTime = '22:00:00-07:00';
+  const memo = participationCtx.memosByDate[m.date] || null;
+  const times = extractMeetingTimes(m, memo, participationCtx.announcedIndex);
+  const start24 = times.primaryStart?.time24 || '19:00';
+  const [startH, startM] = start24.split(':').map(Number);
+  const endH = Math.min(23, (Number.isNaN(startH) ? 19 : startH) + 3);
+  const end24 = `${String(endH).padStart(2, '0')}:${String(Number.isNaN(startM) ? 0 : startM).padStart(2, '0')}`;
+
+  const startTime = `${start24}:00-07:00`;
+  const endTime = `${end24}:00-07:00`;
   const startDate = `${m.date}T${startTime}`;
   const endDate = `${m.date}T${endTime}`;
 
@@ -839,11 +878,13 @@ const pageCSS = `
 
   .tv-agenda-att {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.6rem;
+    font-size: 0.68rem;
     color: var(--green-mid);
     text-decoration: none;
     display: block;
     line-height: 1.6;
+    padding: 0.25rem 0;
+    min-block-size: 26px;
   }
   .tv-agenda-att:hover { text-decoration: underline; color: var(--green-deep); }
 
@@ -854,11 +895,13 @@ const pageCSS = `
   .tv-agenda-content > summary {
     cursor: pointer;
     color: var(--green-mid);
-    font-size: 0.62rem;
+    font-size: 0.68rem;
     font-family: 'IBM Plex Mono', monospace;
     text-transform: uppercase;
     letter-spacing: 0.04em;
     list-style-position: inside;
+    padding: 0.25rem 0;
+    min-block-size: 26px;
   }
   .tv-agenda-content[open] > summary { margin-bottom: 0.3rem; }
   .tv-agenda-content-note {
@@ -959,6 +1002,419 @@ const pageCSS = `
     .tv-agenda-item { padding-left: 0.75rem; }
     .tv-tab { padding: 0.4rem 0.6rem; font-size: 0.65rem; }
   }
+
+  /* ---- Senior-Friendly (55+) Participation Banner, Packet Digest & Deliberation Recap ---- */
+  .tv-participation-card,
+  .tv-digest-section,
+  .tv-recap-section {
+    background: #fff;
+    border: 1.5px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--text);
+  }
+
+  .tv-participation-card {
+    border-left: 5px solid var(--green-deep);
+    background: linear-gradient(180deg, #ffffff 0%, #f9fbf8 100%);
+  }
+
+  .tv-section-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .tv-section-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+  }
+
+  .tv-section-lead {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 72ch;
+    margin: 0 0 1rem 0;
+  }
+
+  .tv-logistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tv-logistics-box {
+    background: var(--cream);
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+  }
+
+  .tv-logistics-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--green-deep);
+    display: block;
+    margin-bottom: 0.35rem;
+  }
+
+  .tv-logistics-value {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1.02rem;
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .tv-logistics-sub {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-top: 0.35rem;
+  }
+
+  .tv-action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    align-items: center;
+    margin-top: 0.75rem;
+  }
+
+  .tv-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-block-size: 48px;
+    padding: 0.6rem 1rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.84rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1.5px solid var(--green-deep);
+    background: var(--green-deep);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .tv-action-btn:hover {
+    background: var(--green-mid);
+    border-color: var(--green-mid);
+    color: #fff;
+    text-decoration: none;
+  }
+  .tv-action-btn--secondary {
+    background: #fff;
+    color: var(--green-deep);
+    border-color: var(--green-deep);
+  }
+  .tv-action-btn--secondary:hover {
+    background: var(--green-wash);
+    color: var(--green-deep);
+  }
+  .tv-action-btn--whatsapp {
+    background: #14532d;
+    border-color: #14532d;
+    color: #fff;
+  }
+  .tv-action-btn--whatsapp:hover {
+    background: #166534;
+    border-color: #166534;
+  }
+
+  .tv-action-btn:focus-visible,
+  .tv-seek-btn:focus-visible,
+  .tv-tab:focus-visible,
+  .tv-btn:focus-visible,
+  .tv-notice-preview summary:focus-visible,
+  .tv-digest-details summary:focus-visible {
+    outline: 3px solid var(--green-deep);
+    outline-offset: 2px;
+  }
+
+  .tv-copy-status {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--green-deep);
+  }
+
+  .tv-notice-preview {
+    margin-top: 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--cream);
+    padding: 0.5rem 0.85rem;
+  }
+  .tv-notice-preview > summary {
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--green-deep);
+    min-block-size: 36px;
+    display: flex;
+    align-items: center;
+  }
+  .tv-notice-pre {
+    margin: 0.5rem 0 0.25rem;
+    padding: 0.75rem;
+    background: #fff;
+    border: 1px solid var(--rule-light);
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    color: var(--text);
+  }
+
+  .tv-schedule-callout {
+    background: #fff8e6;
+    border: 1.5px solid #d9a441;
+    border-left: 4px solid #9a6700;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 0.96rem;
+    line-height: 1.55;
+    color: #4d3800;
+  }
+
+  .tv-digest-card,
+  .tv-recap-card {
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    padding: 1rem 1.15rem;
+    margin-bottom: 0.9rem;
+    background: #fcfcfa;
+  }
+
+  .tv-card-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .tv-item-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 4px;
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-mid);
+    color: var(--green-deep);
+  }
+
+  .tv-status-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.15rem 0.55rem;
+    border-radius: 4px;
+    background: var(--cream);
+    border: 1.5px solid var(--rule);
+    color: var(--text);
+  }
+  .tv-status-pill--provisional {
+    background: #fff8e6;
+    border-color: #9a6700;
+    color: #5c3d00;
+  }
+  .tv-status-pill--reconciled {
+    background: #eef6eb;
+    border-color: var(--green-mid);
+    color: var(--green-deep);
+  }
+
+  .tv-card-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0.15rem 0 0.45rem 0;
+    line-height: 1.35;
+  }
+
+  .tv-card-body {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 72ch;
+    margin: 0 0 0.6rem 0;
+  }
+
+  .tv-baseline-box {
+    background: var(--cream);
+    border-left: 3px solid var(--green-mid);
+    padding: 0.6rem 0.85rem;
+    margin: 0.6rem 0;
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  .tv-citation-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+  }
+
+  .tv-citation-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-block-size: 40px;
+    padding: 0.35rem 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--green-deep);
+    background: #fff;
+    border: 1.5px solid var(--rule);
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  .tv-citation-link:hover {
+    border-color: var(--green-mid);
+    background: var(--green-wash);
+    text-decoration: underline;
+  }
+
+  .tv-evidence-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 0.65rem;
+  }
+
+  .tv-evidence-block {
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--green-mid);
+    border-radius: 6px;
+    padding: 0.75rem 0.95rem;
+    background: #fff;
+  }
+  .tv-evidence-block--discussion { border-left-color: #1d4ed8; }
+  .tv-evidence-block--motion { border-left-color: #9a6700; }
+  .tv-evidence-block--minutes { border-left-color: var(--green-deep); }
+
+  .tv-evidence-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .tv-highlight-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .tv-highlight-item {
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--rule-light);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .tv-seek-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-block-size: 38px;
+    padding: 0.25rem 0.6rem;
+    margin-right: 0.45rem;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    background: var(--green-pale);
+    border: 1.5px solid var(--green-mid);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .tv-seek-btn:hover {
+    background: var(--green-deep);
+    color: #fff;
+  }
+
+  .tv-digest-details {
+    margin-top: 0.85rem;
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    background: #fff;
+    padding: 0.6rem 1rem;
+  }
+  .tv-digest-details > summary {
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--green-deep);
+    min-block-size: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (pointer: coarse) {
+    .tv-action-btn { min-block-size: 52px; }
+    .tv-seek-btn { min-block-size: 44px; }
+  }
+
+  @media (forced-colors: active) {
+    .tv-participation-card,
+    .tv-digest-section,
+    .tv-recap-section,
+    .tv-digest-card,
+    .tv-recap-card,
+    .tv-evidence-block,
+    .tv-action-btn,
+    .tv-seek-btn,
+    .tv-item-pill,
+    .tv-status-pill {
+      border: 2px solid ButtonText;
+    }
+  }
 `;
 
 let generated = 0;
@@ -968,6 +1424,424 @@ const meetingsByDate = {};
 for (const m of data.meetings) {
   if (!meetingsByDate[m.date]) meetingsByDate[m.date] = [];
   meetingsByDate[m.date].push(m);
+}
+
+/**
+ * Stage 1: Build Sourced Participation & Community Share Banner HTML.
+ * Rendered for Simbli-era meetings with structured board memos.
+ */
+function buildParticipationBannerHtml(m, L, pagePath) {
+  const memo = participationCtx.memosByDate[m.date] || null;
+  if (!memo && m.source !== 'simbli') return '';
+
+  const isEs = L.lang === 'es';
+  const memoEs = participationCtx.memosEsByDate[m.date] || null;
+  const times = extractMeetingTimes(m, memo, participationCtx.announcedIndex);
+  const publicComment = extractPublicCommentInfo(m, memo);
+  const topHeadlines = extractTopHeadlines(m, memoEs, participationCtx.agendaTitlesEs, 3);
+
+  const dateFormattedEn = formatDate(m.date);
+  const dateFormattedEs = formatDateEs(m.date);
+  const localTypeEn = m.type;
+  const localTypeEs = LOCALES.es.meetingTypes[m.type] || m.type;
+
+  const wa = buildWhatsAppNotice({
+    meeting: m,
+    dateFormattedEn,
+    dateFormattedEs,
+    localTypeEn,
+    localTypeEs,
+    canonicalUrlEn: `https://rcsd.info/meetings/${pagePath}/`,
+    canonicalUrlEs: `https://rcsd.info/reuniones/${pagePath}/`,
+    times,
+    publicComment,
+    topHeadlines,
+    lang: L.lang,
+  });
+
+  // Session schedule text
+  const openDisplay = isEs ? times.openSession?.displayEs : times.openSession?.displayEn;
+  const closedDisplay = isEs ? times.closedSession?.displayEs : times.closedSession?.displayEn;
+  let schedulePrimary = '';
+  if (closedDisplay && openDisplay) {
+    schedulePrimary = isEs
+      ? `Sesión pública: <strong>${escapeHtml(openDisplay)}</strong> &middot; Sesión cerrada: <strong>${escapeHtml(closedDisplay)}</strong>`
+      : `Open Session: <strong>${escapeHtml(openDisplay)}</strong> &middot; Closed Session: <strong>${escapeHtml(closedDisplay)}</strong>`;
+  } else {
+    const startStr = isEs ? times.primaryStart?.displayEs : times.primaryStart?.displayEn;
+    schedulePrimary = isEs
+      ? `Hora de inicio: <strong>${escapeHtml(startStr || '7:00 p. m.')}</strong>`
+      : `Start time: <strong>${escapeHtml(startStr || '7:00 PM')}</strong>`;
+  }
+
+  let timeSourceNote = '';
+  if (times.timeSource === 'agenda-item') {
+    timeSourceNote = isEs
+      ? 'Verificado en los puntos de apertura de la agenda oficial.'
+      : 'Verified from the official agenda session items.';
+  } else if (times.timeSource === 'board-calendar-memo') {
+    timeSourceNote = isEs
+      ? `Verificado en el Calendario de Reuniones de la Junta (${escapeHtml(times.sourceDetail || 'Simbli')}).`
+      : `Verified from the official Board Meeting Calendar (${escapeHtml(times.sourceDetail || 'Simbli')}).`;
+  } else {
+    timeSourceNote = isEs
+      ? 'Horario estándar según el tipo de sesión (el orden de los puntos puede variar en vivo).'
+      : 'Standard schedule by session type (live agenda order and duration may vary).';
+  }
+
+  // Public comment details
+  const pc = publicComment.generalComment || publicComment.closedSessionComment;
+  let pcBoxHtml = '';
+  let pcButtonsHtml = '';
+  if (pc) {
+    const secBadge = isEs ? `Punto ${escapeHtml(pc.sectionLabel)}` : `Section ${escapeHtml(pc.sectionLabel)}`;
+    const modalityText =
+      pc.modality === 'in-person-only'
+        ? (isEs ? 'Solo en persona (tarjetas en la entrada)' : 'In-person only (speaker cards at entrance)')
+        : (isEs ? 'En persona o por Zoom' : 'In person or via Zoom');
+    const scopeText =
+      pc.scope === 'closed-session-only'
+        ? (isEs ? 'Temas de sesión cerrada' : 'Closed Session items only')
+        : pc.scope === 'agenda-only'
+          ? (isEs ? 'Temas de la agenda únicamente' : 'Agenda items only')
+          : (isEs ? 'Temas dentro o fuera de la agenda' : 'Agenda & non-agenda topics');
+
+    pcBoxHtml = `<div class="tv-logistics-box">
+      <span class="tv-logistics-label">${isEs ? `Comentario Público (${secBadge})` : `Public Comment (${secBadge})`}</span>
+      <div class="tv-logistics-value">${escapeHtml(modalityText)} &middot; ${pc.minutesPerSpeaker} min</div>
+      <div class="tv-logistics-sub">${escapeHtml(scopeText)}. ${isEs ? 'Intérprete en español disponible.' : 'Spanish interpretation available.'}</div>
+    </div>`;
+
+    if (pc.formUrlEn) {
+      pcButtonsHtml += `<a href="${escapeHtml(pc.formUrlEn)}" class="tv-action-btn tv-action-btn--secondary" target="_blank" rel="noopener">&#9997; ${isEs ? 'Tarjeta de Orador (Inglés)' : 'Speaker Sign-Up Form (English)'}</a>`;
+    }
+    if (pc.formUrlEs) {
+      pcButtonsHtml += `<a href="${escapeHtml(pc.formUrlEs)}" class="tv-action-btn tv-action-btn--secondary" target="_blank" rel="noopener">&#9997; ${isEs ? 'Formulario de Orador (Español)' : 'Speaker Sign-Up Form (Español)'}</a>`;
+    }
+  }
+
+  const zoomBtnHtml = m.zoom
+    ? `<a href="${escapeHtml(m.zoom)}" class="tv-action-btn" target="_blank" rel="noopener">&#128187; ${isEs ? 'Unirse por Zoom' : 'Join Meeting on Zoom'}</a>`
+    : '';
+
+  const simbliSourceUrl = m.simbli || 'https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397';
+  const scrapedDate = (memo?.scrapedAt || m.scrapedAt || m.date).slice(0, 10);
+
+  return `
+  <section class="tv-participation-card" aria-labelledby="participation-heading">
+    <div class="tv-section-eyebrow">
+      <span>&#128227; ${isEs ? 'Participación Comunitaria y Acceso Verificado' : 'Verified Attendance & Public Comment Guide'}</span>
+    </div>
+    <h2 class="tv-section-heading" id="participation-heading">${isEs ? 'Cómo asistir, hablar y compartir esta reunión' : 'How to Attend, Speak & Share This Meeting'}</h2>
+    <div class="tv-logistics-grid">
+      <div class="tv-logistics-box">
+        <span class="tv-logistics-label">${isEs ? 'Horario Oficial de la Sesión' : 'Official Session Start Times'}</span>
+        <div class="tv-logistics-value">${schedulePrimary}</div>
+        <div class="tv-logistics-sub">${timeSourceNote} ${isEs ? 'No se predicen horas exactas por punto porque la Junta puede cambiar el orden en vivo.' : 'Individual item clock times are not predicted because the Board may reorder items live.'}</div>
+      </div>
+      <div class="tv-logistics-box">
+        <span class="tv-logistics-label">${isEs ? 'Ubicación y Transmisión' : 'In-Person Location & Remote Access'}</span>
+        <div class="tv-logistics-value">750 Bradford St, Redwood City, CA 94063</div>
+        <div class="tv-logistics-sub">${isEs ? 'Sala de la Mesa Directiva en la Oficina del Distrito' : 'District Office Board Room'}${m.zoom ? (isEs ? ' y seminario web por Zoom.' : ' & Zoom Webinar.') : '.'}</div>
+      </div>
+      ${pcBoxHtml}
+    </div>
+    <div class="tv-action-row">
+      ${zoomBtnHtml}
+      ${pcButtonsHtml}
+      <a href="${escapeHtml(wa.whatsappUrl)}" class="tv-action-btn tv-action-btn--whatsapp" target="_blank" rel="noopener">&#128172; ${isEs ? 'Compartir aviso por WhatsApp' : 'Share Notice on WhatsApp'}</a>
+      <button type="button" class="tv-action-btn tv-action-btn--secondary tv-copy-notice-btn" data-copy-label="${isEs ? 'Copiar texto del aviso' : 'Copy Notice Text'}" data-copied-label="${isEs ? '¡Aviso copiado!' : 'Notice copied!'}">&#128203; ${isEs ? 'Copiar texto del aviso' : 'Copy Notice Text'}</button>
+      <output class="tv-copy-status" aria-live="polite"></output>
+    </div>
+    <details class="tv-notice-preview">
+      <summary>${isEs ? 'Ver texto del aviso para padres y grupos de WhatsApp' : 'Preview formatted notice text for parent groups & WhatsApp'}</summary>
+      <pre class="tv-notice-pre" id="whatsapp-notice-text">${escapeHtml(wa.text)}</pre>
+    </details>
+    <p class="tv-logistics-sub" style="margin-top:0.65rem;margin-bottom:0">
+      ${isEs ? 'Fuente oficial:' : 'Official source:'} <a href="${escapeHtml(simbliSourceUrl)}" target="_blank" rel="noopener" style="color:var(--green-deep)">Simbli / GAMUT</a> (${isEs ? 'verificado el' : 'checked'} ${escapeHtml(scrapedDate)}).
+    </p>
+  </section>`;
+}
+
+/**
+ * Stage 2: Build Reviewed Pre-Meeting Packet Digest & 100% Consent Calendar Screening HTML.
+ */
+function buildDocketBriefHtml(m, L) {
+  const brief = docketBriefsByDate[m.date];
+  if (!brief) return '';
+
+  const isEs = L.lang === 'es';
+  const overview = isEs ? brief.overviewEs : brief.overviewEn;
+  const scheduleNote = isEs ? brief.scheduleChangesNoteEs : brief.scheduleChangesNoteEn;
+  const stageBadge =
+    brief.meetingStage === 'proposed'
+      ? (isEs ? 'Propuestas en el Paquete — Antes de la Votación' : 'Proposed in Board Packet — Pre-Meeting Digest')
+      : (isEs ? 'Análisis del Paquete de la Agenda' : 'Board Packet Digest & Baseline Analysis');
+
+  const scheduleHtml = scheduleNote
+    ? `<div class="tv-schedule-callout"><strong>${isEs ? 'Nota sobre el calendario y orden del día:' : 'Schedule & Docket Note:'}</strong> ${escapeHtml(scheduleNote)}</div>`
+    : '';
+
+  const topCardsHtml = (brief.topItems || [])
+    .map((item) => {
+      const title = isEs ? item.titleEs : item.titleEn;
+      const badge = isEs ? item.proposalStatusBadgeEs : item.proposalStatusBadgeEn;
+      const whatText = isEs ? item.whatIsProposedEs : item.whatIsProposedEn;
+      const whyText = isEs ? item.whyItMattersEs : item.whyItMattersEn;
+      const minBadge = item.allocatedMinutes
+        ? `<span class="tv-status-pill">${item.allocatedMinutes} ${isEs ? 'min asignados' : 'min allocated'}</span>`
+        : '';
+
+      let baselineHtml = '';
+      if (item.baselineContext) {
+        const bc = item.baselineContext;
+        const metricLabel = isEs ? bc.metricNameEs : bc.metricNameEn;
+        const noteText = isEs ? bc.priorBaselineNoteEs : bc.priorBaselineNoteEn;
+        baselineHtml = `<div class="tv-baseline-box">
+          <strong>${isEs ? 'Base comparativa y estado de certificación' : 'Comparable Baseline & Certification Context'} (${escapeHtml(metricLabel)}):</strong><br>
+          ${isEs ? 'Fecha de corte:' : 'Census / Cut Date:'} <code>${escapeHtml(bc.censusDate)}</code> &middot;
+          ${isEs ? 'Periodo fiscal:' : 'Fiscal Period:'} <code>${escapeHtml(bc.fiscalPeriod)}</code><br>
+          ${escapeHtml(noteText)}
+        </div>`;
+      }
+
+      const citationsHtml = (item.citations || [])
+        .map((cit) => {
+          const label = isEs ? (cit.labelEs || cit.labelEn) : cit.labelEn;
+          const href = cit.r2Url || cit.url || '#';
+          const pageSuffix = cit.pageRange ? ` (${cit.pageRange})` : '';
+          return `<a href="${escapeHtml(href)}" class="tv-citation-link" target="_blank" rel="noopener">&#128196; ${escapeHtml(label + pageSuffix)}</a>`;
+        })
+        .join('');
+
+      return `<article class="tv-digest-card">
+        <div class="tv-card-header">
+          <span class="tv-item-pill">${isEs ? 'Punto' : 'Item'} ${escapeHtml(item.itemLabel)}</span>
+          ${minBadge}
+          <span class="tv-status-pill tv-status-pill--provisional">${escapeHtml(badge)}</span>
+        </div>
+        <h3 class="tv-card-title">${escapeHtml(title)}</h3>
+        <p class="tv-card-body"><strong>${isEs ? 'Lo que propone el paquete:' : 'What the packet proposes:'}</strong> ${escapeHtml(whatText)}</p>
+        <p class="tv-card-body"><strong>${isEs ? 'Por qué es importante:' : 'Why it matters:'}</strong> ${escapeHtml(whyText)}</p>
+        ${baselineHtml}
+        <div class="tv-citation-list">${citationsHtml}</div>
+      </article>`;
+    })
+    .join('\n');
+
+  const cs = brief.consentScreening;
+  let consentHtml = '';
+  if (cs && cs.totalConsentItems > 0) {
+    const spotlightCards = (cs.spotlightItems || [])
+      .map((sp) => {
+        const title = isEs ? sp.titleEs : sp.titleEn;
+        const summary = isEs ? sp.summaryEs : sp.summaryEn;
+        const funding = isEs ? sp.fundingSourceEs : sp.fundingSourceEn;
+        const cits = (sp.citations || [])
+          .map((cit) => {
+            const label = isEs ? (cit.labelEs || cit.labelEn) : cit.labelEn;
+            const href = cit.r2Url || cit.url || '#';
+            return `<a href="${escapeHtml(href)}" class="tv-citation-link" target="_blank" rel="noopener">&#128196; ${escapeHtml(label)}</a>`;
+          })
+          .join('');
+        return `<div class="tv-digest-card">
+          <div class="tv-card-header">
+            <span class="tv-item-pill">${isEs ? 'Consentimiento' : 'Consent'} ${escapeHtml(sp.itemLabel)}</span>
+            <span class="tv-status-pill"><strong>${escapeHtml(sp.amountDisplay || '')}</strong></span>
+          </div>
+          <h4 class="tv-card-title">${escapeHtml(title)}</h4>
+          <p class="tv-card-body">${escapeHtml(summary)}</p>
+          <p class="tv-logistics-sub" style="margin:0 0 0.4rem 0"><strong>${isEs ? 'Fuente de financiamiento:' : 'Funding source:'}</strong> ${escapeHtml(funding || 'N/A')}</p>
+          <div class="tv-citation-list">${cits}</div>
+        </div>`;
+      })
+      .join('\n');
+
+    const extractionNotesHtml =
+      cs.extractionNotes && cs.extractionNotes.length > 0
+        ? `<div class="tv-baseline-box" style="margin-top:0.75rem">
+            <strong>${isEs ? 'Notas de transparencia sobre documentos escaneados o enlaces externos:' : 'Document Extraction & Scanned-PDF Provenance Notes:'}</strong>
+            <ul style="margin:0.35rem 0 0 1.2rem;padding:0">
+              ${cs.extractionNotes
+                .map(
+                  (n) =>
+                    `<li><strong>${isEs ? 'Punto' : 'Item'} ${escapeHtml(n.itemLabel)}:</strong> ${escapeHtml(isEs ? n.noteEs : n.noteEn)}</li>`
+                )
+                .join('')}
+            </ul>
+          </div>`
+        : '';
+
+    const routineSummary = isEs ? cs.routineSummaryEs : cs.routineSummaryEn;
+
+    consentHtml = `
+      <details class="tv-digest-details" open>
+        <summary>${
+          isEs
+            ? `Revisión del 100% del Calendario de Consentimiento (${cs.spotlightItems.length} de ${cs.totalConsentItems} puntos destacados ≥ $50K, Políticas o Medida U)`
+            : `100% Consent Calendar Screening (${cs.spotlightItems.length} of ${cs.totalConsentItems} items spotlighted ≥ $50K, Policy Revisions, or Measure U)`
+        }</summary>
+        <div style="margin-top:0.75rem">
+          ${spotlightCards}
+          <p class="tv-card-body" style="margin-top:0.75rem"><strong>${isEs ? 'Puntos de consentimiento de rutina restantes:' : 'Remaining routine consent items:'}</strong> ${escapeHtml(routineSummary)}</p>
+          ${extractionNotesHtml}
+        </div>
+      </details>`;
+  }
+
+  const checkedDate = (brief._metadata?.generatedAt || brief._metadata?.scrapedAt || brief.date).slice(0, 10);
+
+  return `
+  <section class="tv-digest-section" id="packet-digest" aria-labelledby="digest-heading">
+    <div class="tv-section-eyebrow">
+      <span>&#128209; ${escapeHtml(stageBadge)}</span>
+    </div>
+    <h2 class="tv-section-heading" id="digest-heading">${isEs ? 'Resumen Verificado del Paquete de la Junta y Calendario de Consentimiento' : 'Reviewed Board Packet Digest & Consent Calendar Spotlight'}</h2>
+    <p class="tv-section-lead">${escapeHtml(overview)}</p>
+    ${scheduleHtml}
+    ${topCardsHtml}
+    ${consentHtml}
+    <p class="tv-logistics-sub" style="margin-top:0.75rem;margin-bottom:0">
+      ${isEs ? 'Metodología y procedencia:' : 'Provenance & methodology:'} ${
+        isEs
+          ? 'Verificado a partir del memorando oficial en Simbli y los PDFs archivados en R2'
+          : 'Verified against official Simbli board memos and R2-archived packet PDFs'
+      } (<a href="${escapeHtml(brief._metadata?.source || '#')}" target="_blank" rel="noopener" style="color:var(--green-deep)">Simbli</a>, ${isEs ? 'actualizado el' : 'checked'} ${escapeHtml(checkedDate)}).
+    </p>
+  </section>`;
+}
+
+/**
+ * Stage 3: Build Evidence-Typed Post-Meeting Deliberation Recap HTML.
+ */
+function buildDeliberationRecapHtml(m, L) {
+  const recap = deliberationRecapsByDate[m.date];
+  if (!recap) return '';
+
+  const isEs = L.lang === 'es';
+  const overview = isEs ? recap.overviewEs : recap.overviewEn;
+  const reorderNote = isEs ? recap.agendaReorderNoteEs : recap.agendaReorderNoteEn;
+
+  const reorderHtml = reorderNote
+    ? `<div class="tv-schedule-callout"><strong>${isEs ? 'Cambio en el orden de la agenda durante la transmisión:' : 'Live Agenda Reorder on Video:'}</strong> ${escapeHtml(reorderNote)}</div>`
+    : '';
+
+  const itemsHtml = (recap.items || [])
+    .map((item) => {
+      const title = isEs ? item.titleEs : item.titleEn;
+      const propText = isEs ? item.proposal.textEs : item.proposal.textEn;
+      const discSummary = isEs ? item.discussion.summaryEs : item.discussion.summaryEn;
+      const motionText = isEs ? item.motion_recorded.textEs : item.motion_recorded.textEn;
+      const minutesText = isEs ? item.minutes_reconciled.textEs : item.minutes_reconciled.textEn;
+
+      const propCitations = (item.proposal.citations || [])
+        .map((cit) => {
+          const label = isEs ? (cit.labelEs || cit.labelEn) : cit.labelEn;
+          const href = cit.r2Url || cit.url || '#';
+          return `<a href="${escapeHtml(href)}" class="tv-citation-link" target="_blank" rel="noopener">&#128196; ${escapeHtml(label)}</a>`;
+        })
+        .join('');
+
+      const highlightsHtml = (item.discussion.highlights || [])
+        .map((hl) => {
+          const speaker = isEs ? hl.speakerLabelEs : hl.speakerLabelEn;
+          const text = isEs ? hl.textEs : hl.textEn;
+          return `<li class="tv-highlight-item">
+            <button type="button" class="tv-seek-btn" data-seek-sec="${hl.startSeconds}" title="${isEs ? 'Saltar a este momento en el video' : 'Seek video player to this timestamp'}">&#9654; ${escapeHtml(hl.timestampDisplay)}</button>
+            <strong>${escapeHtml(speaker)}:</strong> ${escapeHtml(text)}
+          </li>`;
+        })
+        .join('\n');
+
+      const motionSeekBtn =
+        item.motion_recorded.startSeconds != null && item.motion_recorded.timestampDisplay
+          ? `<button type="button" class="tv-seek-btn" data-seek-sec="${item.motion_recorded.startSeconds}">&#9654; ${escapeHtml(item.motion_recorded.timestampDisplay)}</button>`
+          : '';
+
+      const minutesBadgeClass =
+        item.minutes_reconciled.status === 'reconciled'
+          ? 'tv-status-pill tv-status-pill--reconciled'
+          : 'tv-status-pill tv-status-pill--provisional';
+      const minutesBadgeLabel =
+        item.minutes_reconciled.status === 'reconciled'
+          ? (isEs ? 'Actas Oficiales Aprobadas' : 'Official Minutes Approved')
+          : item.minutes_reconciled.status === 'draft-in-subsequent-packet'
+            ? (isEs ? 'Borrador de Actas Publicado' : 'Draft Minutes in Subsequent Packet')
+            : (isEs ? 'Actas Oficiales Pendientes' : 'Formal Minutes Pending Approval');
+
+      const minutesLinkHtml = item.minutes_reconciled.minutesUrl
+        ? `<div class="tv-citation-list"><a href="${escapeHtml(item.minutes_reconciled.minutesUrl)}" class="tv-citation-link" target="_blank" rel="noopener">&#128196; ${isEs ? 'Ver PDF de Actas' : 'View Minutes PDF'}</a></div>`
+        : '';
+
+      const reportSubject = encodeURIComponent(
+        `Correction request: RCSD Meeting ${recap.date} Item ${item.itemLabel}`
+      );
+
+      return `<article class="tv-recap-card">
+        <div class="tv-card-header">
+          <span class="tv-item-pill">${isEs ? 'Punto' : 'Item'} ${escapeHtml(item.itemLabel)}</span>
+          ${item.motion_recorded.tally ? `<span class="tv-status-pill">${escapeHtml(item.motion_recorded.tally)}</span>` : ''}
+          <span class="${minutesBadgeClass}">${escapeHtml(minutesBadgeLabel)}</span>
+        </div>
+        <h3 class="tv-card-title">${escapeHtml(title)}</h3>
+
+        <div class="tv-evidence-grid">
+          <div class="tv-evidence-block">
+            <div class="tv-evidence-label">
+              <span>1. ${isEs ? 'Propuesta en el Paquete Oficial' : 'Packet Proposal (Staff Memo & Attachments)'}</span>
+            </div>
+            <p class="tv-card-body" style="margin-bottom:0.35rem">${escapeHtml(propText)}</p>
+            <div class="tv-citation-list">${propCitations}</div>
+          </div>
+
+          <div class="tv-evidence-block tv-evidence-block--discussion">
+            <div class="tv-evidence-label">
+              <span>2. ${isEs ? 'Deliberación en Video y Comentarios Públicos' : 'Video Discussion & Public Testimony (Interval-Verified)'}</span>
+            </div>
+            <p class="tv-card-body" style="margin-bottom:0.35rem">${escapeHtml(discSummary)}</p>
+            <ul class="tv-highlight-list">
+              ${highlightsHtml}
+            </ul>
+          </div>
+
+          <div class="tv-evidence-block tv-evidence-block--motion">
+            <div class="tv-evidence-label">
+              <span>3. ${isEs ? 'Moción y Votación en Video (Registro Provisional)' : 'Spoken Motion & Vote on Video (Provisional Record)'}</span>
+            </div>
+            <p class="tv-card-body" style="margin-bottom:0">${motionSeekBtn}${escapeHtml(motionText)}</p>
+          </div>
+
+          <div class="tv-evidence-block tv-evidence-block--minutes">
+            <div class="tv-evidence-label">
+              <span>4. ${isEs ? 'Conciliación con Actas Oficiales' : 'Official Minutes Reconciliation'}</span>
+              <a href="mailto:team@rcsd.info?subject=${reportSubject}" style="color:var(--green-deep);text-decoration:underline;text-transform:none">${isEs ? 'Solicitar corrección' : 'Report an error'}</a>
+            </div>
+            <p class="tv-card-body" style="margin-bottom:0">${escapeHtml(minutesText)}</p>
+            ${minutesLinkHtml}
+          </div>
+        </div>
+      </article>`;
+    })
+    .join('\n');
+
+  return `
+  <section class="tv-recap-section" id="deliberation-recap" aria-labelledby="recap-heading">
+    <div class="tv-section-eyebrow">
+      <span>&#9878; ${isEs ? 'Recapitulación Post-Reunión con Evidencia Separada' : 'Evidence-Typed Post-Meeting Deliberation Recap'}</span>
+    </div>
+    <h2 class="tv-section-heading" id="recap-heading">${isEs ? 'Lo que se propuso, lo que se discutió y cómo votó la Junta' : 'What Was Proposed, What Was Said & How the Board Voted'}</h2>
+    <p class="tv-section-lead">${escapeHtml(overview)}</p>
+    ${reorderHtml}
+    ${itemsHtml}
+    <p class="tv-logistics-sub" style="margin-top:0.75rem;margin-bottom:0">
+      ${
+        isEs
+          ? 'Nota de integridad probatoria: Cada punto distingue entre (1) la propuesta del paquete, (2) las intervenciones en video con marca de tiempo verificada por intervalo, (3) la votación hablada en video (provisional) y (4) las actas oficiales aprobadas.'
+          : 'Evidentiary integrity note: Every item strictly separates (1) the pre-meeting packet proposal, (2) interval-verified video discussion timestamps, (3) provisional spoken votes on video, and (4) formally approved minutes.'
+      }
+      <a href="mailto:team@rcsd.info?subject=${encodeURIComponent(`Correction request: RCSD Meeting ${recap.date}`)}" style="color:var(--green-deep);text-decoration:underline">${isEs ? 'Reportar un error o solicitar corrección' : 'Report an error or request a correction'}</a>.
+    </p>
+  </section>`;
 }
 
 /**
@@ -1014,6 +1888,10 @@ function generateMeetingPage(m, L) {
   // Same page path in the other language (EN /meetings/ ↔ ES /reuniones/)
   const altLangHref = `/${L.lang === 'es' ? 'meetings' : 'reuniones'}/${pagePath}/`;
 
+  const participationBannerHtml = buildParticipationBannerHtml(m, L, pagePath);
+  const docketBriefHtml = buildDocketBriefHtml(m, L);
+  const deliberationRecapHtml = buildDeliberationRecapHtml(m, L);
+
   const html = `<!DOCTYPE html>
 <html lang="${L.lang}">
 <head>
@@ -1038,7 +1916,7 @@ ${siteNav({ activePage: 'meetings', lang: L.lang, altLangHref })}
   ${L.disclaimer} <a href="https://github.com/dweekly/rcsd-meetings" style="color:#664d03">David Weekly</a>. ${L.disclaimerSuffix} <a href="mailto:team@rcsd.info" style="color:#664d03">${L.disclaimerContact}</a>.
 </div>
 
-<div class="tv-layout">
+<main class="tv-layout">
   <div class="tv-header">
     <a href="${L.backHref}" class="tv-back">${L.backLabel}</a>
     <h1 class="tv-title">${L.meetingTitle(escapeHtml(localType), dateFormatted)}</h1>
@@ -1050,6 +1928,10 @@ ${siteNav({ activePage: 'meetings', lang: L.lang, altLangHref })}
     </div>
     ${summaryHtml}
   </div>
+
+  ${participationBannerHtml}
+  ${deliberationRecapHtml}
+  ${docketBriefHtml}
 
   <div class="tv-main">
     <div class="tv-video-col">
@@ -1080,7 +1962,7 @@ ${siteNav({ activePage: 'meetings', lang: L.lang, altLangHref })}
   </div>
 
   ${transcriptUrl ? `<div class="tv-download"><a href="${transcriptUrl}" target="_blank" rel="noopener" download>${L.downloadTranscript}</a></div>` : ''}
-</div>
+</main>
 
 ${siteFooter({ lang: L.lang })}
 
@@ -1156,6 +2038,41 @@ ${siteFooter({ lang: L.lang })}
     if (!el || !el.dataset.start) return;
     seekTo(parseInt(el.dataset.start));
   });
+
+  // ---- Deliberation Recap timestamp seek buttons ----
+  document.querySelectorAll('.tv-seek-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var sec = parseInt(btn.dataset.seekSec, 10);
+      if (isNaN(sec)) return;
+      if (player && player.seekTo) {
+        seekTo(sec * 1000);
+        var videoEl = document.querySelector('.tv-video-col');
+        if (videoEl && videoEl.scrollIntoView) {
+          videoEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      } else if (videoId) {
+        window.open('https://www.youtube.com/watch?v=' + videoId + '&t=' + sec + 's', '_blank', 'noopener');
+      }
+    });
+  });
+
+  // ---- Copy WhatsApp Notice button ----
+  var copyNoticeBtn = document.querySelector('.tv-copy-notice-btn');
+  var noticePre = document.getElementById('whatsapp-notice-text');
+  var copyStatus = document.querySelector('.tv-copy-status');
+  if (copyNoticeBtn && noticePre) {
+    copyNoticeBtn.addEventListener('click', function() {
+      var textToCopy = noticePre.textContent || '';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(function() {
+          if (copyStatus) copyStatus.textContent = copyNoticeBtn.dataset.copiedLabel || 'Copied!';
+          setTimeout(function() {
+            if (copyStatus) copyStatus.textContent = '';
+          }, 4000);
+        });
+      }
+    });
+  }
 
   // ---- Transcript ----
   function formatTime(ms) {
@@ -1515,12 +2432,12 @@ ${siteNav({ activePage: 'meetings', lang: L.lang, altLangHref })}
 <div class="disclaimer">
   ${L.disclaimer} <a href="https://github.com/dweekly/rcsd-meetings" style="color:#664d03">David Weekly</a>. ${L.disclaimerSuffix} <a href="mailto:team@rcsd.info" style="color:#664d03">${L.disclaimerContact}</a>.
 </div>
-<div class="tv-disambig">
+<main class="tv-disambig">
   <a href="${L.backHref}" style="font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--text-muted);text-decoration:none">${L.backLabel}</a>
   <h1>${dateFormatted}</h1>
   <p>${L.disambigMultiple}</p>
   ${links}
-</div>
+</main>
 ${siteFooter({ lang: L.lang })}
 </body>
 </html>`;

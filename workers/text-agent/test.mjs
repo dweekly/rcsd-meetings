@@ -67,8 +67,39 @@ function inboundParams(overrides = {}) {
 
 // ---- canned handling (valid signatures from here on) ----
 {
-  const stop = await post('/twilio/inbound', inboundParams({ Body: 'STOP' }));
-  check('STOP → 200 empty TwiML', stop.status === 200 && !stop.text.includes('<Message>'), stop.text);
+  const stop = await post('/twilio/inbound', inboundParams({ From: '+14155550199', Body: 'STOP' }));
+  check('STOP (SMS) → 200 empty TwiML', stop.status === 200 && !stop.text.includes('<Message>'), stop.text);
+
+  const startSms = await post('/twilio/inbound', inboundParams({ From: '+14155550199', Body: 'START' }));
+  check('START (SMS) → 200 re-opt-in confirmation', startSms.status === 200 && startSms.text.includes('<Message>'), startSms.text);
+
+  const stopWa = await post('/twilio/inbound', inboundParams({
+    From: 'whatsapp:+14155550198', To: 'whatsapp:+16503997203', Body: 'PARAR',
+  }));
+  check('PARAR (WhatsApp ES) → 200 opt-out confirmation',
+    stopWa.status === 200 && stopWa.text.includes('<Message>') && stopWa.text.includes('ALTA'),
+    stopWa.text);
+
+  const startWa = await post('/twilio/inbound', inboundParams({
+    From: 'whatsapp:+14155550198', To: 'whatsapp:+16503997203', Body: 'ALTA',
+  }));
+  check('ALTA (WhatsApp ES) → 200 re-opt-in confirmation',
+    startWa.status === 200 && startWa.text.includes('<Message>'),
+    startWa.text);
+
+  // "yes" from a number that never opted out is a conversational reply, not an opt-in:
+  // it goes to the agent (async ack, empty TwiML), not the opt-in confirmation.
+  const yes = await post('/twilio/inbound', inboundParams({ From: '+14155550197', Body: 'yes' }));
+  check('YES (not opted out) → async ack, no opt-in confirmation',
+    yes.status === 200 && !yes.text.includes('<Message>'), yes.text);
+
+  // A suppressed number is silent until it opts back in.
+  await post('/twilio/inbound', inboundParams({ From: '+14155550196', Body: 'STOP' }));
+  const whileOut = await post('/twilio/inbound', inboundParams({ From: '+14155550196', Body: 'When is school out?' }));
+  check('question while opted out → silent empty TwiML',
+    whileOut.status === 200 && !whileOut.text.includes('<Message>'), whileOut.text);
+  const optIn = await post('/twilio/inbound', inboundParams({ From: '+14155550196', Body: 'YES' }));
+  check('YES while opted out → opt-in confirmation', optIn.text.includes('<Message>'), optIn.text);
 
   const helpEn = await post('/twilio/inbound', inboundParams({ Body: 'HELP' }));
   check('HELP (EN line) → canned English incl. verbatim rates line',

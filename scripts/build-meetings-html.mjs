@@ -11,6 +11,10 @@ import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
 import { prettySchool } from './document-inventory.mjs';
 import { isSubstantiveItem, formatDate } from './meeting-utils.mjs';
 import { currentSchoolYear } from './lib/school-year.mjs';
+import {
+  loadParticipationContext,
+  extractMeetingTimes,
+} from './lib/meeting-participation.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -18,6 +22,19 @@ const ROOT = resolve(__dirname, '..');
 const R2_BASE = 'https://data.rcsd.info';
 
 const data = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
+const participationCtx = loadParticipationContext(ROOT);
+
+const docketBriefDates = new Set();
+try {
+  const idx = JSON.parse(readFileSync(resolve(ROOT, 'data/docket-briefs/index.json'), 'utf-8'));
+  for (const b of idx.briefs || []) docketBriefDates.add(b.date);
+} catch {}
+
+const deliberationRecapDates = new Set();
+try {
+  const idx = JSON.parse(readFileSync(resolve(ROOT, 'data/deliberation-recaps/index.json'), 'utf-8'));
+  for (const r of idx.recaps || []) deliberationRecapDates.add(r.date);
+} catch {}
 
 // Load district calendars to find board meeting dates
 const districtCalendars = [];
@@ -664,6 +681,12 @@ function renderMeeting(m) {
   if (m.hasTranscript) {
     links += `<a href="/${L.meetingsPath}/${m.date}/" class="meeting-link meeting-link--transcript">&#128221; ${L.transcript}</a>`;
   }
+  if (docketBriefDates.has(m.date)) {
+    links += `<a href="/${L.meetingsPath}/${m.date}/#packet-digest" class="meeting-link meeting-link--agenda">&#128209; ${L.lang === 'es' ? 'Resumen del Paquete' : 'Packet Digest'}</a>`;
+  }
+  if (deliberationRecapDates.has(m.date)) {
+    links += `<a href="/${L.meetingsPath}/${m.date}/#deliberation-recap" class="meeting-link meeting-link--transcript">&#9878; ${L.lang === 'es' ? 'Recapitulación' : 'Recap'}</a>`;
+  }
   if (m.boarddocs) {
     links += `<a href="${escapeHtml(m.boarddocs)}" class="meeting-link meeting-link--agenda" target="_blank" rel="noopener">&#8599; ${L.agenda}</a>`;
   }
@@ -927,6 +950,23 @@ ${nearCells}
   <div class="section-rule"></div>
   <h2>${L.upcomingTitle}</h2>
   <p class="section-subtitle">${L.upcomingSubtitle}</p>
+  <div class="resource-card" style="margin-bottom:1.25rem;border:1.5px solid var(--rule);border-left:5px solid var(--green-deep);background:#fff;padding:1rem 1.25rem">
+    <h3 style="margin-top:0;color:var(--green-deep)">${
+      L.lang === 'es'
+        ? '&#128276; Reciba recordatorios de reuniones y avisos en español o inglés'
+        : '&#128276; Get Meeting Reminders & Bilingual Pre-Meeting Notices'
+    }</h3>
+    <p style="font-size:0.96rem;line-height:1.55;margin-bottom:0.65rem">${
+      L.lang === 'es'
+        ? 'Suscríbase al calendario automático para que cada reunión (con su hora verificada, enlace de Zoom y formulario de comentario público) aparezca en su teléfono, o envíe un mensaje de texto/WhatsApp a nuestra línea gratuita en español al <strong>(650) 399-7203</strong> (responda <code>PARAR</code> en cualquier momento para cancelar).'
+        : 'Subscribe to the automatic calendar feed so every Board meeting (with verified start time, Zoom link, and public-comment sign-up form) appears on your phone, or text/WhatsApp our free bilingual info lines at <strong>(650) 482-8912</strong> (English) or <strong>(650) 399-7203</strong> (Español — reply <code>STOP</code> anytime to opt out).'
+    }</p>
+    <div class="calendar-links">
+      <a href="webcal://rcsd.info/${L.lang === 'en' ? 'board-meetings' : 'reuniones-junta'}.ics" class="calendar-btn" style="min-height:44px;display:inline-flex;align-items:center">&#128197; ${L.lang === 'es' ? 'Suscribir en Apple / Outlook' : 'Subscribe in Apple / Outlook'}</a>
+      <a href="https://calendar.google.com/calendar/r?cid=http%3A%2F%2Frcsd.info%2F${L.lang === 'en' ? 'board-meetings' : 'reuniones-junta'}.ics" class="calendar-btn" style="min-height:44px;display:inline-flex;align-items:center" target="_blank" rel="noopener">&#128197; Google Calendar</a>
+      <a href="/${L.lang === 'en' ? 'board-meetings' : 'reuniones-junta'}.ics" class="calendar-btn" style="min-height:44px;display:inline-flex;align-items:center" download>&#11015; ${L.lang === 'es' ? 'Descargar archivo .ics' : 'Download .ics File'}</a>
+    </div>
+  </div>
   ${provisionalHtml}
   <div class="meeting-list">
 ${cards}
@@ -1009,6 +1049,12 @@ function meetingsIndexJsonLd() {
     const name = isEs
       ? `Reunión de la Junta de RCSD: Sesión ${typeLabel} (${formatDateEsLong(m.date)})`
       : `RCSD School Board Meeting: ${typeLabel} Session (${formatDate(m.date)})`;
+    const memo = participationCtx.memosByDate[m.date] || null;
+    const times = extractMeetingTimes(m, memo, participationCtx.announcedIndex);
+    const start24 = times.primaryStart?.time24 || '19:00';
+    const [startH, startM] = start24.split(':').map(Number);
+    const endH = Math.min(23, (Number.isNaN(startH) ? 19 : startH) + 3);
+    const end24 = `${String(endH).padStart(2, '0')}:${String(Number.isNaN(startM) ? 0 : startM).padStart(2, '0')}`;
     return {
       "@type": "ListItem",
       "position": i + 1,
@@ -1016,8 +1062,8 @@ function meetingsIndexJsonLd() {
         "@type": "Event",
         "@id": `https://rcsd.info/meetings/${m.slug}/#meeting`,
         "name": name,
-        "startDate": `${m.date}T19:00:00-07:00`,
-        "endDate": `${m.date}T22:00:00-07:00`,
+        "startDate": `${m.date}T${start24}:00-07:00`,
+        "endDate": `${m.date}T${end24}:00-07:00`,
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
         "url": `https://rcsd.info/${prefix}/${pagePath}/`,
