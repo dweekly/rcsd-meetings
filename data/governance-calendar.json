@@ -1,13 +1,13 @@
 {
-  "_source": "2026–27 Schedule of Agenda Items (last updated 10/22/2026), board-packet attachment for the 2026-10-28 meeting",
-  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-10-28/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_sourceFile": "artifacts/board-packets/2026-10-28/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_sourceSha256": "92ef07c37cf49ddcffc0ab64d9572f4feeda2e61c6e6e9921d682458aae49bb8",
-  "_sourceLastUpdate": "10/22/2026",
-  "_retrieved": "2026-10-23",
-  "_generated": "2026-10-23",
+  "_source": "2026–27 Schedule of Agenda Items (last updated 10/29/2026), board-packet attachment for the 2026-11-04 meeting",
+  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-11-04/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceFile": "artifacts/board-packets/2026-11-04/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceSha256": "9fd2b24fb00d1197ae9dce3019cdfda1d7d8bfb5380317d1c7d5182c014621ea",
+  "_sourceLastUpdate": "10/29/2026",
+  "_retrieved": "2026-11-02",
+  "_generated": "2026-11-02",
   "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept. The `en`/`es` summaries are built from the topic column only. Within `items`, `administrator` and `duration` are approximate: PyMuPDF sometimes emits one span across both cells, and such a span is assigned whole to the column it overlaps most, so a duration can appear appended to the administrator (4 of the rows in this extraction). `department` is a cell the Schedule merges across consecutive rows, so it is attached to whichever row its label is vertically centred on and is absent from the others in the group.",
-  "_droppedStruckRows": 5,
+  "_droppedStruckRows": 4,
   "provisionalTopics": {
     "2026-07-16": {
       "en": "Board Retreat",
@@ -205,13 +205,38 @@
       "es": "Revisión de los Niveles de Personal; Reporte de Personal; Reporte Trimestral Williams (Q1, 2026/27); ELD Integrado/Designado"
     },
     "2026-11-04": {
-      "en": "CAASPP or CA Dashboard; Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter",
+      "en": "CAASPP or CA Dashboard; Communications Update",
       "items": [
         {
           "department": "Education Services",
           "topic": "CAASPP or CA Dashboard",
           "administrator": "Anna Herrera/ Jenny",
           "duration": "25 min"
+        },
+        {
+          "department": "Communications",
+          "topic": "Communications Update",
+          "administrator": "Jorge Quintana",
+          "duration": "15 min",
+          "note": "Report"
+        }
+      ],
+      "es": "CAASPP o CA Dashboard; Actualización de Comunicaciones"
+    },
+    "2026-11-18": {
+      "en": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program); School and Committee Assignments for Trustees (Discussion); Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter",
+      "items": [
+        {
+          "department": "Education Services",
+          "topic": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program)",
+          "administrator": "Liz Calderon-Garcia, Enrique Calderon, & Ana Paula Garay",
+          "duration": "20 min"
+        },
+        {
+          "department": "Governance",
+          "topic": "School and Committee Assignments for Trustees (Discussion)",
+          "administrator": "Board President",
+          "duration": "15 min"
         },
         {
           "topic": "Connect – 25/26 Unaudited Actuals & Review Letter",
@@ -233,19 +258,7 @@
           "note": "Information Only"
         }
       ],
-      "es": "CAASPP o el Dashboard de CA; Connect – Cifras Reales Sin Auditar y Carta de Revisión 25/26; Rocketship – Cifras Reales Sin Auditar y Carta de Revisión 25/26; KIPP – Cifras Reales Sin Auditar y Carta de Revisión 25/26"
-    },
-    "2026-11-18": {
-      "en": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program)",
-      "items": [
-        {
-          "department": "Education Services",
-          "topic": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program)",
-          "administrator": "Liz Calderon-Garcia, Enrique Calderon, & Ana Paula Garay",
-          "duration": "20 min"
-        }
-      ],
-      "es": "Reporte de la Escuela Comunitaria (Escuela Comunitaria, Programa de Aprendizaje Extendido, y Programa de Salud Mental)"
+      "es": "Reporte de la Community School (Community School, Expanded Learning Program, y Mental Health Program); Asignaciones Escolares y de Comités para los Trustees (Discusión); Connect – Cifras Reales Sin Auditar y Carta de Revisión 25/26; Rocketship – Cifras Reales Sin Auditar y Carta de Revisión 25/26; KIPP – Cifras Reales Sin Auditar y Carta de Revisión 25/26"
     },
     "2026-12-09": {
       "en": "2025-26 Bond Committee Report",
@@ -260,7 +273,7 @@
       "es": "Reporte del Comité de Bonos 2025-26"
     },
     "2026-12-16": {
-      "en": "Annual Developer Fee Report - FY ending 6/30/2026; 2026/27 First Interim Budget Report (Action); Annual Board Reorganization; Personnel Report; School and Committee Assignments for Trustees (Discussion)",
+      "en": "Annual Developer Fee Report - FY ending 6/30/2026; 2026/27 First Interim Budget Report (Action); Annual Board Reorganization; Personnel Report",
       "items": [
         {
           "department": "Business/ Finance",
@@ -287,15 +300,9 @@
           "topic": "Personnel Report",
           "administrator": "Wendy Kelly/ Patricia Perez",
           "duration": "N/A"
-        },
-        {
-          "department": "Governance",
-          "topic": "School and Committee Assignments for Trustees (Discussion)",
-          "administrator": "Board President",
-          "duration": "15 min"
         }
       ],
-      "es": "Reporte Anual de Cuotas de Desarrolladores - Año Fiscal que termina 6/30/2026; Reporte del Primer Interino de Presupuesto 2026/27 (Acción); Reorganización Anual de la Mesa Directiva; Reporte de Personal; Asignaciones Escolares y de Comités para los Miembros de la Mesa (Discusión)"
+      "es": "Reporte Anual de Developer Fees - Año Fiscal terminando 6/30/2026; Reporte del Primer Interim Budget 2026/27 (Acción); Reorganización Anual del Board; Reporte de Personnel"
     },
     "2027-01-13": {
       "en": "Quarterly Williams Report (Q2, 2026/27); School and Committee Assignments for Trustees (Action)",
@@ -690,7 +697,7 @@
       "requested": "claude-sonnet-5",
       "resolved": "claude-sonnet-5"
     },
-    "translated": "2026-10-24",
+    "translated": "2026-11-03",
     "note": "Machine translation of provisional agenda topics. The English Schedule of Agenda Items is the authoritative source."
   }
 }
