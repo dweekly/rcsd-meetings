@@ -8,25 +8,25 @@
     {
       "path": "data/deliberation-recaps/2026-10-14.json",
       "mediaType": "application/json",
-      "hash": "sha256:74b2f51cae55a0210f60ba6b5a5accc9f70ac4d017d22a84d61c089f1ee00b70",
-      "bytes": 18779
+      "hash": "sha256:bbf5ea857ef1a2594c2e48af6a4c0b2d44d5b46f6e090b4007f0442f2d72af02",
+      "bytes": 20581
     },
     {
       "path": "data/deliberation-recaps/2026-09-30.json",
       "mediaType": "application/json",
-      "hash": "sha256:6228bdb670176901759651198caf4c599c449dfbc5c5a8d0f72aa3c74c86dd64",
-      "bytes": 8313
+      "hash": "sha256:2ebe0ff5f7053f63bd13a5f5bf49795b6608cb90a357fdaacb60cd0f88b98f67",
+      "bytes": 8726
     },
     {
       "path": "data/deliberation-recaps/2026-09-23.json",
       "mediaType": "application/json",
-      "hash": "sha256:a9625592a5009b3af65ac3729a51cd9b8f295e17fdf2ca1430e667ad414b9947",
-      "bytes": 19741
+      "hash": "sha256:aada493c8ed62858b754f6d99ad9343d6b0818334943c61c539a0873c3007146",
+      "bytes": 22153
     },
     {
       "path": "data/deliberation-recaps/index.json",
       "mediaType": "application/json",
-      "hash": "sha256:764bc8ea84cad64c32f1cc0c156c6348f436e23ebe38a6e1839f966c1b3ad69b",
+      "hash": "sha256:2f41eb3eebcd78db2608b92789230e6b91f023f3165fc6f4462c51b0cbf67c1a",
       "bytes": 953
     }
   ],
@@ -43,76 +43,200 @@
   "sources": [
     {
       "sourceId": "rcsd.youtube.recording.2026-10-14",
-      "title": "RCSD Board Meeting Video Recording & Transcript (2026-10-14)",
-      "publisher": "Redwood City School District (YouTube / Simbli)",
+      "title": "RCSD Board Meeting Video Recording (2026-10-14)",
+      "publisher": "Redwood City School District (YouTube)",
       "url": "https://www.youtube.com/watch?v=6eRAjFYrWOk",
-      "acquiredAt": "2026-10-29T20:50:00Z",
+      "acquiredAt": "2026-11-03T03:00:00Z",
+      "effectiveAt": "2026-10-14"
+    },
+    {
+      "sourceId": "rcsd.transcript.2026-10-14",
+      "title": "AssemblyAI transcript of the RCSD Board Meeting recording (2026-10-14, YouTube 6eRAjFYrWOk)",
+      "publisher": "rcsd.info (machine transcription of the district recording)",
+      "url": "https://data.rcsd.info/transcripts/2026-10-14.json",
+      "acquiredAt": "2026-11-03T03:00:00Z",
       "effectiveAt": "2026-10-14",
-      "hash": "sha256:2b0be8d37215601340159655debf54dab5dcff5267318a56b12cfc40b952408e",
+      "snapshot": {
+        "path": "artifacts/transcripts-slim/2026-10-14.json",
+        "mediaType": "application/json",
+        "hash": "sha256:cd603c5f0c85424ca9c2598b175b7743a4209eaa587f97ce2f7b3e2516453214",
+        "bytes": 92817
+      },
+      "hash": "sha256:cd603c5f0c85424ca9c2598b175b7743a4209eaa587f97ce2f7b3e2516453214"
+    },
+    {
+      "sourceId": "rcsd.simbli.board-memos.2026-10-14",
+      "title": "RCSD Board Meeting Agenda Memos & Attachment Manifest (2026-10-14)",
+      "publisher": "Redwood City School District (Simbli)",
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=77696",
+      "acquiredAt": "2026-10-15T20:57:02.137Z",
+      "effectiveAt": "2026-10-14",
       "snapshot": {
         "path": "data/board-memos/2026-10-14.json",
         "mediaType": "application/json",
         "hash": "sha256:2b0be8d37215601340159655debf54dab5dcff5267318a56b12cfc40b952408e",
         "bytes": 56450
-      }
+      },
+      "hash": "sha256:2b0be8d37215601340159655debf54dab5dcff5267318a56b12cfc40b952408e"
     },
     {
       "sourceId": "rcsd.youtube.recording.2026-09-30",
-      "title": "RCSD Board Meeting Video Recording & Transcript (2026-09-30)",
-      "publisher": "Redwood City School District (YouTube / Simbli)",
+      "title": "RCSD Board Meeting Video Recording (2026-09-30)",
+      "publisher": "Redwood City School District (YouTube)",
       "url": "https://www.youtube.com/watch?v=gRDk94hM0aQ",
-      "acquiredAt": "2026-10-29T20:50:00Z",
+      "acquiredAt": "2026-11-03T03:00:00Z",
+      "effectiveAt": "2026-09-30"
+    },
+    {
+      "sourceId": "rcsd.transcript.2026-09-30",
+      "title": "AssemblyAI transcript of the RCSD Board Meeting recording (2026-09-30, YouTube gRDk94hM0aQ)",
+      "publisher": "rcsd.info (machine transcription of the district recording)",
+      "url": "https://data.rcsd.info/transcripts/2026-09-30.json",
+      "acquiredAt": "2026-11-03T03:00:00Z",
       "effectiveAt": "2026-09-30",
-      "hash": "sha256:98ae547e5c535a7ddaebe3a315584bef494a94844b8daeb22e2cced867f8dc38",
+      "snapshot": {
+        "path": "artifacts/transcripts-slim/2026-09-30.json",
+        "mediaType": "application/json",
+        "hash": "sha256:06c0af2a15046f6ec064b2deaedff0ab58baf1f787182e88b8d7f88dd7cc31bf",
+        "bytes": 160284
+      },
+      "hash": "sha256:06c0af2a15046f6ec064b2deaedff0ab58baf1f787182e88b8d7f88dd7cc31bf"
+    },
+    {
+      "sourceId": "rcsd.simbli.board-memos.2026-09-30",
+      "title": "RCSD Board Meeting Agenda Memos & Attachment Manifest (2026-09-30)",
+      "publisher": "Redwood City School District (Simbli)",
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=81100",
+      "acquiredAt": "2026-10-01T22:21:05.543Z",
+      "effectiveAt": "2026-09-30",
       "snapshot": {
         "path": "data/board-memos/2026-09-30.json",
         "mediaType": "application/json",
         "hash": "sha256:98ae547e5c535a7ddaebe3a315584bef494a94844b8daeb22e2cced867f8dc38",
         "bytes": 11637
-      }
+      },
+      "hash": "sha256:98ae547e5c535a7ddaebe3a315584bef494a94844b8daeb22e2cced867f8dc38"
+    },
+    {
+      "sourceId": "rcsd.simbli.minutes.2026-09-30",
+      "title": "Minutes of the 2026-09-30 RCSD Board Meeting (published in the 2026-10-14 board packet)",
+      "publisher": "Redwood City School District (Simbli)",
+      "url": "https://data.rcsd.info/board-packets/2026-10-14/2026.09.30-Minutes-DRAFT.pdf",
+      "acquiredAt": "2026-10-15T20:57:02.137Z",
+      "effectiveAt": "2026-10-14",
+      "snapshot": {
+        "path": "artifacts/board-packets/2026-10-14/2026.09.30-Minutes-DRAFT.pdf",
+        "mediaType": "application/pdf",
+        "hash": "sha256:d0abeb3b9eb6f8de9daf54813f5c27fb3bb5d659edf8c1a0094aecf5494d09b7",
+        "bytes": 86040
+      },
+      "hash": "sha256:d0abeb3b9eb6f8de9daf54813f5c27fb3bb5d659edf8c1a0094aecf5494d09b7"
     },
     {
       "sourceId": "rcsd.youtube.recording.2026-09-23",
-      "title": "RCSD Board Meeting Video Recording & Transcript (2026-09-23)",
-      "publisher": "Redwood City School District (YouTube / Simbli)",
+      "title": "RCSD Board Meeting Video Recording (2026-09-23)",
+      "publisher": "Redwood City School District (YouTube)",
       "url": "https://www.youtube.com/watch?v=HBQ0eTWe5GE",
-      "acquiredAt": "2026-10-29T20:50:00Z",
+      "acquiredAt": "2026-11-03T03:00:00Z",
+      "effectiveAt": "2026-09-23"
+    },
+    {
+      "sourceId": "rcsd.transcript.2026-09-23",
+      "title": "AssemblyAI transcript of the RCSD Board Meeting recording (2026-09-23, YouTube HBQ0eTWe5GE)",
+      "publisher": "rcsd.info (machine transcription of the district recording)",
+      "url": "https://data.rcsd.info/transcripts/2026-09-23.json",
+      "acquiredAt": "2026-11-03T03:00:00Z",
       "effectiveAt": "2026-09-23",
-      "hash": "sha256:29869a834c881712e6d35b297876bd35a289cea368ee9f0123badb55fab5344b",
+      "snapshot": {
+        "path": "artifacts/transcripts-slim/2026-09-23.json",
+        "mediaType": "application/json",
+        "hash": "sha256:e2fbc3ab468b9c58ad1d568fe93fa780c7714d33c3b3781fecbd746343c82c7a",
+        "bytes": 148158
+      },
+      "hash": "sha256:e2fbc3ab468b9c58ad1d568fe93fa780c7714d33c3b3781fecbd746343c82c7a"
+    },
+    {
+      "sourceId": "rcsd.simbli.board-memos.2026-09-23",
+      "title": "RCSD Board Meeting Agenda Memos & Attachment Manifest (2026-09-23)",
+      "publisher": "Redwood City School District (Simbli)",
+      "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=75747",
+      "acquiredAt": "2026-09-24T21:09:31.671Z",
+      "effectiveAt": "2026-09-23",
       "snapshot": {
         "path": "data/board-memos/2026-09-23.json",
         "mediaType": "application/json",
         "hash": "sha256:29869a834c881712e6d35b297876bd35a289cea368ee9f0123badb55fab5344b",
         "bytes": 70373
-      }
+      },
+      "hash": "sha256:29869a834c881712e6d35b297876bd35a289cea368ee9f0123badb55fab5344b"
+    },
+    {
+      "sourceId": "rcsd.simbli.minutes.2026-09-23",
+      "title": "Minutes of the 2026-09-23 RCSD Board Meeting (published in the 2026-10-28 board packet)",
+      "publisher": "Redwood City School District (Simbli)",
+      "url": "https://data.rcsd.info/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf",
+      "acquiredAt": "2026-10-29T22:28:22.880Z",
+      "effectiveAt": "2026-10-28",
+      "snapshot": {
+        "path": "artifacts/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf",
+        "mediaType": "application/pdf",
+        "hash": "sha256:ced137039e04997c27dd5d11f77a248327b9cf6026269789c4a5ae291234ad4a",
+        "bytes": 52641
+      },
+      "hash": "sha256:ced137039e04997c27dd5d11f77a248327b9cf6026269789c4a5ae291234ad4a"
     }
   ],
   "lineage": {
-    "generatedAt": "2026-10-29T20:50:00Z",
+    "generatedAt": "2026-11-03T03:00:00Z",
     "generator": {
       "script": "scripts/generate-deliberation-recap.mjs",
-      "version": "sha256:70a396751cf7d2f86bf8b52c6442efe27f10430aafe7fb17a4063c66d7983e11"
+      "version": "sha256:75deb76da1febd6a1d26a13777cf67e5a20e716741d7833ecb33d8225ba58c41"
     },
     "inputs": [
       {
-        "sourceId": "rcsd.youtube.recording.2026-10-14",
+        "sourceId": "rcsd.transcript.2026-10-14",
+        "artifactPath": "artifacts/transcripts-slim/2026-10-14.json",
+        "hash": "sha256:cd603c5f0c85424ca9c2598b175b7743a4209eaa587f97ce2f7b3e2516453214"
+      },
+      {
+        "sourceId": "rcsd.simbli.board-memos.2026-10-14",
         "artifactPath": "data/board-memos/2026-10-14.json",
         "hash": "sha256:2b0be8d37215601340159655debf54dab5dcff5267318a56b12cfc40b952408e"
       },
       {
-        "sourceId": "rcsd.youtube.recording.2026-09-30",
+        "sourceId": "rcsd.transcript.2026-09-30",
+        "artifactPath": "artifacts/transcripts-slim/2026-09-30.json",
+        "hash": "sha256:06c0af2a15046f6ec064b2deaedff0ab58baf1f787182e88b8d7f88dd7cc31bf"
+      },
+      {
+        "sourceId": "rcsd.simbli.board-memos.2026-09-30",
         "artifactPath": "data/board-memos/2026-09-30.json",
         "hash": "sha256:98ae547e5c535a7ddaebe3a315584bef494a94844b8daeb22e2cced867f8dc38"
       },
       {
-        "sourceId": "rcsd.youtube.recording.2026-09-23",
+        "sourceId": "rcsd.simbli.minutes.2026-09-30",
+        "artifactPath": "artifacts/board-packets/2026-10-14/2026.09.30-Minutes-DRAFT.pdf",
+        "hash": "sha256:d0abeb3b9eb6f8de9daf54813f5c27fb3bb5d659edf8c1a0094aecf5494d09b7"
+      },
+      {
+        "sourceId": "rcsd.transcript.2026-09-23",
+        "artifactPath": "artifacts/transcripts-slim/2026-09-23.json",
+        "hash": "sha256:e2fbc3ab468b9c58ad1d568fe93fa780c7714d33c3b3781fecbd746343c82c7a"
+      },
+      {
+        "sourceId": "rcsd.simbli.board-memos.2026-09-23",
         "artifactPath": "data/board-memos/2026-09-23.json",
         "hash": "sha256:29869a834c881712e6d35b297876bd35a289cea368ee9f0123badb55fab5344b"
+      },
+      {
+        "sourceId": "rcsd.simbli.minutes.2026-09-23",
+        "artifactPath": "artifacts/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf",
+        "hash": "sha256:ced137039e04997c27dd5d11f77a248327b9cf6026269789c4a5ae291234ad4a"
       }
     ]
   },
   "quality": {
     "state": "human-reviewed",
-    "checkedAt": "2026-10-29T20:50:00Z"
+    "checkedAt": "2026-11-03T03:00:00Z"
   }
 }

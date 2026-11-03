@@ -193,3 +193,65 @@ export function validateDeliberationRecap(doc) {
     errors,
   };
 }
+
+/** Every archived attachment filename in a `data/board-memos/{date}.json` document. */
+export function memoAttachmentFilenames(memosDoc) {
+  const names = new Set();
+  for (const item of memosDoc?.items || []) {
+    for (const att of item.attachments || []) {
+      if (att?.filename) names.add(att.filename);
+    }
+  }
+  return names;
+}
+
+/** Parse `<base>/board-packets/<date>/<filename>` into its packet date and filename. */
+export function parseBoardPacketUrl(url) {
+  const m = /\/board-packets\/(\d{4}-\d{2}-\d{2})\/([^/?#]+)$/.exec(String(url || ''));
+  return m ? { date: m[1], filename: decodeURIComponent(m[2]) } : null;
+}
+
+/**
+ * List every evidence filename in a recap that does not resolve to a real
+ * attachment in the archived board-memo manifest. Proposal citations must be
+ * attachments of the recap's own meeting; a `minutesUrl` must be an attachment
+ * of the meeting whose packet published the minutes.
+ *
+ * @param {object} recap - recap document or REVIEWED_RECAPS definition
+ * @param {(date: string) => object|null} loadMemos - returns `data/board-memos/{date}.json` or null
+ * @returns {{path: string, date: string, filename: string|null, reason: string}[]}
+ */
+export function findUnresolvedEvidenceFiles(recap, loadMemos) {
+  const unresolved = [];
+  const cache = new Map();
+  const filenamesFor = (date) => {
+    if (!cache.has(date)) {
+      const doc = loadMemos(date);
+      cache.set(date, doc ? memoAttachmentFilenames(doc) : null);
+    }
+    return cache.get(date);
+  };
+  const check = (path, date, filename) => {
+    const names = filenamesFor(date);
+    if (!names) unresolved.push({ path, date, filename, reason: `no data/board-memos/${date}.json` });
+    else if (!filename || !names.has(filename)) {
+      unresolved.push({ path, date, filename: filename || null, reason: `not an attachment in data/board-memos/${date}.json` });
+    }
+  };
+
+  (recap?.items || []).forEach((item, i) => {
+    (item.proposal?.citations || []).forEach((cit, j) => {
+      check(`/items/${i}/proposal/citations/${j}/filename`, recap.date, cit.filename);
+    });
+    const minutesUrl = item.minutes_reconciled?.minutesUrl;
+    if (minutesUrl) {
+      const parsed = parseBoardPacketUrl(minutesUrl);
+      if (!parsed) {
+        unresolved.push({ path: `/items/${i}/minutes_reconciled/minutesUrl`, date: null, filename: null, reason: `not a board-packets URL: ${minutesUrl}` });
+      } else {
+        check(`/items/${i}/minutes_reconciled/minutesUrl`, parsed.date, parsed.filename);
+      }
+    }
+  });
+  return unresolved;
+}

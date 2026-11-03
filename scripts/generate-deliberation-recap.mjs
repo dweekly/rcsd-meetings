@@ -17,7 +17,9 @@ import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'no
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  findUnresolvedEvidenceFiles,
   formatTimestamp,
+  parseBoardPacketUrl,
   validateDeliberationRecap,
 } from './lib/deliberation-recap.mjs';
 import { enrichCitationArtifacts, R2_BASE } from './lib/docket-brief.mjs';
@@ -28,10 +30,34 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 
+// When the curated recaps below were last reviewed against their evidence.
+// Fixed (not the run time) so regeneration is byte-for-byte reproducible.
+const REVIEWED_AT = '2026-11-03T03:00:00Z';
+
 const meetingsData = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
 
 function getMeetingByDate(date) {
   return meetingsData.meetings.find((m) => m.date === date) || null;
+}
+
+function loadBoardMemos(date) {
+  const p = resolve(ROOT, `data/board-memos/${date}.json`);
+  return existsSync(p) ? JSON.parse(readFileSync(p, 'utf-8')) : null;
+}
+
+/**
+ * Every hashed input (cited packet PDFs, the transcript, the minutes PDF) must be
+ * present locally, so the committed recaps and provenance are the same whoever
+ * regenerates them. These caches are synced from R2, not committed.
+ */
+function requireLocalArtifact(relPath, r2Prefix) {
+  if (!existsSync(resolve(ROOT, relPath))) {
+    const dir = dirname(relPath);
+    throw new Error(
+      `Missing ${relPath}. Sync it first: rclone copy r2:rcsd-meetings/${r2Prefix}/ ${dir}/ --include "${relPath.split('/').pop()}"`
+    );
+  }
+  return resolve(ROOT, relPath);
 }
 
 const REVIEWED_RECAPS = {
@@ -40,7 +66,7 @@ const REVIEWED_RECAPS = {
     meetingSlug: '2026-10-14-regular',
     videoId: '6eRAjFYrWOk',
     overviewEn:
-      'The Board moved Item 9.1 (Health and Wellness Department update) ahead of the KIPP Excelencia Public Hearing at the start of the meeting. Nine community members—teachers, students, parents, and operations staff—spoke in support of KIPP Excelencia’s 2027–2032 charter renewal petition, followed by Trustee questioning on KIPP’s five-year deficit projections and its 799-student charter cap. Bond Consent (including the $81,760.42 MIT Solar Phase 2 Change Order #3), General Consent, and Personnel Actions (including the new Director of Fiscal Services job description) were approved by voice vote.',
+      'The Board moved Item 9.1 (Health and Wellness Department update) ahead of the KIPP Excelencia Public Hearing at the start of the meeting. Nine community members—teachers, students, parents, and operations staff—spoke in support of KIPP Excelencia’s 2027–2032 charter renewal petition, followed by Trustee questioning on KIPP’s five-year deficit projections and its 799-student charter cap. Bond Consent (including the $81,760.42 MIT Solar Phase 2 Change Order #3), General Consent, and Personnel Actions (including the updated Director of Fiscal Services job description) were approved by voice vote.',
     overviewEs:
       'Al inicio de la sesión, la Junta adelantó el Punto 9.1 (actualización del Departamento de Salud y Bienestar) antes de la Audiencia Pública de KIPP Excelencia. Nueve miembros de la comunidad —maestros, estudiantes, padres y personal operativo— hablaron a favor de la renovación chárter 2027–2032 de KIPP Excelencia, seguidos por preguntas de la Junta sobre las proyecciones deficitarias de cinco años de KIPP y su tope de matrícula de 799 estudiantes. El Consentimiento del Bono (incluida la Orden de Cambio N.º 3 del proyecto solar en MIT por $81,760.42), el Consentimiento General y los puntos de Personal se aprobaron por voto de voz.',
     agendaReorderNoteEn:
@@ -55,20 +81,20 @@ const REVIEWED_RECAPS = {
         titleEs: 'Audiencia Pública: Petición de Renovación Chárter de KIPP Excelencia (2027–2032)',
         proposal: {
           textEn:
-            'Initial statutory public hearing under Education Code § 47605(b) on KIPP Excelencia Community Prep’s petition for a five-year charter renewal (July 1, 2027 – June 30, 2032) in the state’s "middle performing" tier. The 90-day statutory deadline for a Board grant-or-deny decision is December 20, 2026.',
+            'Initial statutory public hearing under Education Code § 47605(b) on KIPP Excelencia Community Prep’s petition for a five-year charter renewal (July 1, 2027 – June 30, 2032) in the state’s "middle performing" tier. The 90-day statutory deadline for a Board grant-or-deny decision is December 20, 2026; Board action is anticipated December 9, 2026.',
           textEs:
-            'Audiencia pública inicial bajo el Código de Educación § 47605(b) sobre la petición de KIPP Excelencia Community Prep para renovar su estatuto chárter por cinco años (1 de julio de 2027 – 30 de junio de 2032) en la categoría estatal de desempeño medio. El plazo legal de 90 días para que la Junta tome una decisión vence el 20 de diciembre de 2026.',
+            'Audiencia pública inicial bajo el Código de Educación § 47605(b) sobre la petición de KIPP Excelencia Community Prep para renovar su estatuto chárter por cinco años (1 de julio de 2027 – 30 de junio de 2032) en la categoría estatal de desempeño medio. El plazo legal de 90 días para que la Junta tome una decisión vence el 20 de diciembre de 2026; se prevé la decisión de la Junta el 9 de diciembre de 2026.',
           citations: [
             {
-              labelEn: 'KIPP Excelencia Charter Renewal Petition 2027–2032',
-              labelEs: 'Petición de Renovación Chárter KIPP Excelencia 2027–2032',
-              filename: 'KIPP-Excelencia-Charter-Renewal-Petition-2027-2032.pdf',
+              labelEn: 'KIPP Excelencia Charter Renewal Packet (Petition 2027–2032)',
+              labelEs: 'Paquete de Renovación Chárter de KIPP Excelencia (Petición 2027–2032)',
+              filename: 'KIPP-Excelencia-Charter-Renewal-Packet.pdf',
               extractionStatus: 'text-extracted',
             },
             {
-              labelEn: 'KIPP Public Hearing Presentation Deck (10/14/26)',
-              labelEs: 'Presentación de Audiencia Pública de KIPP (14/10/26)',
-              filename: 'KIPP-Excelencia-Public-Hearing-Presentation-10.14.26.pdf',
+              labelEn: 'KIPP Excelencia Public Hearing Presentation (10/14/26, updated)',
+              labelEs: 'Presentación de KIPP Excelencia para la Audiencia Pública (14/10/26, actualizada)',
+              filename: 'KIPP-Excelencia-Community-Prep_-Public-Hearing-26.10.14-updated.pdf',
               extractionStatus: 'text-extracted',
             },
           ],
@@ -97,9 +123,9 @@ const REVIEWED_RECAPS = {
               startSeconds: 3978,
               endSeconds: 4054,
               textEn:
-                'President Weekly asked why the petition’s five-year budget shows a deficit every year with reserves dropping from ~$3.7M to ~$1.8M. KIPP finance representative Kenzie explained that KIPP builds conservative multi-year petition projections jointly with its regional finance office and adjusts annual operational budgets each spring based on actual enrollment.',
+                'President Weekly asked why the petition’s five-year budget shows a deficit every year with reserves dropping from ~$3.7M to ~$1.8M, and what KIPP would cut first if enrollment fell short. KIPP finance representative Kenzie said the school and KIPP’s regional finance office set a realistic budget together each year with milestones, make campus-specific cuts if targets are missed, and that at its current steady enrollment of about 700 students the school breaks even.',
               textEs:
-                'El Presidente Weekly preguntó por qué el presupuesto a cinco años muestra déficits anuales con reservas bajando de ~$3.7M a ~$1.8M. La representante financiera de KIPP (Kenzie) explicó que la organización elabora proyecciones plurianuales conservadoras con su oficina regional y ajusta el presupuesto operativo cada año según la matrícula real.',
+                'El Presidente Weekly preguntó por qué el presupuesto a cinco años muestra déficits anuales con reservas bajando de ~$3.7M a ~$1.8M, y qué recortaría KIPP primero si la matrícula no se cumple. La representante financiera de KIPP (Kenzie) explicó que la escuela y la oficina regional fijan cada año un presupuesto realista con metas intermedias, hacen recortes según cada plantel si no se cumplen, y que con su matrícula estable de unos 700 alumnos la escuela está en equilibrio.',
             },
             {
               speakerLabelEn: 'President David Weekly, KIPP Leadership & Regional Finance Staff',
@@ -108,9 +134,9 @@ const REVIEWED_RECAPS = {
               startSeconds: 4055,
               endSeconds: 4164,
               textEn:
-                'When asked how KIPP projects growing from 704 to 799 students (and Kindergarten from 55 to 84) amid countywide enrollment decline, KIPP staff clarified that 799 is ~150 students lower than its prior charter cap (~940) and represents an upper facility ceiling rather than a guaranteed annual budget target, driven partly by Transitional Kindergarten (TK) expansion.',
+                'When asked how KIPP projects growing from 704 to 799 students (and Kindergarten from 55 to 84) amid declining enrollment in the area, KIPP staff clarified that 799 is ~150 students lower than its prior charter cap (~940) and represents a maximum enrollment rather than a budget target (KIPP budgets each year on a realistic enrollment estimate), driven partly by Transitional Kindergarten (TK) expansion.',
               textEs:
-                'Ante la pregunta sobre cómo proyectan crecer de 704 a 799 alumnos en medio de una baja demográfica regional, el equipo de KIPP aclaró que 799 reduce en ~150 alumnos el tope de su petición anterior (~940) y funciona como un techo máximo de capacidad más que como una meta presupuestaria anual fija, apoyado en la expansión de TK.',
+                'Ante la pregunta sobre cómo proyectan crecer de 704 a 799 alumnos en medio de una baja demográfica regional, el equipo de KIPP aclaró que 799 reduce en ~150 alumnos el tope de su petición anterior (~940) y es una matrícula máxima y no una meta presupuestaria (KIPP presupuesta cada año con una estimación realista de matrícula), apoyado en la expansión de TK.',
             },
           ],
         },
@@ -140,14 +166,14 @@ const REVIEWED_RECAPS = {
         titleEs: 'Actualización sobre el Departamento de Salud y Bienestar de RCSD',
         proposal: {
           textEn:
-            'Information report on RCSD student health screenings (vision, hearing, dental), nursing care plans, staff CPR certification, and e-bike safety partnerships.',
+            'Information report on RCSD student health screenings (vision, hearing, dental), student CPR certification, and e-bike safety partnerships.',
           textEs:
-            'Informe sobre evaluaciones preventivas de salud estudiantil (vista, audición, dental), planes de enfermería, certificación en RCP y seguridad en bicicletas eléctricas.',
+            'Informe sobre evaluaciones preventivas de salud estudiantil (vista, audición, dental), certificación estudiantil en RCP y seguridad en bicicletas eléctricas.',
           citations: [
             {
-              labelEn: 'Health and Wellness Department Presentation (10/14/26)',
-              labelEs: 'Presentación del Departamento de Salud y Bienestar (14/10/26)',
-              filename: 'Health-and-Wellness-Board-Presentation-10.14.26.pdf',
+              labelEn: 'Health and Wellness Board Report (10/14/26)',
+              labelEs: 'Informe de Salud y Bienestar para la Junta (14/10/26)',
+              filename: '26.10.14-Health-and-Wellness-Board-Report.pdf',
               extractionStatus: 'text-extracted',
             },
           ],
@@ -167,7 +193,7 @@ const REVIEWED_RECAPS = {
               textEn:
                 'Vice President Márquez and President Weekly asked how staff track students who need replacement eyeglasses or lack insurance. Staff explained that Vision to Learn replaces lost or broken glasses once within a year, teachers email District Lead Nurse Phoebe Reid-Chambers directly when glasses break at school, and the district partners with the Lions Club for uninsured families.',
               textEs:
-                'La Vicepresidenta Márquez y el Presidente Weekly preguntaron cómo se apoya a los estudiantes que pierden sus lentes o no tienen seguro. El personal explicó que Vision to Learn reemplaza lentes rotos o extraviados una vez durante el primer año, los maestros avisan directamente a la enfermera principal Phoebe Reid-Chambers y el distrito colabora con el Club de Leones para familias sin seguro.',
+                'La Vicepresidenta Márquez y el Presidente Weekly preguntaron cómo se apoya a los estudiantes que pierden sus lentes o no tienen seguro. El personal explicó que Vision to Learn reemplaza lentes rotos o extraviados una vez dentro de un año, los maestros avisan directamente a la enfermera principal Phoebe Reid-Chambers y el distrito colabora con el Club de Leones para familias sin seguro.',
             },
           ],
         },
@@ -193,20 +219,20 @@ const REVIEWED_RECAPS = {
         titleEs: 'Consentimiento del Bono (Orden de Cambio Solar en MIT por $81.8K), Consentimiento General y Acciones de Personal',
         proposal: {
           textEn:
-            'Approves Bond Consent Items 6.1–6.2 (including $81,760.42 Change Order #3 for MIT Solar Phase 2), General Consent Items 11.1–11.11 (including September 30 minutes, $70,000 Marin COE/CCEE grant MOU, and September warrants), Item 12.1 (Personnel Report & Director of Fiscal Services job description), and Item 12.2 (Resolution No. 11 on Education Code teaching assignments).',
+            'Approves Bond Consent Items 6.1–6.2 (including $81,760.42 Change Order #3 for MIT Solar Phase 2), General Consent Items 11.1–11.11 (including September 30 minutes, up to $70,000 Marin COE/CCEE stipend MOU, and September warrants), Item 12.1 (Personnel Report & Director of Fiscal Services job description), and Item 12.2 (Resolution No. 11 on Education Code teaching assignments).',
           textEs:
-            'Aprueba el Consentimiento del Bono 6.1–6.2 (incluida la Orden de Cambio N.º 3 del proyecto solar en MIT por $81,760.42), el Consentimiento General 11.1–11.11 (incluidas las actas del 30 de septiembre, la subvención CCEE de $70,000 y los pagos de septiembre), el Punto 12.1 (Informe de Personal y puesto de Director de Servicios Fiscales) y el Punto 12.2 (Resolución N.º 11).',
+            'Aprueba el Consentimiento del Bono 6.1–6.2 (incluida la Orden de Cambio N.º 3 del proyecto solar en MIT por $81,760.42), el Consentimiento General 11.1–11.11 (incluidas las actas del 30 de septiembre, el estipendio CCEE de hasta $70,000 y los pagos de septiembre), el Punto 12.1 (Informe de Personal y puesto de Director de Servicios Fiscales) y el Punto 12.2 (Resolución N.º 11).',
           citations: [
             {
-              labelEn: 'MIT Solar Phase 2 Change Order #3 (Item 6.1)',
-              labelEs: 'Orden de Cambio N.º 3 — Proyecto Solar MIT Fase 2 (Punto 6.1)',
-              filename: 'MIT-Solar-Project-Phase-2-CO-3.pdf',
+              labelEn: 'McKinley (MIT) Solar Phase 2 Change Order #3 (Item 6.1)',
+              labelEs: 'Orden de Cambio N.º 3 — Proyecto Solar de McKinley (MIT) Fase 2 (Punto 6.1)',
+              filename: '261014-RCSD-McKinley-CO-3-Additional-Teichert-Scope-REVISED-Board-10.14.26.pdf',
               extractionStatus: 'text-extracted',
             },
             {
               labelEn: 'Director of Fiscal Services Job Description (Item 12.1)',
               labelEs: 'Descripción del Puesto de Director(a) de Servicios Fiscales (Punto 12.1)',
-              filename: 'Director-of-Fiscal-Services-Job-Description.pdf',
+              filename: 'RCSD_Director_of_Fiscal_Services_JD_2026.docx.pdf',
               extractionStatus: 'text-extracted',
             },
           ],
@@ -283,16 +309,16 @@ const REVIEWED_RECAPS = {
             'Presentación en sesión de estudio sobre herramientas de evaluación formativa en K–5, Comunidades de Aprendizaje Profesional (PLC), métricas de crecimiento en i-Ready y detección temprana de lectoescritura con Multitudes de UCSF.',
           citations: [
             {
-              labelEn: 'Ed. Services Board Report: PLCs, Formative Assessment, i-Ready & Multitudes',
-              labelEs: 'Informe de Servicios Educativos: PLC, Evaluación Formativa, i-Ready y Multitudes',
-              filename: 'Ed.-Services-Board-Report-PLCs-Formative-Assessment-9.30.26.pdf',
+              labelEn: 'Ed. Services Board Report: PLCs, Formative Assessment, i-Ready & Multitudes (updated 9/29/26)',
+              labelEs: 'Informe de Servicios Educativos: PLC, Evaluación Formativa, i-Ready y Multitudes (actualizado 29/09/26)',
+              filename: 'Ed.-Services-Board-Report.-updated-26.09.29.pdf',
               extractionStatus: 'text-extracted',
             },
           ],
         },
         discussion: {
           summaryEn:
-            'Trustees engaged in an extended Q&A ([38:11]–[130:08]) examining how teachers use assessment data without over-testing students, why foundational phonics decoding (BPST) transitions after 2nd grade, and how Thursday minimum-day PLC collaboration works across small single-track vs. multi-track school sites.',
+            'Trustees engaged in an extended Q&A ([38:11]–[130:08]) examining how teachers use assessment data without over-testing students, why foundational phonics decoding (BPST) transitions after 2nd grade, and how Thursday minimum-day PLC collaboration works across small and large school sites.',
           summaryEs:
             'Los miembros de la Junta sostuvieron una amplia sesión de preguntas y respuestas ([38:11]–[130:08]) sobre cómo utilizar los datos de evaluación sin sobrecargar a los estudiantes con exámenes, el uso de la evaluación fonética BPST después de 2.º grado y la colaboración docente de los jueves.',
           highlights: [
@@ -325,9 +351,9 @@ const REVIEWED_RECAPS = {
               startSeconds: 2970,
               endSeconds: 3165,
               textEn:
-                'Trustee Wells asked why the BPST foundational phonics assessment stops after 2nd grade when some 3rd–5th graders are not yet reading proficiently. Staff clarified that all elementary teachers were trained in CRLP foundational skills and continue using BPST diagnostically for older students who still have decoding gaps.',
+                'Trustee Wells asked why the BPST foundational phonics assessment stops after 2nd grade when some 3rd–5th graders are not yet reading proficiently. Staff clarified that all elementary teachers were trained in CRLP foundational skills and that older students whom i-Ready flags as still needing phonics are assessed with the BPST by a reading interventionist (grades 3–5) or an intervention teacher (grades 6–8).',
               textEs:
-                'El miembro de la Junta Wells preguntó por qué la prueba fonética BPST se detiene en 2.º grado cuando algunos alumnos de 3.º a 5.º aún no leen con fluidez. El equipo aclaró que todos los docentes recibieron capacitación CRLP y siguen utilizando el BPST de forma diagnóstica con alumnos mayores que presentan rezagos en decodificación.',
+                'El miembro de la Junta Wells preguntó por qué la prueba fonética BPST se detiene en 2.º grado cuando algunos alumnos de 3.º a 5.º aún no leen con fluidez. El equipo aclaró que todos los docentes recibieron capacitación CRLP y que a los alumnos mayores que i-Ready identifica con necesidad de apoyo en fonética se les aplica el BPST con un especialista en lectura (3.º a 5.º) o un maestro de intervención (6.º a 8.º).',
             },
           ],
         },
@@ -357,9 +383,9 @@ const REVIEWED_RECAPS = {
     meetingSlug: '2026-09-23-regular',
     videoId: 'HBQ0eTWe5GE',
     overviewEn:
-      'In a 2-hour-14-minute Regular meeting (with Trustee Wells participating remotely under AB 2449 / Brown Act teleconference rules), the Board heard public comment from Garfield and Orion parents and RCTA leadership on school capacity and grade configurations, unanimously approved the 2026-27 Enrollment & Capacity Review next steps (5–0 roll call), unanimously approved the 2025-26 Unaudited Actuals financial close (5–0 roll call), and adopted the Gann Appropriations Limit (4–0 roll call).',
+      'In a 2-hour-19-minute Regular meeting (with Trustee Wells participating remotely for just cause under Government Code § 54953.8.3), the Board heard public comment from Garfield and Orion parents and RCTA leadership on school capacity and grade configurations, unanimously approved the 2026-27 Enrollment & Capacity Review next steps (5–0 roll call), unanimously approved the 2025-26 Unaudited Actuals financial close (5–0 roll call), and adopted the Gann Appropriations Limit (4–0 roll call).',
     overviewEs:
-      'En una reunión ordinaria de 2 horas y 14 minutos (con participación remota del miembro de la Junta Wells), la Junta escuchó comentarios públicos de familias de Garfield y Orion y de la dirigencia sindical RCTA sobre la capacidad escolar y configuración de grados, aprobó por unanimidad los próximos pasos de la Revisión de Matrícula y Capacidad 2026-27 (votación nominal 5–0), aprobó el Cierre Financiero No Auditado 2025-26 (5–0) y adoptó el Límite de Apropiaciones Gann (4–0).',
+      'En una reunión ordinaria de 2 horas y 19 minutos (con participación remota del miembro de la Junta Wells por causa justificada, Código de Gobierno § 54953.8.3), la Junta escuchó comentarios públicos de familias de Garfield y Orion y de la dirigencia sindical RCTA sobre la capacidad escolar y configuración de grados, aprobó por unanimidad los próximos pasos de la Revisión de Matrícula y Capacidad 2026-27 (votación nominal 5–0), aprobó el Cierre Financiero No Auditado 2025-26 (5–0) y adoptó el Límite de Apropiaciones Gann (4–0).',
     corrections: [],
     items: [
       {
@@ -401,12 +427,12 @@ const REVIEWED_RECAPS = {
               speakerLabelEn: 'Trustee Mike Wells, Vice President Cecilia I. Márquez & President David Weekly',
               speakerLabelEs: 'Miembro de la Junta Mike Wells, Vicepresidenta Cecilia I. Márquez y Presidente David Weekly',
               attributionScope: 'interval-verified',
-              startSeconds: 5280,
+              startSeconds: 5228,
               endSeconds: 5543,
               textEn:
-                'Trustee Wells ([88:00]), Vice President Márquez ([88:39]), and President Weekly ([89:48]) commended Superintendent Rubalcaba for publishing clear school-by-school capacity numbers and welcomed early engagement from Garfield and Orion families ahead of the formal study process.',
+                'Trustee Wells ([87:08]) backed the proposed timeline and stakeholder-input process, Vice President Márquez ([88:39]) urged every school site to join the engagement, citing the Garfield families present, and President Weekly ([89:48]) praised the plain presentation of the capacity numbers and the early engagement of parents.',
               textEs:
-                'El miembro de la Junta Wells ([88:00]), la Vicepresidenta Márquez ([88:39]) y el Presidente Weekly ([89:48]) reconocieron al Superintendente Rubalcaba por publicar cifras claras de capacidad por escuela y celebraron la participación temprana de las familias de Garfield y Orion.',
+                'El miembro de la Junta Wells ([87:08]) respaldó el calendario y el proceso de consulta propuestos, la Vicepresidenta Márquez ([88:39]) pidió que todas las escuelas participen, mencionando a las familias de Garfield presentes, y el Presidente Weekly ([89:48]) elogió la claridad de las cifras de capacidad y la participación temprana de las familias.',
             },
           ],
         },
@@ -422,7 +448,7 @@ const REVIEWED_RECAPS = {
         },
         minutes_reconciled: {
           status: 'draft-in-subsequent-packet',
-          approvedAtDate: '2026-10-28',
+          approvedAtDate: null,
           minutesUrl: `${R2_BASE}/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf`,
           textEn:
             'Draft minutes published in the October 28, 2026 board packet (Consent Item 10.1) confirm unanimous 5–0 approval of Item 9.1.',
@@ -478,9 +504,9 @@ const REVIEWED_RECAPS = {
               startSeconds: 6450,
               endSeconds: 6565,
               textEn:
-                'Trustee Wells asked where deferred 2025-26 spending sits and whether state/local revenue variances were one-time; CBO Rick Edson explained that deferred items sit in restricted ending fund balances and highlighted lower-than-expected federal revenues as a key risk area while noting the district’s ~4% reserve.',
+                'Trustee Wells asked where deferred 2025-26 spending sits and whether state/local revenue variances were one-time; CBO Rick Edson explained that deferred items sit in restricted ending fund balances and flagged lower-than-expected federal revenue as something to watch, though not yet a trend; Trustee Wells then noted the district’s ~4% reserve while cautioning that the $11 million RDA transfer-in still shores up the budget.',
               textEs:
-                'El miembro de la Junta Wells preguntó dónde se contabilizan los gastos diferidos de 2025-26 y las variaciones de ingresos; el CBO Rick Edson explicó que los recursos diferidos permanecen en el saldo restringido y destacó los menores ingresos federales como un punto a vigilar, resaltando la reserva del ~4%.',
+                'El miembro de la Junta Wells preguntó dónde se contabilizan los gastos diferidos de 2025-26 y las variaciones de ingresos; el CBO Rick Edson explicó que los recursos diferidos permanecen en el saldo restringido y señaló los menores ingresos federales como un punto a vigilar, aunque aún no una tendencia; el miembro Wells destacó la reserva del ~4%, advirtiendo que la transferencia de $11 millones del RDA aún sostiene el presupuesto.',
             },
           ],
         },
@@ -496,12 +522,12 @@ const REVIEWED_RECAPS = {
         },
         minutes_reconciled: {
           status: 'draft-in-subsequent-packet',
-          approvedAtDate: '2026-10-28',
+          approvedAtDate: null,
           minutesUrl: `${R2_BASE}/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf`,
           textEn:
-            'Draft minutes published in the October 28, 2026 packet (Consent Item 10.1) record unanimous approval of the 2025-26 Unaudited Actuals (9.4) and Resolution No. 10 Gann Limit (9.5).',
+            'Draft minutes published in the October 28, 2026 packet (Consent Item 10.1) record 5–0 approval of both the 2025-26 Unaudited Actuals (9.4) and Resolution No. 10 Gann Limit (9.5); the 9.5 tally differs from the video roll call, in which Trustee Wells was not called (4–0).',
           textEs:
-            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto de Consentimiento 10.1) registra la aprobación de los Resultados No Auditados 2025-26 (9.4) y la Resolución N.º 10 sobre el Límite Gann (9.5).',
+            'El borrador de actas publicado en el paquete del 28 de octubre de 2026 (Punto de Consentimiento 10.1) registra la aprobación 5–0 de los Resultados No Auditados 2025-26 (9.4) y de la Resolución N.º 10 sobre el Límite Gann (9.5); el resultado del 9.5 difiere de la votación nominal en video, en la que no se llamó al miembro Wells (4–0).',
         },
       },
       {
@@ -510,10 +536,16 @@ const REVIEWED_RECAPS = {
         titleEs: 'Informe MTSS de Asistencia y Reducción de Suspensiones (Meta 1 del LCAP) y Aprobación del Consentimiento',
         proposal: {
           textEn:
-            'Item 6.1 updates the Board on Multi-Tiered Systems of Support (MTSS) for attendance and suspension reduction (chronic absenteeism at 9.11% as of Sept 9, 2026). Section 8 bundles 16 Consent items including Air Education tutoring ($204,375), Kennedy Measure U Addendum 1 ($195,228 reallocated), Amergis SpEd behavior technicians amendment (+$142,920 to $294,920), Siemens fire/life safety ($97,224), and Board Bylaw 9250 ($1,200/mo fixed trustee stipend).',
+            'Item 6.1 updates the Board on Multi-Tiered Systems of Support (MTSS) for attendance and suspension reduction (chronic absenteeism at 9.11% as of Sept 9, 2026). Section 8 bundles 16 Consent items including Air Education tutoring ($204,375), Kennedy Measure U Addendum 1 (reallocating $85,000 of its $195,228 allotment), Amergis behavior-support amendment (BCBA and behavior technicians; +$142,920 to $294,920), Siemens fire/life safety ($97,224), and Board Bylaw 9250 ($1,200/mo fixed trustee stipend).',
           textEs:
-            'El Punto 6.1 informa sobre el sistema MTSS para mejorar la asistencia y reducir suspensiones (ausentismo crónico en 9.11% al 9 de septiembre de 2026). La Sección 8 agrupa 16 puntos de consentimiento, incluidos Air Education ($204,375), Adenda 1 de Medida U en Kennedy ($195,228), enmienda con Amergis (+$142,920 hasta $294,920), Siemens ($97,224) y el Estatuto 9250 ($1,200/mes de estipendio fijo).',
+            'El Punto 6.1 informa sobre el sistema MTSS para mejorar la asistencia y reducir suspensiones (ausentismo crónico en 9.11% al 9 de septiembre de 2026). La Sección 8 agrupa 16 puntos de consentimiento, incluidos Air Education ($204,375), Adenda 1 de Medida U en Kennedy (reasigna $85,000 de su asignación de $195,228), enmienda con Amergis (+$142,920 hasta $294,920), Siemens ($97,224) y el Estatuto 9250 ($1,200/mes de estipendio fijo).',
           citations: [
+            {
+              labelEn: 'MTSS Attendance & Suspension Reduction Board Report (Item 6.1, updated 9/23/26)',
+              labelEs: 'Informe MTSS de Asistencia y Reducción de Suspensiones (Punto 6.1, actualizado 23/09/26)',
+              filename: 'MTSS-Board-Report-26.09.23-Updated.pdf',
+              extractionStatus: 'text-extracted',
+            },
             {
               labelEn: 'Board Bylaw 9250 Remuneration, Reimbursement & Other Benefits (Item 8.12)',
               labelEs: 'Estatuto 9250 Remuneración y Beneficios (Punto 8.12)',
@@ -529,15 +561,15 @@ const REVIEWED_RECAPS = {
             'El personal presentó los datos de ausentismo crónico ([18:43]) y la Junta dialogó sobre las estrategias de seguimiento por escuela ([28:25]–[50:00]). Los 16 puntos del Calendario de Consentimiento en la Sección 8 se aprobaron juntos en una sola votación nominal 5–0.',
           highlights: [
             {
-              speakerLabelEn: 'Assistant Superintendent Anna Herrera, Director Patrinia Redd & Board Trustees',
-              speakerLabelEs: 'Superintendente Asistente Anna Herrera, Directora Patrinia Redd y Mesa Directiva',
+              speakerLabelEn: 'Administrator on Special Assignment Brianna Turner, Director Patrinia Redd & Board Trustees',
+              speakerLabelEs: 'Administradora en Asignación Especial Brianna Turner, Directora Patrinia Redd y Mesa Directiva',
               attributionScope: 'interval-verified',
               startSeconds: 1123,
               endSeconds: 3000,
               textEn:
-                'Educational Services and Student Services staff reviewed Day-15/early-September chronic absenteeism (9.11% districtwide, ranging from 4% at Orion to 15% at McKinley) and tiered SART/SARB family support interventions.',
+                'Educational Services and Student Services staff reviewed chronic absenteeism as of September 9, 2026 (9.11% districtwide, ranging from 4% at Orion to 15% at McKinley) and tiered School Engagement Support Plan (SESP) and SARB interventions.',
               textEs:
-                'El equipo de Servicios Educativos y Estudiantiles revisó el ausentismo crónico al inicio del ciclo (9.11% en el distrito, desde 4% en Orion hasta 15% en McKinley) y las intervenciones de apoyo familiar.',
+                'El equipo de Servicios Educativos y Estudiantiles revisó el ausentismo crónico al 9 de septiembre de 2026 (9.11% en el distrito, desde 4% en Orion hasta 15% en McKinley) y las intervenciones de apoyo familiar.',
             },
             {
               speakerLabelEn: 'Board of Trustees (Section 8 Consent Roll-Call Vote)',
@@ -564,7 +596,7 @@ const REVIEWED_RECAPS = {
         },
         minutes_reconciled: {
           status: 'draft-in-subsequent-packet',
-          approvedAtDate: '2026-10-28',
+          approvedAtDate: null,
           minutesUrl: `${R2_BASE}/board-packets/2026-10-28/2026.09.23-Minutes-DRAFT.pdf`,
           textEn:
             'Draft minutes published in the October 28, 2026 packet (Consent Item 10.1) confirm 5–0 adoption of the Section 8 Consent Calendar.',
@@ -588,8 +620,20 @@ async function buildRecapForDate(date) {
       ? `https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=${meeting.mid}`
       : 'https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397');
 
+  const unresolved = findUnresolvedEvidenceFiles(base, loadBoardMemos);
+  if (unresolved.length) {
+    throw new Error(
+      `Unresolved evidence filenames in the ${date} recap: ${unresolved
+        .map((u) => `${u.path} ${u.filename} (${u.reason})`)
+        .join('; ')}`
+    );
+  }
+
   const items = [];
   for (const item of base.items) {
+    for (const cit of item.proposal.citations) {
+      requireLocalArtifact(`artifacts/board-packets/${date}/${cit.filename}`, `board-packets/${date}`);
+    }
     const citations = await enrichCitationArtifacts(ROOT, date, item.proposal.citations);
     const highlights = item.discussion.highlights.map((hl) => ({
       ...hl,
@@ -626,8 +670,8 @@ async function buildRecapForDate(date) {
       transcriptSource: `${R2_BASE}/transcripts/${date}.json`,
       chapterMarkersSource: 'data/chapter-markers.json',
       triageSource: `data/triage/${date}.md`,
-      scrapedAt: meeting?.scrapedAt || '2026-10-29T20:50:00Z',
-      generatedAt: '2026-10-29T20:50:00Z',
+      scrapedAt: loadBoardMemos(date)?.scrapedAt || REVIEWED_AT,
+      generatedAt: REVIEWED_AT,
       method:
         'Evidence-typed post-meeting recap enforcing 4-layer separation (proposal, discussion, motion_recorded, minutes_reconciled) and interval-verified speaker attribution.',
       reviewStatus: 'human-reviewed',
@@ -679,7 +723,7 @@ async function main() {
   const indexDoc = {
     _metadata: {
       source: 'https://simbli.eboardsolutions.com/SB_Meetings/SB_MeetingListing.aspx?S=36030397',
-      scrapedAt: '2026-10-29T20:50:00Z',
+      scrapedAt: REVIEWED_AT,
       method: 'Compiled by scripts/generate-deliberation-recap.mjs from evidence-typed recaps.',
     },
     recaps: indexEntries,
@@ -706,25 +750,76 @@ async function main() {
     bytes: statSync(indexPath).size,
   });
 
+  // Each evidence layer is its own source, snapshotted and hashed as the bytes
+  // the recap was reviewed against:
+  //   - recording: the YouTube video the timestamps point into (not archived, so no hash)
+  //   - transcript: the slim AssemblyAI transcript of that recording (discussion + spoken votes)
+  //   - packet: the scraped Simbli agenda memos and attachment manifest (proposal layer)
+  //   - minutes: the minutes PDF from the later packet that published them (minutes layer)
+  const snapshotOf = async (relPath, mediaType) => {
+    const abs = resolve(ROOT, relPath);
+    return { path: relPath, mediaType, hash: await hashFile(abs), bytes: statSync(abs).size };
+  };
   const sources = [];
+  const seenSourceIds = new Set();
+  const addSource = (source) => {
+    if (seenSourceIds.has(source.sourceId)) return;
+    seenSourceIds.add(source.sourceId);
+    sources.push(source.snapshot ? { ...source, hash: source.snapshot.hash } : source);
+  };
   for (const date of dates) {
-    const memoPath = resolve(ROOT, `data/board-memos/${date}.json`);
     const base = REVIEWED_RECAPS[date];
-    sources.push({
+    const meeting = getMeetingByDate(date);
+    addSource({
       sourceId: `rcsd.youtube.recording.${date}`,
-      title: `RCSD Board Meeting Video Recording & Transcript (${date})`,
-      publisher: 'Redwood City School District (YouTube / Simbli)',
+      title: `RCSD Board Meeting Video Recording (${date})`,
+      publisher: 'Redwood City School District (YouTube)',
       url: `https://www.youtube.com/watch?v=${base.videoId}`,
-      acquiredAt: '2026-10-29T20:50:00Z',
+      acquiredAt: REVIEWED_AT,
       effectiveAt: date,
-      hash: await hashFile(memoPath),
-      snapshot: {
-        path: `data/board-memos/${date}.json`,
-        mediaType: 'application/json',
-        hash: await hashFile(memoPath),
-        bytes: statSync(memoPath).size,
-      },
     });
+
+    const transcriptPath = `artifacts/transcripts-slim/${date}.json`;
+    requireLocalArtifact(transcriptPath, 'transcripts');
+    addSource({
+      sourceId: `rcsd.transcript.${date}`,
+      title: `AssemblyAI transcript of the RCSD Board Meeting recording (${date}, YouTube ${base.videoId})`,
+      publisher: 'rcsd.info (machine transcription of the district recording)',
+      url: `${R2_BASE}/transcripts/${date}.json`,
+      acquiredAt: REVIEWED_AT,
+      effectiveAt: date,
+      snapshot: await snapshotOf(transcriptPath, 'application/json'),
+    });
+
+    const memos = loadBoardMemos(date);
+    addSource({
+      sourceId: `rcsd.simbli.board-memos.${date}`,
+      title: `RCSD Board Meeting Agenda Memos & Attachment Manifest (${date})`,
+      publisher: 'Redwood City School District (Simbli)',
+      url:
+        meeting?.simbli ||
+        `https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=${memos?.mid}`,
+      acquiredAt: memos?.scrapedAt || REVIEWED_AT,
+      effectiveAt: date,
+      snapshot: await snapshotOf(`data/board-memos/${date}.json`, 'application/json'),
+    });
+
+    for (const item of base.items) {
+      const minutesUrl = item.minutes_reconciled?.minutesUrl;
+      if (!minutesUrl) continue;
+      const packet = parseBoardPacketUrl(minutesUrl);
+      const minutesPath = `artifacts/board-packets/${packet.date}/${packet.filename}`;
+      requireLocalArtifact(minutesPath, `board-packets/${packet.date}`);
+      addSource({
+        sourceId: `rcsd.simbli.minutes.${date}`,
+        title: `Minutes of the ${date} RCSD Board Meeting (published in the ${packet.date} board packet)`,
+        publisher: 'Redwood City School District (Simbli)',
+        url: minutesUrl,
+        acquiredAt: loadBoardMemos(packet.date)?.scrapedAt || REVIEWED_AT,
+        effectiveAt: packet.date,
+        snapshot: await snapshotOf(minutesPath, 'application/pdf'),
+      });
+    }
   }
 
   const provenanceDoc = {
@@ -747,20 +842,22 @@ async function main() {
     },
     sources,
     lineage: {
-      generatedAt: '2026-10-29T20:50:00Z',
+      generatedAt: REVIEWED_AT,
       generator: {
         script: 'scripts/generate-deliberation-recap.mjs',
         version: await hashFile(__filename),
       },
-      inputs: sources.map((s) => ({
-        sourceId: s.sourceId,
-        artifactPath: s.snapshot.path,
-        hash: s.hash,
-      })),
+      inputs: sources
+        .filter((s) => s.snapshot)
+        .map((s) => ({
+          sourceId: s.sourceId,
+          artifactPath: s.snapshot.path,
+          hash: s.hash,
+        })),
     },
     quality: {
       state: 'human-reviewed',
-      checkedAt: '2026-10-29T20:50:00Z',
+      checkedAt: REVIEWED_AT,
     },
   };
 
