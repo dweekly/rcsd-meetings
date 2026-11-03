@@ -153,7 +153,7 @@ existing public JSON shapes. Read the matching sidecar for questions such as
 | `provenance/rcsd.board-policies-es.json` | Spanish policy titles and bodies: source-English hashes, translation lineage, LLM invocation references when available, and official-language caveats |
 | `provenance/rcsd.board-policy-summaries.json` | Bilingual policy summaries: source-text hashes, derived-record lineage, LLM invocation references when available, and quality exceptions |
 | `provenance/rcsd.docket-briefs.json` | Pre-meeting packet digests and consent-calendar screenings (`data/docket-briefs/*.json`): official Simbli memo sources, artifact hashes, generator version, and scanned-PDF exceptions |
-| `provenance/rcsd.deliberation-recaps.json` | Post-meeting evidence-typed deliberation recaps (`data/deliberation-recaps/*.json`): YouTube recording & Simbli memo sources, artifact hashes, and human-reviewed quality state |
+| `provenance/rcsd.deliberation-recaps.json` | Post-meeting evidence-typed deliberation recaps (`data/deliberation-recaps/*.json`): separate sources per meeting for the YouTube recording (unhashed), the transcript (hashed `transcripts-slim/{date}.json`), the Simbli packet memos and attachment manifest, and approved minutes where published; artifact hashes and human-reviewed quality state |
 
 Only provenance-migrated families have v1 sidecars today; absence of a sidecar
 for a legacy dataset is not evidence that the fact has no source. Fall back to
