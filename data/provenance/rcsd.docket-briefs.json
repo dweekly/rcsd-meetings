@@ -8,31 +8,31 @@
     {
       "path": "data/docket-briefs/2026-10-28.json",
       "mediaType": "application/json",
-      "hash": "sha256:230259240c9ac08aa3dc495e160ac15bc227f627c5dc06e9b8e1780fe003b7ca",
-      "bytes": 28631
+      "hash": "sha256:8846cb50f17bb9e170080d95486646a0bf5f02ab3b6fb8d019417ed360a35c00",
+      "bytes": 34196
     },
     {
       "path": "data/docket-briefs/2026-10-14.json",
       "mediaType": "application/json",
-      "hash": "sha256:912095f2c90330c3bd8a36800e84fa35b6adc9fe27fab8a62b93201a3c084c37",
-      "bytes": 15605
+      "hash": "sha256:f3510adcc6c481d75b0ad8e44e89e6198338bdc4463aa26889332c4b5f3f9661",
+      "bytes": 24193
     },
     {
       "path": "data/docket-briefs/2026-09-30.json",
       "mediaType": "application/json",
-      "hash": "sha256:408136434f071003fcbba2ea2ea5dd3767d9679d2a83f9bff7eb90e42fa277df",
-      "bytes": 6035
+      "hash": "sha256:a966fda2dc0b9833e06bd399518e175f87f013225a2371025b3a8513f0d2bd25",
+      "bytes": 6894
     },
     {
       "path": "data/docket-briefs/2026-09-23.json",
       "mediaType": "application/json",
-      "hash": "sha256:9b3bae989a5324d18d4ac2e9cfe7b3b3b6ffc02ae6d7059960f7f5a236dffb75",
-      "bytes": 21454
+      "hash": "sha256:e354fc26ba33f471dcb1fddc9453bb3c396ac9a062ce3deb730ae775dab97fe4",
+      "bytes": 31254
     },
     {
       "path": "data/docket-briefs/index.json",
       "mediaType": "application/json",
-      "hash": "sha256:7b777274c8b78b54a8cc3665574ee10f09a386fd3f2a8b3af8f12ef270bbbd0a",
+      "hash": "sha256:a2389749491309417fc1ccaf3c9982af0df649877391c238b7d4b15ea87cf820",
       "bytes": 1476
     }
   ],
@@ -54,12 +54,12 @@
       "url": "https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=77699",
       "acquiredAt": "2026-10-29T20:45:00Z",
       "effectiveAt": "2026-10-28",
-      "hash": "sha256:fdfc6db99d2ab1da49515ced9e7b3ed603ae64b45a3f48096f523c83a1f16d43",
+      "hash": "sha256:f7f08af1a8c802f8d9debb69bb7ef4af4e9f6cee3bbdcbefd087c531108e1826",
       "snapshot": {
         "path": "data/board-memos/2026-10-28.json",
         "mediaType": "application/json",
-        "hash": "sha256:fdfc6db99d2ab1da49515ced9e7b3ed603ae64b45a3f48096f523c83a1f16d43",
-        "bytes": 77948
+        "hash": "sha256:f7f08af1a8c802f8d9debb69bb7ef4af4e9f6cee3bbdcbefd087c531108e1826",
+        "bytes": 77994
       }
     },
     {
@@ -109,16 +109,16 @@
     }
   ],
   "lineage": {
-    "generatedAt": "2026-10-29T20:45:00Z",
+    "generatedAt": "2026-11-02T00:00:00Z",
     "generator": {
       "script": "scripts/generate-docket-brief.mjs",
-      "version": "sha256:eff9da765b936625492e85c0ef16cfb5e7bb7db21f847bfa7c62fc4914391110"
+      "version": "sha256:890c31f9ca1ef7d1ba596e597f4b06382c98f7ca5e4c6747f1f174ec9562f1bc"
     },
     "inputs": [
       {
         "sourceId": "rcsd.simbli.memo.2026-10-28",
         "artifactPath": "data/board-memos/2026-10-28.json",
-        "hash": "sha256:fdfc6db99d2ab1da49515ced9e7b3ed603ae64b45a3f48096f523c83a1f16d43"
+        "hash": "sha256:f7f08af1a8c802f8d9debb69bb7ef4af4e9f6cee3bbdcbefd087c531108e1826"
       },
       {
         "sourceId": "rcsd.simbli.memo.2026-10-14",
@@ -139,11 +139,15 @@
   },
   "quality": {
     "state": "human-reviewed",
-    "checkedAt": "2026-10-29T20:45:00Z",
+    "checkedAt": "2026-11-02T00:00:00Z",
     "exceptions": [
       {
         "code": "scanned-pdf-memo-fallback",
-        "message": "On 2026-10-28, Item 6.1 DSA/PG&E fee receipts and Item 10.4 KIPP Measure U application are image scans; dollar figures ($69,089.12 and $156,326.00) are verified from the structured Simbli memo."
+        "message": "On 2026-10-28, Item 6.1 DSA/PG&E fee receipts and Item 10.4 KIPP Measure U application are image scans; dollar figures ($69,089.12 and $156,326.00) are verified from the structured Simbli memo. On 2026-09-23, Item 8.2 Kennedy Measure U addendum and Item 8.11 UniFirst agreement are image scans; their figures come from the memo."
+      },
+      {
+        "code": "ocr-extracted",
+        "message": "On 2026-09-23, the Unaudited Actuals board presentation is image slides; its figures were read by OCR and cross-checked against the text-layer Unaudited Actuals book (pp. 7–10)."
       }
     ]
   }

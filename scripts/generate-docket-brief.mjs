@@ -16,6 +16,7 @@ import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'no
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  attachmentInventory,
   enrichCitationArtifacts,
   R2_BASE,
   screenConsentCalendar,
@@ -28,6 +29,9 @@ import { buildAidToR2Path } from './meeting-utils.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
+
+// When the curated content below was last checked against the packet sources.
+const REVIEWED_AT = '2026-11-02T00:00:00Z';
 
 const meetingsData = JSON.parse(readFileSync(resolve(ROOT, 'data/meetings-data.json'), 'utf-8'));
 const aidToR2Path = buildAidToR2Path(resolve(ROOT, 'data/board-memos'));
@@ -54,20 +58,20 @@ const REVIEWED_BRIEFS = {
     meetingStage: 'proposed',
     qualityState: 'human-reviewed',
     overviewEn:
-      'Two 35-minute staff reports anchor this Regular meeting: a Human Resources & Staffing Levels update carrying the district’s preliminary 2026-27 Census Day enrollment count (6,399 non-charter students, +90 over 2025-26 and +160 above the adopted budget projection), and an Integrated/Designated English Language Development (ELD) report covering 1,876 English learners. Meanwhile, the Consent Calendar carries over $3.99M in expanded-learning contracts, Measure U charter funds, bond HVAC fees, and 11 Board Policy revisions.',
+      'Two staff reports anchor this Regular meeting: a 40-minute Human Resources & Staffing Levels discussion carrying the district’s preliminary 2026-27 Census Day enrollment count (6,399 non-charter students, +90 over 2025-26 and +160 above the 6,239 the adopted budget assumed), and a 35-minute Integrated/Designated English Language Development (ELD) report covering 1,876 English learners. The bond and general consent calendars carry about $3.98M across seven items of $50K or more (expanded-learning and tutoring contracts, KIPP Excelencia’s Measure U allocation, supplemental buses, tree care, and bond HVAC fees), plus 11 Board Policy revisions.',
     overviewEs:
-      'Dos informes de personal de 35 minutos encabezan esta reunión ordinaria: una actualización de Recursos Humanos y Niveles de Personal que presenta el conteo preliminar del Día del Censo 2026-27 del distrito (6,399 estudiantes en escuelas no chárter, +90 respecto a 2025-26 y +160 por encima de lo proyectado en el presupuesto adoptado), y un informe sobre el Desarrollo del Idioma Inglés (ELD) Integrado y Designado que abarca a 1,876 estudiantes aprendices de inglés. Además, el Calendario de Consentimiento incluye más de $3.99 millones en contratos de aprendizaje extendido, fondos de la Medida U para escuelas chárter, tarifas de HVAC del bono y 11 revisiones de Políticas de la Junta.',
+      'Dos informes del personal encabezan esta reunión ordinaria: una discusión de 40 minutos sobre Recursos Humanos y Niveles de Personal que presenta el conteo preliminar del Día del Censo 2026-27 del distrito (6,399 estudiantes en escuelas no chárter, +90 respecto a 2025-26 y +160 por encima de los 6,239 que suponía el presupuesto adoptado), y un informe de 35 minutos sobre el Desarrollo del Idioma Inglés (ELD) Integrado y Designado que abarca a 1,876 estudiantes aprendices de inglés. Los calendarios de consentimiento del bono y general suman unos $3.98 millones en siete puntos de $50K o más (contratos de aprendizaje extendido y tutoría, la asignación de la Medida U de KIPP Excelencia, autobuses suplementarios, cuidado de árboles y tarifas de HVAC del bono), además de 11 revisiones de Políticas de la Junta.',
     scheduleChangesNoteEn:
-      'Per the revised October 22 Schedule of Board Agenda Items (Item 15), the Connect, Rocketship, and KIPP 2025-26 unaudited actuals review letters moved from October 28 to November 4, 2026. No KIPP charter renewal decision date has been placed on the schedule yet (statutory 90-day deadline: December 20, 2026).',
+      'Per the revised October 22 Schedule of Board Agenda Items (Item 15), the Connect, Rocketship, and KIPP 2025-26 unaudited actuals review letters moved from October 28 to November 4, 2026. The Schedule does not yet list the KIPP charter renewal decision; the October 14 hearing memo anticipated Board action on December 9, 2026, and the statutory 90-day deadline is December 20, 2026.',
     scheduleChangesNoteEs:
-      'Según la revisión del 22 de octubre del Calendario de Temas de la Junta (Punto 15), las cartas de revisión de resultados no auditados 2025-26 de Connect, Rocketship y KIPP pasaron del 28 de octubre al 4 de noviembre de 2026. Aún no figura en el calendario la fecha de decisión sobre la renovación chárter de KIPP (plazo legal de 90 días: 20 de diciembre de 2026).',
+      'Según la revisión del 22 de octubre del Calendario de Temas de la Junta (Punto 15), las cartas de revisión de resultados no auditados 2025-26 de Connect, Rocketship y KIPP pasaron del 28 de octubre al 4 de noviembre de 2026. El calendario aún no incluye la decisión sobre la renovación chárter de KIPP; el memorando de la audiencia del 14 de octubre preveía la votación de la Junta el 9 de diciembre de 2026, y el plazo legal de 90 días vence el 20 de diciembre de 2026.',
     topItems: [
       {
         itemLabel: '9.1',
         titleEn: 'Human Resources and Staffing Levels Update',
         titleEs: 'Actualización sobre Recursos Humanos y Niveles de Dotación de Personal',
         actionType: 'Discussion',
-        allocatedMinutes: 35,
+        allocatedMinutes: 40,
         proposalStatusBadgeEn: 'Discussion Item — Preliminary Data (Uncertified)',
         proposalStatusBadgeEs: 'Punto de Discusión — Datos Preliminares (No Certificados)',
         whatIsProposedEn:
@@ -75,26 +79,26 @@ const REVIEWED_BRIEFS = {
         whatIsProposedEs:
           'El personal presenta una serie de cuatro años de dotación del Fondo General (de 870.76 FTE en 2023-24 a 785.26 FTE en 2026-27, una reducción del 9.8%) junto con un conteo preliminar no certificado del Día del Censo 2026-27 de 6,399 estudiantes en escuelas no chárter (412 en TK y 5,987 en K-8). Los salarios y beneficios del Fondo General pasaron de $113.53M a $123.59M presupuestados en 2026-27 (sin incluir los acuerdos laborales pendientes con RCTA, RCAA y CSEA).',
         whyItMattersEn:
-          'The preliminary 6,399 enrollment count is 90 students higher than 2025-26 (6,309) and 160 students above the 6,239 assumed in the 2026-27 Adopted Budget. About two-thirds of the increase is in Transitional Kindergarten (350 → 412), with K-8 also up slightly (5,959 → 5,987). Certified figures will feed into the First Interim Budget on December 16, 2026.',
+          'The preliminary 6,399 enrollment count is 90 students higher than 2025-26 (6,309) and 160 students above the 6,239 assumed in the 2026-27 Adopted Budget. About two-thirds of the increase is in Transitional Kindergarten (350 → 412), with K-8 also up slightly (5,959 → 5,987). The deck notes that the pending RCTA, RCAA and CSEA settlements will be incorporated at First Interim, which the Schedule of Board Agenda Items places on December 16, 2026.',
         whyItMattersEs:
-          'El conteo preliminar de 6,399 estudiantes supera en 90 alumnos al de 2025-26 (6,309) y en 160 alumnos a los 6,239 proyectados en el Presupuesto Adoptado 2026-27. Cerca de dos tercios del aumento corresponden a Kínder de Transición (350 → 412), con un ligero aumento también en K-8 (5,959 → 5,987). Las cifras certificadas se incorporarán al Primer Informe Presupuestario Interino el 16 de diciembre de 2026.',
+          'El conteo preliminar de 6,399 estudiantes supera en 90 alumnos al de 2025-26 (6,309) y en 160 alumnos a los 6,239 que suponía el Presupuesto Adoptado 2026-27. Cerca de dos tercios del aumento corresponden a Kínder de Transición (350 → 412), con un ligero aumento también en K-8 (5,959 → 5,987). La presentación indica que los acuerdos laborales pendientes con RCTA, RCAA y CSEA se incorporarán en el Primer Informe Interino, que el Calendario de Temas de la Junta programa para el 16 de diciembre de 2026.',
         baselineContext: {
           metricNameEn: '2026-27 Non-Charter Enrollment & General Fund FTE',
           metricNameEs: 'Matrícula No Chárter 2026-27 y Personal FTE del Fondo General',
-          censusDate: '2026-10-07 (Preliminary Census Day)',
+          censusDate: 'Preliminary 2026-27 Census Day count (uncertified)',
           fiscalPeriod: 'FY 2026-27 (Adopted Budget vs. Preliminary Oct 2026)',
           certificationStatus: 'preliminary-uncertified',
           priorBaselineNoteEn:
-            'Compared against 2025-26 HR deck baseline of 6,309 students and 2026-27 Adopted Budget projection of 6,239. Note: Item 8.1 (ELD deck) cites a 2025-26 denominator of 6,276 students.',
+            'Compared against the HR deck’s own 2025-26 count of 6,309 students and the 6,239 enrollment assumed in the 2026-27 Adopted Budget (budget book p. 9). Note: Item 8.1 (ELD deck) cites a 2025-26 total of 6,276 students.',
           priorBaselineNoteEs:
-            'Comparado con la base de 6,309 estudiantes de RR. HH. en 2025-26 y la proyección de 6,239 del Presupuesto Adoptado 2026-27. Nota: El Punto 8.1 (presentación ELD) cita un total de 6,276 estudiantes para 2025-26.',
+            'Comparado con el conteo 2025-26 de 6,309 estudiantes de la propia presentación de RR. HH. y con la matrícula de 6,239 que supone el Presupuesto Adoptado 2026-27 (libro del presupuesto, p. 9). Nota: El Punto 8.1 (presentación ELD) cita un total de 6,276 estudiantes para 2025-26.',
         },
         citations: [
           {
-            labelEn: 'HR and Staffing Levels Presentation (Slides 1–14)',
-            labelEs: 'Presentación de Recursos Humanos y Niveles de Personal (Diapositivas 1–14)',
-            filename: 'HR-Staffing-Levels-Presentation.pdf',
-            pageRange: 'pp. 1–14',
+            labelEn: 'HR and Staffing Levels Update Deck (Slides 1–18)',
+            labelEs: 'Presentación de Recursos Humanos y Niveles de Personal (Diapositivas 1–18)',
+            filename: 'Final-RCSD_HR_Staffing_Board_Update-102826-1-copy.pdf',
+            pageRange: 'pp. 1–18',
             extractionStatus: 'text-extracted',
           },
         ],
@@ -108,62 +112,75 @@ const REVIEWED_BRIEFS = {
         proposalStatusBadgeEn: 'Information Report — LCAP Goal 2',
         proposalStatusBadgeEs: 'Informe Informativo — Meta 2 del LCAP',
         whatIsProposedEn:
-          'Educational Services reports on instructional coaching, professional development, and outcomes for RCSD’s 1,876 English learners (30% of the 6,276 students cited in the ELD deck). English Learner Progress Indicator (ELPI) rose to 41.9% in 2025-26, up from 38.7% (2023-24) and 41.6% (2024-25), against an LCAP Goal 2 target of 55% by June 2027.',
+          'Educational Services reports on instructional coaching, professional development, and outcomes for RCSD’s 1,876 English learners (30% of the 6,276 students cited in the ELD deck). On the LCAP Goal 2 measure, the share of grade 2–8 English learners who progressed at least one ELPAC level, 41.9% did so in 2025-26, up from 38.7% (2023-24) and 41.6% (2024-25); the goal is 55% by June 2027. The reclassification rate was 12.1% (LCAP target 20%) and the long-term English learner rate 11.2% (target 10%).',
         whatIsProposedEs:
-          'Servicios Educativos informa sobre la capacitación docente y los resultados de los 1,876 estudiantes aprendices de inglés de RCSD (30% de los 6,276 estudiantes citados en la presentación). El Indicador de Progreso de Aprendices de Inglés (ELPI) subió a 41.9% en 2025-26, frente a 38.7% (2023-24) y 41.6% (2024-25), hacia la meta del LCAP del 55% para junio de 2027.',
+          'Servicios Educativos informa sobre la capacitación docente y los resultados de los 1,876 estudiantes aprendices de inglés de RCSD (30% de los 6,276 estudiantes citados en la presentación). En la medida de la Meta 2 del LCAP, el porcentaje de aprendices de inglés de 2.º a 8.º grado que avanzaron al menos un nivel en el ELPAC, el 41.9% lo logró en 2025-26, frente a 38.7% (2023-24) y 41.6% (2024-25); la meta es 55% para junio de 2027. La tasa de reclasificación fue de 12.1% (meta del LCAP: 20%) y la de aprendices de inglés de largo plazo, 11.2% (meta: 10%).',
         whyItMattersEn:
-          'Nearly one in three RCSD students is an English learner. While ELPI improved by 0.3 percentage points over last year, closing the remaining 13.1-point gap to the June 2027 LCAP target of 55% requires accelerated site-level reclassification and designated ELD support.',
+          'Nearly one in three RCSD students is an English learner. The LCAP Goal 2 measure rose 0.3 points over last year and sits 13.1 points below the June 2027 target of 55%. This is not the state Dashboard English Learner Progress Indicator (ELPI), which counts all tested English learners: the CDE’s 2026 Dashboard file puts RCSD’s ELPI at 47.8% (766 of 1,604), and the deck reports it as 48% (738 of 1,538).',
         whyItMattersEs:
-          'Casi uno de cada tres estudiantes de RCSD aprende inglés. Aunque el indicador ELPI mejoró 0.3 puntos porcentuales respecto al año pasado, alcanzar la meta del 55% fijada en el LCAP para junio de 2027 requiere acelerar la reclasificación y el apoyo ELD por escuela.',
+          'Casi uno de cada tres estudiantes de RCSD aprende inglés. La medida de la Meta 2 del LCAP subió 0.3 puntos respecto al año pasado y está 13.1 puntos por debajo de la meta del 55% para junio de 2027. No es el Indicador de Progreso de Aprendices de Inglés (ELPI) del Dashboard estatal, que cuenta a todos los aprendices de inglés evaluados: el archivo del Dashboard 2026 del CDE da a RCSD un ELPI de 47.8% (766 de 1,604), y la presentación lo reporta como 48% (738 de 1,538).',
         baselineContext: {
-          metricNameEn: 'English Learner Progress Indicator (ELPI) & Reclassification',
-          metricNameEs: 'Indicador de Progreso de Aprendices de Inglés (ELPI) y Reclasificación',
-          censusDate: '2025-26 School Year (ELPAC / Dashboard series)',
-          fiscalPeriod: 'LCAP 3-Year Cycle (2024-25 through 2026-27)',
+          metricNameEn: 'LCAP Goal 2: Grade 2–8 English Learners Progressing ≥1 ELPAC Level; Reclassification',
+          metricNameEs: 'Meta 2 del LCAP: Aprendices de Inglés de 2.º a 8.º que Avanzan ≥1 Nivel en el ELPAC; Reclasificación',
+          censusDate: '2025-26 Summative ELPAC (district-reported LCAP metric)',
+          fiscalPeriod: 'LCAP Goal 2 target year: June 2027',
           certificationStatus: 'district-reported-series',
           priorBaselineNoteEn:
-            '38.7% (2023-24) → 41.6% (2024-25) → 41.9% (2025-26) vs. 55.0% June 2027 LCAP target.',
+            'LCAP Goal 2 measure (grade 2–8 English learners progressing at least one ELPAC level): 38.7% (2023-24) → 41.6% (2024-25) → 41.9% (2025-26) vs. 55% June 2027 goal (ELD deck pp. 6–7). Separate state measure: Dashboard ELPI 47.8% in 2025-26 (766 of 1,604; CDE 2026 Dashboard file), 47.9% the year before.',
           priorBaselineNoteEs:
-            '38.7% (2023-24) → 41.6% (2024-25) → 41.9% (2025-26) frente a la meta del 55.0% del LCAP para junio de 2027.',
+            'Medida de la Meta 2 del LCAP (aprendices de inglés de 2.º a 8.º grado que avanzan al menos un nivel en el ELPAC): 38.7% (2023-24) → 41.6% (2024-25) → 41.9% (2025-26) frente a la meta del 55% para junio de 2027 (presentación ELD, pp. 6–7). Medida estatal distinta: ELPI del Dashboard de 47.8% en 2025-26 (766 de 1,604; archivo del Dashboard 2026 del CDE), 47.9% el año anterior.',
         },
         citations: [
           {
-            labelEn: 'Integrated & Designated ELD Board Report Deck',
-            labelEs: 'Presentación de Desarrollo del Idioma Inglés (ELD)',
+            labelEn: 'Integrated & Designated ELD Board Report Deck (enrollment, LCAP Goal 2, reclassification, LTEL)',
+            labelEs: 'Presentación de Desarrollo del Idioma Inglés (ELD) (matrícula, Meta 2 del LCAP, reclasificación, LTEL)',
             filename: 'RCSD_Board_ELD_Oct2026.pptx-1.pdf',
-            pageRange: 'pp. 1–18',
+            pageRange: 'pp. 3–10',
+            extractionStatus: 'text-extracted',
+          },
+          {
+            labelEn: 'CDE 2026 California School Dashboard ELPI data file (RCSD district row, EL group)',
+            labelEs: 'Archivo de datos ELPI del Dashboard Escolar de California 2026 del CDE (fila del distrito RCSD, grupo EL)',
+            url: 'https://www3.cde.ca.gov/researchfiles/cadashboard/elpidownload2026.txt',
             extractionStatus: 'text-extracted',
           },
         ],
       },
       {
         itemLabel: '11.1–11.2',
-        titleEn: 'Resolutions No. 12 (PremierOne Authorised Signatory) & No. 13 (Education Code Teaching Assignments)',
-        titleEs: 'Resoluciones N.º 12 (Firmante Autorizado en PremierOne) y N.º 13 (Asignaciones Docentes según el Código de Educación)',
+        titleEn: 'Resolutions No. 12 (PremierOne Credit Union Signatory) & No. 13 (Education Code Teaching Assignment)',
+        titleEs: 'Resoluciones N.º 12 (Firmante Autorizado en PremierOne Credit Union) y N.º 13 (Asignación Docente según el Código de Educación)',
         actionType: 'Action',
-        allocatedMinutes: 10,
-        proposalStatusBadgeEn: 'Proposed Action — Roll-Call Vote Required',
-        proposalStatusBadgeEs: 'Acción Propuesta — Requiere Votación Nominal',
+        allocatedMinutes: 5,
+        proposalStatusBadgeEn: 'Proposed Action — Board Resolutions',
+        proposalStatusBadgeEs: 'Acción Propuesta — Resoluciones de la Junta',
         whatIsProposedEn:
-          'Resolution 12 adds the interim administrative assistant to the Superintendent as an authorized signatory on the PremierOne Revolving Cash Account during a staff leave. Resolution 13 authorizes certificated teaching assignments outside primary credential subject areas for 2026-27 under Education Code options with teacher consent (Exhibit A).',
+          'Resolution 12 adds the Interim Administrative Assistant to the Superintendent as an authorized signatory on the District’s PremierOne Credit Union accounts (savings and credit card accounts used when vendors do not accept purchase orders) during a temporary leave in the Superintendent’s Office. Resolution 13 approves one 2026-27 local assignment option (Exhibit A): a Multiple Subject credential holder teaching grades 6–8 social science at Roy Cloud under Education Code 44256(b), with the teacher’s consent; the memo attributes the need to a site master-scheduling error.',
         whatIsProposedEs:
-          'La Resolución 12 agrega al asistente administrativo interino del Superintendente como firmante autorizado en la cuenta rotativa de PremierOne durante una licencia laboral. La Resolución 13 autoriza asignaciones docentes certificadas para 2026-27 bajo opciones del Código de Educación con consentimiento del maestro (Anexo A).',
+          'La Resolución 12 agrega al puesto de Asistente Administrativo(a) Interino(a) del Superintendente como firmante autorizado en las cuentas del distrito en PremierOne Credit Union (cuentas de ahorro y de tarjeta de crédito que se usan cuando un proveedor no acepta órdenes de compra) durante una licencia temporal en la Oficina del Superintendente. La Resolución 13 aprueba una opción de asignación local para 2026-27 (Anexo A): un maestro con credencial de Materias Múltiples que enseña ciencias sociales de 6.º a 8.º grado en Roy Cloud bajo el Código de Educación 44256(b), con su consentimiento; el memorando lo atribuye a un error en el horario maestro de la escuela.',
         whyItMattersEn:
-          'These are the two standalone Open Session roll-call action items on the October 28 agenda; all major financial contracts and policy revisions are bundled on the Consent Calendar below.',
+          'These are the two standalone Open Session action items on the October 28 agenda (a 5-minute Action Items section); all major financial contracts and policy revisions are bundled on the Consent Calendar below.',
         whyItMattersEs:
-          'Estos son los dos únicos puntos de acción individual en sesión pública del 28 de octubre; todos los contratos financieros mayores y las revisiones de políticas están agrupados en el Calendario de Consentimiento a continuación.',
+          'Estos son los dos únicos puntos de acción individual en sesión pública del 28 de octubre (sección de Puntos de Acción de 5 minutos); todos los contratos financieros mayores y las revisiones de políticas están agrupados en el Calendario de Consentimiento a continuación.',
         citations: [
           {
-            labelEn: 'Resolution No. 12 (PremierOne Revolving Cash Signatory)',
-            labelEs: 'Resolución N.º 12 (Firmante Autorizado PremierOne)',
-            filename: 'Resolution-No.-12-Adding-Authorized-Signatory.pdf',
+            labelEn: 'Resolution No. 12 (PremierOne signatories)',
+            labelEs: 'Resolución N.º 12 (Firmantes PremierOne)',
+            filename: 'Resolution-12-PremierOne-Bank.pdf',
             pageRange: 'p. 1',
             extractionStatus: 'text-extracted',
           },
           {
-            labelEn: 'Resolution No. 13 + Exhibit A (Ed Code Teaching Assignments)',
-            labelEs: 'Resolución N.º 13 + Anexo A (Asignaciones Docentes)',
-            filename: 'Resolution-13-Ed-Code-Teaching-Assignment-2026-2027-oct.pdf',
+            labelEn: 'Resolution No. 13 (Ed Code teaching assignment)',
+            labelEs: 'Resolución N.º 13 (Asignación docente)',
+            filename: 'Resolution-No.-13-Education-Code-for-2026_2027-School-Year-10.28.26.pdf',
+            pageRange: 'p. 1',
+            extractionStatus: 'text-extracted',
+          },
+          {
+            labelEn: 'Resolution No. 13 Exhibit A (assignment list)',
+            labelEs: 'Resolución N.º 13, Anexo A (lista de asignaciones)',
+            filename: 'Exhibit-A_-Ed-Code-Teacher-Assignment-10.28.26.pdf',
             pageRange: 'pp. 1–2',
             extractionStatus: 'text-extracted',
           },
@@ -204,9 +221,9 @@ const REVIEWED_BRIEFS = {
           fundingSourceEs: 'Subvenciones Estatales ASES y ELO-P (Restringido)',
           flags: ['financial-threshold'],
           summaryEn:
-            'Funds after-school and summer 2027 REACH programming at Henry Ford, Roosevelt, Adelante Selby, and Orion.',
+            'Funds REACH after-school programming at Henry Ford, Roosevelt, Adelante Selby, and Orion ($1,360,820.62) plus summer 2027 programming at sites still to be determined ($144,385.34); ASES pays $473,695.92 and ELO-P $1,031,510.04.',
           summaryEs:
-            'Financia el programa REACH después de clases y en el verano de 2027 en Henry Ford, Roosevelt, Adelante Selby y Orion.',
+            'Financia el programa REACH después de clases en Henry Ford, Roosevelt, Adelante Selby y Orion ($1,360,820.62) y el programa de verano 2027 en escuelas aún por definir ($144,385.34); ASES aporta $473,695.92 y ELO-P $1,031,510.04.',
           citations: [
             {
               labelEn: 'City of Redwood City REACH Agreement (2026-27)',
@@ -221,13 +238,13 @@ const REVIEWED_BRIEFS = {
           titleEn: 'College Advising Prep (CAP) Tutoring Services Agreement (SY 2026-27)',
           titleEs: 'Acuerdo con College Advising Prep (CAP) para Servicios de Tutoría (2026-27)',
           amountDisplay: 'Not to exceed $280,000.00',
-          fundingSourceEn: 'ELO-P / Restricted Categorical Funds',
-          fundingSourceEs: 'Fondos Categóricos Restringidos / ELO-P',
+          fundingSourceEn: 'ELO-P and Learning Recovery grants (contingent on grant funding)',
+          fundingSourceEs: 'Subvenciones ELO-P y Learning Recovery (sujeto a esos fondos)',
           flags: ['financial-threshold'],
           summaryEn:
-            'Provides small-group academic tutoring across seven RCSD school sites during the 2026-27 school year.',
+            'Provides in-person small-group tutoring for Expanded Learning students at seven sites (about 25 students per site), October 28, 2026 – June 30, 2027: Clifford, Roosevelt, Garfield, Taft and Hoover through Community Schools & Partnerships ($200,000), and MIT and Kennedy through Educational Services ($80,000).',
           summaryEs:
-            'Brinda tutoría académica en grupos pequeños en siete escuelas de RCSD durante el año escolar 2026-27.',
+            'Brinda tutoría presencial en grupos pequeños a estudiantes de Aprendizaje Extendido en siete escuelas (unos 25 estudiantes por escuela), del 28 de octubre de 2026 al 30 de junio de 2027: Clifford, Roosevelt, Garfield, Taft y Hoover por medio de Escuelas Comunitarias ($200,000), y MIT y Kennedy por medio de Servicios Educativos ($80,000).',
           citations: [
             {
               labelEn: 'College Advising Prep Agreement (2026-27)',
@@ -267,9 +284,9 @@ const REVIEWED_BRIEFS = {
           fundingSourceEs: 'Fondo General No Restringido',
           flags: ['financial-threshold'],
           summaryEn:
-            'Supplemental charter bus services for student transportation and field trips during 2026-27.',
+            'As-needed supplemental school bus and SPAB service for field trips and school activities, September 2, 2026 – June 30, 2027 (ratification), billed hourly by vehicle size with a four-hour minimum per dispatch.',
           summaryEs:
-            'Servicios suplementarios de autobuses para transporte estudiantil y excursiones durante 2026-27.',
+            'Servicio suplementario de autobús escolar y SPAB, según se necesite, para excursiones y actividades escolares, del 2 de septiembre de 2026 al 30 de junio de 2027 (ratificación), con tarifa por hora según el tamaño del vehículo y un mínimo de cuatro horas por servicio.',
           citations: [
             {
               labelEn: 'Professional Charter Services Agreement (10/28/26)',
@@ -288,9 +305,9 @@ const REVIEWED_BRIEFS = {
           fundingSourceEs: 'Bono Medida S (Fondo 21)',
           flags: ['financial-threshold'],
           summaryEn:
-            'Covers closeout DSA fees on Phase 1 (Roosevelt, Taft), a $3,500 PG&E engineering advance for Clifford (Phase 2), and $16,760 DSA filing fees each for Roy Cloud and Henry Ford to enter Phase 3 DSA review. Attached fee receipts are scans; figures are verified from the board memo.',
+            'Covers additional Phase 1 DSA fees after final construction valuations exceeded estimates (Roosevelt $19,042.71, Taft $13,026.41), a $3,500 PG&E engineering advance for Clifford (Phase 2), and $16,760 DSA plan-review filing fees each for Roy Cloud and Henry Ford, which puts Phase 3 into DSA review. Attached fee receipts are scans; figures are from the board memo.',
           summaryEs:
-            'Cubre tarifas adicionales de DSA en la Fase 1 (Roosevelt, Taft), un anticipo de ingeniería de PG&E de $3,500 para Clifford (Fase 2) y $16,760 en tarifas de presentación ante DSA para Roy Cloud y Henry Ford (Fase 3). Los recibos PDF son escaneos; las cifras provienen del memorando.',
+            'Cubre tarifas adicionales de DSA en la Fase 1 porque la valuación final de construcción superó lo estimado (Roosevelt $19,042.71, Taft $13,026.41), un anticipo de ingeniería de PG&E de $3,500 para Clifford (Fase 2) y $16,760 en tarifas de revisión de planos ante DSA para cada una de Roy Cloud y Henry Ford (Fase 3). Los recibos PDF son escaneos; las cifras provienen del memorando.',
           citations: [
             {
               labelEn: 'Roy Cloud & Henry Ford Phase 3 DSA Fee Receipts (Scanned PDF)',
@@ -305,8 +322,8 @@ const REVIEWED_BRIEFS = {
           titleEn: 'Davey Tree Expert Company Annual Tree Health Care & Risk Management Proposals (14 Sites)',
           titleEs: 'Propuestas de Davey Tree Expert Company para Cuidado y Gestión de Riesgo de Árboles (14 Sitios)',
           amountDisplay: '$52,705.00 (sum across 14 site proposals)',
-          fundingSourceEn: 'Facilities / Routine Restricted Maintenance Fund',
-          fundingSourceEs: 'Fondo de Mantenimiento e Instalaciones',
+          fundingSourceEn: 'Facilities/Maintenance budget',
+          fundingSourceEs: 'Presupuesto de Instalaciones y Mantenimiento',
           flags: ['financial-threshold'],
           summaryEn:
             'Annual tree pruning, health care, and risk management across 14 district school and facility sites; the 14 individual site PDFs sum to $52,705 matching the memo.',
@@ -387,6 +404,32 @@ const REVIEWED_BRIEFS = {
       'Cambio de orden en vivo: El Punto 9.1 (actualización del Departamento de Salud y Bienestar) se adelantó inmediatamente después de la Sección 6 (Consentimiento del Bono), antes de la Audiencia Pública de KIPP Excelencia (Punto 8.1). Además, la revisión del 28 de septiembre de la Lista de Ideas pospuso un año (a 2028-29) la implementación de las aulas adicionales para Orion y el plan para MIT.',
     topItems: [
       {
+        itemLabel: '9.1',
+        titleEn: 'Update on the Redwood City School District Health and Wellness Department',
+        titleEs: 'Actualización sobre el Departamento de Salud y Bienestar de RCSD',
+        actionType: 'Report',
+        allocatedMinutes: 35,
+        proposalStatusBadgeEn: 'Information Report — Student Health Services',
+        proposalStatusBadgeEs: 'Informe Informativo — Servicios de Salud Estudiantil',
+        whatIsProposedEn:
+          'Director of Health and Wellness Patrinia Redd and District Lead Nurses Lisa Cox and Phoebe Reid-Chambers present 2025-26 hearing, vision and dental screening results, a student CPR certification class (48 students completed it in August and September 2026), a Safe Routes to School e-bike survey, behavior supports, the Sequoia Healthcare District partnership, and the department’s goals.',
+        whatIsProposedEs:
+          'La Directora de Salud y Bienestar, Patrinia Redd, y las Enfermeras Principales del Distrito, Lisa Cox y Phoebe Reid-Chambers, presentan los resultados 2025-26 de las evaluaciones de audición, vista y salud dental, una clase de certificación en RCP para estudiantes (48 estudiantes la completaron en agosto y septiembre de 2026), una encuesta de Safe Routes to School sobre bicicletas eléctricas (e-bikes), los apoyos de conducta, la colaboración con el Sequoia Healthcare District y las metas del departamento.',
+        whyItMattersEn:
+          'The department ties health screenings and follow-up to reducing chronic absenteeism (one of its stated goals), and the memo puts the 2026-27 Sequoia Healthcare District MOU, its main outside funding, at $1,488,605.',
+        whyItMattersEs:
+          'El departamento vincula las evaluaciones de salud y su seguimiento con la reducción del ausentismo crónico (una de sus metas declaradas), y el memorando indica que el MOU 2026-27 con el Sequoia Healthcare District, su principal financiamiento externo, es de $1,488,605.',
+        citations: [
+          {
+            labelEn: 'Health and Wellness Department Board Report Deck (10/14/26)',
+            labelEs: 'Presentación del Departamento de Salud y Bienestar (14/10/26)',
+            filename: '26.10.14-Health-and-Wellness-Board-Report.pdf',
+            pageRange: 'pp. 1–19',
+            extractionStatus: 'text-extracted',
+          },
+        ],
+      },
+      {
         itemLabel: '8.1',
         titleEn: 'Public Hearing: KIPP Excelencia Charter Renewal Petition (July 1, 2027 – June 30, 2032)',
         titleEs: 'Audiencia Pública: Petición de Renovación Chárter de KIPP Excelencia (1 de julio de 2027 – 30 de junio de 2032)',
@@ -395,13 +438,13 @@ const REVIEWED_BRIEFS = {
         proposalStatusBadgeEn: 'Public Hearing Only — Statutory Decision Due by Dec 20, 2026',
         proposalStatusBadgeEs: 'Solo Audiencia Pública — Decisión Legal Antes del 20 de Dic. de 2026',
         whatIsProposedEn:
-          'KIPP Excelencia Community Prep submitted its complete renewal petition on September 21, 2026 requesting a five-year term (July 1, 2027 – June 30, 2032) in the California Department of Education’s "middle performing" renewal tier. Under Education Code § 47605(b), this October 14 item is the initial public hearing to receive community testimony; no grant-or-deny vote is on this agenda.',
+          'KIPP Excelencia Community Prep submitted its renewal petition on September 21, 2026, requesting a five-year term (July 1, 2027 – June 30, 2032); the petition places the school in the state’s "middle performing" renewal category (Ed Code 47607.2). This October 14 item is the public hearing on the level of support for the petition; no grant-or-deny vote is on this agenda, and the memo anticipates Board action on December 9, 2026.',
         whatIsProposedEs:
-          'KIPP Excelencia Community Prep presentó su petición completa de renovación el 21 de septiembre de 2026 solicitando un periodo de cinco años (1 de julio de 2027 – 30 de junio de 2032) dentro de la categoría de desempeño medio ("middle performing") del Departamento de Educación de California (CDE). Bajo el Código de Educación § 47605(b), este punto es la audiencia pública inicial; no hay votación de aprobación o rechazo en esta sesión.',
+          'KIPP Excelencia Community Prep presentó su petición de renovación el 21 de septiembre de 2026, solicitando un periodo de cinco años (1 de julio de 2027 – 30 de junio de 2032); la petición ubica a la escuela en la categoría estatal de desempeño medio ("middle performing") para renovación (Código de Educación 47607.2). Este punto del 14 de octubre es la audiencia pública sobre el nivel de apoyo a la petición; no hay votación de aprobación o rechazo en esta sesión, y el memorando prevé la decisión de la Junta el 9 de diciembre de 2026.',
         whyItMattersEn:
-          'Receipt of the petition on September 21 triggered a 90-day statutory clock under Ed Code 47605(b), requiring Board action to grant or deny by December 20, 2026 (unless extended by 30 days by mutual agreement). KIPP projects operating deficits through 2028-29 while maintaining a 17%+ reserve (above the 5% MOU floor).',
+          'Receipt of the petition on September 21 started a 90-day statutory clock under Ed Code 47605(b), requiring Board action to grant or deny by December 20, 2026 (unless extended by 30 days by mutual agreement). The petition’s multi-year budget projects an operating deficit in every year from 2026-27 through 2031-32, with ending fund balance falling from $3.50M to $1.84M (about 23% to 11% of expenditures), still above the 5% reserve floor in the MOU.',
         whyItMattersEs:
-          'La recepción de la petición el 21 de septiembre activó el plazo legal de 90 días bajo el Código de Educación 47605(b), que exige una decisión de la Junta a más tardar el 20 de diciembre de 2026 (salvo prórroga mutua de 30 días). KIPP proyecta déficits operativos hasta 2028-29 pero mantiene reservas superiores al 17% (por encima del mínimo del 5% en el MOU).',
+          'La recepción de la petición el 21 de septiembre inició el plazo legal de 90 días bajo el Código de Educación 47605(b), que exige una decisión de la Junta a más tardar el 20 de diciembre de 2026 (salvo prórroga mutua de 30 días). El presupuesto plurianual de la petición proyecta un déficit operativo en cada año de 2026-27 a 2031-32, con un saldo final que baja de $3.50M a $1.84M (de cerca del 23% al 11% de los gastos), todavía por encima de la reserva mínima del 5% del MOU.',
         baselineContext: {
           metricNameEn: 'Charter Renewal Statutory Timeline & Reserve Ratio',
           metricNameEs: 'Plazo Legal de Renovación Chárter y Nivel de Reservas',
@@ -415,43 +458,17 @@ const REVIEWED_BRIEFS = {
         },
         citations: [
           {
-            labelEn: 'KIPP Excelencia Charter Renewal Petition 2027–2032 (Full Packet)',
-            labelEs: 'Petición Completa de Renovación Chárter de KIPP Excelencia 2027–2032',
-            filename: 'KIPP-Excelencia-Charter-Renewal-Petition-2027-2032.pdf',
-            pageRange: 'pp. 1–120',
+            labelEn: 'KIPP Excelencia Charter Renewal Packet 2027–2032 (performance category; multi-year budget)',
+            labelEs: 'Paquete de Renovación Chárter de KIPP Excelencia 2027–2032 (categoría de desempeño; presupuesto plurianual)',
+            filename: 'KIPP-Excelencia-Charter-Renewal-Packet.pdf',
+            pageRange: 'pp. 3, 9, 346–347 of 608',
             extractionStatus: 'text-extracted',
           },
           {
-            labelEn: 'KIPP Excelencia Public Hearing Presentation Deck',
-            labelEs: 'Presentación de Audiencia Pública de KIPP Excelencia',
-            filename: 'KIPP-Excelencia-Public-Hearing-Presentation-10.14.26.pdf',
-            pageRange: 'pp. 1–20',
-            extractionStatus: 'text-extracted',
-          },
-        ],
-      },
-      {
-        itemLabel: '9.1',
-        titleEn: 'Update on the Redwood City School District Health and Wellness Department',
-        titleEs: 'Actualización sobre el Departamento de Salud y Bienestar de RCSD',
-        actionType: 'Report',
-        allocatedMinutes: 30,
-        proposalStatusBadgeEn: 'Information Report — Student Health Services',
-        proposalStatusBadgeEs: 'Informe Informativo — Servicios de Salud Estudiantil',
-        whatIsProposedEn:
-          'Director of Health and Wellness Patrinia Redd and District Lead Nurse Phoebe Reid-Chambers present 2025-26 and fall 2026-27 metrics on vision/hearing/dental screenings, chronic health condition care plans, staff CPR/First Aid certification, and middle-school e-bike safety initiatives.',
-        whatIsProposedEs:
-          'La Directora de Salud y Bienestar, Patrinia Redd, y la Enfermera Principal del Distrito, Phoebe Reid-Chambers, presentan indicadores de evaluaciones de vista, audición y salud dental, planes de atención médica, certificación en RCP y seguridad en bicicletas eléctricas (e-bikes).',
-        whyItMattersEn:
-          'Directly connects physical health screenings and school nursing capacity to chronic absenteeism reduction (LCAP Goal 1) across all 12 school sites.',
-        whyItMattersEs:
-          'Conecta directamente las evaluaciones preventivas de salud y la enfermería escolar con la reducción del ausentismo crónico (Meta 1 del LCAP) en las 12 escuelas.',
-        citations: [
-          {
-            labelEn: 'Health and Wellness Department Update Deck (10/14/26)',
-            labelEs: 'Presentación del Departamento de Salud y Bienestar (14/10/26)',
-            filename: 'Health-and-Wellness-Board-Presentation-10.14.26.pdf',
-            pageRange: 'pp. 1–16',
+            labelEn: 'KIPP Excelencia Public Hearing Presentation Deck (updated)',
+            labelEs: 'Presentación de Audiencia Pública de KIPP Excelencia (actualizada)',
+            filename: 'KIPP-Excelencia-Community-Prep_-Public-Hearing-26.10.14-updated.pdf',
+            pageRange: 'pp. 1–21',
             extractionStatus: 'text-extracted',
           },
         ],
@@ -461,22 +478,22 @@ const REVIEWED_BRIEFS = {
         titleEn: 'Approval of Personnel Changes & New Director of Fiscal Services Job Description',
         titleEs: 'Aprobación de Cambios de Personal y Nueva Descripción de Puesto para Director(a) de Servicios Fiscales',
         actionType: 'Action',
-        allocatedMinutes: 5,
+        allocatedMinutes: 2.5,
         proposalStatusBadgeEn: 'Action Item — Approved by Voice Vote',
         proposalStatusBadgeEs: 'Punto de Acción — Aprobado por Voto de Voz',
         whatIsProposedEn:
-          'Approves routine personnel changes alongside a new classified-management job description for Director of Fiscal Services reporting to the Chief Business Official (CBO), responsible for the district budget, First/Second Interim reports, year-end Unaudited Actuals, annual audit, and supervising two accounting managers.',
+          'Adds three positions for 2026-27 (a 7-hour Campus Supervisor at Kennedy, est. $65,394; a 6-hour LVN at Clifford for a student’s required 1:1 care, est. $99,541; and a Director IV for Fiscal Services, est. $30,325 maximum exposure this year) and approves the updated Director of Fiscal Services job description: a classified-management role reporting to the Chief Business Official that leads the budget, interim reports and Unaudited Actuals, manages the annual audit, and supervises two Accounting Managers. The retiring Director II position stays through January 31 and is scheduled to close at year end.',
         whatIsProposedEs:
-          'Aprueba cambios de personal junto con una nueva descripción de puesto gerencial clasificado para Director(a) de Servicios Fiscales bajo la supervisión del Director de Finanzas (CBO), a cargo del presupuesto, informes interinos, cierre anual y supervisión de dos gerentes de contabilidad.',
+          'Agrega tres puestos para 2026-27 (un(a) Supervisor(a) de Plantel de 7 horas en Kennedy, costo estimado $65,394; un(a) LVN de 6 horas en Clifford para la atención individual que requiere un estudiante, $99,541; y un(a) Director(a) IV de Servicios Fiscales, $30,325 de costo máximo este año) y aprueba la descripción actualizada del puesto de Director(a) de Servicios Fiscales: un puesto gerencial clasificado que reporta al Director de Finanzas (CBO), dirige el presupuesto, los informes interinos y los Resultados No Auditados, gestiona la auditoría anual y supervisa a dos Gerentes de Contabilidad. El puesto de Director II, cuyo titular se jubila, sigue hasta el 31 de enero y se cerrará al final del año fiscal.',
         whyItMattersEn:
-          'Strengthens Business Services leadership capacity as the district manages multi-year budget alignment and upcoming labor settlement integrations.',
+          'The Director IV replaces a retiring Director II with what the memo calls an expanded scope for Fiscal Services, as the district heads into First Interim and pending labor settlements.',
         whyItMattersEs:
-          'Refuerza la capacidad técnica del área de Finanzas mientras el distrito gestiona el ajuste presupuestario plurianual y la integración de acuerdos laborales.',
+          'El puesto de Director IV reemplaza a un Director II que se jubila, con lo que el memorando describe como un alcance ampliado para Servicios Fiscales, mientras el distrito se prepara para el Primer Informe Interino y los acuerdos laborales pendientes.',
         citations: [
           {
             labelEn: 'Director of Fiscal Services Job Description (Item 12.1)',
             labelEs: 'Descripción del Puesto de Director(a) de Servicios Fiscales (Punto 12.1)',
-            filename: 'Director-of-Fiscal-Services-Job-Description.pdf',
+            filename: 'RCSD_Director_of_Fiscal_Services_JD_2026.docx.pdf',
             pageRange: 'pp. 1–3',
             extractionStatus: 'text-extracted',
           },
@@ -492,18 +509,60 @@ const REVIEWED_BRIEFS = {
           titleEn: 'Change Order #3 — McKinley Institute of Technology (MIT) Solar Project Phase 2 (Holt Renewables)',
           titleEs: 'Orden de Cambio N.º 3 — Proyecto Solar Fase 2 en McKinley (MIT) (Holt Renewables)',
           amountDisplay: '+$81,760.42 (New contract total: $2,373,353.04)',
-          fundingSourceEn: 'Measure S Bond (Fund 21)',
-          fundingSourceEs: 'Bono Medida S (Fondo 21)',
+          fundingSourceEn: 'Fund 40 — Special Reserve Fund for Capital Projects',
+          fundingSourceEs: 'Fondo 40 — Fondo de Reserva Especial para Proyectos de Capital',
           flags: ['financial-threshold', 'contract-amendment-or-change-order'],
           summaryEn:
-            'Adds $81,760.42 and 2 calendar days for baseball backstop demolition, drilled-shaft dewatering, and temporary casing (Teichert subcontract), raising the Holt Renewables contract from $2,282,128.00 originally ($2,291,592.62 after CO #1–2) to $2,373,353.04.',
+            'Adds $81,760.42 ($72,228.97 Teichert subcontract work plus $9,531.45 Holt project management and markup) and 2 calendar days for removing an existing backstop, groundwater dewatering in Array B, and temporary casing for an unstable foundation shaft in the former maintenance area, raising the Holt Renewables contract from $2,282,128.00 originally ($2,291,592.62 before this change order) to $2,373,353.04.',
           summaryEs:
-            'Agrega $81,760.42 y 2 días calendario por demolición de malla trasera, drenaje de perforaciones y revestimiento temporal (subcontrato Teichert), elevando el contrato con Holt Renewables de $2,282,128.00 originales a $2,373,353.04.',
+            'Agrega $81,760.42 ($72,228.97 de trabajo del subcontratista Teichert más $9,531.45 de gestión y margen de Holt) y 2 días calendario para retirar un backstop existente, extraer agua subterránea en el Arreglo B y colocar revestimiento temporal en una perforación inestable en la antigua área de mantenimiento, elevando el contrato con Holt Renewables de $2,282,128.00 originales ($2,291,592.62 antes de esta orden de cambio) a $2,373,353.04.',
           citations: [
             {
-              labelEn: 'MIT Solar Phase 2 Change Order #3 (Holt Renewables)',
-              labelEs: 'Orden de Cambio N.º 3 — Proyecto Solar MIT Fase 2',
-              filename: 'MIT-Solar-Project-Phase-2-CO-3.pdf',
+              labelEn: 'MIT Solar Phase 2 Change Order #3 — Additional Teichert Scope (revised)',
+              labelEs: 'Orden de Cambio N.º 3 — Proyecto Solar MIT Fase 2 (alcance adicional de Teichert, revisada)',
+              filename: '261014-RCSD-McKinley-CO-3-Additional-Teichert-Scope-REVISED-Board-10.14.26.pdf',
+              extractionStatus: 'text-extracted',
+            },
+          ],
+        },
+        {
+          itemLabel: '11.6',
+          titleEn: 'After School Music Academy LLC Extended Learning Musical Enrichment Agreement (SY 2026-27)',
+          titleEs: 'Acuerdo con After School Music Academy LLC para Enriquecimiento Musical en Aprendizaje Extendido (2026-27)',
+          amountDisplay: 'Not to exceed $218,880.00',
+          fundingSourceEn: 'Expanded Learning Opportunities Program (ELO-P) grant',
+          fundingSourceEs: 'Subvención del Programa de Oportunidades de Aprendizaje Extendido (ELO-P)',
+          flags: ['financial-threshold'],
+          summaryEn:
+            'Twenty-four weeks of Banda, West African drumming, Folklórico and Hip Hop instruction for students in the district’s expanded learning programs run by REACH, PAL, Casa Circulo Cultural, Boys & Girls Clubs of the Peninsula and Siena Youth Center, October 14, 2026 – June 30, 2027.',
+          summaryEs:
+            'Veinticuatro semanas de clases de banda, tambores de África Occidental, folklórico y hip hop para estudiantes de los programas de aprendizaje extendido del distrito a cargo de REACH, PAL, Casa Círculo Cultural, Boys & Girls Clubs of the Peninsula y Siena Youth Center, del 14 de octubre de 2026 al 30 de junio de 2027.',
+          citations: [
+            {
+              labelEn: 'After School Music Academy Agreement (2026-27)',
+              labelEs: 'Contrato After School Music Academy (2026-27)',
+              filename: 'After-School-Music-Academy-Agreement-2026.27.pdf',
+              extractionStatus: 'text-extracted',
+            },
+          ],
+        },
+        {
+          itemLabel: '11.7',
+          titleEn: 'BMR Health Services, Inc. Temporary Speech and Language Pathologist Agreement (2026-27, ratification)',
+          titleEs: 'Acuerdo con BMR Health Services, Inc. para un(a) Terapeuta del Habla y Lenguaje Temporal (2026-27, ratificación)',
+          amountDisplay: 'Not to exceed $82,160.00 ($130/hr)',
+          fundingSourceEn: 'Special Education Fund',
+          fundingSourceEs: 'Fondo de Educación Especial',
+          flags: ['financial-threshold'],
+          summaryEn:
+            'A contracted speech and language pathologist covers an employee’s leave from October 5, 2026 to February 12, 2027 (assessments, IEP meetings and direct therapy); submitted for retroactive ratification because the paperwork was late.',
+          summaryEs:
+            'Un(a) terapeuta del habla y lenguaje contratado(a) cubre la licencia de un(a) empleado(a) del 5 de octubre de 2026 al 12 de febrero de 2027 (evaluaciones, reuniones de IEP y terapia directa); se presenta para ratificación retroactiva porque el papeleo se atrasó.',
+          citations: [
+            {
+              labelEn: 'BMR Health Services SLP Agreement (2026-27)',
+              labelEs: 'Contrato BMR Health Services, terapeuta del habla (2026-27)',
+              filename: 'BMR_SLP-2026.27-Board-10.14.26.pdf',
               extractionStatus: 'text-extracted',
             },
           ],
@@ -512,19 +571,19 @@ const REVIEWED_BRIEFS = {
           itemLabel: '11.9',
           titleEn: 'Marin COE / CCEE Community Engagement Initiative Peer Leading and Learning Network MOU',
           titleEs: 'Acuerdo (MOU) de la Iniciativa de Participación Comunitaria con Marin COE / CCEE',
-          amountDisplay: '+$70,000.00 incoming grant revenue to RCSD',
-          fundingSourceEn: 'California Collaborative for Educational Excellence (CCEE) Revenue Grant',
-          fundingSourceEs: 'Ingresos por Subvención de CCEE para el Distrito',
+          amountDisplay: 'Up to $70,000.00 incoming stipend to RCSD',
+          fundingSourceEn: 'CCEE Community Engagement Initiative stipend (revenue to General Fund / Health and Wellness budget)',
+          fundingSourceEs: 'Estipendio de la Iniciativa de Participación Comunitaria de CCEE (ingreso al Fondo General / presupuesto de Salud y Bienestar)',
           flags: ['financial-threshold'],
           summaryEn:
-            'State CCEE grant paying RCSD up to $70,000 for 2026-27 participation in Cohort VI and/or VII of the Community Engagement Initiative (net revenue to RCSD, not an expenditure).',
+            'Kennedy Middle School was selected for Cohort VII of the Community Engagement Initiative’s Peer Leading and Learning Network (the MOU covers Cohort VI and/or VII). RCSD receives a performance-based stipend of up to $70,000 for 2026-27 to offset team and engagement costs; this is revenue to RCSD, not an expenditure.',
           summaryEs:
-            'Subvención estatal de CCEE que aporta a RCSD hasta $70,000 por participar durante 2026-27 en las Cohortes VI y/o VII de la Iniciativa de Participación Comunitaria (ingreso para el distrito, no un gasto).',
+            'Kennedy Middle School fue seleccionada para la Cohorte VII de la Red de Liderazgo y Aprendizaje entre Pares de la Iniciativa de Participación Comunitaria (el MOU cubre las Cohortes VI y/o VII). RCSD recibe un estipendio por desempeño de hasta $70,000 para 2026-27 para cubrir costos del equipo y de participación; es un ingreso para el distrito, no un gasto.',
           citations: [
             {
-              labelEn: 'Marin COE / CCEE Community Engagement Initiative MOU',
-              labelEs: 'MOU de Participación Comunitaria con Marin COE / CCEE',
-              filename: 'Marin-COE-CCEE-MOU-2026-27.pdf',
+              labelEn: 'Marin COE / CCEE Community Engagement Initiative MOU (2026-27)',
+              labelEs: 'MOU de Participación Comunitaria con Marin COE / CCEE (2026-27)',
+              filename: '26-27-Marin-County-Office-of-Education-MOU.pdf',
               extractionStatus: 'text-extracted',
             },
           ],
@@ -533,28 +592,28 @@ const REVIEWED_BRIEFS = {
           itemLabel: '11.11',
           titleEn: 'September 1–30, 2026 Warrant Register',
           titleEs: 'Registro de Órdenes de Pago (Warrants) del 1 al 30 de septiembre de 2026',
-          amountDisplay: 'Monthly District Vendor Payments',
-          fundingSourceEn: 'All District Funds (Indexed in Vendor & Warrant Explorer)',
-          fundingSourceEs: 'Todos los Fondos del Distrito (Indexado en el Explorador de Pagos)',
+          amountDisplay: '$8,006,731.54 net disbursements (all funds)',
+          fundingSourceEn: 'All District Funds (General Fund $4,947,314.22; Measure T Building Fund $1,934,594.88; Fund 40 $590,256.02; others)',
+          fundingSourceEs: 'Todos los Fondos del Distrito (Fondo General $4,947,314.22; Fondo de Construcción Medida T $1,934,594.88; Fondo 40 $590,256.02; otros)',
           flags: ['financial-threshold'],
           summaryEn:
-            'Monthly statutory ratification of commercial warrants issued across all funds during September 2026.',
+            'Monthly ratification (Education Code 42631) of commercial checks drawn on the San Mateo County Treasury across all funds during September 2026.',
           summaryEs:
-            'Ratificación mensual de los pagos comerciales emitidos en todos los fondos durante septiembre de 2026.',
+            'Ratificación mensual (Código de Educación 42631) de los cheques comerciales girados contra la Tesorería del Condado de San Mateo en todos los fondos durante septiembre de 2026.',
           citations: [
             {
               labelEn: 'Warrant Register — September 2026',
               labelEs: 'Registro de Pagos — Septiembre 2026',
-              filename: 'Warrants-September-2026.pdf',
+              filename: 'Warrant-Register-September-2026.pdf',
               extractionStatus: 'text-extracted',
             },
           ],
         },
       ],
       routineSummaryEn:
-        'The remaining 10 consent items cover: Measure T bond tracking list for two Scapes Landscape mow-strip projects at Garfield and Kennedy totaling $8,514 (6.2), draft September 30 minutes (11.1), four school field trips for Roosevelt, Hoover, Kennedy, and Garfield (11.2–11.5), After School Music Academy agreement (11.6), BMR Health Services speech-language pathologist at $130/hr (11.7), SMCOE PBIS training MOU (11.8), and LunchAssist child-nutrition compliance software (11.10).',
+        'The remaining 8 consent items cover: the Measure T tracking list of purchases under $20k, two Scapes Landscape mow-strip projects at Garfield and Kennedy totaling $8,514 from Fund 40 (6.2), draft September 30 minutes (11.1), four school field trips for Roosevelt, Hoover, Kennedy, and Garfield (11.2–11.5), the SMCOE PBIS Tier 1 training MOU up to $10,000 (11.8), and the LunchAssist child-nutrition compliance and training agreement up to $25,845 (11.10).',
       routineSummaryEs:
-        'Los 10 puntos de consentimiento restantes cubren: lista de proyectos menores a $20k de la Medida T por $8,514 en Garfield y Kennedy (6.2), borrador de actas del 30 de septiembre (11.1), cuatro excursiones escolares de Roosevelt, Hoover, Kennedy y Garfield (11.2–11.5), contrato con After School Music Academy (11.6), terapeuta del habla de BMR Health Services a $130/hora (11.7), MOU de capacitación PBIS con SMCOE (11.8) y software de nutrición escolar LunchAssist (11.10).',
+        'Los 8 puntos de consentimiento restantes cubren: la lista de compras menores a $20k de la Medida T, dos proyectos de bordes de concreto de Scapes Landscape en Garfield y Kennedy por $8,514 del Fondo 40 (6.2), el borrador de actas del 30 de septiembre (11.1), cuatro excursiones escolares de Roosevelt, Hoover, Kennedy y Garfield (11.2–11.5), el MOU de capacitación PBIS Nivel 1 con SMCOE hasta por $10,000 (11.8) y el acuerdo de cumplimiento y capacitación en nutrición escolar con LunchAssist hasta por $25,845 (11.10).',
       extractionNotes: [],
     },
   },
@@ -565,9 +624,9 @@ const REVIEWED_BRIEFS = {
     meetingStage: 'completed',
     qualityState: 'human-reviewed',
     overviewEn:
-      'Single-topic 6:00 PM Study Session dedicated to K–5 Formative Assessments (Professional Learning Communities, i-Ready Reading & Math diagnostics, and UCSF Multitudes universal dyslexia/literacy screening). Trustees spent over two hours examining school-by-school reading and math growth and debating how to measure student growth fairly across proficiency tiers.',
+      'Single-topic 6:00 PM Study Session (90 minutes allocated; adjourned 8:20 PM) on K–5 formative assessments: Professional Learning Communities, i-Ready Reading & Math diagnostics, and the Multitudes universal K–2 reading-difficulty screener. Per the draft minutes, trustees asked for cohort-based literacy progress data for TK/K students toward the district’s third-grade literacy goal and raised concerns about assessment burden, coaching capacity, and PLC implementation.',
     overviewEs:
-      'Sesión de Estudio única a las 6:00 p. m. dedicada a las Evaluaciones Formativas de K–5 (Comunidades de Aprendizaje Profesional, diagnósticos i-Ready de Lectura y Matemáticas, y evaluación universal de lectoescritura/dislexia Multitudes de UCSF). Los miembros de la Junta dedicaron más de dos horas a analizar el crecimiento en lectura y matemáticas y cómo medir el progreso estudiantil.',
+      'Sesión de Estudio de un solo tema a las 6:00 p. m. (90 minutos asignados; se levantó a las 8:20 p. m.) sobre evaluaciones formativas de K–5: Comunidades de Aprendizaje Profesional, diagnósticos i-Ready de Lectura y Matemáticas, y Multitudes, la evaluación universal de dificultades de lectura de K–2. Según el borrador de actas, los miembros de la Junta pidieron datos de progreso en lectoescritura por cohorte para estudiantes de TK/K hacia la meta distrital de lectura en tercer grado y expresaron inquietudes sobre la carga de evaluaciones, la capacidad de coaching y la implementación de las PLC.',
     topItems: [
       {
         itemLabel: '6.1',
@@ -578,9 +637,9 @@ const REVIEWED_BRIEFS = {
         proposalStatusBadgeEn: 'Study Session Deep Dive — Uncertified Early CAASPP & i-Ready Figures',
         proposalStatusBadgeEs: 'Sesión de Estudio — Cifras Preliminares de CAASPP e i-Ready',
         whatIsProposedEn:
-          'Educational Services presents how K–5 teacher teams use Professional Learning Communities (PLCs), i-Ready Reading and Math diagnostic windows, and the state-mandated Multitudes early literacy screener. The slide deck reports district-wide i-Ready Reading growth rising from 54% (Spring 2024) → 57% (Spring 2025) → 60.7% (Winter 2025-26) against a 66% LCAP goal, and Math growth rising from 46% → 47% → 56.4% against a 58% goal. It also shows preliminary 2025-26 CAASPP scores as of June 5, 2026 ("99% release" ELA: 50.6% met/exceeded; "97% release" Math: 43.7% met/exceeded; English Learners: 8.1% ELA and 2.6% Math vs. LCAP targets of 20% and 16%).',
+          'Educational Services presents how K–5 teacher teams use Professional Learning Communities (PLCs), i-Ready Reading and Math diagnostic windows, and the Multitudes universal K–2 reading-difficulty screener. The slide deck reports district-wide i-Ready Reading growth of 54% (spring 2023-24 baseline) → 57% (spring 2024-25) → 60.7% (winter 2025-26) against a 66% goal for 2026-27, and Math growth of 46% → 47% → 56.4% against a 58% goal. It also shows preliminary 2025-26 CAASPP scores as of June 5, 2026 ("99% release" ELA: 50.6% met/exceeded; "97% release" Math: 43.7% met/exceeded; English Learners: 8.1% ELA and 2.6% Math vs. LCAP targets of 20% and 16%).',
         whatIsProposedEs:
-          'Servicios Educativos presenta cómo los equipos docentes de K–5 utilizan las Comunidades de Aprendizaje Profesional (PLC), los diagnósticos i-Ready de Lectura y Matemáticas y el evaluador temprano de lectoescritura Multitudes. La presentación reporta un crecimiento en Lectura i-Ready de 54% (primavera 2024) → 57% (primavera 2025) → 60.7% (invierno 2025-26) frente a la meta del 66%, y en Matemáticas de 46% → 47% → 56.4% frente a la meta del 58%. También incluye resultados preliminares de CAASPP 2025-26 al 5 de junio de 2026 (50.6% en ELA y 43.7% en Matemáticas; Aprendices de Inglés: 8.1% en ELA y 2.6% en Matemáticas frente a metas del 20% y 16%).',
+          'Servicios Educativos presenta cómo los equipos docentes de K–5 utilizan las Comunidades de Aprendizaje Profesional (PLC), los diagnósticos i-Ready de Lectura y Matemáticas y Multitudes, la evaluación universal de dificultades de lectura de K–2. La presentación reporta un crecimiento en Lectura i-Ready de 54% (primavera 2023-24, base) → 57% (primavera 2024-25) → 60.7% (invierno 2025-26) frente a la meta del 66% para 2026-27, y en Matemáticas de 46% → 47% → 56.4% frente a la meta del 58%. También incluye resultados preliminares de CAASPP 2025-26 al 5 de junio de 2026 (50.6% en ELA y 43.7% en Matemáticas; Aprendices de Inglés: 8.1% en ELA y 2.6% en Matemáticas frente a metas del 20% y 16%).',
         whyItMattersEn:
           'Important methodological caveat: The deck’s "i-Ready Growth" percentages do not specify whether they represent median percent of typical growth or the share of students meeting annual typical growth, and compare Spring baselines against a Winter 2025-26 window. Additionally, the June 5, 2026 CAASPP figures are uncertified early district pulls rather than the official CDE state release.',
         whyItMattersEs:
@@ -592,16 +651,16 @@ const REVIEWED_BRIEFS = {
           fiscalPeriod: 'SY 2025-26 / LCAP 2026-27 Targets',
           certificationStatus: 'preliminary-uncertified',
           priorBaselineNoteEn:
-            'Spring 2024 & Spring 2025 compared to Winter 2025-26; CAASPP figures are pre-certification district pulls, not final CDE DataQuest releases.',
+            'The deck’s i-Ready columns compare spring 2023-24 (baseline) and spring 2024-25 with winter 2025-26, a mid-year window (deck p. 3); CAASPP figures are pre-certification district pulls as of June 5, 2026, not final CDE DataQuest releases.',
           priorBaselineNoteEs:
-            'Primavera 2024 y Primavera 2025 comparadas con Invierno 2025-26; las cifras CAASPP son reportes preliminares previos a la certificación oficial del CDE.',
+            'Las columnas de i-Ready de la presentación comparan primavera 2023-24 (base) y primavera 2024-25 con invierno 2025-26, una ventana de mitad de año (p. 3); las cifras CAASPP son reportes preliminares del distrito al 5 de junio de 2026, previos a la certificación oficial del CDE.',
         },
         citations: [
           {
             labelEn: 'Ed. Services Board Report: PLCs, Formative Assessment, i-Ready & Multitudes',
             labelEs: 'Informe de Servicios Educativos: PLC, Evaluación Formativa, i-Ready y Multitudes',
-            filename: 'Ed.-Services-Board-Report-PLCs-Formative-Assessment-9.30.26.pdf',
-            pageRange: 'pp. 1–28',
+            filename: 'Ed.-Services-Board-Report.-updated-26.09.29.pdf',
+            pageRange: 'pp. 1–44 (figures on p. 3)',
             extractionStatus: 'text-extracted',
           },
         ],
@@ -628,11 +687,108 @@ const REVIEWED_BRIEFS = {
       'Reunión clave sobre finanzas e instalaciones que abarcó: (1) la Revisión Anual de Matrícula y Capacidad 2026-27, que muestra una ocupación física del ~50% en el distrito (6,199 estudiantes al día 10 frente a una capacidad de 12,362, desde 18% en Garfield hasta 90% en North Star y 79% en Orion); (2) el Cierre Financiero No Auditado 2025-26 con un déficit operativo de $9.73M en el Fondo General antes de una transferencia RDA de $11.0M (saldo final de $18.38M, ~4.0% de reserva); y (3) cartas de supervisión fiscal para escuelas chárter que señalan reservas por debajo del mínimo del 5% en Rocketship (4.48%) y proyecciones en Connect (3.69% para 2028-29).',
     topItems: [
       {
+        itemLabel: '9.4 & 9.5',
+        titleEn: '2025-26 Unaudited Actuals Financial Report & Resolution No. 10 (Gann Appropriations Limit)',
+        titleEs: 'Informe Financiero de Resultados No Auditados 2025-26 y Resolución N.º 10 (Límite de Apropiaciones Gann)',
+        actionType: 'Action',
+        allocatedMinutes: 45,
+        proposalStatusBadgeEn: 'Action Items — Unaudited Actuals Approved 5–0; Gann Limit Adopted (draft minutes: 5–0; recording: 4 ayes, Trustee Wells not called)',
+        proposalStatusBadgeEs: 'Puntos de Acción — Cierre No Auditado Aprobado 5–0; Límite Gann Adoptado (borrador de actas: 5–0; grabación: 4 votos a favor, no se llamó al miembro Wells)',
+        whatIsProposedEn:
+          'Closes the 2025-26 fiscal year books prior to independent audit. The General Fund recorded $147.48M in operating revenues and $157.22M in expenditures—an operating deficit of $9.73M—offset by an $11.0M interfund transfer ("Transfers - RDA Negotiated Agreements", bringing total credited revenue to $158.48M). Ending General Fund balance rose $1.27M to $18.38M ($5.63M above Estimated Actuals because expenditures came in $9.54M under projection), leaving an ~4.0% reserve against the 3.0% state minimum. Resolution 10 sets the 2025-26 Gann Limit at $94,351,626.61 and projects $97,021,787.08 for 2026-27.',
+        whatIsProposedEs:
+          'Cierra los libros del año fiscal 2025-26 antes de la auditoría independiente. El Fondo General registró $147.48M en ingresos operativos y $157.22M en gastos —un déficit operativo de $9.73M— compensado por una transferencia entre fondos de $11.0M ("Acuerdos Negociados RDA", llevando el ingreso total contabilizado a $158.48M). El saldo final subió $1.27M hasta $18.38M ($5.63M mejor que lo estimado porque el gasto fue $9.54M menor a lo proyectado), dejando una reserva de ~4.0% frente al mínimo estatal del 3.0%. La Resolución 10 fija el Límite Gann 2025-26 en $94,351,626.61 y proyecta $97,021,787.08 para 2026-27.',
+        whyItMattersEn:
+          'The $1.27M fund-balance gain exists only because of the $11.0M interfund transfer (booked as "Transfers - RDA Negotiated Agreements"); without it the General Fund would have drawn down $9.73M. The gain over projection came mostly from spending $9.54M less than estimated, while revenues came in $3.91M lower.',
+        whyItMattersEs:
+          'El aumento de $1.27M en el saldo existe solo gracias a la transferencia entre fondos de $11.0M (registrada como "Transferencias - Acuerdos Negociados RDA"); sin ella, el Fondo General habría bajado $9.73M. La mejora frente a lo proyectado vino sobre todo de gastar $9.54M menos de lo estimado, mientras los ingresos fueron $3.91M menores.',
+        baselineContext: {
+          metricNameEn: 'FY 2025-26 General Fund Unaudited Actuals',
+          metricNameEs: 'Resultados No Auditados del Fondo General AF 2025-26',
+          censusDate: 'Fiscal Year Ended June 30, 2026',
+          fiscalPeriod: 'FY 2025-26 Year-End Close (SACS Unaudited Actuals)',
+          certificationStatus: 'unaudited-actuals-pending-december-audit',
+          priorBaselineNoteEn:
+            'Revenues appear as $147.48M before the $11.0M interfund transfer and $158.48M including the transfer. Other year-end funds: Fund 21 (Bond) $39.07M; Fund 35 (County School Facilities) $22.54M; Fund 40 (Capital Outlay) $7.57M.',
+          priorBaselineNoteEs:
+            'Los ingresos figuran como $147.48M antes de la transferencia de $11.0M y como $158.48M incluyéndola. Otros fondos al cierre: Fondo 21 (Bonos) $39.07M; Fondo 35 $22.54M; Fondo 40 $7.57M.',
+        },
+        citations: [
+          {
+            labelEn: '2025-26 Unaudited Actuals SACS Financial Book',
+            labelEs: 'Libro Financiero SACS de Resultados No Auditados 2025-26',
+            filename: '25.26-Unaudited-Actuals-Book.pdf',
+            pageRange: 'pp. 7–10 of 188 (executive summary; General Fund revenue and expenditure)',
+            extractionStatus: 'text-extracted',
+          },
+          {
+            labelEn: '2025-26 Unaudited Actuals Board Presentation (image slides; read by OCR)',
+            labelEs: 'Presentación de Resultados No Auditados 2025-26 (diapositivas en imagen; leídas con OCR)',
+            filename: '25-26-UA-Presentation.pdf',
+            pageRange: 'pp. 1–14',
+            extractionStatus: 'ocr-extracted',
+          },
+          {
+            labelEn: 'Resolution No. 10 (Gann Appropriations Limit)',
+            labelEs: 'Resolución N.º 10 (Límite de Apropiaciones Gann)',
+            filename: 'Gann-Limit-Resolution-10-26.27.pdf',
+            extractionStatus: 'text-extracted',
+          },
+        ],
+      },
+      {
+        itemLabel: '6.1 & 11.1–11.3',
+        titleEn: 'MTSS Attendance/Suspension Report (LCAP Goal 1) & Charter School Fiscal Oversight Letters (Connect, KIPP, Rocketship)',
+        titleEs: 'Informe MTSS de Asistencia y Suspensiones (Meta 1 del LCAP) y Cartas de Supervisión Fiscal de Escuelas Chárter',
+        actionType: 'Report / Information',
+        allocatedMinutes: 36,
+        proposalStatusBadgeEn: 'Oversight & LCAP Monitoring Reports',
+        proposalStatusBadgeEs: 'Informes de Supervisión Chárter y Monitoreo LCAP',
+        whatIsProposedEn:
+          'Item 6.1 (35 minutes) reports chronic absenteeism as of September 9, 2026 at 9.11% as the deck states it (578 of 6,307 students; highest at McKinley 15%, lowest at Orion 4%). Information Items 11.1–11.3 publish RCSD’s fiscal oversight review letters on the 2026-27 Adopted Budgets and LCAPs of Connect, KIPP Excelencia, and Rocketship: Rocketship’s reserve is below the 5% MOU minimum in 2025-26 (4.48%) and 2026-27 (4.79%); Connect projects deficits in all three years, with fund balance falling from about 17% of expenditures to 3.69% by 2028-29, below the 5% minimum; KIPP also projects three years of deficits but keeps 17% or more; and the district found mismatches between each charter’s LCAP Budget Overview for Parents and its Adopted Budget.',
+        whatIsProposedEs:
+          'El Punto 6.1 (35 minutos) reporta un ausentismo crónico al 9 de septiembre de 2026 del 9.11%, según la presentación (578 de 6,307 estudiantes; el más alto en McKinley con 15% y el más bajo en Orion con 4%). Los Puntos 11.1–11.3 publican las cartas de supervisión fiscal de RCSD sobre Connect, KIPP Excelencia y Rocketship: la reserva de Rocketship está por debajo del mínimo del 5% del MOU en 2025-26 (4.48%) y 2026-27 (4.79%); Connect proyecta déficits en los tres años, con un saldo que baja de cerca del 17% de los gastos al 3.69% en 2028-29, por debajo del mínimo del 5%; KIPP también proyecta tres años de déficit pero mantiene 17% o más; y el distrito encontró discrepancias entre el resumen presupuestario del LCAP para padres de cada escuela chárter y su presupuesto adoptado.',
+        whyItMattersEn:
+          'Surfaces early warning indicators on charter reserve compliance ahead of the 2026-27 charter oversight and renewal cycle (KIPP Excelencia submitted its renewal petition on September 21, 2026).',
+        whyItMattersEs:
+          'Destaca alertas tempranas sobre el cumplimiento de reservas financieras en las escuelas chárter autorizadas por el distrito, antes del ciclo de supervisión y renovación 2026-27 (KIPP Excelencia presentó su petición de renovación el 21 de septiembre de 2026).',
+        citations: [
+          {
+            labelEn: 'MTSS Board Report (chronic absenteeism by school, p. 3)',
+            labelEs: 'Informe MTSS a la Junta (ausentismo crónico por escuela, p. 3)',
+            filename: 'MTSS-Board-Report-26.09.23-Updated.pdf',
+            pageRange: 'p. 3',
+            extractionStatus: 'text-extracted',
+          },
+          {
+            labelEn: 'Rocketship FY 2026-27 Adopted Budget Oversight Review Letter',
+            labelEs: 'Carta de Supervisión Fiscal 2026-27 — Rocketship',
+            filename: 'Rocketship-FY-2026-27-Adopted-Budget-Review-Letter.pdf',
+            pageRange: 'pp. 2–5',
+            extractionStatus: 'text-extracted',
+          },
+          {
+            labelEn: 'Connect FY 2026-27 Adopted Budget Oversight Review Letter',
+            labelEs: 'Carta de Supervisión Fiscal 2026-27 — Connect',
+            filename: 'Connect-FY-2026-27-Adopted-Budget-Review-Letter.pdf',
+            pageRange: 'pp. 2–5',
+            extractionStatus: 'text-extracted',
+          },
+          {
+            labelEn: 'KIPP Excelencia FY 2026-27 Adopted Budget Oversight Review Letter',
+            labelEs: 'Carta de Supervisión Fiscal 2026-27 — KIPP Excelencia',
+            filename: 'KIPP-FY-2026-27-Adopted-Budget-Review-Letter.pdf',
+            pageRange: 'pp. 2–5',
+            extractionStatus: 'text-extracted',
+          },
+        ],
+      },
+      {
         itemLabel: '9.1',
         titleEn: '2026–27 Annual Enrollment and Capacity Review & Next Steps for Facility and Program Planning',
         titleEs: 'Revisión Anual de Matrícula y Capacidad 2026–27 y Próximos Pasos para la Planificación de Instalaciones y Programas',
         actionType: 'Action',
-        allocatedMinutes: 45,
+        allocatedMinutes: 35,
         proposalStatusBadgeEn: 'Action Item — Approved 5–0 (Roll-Call Vote)',
         proposalStatusBadgeEs: 'Punto de Acción — Aprobado 5–0 (Votación Nominal)',
         whatIsProposedEn:
@@ -650,93 +806,16 @@ const REVIEWED_BRIEFS = {
           fiscalPeriod: 'SY 2026-27 Planning for SY 2028-29 Implementation',
           certificationStatus: 'day-10-operational-count',
           priorBaselineNoteEn:
-            'Day-10 count (6,199) precedes the OctoberPreliminary Census Day count (6,399 reported on 10/28). Capacity (12,362) is gross facility capacity across 12 operating school sites.',
+            'Day-10 count (6,199, as of August 26) precedes the preliminary October Census Day count (6,399, reported on 10/28). Capacity (12,362) is gross facility capacity across 12 operating schools. The board memo’s rationale gives 6,175 students and 12,278 capacity; the brief uses the updated deck’s figures.',
           priorBaselineNoteEs:
-            'El conteo al Día 10 (6,199) precede al conteo preliminar del Día del Censo de octubre (6,399 reportado el 28/10). La capacidad (12,362) corresponde a la capacidad bruta en los 12 planteles.',
+            'El conteo al Día 10 (6,199, al 26 de agosto) precede al conteo preliminar del Día del Censo de octubre (6,399, reportado el 28/10). La capacidad (12,362) es la capacidad bruta de las 12 escuelas en operación. La justificación del memorando indica 6,175 estudiantes y una capacidad de 12,278; este resumen usa las cifras de la presentación actualizada.',
         },
         citations: [
           {
             labelEn: '2026-27 Annual Enrollment & Capacity Review Deck (Updated 9/23/26)',
             labelEs: 'Presentación de Matrícula y Capacidad 2026-27 (Actualizada 23/09/26)',
             filename: '2026-27-Enrollment-Capacity-Review-26.09.23.-updated.pdf',
-            pageRange: 'pp. 1–32',
-            extractionStatus: 'text-extracted',
-          },
-        ],
-      },
-      {
-        itemLabel: '9.4 & 9.5',
-        titleEn: '2025-26 Unaudited Actuals Financial Report & Resolution No. 10 (Gann Appropriations Limit)',
-        titleEs: 'Informe Financiero de Resultados No Auditados 2025-26 y Resolución N.º 10 (Límite de Apropiaciones Gann)',
-        actionType: 'Action',
-        allocatedMinutes: 35,
-        proposalStatusBadgeEn: 'Action Items — Unaudited Actuals Approved 5–0; Gann Limit Approved 4–0',
-        proposalStatusBadgeEs: 'Puntos de Acción — Cierre No Auditado Aprobado 5–0; Límite Gann Aprobado 4–0',
-        whatIsProposedEn:
-          'Closes the 2025-26 fiscal year books prior to independent audit. The General Fund recorded $147.48M in operating revenues and $157.22M in expenditures—an operating deficit of $9.73M—offset by an $11.0M interfund transfer ("Transfers - RDA Negotiated Agreements", bringing total credited revenue to $158.48M). Ending General Fund balance rose $1.27M to $18.38M ($5.63M above Estimated Actuals because expenditures came in $9.54M under projection), leaving an ~4.0% reserve against the 3.0% state minimum. Resolution 10 sets the 2025-26 Gann Limit at $94,351,626.61 and projects $97,021,787.08 for 2026-27.',
-        whatIsProposedEs:
-          'Cierra los libros del año fiscal 2025-26 antes de la auditoría independiente. El Fondo General registró $147.48M en ingresos operativos y $157.22M en gastos —un déficit operativo de $9.73M— compensado por una transferencia interbancaria de $11.0M ("Acuerdos Negociados RDA", llevando el ingreso total contabilizado a $158.48M). El saldo final subió $1.27M hasta $18.38M ($5.63M mejor que lo estimado porque el gasto fue $9.54M menor a lo proyectado), dejando una reserva de ~4.0% frente al mínimo estatal del 3.0%. La Resolución 10 fija el Límite Gann 2025-26 en $94,351,626.61.',
-        whyItMattersEn:
-          'Distinguishing the $9.73M structural operating deficit from the $1.27M net fund-balance gain (driven by a one-time $11.0M capital/RDA transfer and $9.54M in unspent budget) is essential for understanding why RCSD still faces multi-year budget reductions.',
-        whyItMattersEs:
-          'Distinguir el déficit operativo estructural de $9.73M del aumento neto de $1.27M en el saldo final (impulsado por una transferencia única de $11.0M de fondos RDA y subejercicio presupuestario) es clave para entender el reto fiscal plurianual del distrito.',
-        baselineContext: {
-          metricNameEn: 'FY 2025-26 General Fund Unaudited Actuals',
-          metricNameEs: 'Resultados No Auditados del Fondo General AF 2025-26',
-          censusDate: 'Fiscal Year Ended June 30, 2026',
-          fiscalPeriod: 'FY 2025-26 Year-End Close (SACS Unaudited Actuals)',
-          certificationStatus: 'unaudited-actuals-pending-december-audit',
-          priorBaselineNoteEn:
-            'Revenues appear as $147.48M before the $11.0M interfund transfer and $158.48M including the transfer. Other year-end funds: Fund 21 (Bond) $39.07M; Fund 35 (County School Facilities) $22.54M; Fund 40 (Capital Outlay) $7.57M.',
-          priorBaselineNoteEs:
-            'Los ingresos figuran como $147.48M antes de la transferencia de $11.0M y como $158.48M incluyéndola. Otros fondos al cierre: Fondo 21 (Bonos) $39.07M; Fondo 35 $22.54M; Fondo 40 $7.57M.',
-        },
-        citations: [
-          {
-            labelEn: '2025-26 Unaudited Actuals SACS Financial Book',
-            labelEs: 'Libro Financiero SACS de Resultados No Auditados 2025-26',
-            filename: '25.26-Unaudited-Actuals-Book.pdf',
-            pageRange: 'pp. 1–140',
-            extractionStatus: 'text-extracted',
-          },
-          {
-            labelEn: '2025-26 Unaudited Actuals Board Presentation',
-            labelEs: 'Presentación de Resultados No Auditados 2025-26',
-            filename: '25-26-UA-Presentation.pdf',
-            pageRange: 'pp. 1–18',
-            extractionStatus: 'text-extracted',
-          },
-        ],
-      },
-      {
-        itemLabel: '6.1 & 11.1–11.3',
-        titleEn: 'MTSS Attendance/Suspension Report (LCAP Goal 1) & Charter School Fiscal Oversight Letters (Connect, KIPP, Rocketship)',
-        titleEs: 'Informe MTSS de Asistencia y Suspensiones (Meta 1 del LCAP) y Cartas de Supervisión Fiscal de Escuelas Chárter',
-        actionType: 'Report / Information',
-        allocatedMinutes: 30,
-        proposalStatusBadgeEn: 'Oversight & LCAP Monitoring Reports',
-        proposalStatusBadgeEs: 'Informes de Supervisión Chárter y Monitoreo LCAP',
-        whatIsProposedEn:
-          'Item 6.1 reports chronic absenteeism as of September 9, 2026 at 9.11% (578 of 6,307 students; highest at McKinley 15%, lowest at Orion 4%). Information Items 11.1–11.3 publish RCSD’s fiscal oversight review letters on the 2026-27 Adopted Budgets and LCAPs of Connect, KIPP Excelencia, and Rocketship: Rocketship is below the 5% MOU reserve minimum in 2025-26 (4.48%) and 2026-27 (4.79%); Connect projects deficits across all three years with reserves dropping from 17% to 3.69% by 2028-29; and all three charters had mismatches between their LCAP Budget Overview for Parents and Adopted Budget.',
-        whatIsProposedEs:
-          'El Punto 6.1 reporta un ausentismo crónico al 9 de septiembre de 2026 del 9.11% (578 de 6,307 estudiantes; el más alto en McKinley con 15% y el más bajo en Orion con 4%). Los Puntos 11.1–11.3 publican las cartas de supervisión fiscal de RCSD sobre Connect, KIPP Excelencia y Rocketship: Rocketship está por debajo de la reserva mínima del 5% del MOU en 2025-26 (4.48%) y 2026-27 (4.79%); Connect proyecta déficits en los tres años cayendo al 3.69% en 2028-29; y las tres escuelas chárter presentaron discrepancias entre el resumen presupuestario del LCAP para padres y su presupuesto adoptado.',
-        whyItMattersEn:
-          'Surfaces early warning indicators on charter reserve compliance ahead of the 2026-27 charter oversight and renewal cycle.',
-        whyItMattersEs:
-          'Destaca alertas tempranas sobre el cumplimiento de reservas financieras en las escuelas chárter autorizadas por el distrito.',
-        citations: [
-          {
-            labelEn: 'Rocketship FY 2026-27 Adopted Budget Oversight Review Letter',
-            labelEs: 'Carta de Supervisión Fiscal 2026-27 — Rocketship',
-            filename: 'Rocketship-FY-2026-27-Adopted-Budget-Review-Letter.pdf',
-            pageRange: 'pp. 1–4',
-            extractionStatus: 'text-extracted',
-          },
-          {
-            labelEn: 'Connect FY 2026-27 Adopted Budget Oversight Review Letter',
-            labelEs: 'Carta de Supervisión Fiscal 2026-27 — Connect',
-            filename: 'Connect-FY-2026-27-Adopted-Budget-Review-Letter.pdf',
-            pageRange: 'pp. 1–4',
+            pageRange: 'pp. 1–15',
             extractionStatus: 'text-extracted',
           },
         ],
@@ -751,13 +830,13 @@ const REVIEWED_BRIEFS = {
           titleEn: 'Air Education Inc. Virtual Reading Tutoring Services Agreement (SY 2026-27)',
           titleEs: 'Acuerdo con Air Education Inc. para Servicios de Tutoría Virtual de Lectura (2026-27)',
           amountDisplay: '$204,375.00',
-          fundingSourceEn: 'Restricted Categorical / Literacy Funds',
-          fundingSourceEs: 'Fondos Categóricos Restringidos de Lectoescritura',
+          fundingSourceEn: 'LCAP $138,813; Learning Recovery Emergency Block Grant $55,562; Title III $10,000',
+          fundingSourceEs: 'LCAP $138,813; Subvención en Bloque de Emergencia para Recuperación del Aprendizaje $55,562; Título III $10,000',
           flags: ['financial-threshold'],
           summaryEn:
-            'Contracts with Air Education Inc. for high-dosage virtual reading tutoring during the 2026-27 school year.',
+            'Live small-group (1:3) virtual reading intervention in after-school programs for 125 students in grades 2–7 reading one to three years below grade level at Taft, Garfield, Hoover, Roosevelt, and McKinley: four days a week for 20 weeks during 2026-27.',
           summaryEs:
-            'Contrata a Air Education Inc. para tutoría virtual intensiva de lectura durante el ciclo escolar 2026-27.',
+            'Intervención virtual de lectura en vivo, en grupos pequeños (1:3), dentro de los programas después de clases, para 125 estudiantes de 2.º a 7.º grado que leen de uno a tres años por debajo de su grado en Taft, Garfield, Hoover, Roosevelt y McKinley: cuatro días por semana durante 20 semanas en 2026-27.',
           citations: [
             {
               labelEn: 'Air Education 2026-27 Agreement',
@@ -776,30 +855,30 @@ const REVIEWED_BRIEFS = {
           fundingSourceEs: 'Impuesto Parcelario Medida U',
           flags: ['financial-threshold', 'contract-amendment-or-change-order', 'charter-or-parcel-tax'],
           summaryEn:
-            'Keeps Kennedy’s total 2026-27 Measure U allocation at $195,228 but strikes the $85,000 STEAM teacher line and reallocates the funds to a dedicated guest teacher ($40,000), community school coordinator ($25,000), Caminar mental health counseling ($17,030), and PBIS ($2,489).',
+            'Keeps Kennedy’s total 2026-27 Measure U allocation at $195,228 but moves the $85,000 STEAM teacher line to a guest teacher ($40,000), the community school coordinator ($25,000), Caminar counseling ($17,030), PBIS ($2,489), and school clubs (+$481, to $25,481). Kennedy’s School Site Council approved the addendum on September 1, 2026.',
           summaryEs:
-            'Mantiene la asignación total de la Medida U de Kennedy en $195,228, pero elimina la partida de $85,000 para maestro STEAM y reasigna los fondos a un maestro suplente dedicado ($40,000), coordinador de escuela comunitaria ($25,000), consejería de Caminar ($17,030) y PBIS ($2,489).',
+            'Mantiene la asignación total de la Medida U de Kennedy en $195,228, pero pasa la partida de $85,000 del maestro STEAM a un maestro suplente ($40,000), el coordinador de escuela comunitaria ($25,000), consejería de Caminar ($17,030), PBIS ($2,489) y clubes escolares (+$481, hasta $25,481). El Consejo Escolar de Kennedy aprobó la adenda el 1 de septiembre de 2026.',
           citations: [
             {
-              labelEn: 'Kennedy Middle School Measure U Addendum 1 (Memo & Plan)',
-              labelEs: 'Adenda 1 Medida U — Kennedy Middle School',
-              url: 'https://simbli.eboardsolutions.com/SB_Meetings/ViewMeeting.aspx?S=36030397&MID=51864',
-              extractionStatus: 'text-extracted',
+              labelEn: 'Kennedy Middle School 2026-27 Measure U Addendum 1 (Scanned PDF — memo figures)',
+              labelEs: 'Adenda 1 Medida U 2026-27 — Kennedy Middle School (PDF escaneado; cifras del memorando)',
+              filename: '2026_27-Measure-U-Addendum-1_-Kennedy.pdf',
+              extractionStatus: 'scanned-memo-fallback',
             },
           ],
         },
         {
           itemLabel: '8.8',
-          titleEn: 'Amergis Healthcare Staffing First Amendment (Special Education Behavior Technicians)',
-          titleEs: 'Primera Enmienda con Amergis Healthcare Staffing (Técnicos de Conducta para Educación Especial)',
+          titleEn: 'Amergis Healthcare Staffing First Amendment (Two Behavior Technicians)',
+          titleEs: 'Primera Enmienda con Amergis Healthcare Staffing (Dos Técnicos de Conducta)',
           amountDisplay: '+$142,920.00 (New contract total: $294,920.00)',
-          fundingSourceEn: 'Special Education (Restricted General Fund)',
-          fundingSourceEs: 'Educación Especial (Fondo General Restringido)',
+          fundingSourceEn: 'Unduplicated Pupil Services',
+          fundingSourceEs: 'Servicios para Alumnos No Duplicados',
           flags: ['financial-threshold', 'contract-amendment-or-change-order'],
           summaryEn:
-            'Adds two Special Education behavior technicians (+$142,920) to the 2026-27 Amergis staffing agreement, bringing the total contract ceiling from $152,000 to $294,920.',
+            'Adds two behavior technicians (+$142,920), supervised by the contracted Amergis BCBA, to support classrooms the BCBA identifies, as part of the LCAP push to reduce suspensions; the contract ceiling rises from $152,000 to $294,920.',
           summaryEs:
-            'Agrega dos técnicos de conducta de Educación Especial (+$142,920) al acuerdo 2026-27 con Amergis, elevando el monto total del contrato de $152,000 a $294,920.',
+            'Agrega dos técnicos de conducta (+$142,920), supervisados por el analista de conducta (BCBA) contratado con Amergis, para apoyar los salones que el BCBA identifique, como parte del esfuerzo del LCAP para reducir las suspensiones; el monto máximo del contrato sube de $152,000 a $294,920.',
           citations: [
             {
               labelEn: 'Amergis First Amendment (9/23/26)',
@@ -814,13 +893,13 @@ const REVIEWED_BRIEFS = {
           titleEn: 'Siemens Industry, Inc. Fire and Life Safety Inspection & Testing Renewal (FY 2026-27)',
           titleEs: 'Renovación con Siemens Industry, Inc. para Inspección y Pruebas contra Incendios (AF 2026-27)',
           amountDisplay: '$97,224.00',
-          fundingSourceEn: 'Routine Restricted Maintenance (RRM)',
-          fundingSourceEs: 'Mantenimiento Restringido de Rutina (RRM)',
+          fundingSourceEn: '2026-27 Facilities/Maintenance Fund',
+          fundingSourceEs: 'Fondo de Instalaciones y Mantenimiento 2026-27',
           flags: ['financial-threshold'],
           summaryEn:
-            'Annual fire alarm and life-safety inspection and testing across district facilities for 2026-27.',
+            'One-year renewal (July 1, 2026 – June 30, 2027, retroactive to July 1) for required fire alarm inspections at 17 sites, sprinkler testing at 14 sites, and kitchen hood suppression inspections at Roosevelt, McKinley, and Hoover.',
           summaryEs:
-            'Inspección y pruebas anuales de alarmas contra incendios y seguridad vital en las instalaciones del distrito para 2026-27.',
+            'Renovación de un año (1 de julio de 2026 – 30 de junio de 2027, retroactiva al 1 de julio) para las inspecciones obligatorias de alarmas contra incendios en 17 sitios, pruebas de rociadores en 14 sitios e inspecciones de sistemas de supresión en campanas de cocina en Roosevelt, McKinley y Hoover.',
           citations: [
             {
               labelEn: 'Siemens Fire & Life Safety Renewal Agreement (2026-27)',
@@ -831,17 +910,38 @@ const REVIEWED_BRIEFS = {
           ],
         },
         {
+          itemLabel: '8.11',
+          titleEn: 'UniFirst Uniform Rental and Laundry Services Renewal (3 years, Aug 2026 – Jul 2029)',
+          titleEs: 'Renovación con UniFirst para Alquiler y Lavandería de Uniformes (3 años, ago. 2026 – jul. 2029)',
+          amountDisplay: '$125,431.00 estimated 3-year total ($39,787.80 in Year 1)',
+          fundingSourceEn: 'Facilities operating budget',
+          fundingSourceEs: 'Presupuesto operativo de Instalaciones',
+          flags: ['financial-threshold'],
+          summaryEn:
+            'Renews uniform rental and laundry for Operations, Maintenance, Grounds, Warehouse, and Transportation staff on a negotiated 36-month term (instead of UniFirst’s standard 60 months): a $765.15 minimum weekly charge, down from about $1,475 a week, no increase until August 2027, and later increases capped at 5% a year. The attached agreement is a scan; figures are from the board memo.',
+          summaryEs:
+            'Renueva el alquiler y lavado de uniformes para el personal de Operaciones, Mantenimiento, Jardinería, Almacén y Transporte con un plazo negociado de 36 meses (en lugar de los 60 meses estándar de UniFirst): un cargo semanal mínimo de $765.15, frente a unos $1,475 por semana antes, sin aumentos hasta agosto de 2027 y con aumentos posteriores limitados al 5% anual. El contrato adjunto es un escaneo; las cifras provienen del memorando.',
+          citations: [
+            {
+              labelEn: 'UniFirst Revised Agreement (Scanned PDF — memo figures)',
+              labelEs: 'Contrato Revisado UniFirst (PDF escaneado; cifras del memorando)',
+              filename: 'UniFirst-Revised-Agreement_Board-9.23.26.pdf',
+              extractionStatus: 'scanned-memo-fallback',
+            },
+          ],
+        },
+        {
           itemLabel: '8.12–8.16',
           titleEn: 'Board Bylaws 9250 (Trustee Remuneration Fixed at $1,200/mo) & 9320 (Meetings and Notices) + Policies 4140/4240/4340 (Bargaining Units)',
           titleEs: 'Estatutos de la Junta 9250 (Remuneración Fijada en $1,200/mes) y 9320 (Reuniones y Avisos) + Políticas 4140/4240/4340 (Unidades Sindicales)',
           amountDisplay: 'Governance & Trustee Compensation Bylaw Update',
-          fundingSourceEn: 'General Fund (Board Bylaw 9250)',
-          fundingSourceEs: 'Fondo General (Estatuto 9250)',
+          fundingSourceEn: 'None stated (memos: no financial impact at this time)',
+          fundingSourceEs: 'No se indica (memorandos: sin impacto financiero por ahora)',
           flags: ['policy-or-bylaw-revision'],
           summaryEn:
-            'Revises Board Bylaw 9250 to replace "may receive the maximum monthly compensation" under Ed Code 35120 with a fixed $1,200/month stipend (noting trustees may decline it), updates BB 9320 (Meetings and Notices), and updates BP 4140/4240/4340 (Bargaining Units).',
+            'Revises Board Bylaw 9250 to replace "may receive the maximum monthly compensation" under Ed Code 35120 with monthly compensation of $1,200, less deductions for unexcused absences (noting trustees are not required to accept it), updates BB 9320 (Meetings and Notices), and updates BP 4140/4240/4340 (Bargaining Units).',
           summaryEs:
-            'Modifica el Estatuto 9250 de la Junta para reemplazar "el máximo permitido" bajo el Código de Educación 35120 por un estipendio fijo de $1,200 al mes (aclarando que los miembros pueden optar por no recibirlo), actualiza el Estatuto 9320 (Reuniones y Avisos) y las Políticas 4140/4240/4340 (Unidades de Negociación).',
+            'Modifica el Estatuto 9250 de la Junta para reemplazar "puede recibir la compensación mensual máxima" bajo el Código de Educación 35120 por una compensación mensual de $1,200, menos descuentos por ausencias no justificadas (aclarando que los miembros no están obligados a aceptarla), actualiza el Estatuto 9320 (Reuniones y Avisos) y las Políticas 4140/4240/4340 (Unidades de Negociación).',
           citations: [
             {
               labelEn: 'Board Bylaw 9250 Remuneration, Reimbursement & Other Benefits (Marked Redline)',
@@ -853,10 +953,17 @@ const REVIEWED_BRIEFS = {
         },
       ],
       routineSummaryEn:
-        'The remaining 7 consent items cover: draft September 9 minutes (8.1), three Outdoor Education field trips for Clifford, Orion, and North Star (8.3–8.5), the 2026–2029 Stanford Teacher Education Program (STEP) student-teacher placement agreement (8.6), a 36-month Sourcewell agreement with Motive Technologies for fleet cameras and telematics across 16 school buses (8.9), and the UniFirst uniform rental renewal (8.11).',
+        'The remaining 6 consent items cover: draft September 9 minutes (8.1), three Outdoor Education field trips for Clifford, Orion, and North Star (8.3–8.5), the 2026–2029 Stanford Teacher Education Program (STEP) student-teacher placement agreement (8.6), and a 36-month Sourcewell agreement with Motive Technologies for fleet cameras and telematics across 16 school buses, not to exceed $39,673.97 (8.9).',
       routineSummaryEs:
-        'Los 7 puntos de consentimiento restantes cubren: el borrador de actas del 9 de septiembre (8.1), tres excursiones de Educación al Aire Libre para Clifford, Orion y North Star (8.3–8.5), el convenio 2026–2029 con la Universidad de Stanford (STEP) para prácticas docentes (8.6), un contrato de 36 meses con Motive Technologies para cámaras y telemática en 16 autobuses escolares (8.9) y la renovación de alquiler de uniformes con UniFirst (8.11).',
+        'Los 6 puntos de consentimiento restantes cubren: el borrador de actas del 9 de septiembre (8.1), tres excursiones de Educación al Aire Libre para Clifford, Orion y North Star (8.3–8.5), el convenio 2026–2029 con la Universidad de Stanford (STEP) para prácticas docentes (8.6) y un contrato de 36 meses con Motive Technologies, vía Sourcewell, para cámaras y telemática en 16 autobuses escolares, hasta por $39,673.97 (8.9).',
       extractionNotes: [
+        {
+          itemLabel: '8.2 & 8.11',
+          noteEn:
+            'Scanned PDFs detected: Kennedy’s Measure U Addendum 1 (Item 8.2) and the UniFirst revised agreement (Item 8.11) are image scans without embedded text layers. Their figures ($195,228 and the line-item reallocations; $125,431 and $39,787.80) are taken from the structured Simbli board memo.',
+          noteEs:
+            'PDFs escaneados detectados: la Adenda 1 de la Medida U de Kennedy (Punto 8.2) y el contrato revisado de UniFirst (Punto 8.11) son imágenes escaneadas sin capa de texto. Sus cifras ($195,228 y las reasignaciones por partida; $125,431 y $39,787.80) provienen del memorando oficial en Simbli.',
+        },
         {
           itemLabel: '11.4',
           noteEn:
@@ -909,7 +1016,7 @@ async function buildBriefForDate(date) {
       triageSource: `data/triage/${date}.md`,
       memoSource: `data/board-memos/${date}.json`,
       scrapedAt: memo?.scrapedAt || meeting?.scrapedAt || new Date().toISOString(),
-      generatedAt: '2026-10-29T20:45:00Z',
+      generatedAt: REVIEWED_AT,
       method:
         'Packet-verified bilingual synthesis combining scripts/lib/agenda-weight.mjs time-ranking, scripts/lib/docket-brief.mjs 100% consent-calendar screening, and human-reviewed packet triage notes.',
       reviewStatus: base.qualityState,
@@ -928,13 +1035,22 @@ async function buildBriefForDate(date) {
       thresholdUsd: base.consentScreening.thresholdUsd,
       automatedFlaggedCount: autoConsent ? autoConsent.flaggedItems.length : spotlightItems.length,
       spotlightItems,
+      reviewedExceptions: base.consentScreening.reviewedExceptions || [],
       routineSummaryEn: base.consentScreening.routineSummaryEn,
       routineSummaryEs: base.consentScreening.routineSummaryEs,
       extractionNotes: base.consentScreening.extractionNotes || [],
     },
   };
 
-  const validation = validateDocketBrief(doc);
+  // Ground the brief in its meeting: citations must name archived attachments,
+  // Simbli links must carry this meeting's MID, and every automated consent
+  // flag must be spotlighted or explicitly excepted.
+  if (!memo) throw new Error(`Missing data/board-memos/${date}.json; cannot verify citations`);
+  const validation = validateDocketBrief(doc, {
+    attachmentFilenames: attachmentInventory(memo),
+    meetingMid: memo.mid ?? meeting?.mid ?? null,
+    automatedFlags: autoConsent ? autoConsent.flaggedItems : null,
+  });
   if (!validation.valid) {
     const msg = validation.errors.map((e) => `${e.path}: ${e.message}`).join('; ');
     throw new Error(`Invalid docket brief for ${date}: ${msg}`);
@@ -1045,7 +1161,7 @@ async function main() {
     },
     sources,
     lineage: {
-      generatedAt: '2026-10-29T20:45:00Z',
+      generatedAt: REVIEWED_AT,
       generator: {
         script: 'scripts/generate-docket-brief.mjs',
         version: await hashFile(__filename),
@@ -1058,12 +1174,17 @@ async function main() {
     },
     quality: {
       state: 'human-reviewed',
-      checkedAt: '2026-10-29T20:45:00Z',
+      checkedAt: REVIEWED_AT,
       exceptions: [
         {
           code: 'scanned-pdf-memo-fallback',
           message:
-            'On 2026-10-28, Item 6.1 DSA/PG&E fee receipts and Item 10.4 KIPP Measure U application are image scans; dollar figures ($69,089.12 and $156,326.00) are verified from the structured Simbli memo.',
+            'On 2026-10-28, Item 6.1 DSA/PG&E fee receipts and Item 10.4 KIPP Measure U application are image scans; dollar figures ($69,089.12 and $156,326.00) are verified from the structured Simbli memo. On 2026-09-23, Item 8.2 Kennedy Measure U addendum and Item 8.11 UniFirst agreement are image scans; their figures come from the memo.',
+        },
+        {
+          code: 'ocr-extracted',
+          message:
+            'On 2026-09-23, the Unaudited Actuals board presentation is image slides; its figures were read by OCR and cross-checked against the text-layer Unaudited Actuals book (pp. 7–10).',
         },
       ],
     },
