@@ -74,7 +74,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two changes to agenda announced: (1) Added closed session continuation after item 19 to continue CSEA and RCTA negotiations; (2) Moved item 16.1 (Information on Financial Audit Report) to after item 11 (Report Out on Closed Session) to allow presenter to leave early",
+    "agenda_changes": "Two changes announced: (1) Added closed session after item 19 to continue CSEA and RCTA negotiations; (2) Moved item 16.1 (Information on Financial Audit Report) to after item 11 (before Bond Program Action Items) to allow presenter to leave early",
     "consent_vote_words": "Do I have a motion to approve? So moved. Second. Maria Cecilia seconds roll call vote.",
     "items": [
       {
@@ -84,92 +84,127 @@
       },
       {
         "item": 2,
-        "intro_words": "To order roll call, please. Trustee wells. Here.",
+        "intro_words": "Trustee wells. Here. Trustee lawson. Here.",
         "status": "found"
       },
       {
-        "item": 11,
-        "intro_words": "So I did want to report out on the closed session",
+        "item": 3,
+        "intro_words": "All right, so let's see. Communication and closed session.",
         "status": "found"
       },
       {
-        "item": 13,
+        "item": 5,
+        "intro_words": "I did want to report out on the closed session that we had from 5 to 6pm",
+        "status": "found"
+      },
+      {
+        "item": 12,
         "intro_words": "All right, well, welcome everyone. Let me put up.",
         "status": "found"
       },
       {
-        "item": 14,
-        "intro_words": "All right, I think that's sort of the housekeeping. And do I have any changes",
+        "item": 13,
+        "intro_words": "Certainly are happy to have community members team with us.",
         "status": "found"
       },
       {
-        "item": 16,
-        "intro_words": "All right, so we're on to the audit report. Dr. Baker",
+        "item": 14,
+        "intro_words": "All right, I think that's sort of the housekeeping. And do I have any changes to the Agenda.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "All right, oral communication. Let me just double check.",
+        "intro_words": "Okay, oral communication. Let me just double check.",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "All right, number nine. 9.1. Showcase of student projects in Redwood City.",
         "status": "found"
       },
       {
         "item": 21,
-        "intro_words": "All right, number nine. 9.1. Showcase of student projects",
+        "intro_words": "And tonight I'm so happy to have our wonderful principal from Roy Cloud, Ms. Diane Priestess.",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "All right, so we're on to the bond program consent items.",
-        "status": "consent_bundle"
+        "intro_words": "All right, so we're on to the bond program consent items. Do I have a motion to approve?",
+        "status": "found"
+      },
+      {
+        "item": 43,
+        "intro_words": "All right. And there's no bond program action items.",
+        "status": "found"
+      },
+      {
+        "item": 63,
+        "intro_words": "All right, so we're on to the audit report. Dr. Baker and Priscilla, would you like to introduce this item?",
+        "status": "found"
       },
       {
         "item": 44,
-        "intro_words": "All right, so we're on to 12.1. Spring expansion of school district",
+        "intro_words": "All right, well, I want to say thank you. Oh, go ahead.",
+        "status": "found"
+      },
+      {
+        "item": 45,
+        "intro_words": "All right, so we're on to 12.1. Spring expansion of school district January reopening.",
         "status": "found"
       },
       {
         "item": 46,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "All right, so we are on to the consent items. Do I have a motion to approve?",
         "status": "consent_bundle"
       },
       {
         "item": 56,
-        "intro_words": "All right, onto the action Items. We have 14.1.",
+        "intro_words": "Okay, onto the action Items. We have 14.1. Adoption of resolution 20, reduction of certain classified services.",
         "status": "found"
       },
       {
         "item": 57,
-        "intro_words": "All right, onto the action Items. We have 14.1. Adoption of resolution",
+        "intro_words": "Yes. HR department is bringing forward to tonight a reduction of certain classified services for the 2122 school year.",
         "status": "found"
       },
       {
         "item": 58,
-        "intro_words": "All right. 14.2. Approval of additional personnel needed for 2021.",
+        "intro_words": "14.2. Approval of additional personnel needed for 2021. Yes.",
         "status": "found"
       },
       {
         "item": 59,
-        "intro_words": "All right. 14.3. Recommendation regarding the approval of classified general",
+        "intro_words": "14.3. Recommendation regarding the approval of classified general leave requests.",
         "status": "found"
       },
       {
         "item": 60,
-        "intro_words": "All right, so we're on to 15.1. Report from board members",
+        "intro_words": "All right, so we're on to 15.1. Report from board members and superintendent.",
         "status": "found"
       },
       {
         "item": 64,
-        "intro_words": "Any correspondence? We're still getting a few emails,",
+        "intro_words": "Any correspondence? We're still getting a few emails, but they've really tapered off.",
         "status": "found"
       },
       {
         "item": 66,
-        "intro_words": "Other business items for future agenda. So, Ellie, board",
+        "intro_words": "Other business items for future agenda. So, Ellie, board agenda.",
+        "status": "found"
+      },
+      {
+        "item": 67,
+        "intro_words": "So the business office asked what additional board meetings we're having for the month of June.",
         "status": "found"
       },
       {
         "item": 69,
-        "intro_words": "All right, so procedurally, yeah, I think, you know,",
+        "intro_words": "All right, so procedurally, yeah, I think, you know, we do need to go back into our closed session.",
+        "status": "found"
+      },
+      {
+        "item": 70,
+        "intro_words": "All right, well, thank you, everybody, all of our attendees, for being here.",
         "status": "found"
       }
     ]
@@ -185,47 +220,52 @@
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
       null,
       {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      {
         "timestamp": "00:01:35",
         "timestampSeconds": 95
+      },
+      {
+        "timestamp": "00:01:25",
+        "timestampSeconds": 85
       },
       {
         "timestamp": "00:03:27",
         "timestampSeconds": 207
       },
       null,
-      {
-        "timestamp": "00:02:57",
-        "timestampSeconds": 177
-      },
+      null,
       null,
       {
-        "timestamp": "00:05:19",
-        "timestampSeconds": 319
+        "timestamp": "00:05:25",
+        "timestampSeconds": 325
       },
-      null,
       null,
       {
         "timestamp": "00:11:22",
         "timestampSeconds": 682
       },
       {
-        "timestamp": "02:01:43",
-        "timestampSeconds": 7303,
-        "consent": true
+        "timestamp": "00:11:17",
+        "timestampSeconds": 677
+      },
+      {
+        "timestamp": "00:30:15",
+        "timestampSeconds": 1815
       },
       null,
       null,
@@ -247,12 +287,18 @@
       null,
       null,
       null,
-      null,
+      {
+        "timestamp": "00:30:49",
+        "timestampSeconds": 1849
+      },
+      {
+        "timestamp": "00:41:25",
+        "timestampSeconds": 2485
+      },
       {
         "timestamp": "00:43:54",
         "timestampSeconds": 2634
       },
-      null,
       {
         "timestamp": "02:01:43",
         "timestampSeconds": 7303,
@@ -268,16 +314,16 @@
       null,
       null,
       {
-        "timestamp": "02:01:53",
-        "timestampSeconds": 7313
+        "timestamp": "02:01:48",
+        "timestampSeconds": 7308
       },
       {
-        "timestamp": "02:01:53",
-        "timestampSeconds": 7313
+        "timestamp": "02:02:40",
+        "timestampSeconds": 7360
       },
       {
-        "timestamp": "02:03:25",
-        "timestampSeconds": 7405
+        "timestamp": "02:03:45",
+        "timestampSeconds": 7425
       },
       {
         "timestamp": "02:05:36",
@@ -299,16 +345,22 @@
         "timestamp": "02:12:21",
         "timestampSeconds": 7941
       },
-      null,
+      {
+        "timestamp": "02:11:54",
+        "timestampSeconds": 7914
+      },
       null,
       {
-        "timestamp": "02:11:03",
-        "timestampSeconds": 7863
+        "timestamp": "02:17:36",
+        "timestampSeconds": 8256
       },
-      null
+      {
+        "timestamp": "02:18:36",
+        "timestampSeconds": 8316
+      }
     ]
   },
-  "cachedAt": "2026-11-03T23:00:15.394Z",
+  "cachedAt": "2026-11-04T13:52:06.550Z",
   "inputTokens": 26473,
-  "outputTokens": 998
+  "outputTokens": 1405
 }
