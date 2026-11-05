@@ -4,13 +4,13 @@
     "note": "Per-run translation health, asserted by scripts/check-pipeline-health.mjs after deploy. staleStuckRuns counts consecutive saturated-cap runs where staleDeferred did not shrink (threshold 4)."
   },
   "lastRun": {
-    "generatedAt": "2026-11-05T14:01:56.091Z",
-    "translated": 0,
+    "generatedAt": "2026-11-05T23:26:18.162Z",
+    "translated": 1,
     "cached": 177,
     "errors": 0,
     "staleQueued": 0,
     "staleDeferred": 0,
-    "totalCost": 0,
+    "totalCost": 0.83,
     "maxRunCost": 10,
     "guardTripped": false
   },
