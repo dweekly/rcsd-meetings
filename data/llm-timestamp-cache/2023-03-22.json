@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced. The board proceeded through the posted agenda in order.",
-    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No changes to agenda announced at beginning of meeting",
+    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -28,7 +28,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells? Here.",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
@@ -53,12 +53,12 @@
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
+        "intro_words": "Can I please get a motion to approve the agenda?",
         "status": "found"
       },
       {
@@ -74,21 +74,21 @@
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "can I please get a motion to approve the consent bond program?",
+        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
         "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "moving on to obviously, adjournment. I would like to adjourn the meeting",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
+        "intro_words": "moving on to obviously, adjournment. I would like to adjourn the meeting",
         "status": "found"
       }
     ]
@@ -137,8 +137,9 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:33",
-        "timestampSeconds": 93
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "00:01:19",
@@ -146,16 +147,16 @@
         "consent": true
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "02:18:16",
+        "timestampSeconds": 8296
       },
       {
-        "timestamp": "02:17:50",
-        "timestampSeconds": 8270
+        "timestamp": "02:18:16",
+        "timestampSeconds": 8296
       }
     ]
   },
-  "cachedAt": "2026-11-06T22:46:25.758Z",
+  "cachedAt": "2026-11-07T12:30:04.317Z",
   "inputTokens": 27924,
-  "outputTokens": 717
+  "outputTokens": 714
 }
