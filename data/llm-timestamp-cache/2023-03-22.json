@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced at beginning of meeting",
-    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
+    "agenda_changes": "No formal agenda changes announced. Items taken in posted order with consent items approved as bundle.",
+    "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -53,42 +53,42 @@
       },
       {
         "item": 7,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
         "item": 11,
         "intro_words": "Moving along to board program consent items 6.1. Approval of.",
-        "status": "consent_bundle"
+        "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "intro_words": "can I please get a motion to approve the consent bond program?",
         "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "moving on to obviously, adjournment. I would like to adjourn the meeting",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "moving on to obviously, adjournment. I would like to adjourn the meeting",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
         "status": "found"
       }
     ]
@@ -137,9 +137,8 @@
         "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:19",
-        "timestampSeconds": 79,
-        "consent": true
+        "timestamp": "00:01:33",
+        "timestampSeconds": 93
       },
       {
         "timestamp": "00:01:19",
@@ -147,16 +146,16 @@
         "consent": true
       },
       {
-        "timestamp": "02:18:16",
-        "timestampSeconds": 8296
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       },
       {
-        "timestamp": "02:18:16",
-        "timestampSeconds": 8296
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       }
     ]
   },
-  "cachedAt": "2026-11-07T12:30:04.317Z",
+  "cachedAt": "2026-11-07T21:29:51.261Z",
   "inputTokens": 27924,
-  "outputTokens": 714
+  "outputTokens": 720
 }
