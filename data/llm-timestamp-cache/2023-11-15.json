@@ -18,27 +18,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 pulled - to be discussed at a future meeting when further information is available. Item 9.3 moved from consent to action item for additional discussion and elaboration on video intercom buzzer proposal costs.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Item 10.1 pulled; item 9.3 moved from consent to action for discussion",
+    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
-        "status": "found"
+        "intro_words": "not found in transcript - Call to Order not explicitly marked",
+        "status": "not located"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present. Trustee Wild.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Good evening, everyone. Welcome to another Redwood City School District",
-        "status": "found"
+        "intro_words": "not explicitly marked as separate item in transcript",
+        "status": "not located"
       },
       {
         "item": 4,
-        "intro_words": "Good evening, everyone. Welcome to another Redwood City School District",
+        "intro_words": "Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
@@ -48,48 +48,48 @@
       },
       {
         "item": 6,
-        "intro_words": "And with that, does somebody want to make a motion to approve?",
-        "status": "found"
+        "intro_words": "not separately identified in transcript",
+        "status": "not located"
       },
       {
         "item": 7,
-        "intro_words": "I'll make a motion to approve the agenda with the changes that we move 9.3",
+        "intro_words": "Does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "I'll make a motion to approve the agenda with the changes that we move 9.3",
-        "status": "consent_bundle"
+        "intro_words": "not separately identified in transcript",
+        "status": "not located"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication. Thank you.",
-        "status": "found"
+        "intro_words": "not found - appears to be combined or not explicitly introduced",
+        "status": "not located"
       },
       {
         "item": 10,
-        "intro_words": "moving on to bond program consent Items, again with 9.3.",
-        "status": "found"
+        "intro_words": "not found - appears to be combined or not explicitly introduced",
+        "status": "not located"
       },
       {
         "item": 11,
-        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal",
+        "intro_words": "Closed Session 5:30 p.m. (Closed to the Public)",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "And with that, moving on to the study session discussion on dyslexia.",
+        "intro_words": "The report and close session, it's the board anonymously approved a settlement agreement",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Adjournment",
+        "intro_words": "Thank. You. The report and close session, it's the board anonymously approved",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Adjourn the Meeting",
-        "status": "found"
+        "intro_words": "not found",
+        "status": "not located"
       }
     ]
   },
@@ -101,10 +101,7 @@
         "timestamp": "00:00:07",
         "timestampSeconds": 7
       },
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
       {
         "timestamp": "00:00:07",
         "timestampSeconds": 7
@@ -113,37 +110,21 @@
         "timestamp": "01:10:10",
         "timestampSeconds": 4210
       },
+      null,
       {
         "timestamp": "01:10:41",
         "timestampSeconds": 4241
       },
-      {
-        "timestamp": "01:09:40",
-        "timestampSeconds": 4180
-      },
-      {
-        "timestamp": "01:10:59",
-        "timestampSeconds": 4259,
-        "consent": true
-      },
-      {
-        "timestamp": "01:11:15",
-        "timestampSeconds": 4275
-      },
-      {
-        "timestamp": "01:11:21",
-        "timestampSeconds": 4281
-      },
-      {
-        "timestamp": "01:11:26",
-        "timestampSeconds": 4286
-      },
+      null,
+      null,
+      null,
+      null,
       null,
       null,
       null
     ]
   },
-  "cachedAt": "2026-11-07T21:28:50.773Z",
+  "cachedAt": "2026-11-08T12:47:12.612Z",
   "inputTokens": 37863,
-  "outputTokens": 736
+  "outputTokens": 722
 }

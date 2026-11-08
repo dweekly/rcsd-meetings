@@ -18,22 +18,22 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Multiple changes announced during 'Changes to the Agenda': Items 7.1, 7.2, and 7.3 moved to consent (section 6); Item 7.4 remains under action; Item 10.1 (grand jury response) moved to consent; continuation of study session conversation moved to after 8.2 as new item 8.2A or 8.3; Scenario 3 adjusted to 3A for trustee area revision based on board feedback.",
+    "agenda_changes": "Multiple changes announced: Items 7.1, 7.2, and 7.3 moved to consent (section 6); 10.1 (grand jury response) moved to consent; continuation of study session conversation added after 8.2 as new item 8.2A or 8.3",
     "consent_vote_words": "Roll call vote, please. Trustee Wells. Aye. Trustee Lawson. Aye. Tracy Marquez. Aye. Vice President Diasokum. Aye. President Macavoy. Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "All right, roll call, please. Trustee Wells. Here. Trustee Lawson.",
+        "intro_words": "All right, roll call, please. Trustee Wells. Here.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Let's see. Vien venidos. Si necesita interpretacion en espanol, por favor.",
+        "intro_words": "Trustee Wells. Here. Trustee Lawson. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everyone, to. Let's see. It's November 17, 2021.",
+        "intro_words": "Vien venidos. Si necesita interpretacion en espanol, por favor.",
         "status": "found"
       },
       {
@@ -43,12 +43,12 @@
       },
       {
         "item": 5,
-        "intro_words": "All right, do I have any changes to the agenda? I have one",
+        "intro_words": "All right, do I have any changes to the agenda? I have one three proposed changes.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "I have one three proposed changes. 7.1, 7.2 and 7.3",
+        "intro_words": "Do I have any changes to the agenda? I have one three proposed changes. 7.1, 7.2",
         "status": "found"
       },
       {
@@ -59,16 +59,16 @@
       {
         "item": 8,
         "intro_words": "Do I have a motion to approve? So moved. Second.",
-        "status": "consent_bundle"
+        "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "All right, I do not see any oral communication comments. All right,",
+        "intro_words": "All right, I do not see any oral communication comments. All right, so we're on to",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "All right, so we're on to the bond program consent items. Do I have",
+        "intro_words": "I see how to handle that, yes. Okay. Do I have a motion to approve?",
         "status": "found"
       },
       {
@@ -83,12 +83,12 @@
       },
       {
         "item": 13,
-        "intro_words": "All right, so we are on to our 8.2 A or B or and",
-        "status": "found"
+        "intro_words": "All right, so we are on to the bond program consent items. Do I have a motion to approve?",
+        "status": "consent_bundle"
       },
       {
         "item": 14,
-        "intro_words": "All right, so let's see. We are on to 8.2 A or",
+        "intro_words": "All right, so we're on to 8.2. We're on to the presentation regarding potential trustee area revision.",
         "status": "found"
       }
     ]
@@ -101,12 +101,12 @@
         "timestampSeconds": 105
       },
       {
-        "timestamp": "00:02:07",
-        "timestampSeconds": 127
+        "timestamp": "00:02:00",
+        "timestampSeconds": 120
       },
       {
-        "timestamp": "00:02:32",
-        "timestampSeconds": 152
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142
       },
       {
         "timestamp": "00:02:32",
@@ -117,25 +117,24 @@
         "timestampSeconds": 233
       },
       {
-        "timestamp": "00:03:59",
-        "timestampSeconds": 239
+        "timestamp": "00:03:48",
+        "timestampSeconds": 228
       },
       {
         "timestamp": "00:04:36",
         "timestampSeconds": 276
       },
       {
-        "timestamp": "00:05:40",
-        "timestampSeconds": 340,
-        "consent": true
+        "timestamp": "00:04:36",
+        "timestampSeconds": 276
       },
       {
         "timestamp": "00:05:35",
         "timestampSeconds": 335
       },
       {
-        "timestamp": "00:05:10",
-        "timestampSeconds": 310
+        "timestamp": "00:05:05",
+        "timestampSeconds": 305
       },
       {
         "timestamp": "00:06:25",
@@ -146,16 +145,17 @@
         "timestampSeconds": 437
       },
       {
-        "timestamp": "00:07:12",
-        "timestampSeconds": 432
+        "timestamp": "00:06:40",
+        "timestampSeconds": 400,
+        "consent": true
       },
       {
-        "timestamp": "00:05:35",
-        "timestampSeconds": 335
+        "timestamp": "00:07:12",
+        "timestampSeconds": 432
       }
     ]
   },
-  "cachedAt": "2026-11-07T21:30:41.272Z",
+  "cachedAt": "2026-11-08T12:49:28.039Z",
   "inputTokens": 25018,
-  "outputTokens": 890
+  "outputTokens": 858
 }
