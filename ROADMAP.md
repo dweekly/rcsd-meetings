@@ -577,6 +577,10 @@ Filed by the per-meeting triage records in `data/triage/`. Each names the pull i
 - [ ] **`DATA_BASE` env var for the MCP worker** so `wrangler dev` can point at local `data/` instead of production R2 — today, data-dependent fixes can't be verified end-to-end before upload.
 - [ ] **Drop `build-transcript-viewer.mjs`** — legacy, not in run-pipeline, and overwrites bilingual pages with EN-only if run manually (header now warns).
 
+## Partner Watch
+
+- [ ] **Watch the district's critical partners, not just the district.** Extend scraping to the public record of organizations RCSD depends on (funders such as Sequoia Healthcare District, RCEF and the county; nonprofits delivering services in schools; PTOs) and flag meaningful or concerning changes: funding programs ending, priorities shifting, eligibility rules changing, leadership turnover. Prompted by Sequoia Healthcare District's board deciding on 2026-09-23 to end its Healthy Schools Initiative on 2027-06-30 (about $1.1M a year paid directly to RCSD), which surfaced through staff concern rather than through this site. First step is a list of partners and where each publishes agendas, minutes and budgets. (David, 2026-11-09)
+
 ## Hardening
 
 - [ ] **Move Playwright off the 1.65 alpha.** `playwright` is pinned to `1.65.0-alpha-2026-11-02` because it is the first build bundling a Chromium (158.0.8127.2) that contains the fixes for CVE-2026-118306, -118331, -118344 and -118348 (fixed in Chrome 156.0.8078.73); stable 1.64.1 still bundles 156.0.8078.4. Switch to stable `1.65.0` once it ships, checking that its `browsers.json` lists Chromium 158 or later.
