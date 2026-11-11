@@ -17,8 +17,8 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "At the start of the meeting, President DS Locum announced changes to the agenda: (1) Move three measure items (10.5, 10.6, 10.7) to consent; (2) Move items 10.3 and 10.4 to consent. Motion made by one board member and seconded by another, approved unanimously.",
-    "consent_vote_words": "Do I have a motion to approve all those three? Cecilia and second. Mike, all those in favor?",
+    "agenda_changes": "Early in meeting, President DS Locum announced changes to agenda: (1) moved three measure U items (10.5, 10.6, 10.7) to consent; (2) moved items 10.3 and 10.4 to consent. These consent items were then voted on as a bundle.",
+    "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
         "item": 1,
@@ -42,7 +42,7 @@
       },
       {
         "item": 7,
-        "intro_words": "Are there any changes to the agenda this evening?",
+        "intro_words": "All those in favor? Aye. Ali, do we have",
         "status": "found"
       },
       {
@@ -53,16 +53,51 @@
       {
         "item": 11,
         "intro_words": "Moving right along to the bond program consent items.",
-        "status": "found"
+        "status": "consent_bundle"
       },
       {
         "item": 12,
-        "intro_words": "on to 8 discussion items. The first one is 8.1.",
+        "intro_words": "Moving on to bond program action items. The first",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Adjournment. Can we have a motion to adjourn?",
+        "intro_words": "Okay, on to eight discussion items. The first one",
+        "status": "found"
+      },
+      {
+        "item": 14,
+        "intro_words": "8.2 First Reading and Discussion of Board Policy 1240",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "Okay. Moving on to 8.3. First reading and discussion",
+        "status": "found"
+      },
+      {
+        "item": 16,
+        "intro_words": "Okay. 8.4. First reading and discussion of board policy",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "Along to 8.5. First reading and discussion of board",
+        "status": "found"
+      },
+      {
+        "item": 18,
+        "intro_words": "Okay, can I have a motion to move the consent",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "Now on to 10.1 recommendation regarding revisiting the school",
+        "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "Moving on to 10.2. Recommendation. Adoption of Resolution 22,",
         "status": "found"
       }
     ]
@@ -89,8 +124,8 @@
       },
       null,
       {
-        "timestamp": "00:01:27",
-        "timestampSeconds": 87
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
       },
       null,
       {
@@ -99,20 +134,21 @@
       },
       null,
       {
-        "timestamp": "00:02:53",
-        "timestampSeconds": 173
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142,
+        "consent": true
       },
       {
-        "timestamp": "00:02:38",
-        "timestampSeconds": 158
+        "timestamp": "00:02:45",
+        "timestampSeconds": 165
       },
       {
-        "timestamp": "01:37:54",
-        "timestampSeconds": 5874
+        "timestamp": "00:02:22",
+        "timestampSeconds": 142
       }
     ]
   },
-  "cachedAt": "2026-11-10T22:54:41.893Z",
+  "cachedAt": "2026-11-11T13:36:27.467Z",
   "inputTokens": 18781,
-  "outputTokens": 530
+  "outputTokens": 833
 }

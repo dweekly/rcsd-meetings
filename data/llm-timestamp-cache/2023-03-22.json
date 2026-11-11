@@ -18,27 +18,27 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No agenda changes announced at the start of the meeting during 'Changes to the Agenda' section.",
-    "consent_vote_words": "Can I please get a motion to approve the consent bond program?",
+    "agenda_changes": "No changes to the agenda were announced at the beginning of the meeting. The meeting proceeded with posted agenda items.",
+    "consent_vote_words": "Can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present.",
+        "intro_words": "Roll call, please. Trustee Weekley? Present. Trustee McAvoy?",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board",
         "status": "found"
       },
       {
@@ -78,8 +78,8 @@
       },
       {
         "item": 12,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
-        "status": "found"
+        "intro_words": "Moving along to board program consent items 6.1. Approval of.",
+        "status": "consent_bundle"
       },
       {
         "item": 13,
@@ -142,8 +142,9 @@
         "consent": true
       },
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
         "timestamp": "02:17:50",
@@ -155,7 +156,7 @@
       }
     ]
   },
-  "cachedAt": "2026-11-10T22:54:17.608Z",
+  "cachedAt": "2026-11-11T13:35:57.689Z",
   "inputTokens": 27924,
-  "outputTokens": 694
+  "outputTokens": 716
 }
