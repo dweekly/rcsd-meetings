@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 10.1 was pulled and will not be discussed tonight. Item 9.3 was moved from consent to action for discussion.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
+    "agenda_changes": "Item 10.1 pulled - will not be discussed tonight, will come forward at another time. Item 9.3 moved from consent to action for discussion.",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
     "items": [
       {
         "item": 1,
@@ -39,17 +39,12 @@
       {
         "item": 4,
         "intro_words": "Welcome by the School Board President, Cecilia Marquez",
-        "status": "not_found"
-      },
-      {
-        "item": 5,
-        "intro_words": "Are there any changes to the agenda? Yes, It is going to be 10.1",
         "status": "found"
       },
       {
-        "item": 6,
-        "intro_words": "not applicable - combined with item 5",
-        "status": "not_applicable"
+        "item": 5,
+        "intro_words": "Are there any changes to the agenda? Yes, It is going to",
+        "status": "found"
       },
       {
         "item": 7,
@@ -58,37 +53,72 @@
       },
       {
         "item": 9,
-        "intro_words": "No oral communication. Thank you.",
+        "intro_words": "And do we have any oral communication? No oral communication.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3",
+        "intro_words": "moving on to bond program consent Items, again with 9.3.",
+        "status": "consent_bundle"
+      },
+      {
+        "item": "11.1",
+        "intro_words": "moving on to 11.11.1 being Hoover and Henry Ford school presentations",
         "status": "found"
       },
       {
-        "item": 12,
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading",
+        "item": "12.1",
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading and discussion",
+        "status": "found"
+      },
+      {
+        "item": "12.2",
+        "intro_words": "moving on to 12.2. Again, First Reading and Discussion of Foreign Policy",
+        "status": "found"
+      },
+      {
+        "item": "12.3",
+        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
+        "status": "found"
+      },
+      {
+        "item": "12.4",
+        "intro_words": "moving on to 12.4, first reading and discussion of BP and AR6171",
+        "status": "found"
+      },
+      {
+        "item": "12.5",
+        "intro_words": "with that 12.5 first reading of BP 6163.4 student use of technology.",
+        "status": "found"
+      },
+      {
+        "item": "12.6",
+        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items. If there are no",
+        "intro_words": "moving to item 13, consent items. If there are no questions,",
         "status": "found"
       },
       {
-        "item": 14,
+        "item": "14.1",
         "intro_words": "moving on to action items. 14.1 is adoption of resolution number",
         "status": "found"
       },
       {
+        "item": "14.2",
+        "intro_words": "14.2 Adoption of annual organizational meeting date set for December",
+        "status": "found"
+      },
+      {
         "item": 16,
-        "intro_words": "moving on to item 16.1, information on San Mateo county investment",
+        "intro_words": "moving on to item 16.1, information on San Mateo county investment fund.",
         "status": "found"
       },
       {
         "item": 18,
-        "intro_words": "moving on to item 18. Other business possible other business",
+        "intro_words": "moving on to board meeting calendar. Are there any changes to",
         "status": "found"
       }
     ]
@@ -111,29 +141,24 @@
       },
       null,
       {
-        "timestamp": "01:09:50",
-        "timestampSeconds": 4190
+        "timestamp": "01:11:15",
+        "timestampSeconds": 4275
       },
       null,
       {
-        "timestamp": "01:11:21",
-        "timestampSeconds": 4281
+        "timestamp": "01:10:59",
+        "timestampSeconds": 4259,
+        "consent": true
       },
-      {
-        "timestamp": "02:38:15",
-        "timestampSeconds": 9495
-      },
+      null,
       {
         "timestamp": "03:03:35",
         "timestampSeconds": 11015
       },
-      {
-        "timestamp": "03:03:12",
-        "timestampSeconds": 10992
-      }
+      null
     ]
   },
-  "cachedAt": "2026-11-12T14:39:25.572Z",
+  "cachedAt": "2026-11-12T23:15:07.975Z",
   "inputTokens": 37863,
-  "outputTokens": 685
+  "outputTokens": 1018
 }
