@@ -18,7 +18,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to the agenda were announced at the start of the meeting. The board proceeded with items in the posted order.",
+    "agenda_changes": "No changes to the agenda were announced. The president asked 'are there any changes to the agenda having here?' and received no response before proceeding to approval.",
     "consent_vote_words": "can I please get a motion to approve the consent bond program? I'll move to approve second. All those in favor? Aye.",
     "items": [
       {
@@ -43,12 +43,12 @@
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda having here?",
+        "intro_words": "are there any changes to the agenda having here? 9.",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda having here?",
+        "intro_words": "are there any changes to the agenda having here? 9.",
         "status": "found"
       },
       {
@@ -78,17 +78,17 @@
       },
       {
         "item": 12,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
-        "status": "found"
+        "intro_words": "can I please get a motion to approve the consent bond program? I'll move",
+        "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "moving on to obviously, adjournment. I would like to adjourn the meeting",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "moving on to obviously, adjournment. I would like to adjourn the meeting",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
         "status": "found"
       }
     ]
@@ -142,20 +142,21 @@
         "consent": true
       },
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "00:01:19",
+        "timestampSeconds": 79,
+        "consent": true
       },
       {
-        "timestamp": "02:18:16",
-        "timestampSeconds": 8296
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       },
       {
-        "timestamp": "02:18:16",
-        "timestampSeconds": 8296
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       }
     ]
   },
-  "cachedAt": "2026-11-14T22:02:46.868Z",
+  "cachedAt": "2026-11-15T13:30:31.233Z",
   "inputTokens": 27924,
-  "outputTokens": 730
+  "outputTokens": 738
 }
