@@ -32,12 +32,13 @@ test('the English and Spanish lines list the same number of topics', () => {
 });
 
 test('rows struck through in the Schedule are not published as planned topics', () => {
-  // The 10/06/2026 Schedule carries one struck row: "Communications Update" on
-  // Sept 9 2026. "Parent Engagement Report" was struck from Dec 9 2026 in earlier
-  // postings and has since been removed outright; it now sits on May 26 2027, where
-  // it must still be present.
-  assert.ok(doc._droppedStruckRows >= 1,
-    `expected the extractor to report the struck rows it dropped, got ${doc._droppedStruckRows}`);
+  // Earlier postings carried struck rows ("Communications Update" on Sept 9 2026,
+  // "Parent Engagement Report" on Dec 9 2026). Staff remove struck rows outright a
+  // revision or two later, so the count can legitimately be zero: the 11/05/2026
+  // Schedule has none (checked on the rendered pages). The count must still be
+  // reported, and the topics below must stay unpublished either way.
+  assert.ok(Number.isInteger(doc._droppedStruckRows) && doc._droppedStruckRows >= 0,
+    `expected the extractor to report how many struck rows it dropped, got ${doc._droppedStruckRows}`);
 
   assert.doesNotMatch(topics['2026-09-09']?.en ?? '', /Communications Update/i,
     'Sept 9 2026 is publishing a topic the district struck from the Schedule');

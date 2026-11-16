@@ -1,13 +1,13 @@
 {
-  "_source": "2026–27 Schedule of Agenda Items (last updated 10/29/2026), board-packet attachment for the 2026-11-04 meeting",
-  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-11-04/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_sourceFile": "artifacts/board-packets/2026-11-04/26-27-Schedule-of-Board-Agenda-Items.pdf",
-  "_sourceSha256": "9fd2b24fb00d1197ae9dce3019cdfda1d7d8bfb5380317d1c7d5182c014621ea",
-  "_sourceLastUpdate": "10/29/2026",
-  "_retrieved": "2026-11-02",
-  "_generated": "2026-11-02",
-  "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept. The `en`/`es` summaries are built from the topic column only. Within `items`, `administrator` and `duration` are approximate: PyMuPDF sometimes emits one span across both cells, and such a span is assigned whole to the column it overlaps most, so a duration can appear appended to the administrator (4 of the rows in this extraction). `department` is a cell the Schedule merges across consecutive rows, so it is attached to whichever row its label is vertically centred on and is absent from the others in the group.",
-  "_droppedStruckRows": 4,
+  "_source": "2026–27 Schedule of Agenda Items (last updated 11/05/2026), board-packet attachment for the 2026-11-18 meeting",
+  "_sourceUrl": "https://data.rcsd.info/board-packets/2026-11-18/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceFile": "artifacts/board-packets/2026-11-18/26-27-Schedule-of-Board-Agenda-Items.pdf",
+  "_sourceSha256": "4d90bd371e5fa35f0873b707f1f42859952f557197c1183f779247e0a90238ba",
+  "_sourceLastUpdate": "11/05/2026",
+  "_retrieved": "2026-11-15",
+  "_generated": "2026-11-15",
+  "_method": "scripts/extract-governance-calendar.py — PyMuPDF span colours and horizontal rules; rows struck through in the Schedule are deletions and are excluded, rows in red are additions and are kept. The `en`/`es` summaries are built from the topic column only. Within `items`, `administrator` and `duration` are approximate: PyMuPDF sometimes emits one span across both cells, and such a span is assigned whole to the column it overlaps most, so a duration can appear appended to the administrator (9 of the rows in this extraction). `department` is a cell the Schedule merges across consecutive rows, so it is attached to whichever row its label is vertically centred on and is absent from the others in the group.",
+  "_droppedStruckRows": 0,
   "provisionalTopics": {
     "2026-07-16": {
       "en": "Board Retreat",
@@ -224,7 +224,7 @@
       "es": "CAASPP o CA Dashboard; Actualización de Comunicaciones"
     },
     "2026-11-18": {
-      "en": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program); School and Committee Assignments for Trustees (Discussion); Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter",
+      "en": "Community School Report (Community School, Expanded Learning Program, & Mental Health Program); School and Committee Assignments for Trustees (Discussion); Connect – 25/26 Unaudited Actuals & Review Letter; Rocketship – 25/26 Unaudited Actuals & Review Letter; KIPP – 25/26 Unaudited Actuals & Review Letter; Review of Superintendent's Listening and Learning Sessions; Review and Approval of Technology in the Classroom Committee; Review and Approval of Enrollment & Capacity Community Engagement Process; Discussion and Approval of the CSBA Delegate Assembly Nominations for Region 5B",
       "items": [
         {
           "department": "Education Services",
@@ -256,21 +256,48 @@
           "administrator": "Rick Edson",
           "duration": "N/A",
           "note": "Information Only"
+        },
+        {
+          "topic": "Review of Superintendent's Listening and Learning Sessions",
+          "administrator": "Christian Rubalcaba 20 min",
+          "note": "Discussion"
+        },
+        {
+          "topic": "Review and Approval of Technology in the Classroom Committee",
+          "administrator": "Christian Rubalcaba 20 min",
+          "note": "Discussion"
+        },
+        {
+          "department": "Superintendent",
+          "topic": "Review and Approval of Enrollment & Capacity Community Engagement Process",
+          "administrator": "Christian Rubalcaba 20 min",
+          "note": "Discussion"
+        },
+        {
+          "topic": "Discussion and Approval of the CSBA Delegate Assembly Nominations for Region 5B",
+          "administrator": "Christian Rubalcaba 15 min",
+          "note": "Action"
         }
       ],
-      "es": "Reporte de la Community School (Community School, Expanded Learning Program, y Mental Health Program); Asignaciones Escolares y de Comités para los Trustees (Discusión); Connect – Cifras Reales Sin Auditar y Carta de Revisión 25/26; Rocketship – Cifras Reales Sin Auditar y Carta de Revisión 25/26; KIPP – Cifras Reales Sin Auditar y Carta de Revisión 25/26"
+      "es": "Reporte de la Community School (Community School, Expanded Learning Program, y Mental Health Program); Asignaciones de Escuelas y Comités para los Trustees (Discusión); Connect – Actuals sin Auditar del 25/26 y Carta de Revisión; Rocketship – Actuals sin Auditar del 25/26 y Carta de Revisión; KIPP – Actuals sin Auditar del 25/26 y Carta de Revisión; Revisión de las Sesiones de Escuchar y Aprender del Superintendente; Revisión y Aprobación del Comité de Tecnología en el Salón; Revisión y Aprobación del Proceso de Participación Comunitaria sobre Inscripción y Capacidad; Discusión y Aprobación de las Nominaciones a la Asamblea de Delegados de CSBA para la Región 5B"
     },
     "2026-12-09": {
-      "en": "2025-26 Bond Committee Report",
+      "en": "2025-26 Bond Committee Report; Library Board Presentation",
       "items": [
         {
           "department": "Business/ Finance",
           "topic": "2025-26 Bond Committee Report",
           "administrator": "Committee/ Rick Edson",
           "duration": "25 min"
+        },
+        {
+          "department": "Superintendent",
+          "topic": "Library Board Presentation",
+          "administrator": "Christian Rubalcaba 10 min",
+          "note": "Information"
         }
       ],
-      "es": "Reporte del Comité de Bonos 2025-26"
+      "es": "Reporte del Comité del Bono 2025-26; Presentación al Board sobre las Bibliotecas"
     },
     "2026-12-16": {
       "en": "Annual Developer Fee Report - FY ending 6/30/2026; 2026/27 First Interim Budget Report (Action); Annual Board Reorganization; Personnel Report",
@@ -434,7 +461,7 @@
       "es": "Reporte de Medio Año del LCAP; Boleta de la Asamblea de Delegados de CSBA; Reporte de Personal; No Reelección, Liberación Temporal, Liberación PKS y Reasignación de Empleados Clasificados/Certificados"
     },
     "2027-03-10": {
-      "en": "3 School Site Presentation(s) & 3 SPSA approval; Multitudes; Non-Reelect, Temp Release, PKS Release & Reassignment of Classified/Certificated Employees (Tentative); 2026/27 Second Interim Budget Report (Action)",
+      "en": "3 School Site Presentation(s) & 3 SPSA approval; Multitudes; Non-Reelect, Temp Release, PKS Release & Reassignment of; Classified/Certificated Employees (Tentative); 2026/27 Second Interim Budget Report (Action)",
       "items": [
         {
           "department": "Education Services",
@@ -452,10 +479,13 @@
         },
         {
           "department": "Human Resource",
-          "topic": "Non-Reelect, Temp Release, PKS Release & Reassignment of Classified/Certificated Employees (Tentative)",
+          "topic": "Non-Reelect, Temp Release, PKS Release & Reassignment of",
           "administrator": "Wendy Kelly/ Patricia Perez",
           "duration": "5 min",
           "note": "Must be approved as an action item"
+        },
+        {
+          "topic": "Classified/Certificated Employees (Tentative)"
         },
         {
           "department": "Business/ Finance",
@@ -465,7 +495,7 @@
           "note": "Action"
         }
       ],
-      "es": "3 Presentación(es) de Sitios Escolares y aprobación de 3 SPSA; Multitudes; No Reelección, Liberación Temporal, Liberación PKS y Reasignación de Empleados Clasificados/Certificados (Tentativo); Reporte del Segundo Interino de Presupuesto 2026/27 (Acción)"
+      "es": "3 Presentaciones de Planteles Escolares y 3 aprobaciones de SPSA; Multitudes; No Re-Elección, Liberación Temporal, Liberación de PKS y Reasignación de; Empleados Clasificados/Certificados (Tentativo); Reporte del Segundo Interim Budget 2026/27 (Acción)"
     },
     "2027-03-24": {
       "en": "3 School Site Presentation(s) & 3 SPSA approval",
@@ -697,7 +727,7 @@
       "requested": "claude-sonnet-5",
       "resolved": "claude-sonnet-5"
     },
-    "translated": "2026-11-03",
+    "translated": "2026-11-16",
     "note": "Machine translation of provisional agenda topics. The English Schedule of Agenda Items is the authoritative source."
   }
 }

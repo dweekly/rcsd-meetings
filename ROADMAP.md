@@ -382,7 +382,7 @@ Build a pipeline for rich per-meeting summaries (inputs already in place: AAI tr
   petition, which the board must grant or deny by about 2026-12-20 (90 days from the 9/21
   submission; see `data/triage/2026-10-14.md`). The 10/22 Schedule still lists no decision
   date. The 2026-10-28 consent agenda adds KIPP's 2026-27 Measure U application ($156,326 for
-  1.36 FTE of math leadership; [scan](https://data.rcsd.info/board-packets/2026-10-28/2026.27-Measure-U-KIPP-Excelencia.pdf)). Sources:
+  1.36 FTE of math leadership; [scan](https://data.rcsd.info/board-packets/2026-10-28/2026.27-Measure-U-KIPP-Excelencia.pdf)). The 2026-11-18 agenda (information items 17.1-17.3) adds each charter's 2025-26 unaudited actuals and RCSD's review letter, six files under `board-packets/2026-11-18/`; the Rocketship letter requires a fiscal stabilization plan (see `data/triage/2026-11-18.md`). Sources:
   - Connect: [review letter](https://data.rcsd.info/board-packets/2026-09-23/Connect-FY-2026-27-Adopted-Budget-Review-Letter.pdf),
     [adopted budget](https://data.rcsd.info/board-packets/2026-09-23/Connect-2026-27-Adopted-Budget-Board.pdf),
     [LCAP](https://data.rcsd.info/board-packets/2026-09-23/Connect-LCAP-2026-27-Adopted-Budget.pdf)
