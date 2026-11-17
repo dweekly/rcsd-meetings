@@ -21,7 +21,7 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved up to occur before oral communication instead of its originally posted position. Additionally, item 6.1 (Approval of bond program consent items) was moved from consent to action due to public comments being received. Items 6.2 and 6.3 were also moved to action.",
+    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) was moved from its original position to before Oral Communication. Item 6.1 (Approval of Bond Program Consent Items) was moved from consent to action due to public comments. Items 6.2 and 6.3 were moved to action. Bond program consent items were moved to action items.",
     "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
@@ -65,49 +65,89 @@
         "status": "consent_bundle"
       },
       {
+        "item": 13,
+        "intro_words": "So item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "So item 8, school and community reports. 8.1. School plans for student achievement reports for Garfield Community School and Henry Ford.",
+        "status": "found"
+      },
+      {
+        "item": 8.1,
+        "intro_words": "Good evening. Dr. Baker, President Marquez, Vice President Lawson, Trustees, Redwood City Community",
+        "status": "found"
+      },
+      {
+        "item": 8.2,
+        "intro_words": "Good evening Superintendent, Dr. Baker, President Marquez, cabinet members and community members.",
+        "status": "found"
+      },
+      {
         "item": 9,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
+        "intro_words": "So I know it's been a long day, but I just want to say, Lupus and Fanny, I know you've been at Garfield",
         "status": "found"
       },
       {
         "item": 10,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication. And this is recognition of classified employees.",
-        "status": "consent_bundle"
+        "intro_words": "I'm not going to really talk about that one now because it comes up later under parent voice.",
+        "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Great with that then. Item 6.2, Approval of Measure T bond program tracking list of items under 20,000.",
+        "intro_words": "So moving along then, we're on to item nine, discussion items.",
+        "status": "found"
+      },
+      {
+        "item": 11.1,
+        "intro_words": "And action. Item 11.1, approval of recruitment incentive stipend for hard to fill middle school",
+        "status": "found"
+      },
+      {
+        "item": 11.2,
+        "intro_words": "Next. Item 11.2, Adoption of Resolution 32 authorizing the establishment of a bank clearing account.",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "And then bond program action items 7.1, approval of measure T final projects list.",
+        "intro_words": "More super and superintendent reports.",
         "status": "found"
       },
       {
-        "item": 13,
-        "intro_words": "7.2. Approval of amendment number two to the Program Management Services Agreement with RGMK.",
+        "item": 13.2,
+        "intro_words": "And then 13.2 is contract update information and credit card summary question.",
+        "status": "found"
+      },
+      {
+        "item": 13.3,
+        "intro_words": "And then 13.3 information on San Mateo county investment fund for February.",
+        "status": "found"
+      },
+      {
+        "item": 13.4,
+        "intro_words": "And then 13.4 information, the SEO county for March.",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Great. So I know it's been a long day, but I just want to say, Lupus and Fanny, I know you've been at Garfield both 13 years now",
+        "intro_words": "Correspondence. Continue to get public records.",
         "status": "found"
       },
       {
         "item": 15,
-        "intro_words": "Great. So I know it's been a long day, but I just want to say, Lupus and Fanny, I know you've been at Garfield both 13 years now",
-        "status": "consent_bundle"
+        "intro_words": "Any possible other business or suggested items.",
+        "status": "found"
       },
       {
         "item": 16,
-        "intro_words": "pulled",
-        "status": "pulled"
+        "intro_words": "And then any changes to the board meeting calendar?",
+        "status": "found"
       },
       {
         "item": 17,
-        "intro_words": "pulled",
-        "status": "pulled"
+        "intro_words": "So does somebody want to make a motion to adjourn them?",
+        "status": "found"
       }
     ]
   },
@@ -151,40 +191,41 @@
         "consent": true
       },
       {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
-      },
-      {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168,
-        "consent": true
-      },
-      {
-        "timestamp": "00:12:58",
-        "timestampSeconds": 778
-      },
-      {
-        "timestamp": "00:16:30",
-        "timestampSeconds": 990
-      },
-      {
-        "timestamp": "00:17:44",
-        "timestampSeconds": 1064
-      },
-      {
         "timestamp": "01:28:30",
         "timestampSeconds": 5310
       },
       {
-        "timestamp": "00:02:48",
-        "timestampSeconds": 168,
-        "consent": true
+        "timestamp": "02:06:08",
+        "timestampSeconds": 7568
+      },
+      {
+        "timestamp": "03:10:21",
+        "timestampSeconds": 11421
+      },
+      {
+        "timestamp": "03:18:59",
+        "timestampSeconds": 11939
       },
       null,
-      null
+      {
+        "timestamp": "03:27:22",
+        "timestampSeconds": 12442
+      },
+      {
+        "timestamp": "03:27:27",
+        "timestampSeconds": 12447
+      },
+      {
+        "timestamp": "03:29:57",
+        "timestampSeconds": 12597
+      },
+      {
+        "timestamp": "03:30:02",
+        "timestampSeconds": 12602
+      }
     ]
   },
-  "cachedAt": "2026-11-16T14:50:43.619Z",
+  "cachedAt": "2026-11-17T01:39:42.999Z",
   "inputTokens": 43596,
-  "outputTokens": 975
+  "outputTokens": 1337
 }
