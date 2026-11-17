@@ -19,12 +19,12 @@
   ],
   "llmResponse": {
     "agenda_changes": "Item 10.1 pulled (not to be discussed); Item 9.3 moved from consent to action",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
+    "consent_vote_words": "I'll make a motion to approve the agenda with the changes that we move 9.3 to action and that we, I guess, do not hold. Hold 10.1",
     "items": [
       {
         "item": 1,
         "intro_words": "Call to Order",
-        "status": "found"
+        "status": "posted_only"
       },
       {
         "item": 2,
@@ -34,7 +34,7 @@
       {
         "item": 3,
         "intro_words": "Welcome",
-        "status": "found"
+        "status": "posted_only"
       },
       {
         "item": 4,
@@ -43,63 +43,53 @@
       },
       {
         "item": 5,
-        "intro_words": "Yes, It is going to be 10.1. We are going to pull that",
+        "intro_words": "Changes to the Agenda",
         "status": "found"
       },
       {
         "item": 6,
         "intro_words": "Additions, Deletions, or Modifications to the Agenda",
-        "status": "found"
+        "status": "posted_only"
       },
       {
         "item": 7,
-        "intro_words": "And with that, does somebody want to make a motion to approve",
+        "intro_words": "Approval of the Agenda (Action required)",
         "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Approval of the Agenda",
+        "status": "posted_only"
       },
       {
         "item": 9,
-        "intro_words": "And do we have any oral communication? No oral communication.",
-        "status": "found"
+        "intro_words": "Oral Communication on Closed Session Items Only",
+        "status": "posted_only"
+      },
+      {
+        "item": 10,
+        "intro_words": "If you have a public comment related to a Closed Session item",
+        "status": "posted_only"
       },
       {
         "item": 11,
-        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for the",
+        "intro_words": "Closed Session 5:30 p.m. (Closed to the Public)",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "And item 11.1 being Hoover and Henry Ford school presentations for",
-        "status": "found"
+        "intro_words": "CONFERENCE WITH LEGAL COUNSEL—EXISTING LITIGATION",
+        "status": "posted_only"
       },
       {
         "item": 13,
-        "intro_words": "And moving to item 13, consent items. If there are no",
-        "status": "consent_bundle"
+        "intro_words": "Adjournment",
+        "status": "posted_only"
       },
       {
         "item": 14,
-        "intro_words": "And moving on to action items. 14.1 is adoption of resolution",
-        "status": "found"
-      },
-      {
-        "item": 15,
-        "intro_words": "Okay, so now on to board and superintendent report.",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "Okay, so moving on to item 16.1, information on San Mateo",
-        "status": "found"
-      },
-      {
-        "item": 17,
-        "intro_words": "And moving on to corresponding correspondence. Yeah, I got a correspondence",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "Okay, so moving on to item 18. Other business possible other",
-        "status": "found"
+        "intro_words": "Adjourn the Meeting",
+        "status": "posted_only"
       }
     ]
   },
@@ -111,40 +101,24 @@
       null,
       null,
       {
-        "timestamp": "01:10:00",
-        "timestampSeconds": 4200
+        "timestamp": "00:00:22",
+        "timestampSeconds": 22
       },
       null,
-      {
-        "timestamp": "01:10:41",
-        "timestampSeconds": 4241
-      },
       null,
       {
-        "timestamp": "01:11:15",
-        "timestampSeconds": 4275
+        "timestamp": "01:09:00",
+        "timestampSeconds": 4140
       },
       null,
-      {
-        "timestamp": "01:11:26",
-        "timestampSeconds": 4286
-      },
-      {
-        "timestamp": "01:13:48",
-        "timestampSeconds": 4428
-      },
-      {
-        "timestamp": "03:03:12",
-        "timestampSeconds": 10992,
-        "consent": true
-      },
-      {
-        "timestamp": "03:03:07",
-        "timestampSeconds": 10987
-      }
+      null,
+      null,
+      null,
+      null,
+      null
     ]
   },
-  "cachedAt": "2026-11-17T01:39:10.756Z",
+  "cachedAt": "2026-11-17T15:32:58.249Z",
   "inputTokens": 37863,
-  "outputTokens": 783
+  "outputTokens": 668
 }

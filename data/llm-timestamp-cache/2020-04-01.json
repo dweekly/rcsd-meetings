@@ -37,32 +37,32 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Staff recognition was pulled from its posted position and moved to after item 5 (Oral Communication). No other changes announced.",
+    "agenda_changes": "Staff recognition was pulled from its original position and moved to after Item 5 (Oral Communication). No other agenda changes were announced.",
     "consent_vote_words": "And a roll call vote, please. Trustee McBride. Aye. Trustee Marquez. Aye. Trustee Diaz Locum. Aye. Trustee McAvoy. Aye. Trustee Lawson. Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Trustee McBride. Here. Trustee Marquez. Here. Trustee Diaz locum.",
-        "status": "found"
+        "intro_words": "Call to Order",
+        "status": "not_found_in_transcript"
       },
       {
         "item": 2,
-        "intro_words": "Trustee Diaz locum. Here. Trustee McAvoy. Present. Tracy Lawson.",
-        "status": "found"
+        "intro_words": "Roll Call",
+        "status": "not_found_in_transcript"
       },
       {
         "item": 3,
+        "intro_words": "Welcome",
+        "status": "not_found_in_transcript"
+      },
+      {
+        "item": 4,
         "intro_words": "Welcome, everybody. It's good to see some familiar faces again.",
         "status": "found"
       },
       {
-        "item": 4,
-        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
-        "status": "found"
-      },
-      {
         "item": 5,
-        "intro_words": "Please join me in the Pledge of Allegiance. My Pledge of Allegiance.",
+        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
         "status": "found"
       },
       {
@@ -71,19 +71,34 @@
         "status": "found"
       },
       {
-        "item": "Staff Recognition (pulled/reordered)",
+        "item": 6.5,
+        "intro_words": "Staff recognition (pulled and moved after item 5)",
+        "status": "pulled"
+      },
+      {
+        "item": "Staff Recog",
         "intro_words": "So we will move on to the staff recognition. Stanley, thank you.",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "consent_bundle"
+        "intro_words": "Approval of Agenda (Action Required)",
+        "status": "not_found_in_transcript"
       },
       {
-        "item": 19,
+        "item": 10,
+        "intro_words": "So we are on to item six, the bond program consent items to approve.",
+        "status": "found"
+      },
+      {
+        "item": 11,
         "intro_words": "All right, moving on to 7.1, which is a bond action item.",
         "status": "found"
+      },
+      {
+        "item": 20,
+        "intro_words": "Approval of Multi-Prime Construction Agreements with Various Contractors at Taft School",
+        "status": "consent_bundle"
       },
       {
         "item": 22,
@@ -92,17 +107,17 @@
       },
       {
         "item": 25,
+        "intro_words": "So this is 10.1. Action item. This is the resolution of emergency relating to COVID 19.",
+        "status": "found"
+      },
+      {
+        "item": 26,
         "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have anything they would like to.",
         "status": "found"
       },
       {
-        "item": 25,
-        "intro_words": "Moving on to item 10.1. Action item. This is the resolution of emergency relating to COVID 19.",
-        "status": "found"
-      },
-      {
         "item": 33,
-        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard a first and a second.",
+        "intro_words": "Is there a motion to adjourn. In unison?",
         "status": "found"
       }
     ]
@@ -110,18 +125,15 @@
   "result": {
     "videoId": "0cWwZ9lGR0U",
     "items": [
+      {
+        "timestamp": "00:00:27",
+        "timestampSeconds": 27
+      },
+      null,
       null,
       {
         "timestamp": "00:00:00",
         "timestampSeconds": 0
-      },
-      {
-        "timestamp": "00:00:00",
-        "timestampSeconds": 0
-      },
-      {
-        "timestamp": "00:03:01",
-        "timestampSeconds": 181
       },
       {
         "timestamp": "00:03:01",
@@ -132,13 +144,16 @@
         "timestampSeconds": 208
       },
       null,
+      null,
+      null,
       {
-        "timestamp": "00:04:18",
-        "timestampSeconds": 258,
-        "consent": true
+        "timestamp": "00:05:13",
+        "timestampSeconds": 313
       },
-      null,
-      null,
+      {
+        "timestamp": "00:05:53",
+        "timestampSeconds": 353
+      },
       null,
       null,
       null,
@@ -149,9 +164,9 @@
       null,
       {
         "timestamp": "00:05:53",
-        "timestampSeconds": 353
+        "timestampSeconds": 353,
+        "consent": true
       },
-      null,
       null,
       {
         "timestamp": "00:08:30",
@@ -159,6 +174,10 @@
       },
       null,
       null,
+      {
+        "timestamp": "01:47:14",
+        "timestampSeconds": 6434
+      },
       {
         "timestamp": "01:48:57",
         "timestampSeconds": 6537
@@ -169,14 +188,13 @@
       null,
       null,
       null,
-      null,
       {
-        "timestamp": "02:04:16",
-        "timestampSeconds": 7456
+        "timestamp": "01:48:14",
+        "timestampSeconds": 6494
       }
     ]
   },
-  "cachedAt": "2026-11-17T01:42:14.700Z",
+  "cachedAt": "2026-11-17T15:36:04.573Z",
   "inputTokens": 24593,
-  "outputTokens": 798
+  "outputTokens": 877
 }
