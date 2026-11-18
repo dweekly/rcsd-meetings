@@ -74,8 +74,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two changes announced: (1) Add closed session continuation after item 11 (Report Out on Closed Session); (2) Move item 16.1 (Information on Financial Audit Report) to after item 11 (before Discussion Items)",
-    "consent_vote_words": "Do I have a motion to approve? So moved. Second. Maria Cecilia seconds roll call vote.",
+    "agenda_changes": "Two changes announced: (1) Added closed session after item 11 (Report Out on Closed Session) to continue CSEA and RCTA negotiations; (2) Moved item 16.1 (Information on Financial Audit Report) to after item 11 (before Discussion Items/Bond Program Action Items) to allow presenter to leave early",
+    "consent_vote_words": "Do I have a motion to approve? So moved. Second. Maria and Mike, roll call vote.",
     "items": [
       {
         "item": 1,
@@ -84,208 +84,348 @@
       },
       {
         "item": 2,
-        "intro_words": "To order roll call, please. Trustee wells.",
+        "intro_words": "To order roll call, please. Trustee wells. Here. Trustee lawson.",
+        "status": "found"
+      },
+      {
+        "item": 3,
+        "intro_words": "Communication and closed session. Full Internet connection tonight.",
+        "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "not applicable - informational item in posted agenda",
+        "status": "not_found"
+      },
+      {
+        "item": 5,
+        "intro_words": "not applicable - closed session occurred before regular meeting",
+        "status": "not_found"
+      },
+      {
+        "item": 6,
+        "intro_words": "Conference with real Property negotiators. We basically heard from staff",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "CSEA negotiations update and 3.3 RCTA negotiations update, we did have",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "RCTA negotiations update, we did have a conversation for a half an hour",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "All right, number nine. 9.1. Showcase of student projects",
+        "intro_words": "Reconvene to Regular Session at Approximately 7:00p.m. - not explicitly marked in transcript",
+        "status": "inferred"
+      },
+      {
+        "item": 10,
+        "intro_words": "Roll call please. Trustee wells. Here. Trustee lawson.",
+        "status": "found"
+      },
+      {
+        "item": 11,
+        "intro_words": "so let's see. Communication and closed session. Full Internet connection tonight.",
+        "status": "found"
+      },
+      {
+        "item": 12,
+        "intro_words": "well, welcome everyone. Let me put up. Pull up my little welcome.",
+        "status": "found"
+      },
+      {
+        "item": 13,
+        "intro_words": "Welcome by the School Board President - covered in item 12",
+        "status": "combined"
+      },
+      {
+        "item": 14,
+        "intro_words": "do I have any changes to the Agenda. As I said, I would",
+        "status": "found"
+      },
+      {
+        "item": 15,
+        "intro_words": "Changes to the Agenda - second instance covered in item 14",
+        "status": "combined"
+      },
+      {
+        "item": 16,
+        "intro_words": "Do I have a motion to approve the agenda with the two changes",
+        "status": "found"
+      },
+      {
+        "item": 17,
+        "intro_words": "Approval of Agenda - second instance covered in item 16",
+        "status": "combined"
+      },
+      {
+        "item": 18,
+        "intro_words": "oral communication. Let me just double check. Something just came in.",
+        "status": "found"
+      },
+      {
+        "item": 19,
+        "intro_words": "not applicable - informational item in posted agenda",
+        "status": "not_found"
+      },
+      {
+        "item": 20,
+        "intro_words": "School/Community Reports - covered in item 21",
+        "status": "combined"
+      },
+      {
+        "item": 21,
+        "intro_words": "number nine. 9.1. Showcase of student projects in Redwood City. And tonight",
         "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "we're on to the bond program consent items. Do I have a motion",
         "status": "found"
       },
       {
         "item": 23,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Seat Wall Proposal with Casey Fogli for Hoover School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 24,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Measure T Bond Program Tracking List for Items Under $20K - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 25,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Flooring and Carpentry Add Service Proposals for the Child Daycare Center - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 26,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Storm Drain Proposals for Garfield School with MK Pipelines - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 27,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Special Testing and Inspection Project Authorization Form - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 28,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Additional California Environmental Quality Act - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 29,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of the Proposal to Refresh the Track for Kennedy Middle School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 30,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Plumbing Fixture Modifications Proposal for the Child Daycare Center - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 31,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Covid-19 Safety Compliance Officer Amendment #1 - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 32,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Asphalt Replacement Construction Agreement for Clifford School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 33,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of the Interim Housing Landscape Restoration for Roosevelt School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 34,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Exterior Ramp Proposal for Clifford School with Ap and Deck - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 35,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Kindergarten Play Structure Agreement for Garfield School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 36,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Electric Bus Chargers Purchase Agreement for the Maintenance Yard - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 37,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of American Disability Act Path of Travel and Handrail Proposals - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 38,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Electric Bus Chargers Non-California Energy Commission Oversight - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 39,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Temporary Parking Lot Proposal for Garfield School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 40,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Parking Lot Expansion Architect Agreement for Kennedy Middle School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 41,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of Architect Add Service Proposal for Hoover School with CSDA - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 42,
-        "intro_words": "All right, we're on to the bond program consent items.",
+        "intro_words": "Approval of the Modernization Project for Roosevelt Elementary School - included in consent bundle",
         "status": "consent_bundle"
       },
       {
-        "item": 63,
-        "intro_words": "Okay, we're on to the audit report. Dr. Baker and Priscilla",
+        "item": 43,
+        "intro_words": "And there's no bond program action items. Thank you very much.",
+        "status": "found"
+      },
+      {
+        "item": 44,
+        "intro_words": "we're on to the audit report. Dr. Baker and Priscilla, would you like",
         "status": "found"
       },
       {
         "item": 45,
-        "intro_words": "All right, so we're on to 12.1. Spring expansion of school district",
+        "intro_words": "we're on to 12.1. Spring expansion of school district January reopening. Dr. Baker",
         "status": "found"
       },
       {
         "item": 46,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "so we're on to the consent items. Do I have a motion to approve?",
         "status": "found"
       },
       {
         "item": 47,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Approval of March 24th Board Minutes - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 48,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Approval of March 24th Board Minutes Regular Board Meeting - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 49,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Approval of Nomination of Parent Elena Levina - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 50,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Second Reading and Approval of Board Policy 0430 - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 51,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Second Reading and Approval of Board Policy 3551 - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 52,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Second Reading and Approval of Board Policy 5142 - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 53,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Ratification of Warrant Register, March 1, 2021 - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 54,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Extension of the Agreement for Food Service Management between Sodexo - included in consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 55,
-        "intro_words": "All right, so we are on to the consent items.",
+        "intro_words": "Approval of Local Interagency Agreement to Provide Education and Training - included in consent bundle",
         "status": "consent_bundle"
       },
       {
+        "item": 56,
+        "intro_words": "we are on to the action Items. We have 14.1. Adoption of resolution",
+        "status": "found"
+      },
+      {
         "item": 57,
-        "intro_words": "Okay, onto the action Items. We have 14.1. Adoption of resolution",
+        "intro_words": "Adoption of Resolution 20, Reduction of Certain Classified Services - covered in item 56",
         "status": "found"
       },
       {
         "item": 58,
-        "intro_words": "14.2. Approval of additional personnel needed for 2021.",
+        "intro_words": "14.2. Approval of additional personnel needed for 2021. Yes. Thank you.",
         "status": "found"
       },
       {
         "item": 59,
-        "intro_words": "14.3. Recommendation regarding the approval of classified general leave",
+        "intro_words": "14.3. Recommendation regarding the approval of classified general leave requests.",
+        "status": "found"
+      },
+      {
+        "item": 60,
+        "intro_words": "we're on to 15.1. Report from board members and superintendent. Who would",
         "status": "found"
       },
       {
         "item": 61,
-        "intro_words": "All right, so we're on to 15.1. Report from board members",
+        "intro_words": "Report from Board Members and Superintendent - covered in item 60",
+        "status": "combined"
+      },
+      {
+        "item": 62,
+        "intro_words": "Information on Financial Audit Report - moved up and covered as reordered item",
+        "status": "found"
+      },
+      {
+        "item": 63,
+        "intro_words": "Information on Financial Audit Report for RCSD for 2019-20 School Year - covered in item 62",
+        "status": "combined"
+      },
+      {
+        "item": 64,
+        "intro_words": "Any correspondence? We're still getting a few emails, but they've really",
         "status": "found"
       },
       {
         "item": 65,
-        "intro_words": "Any correspondence? We're still getting a few emails",
+        "intro_words": "Correspondence - covered in item 64",
+        "status": "combined"
+      },
+      {
+        "item": 66,
+        "intro_words": "Other business items for future agenda. So, Ellie, board agenda.",
         "status": "found"
       },
       {
-        "item": 69,
-        "intro_words": "All right, so procedurally, yeah, I think, you know, we do need",
+        "item": 67,
+        "intro_words": "for the Ellie, we need to add an additional meeting, if I'm not",
         "status": "found"
+      },
+      {
+        "item": 68,
+        "intro_words": "Changes to the Board Agenda Schedule - covered in item 67",
+        "status": "combined"
+      },
+      {
+        "item": 69,
+        "intro_words": "so I don't think we adjourned the meeting at this point. Point.",
+        "status": "found"
+      },
+      {
+        "item": 70,
+        "intro_words": "Adjourn the Meeting - not yet completed, meeting reconvened to closed session",
+        "status": "not_found"
       }
     ]
   },
@@ -300,31 +440,61 @@
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      null,
-      null,
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:11:22",
-        "timestampSeconds": 682
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
       },
       null,
       null,
+      {
+        "timestamp": "00:00:40",
+        "timestampSeconds": 40
+      },
+      {
+        "timestamp": "00:00:40",
+        "timestampSeconds": 40
+      },
+      {
+        "timestamp": "00:00:50",
+        "timestampSeconds": 50
+      },
       null,
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      {
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      {
+        "timestamp": "00:01:35",
+        "timestampSeconds": 95
+      },
       null,
+      {
+        "timestamp": "00:03:37",
+        "timestampSeconds": 217
+      },
       null,
+      {
+        "timestamp": "00:04:54",
+        "timestampSeconds": 294
+      },
       null,
-      null,
-      null,
-      null,
-      null,
+      {
+        "timestamp": "00:05:25",
+        "timestampSeconds": 325
+      },
       null,
       null,
       {
-        "timestamp": "00:30:15",
-        "timestampSeconds": 1815
+        "timestamp": "00:11:27",
+        "timestampSeconds": 687
+      },
+      {
+        "timestamp": "00:30:25",
+        "timestampSeconds": 1825
       },
       {
         "timestamp": "02:01:43",
@@ -426,11 +596,17 @@
         "timestampSeconds": 7303,
         "consent": true
       },
-      null,
-      null,
       {
-        "timestamp": "00:43:54",
-        "timestampSeconds": 2634
+        "timestamp": "00:30:54",
+        "timestampSeconds": 1854
+      },
+      {
+        "timestamp": "00:31:04",
+        "timestampSeconds": 1864
+      },
+      {
+        "timestamp": "00:44:09",
+        "timestampSeconds": 2649
       },
       {
         "timestamp": "00:44:43",
@@ -481,10 +657,13 @@
         "timestampSeconds": 7303,
         "consent": true
       },
-      null,
       {
-        "timestamp": "02:01:48",
-        "timestampSeconds": 7308
+        "timestamp": "02:01:38",
+        "timestampSeconds": 7298
+      },
+      {
+        "timestamp": "02:02:30",
+        "timestampSeconds": 7350
       },
       {
         "timestamp": "02:03:45",
@@ -494,12 +673,14 @@
         "timestamp": "02:05:36",
         "timestampSeconds": 7536
       },
-      null,
       {
-        "timestamp": "02:05:56",
-        "timestampSeconds": 7556
+        "timestamp": "02:06:01",
+        "timestampSeconds": 7561
       },
-      null,
+      {
+        "timestamp": "02:06:21",
+        "timestampSeconds": 7581
+      },
       null,
       null,
       {
@@ -507,7 +688,14 @@
         "timestampSeconds": 7884
       },
       null,
-      null,
+      {
+        "timestamp": "02:12:21",
+        "timestampSeconds": 7941
+      },
+      {
+        "timestamp": "02:12:00",
+        "timestampSeconds": 7920
+      },
       null,
       {
         "timestamp": "02:17:36",
@@ -516,7 +704,7 @@
       null
     ]
   },
-  "cachedAt": "2026-11-18T00:38:07.199Z",
+  "cachedAt": "2026-11-18T15:11:52.361Z",
   "inputTokens": 26473,
-  "outputTokens": 2002
+  "outputTokens": 3575
 }
