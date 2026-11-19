@@ -18,8 +18,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two changes announced during approval of agenda: (1) Item 10.1 pulled and not discussed this evening; (2) Item 9.3 moved from consent bundle to action item",
-    "consent_vote_words": "I'll move to approve. I'll second. All those in favor? Aye. Thank you.",
+    "agenda_changes": "Two items were pulled/modified from the agenda: Item 10.1 was pulled and will not be discussed tonight (will come forward at another time). Item 9.3 was moved from consent to action for discussion.",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -28,7 +28,7 @@
       },
       {
         "item": 2,
-        "intro_words": "Trustee Weekley. Present. Trustee McAvoy. Present.",
+        "intro_words": "Roll Call",
         "status": "found"
       },
       {
@@ -38,77 +38,57 @@
       },
       {
         "item": 4,
-        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
-        "status": "found"
+        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
+        "status": "not found in transcript"
       },
       {
         "item": 5,
-        "intro_words": "And with that, is there any oral communication? We have four speakers cards for the dyslexia discussion.",
+        "intro_words": "Changes to the Agenda",
         "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "And with that, moving on to our study session discussion on dyslexia.",
+        "intro_words": "Additions, Deletions, or Modifications to the Agenda",
+        "status": "found"
+      },
+      {
+        "item": 7,
+        "intro_words": "Approval of the Agenda (Action required)",
+        "status": "found"
+      },
+      {
+        "item": 9,
+        "intro_words": "Oral Communication on Closed Session Items Only",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Good evening everyone. Evelyn, can you please do roll call? Trustee weekly.",
+        "intro_words": "moving on to bond program consent Items, again with 9.3",
         "status": "found"
       },
       {
-        "item": "11.1",
-        "intro_words": "And with that, moving on to 11.11.1 being Hoover and Henry Ford school presentations for the 2324",
-        "status": "found"
-      },
-      {
-        "item": "12.1",
-        "intro_words": "So moving to item 12 for discussion. 12.1 being first reading and discussion of board",
-        "status": "found"
-      },
-      {
-        "item": "12.2",
-        "intro_words": "So with that we could move on to 12.2. Again, First Reading and Discussion of Foreign",
-        "status": "found"
-      },
-      {
-        "item": "12.3",
-        "intro_words": "moving on to 12.3, which is BP and AR 6020 parent involvement.",
-        "status": "found"
-      },
-      {
-        "item": "12.4",
-        "intro_words": "And moving on to 12.4, first reading and discussion of BP and AR6171 Title 1",
-        "status": "found"
-      },
-      {
-        "item": "12.5",
-        "intro_words": "So with that 12.5 first reading of BP 6163.4 student use of technology.",
-        "status": "found"
-      },
-      {
-        "item": "12.6",
-        "intro_words": "Moving on to 12.6 first reading and discussion of board policy. NAR 5144.1 Suspension",
+        "item": 12,
+        "intro_words": "moving to item 12 for discussion. 12.1 being first reading",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And with that, it is 9:03. Do we want to take a five minute break before",
+        "intro_words": "moving to item 13, consent items. If there",
         "status": "found"
       },
       {
-        "item": "14.1",
-        "intro_words": "And moving on to action items. 14.1 is adoption of resolution number five to approve",
+        "item": 14,
+        "intro_words": "moving on to action items. 14.1 is adoption",
         "status": "found"
       },
       {
-        "item": "14.2",
-        "intro_words": "14.2 Adoption of annual organizational meeting date set for December 6, 2023 at 7:00pm.",
+        "item": 16,
+        "intro_words": "moving on to item 16.1, information on San",
         "status": "found"
       },
       {
-        "item": "9.3",
-        "intro_words": "So 9.3. Approval of proposal for the infrastructure of two video intercom buzzers with",
+        "item": 18,
+        "intro_words": "moving on to item 18. Other business possible",
         "status": "found"
       }
     ]
@@ -117,40 +97,37 @@
     "videoId": "LPmyvuhgudA",
     "items": [
       null,
-      {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
+      null,
+      null,
       null,
       {
-        "timestamp": "00:00:07",
-        "timestampSeconds": 7
-      },
-      {
-        "timestamp": "00:00:49",
-        "timestampSeconds": 49
-      },
-      {
-        "timestamp": "00:00:49",
-        "timestampSeconds": 49
+        "timestamp": "00:00:22",
+        "timestampSeconds": 22
       },
       null,
       null,
       null,
       null,
-      {
-        "timestamp": "01:01:53",
-        "timestampSeconds": 3713
-      },
       null,
       {
-        "timestamp": "03:02:42",
-        "timestampSeconds": 10962
+        "timestamp": "01:11:21",
+        "timestampSeconds": 4281
       },
-      null
+      {
+        "timestamp": "02:38:15",
+        "timestampSeconds": 9495
+      },
+      {
+        "timestamp": "03:03:35",
+        "timestampSeconds": 11015
+      },
+      {
+        "timestamp": "03:03:12",
+        "timestampSeconds": 10992
+      }
     ]
   },
-  "cachedAt": "2026-11-18T23:57:16.068Z",
+  "cachedAt": "2026-11-19T15:18:02.204Z",
   "inputTokens": 37863,
-  "outputTokens": 1032
+  "outputTokens": 682
 }
