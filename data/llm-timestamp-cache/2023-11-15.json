@@ -18,77 +18,62 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Two items were pulled/modified from the agenda: Item 10.1 was pulled and will not be discussed tonight (will come forward at another time). Item 9.3 was moved from consent to action for discussion.",
-    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye.",
+    "agenda_changes": "Item 10.1 pulled (not to be discussed); Item 9.3 moved from consent to action for further discussion and elaboration",
+    "consent_vote_words": "I'll make a motion to approve. I'll second. All those in favor? Aye. Thank you.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Call to Order",
-        "status": "not found in transcript"
-      },
-      {
-        "item": 2,
-        "intro_words": "Roll Call",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
-      },
-      {
-        "item": 3,
-        "intro_words": "Welcome",
-        "status": "not found in transcript"
       },
       {
         "item": 4,
-        "intro_words": "Welcome by the School Board President, Cecilia Marquez",
-        "status": "not found in transcript"
-      },
-      {
-        "item": 5,
-        "intro_words": "Changes to the Agenda",
+        "intro_words": "Thank you. Good evening, everyone. Welcome to another Redwood City School District study session.",
         "status": "found"
       },
       {
-        "item": 6,
-        "intro_words": "Additions, Deletions, or Modifications to the Agenda",
+        "item": 5,
+        "intro_words": "And with that, is there any oral communication? We have four speakers cards for the dyslexia discussion.",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "Approval of the Agenda (Action required)",
+        "intro_words": "And with that, does somebody want to make a motion to approve? Yeah, I'll make a motion to approve the agenda with the changes",
         "status": "found"
       },
       {
+        "item": 8,
+        "intro_words": "moving on to bond program consent Items, again with 9.3. That move to action. Are there any questions?",
+        "status": "consent_bundle"
+      },
+      {
         "item": 9,
-        "intro_words": "Oral Communication on Closed Session Items Only",
+        "intro_words": "And do we have any oral communication? No oral communication. Thank you. And with that, moving on to bond program consent Items",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "And with that, is there any oral communication? We have four speakers cards for the dyslexia discussion.",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "moving on to bond program consent Items, again with 9.3",
+        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for the infrastructure of two video intercom buzzers",
         "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "moving to item 12 for discussion. 12.1 being first reading",
-        "status": "found"
+        "intro_words": "And item 11. School. Yeah. So 9.3. Approval of proposal for the infrastructure of two video intercom buzzers",
+        "status": "pulled"
       },
       {
         "item": 13,
-        "intro_words": "moving to item 13, consent items. If there",
+        "intro_words": "Thank you, guys. Thank you. And item 11. School. Yeah. So 9.3. Approval of proposal for the infrastructure",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "moving on to action items. 14.1 is adoption",
-        "status": "found"
-      },
-      {
-        "item": 16,
-        "intro_words": "moving on to item 16.1, information on San",
-        "status": "found"
-      },
-      {
-        "item": 18,
-        "intro_words": "moving on to item 18. Other business possible",
+        "intro_words": "So again, moving to 11.11.1 being Hoover and Henry Ford school presentations for the 2324 school year.",
         "status": "found"
       }
     ]
@@ -96,38 +81,51 @@
   "result": {
     "videoId": "LPmyvuhgudA",
     "items": [
-      null,
-      null,
-      null,
-      null,
       {
-        "timestamp": "00:00:22",
-        "timestampSeconds": 22
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
       },
       null,
       null,
+      {
+        "timestamp": "00:00:07",
+        "timestampSeconds": 7
+      },
+      {
+        "timestamp": "00:00:49",
+        "timestampSeconds": 49
+      },
       null,
+      {
+        "timestamp": "01:10:21",
+        "timestampSeconds": 4221
+      },
+      {
+        "timestamp": "01:10:59",
+        "timestampSeconds": 4259,
+        "consent": true
+      },
+      {
+        "timestamp": "01:10:41",
+        "timestampSeconds": 4241
+      },
       null,
+      {
+        "timestamp": "01:11:26",
+        "timestampSeconds": 4286
+      },
       null,
       {
         "timestamp": "01:11:21",
         "timestampSeconds": 4281
       },
       {
-        "timestamp": "02:38:15",
-        "timestampSeconds": 9495
-      },
-      {
-        "timestamp": "03:03:35",
-        "timestampSeconds": 11015
-      },
-      {
-        "timestamp": "03:03:12",
-        "timestampSeconds": 10992
+        "timestamp": "01:13:31",
+        "timestampSeconds": 4411
       }
     ]
   },
-  "cachedAt": "2026-11-19T15:18:02.204Z",
+  "cachedAt": "2026-11-20T00:36:19.932Z",
   "inputTokens": 37863,
-  "outputTokens": 682
+  "outputTokens": 714
 }
