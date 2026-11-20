@@ -17,12 +17,12 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Items 10.3, 10.4, 10.5, 10.6, and 10.7 moved to consent. Items 10.5, 10.6, 10.7 (three measure U's) moved to consent. Items 10.3 and 10.4 moved to consent.",
+    "agenda_changes": "Items 10.5, 10.6, 10.7 (three measure U's) moved to consent. Items 10.3 and 10.4 moved to consent.",
     "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
         "item": 1,
-        "intro_words": "Okay, let's get started. Once again, for those of you that are",
+        "intro_words": "Okay, let's get started. Once again, for those of you that are just",
         "status": "found"
       },
       {
@@ -32,7 +32,12 @@
       },
       {
         "item": 3,
-        "intro_words": "Welcome, everybody. It's great to see you in person, although",
+        "intro_words": "Welcome, everybody. It's great to see you in person, although we're",
+        "status": "found"
+      },
+      {
+        "item": 4,
+        "intro_words": "Welcome, everybody. It's great to see you in person, although we're",
         "status": "found"
       },
       {
@@ -41,28 +46,43 @@
         "status": "found"
       },
       {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose",
+        "status": "found"
+      },
+      {
         "item": 7,
-        "intro_words": "So moved. Second. That was Mike and Cecilia. All those in",
+        "intro_words": "So that's what I have before you. All those in favor?",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "So that's what I have before you. All those in favor?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening? We have",
+        "intro_words": "Ali, do we have any oral communication this Evening? We have three",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Ali, do we have any oral communication this Evening? We have three",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding",
-        "status": "consent_bundle"
+        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval",
+        "status": "found"
       },
       {
         "item": 12,
-        "intro_words": "Moving on to bond program action items. The first one is",
+        "intro_words": "On to 8 discussion items. The first one is 8.1. COVID",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "On to eight discussion items. The first one is 8.1. COVID",
+        "intro_words": "Adjournment. So moved. Second. All in favor? Aye. Thank you, everybody.",
         "status": "found"
       }
     ]
@@ -82,38 +102,37 @@
         "timestamp": "00:00:46",
         "timestampSeconds": 46
       },
-      null,
+      {
+        "timestamp": "00:00:46",
+        "timestampSeconds": 46
+      },
       {
         "timestamp": "00:01:27",
         "timestampSeconds": 87
       },
-      null,
       {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
+        "timestamp": "00:01:27",
+        "timestampSeconds": 87
+      },
+      {
+        "timestamp": "00:10:04",
+        "timestampSeconds": 604
+      },
+      {
+        "timestamp": "00:10:04",
+        "timestampSeconds": 604
       },
       null,
-      {
-        "timestamp": "00:01:42",
-        "timestampSeconds": 102
-      },
+      null,
+      null,
       null,
       {
-        "timestamp": "00:02:22",
-        "timestampSeconds": 142,
-        "consent": true
-      },
-      {
-        "timestamp": "00:02:45",
-        "timestampSeconds": 165
-      },
-      {
-        "timestamp": "00:04:36",
-        "timestampSeconds": 276
+        "timestamp": "00:55:52",
+        "timestampSeconds": 3352
       }
     ]
   },
-  "cachedAt": "2026-11-20T14:58:05.490Z",
+  "cachedAt": "2026-11-20T23:44:22.373Z",
   "inputTokens": 18781,
-  "outputTokens": 544
+  "outputTokens": 707
 }
