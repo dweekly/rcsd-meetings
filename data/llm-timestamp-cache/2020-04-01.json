@@ -37,33 +37,33 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Staff recognition was added after oral communication (item 5). This change was announced during the Changes to the Agenda section.",
-    "consent_vote_words": "And a roll call vote, please.",
+    "agenda_changes": "Item added after oral communication: Staff Recognition (moved to after item 5). No items were pulled from the agenda.",
+    "consent_vote_words": "And a roll call vote, please. Trustee McBride. Aye. Trustee Marquez. Aye. Trustee Diaz Locum. Aye. Trustee McAvoy. Aye. Trustee Lawson. Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "not found in transcript",
+        "intro_words": "not found in provided transcript section",
         "status": "not found"
       },
       {
         "item": 2,
-        "intro_words": "not found in transcript",
+        "intro_words": "not found in provided transcript section",
         "status": "not found"
       },
       {
         "item": 3,
-        "intro_words": "not found in transcript",
+        "intro_words": "not found in provided transcript section",
         "status": "not found"
       },
       {
         "item": 4,
-        "intro_words": "not found in transcript",
+        "intro_words": "not found in provided transcript section",
         "status": "not found"
       },
       {
         "item": 5,
-        "intro_words": "not found in transcript",
-        "status": "not found"
+        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School.",
+        "status": "found"
       },
       {
         "item": 6,
@@ -72,8 +72,8 @@
       },
       {
         "item": 7,
-        "intro_words": "not found in transcript",
-        "status": "not found"
+        "intro_words": "not applicable - duplicate item",
+        "status": "not applicable"
       },
       {
         "item": 8,
@@ -82,12 +82,12 @@
       },
       {
         "item": 9,
-        "intro_words": "not found in transcript",
-        "status": "not found"
+        "intro_words": "not applicable - duplicate item",
+        "status": "not applicable"
       },
       {
         "item": 10,
-        "intro_words": "not found in transcript",
+        "intro_words": "not found - oral communication item not explicitly marked in transcript",
         "status": "not found"
       },
       {
@@ -97,37 +97,37 @@
       },
       {
         "item": 12,
-        "intro_words": "not found in transcript",
+        "intro_words": "not applicable - part of consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 13,
-        "intro_words": "not found in transcript",
+        "intro_words": "not applicable - part of consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 14,
-        "intro_words": "not found in transcript",
+        "intro_words": "not applicable - part of consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 15,
-        "intro_words": "not found in transcript",
+        "intro_words": "not applicable - part of consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 16,
-        "intro_words": "not found in transcript",
+        "intro_words": "not applicable - part of consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 17,
-        "intro_words": "not found in transcript",
+        "intro_words": "not applicable - part of consent bundle",
         "status": "consent_bundle"
       },
       {
         "item": 18,
-        "intro_words": "not found in transcript",
+        "intro_words": "not applicable - part of consent bundle",
         "status": "consent_bundle"
       },
       {
@@ -142,27 +142,27 @@
       },
       {
         "item": 21,
-        "intro_words": "not found in transcript",
-        "status": "not found"
+        "intro_words": "So that's where we launched. And so actually this week is the first week",
+        "status": "found"
       },
       {
         "item": 22,
-        "intro_words": "Okay, item 8.1, which I think is here for.",
+        "intro_words": "Before I start and before I have cabinet members give a bit of an overview",
         "status": "found"
       },
       {
         "item": 23,
-        "intro_words": "not found in transcript",
+        "intro_words": "not found - no explicit consent items vote in transcript for this section",
         "status": "not found"
       },
       {
         "item": 24,
-        "intro_words": "not found in transcript",
+        "intro_words": "not found - no explicit action items section",
         "status": "not found"
       },
       {
         "item": 25,
-        "intro_words": "So this is a resolution that. I think Elisa brought it to my attention.",
+        "intro_words": "This is a resolution that. I think Elisa brought it to my attention.",
         "status": "found"
       },
       {
@@ -172,23 +172,23 @@
       },
       {
         "item": 27,
-        "intro_words": "not found in transcript",
-        "status": "not found"
+        "intro_words": "not applicable - duplicate item",
+        "status": "not applicable"
       },
       {
         "item": 28,
-        "intro_words": "not found in transcript",
-        "status": "not found"
-      },
-      {
-        "item": 29,
-        "intro_words": "Other business suggested items for future agenda.",
+        "intro_words": "We have no information items, correspondence to share",
         "status": "found"
       },
       {
-        "item": 30,
-        "intro_words": "not found in transcript",
+        "item": 29,
+        "intro_words": "not found - no explicit correspondence discussion",
         "status": "not found"
+      },
+      {
+        "item": 30,
+        "intro_words": "Other business suggested items for future agenda.",
+        "status": "found"
       },
       {
         "item": 31,
@@ -197,7 +197,12 @@
       },
       {
         "item": 32,
-        "intro_words": "Is there a motion to adjourn.",
+        "intro_words": "not found - same as item 31",
+        "status": "not found"
+      },
+      {
+        "item": 33,
+        "intro_words": "Is there a motion to adjourn. In unison?",
         "status": "found"
       }
     ]
@@ -209,7 +214,10 @@
       null,
       null,
       null,
-      null,
+      {
+        "timestamp": "00:03:01",
+        "timestampSeconds": 181
+      },
       {
         "timestamp": "00:03:28",
         "timestampSeconds": 208
@@ -269,40 +277,43 @@
         "timestamp": "00:06:22",
         "timestampSeconds": 382
       },
-      null,
       {
-        "timestamp": "00:08:30",
-        "timestampSeconds": 510
+        "timestamp": "00:16:18",
+        "timestampSeconds": 978
       },
       null,
       null,
+      null,
       {
-        "timestamp": "00:23:08",
-        "timestampSeconds": 1388
+        "timestamp": "01:47:19",
+        "timestampSeconds": 6439
       },
       {
         "timestamp": "01:48:57",
         "timestampSeconds": 6537
       },
       null,
+      {
+        "timestamp": "01:59:55",
+        "timestampSeconds": 7195
+      },
       null,
       {
         "timestamp": "02:00:05",
         "timestampSeconds": 7205
       },
-      null,
       {
         "timestamp": "02:00:00",
         "timestampSeconds": 7200
       },
+      null,
       {
-        "timestamp": "02:04:21",
-        "timestampSeconds": 7461
-      },
-      null
+        "timestamp": "02:04:16",
+        "timestampSeconds": 7456
+      }
     ]
   },
-  "cachedAt": "2026-11-20T00:39:41.761Z",
+  "cachedAt": "2026-11-20T14:59:47.231Z",
   "inputTokens": 24593,
-  "outputTokens": 1314
+  "outputTokens": 1497
 }
