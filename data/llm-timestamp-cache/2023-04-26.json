@@ -21,8 +21,8 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "Item 13.1 (Recognition of Classified Employees) moved from later position to immediately before oral communication, then moved again to before oral communication (not after). Item 6.1 (Approval of Bond Program Consent Items) moved from consent to action due to public comments. Items 6.2 and 6.3 moved to action.",
-    "consent_vote_words": null,
+    "agenda_changes": "Item 13.1 (Recognition of classified employees) was moved up to occur before oral communication instead of after. Item 6.1 (Approval of bond program consent items) was moved to action items due to public comments. Items 6.2 and 6.3 were also moved to action items.",
+    "consent_vote_words": "All those in favor? Aye.",
     "items": [
       {
         "item": 1,
@@ -31,17 +31,17 @@
       },
       {
         "item": 2,
-        "intro_words": "Evelyn. Trustee Weekley. Present. Trustee McEvoy.",
+        "intro_words": "Roll call, please. Evelyn. Trustee Weekley. Present.",
         "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
+        "intro_words": "Thank you. Next item is 1.2 reported on closed",
         "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "Again, welcome, everyone. Hablan espanol in interpretacion.",
+        "intro_words": "Again, welcome, everyone. Hablan espanol in",
         "status": "found"
       },
       {
@@ -51,63 +51,48 @@
       },
       {
         "item": 6,
-        "intro_words": "And are there any changes to the agenda?",
+        "intro_words": "Yes, I was hoping that we could move 13.1",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion",
+        "intro_words": "With that, if there's no other changes to",
         "status": "found"
       },
       {
         "item": 8,
-        "intro_words": "With that, if there's no other changes to the agenda, can I please get a motion",
+        "intro_words": "Thank you. Okay, so item 13.1 has been moved",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 10,
-        "intro_words": "Okay, so item 13.1 has been moved up to oral communication.",
-        "status": "found"
-      },
-      {
-        "item": 11,
-        "intro_words": "Great. So I know it's been a long day, but I just want to say",
-        "status": "found"
-      },
-      {
-        "item": 12,
-        "intro_words": "And then bond program action items 7.1, approval of measure T final projects",
+        "intro_words": "Well, it's a special evening tonight. We have",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "And then we also didn't finish our closed session. And so item 6.2",
+        "intro_words": "Great. So I know it's been a long day",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "And then we also didn't finish our closed session. And so item 6.2",
-        "status": "found"
+        "intro_words": "Conference with Labor Negotiators (§54957.6) Agency",
+        "status": "not_found"
       },
       {
         "item": 15,
-        "intro_words": "And then we also didn't finish our closed session. And so item 6.2",
-        "status": "found"
+        "intro_words": "Conference with Labor Negotiators (§54957.6) Agency",
+        "status": "not_found"
       },
       {
         "item": 16,
-        "intro_words": "Great. So I know it's been a long day, but I just want to say",
-        "status": "pulled"
+        "intro_words": "RCAA Negotiations Update with District Representative",
+        "status": "not_found"
       },
       {
         "item": 17,
-        "intro_words": "Great. So I know it's been a long day, but I just want to say",
-        "status": "pulled"
+        "intro_words": "Adjournment (Action Required) - does somebody want",
+        "status": "found"
       }
     ]
   },
@@ -123,8 +108,8 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:00:30",
-        "timestampSeconds": 30
+        "timestamp": "00:00:05",
+        "timestampSeconds": 5
       },
       {
         "timestamp": "00:00:30",
@@ -135,38 +120,35 @@
         "timestampSeconds": 95
       },
       {
-        "timestamp": "00:01:35",
-        "timestampSeconds": 95
+        "timestamp": "00:01:40",
+        "timestampSeconds": 100
       },
       {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
+        "timestamp": "00:01:25",
+        "timestampSeconds": 85
       },
       {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
+        "timestamp": "00:02:48",
+        "timestampSeconds": 168
       },
       {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
-      },
-      {
-        "timestamp": "00:02:23",
-        "timestampSeconds": 143
-      },
-      {
-        "timestamp": "01:20:05",
-        "timestampSeconds": 4805
+        "timestamp": "00:02:58",
+        "timestampSeconds": 178
       },
       null,
       null,
+      null,
+      {
+        "timestamp": "00:37:06",
+        "timestampSeconds": 2226
+      },
       null,
       null,
       null,
       null
     ]
   },
-  "cachedAt": "2026-11-21T06:14:02.275Z",
+  "cachedAt": "2026-11-21T18:10:46.998Z",
   "inputTokens": 43596,
-  "outputTokens": 916
+  "outputTokens": 728
 }
