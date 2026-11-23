@@ -301,14 +301,14 @@ function createServer(): McpServer {
       // Append CDE data if available
       try {
         const [absenteeism, ltel, staffEthnicity, staffExperience, staffRatios] = await Promise.all([
-          fetchJSON("cde/absenteeism-2024-25.json"),
+          fetchJSON("cde/absenteeism-2025-26.json"),
           fetchJSON("cde/ltel-2025-26.json"),
           fetchJSON("cde/staff-ethnicity-2025-26.json"),
           fetchJSON("cde/staff-experience-2025-26.json"),
           fetchJSON("cde/staff-ratios-2025-26.json"),
         ]);
         const slug = found.slug;
-        const cdeLines: string[] = ["\n  CDE Data (2025-26 unless noted):"];
+        const cdeLines: string[] = ["\n  CDE Data (2025-26):"];
 
         // Chronic absenteeism
         const abs = absenteeism[slug];
@@ -318,7 +318,7 @@ function createServer(): McpServer {
           if (abs.RH?.rate != null) parts.push(`Hispanic ${abs.RH.rate}%`);
           if (abs.SE?.rate != null) parts.push(`EL ${abs.SE.rate}%`);
           if (abs.SS?.rate != null) parts.push(`SED ${abs.SS.rate}%`);
-          if (parts.length) cdeLines.push(`    Chronic Absenteeism (2024-25): ${parts.join(" | ")}`);
+          if (parts.length) cdeLines.push(`    Chronic Absenteeism (2025-26): ${parts.join(" | ")}`);
         }
 
         // English learners / LTEL
@@ -377,11 +377,11 @@ function createServer(): McpServer {
         if (cdeLines.length > 1) {
           text += cdeLines.join("\n");
         } else {
-          text += "\n  CDE Data (2024-25): no school-level rows published for this school.";
+          text += "\n  CDE Data (2025-26): no school-level rows published for this school.";
         }
       } catch (err: any) {
         // A fetch failure is not the same as "no data exists" — say which it is.
-        text += `\n  CDE Data (2024-25): temporarily unavailable (fetch failed: ${err.message}); this is a retrieval error, not missing data.`;
+        text += `\n  CDE Data (2025-26): temporarily unavailable (fetch failed: ${err.message}); this is a retrieval error, not missing data.`;
       }
       text += "\n\n" + sourceLine("schools.json", data.lastUpdated);
       return {

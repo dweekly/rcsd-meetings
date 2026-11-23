@@ -84,7 +84,7 @@ endpoints. The catalog is navigation metadata, not an independent freshness chec
 | `sped-categories.json` | Disability categories and LRE placement by school |
 | `sarc/sarc-summary.json` | Demographics, CAASPP scores, per-pupil spending across all schools |
 | `sarc/{slug}.json` | Detailed SARC per school: teachers, textbooks, facilities, test results by student group |
-| `cde/absenteeism-2024-25.json` | Chronic absenteeism by subgroup per school (race, EL, SED, SWD, homeless) — CDE 2024-25 |
+| `cde/absenteeism-2025-26.json` | Chronic absenteeism by subgroup per school (race, EL, SED, SWD, homeless) — CDE 2025-26 |
 | `cde/ltel-2025-26.json` | English Learner status: EL, LTEL, At-Risk, Reclassified counts per school — CDE 2025-26 |
 | `cde/staff-ethnicity-2025-26.json` | Teacher race/ethnicity counts per school — CDE Census Day 2025-26 |
 | `cde/staff-experience-2025-26.json` | Teacher experience: avg years, inexperienced count per school — CDE 2025-26 |

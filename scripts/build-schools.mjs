@@ -319,7 +319,7 @@ const SCHOOL_DATA = {
     description: 'At Adelante Selby, students learn in two languages: Spanish and English. The school uses SEAL, a teaching approach that builds both languages at once. Any family in the district can apply to attend, not just neighbors. It is also a Community School, which means it connects families with extra services and support.',
     descriptionEs: 'En Adelante Selby, los estudiantes aprenden en dos idiomas: español e inglés. La escuela usa SEAL, un método de enseñanza que desarrolla los dos idiomas a la vez. Cualquier familia del distrito puede aplicar, no solo los vecinos. También es una Escuela Comunitaria, o sea que conecta a las familias con servicios y apoyo extra.',
     caaspp: { ela: 34, math: 36 },
-    demographics: { sed: 62.6, el: 42.4, chronicAbsent: 15.4, suspension: 0.00 },
+    demographics: { sed: 62.6, el: 42.4, suspension: 0.00 },
     funding: {
       spsaTotal: 854000, perPupil: 1356,
       titleI: 73000, district: 383000, ptoPta: 165000, measureU: 147000, prop28: 86000,
@@ -334,7 +334,7 @@ const SCHOOL_DATA = {
     description: 'Clifford is a TK-8 neighborhood school and one of the larger schools in the district. Families here come from a wide mix of income levels. One challenge: a notable group of students has been learning English for six or more years without reaching fluency — the state calls them long-term English Learners.',
     descriptionEs: 'Clifford es una escuela de vecindario de TK a 8º y una de las más grandes del distrito. Las familias aquí vienen de una gran mezcla de niveles de ingresos. Un reto: un grupo notable de estudiantes lleva seis años o más aprendiendo inglés sin llegar a dominarlo — el estado los llama estudiantes de inglés a largo plazo.',
     caaspp: { ela: 55, math: 45 },
-    demographics: { sed: 44.2, el: 23.5, chronicAbsent: 20.7, suspension: 1.39 },
+    demographics: { sed: 44.2, el: 23.5, suspension: 1.39 },
     funding: {
       spsaTotal: 665000, perPupil: 1001,
       titleI: 73000, district: 129000, ptoPta: 196000, measureU: 173000, prop28: 93000,
@@ -349,7 +349,7 @@ const SCHOOL_DATA = {
     description: 'Garfield is a K-5 neighborhood school where students learn in both Spanish and English, splitting the day 50:50. It serves more high-need families than almost any other school in the district, and enrollment has fallen a lot. The bright spot: even with low test scores, Garfield students improve in reading faster than at any other school in the district. It is also a Community School, with extra family services on site.',
     descriptionEs: 'Garfield es una escuela de vecindario de K a 5º donde los estudiantes aprenden en español y en inglés, mitad y mitad. Atiende a más familias de alta necesidad que casi cualquier otra escuela del distrito, y su inscripción ha bajado mucho. Lo bueno: aunque los puntajes son bajos, los estudiantes de Garfield mejoran en lectura más rápido que en cualquier otra escuela del distrito. También es una Escuela Comunitaria, con servicios extra para las familias allí mismo.',
     caaspp: { ela: 12, math: 8 },
-    demographics: { sed: 95.0, el: 68.2, chronicAbsent: 28.8, suspension: 3.23 },
+    demographics: { sed: 95.0, el: 68.2, suspension: 3.23 },
     funding: {
       spsaTotal: 243000, perPupil: 936,
       titleI: 55000, district: 19000, ptoPta: 0, measureU: 79000, prop28: 90000,
@@ -364,7 +364,7 @@ const SCHOOL_DATA = {
     description: 'Henry Ford is a TK-5 neighborhood school and a Community School, with extra services for families on site. Many students come from lower-income homes. Its teachers are well-credentialed, but the staff looks very different from the students: about 3 in 4 teachers are White, while 2 in 3 students are Hispanic — the widest gap in the district.',
     descriptionEs: 'Henry Ford es una escuela de vecindario de TK a 5º y una Escuela Comunitaria, con servicios extra para las familias allí mismo. Muchos estudiantes vienen de hogares de bajos ingresos. Sus maestros tienen buenas credenciales, pero el personal se ve muy diferente a los estudiantes: como 3 de cada 4 maestros son blancos, mientras que 2 de cada 3 estudiantes son hispanos — la brecha más grande del distrito.',
     caaspp: { ela: 46, math: 38 },
-    demographics: { sed: 63.1, el: 36.2, chronicAbsent: 24.8, suspension: 1.00 },
+    demographics: { sed: 63.1, el: 36.2, suspension: 1.00 },
     funding: {
       spsaTotal: 681000, perPupil: 1476,
       titleI: 61000, district: 324000, ptoPta: 75000, measureU: 147000, prop28: 75000,
@@ -379,7 +379,7 @@ const SCHOOL_DATA = {
     description: 'Hoover is a TK-8 neighborhood school serving one of the highest-need communities in the district. Its teachers are the youngest in the district and many are still finishing their teaching credentials — yet Hoover students improve in reading and math faster than at almost any other school (second-highest growth in both). Students get a full K-8 music program plus hands-on science and technology (STEAM). It is also a Community School, with extra family services on site.',
     descriptionEs: 'Hoover es una escuela de vecindario de TK a 8º que atiende a una de las comunidades con más necesidad del distrito. Sus maestros son los más jóvenes del distrito y muchos todavía están terminando su credencial — aun así, los estudiantes de Hoover mejoran en lectura y matemáticas más rápido que en casi cualquier otra escuela (el segundo mayor crecimiento en ambas materias). Hay un programa completo de música de K a 8º y clases prácticas de ciencia y tecnología (STEAM). También es una Escuela Comunitaria, con servicios extra para las familias allí mismo.',
     caaspp: { ela: 17, math: 13 },
-    demographics: { sed: 96.6, el: 66.9, chronicAbsent: 28.5, suspension: 4.79 },
+    demographics: { sed: 96.6, el: 66.9, suspension: 4.79 },
     funding: {
       spsaTotal: 734000, perPupil: 1114,
       titleI: 128000, district: 307000, ptoPta: 0, measureU: 183000, prop28: 116000,
@@ -394,7 +394,7 @@ const SCHOOL_DATA = {
     description: 'Kennedy is the district\'s biggest school: a 6-8 neighborhood middle school and a Community School, with extra services for families. Test scores show a wide gap inside the school — White students score much higher than Hispanic students. The school has also been through several principal changes recently, and many teachers have left.',
     descriptionEs: 'Kennedy es la escuela más grande del distrito: una secundaria de vecindario de 6º a 8º y una Escuela Comunitaria, con servicios extra para las familias. Los exámenes muestran una brecha grande dentro de la escuela — los estudiantes blancos sacan puntajes mucho más altos que los hispanos. La escuela también ha pasado por varios cambios de director últimamente, y muchos maestros se han ido.',
     caaspp: { ela: 49, math: 30 },
-    demographics: { sed: 65.8, el: 25.8, chronicAbsent: 23.8, suspension: 2.97 },
+    demographics: { sed: 65.8, el: 25.8, suspension: 2.97 },
     funding: {
       spsaTotal: 563000, perPupil: 714,
       titleI: 76000, district: 159000, ptoPta: 20000, measureU: 192000, prop28: 117000,
@@ -409,7 +409,7 @@ const SCHOOL_DATA = {
     description: 'McKinley MIT is a 6-8 middle school with a technology focus; any family in the district can apply. The state has flagged it as needing extra help (a designation called ATSI), and the district puts more money into it than any other school — $610K for tutoring and support programs. Right now it has the lowest state test scores and the highest suspension rate in the district. It is also a Community School, with extra family services on site.',
     descriptionEs: 'McKinley MIT es una secundaria de 6º a 8º enfocada en tecnología; cualquier familia del distrito puede aplicar. El estado la marcó como escuela que necesita ayuda extra (una designación llamada ATSI), y el distrito le invierte más dinero que a ninguna otra escuela — $610K para tutoría y programas de apoyo. Por ahora tiene los puntajes más bajos del distrito en los exámenes estatales y la tasa de suspensión más alta. También es una Escuela Comunitaria, con servicios extra para las familias allí mismo.',
     caaspp: { ela: 10, math: 7 },
-    demographics: { sed: 92.6, el: 45.5, chronicAbsent: 0, suspension: 10.78 },
+    demographics: { sed: 92.6, el: 45.5, suspension: 10.78 },
     funding: {
       spsaTotal: 795000, perPupil: 1656,
       titleI: 27000, district: 610000, ptoPta: 0, measureU: 75000, prop28: 77000,
@@ -424,7 +424,7 @@ const SCHOOL_DATA = {
     description: 'North Star Academy is a 3-8 school that any family in the district can apply to. Its students post the highest state test scores in the district — but they also improve the least from year to year. Because few students qualify for need-based federal money (Title I), it gets the least public funding per student. Parents fill the gap: the PTA raises $326K, more than half of the school\'s extra (supplemental) budget.',
     descriptionEs: 'North Star Academy es una escuela de 3º a 8º a la que cualquier familia del distrito puede aplicar. Sus estudiantes sacan los puntajes más altos del distrito en los exámenes estatales — pero también son los que menos mejoran de un año a otro. Como pocos estudiantes califican para fondos federales por necesidad (Título I), recibe el menor financiamiento público por estudiante. Los papás llenan ese hueco: el PTA recauda $326K, más de la mitad del presupuesto extra (suplementario) de la escuela.',
     caaspp: { ela: 96, math: 96 },
-    demographics: { sed: 8.9, el: 2.5, chronicAbsent: 3.2, suspension: 0.19 },
+    demographics: { sed: 8.9, el: 2.5, suspension: 0.19 },
     funding: {
       spsaTotal: 564000, perPupil: 1020,
       titleI: 0, district: 44000, ptoPta: 326000, measureU: 135000, prop28: 59000,
@@ -439,7 +439,7 @@ const SCHOOL_DATA = {
     description: 'At Orion, students learn in two languages: English and Mandarin. It is a TK-5 school that any family in the district can apply to, and parents pitch in regularly in the classroom — a setup often called a co-op. It is the most ethnically diverse school in the district, though White students currently score well above Hispanic students on state tests.',
     descriptionEs: 'En Orion, los estudiantes aprenden en dos idiomas: inglés y mandarín. Es una escuela de TK a 5º a la que cualquier familia del distrito puede aplicar, y los papás ayudan seguido en el salón — un modelo que llaman co-op. Es la escuela con más diversidad étnica del distrito, aunque por ahora los estudiantes blancos sacan puntajes bastante más altos que los hispanos en los exámenes estatales.',
     caaspp: { ela: 53, math: 51 },
-    demographics: { sed: 31.8, el: 22.8, chronicAbsent: 12.6, suspension: 0.21 },
+    demographics: { sed: 31.8, el: 22.8, suspension: 0.21 },
     funding: {
       spsaTotal: 1062000, perPupil: 1934,
       titleI: 0, district: 150000, ptoPta: 721000, measureU: 131000, prop28: 59000,
@@ -454,7 +454,7 @@ const SCHOOL_DATA = {
     description: 'Roosevelt is a TK-5 neighborhood school and a Community School, with extra services for families on site. It has lost more students than any other school in the district and recently shrank from K-8 down to K-5. It also struggles to put fully qualified teachers in every classroom — especially teachers certified to teach students who are learning English.',
     descriptionEs: 'Roosevelt es una escuela de vecindario de TK a 5º y una Escuela Comunitaria, con servicios extra para las familias allí mismo. Ha perdido más estudiantes que cualquier otra escuela del distrito y hace poco pasó de K-8 a K-5. También le cuesta tener maestros con todas sus credenciales en cada salón — sobre todo maestros certificados para enseñar a estudiantes que están aprendiendo inglés.',
     caaspp: { ela: 16, math: 18 },
-    demographics: { sed: 69.5, el: 42.6, chronicAbsent: 26.9, suspension: 3.11 },
+    demographics: { sed: 69.5, el: 42.6, suspension: 3.11 },
     funding: {
       spsaTotal: 410000, perPupil: 1192,
       titleI: 55000, district: 158000, ptoPta: 0, measureU: 109000, prop28: 88000,
@@ -469,7 +469,7 @@ const SCHOOL_DATA = {
     description: 'Roy Cloud is a TK-8 neighborhood school where most families are not low-income, and it is one of the higher-scoring schools in the district. But its students who are still learning English — including those who have been at it for six-plus years — are struggling enough that the state\'s school report card (the California Dashboard) rates those groups RED, the lowest level.',
     descriptionEs: 'Roy Cloud es una escuela de vecindario de TK a 8º donde la mayoría de las familias no son de bajos ingresos, y es una de las escuelas con mejores puntajes del distrito. Pero a sus estudiantes que todavía están aprendiendo inglés — incluyendo los que llevan seis años o más — les va lo bastante mal como para que la boleta estatal de las escuelas (el California Dashboard) ponga a esos grupos en ROJO, el nivel más bajo.',
     caaspp: { ela: 67, math: 59 },
-    demographics: { sed: 11.4, el: 3.4, chronicAbsent: 8.0, suspension: 1.75 },
+    demographics: { sed: 11.4, el: 3.4, suspension: 1.75 },
     funding: {
       spsaTotal: 695000, perPupil: 1046,
       titleI: 0, district: 292000, ptoPta: 215000, measureU: 117000, prop28: 71000,
@@ -484,7 +484,7 @@ const SCHOOL_DATA = {
     description: 'Taft is a TK-5 neighborhood school where K-3 students learn in both Spanish and English, splitting the day 50:50. Even though it serves one of the highest-need communities in the district, it runs on one of the smallest budgets. Its young teaching staff gets results: Taft students improve in math faster than at any other school in the district. It is also a Community School, with extra family services on site.',
     descriptionEs: 'Taft es una escuela de vecindario de TK a 5º donde los estudiantes de K a 3º aprenden en español y en inglés, mitad y mitad. Aunque atiende a una de las comunidades con más necesidad del distrito, funciona con uno de los presupuestos más chicos. Su personal docente joven da resultados: los estudiantes de Taft mejoran en matemáticas más rápido que en cualquier otra escuela del distrito. También es una Escuela Comunitaria, con servicios extra para las familias allí mismo.',
     caaspp: { ela: 19, math: 13 },
-    demographics: { sed: 90.0, el: 65.7, chronicAbsent: 26.7, suspension: 0.51 },
+    demographics: { sed: 90.0, el: 65.7, suspension: 0.51 },
     funding: {
       spsaTotal: 238000, perPupil: 733,
       titleI: 69000, district: 0, ptoPta: 0, measureU: 97000, prop28: 72000,
@@ -1327,7 +1327,6 @@ const LABELS = {
     iepRate: 'Students with IEPs',
     inclusionRate: 'Inclusive Placement',
     inclusionTip: '% of IEP students in regular classroom 80%+ of the day',
-    districtAvgAbsent: 'District avg: 18.3%',
     districtAvgSuspension: 'District avg: 2.2%',
     sarcTotalPerPupil: 'Total Per Pupil',
     sarcRestricted: 'Restricted',
@@ -1419,7 +1418,6 @@ const LABELS = {
     disclaimer: '<strong>Draft document.</strong> Personally prepared by David Weekly; this is not a representation of the district or the Board of Trustees and may contain material factual errors. For official information, visit <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Leer en espa&ntilde;ol',
     sourceNote: `Sources: ${SARC_YEAR} SARCs, ${SPSA_YEAR} SPSAs, <a href="${LCAP_PDF_URL}" target="_blank" rel="noopener">${LCAP_YEAR} LCAP</a> (district-wide i-Ready growth from the ${DISTRICT_IREADYU.schoolYear} winter diagnostic, the 4-point growth goal, and the district average and target for fully credentialed teachers), each school’s ${IREADY_YEAR} Board of Trustees data presentation. Proficiency from ${priorSchoolYear(SARC_YEAR)} CAASPP. Growth from each school’s ${IREADY_YEAR} mid-year i-Ready diagnostic as reported to the Board.`,
-    chronicAbsentNote: 'reported as 0% -- likely a data error',
     address: 'Address',
     phone: 'Phone',
     start: 'Start',
@@ -1509,7 +1507,6 @@ const LABELS = {
     iepRate: 'Estudiantes con IEP',
     inclusionRate: 'Colocación Inclusiva',
     inclusionTip: '% de estudiantes con IEP en aula regular 80%+ del día',
-    districtAvgAbsent: 'Promedio del distrito: 18.3%',
     districtAvgSuspension: 'Promedio del distrito: 2.2%',
     sarcTotalPerPupil: 'Total Por Alumno',
     sarcRestricted: 'Restringido',
@@ -1599,7 +1596,6 @@ const LABELS = {
     disclaimer: '<strong>Documento borrador.</strong> Preparado personalmente por David Weekly; esto no es una representación del distrito o de la Mesa Directiva y puede contener errores materiales. Para información oficial, visite <a href="https://www.rcsdk8.net" style="color:#664d03; text-decoration:underline">rcsdk8.net</a>.',
     langSwitch: 'Read in English',
     sourceNote: `Fuentes: SARCs ${SARC_YEAR}, SPSAs ${SPSA_YEAR}, <a href="${LCAP_PDF_URL}" target="_blank" rel="noopener">LCAP ${LCAP_YEAR}</a> (crecimiento i-Ready de todo el distrito en la evaluación de invierno ${DISTRICT_IREADYU.schoolYear}, la meta de crecimiento de 4 puntos, y el promedio y la meta del distrito de maestros con credencial completa), presentaciones ${IREADY_YEAR} de cada escuela a la Mesa Directiva. Competencia del CAASPP ${priorSchoolYear(SARC_YEAR)}. Crecimiento de la evaluación diagnóstica de medio año i-Ready ${IREADY_YEAR} reportada a la Mesa.`,
-    chronicAbsentNote: 'reportado como 0% -- probablemente un error de datos',
     address: 'Dirección',
     phone: 'Teléfono',
     start: 'Inicio',
@@ -1981,13 +1977,11 @@ function buildSchoolPage(school, data, lang) {
   if (data.teacherDemo.over55 !== null) demoItems.push(`${L.over55}: ${fmtPct(data.teacherDemo.over55)}`);
   if (data.teacherDemo.under35 !== null) demoItems.push(`${L.under35}: ${fmtPct(data.teacherDemo.under35)}`);
 
-  // Chronic absenteeism note for McKinley
-  const chronicAbsentDisplay = data.demographics.chronicAbsent === 0
-    ? `0%*`
-    : fmtPct(data.demographics.chronicAbsent);
-  const chronicAbsentNote = data.demographics.chronicAbsent === 0
-    ? `<br><span class="source">* ${L.chronicAbsentNote}</span>`
-    : '';
+  // Chronic absenteeism card: same CDE file and year as the subgroup table
+  // below it, so the card, the table and the district average always agree.
+  const absentTotal = CDE_ABSENT[slug]?.TA;
+  const absentDistrict = CDE_ABSENT.district?.TA;
+  const absentSourceUrl = 'https://www.cde.ca.gov/ds/ad/filesabd.asp';
 
   // SpEd data for this school
   const spedEnroll = SPED_ENROLLMENT.schools?.[slug];
@@ -2197,11 +2191,11 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
         <div class="stat-card-value">${fmtPct(data.demographics.el)} ${infoBubble('SARC 2024-25', sarcPdfUrl)}</div>
         <div class="stat-card-note">${L.elNote}</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-card-label">${L.chronicAbsent} ${infoBubble(L.chronicAbsentTip, dashboardUrl)}</div>
-        <div class="stat-card-value">${chronicAbsentDisplay} ${infoBubble('CA Dashboard', dashboardUrl)}</div>
-        <div class="stat-card-note">${L.districtAvgAbsent}${chronicAbsentNote}</div>
-      </div>
+      ${absentTotal?.rate != null ? `<div class="stat-card">
+        <div class="stat-card-label">${L.chronicAbsent} ${infoBubble(L.chronicAbsentTip, absentSourceUrl)}</div>
+        <div class="stat-card-value">${fmtPct(absentTotal.rate)} ${infoBubble(`CDE ${CDE_DATA_YEARS.absenteeism}`, absentSourceUrl)}</div>
+        ${absentDistrict?.rate != null ? `<div class="stat-card-note">${isEs ? 'Promedio del distrito' : 'District avg'}: ${fmtPct(absentDistrict.rate)}</div>` : ''}
+      </div>` : ''}
       <div class="stat-card">
         <div class="stat-card-label">${L.suspension}</div>
         <div class="stat-card-value">${fmtPct(data.demographics.suspension)} ${infoBubble('CA Dashboard', dashboardUrl)}</div>

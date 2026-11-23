@@ -599,7 +599,7 @@ Shape: `_metadata` plus `documents[]`, one record per attachment.
 Read the live counts from `_metadata.counts` rather than from this page.
 
 
-## data/cde/absenteeism-2024-25.json
+## data/cde/absenteeism-2025-26.json
 
 CDE Chronic Absenteeism data — disaggregated by reporting category (student subgroup) per school.
 
@@ -609,9 +609,9 @@ CDE Chronic Absenteeism data — disaggregated by reporting category (student su
 {
   "_metadata": {
     "description": "Chronic absenteeism rates by school and student group",
-    "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism25-v2.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism26-v2.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-11-23",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fsabd.asp",
     "pipeline": "scripts/pull-cde-data.mjs --dataset absenteeism"
   },

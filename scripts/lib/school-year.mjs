@@ -56,7 +56,7 @@ export function currentSchoolYear(now = new Date()) {
  * the output, then bump this entry. See docs/ANNUAL-REFRESH.md.
  */
 export const CDE_DATA_YEARS = {
-  absenteeism: '2024-25',
+  absenteeism: '2025-26',
   ltel: '2025-26',
   'staff-ethnicity': '2025-26',
   'staff-experience': '2025-26',
