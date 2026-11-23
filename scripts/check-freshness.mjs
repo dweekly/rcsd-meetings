@@ -113,6 +113,13 @@ for (const obs of observations) {
         + `${obs.source} says "${obs.observed}".`,
       );
     }
+    // Observations written before the probe read interim titles carry no flag.
+    if (typeof obs.interim === 'boolean' && Boolean(school.principalInterim) !== obs.interim) {
+      problems.push(
+        `${obs.slug} principal interim status drifted — data/schools.json has principalInterim: `
+        + `${Boolean(school.principalInterim)}, ${obs.source} says ${obs.interim ? '"Interim Principal"' : '"Principal"'}.`,
+      );
+    }
   } else if (obs.kind === 'superintendent') {
     const current = trustees.superintendent?.current;
     if (!current) {

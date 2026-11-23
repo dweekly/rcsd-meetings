@@ -1288,6 +1288,7 @@ const LABELS = {
     csppUrl: 'https://www.rcsdk8.net/our-programs-and-services/educational-services/instructional-programs/california-state-preschool-program/preschool-enrollment-office',
     enrollment: 'Enrollment',
     principal: 'Principal',
+    principalInterim: 'Interim Principal',
     highNeed: 'High-need',
     schoolType: 'School type',
     neighborhood: 'Neighborhood',
@@ -1470,6 +1471,7 @@ const LABELS = {
     csppUrl: 'https://www.rcsdk8.net/our-programs-and-services/educational-services/instructional-programs/california-state-preschool-program/preschool-enrollment-office',
     enrollment: 'Inscripción',
     principal: 'Director/a',
+    principalInterim: 'Director/a interino/a',
     highNeed: 'Alta necesidad',
     schoolType: 'Tipo de escuela',
     neighborhood: 'Vecindario',
@@ -1805,7 +1807,9 @@ function schoolJsonLd(school, data, lang) {
     schoolSchema.employee = {
       "@type": "Person",
       "name": school.principal,
-      "jobTitle": isEs ? "Director/a" : "Principal"
+      "jobTitle": school.principalInterim
+        ? (isEs ? "Director/a interino/a" : "Interim Principal")
+        : (isEs ? "Director/a" : "Principal")
     };
   }
 
@@ -2092,7 +2096,7 @@ ${siteNav({ activePage: 'schools', lang, altLangHref })}
       ${existsSync(resolve(ROOT, 'docs/img/principals', slug + '.jpg')) ? `<div style="flex-shrink:0">
         <a href="${school.website}/our-school/meet-our-school-leadership"><img src="/img/principals/${slug}.jpg" alt="${school.principal}" width="300" height="${jpegHeight(resolve(ROOT, 'docs/img/principals', slug + '.jpg'))}" loading="lazy" style="width:160px; height:213px; object-fit:cover; border-radius:10px; display:block"></a>
         <div style="text-align:center; margin-top:0.6rem">
-          <div style="font-family:'IBM Plex Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted)">${L.principal}</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:0.6rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-muted)">${school.principalInterim ? L.principalInterim : L.principal}</div>
           <div style="font-size:1.05rem; font-weight:500; margin-top:0.15rem"><a href="${school.website}/our-school/meet-our-school-leadership" style="color:var(--green-mid); text-decoration:none">${school.principal}</a></div>
         </div>
       </div>` : ''}

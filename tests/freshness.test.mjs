@@ -102,6 +102,20 @@ test('fails when a principal in schools.json no longer matches the school site',
   assert.match(r.stderr, /Dr\. Rangel Fernández/);
 });
 
+test('interim principal: passes when flags agree, fails when the interim is made permanent', () => {
+  const interimObs = baseFreshness();
+  interimObs.observations[0] = { ...interimObs.observations[0], interim: true };
+  const interimSchools = { schools: [{ ...baseSchools.schools[0], principalInterim: true }] };
+  const ok = runGuard({ freshness: interimObs, schools: interimSchools, trustees: baseTrustees });
+  assert.equal(ok.code, 0, ok.stderr);
+
+  const permanentObs = baseFreshness();
+  permanentObs.observations[0] = { ...permanentObs.observations[0], interim: false };
+  const r = runGuard({ freshness: permanentObs, schools: interimSchools, trustees: baseTrustees });
+  assert.equal(r.code, 1);
+  assert.match(r.stderr, /kennedy principal interim status drifted/);
+});
+
 test('fails when the sitting superintendent no longer matches the district page', () => {
   const trustees = { ...baseTrustees, superintendent: { current: { name: 'Dr. John R. Baker, Ed.D.' } } };
   const r = runGuard({ freshness: baseFreshness(), schools: baseSchools, trustees });

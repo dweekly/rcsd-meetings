@@ -107,9 +107,14 @@ function parseLeadership(html) {
     .filter(p => p.name && p.title);
 }
 
-/** The one person whose title is exactly "Principal" (not Assistant/Vice). */
+/**
+ * The one person whose title is exactly "Principal" or "Interim Principal"
+ * (not Assistant/Vice). An interim is the sitting officeholder — Taft listed
+ * one in November 2026 — so it is recorded, with the interim flag, rather
+ * than treated as a page the probe cannot read.
+ */
 function pickPrincipal(people) {
-  return people.find(p => /^principal$/i.test(p.title)) || null;
+  return people.find(p => /^(interim )?principal$/i.test(p.title)) || null;
 }
 
 /**
@@ -142,17 +147,19 @@ for (const school of schools) {
     }
     const principal = pickPrincipal(people);
     if (!principal) {
-      throw new Error(`no one titled "Principal" among: ${people.map(p => p.title).join(', ')}`);
+      throw new Error(`no one titled "Principal" or "Interim Principal" among: ${people.map(p => p.title).join(', ')}`);
     }
+    const interim = /^interim /i.test(principal.title);
     observations.push({
       id: `principal:${school.slug}`,
       kind: 'principal',
       slug: school.slug,
       observed: displayName(principal.name),
       observedRaw: principal.name,
+      interim,
       source: url,
     });
-    console.log(`  ${school.slug.padEnd(16)} ${displayName(principal.name)}`);
+    console.log(`  ${school.slug.padEnd(16)} ${displayName(principal.name)}${interim ? ' (interim)' : ''}`);
   } catch (err) {
     failures.push(`principal:${school.slug} — ${err.message}`);
     console.error(`  ${school.slug.padEnd(16)} PROBE FAILED: ${err.message}`);

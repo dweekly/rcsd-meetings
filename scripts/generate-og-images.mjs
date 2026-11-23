@@ -91,6 +91,7 @@ const STRINGS = {
     liveZoom: 'Live on Zoom',
     grades: span => `Grades ${span.replace(/^Grades?\s+/i, '')}`,
     principal: name => `Principal ${name}`,
+    principalInterim: name => `Interim Principal ${name}`,
     students: n => `${n} students`,
     highNeed: pct => `${pct}% high-need`,
     charterEyebrow: 'CHARTER SCHOOL',
@@ -117,6 +118,7 @@ const STRINGS = {
     liveZoom: 'En vivo por Zoom',
     grades: span => `Grados ${span.replace(/^Grados?\s+/i, '').replace(/^Grades?\s+/i, '')}`,
     principal: name => `Director(a) ${name}`,
+    principalInterim: name => `Director(a) interino(a) ${name}`,
     students: n => `${n} estudiantes`,
     highNeed: pct => `${pct}% alta necesidad`,
     charterEyebrow: 'ESCUELA AUTÓNOMA (CHARTER)',
@@ -346,7 +348,7 @@ function meetingTemplate({ date, type, topics, items, planned, hasVideo, hasZoom
   ].filter(Boolean));
 }
 
-function schoolTemplate({ name, gradeSpan, program, enrollment, highNeedPct, principal, isCharter = false, lang = 'en' }) {
+function schoolTemplate({ name, gradeSpan, program, enrollment, highNeedPct, principal, principalInterim = false, isCharter = false, lang = 'en' }) {
   const S = STRINGS[lang] || STRINGS.en;
   let eyebrowText;
   if (isCharter) eyebrowText = S.charterEyebrow;
@@ -355,7 +357,7 @@ function schoolTemplate({ name, gradeSpan, program, enrollment, highNeedPct, pri
 
   const subParts = [];
   if (gradeSpan) subParts.push(S.grades(gradeSpan));
-  if (principal) subParts.push(S.principal(principal));
+  if (principal) subParts.push(principalInterim ? S.principalInterim(principal) : S.principal(principal));
 
   const badgeParts = [];
   if (enrollment) badgeParts.push(S.students(enrollment));
@@ -454,6 +456,7 @@ function loadSchoolsCatalog() {
             enrollment: s.enrollment || null,
             highNeedPct: s.highNeedPct ?? null,
             principal: s.principal || null,
+            principalInterim: Boolean(s.principalInterim),
             isCharter: false,
             lang,
           }),

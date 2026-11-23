@@ -31,6 +31,7 @@ Top-level: `{ schools[], districtLinks, rcef, lastUpdated }`
   "phone": "(650) 482-2415",
   "website": "https://adelanteselby.rcsdk8.net",
   "principal": "Patricia Alcocer",
+  "principalInterim": true,  // optional; present only when the school site lists an "Interim Principal"
   "bellSchedule": {
     "earlyReleaseDay": "Thursday",
     "supervision": null,
@@ -243,8 +244,10 @@ The values the site publishes stay in `schools.json` (`principal`) and `trustees
 - `lastRun` — `probedAt` (ISO), `probed`, `failed`, `failures[]` (human-readable
   strings naming the URL that could not be read).
 - `observations[]` — each has `id`, `kind`, `source`, and `observed`:
-  - `kind: "principal"` — plus `slug`; `observed` is the principal's name. Compared
-    against `schools.json` → the matching school's `principal`. **Fatal on drift.**
+  - `kind: "principal"` — plus `slug` and `interim` (true when the site's title is
+    "Interim Principal"); `observed` is the principal's name. Compared against
+    `schools.json` → the matching school's `principal` and `principalInterim`.
+    **Fatal on drift** of either.
   - `kind: "superintendent"` — `observed` is the name. Compared against
     `trustees.json` → `superintendent.current.name`. **Fatal on drift**, and also
     fatal if the observed person is still sitting in `superintendent.incoming`.
