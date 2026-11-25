@@ -17,7 +17,7 @@
     "Adjournment"
   ],
   "llmResponse": {
-    "agenda_changes": "Items 10.3, 10.4, 10.5, 10.6, and 10.7 were moved to consent agenda. Items 10.5, 10.6, 10.7 (three measure U's) were proposed to be moved to consent. Items 10.3 and 10.4 were also moved to consent.",
+    "agenda_changes": "Items 10.5, 10.6, and 10.7 (three measure U's) moved to consent. Items 10.3 and 10.4 moved to consent.",
     "consent_vote_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
     "items": [
       {
@@ -36,23 +36,43 @@
         "status": "found"
       },
       {
+        "item": 4,
+        "intro_words": "Welcome, everybody. It's great to see you in person, although we're six feet apart, being cautious",
+        "status": "found"
+      },
+      {
         "item": 5,
-        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move the three measure U's.",
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move the three",
+        "status": "found"
+      },
+      {
+        "item": 6,
+        "intro_words": "Are there any changes to the agenda this evening? I'd propose that we move the three",
         "status": "found"
       },
       {
         "item": 7,
-        "intro_words": "So moved. Second. That was Mike and Cecilia. All those in favor? Aye.",
+        "intro_words": "All those in favor? Aye. Ali, do we have any oral communication this Evening?",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "All those in favor? Aye. Ali, do we have any oral communication this Evening?",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards, but they are for our discussion item 8.1.",
+        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards, but they",
+        "status": "found"
+      },
+      {
+        "item": 10,
+        "intro_words": "Ali, do we have any oral communication this Evening? We have three speakers cards, but they",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program consent items.",
+        "intro_words": "Moving right along to the bond program consent items. Recommendation regarding approval of bundle program",
         "status": "consent_bundle"
       },
       {
@@ -62,8 +82,8 @@
       },
       {
         "item": 13,
-        "intro_words": "Adjournment",
-        "status": "not_found"
+        "intro_words": "Thank you, guys. Thank you, Will. Bye. Okay, on to eight discussion items.",
+        "status": "found"
       }
     ]
   },
@@ -82,22 +102,34 @@
         "timestamp": "00:00:00",
         "timestampSeconds": 0
       },
-      null,
       {
-        "timestamp": "00:00:46",
-        "timestampSeconds": 46
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
       },
-      null,
+      {
+        "timestamp": "00:01:22",
+        "timestampSeconds": 82
+      },
+      {
+        "timestamp": "00:01:22",
+        "timestampSeconds": 82
+      },
+      {
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
+      },
+      {
+        "timestamp": "00:01:48",
+        "timestampSeconds": 108
+      },
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
       },
-      null,
       {
         "timestamp": "00:01:42",
         "timestampSeconds": 102
       },
-      null,
       {
         "timestamp": "00:02:22",
         "timestampSeconds": 142,
@@ -107,10 +139,13 @@
         "timestamp": "00:02:45",
         "timestampSeconds": 165
       },
-      null
+      {
+        "timestamp": "00:04:55",
+        "timestampSeconds": 295
+      }
     ]
   },
-  "cachedAt": "2026-11-25T06:17:18.716Z",
+  "cachedAt": "2026-11-25T18:12:07.260Z",
   "inputTokens": 18781,
-  "outputTokens": 589
+  "outputTokens": 755
 }
