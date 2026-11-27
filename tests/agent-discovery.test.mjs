@@ -4,6 +4,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { buildAgentDiscovery } from '../scripts/build-agent-discovery.mjs';
+import { DATA_LICENSE } from '../scripts/lib/discovery-datasets.mjs';
 import dataWorker from '../workers/r2-browser/index.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -71,6 +72,37 @@ test('bilingual HTML and Markdown expose every catalog download and parseable st
       assert.ok(html.includes(`href="${d.contentUrl}"`), d.name);
       assert.ok(markdown.includes(`](${d.contentUrl})`), d.name);
     }
+  }
+});
+
+// Google's Dataset rich-result rules: description of 50 to 5,000 characters is
+// required; license and creator are recommended. Search Console flagged all three
+// in November 2026. The vendor pages are read as committed, so rebuild them with
+// `node scripts/build-warrants-page.mjs` after changing that builder.
+test('every Dataset on the catalog, vendor and home pages has a valid description, license and creator', () => {
+  const pages = ['index.html', 'catalog/index.html', 'catalogo/index.html', 'vendors/index.html', 'proveedores/index.html'];
+  const found = [];
+  const visit = (node, page) => {
+    if (Array.isArray(node)) return node.forEach(n => visit(n, page));
+    if (!node || typeof node !== 'object') return;
+    if ([].concat(node['@type'] || []).includes('Dataset')) found.push({ page, node });
+    Object.values(node).forEach(v => visit(v, page));
+  };
+  for (const page of pages) {
+    const before = found.length;
+    for (const m of read(`docs/${page}`).matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) visit(JSON.parse(m[1]), page);
+    assert.ok(found.length > before, `${page}: no Dataset markup found`);
+  }
+  for (const { page, node } of found) {
+    const where = `${page}: ${node.name}`;
+    assert.equal(typeof node.description, 'string', where);
+    assert.ok(node.description.length >= 50 && node.description.length <= 5000, `${where}: description is ${node.description.length} characters`);
+    assert.equal(node.license, DATA_LICENSE, `${where}: license`);
+    assert.ok(node.creator?.name, `${where}: creator`);
+  }
+  for (const d of catalog.dataset) {
+    assert.equal(d.license, DATA_LICENSE, `catalog.json: ${d.name}: license`);
+    assert.ok(d.creator?.name, `catalog.json: ${d.name}: creator`);
   }
 });
 

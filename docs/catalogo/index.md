@@ -90,10 +90,15 @@ curl -fsS https://data.rcsd.info/json/schools.json
 ## Datos estatales: ausentismo, estudiantes de inglés y personal
 
 - [cde/absenteeism-2024-25.json](https://data.rcsd.info/json/cde/absenteeism-2024-25.json)
+- [cde/absenteeism-2025-26.json](https://data.rcsd.info/json/cde/absenteeism-2025-26.json)
 - [cde/ltel-2024-25.json](https://data.rcsd.info/json/cde/ltel-2024-25.json)
+- [cde/ltel-2025-26.json](https://data.rcsd.info/json/cde/ltel-2025-26.json)
 - [cde/staff-ethnicity-2024-25.json](https://data.rcsd.info/json/cde/staff-ethnicity-2024-25.json)
+- [cde/staff-ethnicity-2025-26.json](https://data.rcsd.info/json/cde/staff-ethnicity-2025-26.json)
 - [cde/staff-experience-2024-25.json](https://data.rcsd.info/json/cde/staff-experience-2024-25.json)
+- [cde/staff-experience-2025-26.json](https://data.rcsd.info/json/cde/staff-experience-2025-26.json)
 - [cde/staff-ratios-2024-25.json](https://data.rcsd.info/json/cde/staff-ratios-2024-25.json)
+- [cde/staff-ratios-2025-26.json](https://data.rcsd.info/json/cde/staff-ratios-2025-26.json)
 
 ## Presupuestos de planes escolares y consejos escolares
 

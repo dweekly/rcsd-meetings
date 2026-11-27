@@ -9,7 +9,7 @@ use one English instruction set, with guidance to answer in the user's language.
 | --- | --- |
 | `/catalog/`, `/catalogo/` | Crawlable dataset families, source metadata, Schema.org DataCatalog / Dataset / DataDownload, and query guidance. |
 | `/catalog/index.md`, `/catalogo/index.md` | Explicit Markdown alternatives linked from the corresponding HTML pages. |
-| `/catalog.json` | Machine catalog. Distribution `_metadata` retains recorded source, check date and method; null means absent. No fabricated freshness or blanket license for third-party records. |
+| `/catalog.json` | Machine catalog. Distribution `_metadata` retains recorded source, check date and method; null means absent. No fabricated freshness. Each Dataset declares CC BY 4.0 and a creator, as the homepage does; the license covers this project's compilation, not the district, county and state records it draws on, and each Dataset description says so. |
 | `/llms.txt` | Generated overview linking the catalog and skill. A convention, not a guarantee of crawler adoption. |
 | `/.well-known/api-catalog` | [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727.html) Linkset, with actual JSON and MCP endpoints, documentation links, required media type and discovery Link header. |
 | `/.well-known/agent-skills/index.json` | [Cloudflare's discovery proposal](https://github.com/cloudflare/agent-skills-discovery-rfc), v0.2.0: named skill, description and SHA-256 digest. Experimental. |

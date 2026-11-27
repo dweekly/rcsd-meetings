@@ -19,3 +19,9 @@ export const DATASETS = [
   ['committees', 'Committee membership and meetings', 'Miembros y reuniones de comités', ['committees/*.json']],
   ['vendor-payments', 'Vendor payment coverage and aliases; fetch monthly registers on demand', 'Cobertura de pagos y alias de proveedores; consulte los registros mensuales según sea necesario', ['warrants-index.json', 'warrant-vendor-aliases.json', 'warrant-pdf-manifest.json']],
 ];
+
+// The license and creator declared on every schema.org Dataset the site emits.
+// CC BY 4.0 covers this project's compilation; the underlying district, county
+// and state records stay under their own terms (see docs/AGENT-DISCOVERY.md).
+export const DATA_LICENSE = 'https://creativecommons.org/licenses/by/4.0/';
+export const DATA_CREATOR = { '@type': 'Person', name: 'David Weekly', url: 'https://david.weekly.org' };

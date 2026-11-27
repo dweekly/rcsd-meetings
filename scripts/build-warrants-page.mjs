@@ -19,6 +19,7 @@ import { readFileSync, readdirSync, writeFileSync, mkdirSync, existsSync } from 
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
+import { DATA_LICENSE } from './lib/discovery-datasets.mjs';
 import { prettyVendorName, isCommaName, personMatchKey, isPlainPersonCandidate, titleCasePerson } from './lib/warrant-parsers.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -369,6 +370,7 @@ function renderPage(t, data) {
     '@context': 'https://schema.org', '@type': 'Dataset',
     name: t.h1, description: t.desc,
     url: `https://rcsd.info${t.lang === 'es' ? '/proveedores/' : '/vendors/'}`,
+    license: DATA_LICENSE,
     creator: { '@type': 'Organization', name: 'RCSD Open Data' },
     temporalCoverage: `${stats.minDate}/${stats.maxDate}`,
     distribution: { '@type': 'DataDownload', encodingFormat: 'application/json', contentUrl: 'https://rcsd.info/vendors/vendor-spend.json' },
