@@ -18,17 +18,17 @@
     "Adjourn the Meeting"
   ],
   "llmResponse": {
-    "agenda_changes": "No changes to agenda announced at start of meeting",
+    "agenda_changes": "No formal agenda changes announced during 'Changes to the Agenda' section. President Marquez asked 'are there any changes to the agenda having here?' and received no response before proceeding to agenda approval.",
     "consent_vote_words": "can I please get a motion to approve the consent bond program",
     "items": [
       {
         "item": 1,
-        "intro_words": "Great. At seven o' Clock. Welcome, everyone. Roll call, please.",
+        "intro_words": "Great. At seven o'. Clock. Welcome, everyone. Roll call, please.",
         "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "Roll call, please. Trustee Weekley? Present.",
+        "intro_words": "Trustee Weekley? Present. Trustee McAvoy? Present. Trustee Wells?",
         "status": "found"
       },
       {
@@ -38,22 +38,22 @@
       },
       {
         "item": 4,
-        "intro_words": "Again. Welcome, everyone, to another Redwood City School District board meeting.",
+        "intro_words": "Again, welcome everyone. And are there any changes to the agenda having here?",
         "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "And are there any changes to the agenda having here?",
+        "intro_words": "Again, welcome everyone. And are there any changes to the agenda having here?",
         "status": "found"
       },
       {
-        "item": 8,
-        "intro_words": "Can I please get a motion to approve the agenda?",
+        "item": 7,
+        "intro_words": "Can I please get a motion to approve the agenda? So moved.",
         "status": "found"
       },
       {
         "item": 9,
-        "intro_words": "Do we have any oral communication? No oral communication.",
+        "intro_words": "Do we have any oral communication? No oral communication. Great.",
         "status": "found"
       },
       {
@@ -63,17 +63,22 @@
       },
       {
         "item": 12,
-        "intro_words": "Item seven, we don't have any action items. Eight, community reports.",
+        "intro_words": "Thank you, guys. Thank you. Item seven, we don't have any action items.",
+        "status": "found"
+      },
+      {
+        "item": 8,
+        "intro_words": "Thank you, guys. Thank you. Item seven, we don't have any action items. Eight, community reports.",
         "status": "found"
       },
       {
         "item": 13,
-        "intro_words": "Thank you. I'll go ahead and adjourn the meeting and honor a woman's month.",
+        "intro_words": "Thank you again for the presentation, and I will go ahead and open it up",
         "status": "found"
       },
       {
         "item": 14,
-        "intro_words": "Thank you. I'll go ahead and adjourn the meeting and honor a woman's month.",
+        "intro_words": "I would like to adjourn the meeting and honor a woman's month.",
         "status": "found"
       }
     ]
@@ -94,18 +99,21 @@
         "timestampSeconds": 5
       },
       {
-        "timestamp": "00:00:05",
-        "timestampSeconds": 5
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
       },
       {
-        "timestamp": "00:01:09",
-        "timestampSeconds": 69
+        "timestamp": "00:01:14",
+        "timestampSeconds": 74
       },
-      null,
       null,
       {
         "timestamp": "00:01:19",
         "timestampSeconds": 79
+      },
+      {
+        "timestamp": "00:01:58",
+        "timestampSeconds": 118
       },
       {
         "timestamp": "00:01:14",
@@ -117,20 +125,20 @@
         "timestampSeconds": 93
       },
       {
-        "timestamp": "00:02:03",
-        "timestampSeconds": 123
+        "timestamp": "00:01:58",
+        "timestampSeconds": 118
       },
       {
-        "timestamp": "02:17:39",
-        "timestampSeconds": 8259
+        "timestamp": "01:09:10",
+        "timestampSeconds": 4150
       },
       {
-        "timestamp": "02:17:39",
-        "timestampSeconds": 8259
+        "timestamp": "02:17:50",
+        "timestampSeconds": 8270
       }
     ]
   },
-  "cachedAt": "2026-11-27T06:16:13.837Z",
+  "cachedAt": "2026-11-27T18:14:04.992Z",
   "inputTokens": 27924,
-  "outputTokens": 561
+  "outputTokens": 665
 }
