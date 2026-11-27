@@ -4,13 +4,19 @@ import { dirname, resolve, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 import { headMeta, siteNav, siteFooter } from './html-parts.mjs';
-import { DATASETS } from './lib/discovery-datasets.mjs';
+import { DATASETS, DATA_LICENSE, DATA_CREATOR } from './lib/discovery-datasets.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://rcsd.info';
 const DATA = 'https://data.rcsd.info/json/';
 const escape = value => String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 const json = value => JSON.stringify(value, null, 2) + '\n';
+// Google requires a Dataset description of 50 to 5,000 characters, so each language
+// gets a full sentence rather than the bare family name.
+const describe = {
+  en: name => `${name}. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.`,
+  es: name => `${name}. Registros públicos de RCSD recopilados de forma independiente; consulte los metadatos de origen, el periodo de los datos y las limitaciones de cada descarga antes de usarlos. La licencia CC BY 4.0 cubre esta recopilación, no los registros originales.`,
+};
 function sourceLinks(metadata) {
   const urls = [...new Set(JSON.stringify(metadata.source || '').match(/https?:\/\/[^\\\s"<>]+/g) || [])];
   return urls.map(url => `<a href="${escape(url)}">${escape(url)}</a>`).join('<br>');
@@ -52,11 +58,12 @@ export function buildAgentDiscovery() {
       method: 'Generated from the curated dataset inventory and local JSON files. Distribution metadata is copied from each file; null means not recorded. This catalog does not independently verify source freshness.',
     },
     url: `${SITE}/catalog/`, inLanguage: ['en', 'es'],
-    publisher: { '@type': 'Person', name: 'David Weekly', url: 'https://david.weekly.org' },
+    publisher: DATA_CREATOR,
     dataset: datasets.map(d => ({
       '@type': 'Dataset', '@id': `${SITE}/catalog/#${d.id}`, name: d.en, alternateName: d.es,
-      description: `${d.en}. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.`,
+      description: describe.en(d.en),
       url: `${SITE}/catalog/#${d.id}`, isAccessibleForFree: true,
+      license: DATA_LICENSE, creator: DATA_CREATOR,
       spatialCoverage: { '@type': 'Place', name: 'Redwood City, California, United States' },
       includedInDataCatalog: { '@id': `${SITE}/catalog/#catalog` },
       distribution: d.files.map(({ file, metadata }) => ({ '@type': 'DataDownload', name: file, encodingFormat: 'application/json', contentUrl: DATA + file,
@@ -88,7 +95,7 @@ export function buildAgentDiscovery() {
     const t = guides[lang];
     const localCatalog = lang === 'en' ? catalog : {
       ...catalog, name: catalog.alternateName, description: t.intro, url: `${SITE}/catalogo/`,
-      dataset: catalog.dataset.map(d => ({ ...d, name: d.alternateName, description: d.alternateName, url: d.url.replace('/catalog/', '/catalogo/') })),
+      dataset: catalog.dataset.map(d => ({ ...d, name: d.alternateName, description: describe.es(d.alternateName), url: d.url.replace('/catalog/', '/catalogo/') })),
     };
     const markdown = `# ${t.title}\n\n${t.intro}\n\n${t.help}\n\n- [${t.links}](${SITE}/catalog.json)\n- [${t.skill}](${SITE}/.well-known/agent-skills/rcsd-data-web/SKILL.md)\n- [${t.schema}](${SITE}/agents/data-schema.md)\n- [${t.mcp}](${SITE}/mcp/${lang === 'es' ? 'es/' : ''})\n\n## ${t.example}\n\n${t.next}\n\n\`\`\`sh\ncurl -fsS https://data.rcsd.info/json/schools.json\n\`\`\`\n\n` + datasets.map(d => `## ${d[lang]}\n\n` + d.files.map(({ file }) => `- [${file}](${DATA}${file})`).join('\n')).join('\n\n') + '\n';
     write(`${t.route}/index.md`, markdown);

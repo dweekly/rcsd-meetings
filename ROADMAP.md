@@ -567,6 +567,9 @@ Filed by the per-meeting triage records in `data/triage/`. Each names the pull i
 - [ ] Pull CDE growth model spreadsheet (growthmodeldownload2025.xlsx) to check for useful RCSD data not yet represented
 
 ## Targeted Repairs
+- [ ] **Show the data license on the page, not only in markup.** Every schema.org Dataset (home, `/catalog/`, `/vendors/` and their Spanish pages) declares CC BY 4.0 in JSON-LD, and the catalog descriptions say it covers the compilation rather than the source records, but no page states the license in visible text. Add one bilingual line to the catalog pages and the footer or about section.
+- [ ] **Bring the Markdown index up to the every-document-is-indexed rule.** `orphan-audit` on 2026-11-27 reported 39 orphaned and 14 malformed entries among 54 tracked `.md` files.
+- [ ] **`CHANGELOG.md` stops at 2026-06-10.** Either backfill July onward from `git log --first-parent main` or retire it in favor of the blog; a lone newer entry would make the gap look like a quiet period.
 - [ ] **OCR the captured "E PDF" policy exhibits.** The embedded source PDFs are now
   snapshotted and provenance-indexed; extract trustworthy text where possible, then
   generate Spanish and summary derivatives while retaining explicit no-text

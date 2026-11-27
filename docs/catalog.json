@@ -26,9 +26,15 @@
       "@id": "https://rcsd.info/catalog/#schools",
       "name": "School directory",
       "alternateName": "Directorio de escuelas",
-      "description": "School directory. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "School directory. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#schools",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -55,9 +61,15 @@
       "@id": "https://rcsd.info/catalog/#charters",
       "name": "District-authorized charter schools",
       "alternateName": "Escuelas chárter autorizadas por el distrito",
-      "description": "District-authorized charter schools. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "District-authorized charter schools. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#charters",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -84,9 +96,15 @@
       "@id": "https://rcsd.info/catalog/#properties",
       "name": "District property and leases",
       "alternateName": "Propiedades y arrendamientos del distrito",
-      "description": "District property and leases. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "District property and leases. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#properties",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -113,9 +131,15 @@
       "@id": "https://rcsd.info/catalog/#leadership",
       "name": "Trustees and district leadership",
       "alternateName": "Mesa directiva y liderazgo del distrito",
-      "description": "Trustees and district leadership. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Trustees and district leadership. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#leadership",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -142,7 +166,7 @@
           "contentUrl": "https://data.rcsd.info/json/freshness.json",
           "_metadata": {
             "source": "https://www.rcsdk8.net/our-programs-and-services/our-superintendent",
-            "scrapedAt": "2026-09-21T21:50:42.732Z",
+            "scrapedAt": "2026-11-27T06:19:33.919Z",
             "method": "Direct HTTPS fetch of the district and per-school Finalsite pages, no JS execution. People are extracted structurally from \"<h2>Name | Title</h2>\" headings; the person titled exactly \"Principal\" (or \"Superintendent\") is taken as the officeholder. Courtesy titles (Mr./Mrs./Ms.) are dropped and post-nominals ignored for comparison; earned doctorates are preserved. A source that 404s or whose markup no longer matches is recorded in lastRun.failures and fails the run rather than being silently skipped. CDE year availability is a range-limited GET per candidate year, judged on whether the response carries rows beneath its header (DataQuest answers 200 for any year)."
           }
         }
@@ -153,9 +177,15 @@
       "@id": "https://rcsd.info/catalog/#calendars",
       "name": "School calendars",
       "alternateName": "Calendarios escolares",
-      "description": "School calendars. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "School calendars. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#calendars",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -193,9 +223,15 @@
       "@id": "https://rcsd.info/catalog/#governance",
       "name": "Planned board agenda topics",
       "alternateName": "Temas previstos para la mesa directiva",
-      "description": "Planned board agenda topics. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Planned board agenda topics. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#governance",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -222,9 +258,15 @@
       "@id": "https://rcsd.info/catalog/#meetings",
       "name": "Board meetings, agendas and attachments",
       "alternateName": "Reuniones, agendas y documentos de la mesa directiva",
-      "description": "Board meetings, agendas and attachments. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Board meetings, agendas and attachments. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#meetings",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -273,9 +315,15 @@
       "@id": "https://rcsd.info/catalog/#summaries",
       "name": "AI-generated meeting summaries and translations",
       "alternateName": "Resúmenes de reuniones y traducciones generados con IA",
-      "description": "AI-generated meeting summaries and translations. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "AI-generated meeting summaries and translations. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#summaries",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -324,9 +372,15 @@
       "@id": "https://rcsd.info/catalog/#recordings",
       "name": "Meeting recordings and agenda timestamps",
       "alternateName": "Grabaciones y marcas de tiempo de las agendas",
-      "description": "Meeting recordings and agenda timestamps. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Meeting recordings and agenda timestamps. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#recordings",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -364,9 +418,15 @@
       "@id": "https://rcsd.info/catalog/#policies",
       "name": "Board policy index and AI summaries; fetch individual policies on demand",
       "alternateName": "Índice de políticas y resúmenes con IA; consulte cada política según sea necesario",
-      "description": "Board policy index and AI summaries; fetch individual policies on demand. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Board policy index and AI summaries; fetch individual policies on demand. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#policies",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -415,9 +475,15 @@
       "@id": "https://rcsd.info/catalog/#special-education",
       "name": "Special education enrollment and disability categories",
       "alternateName": "Matrícula de educación especial y categorías de discapacidad",
-      "description": "Special education enrollment and disability categories. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Special education enrollment and disability categories. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#special-education",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -455,9 +521,15 @@
       "@id": "https://rcsd.info/catalog/#sarc",
       "name": "School accountability reports: academics, demographics and spending",
       "alternateName": "Informes de responsabilidad escolar: resultados, demografía y gastos",
-      "description": "School accountability reports: academics, demographics and spending. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "School accountability reports: academics, demographics and spending. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#sarc",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -616,9 +688,15 @@
       "@id": "https://rcsd.info/catalog/#cde",
       "name": "State education data: absenteeism, English learners and staffing",
       "alternateName": "Datos estatales: ausentismo, estudiantes de inglés y personal",
-      "description": "State education data: absenteeism, English learners and staffing. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "State education data: absenteeism, English learners and staffing. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#cde",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -640,11 +718,33 @@
         },
         {
           "@type": "DataDownload",
+          "name": "cde/absenteeism-2025-26.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/absenteeism-2025-26.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism26-v2.txt",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
           "name": "cde/ltel-2024-25.json",
           "encodingFormat": "application/json",
           "contentUrl": "https://data.rcsd.info/json/cde/ltel-2024-25.json",
           "_metadata": {
             "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "cde/ltel-2025-26.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/ltel-2025-26.json",
+          "_metadata": {
+            "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2025-26",
             "scrapedAt": null,
             "method": null
           }
@@ -662,11 +762,33 @@
         },
         {
           "@type": "DataDownload",
+          "name": "cde/staff-ethnicity-2025-26.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/staff-ethnicity-2025-26.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2526.txt",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
           "name": "cde/staff-experience-2024-25.json",
           "encodingFormat": "application/json",
           "contentUrl": "https://data.rcsd.info/json/cde/staff-experience-2024-25.json",
           "_metadata": {
             "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2425.txt",
+            "scrapedAt": null,
+            "method": null
+          }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "cde/staff-experience-2025-26.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/staff-experience-2025-26.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2526.txt",
             "scrapedAt": null,
             "method": null
           }
@@ -681,6 +803,17 @@
             "scrapedAt": null,
             "method": null
           }
+        },
+        {
+          "@type": "DataDownload",
+          "name": "cde/staff-ratios-2025-26.json",
+          "encodingFormat": "application/json",
+          "contentUrl": "https://data.rcsd.info/json/cde/staff-ratios-2025-26.json",
+          "_metadata": {
+            "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2526.txt",
+            "scrapedAt": null,
+            "method": null
+          }
         }
       ]
     },
@@ -689,9 +822,15 @@
       "@id": "https://rcsd.info/catalog/#school-plans",
       "name": "School plan budgets and site councils",
       "alternateName": "Presupuestos de planes escolares y consejos escolares",
-      "description": "School plan budgets and site councils. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "School plan budgets and site councils. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#school-plans",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -740,9 +879,15 @@
       "@id": "https://rcsd.info/catalog/#school-presentations",
       "name": "School presentations and AI-extracted club mentions",
       "alternateName": "Presentaciones escolares y menciones de clubes extraídas con IA",
-      "description": "School presentations and AI-extracted club mentions. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "School presentations and AI-extracted club mentions. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#school-presentations",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -780,9 +925,15 @@
       "@id": "https://rcsd.info/catalog/#committees",
       "name": "Committee membership and meetings",
       "alternateName": "Miembros y reuniones de comités",
-      "description": "Committee membership and meetings. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Committee membership and meetings. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#committees",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"
@@ -820,9 +971,15 @@
       "@id": "https://rcsd.info/catalog/#vendor-payments",
       "name": "Vendor payment coverage and aliases; fetch monthly registers on demand",
       "alternateName": "Cobertura de pagos y alias de proveedores; consulte los registros mensuales según sea necesario",
-      "description": "Vendor payment coverage and aliases; fetch monthly registers on demand. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use.",
+      "description": "Vendor payment coverage and aliases; fetch monthly registers on demand. Independently compiled RCSD public records; consult each download's source metadata, reporting period and limitations before use. The CC BY 4.0 license covers this compilation, not the underlying source records.",
       "url": "https://rcsd.info/catalog/#vendor-payments",
       "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": {
+        "@type": "Person",
+        "name": "David Weekly",
+        "url": "https://david.weekly.org"
+      },
       "spatialCoverage": {
         "@type": "Place",
         "name": "Redwood City, California, United States"

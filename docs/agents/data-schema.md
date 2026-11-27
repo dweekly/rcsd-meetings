@@ -31,6 +31,7 @@ Top-level: `{ schools[], districtLinks, rcef, lastUpdated }`
   "phone": "(650) 482-2415",
   "website": "https://adelanteselby.rcsdk8.net",
   "principal": "Patricia Alcocer",
+  "principalInterim": true,  // optional; present only when the school site lists an "Interim Principal"
   "bellSchedule": {
     "earlyReleaseDay": "Thursday",
     "supervision": null,
@@ -243,8 +244,10 @@ The values the site publishes stay in `schools.json` (`principal`) and `trustees
 - `lastRun` — `probedAt` (ISO), `probed`, `failed`, `failures[]` (human-readable
   strings naming the URL that could not be read).
 - `observations[]` — each has `id`, `kind`, `source`, and `observed`:
-  - `kind: "principal"` — plus `slug`; `observed` is the principal's name. Compared
-    against `schools.json` → the matching school's `principal`. **Fatal on drift.**
+  - `kind: "principal"` — plus `slug` and `interim` (true when the site's title is
+    "Interim Principal"); `observed` is the principal's name. Compared against
+    `schools.json` → the matching school's `principal` and `principalInterim`.
+    **Fatal on drift** of either.
   - `kind: "superintendent"` — `observed` is the name. Compared against
     `trustees.json` → `superintendent.current.name`. **Fatal on drift**, and also
     fatal if the observed person is still sitting in `superintendent.incoming`.
@@ -596,7 +599,7 @@ Shape: `_metadata` plus `documents[]`, one record per attachment.
 Read the live counts from `_metadata.counts` rather than from this page.
 
 
-## data/cde/absenteeism-2024-25.json
+## data/cde/absenteeism-2025-26.json
 
 CDE Chronic Absenteeism data — disaggregated by reporting category (student subgroup) per school.
 
@@ -606,9 +609,9 @@ CDE Chronic Absenteeism data — disaggregated by reporting category (student su
 {
   "_metadata": {
     "description": "Chronic absenteeism rates by school and student group",
-    "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism25-v2.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/attendance/chronicabsenteeism26-v2.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-11-23",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fsabd.asp",
     "pipeline": "scripts/pull-cde-data.mjs --dataset absenteeism"
   },
@@ -672,7 +675,7 @@ CDE Chronic Absenteeism data — disaggregated by reporting category (student su
 
 ---
 
-## data/cde/ltel-2024-25.json
+## data/cde/ltel-2025-26.json
 
 CDE Long-Term English Learner (LTEL) and English Learner Academic Status (ELAS) data per school.
 
@@ -682,11 +685,12 @@ CDE Long-Term English Learner (LTEL) and English Learner Academic Status (ELAS) 
 {
   "_metadata": {
     "description": "Long-term English learner counts by school",
-    "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2024-25",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://dq.cde.ca.gov/dataquest/longtermel/lteldnld.aspx?year=2025-26",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://dq.cde.ca.gov/dataquest/longtermel/",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset ltel"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset ltel --year 2025-26",
+    "retrieval": "Downloaded by the operator in a browser ... (present only when the file was not fetched by script)"
   },
   "district": {
     "totalEnrollment": 7523,
@@ -740,7 +744,7 @@ CDE Long-Term English Learner (LTEL) and English Learner Academic Status (ELAS) 
 
 ---
 
-## data/cde/staff-ethnicity-2024-25.json
+## data/cde/staff-ethnicity-2025-26.json
 
 CDE Staff Demographics — teacher race/ethnicity counts per school.
 
@@ -750,11 +754,11 @@ CDE Staff Demographics — teacher race/ethnicity counts per school.
 {
   "_metadata": {
     "description": "Staff ethnicity/race counts by school (teachers)",
-    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2425.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stre2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fsspre.asp",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ethnicity"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ethnicity --year 2025-26"
   },
   "district": {
     "total": 364,
@@ -809,7 +813,7 @@ CDE Staff Demographics — teacher race/ethnicity counts per school.
 
 ---
 
-## data/cde/staff-experience-2024-25.json
+## data/cde/staff-experience-2025-26.json
 
 CDE Staff Experience — teacher experience levels per school.
 
@@ -819,11 +823,11 @@ CDE Staff Experience — teacher experience levels per school.
 {
   "_metadata": {
     "description": "Staff experience levels by school (teachers)",
-    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2425.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/stex2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fsspex.asp",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-experience"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-experience --year 2025-26"
   },
   "district": {
     "total": 364,
@@ -871,7 +875,7 @@ CDE Staff Experience — teacher experience levels per school.
 
 ---
 
-## data/cde/staff-ratios-2024-25.json
+## data/cde/staff-ratios-2025-26.json
 
 CDE Student-Staff Ratios — student-to-teacher, student-to-admin, and student-to-pupil-services ratios per school.
 
@@ -881,11 +885,11 @@ CDE Student-Staff Ratios — student-to-teacher, student-to-admin, and student-t
 {
   "_metadata": {
     "description": "Student-to-staff ratios by school",
-    "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2425.txt",
-    "dataYear": "2024-25",
-    "downloadDate": "2026-04-12",
+    "source": "https://www3.cde.ca.gov/demo-downloads/staff/strat2526.txt",
+    "dataYear": "2025-26",
+    "downloadDate": "2026-10-18",
     "fileStructure": "https://www.cde.ca.gov/ds/ad/fssprat.asp",
-    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ratios"
+    "pipeline": "scripts/pull-cde-data.mjs --dataset staff-ratios --year 2025-26"
   },
   "district": {
     "enrollment": 7507,
@@ -1533,3 +1537,35 @@ Curated rollup of normalized payee keys → canonical display name, for names no
 ## warrants.db (built locally, not committed)
 
 `scripts/build-warrants-db.mjs` assembles the above into a SQLite DB: tables `registers` and `payments` (one row per line item, with `canonical`, `fiscal_year`, and an `excluded` flag = cancelled/voided OR superseded register). Query via `scripts/report-vendor-spend.mjs`.
+
+---
+
+## data/docket-briefs/{date}.json & data/docket-briefs/index.json
+
+Bilingual (English and Spanish) pre-meeting packet digests and 100% Consent Calendar screenings built by `scripts/generate-docket-brief.mjs` and validated by `scripts/lib/docket-brief.mjs`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_metadata` | object | Provenance: `source` (Simbli URL), `triageSource`, `memoSource`, `scrapedAt`, `generatedAt`, `method`, `reviewStatus` |
+| `date`, `meetingSlug` | string | Meeting date (`YYYY-MM-DD`) and canonical slug |
+| `meetingStage` | string | `"proposed"` (pre-meeting) or `"completed"` |
+| `qualityState` | string | `"human-reviewed"` or `"machine-checked"` |
+| `overviewEn`, `overviewEs` | string | High-level bilingual packet digest |
+| `scheduleChangesNoteEn`, `scheduleChangesNoteEs` | string\|null | Live agenda reorders or Governance Calendar schedule shifts |
+| `topItems[]` | array | Top time-weighted Open Session items, ordered by `allocatedMinutes` descending (the agenda's stated presentation + discussion time; a shared section's time is split evenly) (`itemLabel`, `titleEn`, `titleEs`, `actionType`, `allocatedMinutes`, `proposalStatusBadgeEn`/`Es`, `whatIsProposedEn`/`Es`, `whyItMattersEn`/`Es`, `baselineContext`, `citations[]`) |
+| `consentScreening` | object | 100% Consent Calendar screening: `totalConsentItems`, `thresholdUsd` (`50000`), `automatedFlaggedCount`, `spotlightItems[]` (each with `itemLabel` (may be a range such as `10.12–10.22`), `titleEn`/`Es`, `amountDisplay`, `fundingSourceEn`/`Es`, `flags[]`, `summaryEn`/`Es`, `citations[]`), `reviewedExceptions[]` (`itemLabel`, `reasonEn`, `reasonEs`: automated flags deliberately not spotlighted), `routineSummaryEn`/`Es`, and `extractionNotes[]` |
+| `citations[]` | array | On top items and spotlights: `labelEn`/`Es`, `filename` (must be an archived attachment in `data/board-memos/{date}.json`) and/or `url`, `r2Url`, `pageRange`, `extractionStatus` (`text-extracted`, `ocr-extracted`, `scanned-memo-fallback`), plus `sha256`/`bytes`/`localPath` when the PDF was present locally at generation. Generation fails if a filename is not in the meeting's inventory, a Simbli URL carries another meeting's MID, or an automated consent flag is neither spotlighted nor a reviewed exception. |
+
+---
+
+## data/deliberation-recaps/{date}.json & data/deliberation-recaps/index.json
+
+Bilingual (English and Spanish), evidence-typed post-meeting deliberation recaps built by `scripts/generate-deliberation-recap.mjs` and validated by `scripts/lib/deliberation-recap.mjs`.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_metadata` | object | Provenance: `source`, `videoSource`, `transcriptSource`, `chapterMarkersSource`, `triageSource`, `scrapedAt`, `method`, `reviewStatus` |
+| `date`, `meetingSlug`, `videoId` | string | Meeting date, slug, and YouTube video ID |
+| `overviewEn`, `overviewEs` | string | Bilingual overview of what occurred at the meeting |
+| `corrections[]` | array | Public corrections log (`[]` when none filed) |
+| `items[]` | array | Deliberated items, each containing 4 mandatory evidence blocks: `proposal` (`textEn`/`Es`, `citations[]`), `discussion` (`summaryEn`/`Es`, `highlights[]` with `speakerLabelEn`/`Es`, `attributionScope`, `startSeconds`, `endSeconds`, `timestampDisplay`, `textEn`/`Es`), `motion_recorded` (`status`, `voteType`, `tally`, `startSeconds`, `timestampDisplay`, `textEn`/`Es`), and `minutes_reconciled` (`status`, `approvedAtDate`, `minutesUrl`, `textEn`/`Es`) |
