@@ -388,6 +388,9 @@ This pipeline can be adapted for other California school districts that use Boar
 
 This is not an official Redwood City School District product. Data is independently assembled from publicly available sources and may contain errors. AI-generated content (meeting summaries, timestamp mappings) is labeled as such. For authoritative information, visit [rcsdk8.net](https://www.rcsdk8.net).
 
-## License
+## License and citation
 
-MIT
+- **Code** (scripts, builders, workers, tests): [MIT](LICENSE).
+- **Data** (the datasets in `data/` and those published at rcsd.info and data.rcsd.info): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The license covers this project's compilation, not the district, county and state records it draws on, which stay under their own terms.
+
+To cite the data, use [`CITATION.cff`](CITATION.cff), which GitHub's "Cite this repository" button reads, and include the date you retrieved it: the data is updated continuously and has no numbered releases.

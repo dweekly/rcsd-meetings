@@ -75,6 +75,22 @@ test('bilingual HTML and Markdown expose every catalog download and parseable st
   }
 });
 
+test('CITATION.cff cites the data under the license the Datasets declare', () => {
+  const cff = read('CITATION.cff');
+  // Same-line scalar values only, so a YAML list under a key reads as missing.
+  const field = name => cff.match(new RegExp(`^${name}:[ \\t]*(\\S.*)$`, 'm'))?.[1].replace(/^"|"$/g, '');
+  assert.equal(field('cff-version'), '1.2.0');
+  assert.equal(field('type'), 'dataset');
+  assert.ok(field('title'), 'CFF requires a title');
+  // One license, not a list: CFF reads a list as "either one", which would
+  // offer the data under the code's MIT license.
+  assert.equal(field('license'), 'CC-BY-4.0');
+  assert.equal(DATA_LICENSE, 'https://creativecommons.org/licenses/by/4.0/', 'CITATION.cff and README.md name CC BY 4.0; change them together with DATA_LICENSE');
+  const readme = read('README.md');
+  assert.match(readme, /\*\*Data\*\*.*CC BY 4\.0/);
+  assert.match(readme, /\*\*Code\*\*.*MIT/);
+});
+
 // Google's Dataset rich-result rules: description of 50 to 5,000 characters is
 // required; license and creator are recommended. Search Console flagged all three
 // in November 2026. The vendor pages are read as committed, so rebuild them with
