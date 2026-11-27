@@ -1,0 +1,37 @@
+# How to cite the rcsd.info data. GitHub's "Cite this repository" button and
+# Zenodo both read this file.
+#
+# `license` names the data license only. CFF reads a list of licenses as
+# "either one", so adding MIT here would offer the data under MIT. The code's
+# MIT license is in LICENSE; README.md states the split.
+cff-version: 1.2.0
+message: >-
+  If you use this data, please cite it as below and include the date you
+  retrieved it: the data is updated continuously and has no numbered releases.
+type: dataset
+title: "rcsd.info: Open Data for Redwood City School District"
+abstract: >-
+  Independently compiled public records for the Redwood City School District,
+  a TK-8 public school district in Redwood City, California: board meetings,
+  agendas, attachments and recordings with transcripts, board policies, school
+  profiles and accountability reports, state education data, budgets, vendor
+  payments, calendars and committees, in English and Spanish. Not an official
+  district product. AI-generated summaries, translations and transcripts are
+  labeled as such and are not official records. The CC BY 4.0 license covers
+  this compilation, not the underlying district, county and state records.
+authors:
+  - family-names: Weekly
+    given-names: David E.
+    website: "https://david.weekly.org"
+url: "https://rcsd.info"
+repository-code: "https://github.com/dweekly/rcsd-meetings"
+license: CC-BY-4.0
+keywords:
+  - open data
+  - civic data
+  - public records
+  - school district
+  - school board
+  - K-8 education
+  - Redwood City
+  - California
