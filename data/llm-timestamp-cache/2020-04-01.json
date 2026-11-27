@@ -37,37 +37,37 @@
     "Adjournment (Action Required)"
   ],
   "llmResponse": {
-    "agenda_changes": "Item added: Staff Recognition was added after Oral Communication (item 5). Board president announced: 'This is Dennis. I'd like to add staff recognition. I need to pull up my after oral communication. Wherever you'd like it. We'll move it after item five.'",
+    "agenda_changes": "Staff recognition was added to the agenda after item 5 (Oral Communication). This was announced during the Changes to the Agenda section when Superintendent Dennis stated: 'I'd like to add staff recognition. I need to pull it up after oral communication. Wherever you'd like it. We'll move it after item five.'",
     "consent_vote_words": "And a roll call vote, please. Trustee McBride. Aye. Trustee Marquez. Aye. Trustee Diaz Locum. Aye. Trustee McAvoy. Aye. Trustee Lawson. Aye.",
     "items": [
       {
         "item": 1,
-        "intro_words": "not found in transcript",
-        "status": "skipped"
+        "intro_words": "not found in transcript - procedural item",
+        "status": "found"
       },
       {
         "item": 2,
-        "intro_words": "not found in transcript",
-        "status": "skipped"
+        "intro_words": "not found in transcript - procedural item",
+        "status": "found"
       },
       {
         "item": 3,
-        "intro_words": "not found in transcript",
-        "status": "skipped"
+        "intro_words": "not found in transcript - procedural item",
+        "status": "found"
       },
       {
         "item": 4,
-        "intro_words": "not found in transcript",
-        "status": "skipped"
+        "intro_words": "Welcome, everybody. It's good to see some familiar faces again. We've been emailing",
+        "status": "found"
       },
       {
         "item": 5,
-        "intro_words": "not found in transcript",
-        "status": "skipped"
+        "intro_words": "My name is Jude. I am in the second grade at Henry Ford School. Please",
+        "status": "found"
       },
       {
         "item": 6,
-        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis.",
+        "intro_words": "Moving on. Are there any changes to the agenda? This is Dennis. I'd like",
         "status": "found"
       },
       {
@@ -77,7 +77,7 @@
       },
       {
         "item": 8,
-        "intro_words": "Do we have a motion to approve the agenda? So moved.",
+        "intro_words": "Do we have a motion to approve the agenda? So moved. Is that Elisa?",
         "status": "found"
       },
       {
@@ -87,18 +87,13 @@
       },
       {
         "item": 10,
-        "intro_words": "not found in transcript",
-        "status": "skipped"
-      },
-      {
-        "item": "Staff Recognition (Added)",
-        "intro_words": "So we will move on to the staff recognition. Stanley, thank you.",
+        "intro_words": "not explicitly addressed as separate agenda item in transcript",
         "status": "found"
       },
       {
         "item": 11,
-        "intro_words": "So we are on to item six, the bond program consent items to approve.",
-        "status": "found"
+        "intro_words": "So we are on to item six, the bond program consent items to approve. Mrs.",
+        "status": "consent_bundle"
       },
       {
         "item": 12,
@@ -137,72 +132,77 @@
       },
       {
         "item": 19,
-        "intro_words": "All right, moving on to 7.1, which is a bond action item.",
+        "intro_words": "All right, moving on to 7.1, which is a bond action item. Do we know",
         "status": "found"
       },
       {
         "item": 20,
-        "intro_words": "Does anyone have any questions about the TAF construction agreement?",
+        "intro_words": "Does anyone have any questions about the TAF construction agreement? Item? This is Dennis.",
         "status": "found"
       },
       {
         "item": 21,
         "intro_words": "not found as separate discussion items section",
-        "status": "skipped"
+        "status": "not found"
       },
       {
         "item": 22,
-        "intro_words": "Okay, item 8.1, which I think is here for. So, John, did you want to go ahead and start?",
+        "intro_words": "So I have to remember. So good evening. So before I start and before",
         "status": "found"
       },
       {
         "item": 23,
-        "intro_words": "not found - no consent items voted as separate section",
-        "status": "skipped"
+        "intro_words": "not explicitly addressed as separate consent items approval",
+        "status": "not found"
       },
       {
         "item": 24,
-        "intro_words": "not found as separate action items section",
-        "status": "skipped"
+        "intro_words": "not explicitly addressed as separate action items",
+        "status": "not found"
       },
       {
         "item": 25,
-        "intro_words": "We are on 11.1. Resolution of emergency relating to COVID 19.",
+        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have",
         "status": "found"
       },
       {
         "item": 26,
-        "intro_words": "We are on 11.1. Report from board members and superintendent.",
+        "intro_words": "not applicable - procedural item",
         "status": "found"
       },
       {
         "item": 27,
-        "intro_words": "not applicable - same as item 26",
-        "status": "skipped"
-      },
-      {
-        "item": 28,
-        "intro_words": "We have no information items, correspondence to share, Just email we've been getting.",
+        "intro_words": "We are on 11.1. Report from board members and superintendent. Does anybody have",
         "status": "found"
       },
       {
+        "item": 28,
+        "intro_words": "not found as separate information section",
+        "status": "not found"
+      },
+      {
         "item": 29,
-        "intro_words": "not found in transcript",
-        "status": "skipped"
+        "intro_words": "not found as separate correspondence section",
+        "status": "not found"
       },
       {
         "item": 30,
-        "intro_words": "Other business suggested items for future agenda. Anybody have anything else?",
+        "intro_words": "Other business suggested items for future agenda. Anybody have anything else? Yeah",
         "status": "found"
       },
       {
         "item": 31,
-        "intro_words": "And then changes to the agenda, the board agenda, schedule. No.",
+        "intro_words": "And then changes to the agenda, the board agenda, schedule. No. Okay",
         "status": "found"
       },
       {
         "item": 32,
-        "intro_words": "Is there a motion to adjourn. In unison?",
+        "intro_words": "not applicable - duplicate item on posted agenda",
+        "status": "skipped"
+      },
+      {
+        "item": 33,
+        "intro_words": "Is there a motion to adjourn. In unison? Okay, I heard a first",
         "status": "found"
       }
     ]
@@ -213,11 +213,17 @@
       null,
       null,
       null,
-      null,
-      null,
       {
-        "timestamp": "00:03:28",
-        "timestampSeconds": 208
+        "timestamp": "00:00:00",
+        "timestampSeconds": 0
+      },
+      {
+        "timestamp": "00:03:01",
+        "timestampSeconds": 181
+      },
+      {
+        "timestamp": "00:03:06",
+        "timestampSeconds": 186
       },
       null,
       {
@@ -227,8 +233,9 @@
       null,
       null,
       {
-        "timestamp": "00:05:13",
-        "timestampSeconds": 313
+        "timestamp": "00:04:18",
+        "timestampSeconds": 258,
+        "consent": true
       },
       {
         "timestamp": "00:04:18",
@@ -275,41 +282,38 @@
       },
       null,
       {
-        "timestamp": "00:08:30",
-        "timestampSeconds": 510
+        "timestamp": "00:08:04",
+        "timestampSeconds": 484
       },
       null,
       null,
-      {
-        "timestamp": "01:47:14",
-        "timestampSeconds": 6434
-      },
       {
         "timestamp": "01:48:57",
         "timestampSeconds": 6537
       },
       null,
       {
-        "timestamp": "01:59:55",
-        "timestampSeconds": 7195
+        "timestamp": "01:48:57",
+        "timestampSeconds": 6537
       },
+      null,
       null,
       {
         "timestamp": "02:00:00",
         "timestampSeconds": 7200
       },
       {
-        "timestamp": "02:00:00",
-        "timestampSeconds": 7200
+        "timestamp": "02:03:37",
+        "timestampSeconds": 7417
       },
+      null,
       {
         "timestamp": "02:04:16",
         "timestampSeconds": 7456
-      },
-      null
+      }
     ]
   },
-  "cachedAt": "2026-11-26T18:13:48.020Z",
+  "cachedAt": "2026-11-27T06:18:19.821Z",
   "inputTokens": 24593,
-  "outputTokens": 1541
+  "outputTokens": 1600
 }
